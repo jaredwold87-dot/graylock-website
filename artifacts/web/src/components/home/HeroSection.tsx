@@ -2,7 +2,6 @@ import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { BeforeAfterMockup } from "./BeforeAfterMockup";
-import { HeroDeviceMockup } from "./HeroDeviceMockup";
 
 export function HeroSection() {
   return (
@@ -16,7 +15,13 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
         <div className="lg:hidden mb-8">
-          <HeroDeviceMockup />
+          <ScrollReveal>
+            <img
+              src={`${import.meta.env.BASE_URL}hero-before-after.png`}
+              alt="Website transformation — old outdated site vs modern professional redesign with mobile view"
+              className="w-full"
+            />
+          </ScrollReveal>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -51,7 +56,13 @@ export function HeroSection() {
           </ScrollReveal>
 
           <div className="hidden lg:block">
-            <HeroDeviceMockup />
+            <ScrollReveal delay={0.2}>
+              <img
+                src={`${import.meta.env.BASE_URL}hero-before-after.png`}
+                alt="Website transformation — old outdated site vs modern professional redesign with mobile view"
+                className="w-full"
+              />
+            </ScrollReveal>
           </div>
         </div>
       </div>
