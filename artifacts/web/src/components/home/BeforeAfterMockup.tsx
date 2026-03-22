@@ -1,76 +1,88 @@
+import { useState, useEffect } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+const pairs = [
+  {
+    before: `${import.meta.env.BASE_URL}portfolio-before-1.png`,
+    after: `${import.meta.env.BASE_URL}portfolio-after-1.png`,
+    label: "CPA Firm",
+  },
+  {
+    before: `${import.meta.env.BASE_URL}portfolio-before-2.png`,
+    after: `${import.meta.env.BASE_URL}portfolio-after-2.png`,
+    label: "Therapist",
+  },
+  {
+    before: `${import.meta.env.BASE_URL}portfolio-before-3.png`,
+    after: `${import.meta.env.BASE_URL}portfolio-after-3.png`,
+    label: "Contractor",
+  },
+];
+
 export function BeforeAfterMockup() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [showAfter, setShowAfter] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowAfter(prev => {
+        if (prev) {
+          setActiveIndex(i => (i + 1) % pairs.length);
+          return false;
+        }
+        return true;
+      });
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const pair = pairs[activeIndex];
+
   return (
-    <ScrollReveal delay={0.2} className="relative w-full max-w-2xl mx-auto mt-12 lg:mt-0 flex flex-col md:flex-row gap-6 md:gap-0 items-center justify-center">
-      
-      {/* BEFORE MOCKUP */}
-      <div className="relative z-10 w-full md:w-64 h-80 bg-gray-200 rounded-t-lg md:rounded-lg overflow-hidden border border-gray-300 md:-mr-8 md:mt-12 opacity-90 grayscale shadow-xl">
-        {/* Browser Chrome */}
-        <div className="bg-gray-300 p-2 flex gap-1.5 items-center border-b border-gray-400">
-          <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
-        </div>
-        {/* Website Content */}
-        <div className="p-4 flex flex-col gap-4">
-          <div className="w-1/2 h-4 bg-gray-400 mb-2"></div>
-          <div className="w-full h-2 bg-gray-300"></div>
-          <div className="w-full h-2 bg-gray-300"></div>
-          <div className="w-3/4 h-2 bg-gray-300"></div>
-          <div className="w-full h-24 bg-gray-300 mt-4 flex items-center justify-center">
-            <span className="text-gray-500 text-xs">Broken Image</span>
+    <ScrollReveal delay={0.2} className="relative w-full max-w-lg mx-auto mt-12 lg:mt-0">
+      <div className="relative rounded-xl overflow-hidden border border-gunmetal shadow-2xl shadow-black/50">
+        <div className="bg-gunmetal p-2.5 flex gap-1.5 items-center border-b border-gray-700">
+          <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+          <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+          <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+          <div className="mx-auto flex gap-1">
+            {pairs.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setActiveIndex(i); setShowAfter(false); }}
+                aria-label={`Show ${pairs[i].label} preview`}
+                aria-current={i === activeIndex ? "true" : undefined}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-orange scale-125' : 'bg-gray-600'}`}
+              />
+            ))}
           </div>
-          <div className="w-24 h-6 bg-gray-400 mt-2 mx-auto"></div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-charcoal/80 text-white px-4 py-2 font-display text-xl tracking-wider rounded backdrop-blur-sm shadow-2xl">
-          BEFORE
+
+        <div className="relative aspect-[4/3] bg-navy">
+          <img
+            src={pair.before}
+            alt={`${pair.label} website before redesign`}
+            aria-hidden={showAfter}
+            className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${showAfter ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          />
+          <img
+            src={pair.after}
+            alt={`${pair.label} website after redesign by Graylock Digital`}
+            aria-hidden={!showAfter}
+            className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${showAfter ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          />
+
+          <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg transition-all duration-500 ${showAfter ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
+            {showAfter ? 'After' : 'Before'}
+          </div>
+
+          <div className="absolute bottom-3 right-3 bg-charcoal/80 backdrop-blur-sm text-stone text-xs px-3 py-1 rounded-full font-sans">
+            {pair.label}
+          </div>
         </div>
       </div>
 
-      {/* AFTER MOCKUP */}
-      <div className="relative z-20 w-full md:w-80 h-96 bg-navy rounded-lg overflow-hidden border border-orange shadow-[0_0_30px_rgba(232,99,26,0.25)]">
-        {/* Browser Chrome */}
-        <div className="bg-gunmetal p-2 flex gap-1.5 items-center border-b border-gray-800">
-          <div className="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-          <div className="mx-auto w-3/4 h-3 bg-charcoal rounded-sm"></div>
-        </div>
-        {/* Website Content */}
-        <div className="flex flex-col h-full">
-          {/* Nav */}
-          <div className="p-3 border-b border-gunmetal flex justify-between items-center">
-            <div className="w-20 h-3 bg-offwhite rounded"></div>
-            <div className="flex gap-2">
-              <div className="w-6 h-2 bg-stone rounded"></div>
-              <div className="w-6 h-2 bg-stone rounded"></div>
-              <div className="w-12 h-4 bg-orange rounded shadow-[0_0_8px_rgba(232,99,26,0.5)]"></div>
-            </div>
-          </div>
-          {/* Hero */}
-          <div className="p-5 flex flex-col gap-3 relative overflow-hidden">
-            <div className="w-3/4 h-5 bg-offwhite rounded"></div>
-            <div className="w-1/2 h-5 bg-offwhite rounded"></div>
-            <div className="w-full h-2 bg-stone rounded mt-2"></div>
-            <div className="w-5/6 h-2 bg-stone rounded"></div>
-            
-            <div className="w-24 h-6 bg-orange rounded mt-4 shadow-[0_0_10px_rgba(232,99,26,0.3)]"></div>
-            
-            <div className="mt-6 flex gap-3">
-              <div className="w-1/3 h-16 bg-gunmetal rounded border border-gray-700"></div>
-              <div className="w-1/3 h-16 bg-gunmetal rounded border border-gray-700"></div>
-              <div className="w-1/3 h-16 bg-gunmetal rounded border border-gray-700"></div>
-            </div>
-            
-            <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-orange/20 rounded-full blur-2xl"></div>
-          </div>
-        </div>
-        <div className="absolute bottom-4 right-4 bg-orange text-white px-3 py-1 font-display text-sm tracking-widest rounded shadow-xl">
-          AFTER
-        </div>
-      </div>
-
+      <div className="absolute -inset-4 bg-orange/10 rounded-2xl blur-2xl -z-10"></div>
     </ScrollReveal>
   );
 }

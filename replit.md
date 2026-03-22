@@ -60,7 +60,8 @@ Frontend-only React + Vite marketing website for Graylock Digital, a subscriptio
 - **Typography**: Barlow Condensed (700, headlines) + Barlow (400/600, body)
 - **Pages**: / (homepage), /how-it-works, /pricing, /work, /about, /faq, /contact, /thank-you
 - **Form**: Contact form uses Formspree (placeholder URL: `https://formspree.io/f/REPLACE`)
-- **Key Components**: Navbar (sticky, mobile hamburger), Footer, BeforeAfterMockup, PricingSection, FAQSection, NicheExamplesSection
+- **Assets in public/**: logo-horizontal.png (navbar), logo-stacked.png (footer), hero-bg.png (homepage hero background), devices-hero.png (device mockup), about-hero.png (about/how-it-works hero bg), portfolio-before-{1,2,3}.png & portfolio-after-{1,2,3}.png (before/after portfolio images for CPA, Therapist, Contractor)
+- **Key Components**: Navbar (sticky, mobile hamburger, includes Home link), Footer, BeforeAfterMockup (auto-cycling real portfolio images), PricingSection, FAQSection, NicheExamplesSection
 - **Section Rhythm**: Hero (charcoal) → Problem (offwhite) → Solution (navy) → How It Works (offwhite) → Testimonials (charcoal) → Work Examples (navy) → Pricing (charcoal) → FAQ (offwhite) → Trust block (navy) → Final CTA (orange) → Footer (charcoal)
 - **Animations**: Framer Motion scroll-reveal (fade up, 0.5s, 20px offset)
 - `pnpm --filter @workspace/web run dev` — run the dev server
