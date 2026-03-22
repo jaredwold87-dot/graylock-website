@@ -87,82 +87,96 @@ export const TESTIMONIALS = [
 
 export const FAQS = [
   {
-    category: "About the Service",
+    category: "Getting Started",
+    id: "getting-started",
     questions: [
       {
-        q: "What if I already have a website?",
-        a: "We'll evaluate it for free on your first call. If it's better to rebuild, we'll tell you exactly why. If it just needs improvements, we'll talk through options."
+        q: "What exactly is included in the free website review?",
+        a: "Your free review includes three things:\n\n1. A full audit of your current website — we look at design, messaging, mobile responsiveness, page speed, and basic SEO gaps.\n2. A live strategy walkthrough — we hop on a 20-minute call and walk you through what we found in plain English.\n3. A custom homepage demo — we design a concept homepage for your business so you can see exactly how we'd improve it.\n\nThere's no cost and no obligation. We do this because we believe you should see the value before you make any decision."
       },
       {
-        q: "How is this different from just using Wix or Squarespace?",
-        a: "With those platforms, you build and maintain the site yourself. With Graylock, we do everything. You get a professionally built, niche-specific site — done for you, maintained for you, every month."
+        q: "How long does it take to build and launch my website?",
+        a: "Once you give us the green light, we build and launch your website in 3–5 business days. We move fast because small businesses can't afford to wait weeks for a website.\n\nBefore we start building, we'll have a short onboarding call to gather your logo, photos, business info, and anything specific you want included. The faster you can get us that information, the faster we launch."
       },
       {
-        q: "Do you use templates?",
-        a: "We start with high-converting layouts proven to work for service businesses, but every site is custom-tailored to your brand, services, and specific goals. It won't look like a cookie-cutter template."
+        q: "What information do you need from me to get started?",
+        a: "Not much — we do most of the heavy lifting. We'll ask for:\n\n• Your logo (or we can discuss a simple logo refresh)\n• Any photos of your team, workspace, or work (or we'll use professional stock imagery)\n• Your business name, services, service area, and contact details\n• Any existing content you'd like to keep\n\nWe'll send you a short intake form after your review call to gather everything we need."
       }
     ]
   },
   {
-    category: "Pricing & Billing",
+    category: "Pricing & Plans",
+    id: "pricing-plans",
     questions: [
       {
-        q: "Is there a long-term contract?",
-        a: "No long-term contracts. Everything is month-to-month. If you need to cancel, you can. We'll export your content and make the transition as easy as possible."
+        q: "What's included in the monthly fee?",
+        a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Monthly software and security updates\n• Content updates each month (number depends on your plan)\n• Email support for any questions or requests\n\nStarter plan: 1 content update/month\nStandard plan: 3 content updates/month + dashboard access + Google Business Profile setup\nGrowth plan: Unlimited updates + priority support + quarterly strategy call\n\nYou can view all plan details on our Pricing page."
       },
       {
-        q: "What happens if I want to cancel?",
-        a: "If you cancel, you keep all your written content and images. Because the design code is proprietary to our platform, the actual code doesn't transfer, but we will provide you a full export of your assets."
+        q: "Is there a setup fee, and what does it cover?",
+        a: "Yes — there's a one-time setup fee that covers the cost of designing and building your custom website:\n\n• Starter: $249 setup\n• Standard: $499 setup\n• Growth: $999 setup\n\nThis is the cost of the actual design and development work. Most agencies charge $5,000–$15,000 for this upfront. Our setup fee lets you get a professionally built website for a fraction of that, with the ongoing maintenance and support spread into your monthly rate."
       },
       {
-        q: "Can I upgrade my plan later?",
-        a: "Absolutely. As your business grows, you can seamlessly move to a higher tier to unlock more pages, features, dashboard access, and additional monthly change requests."
+        q: "Are there any hidden fees or extra charges?",
+        a: "No. The setup fee and monthly rate are all you pay. There are no surprise invoices for hosting renewals, plugin licences, or security certificates — those are all included.\n\nIf you ever want something outside the scope of your plan — like a major redesign, a new section, or additional pages beyond your plan's limit — we'll quote that separately and clearly before any work begins. You'll never be surprised by a charge."
       },
       {
-        q: "Are there any hidden fees?",
-        a: "Zero. You pay the one-time setup fee, and then the flat monthly rate. That's it. Hosting, SSL, and routine maintenance are all baked into the monthly price."
+        q: "Can I cancel at any time?",
+        a: "Yes. There are no long-term contracts — all plans are month-to-month. You can cancel with 30 days' notice at any time.\n\nIf you cancel, you keep the website files and all the content. We'll provide everything you need to move your site to another host or developer. We'd rather earn your business every month than lock you into something that isn't working for you."
       }
     ]
   },
   {
-    category: "Business Dashboard",
+    category: "Your Website",
+    id: "your-website",
     questions: [
       {
-        q: "What is included in the business dashboard?",
-        a: "The dashboard gives you a simple place to view your website analytics — like visitor traffic and lead activity — and update key business details like hours, phone number, address, and announcement banners. It's designed to be easy to use, not overwhelming."
+        q: "Do I own the website, or does Graylock?",
+        a: "You own the website. The content, design, copy, and code are yours from day one.\n\nWe host it on our servers as part of your monthly plan. If you ever choose to cancel and move to a different host or provider, we'll hand over everything — all the files, images, and content — so you can take it with you. No strings attached."
       },
       {
-        q: "Which plans include dashboard access?",
-        a: "The Standard and Growth plans both include dashboard access. The Growth plan includes enhanced dashboard features like full performance reports, message banner editing, and easy update request submission."
+        q: "Is my website built on a template or is it custom?",
+        a: "Every website we build is custom to your business — not a drag-and-drop template. We design your site around your brand, your services, your local market, and the specific clients you're trying to attract.\n\nThat said, we work from a proven structural framework that lets us move fast (3–5 days) without sacrificing quality. Think of it like a custom-built home using tested construction methods — not a prefab kit."
       },
       {
-        q: "Can I update my business information myself?",
-        a: "Yes. With the Standard or Growth plan, you can log in and update things like your hours, phone number, and address whenever you need to — no waiting on a developer."
+        q: "Will my site work on mobile phones?",
+        a: "Yes — every site we build is mobile-first. That means we design for phones and tablets first, then adapt for desktop. Over 60% of your visitors are browsing on their phones, and Google uses mobile performance as a ranking signal.\n\nWe test every site on multiple screen sizes before launch."
       },
       {
-        q: "What kind of analytics can I see?",
-        a: "You can see simple, useful insights like how many people are visiting your site, which pages they're viewing, and whether visitors are submitting inquiries or contact forms. It's designed to give you a clear picture without the complexity of a tool like Google Analytics."
-      },
-      {
-        q: "Do I still get support if I have dashboard access?",
-        a: "Absolutely. The dashboard gives you more control, but it doesn't replace our support. You still get your monthly content updates, and the Growth plan includes priority support with 24-hour response times."
+        q: "Can I expand my website later if my business grows?",
+        a: "Absolutely. You can upgrade your plan at any time — from Starter to Standard, or Standard to Growth — and we can add new pages, service areas, blog posts, or other features as your needs evolve.\n\nJust reach out and let us know what you need. We'll scope it out and give you a clear quote if it falls outside your current plan's scope."
       }
     ]
   },
   {
-    category: "Maintenance & Support",
+    category: "SEO & Getting Found Online",
+    id: "seo",
     questions: [
       {
-        q: "What does 'maintenance' actually include?",
-        a: "Hosting, security, software updates, uptime monitoring, and handling your monthly change requests. We keep everything running securely so you never have to think about it."
+        q: "Will my website show up on Google?",
+        a: "We build every website with a solid SEO foundation — clean code structure, fast load times, proper page titles and meta descriptions, schema markup, and mobile optimisation. These are the building blocks that help Google understand and rank your site.\n\nStandard and Growth plans also include local SEO optimisation and Google Business Profile setup, which is critical for service businesses that rely on local search traffic.\n\nSEO takes time — typically 3–6 months to start seeing meaningful movement. But starting with a properly built site is the difference between slow growth and no growth."
       },
       {
-        q: "What counts as a change request?",
-        a: "A change request is anything related to updating existing content. Swapping photos, updating staff bios, changing business hours, or adding a new testimonial. Adding entirely new pages or custom features may require a custom quote or plan upgrade."
+        q: "What is the business dashboard, and do all plans include it?",
+        a: "The business dashboard is a private, easy-to-use portal where you can:\n\n• View your website traffic and visitor data\n• Update your business hours, phone number, and address\n• Post an announcement banner to your site (promotions, closures, etc.)\n• See when new inquiries come in\n• Submit update requests\n\nThe dashboard is included in the Standard and Growth plans. The Growth plan adds enhanced features including full performance reports and priority support."
+      }
+    ]
+  },
+  {
+    category: "Working With Graylock",
+    id: "working-with-graylock",
+    questions: [
+      {
+        q: "Who will I be working with?",
+        a: "Every project is handled by our US-based team. Nothing is outsourced. You'll have a dedicated point of contact from your first call through to launch and ongoing support.\n\nWe specialise in small service businesses — accountants, therapists, contractors, consultants, dentists, and lawyers — so we understand your industry and your clients."
       },
       {
-        q: "How fast do changes happen?",
-        a: "Standard content updates submitted through our portal are typically completed within 1–3 business days."
+        q: "What if I don't like how my site turns out?",
+        a: "Before you pay us anything, you'll see a custom homepage demo showing exactly how we'd design your site. You can give feedback, request changes, and make sure you love the direction before we build a single page.\n\nDuring the build, we send you a preview link before going live. We don't launch until you're satisfied."
+      },
+      {
+        q: "What types of businesses do you work with?",
+        a: "We specialise in local service businesses that rely on trust, reputation, and local visibility to attract clients. Our clients include:\n\n• Accountants and tax professionals\n• Therapists and counsellors\n• General contractors and tradespeople\n• Consultants\n• Dentists and medical professionals\n• Lawyers and legal professionals\n\nIf you run a service business and want more leads from your website, we're built for you."
       }
     ]
   }
