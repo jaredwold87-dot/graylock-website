@@ -1,7 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { CheckCircle2, User, Heart, Handshake, Search } from "lucide-react";
+import { CheckCircle2, User, Heart, Handshake, Search, Shield, MapPin, Flag } from "lucide-react";
 
 export default function About() {
   const values = [
@@ -96,6 +96,58 @@ export default function About() {
               </p>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-offwhite py-24 px-6 md:px-12" style={{ borderTop: '4px solid #1d4ed8' }}>
+        <div className="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
+
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal className="text-center mb-14">
+            <div className="inline-flex items-center gap-3 bg-blue-900/10 text-blue-800 px-5 py-2 rounded-full font-sans font-semibold text-sm uppercase tracking-widest mb-6 border border-blue-200">
+              <Flag size={16} />
+              Proudly American
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
+              100% U.S.-Based. Zero Outsourcing.
+            </h2>
+            <p className="text-gray-600 font-sans text-lg max-w-3xl mx-auto leading-relaxed">
+              Every person who touches your project — from the first phone call to the final pixel — is a hardworking American who cares about your business like it's their own.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
+            <ScrollReveal delay={0.1} className="text-center">
+              <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <MapPin className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-display text-charcoal mb-2">Built in America</h3>
+              <p className="text-gray-600 font-sans text-sm leading-relaxed">Every website is designed, developed, and maintained by our team right here in the United States. No exceptions.</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2} className="text-center">
+              <div className="w-16 h-16 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Shield className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-display text-charcoal mb-2">Nothing Outsourced</h3>
+              <p className="text-gray-600 font-sans text-sm leading-relaxed">We don't cut corners by sending your work overseas. When we say done-for-you, we mean done by us — personally.</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.3} className="text-center">
+              <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Heart className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-display text-charcoal mb-2">Americans Helping Americans</h3>
+              <p className="text-gray-600 font-sans text-sm leading-relaxed">We're proud to be a small American business supporting other small American businesses. Your success strengthens our communities.</p>
+            </ScrollReveal>
+          </div>
+
+          <ScrollReveal delay={0.35}>
+            <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 rounded-2xl p-8 md:p-10 text-center shadow-xl">
+              <p className="text-white font-sans text-lg md:text-xl leading-relaxed italic">
+                "We started Graylock because we saw too many hardworking business owners getting left behind online. These are the people who show up early, stay late, and take care of their customers. They deserve a website that works as hard as they do — and a team that actually gives a damn."
+              </p>
+              <p className="text-blue-200 font-sans font-semibold mt-4 text-sm uppercase tracking-widest">— Jared & Tim, Founders</p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
