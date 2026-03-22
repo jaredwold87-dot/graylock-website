@@ -5,7 +5,7 @@ export const PRICING_TIERS = [
     setup: "$249 one-time setup",
     description: "Perfect for single-operator service businesses needing a professional web presence.",
     features: [
-      "Custom 3-Page Website",
+      "Custom 5-Page Website",
       "Mobile-First Design",
       "Basic SEO Setup",
       "Hosting & SSL Included",
@@ -20,7 +20,8 @@ export const PRICING_TIERS = [
     popular: true,
     description: "The sweet spot for growing businesses looking to capture more leads.",
     features: [
-      "Custom 5-Page Website",
+      "Custom 7-Page Website",
+      "5 SEO-Optimized Funnel Pages",
       "Advanced Lead Forms",
       "Local SEO Optimization",
       "Hosting & SSL Included",
@@ -35,7 +36,8 @@ export const PRICING_TIERS = [
     setup: "$999 one-time setup",
     description: "For established businesses that need a high-performance marketing machine.",
     features: [
-      "Up to 10-Page Website",
+      "Custom 10-Page Website",
+      "10 SEO-Optimized Funnel Pages",
       "Custom Service Landing Pages",
       "Advanced SEO & Schema",
       "Priority Support (24hr)",
