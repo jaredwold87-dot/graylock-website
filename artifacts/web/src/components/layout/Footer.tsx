@@ -35,7 +35,7 @@ export function Footer() {
           <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">SUPPORT</h4>
           <ul className="space-y-4 flex flex-col">
             <Link href="/faq" className="text-stone hover:text-offwhite transition-colors">FAQ</Link>
-            <Link href="/contact" className="text-stone hover:text-offwhite transition-colors">Contact</Link>
+            <Link href="/get-started" className="text-stone hover:text-offwhite transition-colors">Contact</Link>
             <a href="#" className="text-stone hover:text-offwhite transition-colors">Privacy Policy</a>
             <a href="#" className="text-stone hover:text-offwhite transition-colors">Terms of Service</a>
           </ul>
@@ -44,7 +44,7 @@ export function Footer() {
         {/* CTA Column */}
         <div>
           <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">READY?</h4>
-          <Link href="/contact" className="inline-block bg-orange text-white font-sans font-bold px-6 py-3 rounded hover:bg-orange/90 transition-colors w-full text-center shadow-lg shadow-orange/20 mb-6">
+          <Link href="/get-started" className="inline-block bg-orange text-white font-sans font-bold px-6 py-3 rounded hover:bg-orange/90 transition-colors w-full text-center shadow-lg shadow-orange/20 mb-6">
             Get a Free Evaluation
           </Link>
           <p className="text-stone text-sm text-center">

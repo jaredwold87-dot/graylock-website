@@ -58,8 +58,9 @@ Frontend-only React + Vite marketing website for Graylock Digital, a subscriptio
 - **Tech**: React, Vite, Tailwind CSS, Framer Motion, wouter (routing), react-helmet-async (SEO)
 - **Brand Colors**: charcoal (#0F1117), navy (#1A1F2E), gunmetal (#2C3140), stone (#8A8F9E), offwhite (#F2F3F5), orange (#E8631A)
 - **Typography**: Barlow Condensed (700, headlines) + Barlow (400/600, body)
-- **Pages**: / (homepage), /how-it-works, /pricing, /work, /about, /faq, /contact, /thank-you
-- **Form**: Contact form uses Formspree (placeholder URL: `https://formspree.io/f/REPLACE`)
+- **Pages**: / (homepage), /how-it-works, /pricing, /work, /about, /faq, /get-started (onboarding wizard), /contact (redirects to /get-started), /thank-you
+- **Onboarding Wizard** (`/get-started`): 6-step multi-step form replacing old contact page. Step 1 (name/email), Step 2 (has website? yes/no branch), Path A (URL → goal → target customer), Path B (business type → stage → lead gen), Final step (referral + submit). Uses WizardContext for state, WizardShell for progress bar, BookingState for post-submit Calendly embed or email follow-up confirmation. Formspree submission (placeholder URL: `https://formspree.io/f/REPLACE`). Calendly URL configurable in BookingState.tsx (empty = email follow-up flow).
+- **All CTAs**: Site-wide "Book Your Free Website Review" buttons link to `/get-started`
 - **Assets in public/**: logo-horizontal.png (navbar), logo-stacked.png (footer), hero-bg.png (homepage hero background), devices-hero.png (device mockup), about-hero.png (about/how-it-works hero bg), portfolio-before-{1,2,3}.png & portfolio-after-{1,2,3}.png (before/after portfolio images for CPA, Therapist, Contractor)
 - **Core Offer**: Free website review + free custom homepage demo (value-first, no obligation). Primary CTA: "Book Your Free Website Review"
 - **Dashboard Feature**: Personalized business dashboard for Standard & Growth tiers — view website analytics, edit business info (hours, phone, address), post announcement banners, submit update requests. DashboardSection on homepage includes mock UI preview.

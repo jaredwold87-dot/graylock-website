@@ -31,7 +31,7 @@ export function FinalCTASection() {
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            <CTAButton href="/contact" variant="dark" className="px-10 py-5 text-lg">
+            <CTAButton href="/get-started" variant="dark" className="px-10 py-5 text-lg">
               Book Your Free Website Review
             </CTAButton>
             <p className="text-white/75 text-sm font-sans mt-2">

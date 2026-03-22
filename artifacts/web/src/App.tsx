@@ -12,7 +12,8 @@ import Pricing from "@/pages/Pricing";
 import Work from "@/pages/Work";
 import About from "@/pages/About";
 import FAQ from "@/pages/FAQ";
-import Contact from "@/pages/Contact";
+import GetStarted from "@/pages/GetStarted";
+import ContactRedirect from "@/pages/Contact";
 import ThankYou from "@/pages/ThankYou";
 import NotFound from "@/pages/not-found";
 
@@ -35,7 +36,8 @@ function Router() {
       <Route path="/work" component={Work} />
       <Route path="/about" component={About} />
       <Route path="/faq" component={FAQ} />
-      <Route path="/contact" component={Contact} />
+      <Route path="/get-started" component={GetStarted} />
+      <Route path="/contact" component={ContactRedirect} />
       <Route path="/thank-you" component={ThankYou} />
       <Route component={NotFound} />
     </Switch>

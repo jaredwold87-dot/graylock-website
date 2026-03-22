@@ -54,7 +54,7 @@ export function PricingSection() {
               </div>
 
               <CTAButton 
-                href="/contact" 
+                href="/get-started" 
                 variant={tier.popular ? 'primary' : 'outline'}
                 className="w-full"
               >

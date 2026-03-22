@@ -23,7 +23,7 @@ export function HeroSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">
-            <CTAButton href="/contact">
+            <CTAButton href="/get-started">
               Book Your Free Website Review
             </CTAButton>
           </div>

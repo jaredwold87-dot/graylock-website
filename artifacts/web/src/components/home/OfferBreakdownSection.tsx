@@ -53,7 +53,7 @@ export function OfferBreakdownSection() {
         </div>
 
         <ScrollReveal delay={0.5} className="text-center mt-12">
-          <CTAButton href="/contact">
+          <CTAButton href="/get-started">
             Book Your Free Website Review
           </CTAButton>
           <p className="text-stone/60 text-sm font-sans mt-4">No credit card. No obligation. Just answers.</p>

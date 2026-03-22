@@ -153,7 +153,7 @@ export default function Work() {
             <p className="text-stone text-lg font-sans mb-8 max-w-2xl mx-auto">
               Every site we build follows the same proven process — clean design, fast performance, and a focus on converting visitors into paying clients.
             </p>
-            <Link href="/contact">
+            <Link href="/get-started">
               <span className="inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-sans font-bold text-lg px-10 py-4 rounded-lg shadow-lg shadow-orange/20 transition-all duration-300 cursor-pointer">
                 Get Your Free Evaluation <ArrowRight size={20} />
               </span>

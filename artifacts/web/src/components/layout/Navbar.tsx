@@ -64,7 +64,7 @@ export function Navbar() {
                 </Link>
               ))}
             </div>
-            <Link href="/contact" className="bg-orange text-white text-sm font-bold px-5 py-2.5 rounded hover:bg-orange/90 transition-colors shadow-lg shadow-orange/20">
+            <Link href="/get-started" className="bg-orange text-white text-sm font-bold px-5 py-2.5 rounded hover:bg-orange/90 transition-colors shadow-lg shadow-orange/20">
               Free Website Review
             </Link>
           </div>
@@ -100,7 +100,7 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link href="/contact" className="mt-8 bg-orange text-white font-sans font-bold px-8 py-4 rounded shadow-xl shadow-orange/20">
+          <Link href="/get-started" className="mt-8 bg-orange text-white font-sans font-bold px-8 py-4 rounded shadow-xl shadow-orange/20">
             Free Website Review
           </Link>
         </div>
