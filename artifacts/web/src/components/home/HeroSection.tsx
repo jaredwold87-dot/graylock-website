@@ -6,8 +6,11 @@ import { BeforeAfterMockup } from "./BeforeAfterMockup";
 export function HeroSection() {
   return (
     <section className="bg-charcoal pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden relative">
-      {/* Background glow effect */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/5 rounded-full blur-3xl mix-blend-screen pointer-events-none"></div>
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-bg.png)` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/40" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
         

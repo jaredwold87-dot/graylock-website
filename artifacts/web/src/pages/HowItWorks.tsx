@@ -31,8 +31,12 @@ export default function HowItWorks() {
     <>
       <SEO title="How It Works | Graylock Digital" />
       
-      <section className="bg-offwhite py-24 px-6 md:px-12 text-charcoal border-b border-gray-200">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-offwhite py-24 px-6 md:px-12 text-charcoal border-b border-gray-200 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.06]"
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}about-hero.png)` }}
+        />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Our Proven Process</h1>
             <p className="text-xl font-sans text-gray-600">From an outdated liability to a lead-generating asset in less than a week.</p>

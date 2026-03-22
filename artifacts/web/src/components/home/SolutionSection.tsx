@@ -36,7 +36,7 @@ export function SolutionSection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {solutions.map((sol, i) => (
             <ScrollReveal key={i} delay={i * 0.15} className="bg-charcoal p-10 rounded-xl border-t-4 border-t-orange border-x border-b border-gunmetal shadow-lg shadow-black/20 hover:-translate-y-1 transition-transform duration-300">
               {sol.icon}
@@ -45,6 +45,14 @@ export function SolutionSection() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal className="max-w-4xl mx-auto">
+          <img 
+            src={`${import.meta.env.BASE_URL}devices-hero.png`}
+            alt="Graylock Digital websites displayed across laptop, tablet, and mobile devices"
+            className="w-full rounded-xl shadow-2xl shadow-orange/10"
+          />
+        </ScrollReveal>
       </div>
     </section>
   );
