@@ -27,7 +27,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display text-offwhite leading-[1.1] mb-6">
-              Stop Losing Leads to a Dated & Basic Website.
+              Stop Losing Leads to a Dated & Ineffective Website.
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
               Most websites are just digital brochures. We build high-performance sales engines. Book a free review, and we'll show you exactly where your current site is leaking revenue and how we can fix it.
