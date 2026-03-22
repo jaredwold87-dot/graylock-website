@@ -16,7 +16,7 @@ export function HeroSection() {
         
         <ScrollReveal>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-display text-offwhite leading-[1.1] mb-6">
-            We'll Show You What's Wrong With Your Website.<br /><span className="text-orange">For Free.</span>
+            See What Your Website Could Become.<br /><span className="text-orange">For Free.</span>
           </h1>
           <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
             Book a free call and we'll review your current site, walk you through exactly what's costing you leads, and build you a custom homepage demo — before you pay us a dollar.
