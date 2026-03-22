@@ -16,7 +16,7 @@ export function HeroSection() {
         
         <ScrollReveal>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-display text-offwhite leading-[1.1] mb-6">
-            Your Website Should Be Getting You Leads. <span className="text-orange">Is It?</span>
+            Your Website Should Be Getting You Leads.<br /><span className="text-orange">Is It?</span>
           </h1>
           <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
             Graylock Digital builds and maintains modern, lead-focused websites for small service businesses — for one simple monthly subscription. Done for you. Launched in days. Maintained forever.
