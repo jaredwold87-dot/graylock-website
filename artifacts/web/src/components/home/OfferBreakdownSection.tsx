@@ -32,7 +32,7 @@ export function OfferBreakdownSection() {
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Your Free Call Includes</p>
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
-            See Exactly What We'd Fix — Before You Pay Us Anything
+            See How We'd Elevate Your Site — Before You Pay Us Anything
           </h2>
           <p className="text-stone text-lg font-sans">
             Most agencies ask for thousands upfront before showing you a single thing. We do real work for you first — so you can decide with confidence.
