@@ -2,68 +2,51 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 function OldSite() {
   return (
-    <div className="w-full h-full bg-[#f0f0f0] text-[3px] sm:text-[4px] md:text-[5px] overflow-hidden font-serif">
-      <div className="bg-[#2c5f2d] text-white px-1 py-0.5 flex items-center justify-between">
-        <span className="font-bold text-[4px] sm:text-[5px] md:text-[6px]">Harrison & Associates CPAs</span>
-        <span className="text-[2.5px] sm:text-[3px] opacity-80">Call Us: (555) 234-5678</span>
+    <div className="w-full h-full bg-white overflow-hidden font-serif">
+      <div className="bg-[#336633] text-white px-1.5 py-1 flex items-center justify-between">
+        <span className="font-bold text-[5px] sm:text-[6px] md:text-[7px]">Smith's Plumbing LLC</span>
+        <div className="flex gap-1 text-[3px] sm:text-[3.5px]">
+          <span>Home</span>
+          <span>Services</span>
+          <span>About</span>
+          <span>Contact</span>
+        </div>
       </div>
 
-      <div className="bg-[#1a3a1a] text-white flex gap-1 px-1 py-0.5 text-[2.5px] sm:text-[3px]">
-        <span className="bg-[#2c5f2d] px-1 py-0.5">Home</span>
-        <span className="px-1 py-0.5">Services</span>
-        <span className="px-1 py-0.5">About Us</span>
-        <span className="px-1 py-0.5">Resources</span>
-        <span className="px-1 py-0.5">Contact</span>
+      <div className="bg-gradient-to-b from-[#8fbc8f] to-[#5a8f5a] px-2 py-3 sm:py-4 text-center">
+        <div className="text-white font-bold text-[7px] sm:text-[9px] md:text-[11px] drop-shadow mb-1">Welcome To Our Website!</div>
+        <div className="text-white/80 text-[3px] sm:text-[4px]">Serving Springfield Since 1995</div>
+        <div className="text-yellow-300 text-[3px] sm:text-[4px] font-bold mt-1 animate-pulse">CALL NOW: (555) 123-4567</div>
       </div>
 
-      <div className="flex">
-        <div className="flex-1 p-1">
-          <div className="bg-[#2c5f2d] text-white p-1 mb-1 rounded-sm">
-            <div className="font-bold text-[4px] sm:text-[5px] md:text-[6px] mb-0.5">Welcome to Harrison & Associates</div>
-            <div className="text-[2.5px] sm:text-[3px] opacity-90">Your Trusted Accounting Partner Since 1998</div>
+      <div className="px-1.5 py-1.5">
+        <div className="flex gap-1 mb-1.5">
+          <div className="flex-1 bg-[#f5f5dc] border-2 border-[#8b7355] p-1 text-center">
+            <div className="bg-[#ddd] h-4 sm:h-5 mb-0.5 flex items-center justify-center text-[2px] text-gray-400">photo.jpg</div>
+            <div className="font-bold text-[3.5px] sm:text-[4.5px] text-[#336633]">Repairs</div>
           </div>
-
-          <div className="flex gap-1 mb-1">
-            <div className="flex-1 bg-white border border-gray-300 p-0.5 rounded-sm shadow-sm">
-              <div className="bg-[#ddd] h-3 sm:h-4 mb-0.5 flex items-center justify-center text-gray-500 text-[2px]">TAX PREP IMAGE</div>
-              <div className="font-bold text-[3px] sm:text-[4px] text-[#2c5f2d]">Tax Preparation</div>
-              <div className="text-[2px] sm:text-[2.5px] text-gray-600 leading-tight">Full service tax preparation for individuals and businesses...</div>
-            </div>
-            <div className="flex-1 bg-white border border-gray-300 p-0.5 rounded-sm shadow-sm">
-              <div className="bg-[#ddd] h-3 sm:h-4 mb-0.5 flex items-center justify-center text-gray-500 text-[2px]">BOOKKEEPING</div>
-              <div className="font-bold text-[3px] sm:text-[4px] text-[#2c5f2d]">Bookkeeping</div>
-              <div className="text-[2px] sm:text-[2.5px] text-gray-600 leading-tight">Monthly bookkeeping services to keep your records clean...</div>
-            </div>
-            <div className="flex-1 bg-white border border-gray-300 p-0.5 rounded-sm shadow-sm">
-              <div className="bg-[#ddd] h-3 sm:h-4 mb-0.5 flex items-center justify-center text-gray-500 text-[2px]">PAYROLL IMG</div>
-              <div className="font-bold text-[3px] sm:text-[4px] text-[#2c5f2d]">Payroll Services</div>
-              <div className="text-[2px] sm:text-[2.5px] text-gray-600 leading-tight">Let us handle your payroll so you can focus on growth...</div>
-            </div>
+          <div className="flex-1 bg-[#f5f5dc] border-2 border-[#8b7355] p-1 text-center">
+            <div className="bg-[#ddd] h-4 sm:h-5 mb-0.5 flex items-center justify-center text-[2px] text-gray-400">photo.jpg</div>
+            <div className="font-bold text-[3.5px] sm:text-[4.5px] text-[#336633]">Installation</div>
           </div>
-
-          <div className="bg-[#ffffcc] border border-[#e6e600] p-1 mb-1 text-center rounded-sm">
-            <div className="font-bold text-[3.5px] sm:text-[4.5px] text-red-700 animate-pulse">TAX SEASON SPECIAL!</div>
-            <div className="text-[2.5px] sm:text-[3px] text-gray-700">Call now for 15% off your first return!</div>
-          </div>
-
-          <div className="bg-white border border-gray-300 p-1 rounded-sm">
-            <div className="font-bold text-[3.5px] sm:text-[4.5px] text-[#2c5f2d] mb-0.5">About Our Firm</div>
-            <div className="text-[2px] sm:text-[2.5px] text-gray-600 leading-tight">
-              Harrison & Associates has been serving the local community for over 25 years. Our team of experienced CPAs provides comprehensive accounting, tax preparation, and financial advisory services.
-            </div>
+          <div className="flex-1 bg-[#f5f5dc] border-2 border-[#8b7355] p-1 text-center">
+            <div className="bg-[#ddd] h-4 sm:h-5 mb-0.5 flex items-center justify-center text-[2px] text-gray-400">photo.jpg</div>
+            <div className="font-bold text-[3.5px] sm:text-[4.5px] text-[#336633]">Emergency</div>
           </div>
         </div>
 
-        <div className="w-[22%] bg-[#e8e8e8] p-0.5 border-l border-gray-300 text-[2px] sm:text-[2.5px]">
-          <div className="bg-white border border-gray-300 p-0.5 mb-0.5 rounded-sm">
-            <div className="font-bold text-[2.5px] sm:text-[3px] text-[#2c5f2d] mb-0.5">Contact Us</div>
-            <div className="text-gray-600 leading-tight">123 Main Street<br/>Suite 200<br/>Springfield, IL</div>
-          </div>
-          <div className="bg-white border border-gray-300 p-0.5 mb-0.5 rounded-sm">
-            <div className="font-bold text-[2.5px] sm:text-[3px] text-[#2c5f2d] mb-0.5">Office Hours</div>
-            <div className="text-gray-600 leading-tight">Mon-Fri: 8am-6pm<br/>Sat: 9am-1pm</div>
-          </div>
+        <div className="bg-[#ffffcc] border border-[#cc0000] p-1 text-center mb-1.5">
+          <div className="text-red-700 font-bold text-[4px] sm:text-[5px]">SPRING SPECIAL - 10% OFF!</div>
+          <div className="text-[2.5px] sm:text-[3px] text-gray-700">Mention this ad when you call!</div>
         </div>
+
+        <div className="text-[2.5px] sm:text-[3px] text-gray-600 leading-relaxed">
+          Welcome to Smith's Plumbing. We are a family owned business that has been providing quality plumbing services to the Springfield area for over 25 years. We do all types of plumbing work including residential and commercial...
+        </div>
+      </div>
+
+      <div className="bg-[#336633] text-white text-center py-1 text-[2px] sm:text-[2.5px] mt-1">
+        Copyright 2019 Smith's Plumbing LLC. All Rights Reserved.
       </div>
     </div>
   );
@@ -71,62 +54,62 @@ function OldSite() {
 
 function NewSite() {
   return (
-    <div className="w-full h-full bg-[#0c1220] text-[3px] sm:text-[4px] md:text-[5px] overflow-hidden font-sans">
-      <div className="flex items-center justify-between px-1.5 py-1 border-b border-white/10">
-        <span className="font-bold text-white text-[4px] sm:text-[5px] md:text-[6px] tracking-wide">HARRISON<span className="text-[#4a9eff]">CPA</span></span>
-        <div className="flex gap-1.5 text-[2.5px] sm:text-[3px] text-gray-400">
+    <div className="w-full h-full bg-[#111827] overflow-hidden font-sans">
+      <div className="flex items-center justify-between px-2 py-1 border-b border-white/10">
+        <span className="font-bold text-white text-[5px] sm:text-[6px] md:text-[7px] tracking-wider">SMITH<span className="text-orange font-normal">plumbing</span></span>
+        <div className="flex items-center gap-2 text-[3px] sm:text-[3.5px] text-gray-300">
           <span>Services</span>
           <span>About</span>
-          <span>Resources</span>
-          <span className="bg-[#4a9eff] text-white px-1 py-0.5 rounded-sm">Free Consultation</span>
+          <span>Reviews</span>
+          <span className="bg-orange text-white px-1.5 py-0.5 rounded-sm font-semibold">Get a Quote</span>
         </div>
       </div>
 
-      <div className="relative px-2 py-3 sm:py-4" style={{ background: 'linear-gradient(135deg, #0c1220 0%, #1a2744 50%, #0c1220 100%)' }}>
-        <div className="absolute inset-0 opacity-20" style={{ background: 'radial-gradient(circle at 70% 50%, #4a9eff22, transparent 60%)' }} />
+      <div className="relative px-3 py-4 sm:py-6" style={{ background: 'linear-gradient(135deg, #111827, #1e293b)' }}>
+        <div className="absolute top-0 right-0 w-[45%] h-full bg-gradient-to-l from-orange/10 to-transparent" />
         <div className="relative z-10">
-          <div className="text-[2.5px] sm:text-[3px] text-[#4a9eff] font-semibold uppercase tracking-widest mb-0.5">Trusted by 500+ businesses</div>
-          <div className="font-bold text-white text-[6px] sm:text-[8px] md:text-[10px] leading-tight mb-1">Strategic Financial<br/>Partners for Growth</div>
-          <div className="text-gray-400 text-[2.5px] sm:text-[3px] max-w-[60%] leading-relaxed mb-1.5">We help small businesses save money, stay compliant, and make smarter financial decisions.</div>
+          <div className="font-bold text-white text-[8px] sm:text-[10px] md:text-[13px] leading-[1.15] mb-1.5">
+            Springfield's Most<br/>Trusted Plumber
+          </div>
+          <div className="text-gray-400 text-[3px] sm:text-[4px] max-w-[55%] leading-relaxed mb-2">
+            Fast, reliable plumbing for your home or business. Licensed, insured, and ready when you need us.
+          </div>
           <div className="flex gap-1">
-            <div className="bg-[#4a9eff] text-white px-1.5 py-0.5 rounded-sm text-[2.5px] sm:text-[3px] font-semibold">Book a Free Review</div>
-            <div className="border border-white/30 text-white px-1.5 py-0.5 rounded-sm text-[2.5px] sm:text-[3px]">Our Services</div>
+            <div className="bg-orange text-white px-2 py-0.5 rounded-sm text-[3px] sm:text-[4px] font-bold">Book Online</div>
+            <div className="border border-white/30 text-white px-2 py-0.5 rounded-sm text-[3px] sm:text-[4px]">Our Work</div>
           </div>
         </div>
       </div>
 
-      <div className="px-2 py-2 sm:py-3">
-        <div className="grid grid-cols-3 gap-1">
+      <div className="px-3 py-2 sm:py-3">
+        <div className="text-center mb-2">
+          <div className="text-orange text-[3px] sm:text-[3.5px] font-semibold uppercase tracking-widest mb-0.5">Our Services</div>
+          <div className="text-white font-bold text-[5px] sm:text-[6px] md:text-[8px]">What We Do Best</div>
+        </div>
+        <div className="grid grid-cols-3 gap-1.5">
           {[
-            { num: "500+", label: "Clients Served" },
-            { num: "$2.4M", label: "Tax Savings Found" },
-            { num: "25+", label: "Years Experience" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center p-1 bg-white/5 rounded-sm border border-white/10">
-              <div className="text-[#4a9eff] font-bold text-[5px] sm:text-[6px] md:text-[7px]">{stat.num}</div>
-              <div className="text-gray-400 text-[2px] sm:text-[2.5px]">{stat.label}</div>
+            { title: "Repairs", color: "bg-blue-500/20" },
+            { title: "New Install", color: "bg-green-500/20" },
+            { title: "Emergency", color: "bg-red-500/20" },
+          ].map((svc, i) => (
+            <div key={i} className="bg-white/5 border border-white/10 p-1.5 rounded-sm text-center">
+              <div className={`w-3 h-3 ${svc.color} rounded-full mx-auto mb-1`}></div>
+              <div className="text-white font-bold text-[3.5px] sm:text-[4px]">{svc.title}</div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="px-2 pb-2">
-        <div className="text-center mb-1.5">
-          <div className="text-[2.5px] sm:text-[3px] text-[#4a9eff] font-semibold uppercase tracking-widest mb-0.5">What We Do</div>
-          <div className="text-white font-bold text-[4px] sm:text-[5px] md:text-[6px]">Services Built for Growing Businesses</div>
-        </div>
-        <div className="grid grid-cols-3 gap-1">
-          {[
-            { title: "Tax Strategy", desc: "Proactive planning to minimize your tax burden" },
-            { title: "Bookkeeping", desc: "Clean, accurate books every month" },
-            { title: "CFO Advisory", desc: "Strategic guidance for smarter decisions" },
-          ].map((svc, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 p-1 rounded-sm">
-              <div className="w-1.5 h-1.5 bg-[#4a9eff]/20 rounded-full mb-0.5"></div>
-              <div className="text-white font-bold text-[3px] sm:text-[3.5px] mb-0.5">{svc.title}</div>
-              <div className="text-gray-400 text-[2px] sm:text-[2.5px] leading-tight">{svc.desc}</div>
-            </div>
-          ))}
+      <div className="px-3 py-2 bg-white/[0.03]">
+        <div className="text-center">
+          <div className="text-orange text-[3px] sm:text-[3.5px] font-semibold uppercase tracking-widest mb-0.5">Testimonials</div>
+          <div className="text-white font-bold text-[5px] sm:text-[6px] md:text-[8px] mb-1">What Clients Say</div>
+          <div className="text-gray-400 text-[3px] sm:text-[3.5px] italic">"Best plumber we've ever hired. Fast, fair, and professional."</div>
+          <div className="flex justify-center gap-0.5 mt-1">
+            {[1,2,3,4,5].map(s => (
+              <div key={s} className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-yellow-400 text-[4px] sm:text-[5px] leading-none">&#9733;</div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
