@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+cmds = ["corepack enable && corepack prepare pnpm@latest --activate"]
+
+[phases.install]
+cmds = ["pnpm install --frozen-lockfile"]
+
+[phases.build]
+cmds = ["BASE_PATH=/ pnpm run build:production"]
+
+[start]
+cmd = "NODE_ENV=production node artifacts/api-server/dist/index.mjs"

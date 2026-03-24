@@ -74,13 +74,26 @@ Frontend-only React + Vite marketing website for Graylock Digital, a subscriptio
 
 Express 5 API server. Routes live in `src/routes/` and use `@workspace/api-zod` for request and response validation and `@workspace/db` for persistence.
 
-- Entry: `src/index.ts` — reads `PORT`, starts Express
-- App setup: `src/app.ts` — mounts CORS, JSON/urlencoded parsing, routes at `/api`
+- Entry: `src/index.ts` — reads `PORT` (defaults to 3000), starts Express
+- App setup: `src/app.ts` — mounts CORS, JSON/urlencoded parsing, routes at `/api`. In production, also serves Vite build output as static files and has SPA catch-all route (Express 5 `{*path}` syntax)
 - Routes: `src/routes/index.ts` mounts sub-routers; `src/routes/health.ts` exposes `GET /health` (full path: `/api/health`)
 - Depends on: `@workspace/db`, `@workspace/api-zod`
 - `pnpm --filter @workspace/api-server run dev` — run the dev server
-- `pnpm --filter @workspace/api-server run build` — production esbuild bundle (`dist/index.cjs`)
+- `pnpm --filter @workspace/api-server run build` — production esbuild bundle (`dist/index.mjs`)
 - Build bundles an allowlist of deps (express, cors, pg, drizzle-orm, zod, etc.) and externalizes the rest
+
+## Deployment (Sevalla / Docker)
+
+The project is configured for deployment to Sevalla or any Docker-based host:
+
+- **Dockerfile**: Multi-stage build — installs deps, builds both web and API server, produces minimal production image
+- **nixpacks.toml**: Alternative for Nixpacks-based hosts
+- **Root scripts**:
+  - `pnpm run build:production` — builds web frontend + API server (skips typecheck/dev tools)
+  - `pnpm run start` — runs the production server (`NODE_ENV=production node artifacts/api-server/dist/index.mjs`)
+- **Static file serving**: In production, the API server serves `artifacts/web/dist/public/` as static files and handles SPA routing with a catch-all
+- **PORT**: Defaults to 3000 if not set; Sevalla can override via environment variable
+- **BASE_PATH**: Defaults to `/` in production builds
 
 ### `lib/db` (`@workspace/db`)
 
