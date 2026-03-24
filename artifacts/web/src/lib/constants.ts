@@ -180,6 +180,36 @@ export const FAQS = [
     ]
   },
   {
+    category: "Features & What They Mean",
+    id: "features-explained",
+    questions: [
+      {
+        q: "What are SEO funnel pages, and why do they matter?",
+        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \"Services\" page, each funnel page targets a specific search term your customers are actually typing into Google.\n\nFor example, if you're a plumber in Austin, you might have individual pages for \"emergency plumber Austin,\" \"water heater repair Austin,\" and \"drain cleaning Round Rock.\" Each page is written, structured, and optimized to rank for that exact search — giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Standard plan includes 5 funnel pages, and the Growth plan includes 10 — enough to cover your core services and surrounding areas. Starter plan sites can absolutely be upgraded later if you want to add funnel pages down the road."
+      },
+      {
+        q: "What's the difference between basic SEO and local SEO optimization?",
+        a: "Basic SEO (included in all plans) covers the fundamentals — clean code, fast page speed, proper page titles and meta descriptions, mobile optimization, and a sitemap. These are the building blocks every website needs.\n\nLocal SEO optimization (Standard and Growth plans) goes significantly deeper. It includes:\n\n• Location-specific keyword targeting across your pages\n• Google Business Profile setup and optimization — so you show up in the local map pack\n• NAP consistency (Name, Address, Phone) across your site\n• Local schema markup that tells Google exactly where you operate and what you do\n• Geo-targeted content strategy for your service area\n\nFor service businesses that rely on local customers, this is often the difference between showing up on the first page of Google and being invisible. Most of your competitors aren't doing this — which is exactly why it works."
+      },
+      {
+        q: "What is lead activity tracking?",
+        a: "Lead activity tracking (Standard and Growth plans) gives you visibility into every lead that comes through your website. Instead of just receiving a form submission in your inbox and hoping you follow up, you get a dashboard view that shows:\n\n• Every form submission with full details\n• When each lead came in and which page they submitted from\n• Whether you've responded to them yet\n• A history of all your leads over time\n\nThis is important because most small businesses lose leads simply by forgetting to follow up. When you can see every inquiry in one place and know which ones still need a response, you close more deals. It's a simple tool that directly impacts your revenue."
+      },
+      {
+        q: "What's the difference between the lead submission forms on each plan?",
+        a: "The Starter plan includes a basic lead submission form — a clean, professional contact form that captures a visitor's name, email, phone number, and message. It gets the job done for businesses that just need a simple way for people to reach out.\n\nThe Standard plan includes an enhanced lead submission form with additional fields tailored to your business — like service type, preferred appointment time, or project details. This pre-qualifies your leads so you spend less time on back-and-forth and more time closing.\n\nThe Growth plan includes an advanced lead generation form — a multi-step, conversion-optimized form designed to guide visitors through a short series of questions. These forms consistently convert at 2–3x the rate of standard contact forms because they feel less intimidating and more interactive. They're the same style of forms used by high-budget marketing agencies — built into your site at no extra cost."
+      },
+      {
+        q: "What is schema markup, and does my business need it?",
+        a: "Schema markup is code added to your website that helps Google understand exactly what your business does, where you're located, what services you offer, your hours, your reviews, and more. It doesn't change how your site looks to visitors — but it changes how Google sees and displays your site in search results.\n\nWith proper schema, your business can show up with rich results — star ratings, business hours, service lists, and location info displayed right in the search listing. This makes your result stand out and get more clicks than a plain text listing.\n\nAll plans include basic schema. The Growth plan includes advanced schema markup covering multiple service types, FAQ schema, and local business schema — giving you the best possible presence in search results."
+      },
+      {
+        q: "What happens during a quarterly strategy call?",
+        a: "The quarterly strategy call (Growth plan) is a 30-minute one-on-one session with our team where we review your website's performance and plan ahead. We cover:\n\n• Traffic trends — where your visitors are coming from and which pages perform best\n• Lead quality — whether your forms are attracting the right kind of customers\n• SEO progress — how your rankings are moving and where the opportunities are\n• Content recommendations — what pages or updates would drive the most impact next quarter\n• Competitive insights — what your competitors are doing online and how to stay ahead\n\nThink of it as having a marketing advisor on retainer. Most small businesses don't have anyone looking at this data for them — and that's exactly why they plateau. The strategy call keeps your site evolving with your business instead of sitting static."
+      }
+    ]
+  },
+  {
     category: "Working With Graylock",
     id: "working-with-graylock",
     questions: [
