@@ -12,7 +12,8 @@ COPY lib/api-spec/package.json lib/api-spec/
 COPY lib/api-zod/package.json lib/api-zod/
 COPY lib/db/package.json lib/db/
 
-RUN pnpm install --no-lockfile
+COPY pnpm-lock.yaml ./
+RUN pnpm install --no-frozen-lockfile
 
 COPY . .
 
