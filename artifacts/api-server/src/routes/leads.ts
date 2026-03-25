@@ -38,7 +38,7 @@ Submitted: ${submittedAt}
 Reply directly to this email to reach the lead.
 Or log in to the GOS to view full lead record.`;
 
-  const recipients = ["jared.wold87@gmail.com"];
+  const recipients = ["jared@graylockdigital.com"];
   if (process.env.TEAM_EMAIL_TIM) {
     recipients.push(process.env.TEAM_EMAIL_TIM);
   }
