@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
+import { PRICING_TIERS } from "@/lib/constants";
 import { useState } from "react";
 import {
   Calculator,
@@ -109,7 +110,7 @@ const features = [
 const faqs = [
   {
     q: "How long does it take to build my website?",
-    a: "Most accounting firm websites are live within 2–3 weeks. We handle the design, copywriting, and SEO setup so you don't have to lift a finger.",
+    a: "We build and launch your website within 5 business days. We handle the design, copywriting, and SEO setup so you don't have to lift a finger.",
   },
   {
     q: "Do I need to provide content or images?",
@@ -160,7 +161,6 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function AccountantsFunnel() {
   const [activeBeforeAfter, setActiveBeforeAfter] = useState(0);
-  const [showAfter, setShowAfter] = useState(false);
 
   return (
     <>
@@ -254,7 +254,7 @@ export default function AccountantsFunnel() {
           {[
             { value: "200+", label: "Service Businesses Helped" },
             { value: "3x", label: "Average Lead Increase" },
-            { value: "14", label: "Days to Launch" },
+            { value: "5", label: "Business Days to Launch" },
             { value: "4.9★", label: "Client Satisfaction" },
           ].map((stat) => (
             <div
@@ -390,10 +390,7 @@ export default function AccountantsFunnel() {
               {beforeAfterPairs.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => {
-                    setActiveBeforeAfter(i);
-                    setShowAfter(false);
-                  }}
+                  onClick={() => setActiveBeforeAfter(i)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     i === activeBeforeAfter
                       ? "bg-orange scale-125"
@@ -452,55 +449,7 @@ export default function AccountantsFunnel() {
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Starter",
-                price: "$69",
-                setup: "$249",
-                desc: "Perfect for solo practitioners and small firms just getting started online.",
-                features: [
-                  "Custom 5-page website",
-                  "Mobile-responsive design",
-                  "Basic local SEO setup",
-                  "Contact form",
-                  "Dashboard + support",
-                  "Monthly content updates",
-                ],
-                popular: false,
-              },
-              {
-                name: "Standard",
-                price: "$119",
-                setup: "$499",
-                desc: "For growing firms ready to dominate local search and generate consistent leads.",
-                features: [
-                  "Custom 8-page website",
-                  "Advanced local SEO",
-                  "Enhanced lead forms",
-                  "Google Business optimization",
-                  "Priority support",
-                  "Schema markup",
-                  "Monthly analytics report",
-                ],
-                popular: true,
-              },
-              {
-                name: "Growth",
-                price: "$199",
-                setup: "$999",
-                desc: "For established firms that want maximum visibility and a steady pipeline of new clients.",
-                features: [
-                  "Custom 12+ page website",
-                  "Full SEO strategy",
-                  "Advanced lead generation forms",
-                  "SEO funnel pages",
-                  "Quarterly strategy calls",
-                  "Competitor analysis",
-                  "Content marketing support",
-                ],
-                popular: false,
-              },
-            ].map((plan, i) => (
+            {PRICING_TIERS.filter((t) => !t.isCustom).map((plan, i) => (
               <ScrollReveal key={plan.name} delay={i * 0.08}>
                 <div
                   className={`rounded-2xl p-7 border h-full flex flex-col ${
@@ -524,10 +473,10 @@ export default function AccountantsFunnel() {
                     <span className="text-stone font-sans text-sm">/month</span>
                   </div>
                   <p className="text-stone/60 font-sans text-xs mb-4">
-                    {plan.setup} one-time setup
+                    {plan.setup}
                   </p>
                   <p className="text-stone font-sans text-sm mb-6 leading-relaxed">
-                    {plan.desc}
+                    {plan.description}
                   </p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {plan.features.map((f) => (
@@ -585,7 +534,7 @@ export default function AccountantsFunnel() {
               {
                 step: "03",
                 title: "Build & Launch",
-                desc: "We build your full site, optimize it for search engines, and launch it — usually within 2 weeks.",
+                desc: "We build your full site, optimize it for search engines, and launch it — within 5 business days.",
                 icon: Globe,
               },
               {
