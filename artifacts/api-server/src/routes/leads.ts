@@ -8,6 +8,8 @@ interface LeadPayload {
   first_name: string;
   business_name: string;
   email: string;
+  phone: string;
+  service_area: string;
   has_website: boolean;
   website_url: string;
   primary_goal: string;
@@ -25,6 +27,8 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
 Name: ${payload.first_name}
 Business: ${payload.business_name}
 Email: ${payload.email}
+Phone: ${payload.phone || "Not provided"}
+Service Area: ${payload.service_area || "Not provided"}
 Has website: ${payload.has_website ? "Yes" : "No"}
 Website URL: ${payload.website_url || "None"}
 Primary goal: ${payload.primary_goal || "Not provided"}
@@ -78,6 +82,8 @@ Or log in to the GOS to view full lead record.`;
           firstName: payload.first_name,
           businessName: payload.business_name,
           email: payload.email,
+          phone: payload.phone || "",
+          serviceArea: payload.service_area || "",
           hasWebsite: payload.has_website,
           websiteUrl: payload.website_url || "",
           primaryGoal: payload.primary_goal || "",

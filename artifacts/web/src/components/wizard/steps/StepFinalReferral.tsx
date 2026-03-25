@@ -13,6 +13,8 @@ export function StepFinalReferral() {
       first_name: data.firstName,
       business_name: data.businessName,
       email: data.email,
+      phone: data.phone || "",
+      service_area: data.serviceArea || "",
       has_website: !!data.hasWebsite,
       website_url: data.websiteUrl || "",
       primary_goal: data.primaryGoal || "",

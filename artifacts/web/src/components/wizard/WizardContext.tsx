@@ -4,6 +4,8 @@ export interface WizardData {
   firstName: string;
   businessName: string;
   email: string;
+  phone: string;
+  serviceArea: string;
   hasWebsite: boolean | null;
   websiteUrl: string;
   primaryGoal: string;
@@ -19,6 +21,8 @@ const initialData: WizardData = {
   firstName: "",
   businessName: "",
   email: "",
+  phone: "",
+  serviceArea: "",
   hasWebsite: null,
   websiteUrl: "",
   primaryGoal: "",

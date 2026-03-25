@@ -11,6 +11,8 @@ export function Step1BasicInfo() {
     if (!data.businessName.trim()) errs.businessName = "Business name is required";
     if (!data.email.trim()) errs.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errs.email = "Enter a valid email";
+    if (!data.phone.trim()) errs.phone = "Phone number is required";
+    if (!data.serviceArea.trim()) errs.serviceArea = "Service area is required";
     return errs;
   };
 
@@ -68,6 +70,31 @@ export function Step1BasicInfo() {
             className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50"
           />
           {errors.email && <span className="text-red-400 text-sm font-sans">{errors.email}</span>}
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="text-offwhite font-sans text-sm font-semibold">Phone Number *</label>
+          <input
+            type="tel"
+            value={data.phone}
+            onChange={(e) => updateData({ phone: e.target.value })}
+            placeholder="(555) 123-4567"
+            className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50"
+          />
+          {errors.phone && <span className="text-red-400 text-sm font-sans">{errors.phone}</span>}
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="text-offwhite font-sans text-sm font-semibold">Primary Service Area *</label>
+          <input
+            type="text"
+            value={data.serviceArea}
+            onChange={(e) => updateData({ serviceArea: e.target.value })}
+            placeholder="Austin, TX or 78701, 78702"
+            className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50"
+          />
+          <span className="text-stone/50 text-xs font-sans">City, State or zip code(s) where you serve clients</span>
+          {errors.serviceArea && <span className="text-red-400 text-sm font-sans">{errors.serviceArea}</span>}
         </div>
 
         <button
