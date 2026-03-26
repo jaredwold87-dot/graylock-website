@@ -22,7 +22,7 @@ export function DashboardSection() {
             More Control, Without the Headache
           </h2>
           <p className="text-stone text-lg font-sans max-w-2xl mx-auto leading-relaxed">
-            Most small business owners have to call or email someone every time they need a simple update. Our upper-tier plans include a personalized dashboard that puts the essentials at your fingertips.
+            Most small business owners have to call or email someone every time they need a simple update. Our Standard and Growth plans include a personalized dashboard that puts the essentials at your fingertips.
           </p>
         </ScrollReveal>
 
@@ -124,7 +124,7 @@ export function DashboardSection() {
           <div className="bg-charcoal rounded-2xl border border-gunmetal p-8 md:p-10 text-center max-w-3xl mx-auto">
             <p className="text-offwhite font-sans text-lg leading-relaxed">
               <span className="text-orange font-semibold">Most small business websites are hard to update.</span>{" "}
-              Owners have to wait on someone else for every little change. Our upper-tier plans give you a cleaner, easier way to manage the essentials — while we still handle the heavy lifting.
+              Owners have to wait on someone else for every little change. Our Standard and Growth plans give you a cleaner, easier way to manage the essentials — while we still handle the heavy lifting.
             </p>
           </div>
         </ScrollReveal>
