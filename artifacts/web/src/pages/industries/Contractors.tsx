@@ -31,7 +31,7 @@ const data: IndustryPageData = {
     subheadline:
       "Homeowners judge contractors online before they ever pick up the phone. Graylock builds fast-loading, professional contractor websites with project galleries, quote forms, and local SEO — built and live within 3–5 business days on average.",
     cta: "Get Your Free Website Review",
-    backgroundImage: `${import.meta.env.BASE_URL}hero-contractors.jpg`,
+    backgroundImage: `${import.meta.env.BASE_URL}hero-contractors.png`,
     trustSignals: [
       "Project gallery built in",
       "Quote request forms",

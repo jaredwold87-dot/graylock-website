@@ -148,8 +148,8 @@ export const FAQS = [
     id: "your-website",
     questions: [
       {
-        q: "Do I own the website, or does Graylock?",
-        a: "You own the website. The content, design, copy, and code are yours from day one.\n\nWe host it on our servers as part of your monthly plan. If you ever choose to cancel and move to a different host or provider, we'll hand over everything — all the files, code, images, and content — so you can take it with you and host or maintain it independently. No strings attached."
+        q: "What do I own, and what does my monthly fee cover?",
+        a: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers everything it takes to keep your website performing at its best: professional hosting, security updates, speed optimization, ongoing SEO maintenance, and unlimited content updates.\n\nThink of it like having a full web team on retainer for a fraction of the cost. If you ever decide to move on, your domain goes with you — it's registered in your name."
       },
       {
         q: "Is my website built on a template or is it custom?",

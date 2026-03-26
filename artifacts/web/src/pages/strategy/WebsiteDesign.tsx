@@ -191,8 +191,8 @@ const data: StrategyPageData = {
       a: "A good service business website does three things: makes a strong first impression, clearly communicates your services and credibility, and makes it easy to contact you. It must also load fast and work perfectly on mobile.",
     },
     {
-      q: "Do I own the website once it's built?",
-      a: "Yes. Your content, copy, design, and domain are yours from day one. If you cancel your plan, we give you everything you need to host it elsewhere.",
+      q: "What do I own, and what does my monthly fee cover?",
+      a: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and unlimited content updates. Think of it like having a full web team on retainer for a fraction of the cost.",
     },
     {
       q: "Can you redesign my existing website instead of building a new one?",
@@ -247,10 +247,10 @@ const data: StrategyPageData = {
       },
       {
         "@type": "Question",
-        name: "Do I own the website once it's built?",
+        name: "What do I own, and what does my monthly fee cover?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Your content, copy, design, and domain are yours from day one.",
+          text: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and unlimited content updates.",
         },
       },
       {

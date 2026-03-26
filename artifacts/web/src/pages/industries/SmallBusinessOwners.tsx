@@ -174,8 +174,8 @@ const data: IndustryPageData = {
       a: "Once you approve the plan and pay the setup fee, your website is typically live within 3–5 business days. Much of the timeline depends on how quickly you can provide feedback, photos, and logos. Most clients are surprised at how fast it happens.",
     },
     {
-      q: "Do I own my website?",
-      a: "Yes — your content, copy, images, and design are yours from day one. If you ever cancel, we give you everything you need to host it elsewhere.",
+      q: "What do I own, and what does my monthly fee cover?",
+      a: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and unlimited content updates. Think of it like having a full web team on retainer for a fraction of the cost. If you ever decide to move on, your domain goes with you — it's registered in your name.",
     },
     {
       q: "What if I don't have a logo or photos?",
