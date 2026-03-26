@@ -13,10 +13,10 @@ function SolutionLaptop() {
           <span className="w-2 h-2 rounded-full bg-[#28c840]" />
           <span className="flex-1 mx-2 h-4 rounded-md bg-[#1c1c1e] border border-[#3a3a3c]" />
         </div>
-        <div className="relative w-full bg-[#1c1c1e]" style={{ aspectRatio: "1919/927" }}>
+        <div className="relative w-full bg-[#1c1c1e]" style={{ aspectRatio: "1920/930" }}>
           <picture>
-            <source srcSet={`${BASE}wce-after-desktop.webp`} type="image/webp" />
-            <img src={`${BASE}wce-after-desktop.png`} alt="" className="w-full h-full object-contain" loading="lazy" />
+            <source srcSet={`${BASE}after-desktop.webp`} type="image/webp" />
+            <img src={`${BASE}after-desktop.png`} alt="" className="w-full h-full object-contain" loading="lazy" />
           </picture>
         </div>
       </div>
@@ -32,8 +32,8 @@ function SolutionTablet() {
       <div className="absolute top-1/2 right-[3px] -translate-y-1/2 w-[5px] h-[15%] bg-[#1c1c1e] rounded-l-lg z-10 border-y border-l border-[#3a3a3c]" />
       <div className="relative w-full rounded-[12px] overflow-hidden bg-[#1c1c1e]" style={{ aspectRatio: "16/10" }}>
         <picture>
-          <source srcSet={`${BASE}wce-after-desktop.webp`} type="image/webp" />
-          <img src={`${BASE}wce-after-desktop.png`} alt="" className="w-full h-full object-contain object-center" loading="lazy" />
+          <source srcSet={`${BASE}after-desktop.webp`} type="image/webp" />
+          <img src={`${BASE}after-desktop.png`} alt="" className="w-full h-full object-contain object-center" loading="lazy" />
         </picture>
       </div>
     </div>
@@ -46,8 +46,8 @@ function SolutionPhone() {
       <div className="absolute top-[3px] left-1/2 -translate-x-1/2 w-[30%] h-[5px] bg-[#1c1c1e] rounded-b-lg z-10 border-x border-b border-[#3a3a3c]" />
       <div className="relative w-full rounded-[16px] overflow-hidden" style={{ aspectRatio: "9/19.5" }}>
         <picture>
-          <source srcSet={`${BASE}wce-after-mobile.webp`} type="image/webp" />
-          <img src={`${BASE}wce-after-mobile.jpeg`} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
+          <source srcSet={`${BASE}after-mobile.webp`} type="image/webp" />
+          <img src={`${BASE}after-mobile.png`} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
         </picture>
       </div>
     </div>

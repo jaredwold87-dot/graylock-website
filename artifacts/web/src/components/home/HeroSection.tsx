@@ -40,28 +40,28 @@ function LaptopFrame({ showAfter }: { showAfter: boolean }) {
           <span className="flex-1 mx-2 h-4 rounded-md bg-[#1c1c1e] border border-[#3a3a3c]" />
         </div>
 
-        <div className="relative w-full bg-[#1c1c1e]" style={{ aspectRatio: "1919/927" }} aria-label="Website redesign comparison on laptop" role="img">
+        <div className="relative w-full bg-[#1c1c1e]" style={{ aspectRatio: "1920/930" }} aria-label="Website redesign comparison on laptop" role="img">
           <picture>
-            <source srcSet={`${BASE}wce-before.webp`} type="image/webp" />
+            <source srcSet={`${BASE}before-desktop.webp`} type="image/webp" />
             <img
-              src={`${BASE}wce-before.png`}
+              src={`${BASE}before-desktop.png`}
               alt=""
               className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
               style={{ opacity: showAfter ? 0 : 1 }}
-              width={1024}
-              height={640}
+              width={1920}
+              height={930}
               loading="eager"
             />
           </picture>
           <picture>
-            <source srcSet={`${BASE}wce-after-desktop.webp`} type="image/webp" />
+            <source srcSet={`${BASE}after-desktop.webp`} type="image/webp" />
             <img
-              src={`${BASE}wce-after-desktop.png`}
+              src={`${BASE}after-desktop.png`}
               alt=""
               className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
               style={{ opacity: showAfter ? 1 : 0 }}
-              width={1024}
-              height={640}
+              width={1920}
+              height={930}
               loading="eager"
             />
           </picture>
@@ -89,26 +89,26 @@ function PhoneFrame({ showAfter }: { showAfter: boolean }) {
 
         <div className="relative w-full rounded-[16px] lg:rounded-[20px] overflow-hidden" style={{ aspectRatio: "9/19.5" }} aria-label="Website redesign comparison on mobile" role="img">
           <picture>
-            <source srcSet={`${BASE}wce-before-mobile.webp`} type="image/webp" />
+            <source srcSet={`${BASE}before-mobile.webp`} type="image/webp" />
             <img
-              src={`${BASE}wce-before-mobile.jpeg`}
+              src={`${BASE}before-mobile.png`}
               alt=""
               className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out"
               style={{ opacity: showAfter ? 0 : 1 }}
-              width={473}
-              height={1024}
+              width={390}
+              height={844}
               loading="eager"
             />
           </picture>
           <picture>
-            <source srcSet={`${BASE}wce-after-mobile.webp`} type="image/webp" />
+            <source srcSet={`${BASE}after-mobile.webp`} type="image/webp" />
             <img
-              src={`${BASE}wce-after-mobile.jpeg`}
+              src={`${BASE}after-mobile.png`}
               alt=""
               className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out"
               style={{ opacity: showAfter ? 1 : 0 }}
-              width={473}
-              height={1024}
+              width={390}
+              height={844}
               loading="eager"
             />
           </picture>
