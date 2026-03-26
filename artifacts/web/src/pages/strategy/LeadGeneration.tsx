@@ -19,6 +19,7 @@ const data: StrategyPageData = {
       "A website that doesn't generate leads is just an online brochure. Graylock builds websites with lead generation as the primary goal — the forms, CTAs, content, and tracking to turn visitors into clients.",
     ctaButton: "Book Your Free Website Review",
     ctaSubtext: "Free demo + full written report — no obligation.",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-lead-gen.png`,
   },
   definition: {
     heading: "Lead Generation — Explained Simply",

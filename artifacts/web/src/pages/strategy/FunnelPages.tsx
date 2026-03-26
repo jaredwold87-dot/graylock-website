@@ -20,6 +20,7 @@ const data: StrategyPageData = {
       "Your homepage can't do everything. Funnel pages are the targeted, keyword-specific pages that capture visitors searching for your exact service, in your exact location — and convert them into calls.",
     ctaButton: "Book Your Free Website Review",
     ctaSubtext: "Free demo + full written report — no obligation.",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-funnel-pages.png`,
   },
   definition: {
     heading: "Funnel Pages — Explained Simply",

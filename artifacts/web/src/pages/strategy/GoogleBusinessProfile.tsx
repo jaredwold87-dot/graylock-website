@@ -20,6 +20,7 @@ const data: StrategyPageData = {
       "Before a potential client visits your website, they've already seen your Google Business Profile. Reviews, hours, photos, and your location — all of it determines whether they call you or your competitor.",
     ctaButton: "Book Your Free Website Review",
     ctaSubtext: "Free demo + full written report — no obligation.",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-gbp.png`,
   },
   definition: {
     heading: "Google Business Profiles — Explained Simply",

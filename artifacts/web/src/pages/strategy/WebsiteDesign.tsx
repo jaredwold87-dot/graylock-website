@@ -21,6 +21,7 @@ const data: StrategyPageData = {
       "Most small business websites are digital brochures collecting dust. We design websites built around one goal: turning visitors into calls, bookings, and revenue.",
     ctaButton: "Book Your Free Website Review",
     ctaSubtext: "Free demo + full written report — no obligation.",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-website-design.png`,
   },
   definition: {
     heading: "Website Design — Explained Simply",

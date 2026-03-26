@@ -19,6 +19,7 @@ const data: StrategyPageData = {
       "When someone asks ChatGPT, Google AI Overview, or Perplexity for a recommendation, what comes up? GEO is the emerging practice of optimizing your online presence for AI-generated answers — not just traditional search results.",
     ctaButton: "Book Your Free Website Review",
     ctaSubtext: "Free demo + full written report — no obligation.",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-geo.png`,
   },
   definition: {
     heading: "GEO — Explained Simply",

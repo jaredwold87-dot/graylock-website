@@ -20,6 +20,7 @@ const data: StrategyPageData = {
       "SEO is the difference between a website that sits dormant and one that generates leads while you sleep. Here's how it works — and what Graylock does to make it work for you.",
     ctaButton: "Book Your Free Website Review",
     ctaSubtext: "Free demo + full written report — no obligation.",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-seo.png`,
   },
   definition: {
     heading: "SEO — Explained Simply",
