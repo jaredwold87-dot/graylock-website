@@ -30,10 +30,10 @@ function SolutionTablet() {
   return (
     <div className="relative w-full rounded-[16px] bg-[#1c1c1e] border-[2.5px] border-[#3a3a3c] shadow-2xl shadow-black/60 overflow-hidden p-[3px]">
       <div className="absolute top-[3px] left-1/2 -translate-x-1/2 w-[20%] h-[5px] bg-[#1c1c1e] rounded-b-lg z-10 border-x border-b border-[#3a3a3c]" />
-      <div className="relative w-full rounded-[12px] overflow-hidden" style={{ aspectRatio: "4/3" }}>
+      <div className="relative w-full rounded-[12px] overflow-hidden bg-[#1c1c1e]" style={{ aspectRatio: "3/4" }}>
         <picture>
           <source srcSet={`${BASE}wce-after-desktop.webp`} type="image/webp" />
-          <img src={`${BASE}wce-after-desktop.png`} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
+          <img src={`${BASE}wce-after-desktop.png`} alt="" className="w-full h-auto object-contain object-top" loading="lazy" />
         </picture>
       </div>
     </div>
