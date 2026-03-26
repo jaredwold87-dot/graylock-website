@@ -33,7 +33,7 @@ function SolutionTablet() {
       <div className="relative w-full rounded-[12px] overflow-hidden bg-[#1c1c1e]" style={{ aspectRatio: "16/10" }}>
         <picture>
           <source srcSet={`${BASE}wce-after-desktop.webp`} type="image/webp" />
-          <img src={`${BASE}wce-after-desktop.png`} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
+          <img src={`${BASE}wce-after-desktop.png`} alt="" className="w-full h-full object-contain object-center" loading="lazy" />
         </picture>
       </div>
     </div>
