@@ -29,7 +29,7 @@ export function HeroSection() {
               Stop Losing Leads to a Dated & Ineffective Website.
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              We help growth-minded small and medium sized businesses dominate Google, get more leads, and keep client lists full – without locking you into long-term contracts.
+              We help growth-minded small and medium sized businesses dominate Google, get more leads, and keep client lists full – without locking you into long-term contracts or charging thousands of dollars upfront.
             </p>
             
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">
