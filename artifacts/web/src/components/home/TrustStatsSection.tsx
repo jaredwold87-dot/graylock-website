@@ -58,7 +58,7 @@ export function TrustStatsSection() {
         
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
-            Real Businesses. Real Results.
+            Built for Businesses Like Yours
           </h2>
         </ScrollReveal>
 

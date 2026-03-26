@@ -25,19 +25,19 @@ const beforeAfterPairs = [
     before: `${import.meta.env.BASE_URL}portfolio-before-1.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-1.png`,
     name: "Summit CPA Group",
-    result: "3x more consultation requests in 60 days",
+    result: "Modern design built for client trust",
   },
   {
     before: `${import.meta.env.BASE_URL}niche-accountant-1.png`,
     after: `${import.meta.env.BASE_URL}niche-accountant-2.png`,
     name: "Vanguard Tax Advisors",
-    result: "First page of Google for 'CPA near me'",
+    result: "SEO-optimized for local search visibility",
   },
   {
     before: `${import.meta.env.BASE_URL}niche-accountant-2.png`,
     after: `${import.meta.env.BASE_URL}niche-accountant-3.png`,
     name: "Clear Books Bookkeeping",
-    result: "42% increase in new client inquiries",
+    result: "Clean, professional online presence",
   },
 ];
 
@@ -252,10 +252,10 @@ export default function AccountantsFunnel() {
       <section className="bg-navy py-6 border-y border-gunmetal">
         <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-x-10 gap-y-3">
           {[
-            { value: "200+", label: "Service Businesses Helped" },
-            { value: "3x", label: "Average Lead Increase" },
             { value: "5", label: "Business Days to Launch" },
-            { value: "4.9★", label: "Client Satisfaction" },
+            { value: "$0", label: "Upfront Before Your Demo" },
+            { value: "100%", label: "US-Based Team" },
+            { value: "0", label: "Long-Term Contracts" },
           ].map((stat) => (
             <div
               key={stat.label}

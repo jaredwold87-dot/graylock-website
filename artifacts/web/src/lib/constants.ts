@@ -74,7 +74,7 @@ export const TESTIMONIALS = [
     name: "Sarah M.",
     title: "Licensed Therapist",
     location: "Reno, NV",
-    quote: "I was losing clients because my old site looked like a scam. Graylock built me a beautiful site in 3 days, and my consult requests have tripled. Best decision I've made for my practice."
+    quote: "My old site looked outdated and unprofessional. Graylock built me a beautiful new site in under a week, and I finally feel confident sending people to it. Best decision I've made for my practice."
   },
   {
     name: "David K.",
@@ -98,7 +98,7 @@ export const TESTIMONIALS = [
     name: "James L.",
     title: "HVAC Specialist",
     location: "Denver, CO",
-    quote: "Since launching our new site with Graylock, the quality of leads has skyrocketed. People tell me they chose us specifically because our website looked so professional."
+    quote: "Our new site looks so much more professional than what we had before. People tell us it's what made them call us over the competition."
   }
 ];
 

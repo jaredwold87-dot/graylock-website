@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Accountants & CPA Firms | $69/mo | Graylock Digital",
+    title: "Websites for Accountants & CPA Firms | $79/mo | Graylock Digital",
     description:
-      "Graylock builds professional, SEO-optimized websites for accountants, CPAs, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 5 days. $69/mo. Free demo.",
+      "Graylock builds professional, SEO-optimized websites for accountants, CPAs, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 5 days. $79/mo. Free demo.",
     url: "https://graylockdigital.com/websites-for-accountants",
   },
   hero: {
@@ -202,7 +202,7 @@ const data: IndustryPageData = {
       title: "CPA & Tax Advisor",
       location: "Henderson, NV",
       quote:
-        "I used to spend hours trying to fix my Wix site. Now I just email Tim and it's done the next day. It's like having a full-time web developer on staff for a fraction of the cost. The new site looks amazing and my inquiry rate has doubled.",
+        "I used to spend hours trying to fix my Wix site. Now I just email Tim and it's done the next day. It's like having a full-time web developer on staff for a fraction of the cost. The new site looks amazing.",
     },
     others: [
       {
@@ -210,7 +210,7 @@ const data: IndustryPageData = {
         title: "Licensed Therapist",
         location: "Reno, NV",
         quote:
-          "Graylock built me a beautiful site in 3 days, and my consult requests have tripled. Best decision I've made.",
+          "Graylock built me a beautiful site in under a week. I finally have a site I'm proud to share with clients.",
       },
       {
         name: "Marcus T.",

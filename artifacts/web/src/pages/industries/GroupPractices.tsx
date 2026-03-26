@@ -189,7 +189,7 @@ const data: IndustryPageData = {
       title: "Licensed Therapist",
       location: "Reno, NV",
       quote:
-        "I was losing clients because my old site looked like a scam. Graylock built me a beautiful site in 3 days, and my consult requests have tripled. Best decision I've made for my practice.",
+        "My old site looked outdated and unprofessional. Graylock built me a beautiful new site in under a week, and I finally feel confident sending people to it. Best decision I've made for my practice.",
     },
     others: [
       {
@@ -227,7 +227,7 @@ const data: IndustryPageData = {
     },
     {
       q: "Is $119/month the starting price for group practices?",
-      a: "Our Standard plan at $119/month is recommended for most group practices due to the additional pages and features needed. Solo practitioners can start at $69/month with our Starter plan.",
+      a: "Our Standard plan at $119/month is recommended for most group practices due to the additional pages and features needed. Solo practitioners can start at $79/month with our Starter plan.",
     },
   ],
   bottomCta: {

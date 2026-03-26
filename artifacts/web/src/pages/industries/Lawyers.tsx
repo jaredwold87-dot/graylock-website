@@ -17,9 +17,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Lawyers & Law Firms | $69/mo | Graylock Digital",
+    title: "Websites for Lawyers & Law Firms | $79/mo | Graylock Digital",
     description:
-      "Graylock builds professional, SEO-optimized websites for solo attorneys and small law firms. Practice area pages, attorney bios, client intake forms. Built in 5 days. Free demo. $69/mo.",
+      "Graylock builds professional, SEO-optimized websites for solo attorneys and small law firms. Practice area pages, attorney bios, client intake forms. Built in 5 days. Free demo. $79/mo.",
     url: "https://graylockdigital.com/websites-for-lawyers",
   },
   hero: {
@@ -34,7 +34,7 @@ const data: IndustryPageData = {
       "Practice area pages",
       "24/7 intake forms",
       "Local SEO included",
-      "$69/month — less than LawLytics",
+      "$79/month — less than LawLytics",
     ],
   },
   specialties: {
@@ -83,7 +83,7 @@ const data: IndustryPageData = {
         icon: DollarSign,
         title: "Competitors charge $150–$225/month",
         description:
-          "LawLytics and other legal website platforms charge significantly more. Graylock starts at $69/month.",
+          "LawLytics and other legal website platforms charge significantly more. Graylock starts at $79/month.",
       },
       {
         icon: Clock,
@@ -112,7 +112,7 @@ const data: IndustryPageData = {
           "Build personal credibility and connection with prospects through a professional, well-written bio.",
       },
       {
-        title: "Starting at $69/month",
+        title: "Starting at $79/month",
         description:
           "Significantly less than LawLytics or FindLaw. Professional quality at a fraction of the cost.",
       },
@@ -219,7 +219,7 @@ const data: IndustryPageData = {
         title: "Licensed Therapist",
         location: "Reno, NV",
         quote:
-          "Graylock built me a beautiful site in 3 days, and my consult requests have tripled. Best decision I've made.",
+          "Graylock built me a beautiful site in under a week. I finally have a site I'm proud to share with clients.",
       },
     ],
   },
@@ -230,7 +230,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How does your pricing compare to LawLytics?",
-      a: "LawLytics starts at approximately $150–$225/month. Graylock starts at $69/month with a $249 setup fee — meaningfully less expensive, with a custom design, 5-day build, and the same month-to-month flexibility.",
+      a: "LawLytics starts at approximately $150–$225/month. Graylock starts at $79/month with a $299 setup fee — meaningfully less expensive, with a custom design, 5-day build, and the same month-to-month flexibility.",
     },
     {
       q: "Can you include an online consultation request form?",

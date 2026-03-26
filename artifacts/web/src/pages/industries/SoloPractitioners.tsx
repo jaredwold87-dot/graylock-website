@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Solo Practitioners | Private Practice Websites | $69/mo | Graylock Digital",
+    title: "Websites for Solo Practitioners | Private Practice Websites | $79/mo | Graylock Digital",
     description:
-      "Graylock builds warm, professional websites for solo practitioners in private practice. Therapists, counselors, coaches and more. Custom built in 5 days. Starting at $69/mo. Free demo.",
+      "Graylock builds warm, professional websites for solo practitioners in private practice. Therapists, counselors, coaches and more. Custom built in 5 days. Starting at $79/mo. Free demo.",
     url: "https://graylockdigital.com/websites-for-solo-practitioners",
   },
   hero: {
@@ -122,7 +122,7 @@ const data: IndustryPageData = {
           "No months of delays. Your new professional website is live within one business week.",
       },
       {
-        title: "Starting at $69/month",
+        title: "Starting at $79/month",
         description:
           "A fraction of one new client's revenue. The ROI pays for itself immediately.",
       },
@@ -204,7 +204,7 @@ const data: IndustryPageData = {
       title: "Licensed Therapist",
       location: "Reno, NV",
       quote:
-        "I was losing clients because my old site looked like a scam. Graylock built me a beautiful site in 3 days, and my consult requests have tripled. Best decision I've made for my practice.",
+        "My old site looked outdated and unprofessional. Graylock built me a beautiful new site in under a week, and I finally feel confident sending people to it. Best decision I've made for my practice.",
     },
     others: [
       {

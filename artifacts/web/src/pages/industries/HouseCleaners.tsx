@@ -18,9 +18,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for House Cleaners & Cleaning Companies | $69/mo | Graylock Digital",
+    title: "Websites for House Cleaners & Cleaning Companies | $79/mo | Graylock Digital",
     description:
-      "Graylock builds professional, trust-building websites for house cleaners and residential cleaning companies. Quote forms, service pages, local SEO. Built in 5 days. $69/mo. Free demo.",
+      "Graylock builds professional, trust-building websites for house cleaners and residential cleaning companies. Quote forms, service pages, local SEO. Built in 5 days. $79/mo. Free demo.",
     url: "https://graylockdigital.com/websites-for-house-cleaners",
   },
   hero: {
@@ -35,7 +35,7 @@ const data: IndustryPageData = {
       "5-day build",
       "Quote forms included",
       "Local SEO optimized",
-      "$69/month",
+      "$79/month",
     ],
   },
   specialties: {
@@ -117,7 +117,7 @@ const data: IndustryPageData = {
           "Deep clean, recurring, move-in/out, vacation rental — each service gets its own page.",
       },
       {
-        title: "Built in 5 Days for $69/month",
+        title: "Built in 5 Days for $79/month",
         description:
           "Less than one cleaning job per month. The ROI pays for itself with your first online booking.",
       },
@@ -204,7 +204,7 @@ const data: IndustryPageData = {
       title: "Licensed Therapist",
       location: "Reno, NV",
       quote:
-        "I was losing clients because my old site looked like a scam. Graylock built me a beautiful site in 3 days, and my consult requests have tripled. Best decision I've made for my practice.",
+        "My old site looked outdated and unprofessional. Graylock built me a beautiful new site in under a week, and I finally feel confident sending people to it. Best decision I've made for my practice.",
     },
     others: [
       {
@@ -212,7 +212,7 @@ const data: IndustryPageData = {
         title: "HVAC Specialist",
         location: "Denver, CO",
         quote:
-          "Since launching our new site, the quality of leads has skyrocketed. People chose us because our website looked professional.",
+          "Our new site looks so much more professional. People tell us it's what made them call us over the competition.",
       },
       {
         name: "Marcus T.",
@@ -238,7 +238,7 @@ const data: IndustryPageData = {
     },
     {
       q: "I'm just starting out. Is Graylock right for me?",
-      a: "Yes. Our Starter plan at $69/month is ideal for independent cleaners and small cleaning companies just establishing their online presence. A professional website from day one sets you apart from competitors immediately.",
+      a: "Yes. Our Starter plan at $79/month is ideal for independent cleaners and small cleaning companies just establishing their online presence. A professional website from day one sets you apart from competitors immediately.",
     },
     {
       q: "What if I serve multiple zip codes or neighborhoods?",

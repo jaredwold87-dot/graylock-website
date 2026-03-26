@@ -13,7 +13,7 @@ const portfolioItems = [
     before: `${import.meta.env.BASE_URL}portfolio-before-1.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-1.png`,
     goal: "Replace their outdated WordPress site that was losing credibility with high-value clients",
-    results: ["3x more consultation requests", "Mobile-friendly design", "Modern brand presence"],
+    results: ["Mobile-friendly design", "Modern brand presence", "SEO-optimized for local search"],
   },
   {
     name: "Peaceful Minds Counseling",
@@ -21,7 +21,7 @@ const portfolioItems = [
     before: `${import.meta.env.BASE_URL}portfolio-before-2.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-2.png`,
     goal: "Create a warm, inviting web presence that builds trust with prospective clients",
-    results: ["Online booking integration", "60% more inquiries", "Professional credibility"],
+    results: ["Online booking integration", "Warm, trust-building design", "Professional credibility"],
   },
   {
     name: "Summit Builders LLC",
@@ -29,7 +29,7 @@ const portfolioItems = [
     before: `${import.meta.env.BASE_URL}portfolio-before-3.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-3.png`,
     goal: "Modernize their early-2000s site to win larger residential projects",
-    results: ["Project gallery showcase", "Quote form conversions up 4x", "Top local search results"],
+    results: ["Project gallery showcase", "Built-in quote request form", "Local SEO optimization"],
   },
 ];
 

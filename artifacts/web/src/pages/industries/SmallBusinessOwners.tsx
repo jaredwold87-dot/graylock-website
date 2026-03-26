@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Small Business Owners | $69/mo | Graylock Digital",
+    title: "Websites for Small Business Owners | $79/mo | Graylock Digital",
     description:
-      "Graylock Digital builds high-converting websites for small business owners — fast (5 days), affordable ($69/mo), and fully managed. No tech headaches. Free website review.",
+      "Graylock Digital builds high-converting websites for small business owners — fast (5 days), affordable ($79/mo), and fully managed. No tech headaches. Free website review.",
     url: "https://graylockdigital.com/websites-for-small-business-owners",
   },
   hero: {
@@ -31,7 +31,7 @@ const data: IndustryPageData = {
     cta: "Book Your Free Website Review",
     trustSignals: [
       "5 business days",
-      "$69/month",
+      "$79/month",
       "Free demo first",
       "100% American team",
     ],
@@ -87,7 +87,7 @@ const data: IndustryPageData = {
           "No endless back-and-forth. You approve, we launch. Your new website is live and working within one business week.",
       },
       {
-        title: "Starting at $69/month",
+        title: "Starting at $79/month",
         description:
           "Includes hosting, maintenance, SSL, and monthly updates. Everything you need, nothing you don't.",
       },
@@ -144,7 +144,7 @@ const data: IndustryPageData = {
       title: "Licensed Therapist",
       location: "Reno, NV",
       quote:
-        "I was losing clients because my old site looked like a scam. Graylock built me a beautiful site in 3 days, and my consult requests have tripled. Best decision I've made for my practice.",
+        "My old site looked outdated and unprofessional. Graylock built me a beautiful new site in under a week, and I finally feel confident sending people to it. Best decision I've made for my practice.",
     },
     others: [
       {
@@ -166,7 +166,7 @@ const data: IndustryPageData = {
   faqs: [
     {
       q: "How much does a website for a small business cost?",
-      a: "Graylock Digital starts at $69/month with a $249 one-time setup fee. This includes custom design, hosting, SSL, monthly maintenance, basic dashboard access, and a monthly performance report. No hidden fees.",
+      a: "Graylock Digital starts at $79/month with a $299 one-time setup fee. This includes custom design, hosting, SSL, monthly maintenance, basic dashboard access, and a monthly performance report. No hidden fees.",
     },
     {
       q: "How fast can you build my website?",
@@ -211,7 +211,7 @@ const data: IndustryPageData = {
         name: "How much does a website for a small business cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Graylock Digital starts at $69/month with a $249 one-time setup fee.",
+          text: "Graylock Digital starts at $79/month with a $299 one-time setup fee.",
         },
       },
       {

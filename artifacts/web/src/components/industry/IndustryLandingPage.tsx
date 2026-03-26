@@ -152,7 +152,7 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
                       <div className="text-stone text-xs font-sans uppercase tracking-wider">Day Build</div>
                     </div>
                     <div className="bg-navy/80 border border-gunmetal rounded-xl p-6 text-center">
-                      <div className="text-3xl font-display text-orange font-bold mb-1">$69</div>
+                      <div className="text-3xl font-display text-orange font-bold mb-1">{PRICING_TIERS[0].price}</div>
                       <div className="text-stone text-xs font-sans uppercase tracking-wider">/Month Start</div>
                     </div>
                     <div className="bg-navy/80 border border-gunmetal rounded-xl p-6 text-center">
@@ -175,10 +175,10 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
       <section className="bg-navy py-6 border-y border-gunmetal">
         <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-x-10 gap-y-3">
           {[
-            { value: "200+", label: "Service Businesses Helped" },
-            { value: "3x", label: "Average Lead Increase" },
             { value: "5", label: "Business Days to Launch" },
-            { value: "4.9★", label: "Client Satisfaction" },
+            { value: "$0", label: "Upfront Before Your Demo" },
+            { value: "100%", label: "US-Based Team" },
+            { value: "0", label: "Long-Term Contracts" },
           ].map((stat) => (
             <div key={stat.label} className="flex items-center gap-3 py-2">
               <span className="text-orange font-display text-2xl md:text-3xl font-bold">

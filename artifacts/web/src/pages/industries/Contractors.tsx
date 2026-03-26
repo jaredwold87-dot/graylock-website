@@ -18,9 +18,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Contractor Websites | Custom Built in 5 Days | $69/mo | Graylock Digital",
+    title: "Contractor Websites | Custom Built in 5 Days | $79/mo | Graylock Digital",
     description:
-      "Graylock builds high-converting contractor websites that get you more bids and project calls. Fast builds, local SEO, photo galleries, quote forms. Starting at $69/mo. Free demo first.",
+      "Graylock builds high-converting contractor websites that get you more bids and project calls. Fast builds, local SEO, photo galleries, quote forms. Starting at $79/mo. Free demo first.",
     url: "https://graylockdigital.com/websites-for-contractors",
   },
   hero: {
@@ -215,7 +215,7 @@ const data: IndustryPageData = {
         title: "HVAC Specialist",
         location: "Denver, CO",
         quote:
-          "Since launching our new site, the quality of leads has skyrocketed. People tell me they chose us because our website looked so professional.",
+          "Our new site looks so much more professional. People tell us it's what made them call us over the competition.",
       },
       {
         name: "David K.",
