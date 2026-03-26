@@ -17,14 +17,15 @@ export default function Pricing() {
     { name: "SEO Optimization", starter: "Basic Setup", standard: "Local SEO Focus", growth: "Advanced + Schema", custom: "Advanced Strategy" },
     { name: "Google Business Profile", starter: false, standard: true, growth: true, custom: true },
     { name: "Business Dashboard", starter: "Dashboard + Support", standard: "Enhanced + Priority", growth: "Enhanced + Priority", custom: "Custom" },
-    { name: "Website Analytics", starter: "Basic Traffic", standard: "Full Insights", growth: "Full Reports", custom: "Custom Reports" },
+    { name: "Website Analytics", starter: false, standard: "Full Insights", growth: "Full Reports", custom: "Custom Reports" },
     { name: "Edit Business Info (Hours, Phone, Address)", starter: true, standard: true, growth: true, custom: true },
     { name: "Announcement / Message Banner", starter: false, standard: true, growth: true, custom: true },
     { name: "Lead Activity Tracking", starter: false, standard: true, growth: true, custom: true },
     { name: "Easy Update Request Submission", starter: false, standard: false, growth: true, custom: true },
     { name: "Quarterly SEO Review", starter: false, standard: false, growth: true, custom: true },
     { name: "Daily Backups", starter: false, standard: false, growth: true, custom: true },
-    { name: "Priority Support (24hr)", starter: false, standard: true, growth: true, custom: true },
+    { name: "Custom Integrations (Calendly, etc.)", starter: false, standard: false, growth: true, custom: true },
+    { name: "Priority Support", starter: false, standard: true, growth: true, custom: true },
     { name: "Quarterly Strategy Call", starter: false, standard: false, growth: true, custom: true },
     { name: "Dedicated Account Manager", starter: false, standard: false, growth: false, custom: true },
     { name: "Priority Build Queue", starter: false, standard: false, growth: false, custom: true },
@@ -67,7 +68,7 @@ export default function Pricing() {
               <thead>
                 <tr>
                   <th className="p-4 border-b border-gunmetal font-display text-xl text-stone w-1/5">Features</th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Starter<br/><span className="text-sm text-stone font-sans">$69/mo</span></th>
+                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Starter<br/><span className="text-sm text-stone font-sans">$79/mo</span></th>
                   <th className="p-4 border-b border-gunmetal font-display text-xl text-orange w-1/5 text-center">Standard<br/><span className="text-sm text-stone font-sans">$119/mo</span></th>
                   <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Growth<br/><span className="text-sm text-stone font-sans">$199/mo</span></th>
                   <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Custom<br/><span className="text-sm text-stone font-sans">Contact Us</span></th>

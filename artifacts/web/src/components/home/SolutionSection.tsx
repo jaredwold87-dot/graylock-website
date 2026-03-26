@@ -28,10 +28,10 @@ export function SolutionSection() {
         
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
-            A Done-For-You Website That Actually Gets Results — Starting at $69/month
+            A Done-For-You Website That Actually Gets Results — Starting at $79/month
           </h2>
           <p className="text-stone text-lg font-sans">
-            Stop worrying about hosting, plugins, and design templates. Focus on running your business while we handle your web presence entirely.
+            Most websites are just digital brochures. We build high-performance sales engines. Book a free 20-minute call, and you'll receive a comprehensive written report covering your website analysis, SEO audit, competitive landscape, and growth opportunities — plus a custom homepage demo — all before you pay us anything.
           </p>
         </ScrollReveal>
 

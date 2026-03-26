@@ -29,7 +29,7 @@ export function HeroSection() {
               Stop Losing Leads to a Dated & Ineffective Website.
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              Most websites are just digital brochures. We build high-performance sales engines. Book a free 20-minute call, and you'll receive a comprehensive written report covering your website analysis, SEO audit, competitive landscape, and growth opportunities — plus a custom homepage demo — all before you pay us anything.
+              We help growth-minded small and medium sized businesses dominate Google, get more leads, and keep client lists full – without locking you into long-term contracts.
             </p>
             
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">

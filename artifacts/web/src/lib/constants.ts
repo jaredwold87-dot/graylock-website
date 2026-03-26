@@ -1,8 +1,8 @@
 export const PRICING_TIERS = [
   {
     name: "Starter",
-    price: "$69",
-    setup: "$249 one-time setup",
+    price: "$79",
+    setup: "$299 one-time setup",
     description: "Perfect for single-operator service businesses needing a professional web presence.",
     features: [
       "Custom 5-Page Website",
@@ -35,7 +35,7 @@ export const PRICING_TIERS = [
   {
     name: "Growth",
     price: "$199",
-    setup: "$999 one-time setup",
+    setup: "$599 one-time setup",
     description: "For established businesses that need full control and maximum performance.",
     features: [
       "Custom 10-Page Website",
@@ -49,7 +49,7 @@ export const PRICING_TIERS = [
       "Advanced SEO & Schema",
       "Quarterly SEO Review",
       "Daily Backups & Scans",
-      "Unlimited Content Updates",
+      "Custom Integrations (Calendly, etc.)",
       "Quarterly Strategy Call"
     ]
   },
@@ -127,11 +127,11 @@ export const FAQS = [
     questions: [
       {
         q: "What's included in the monthly fee?",
-        a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Dashboard access and support\n\nStarter plan ($69/mo): Dashboard + support\nStandard plan ($119/mo): Enhanced dashboard + priority support + Google Business Profile setup\nGrowth plan ($199/mo): Enhanced dashboard + unlimited updates + priority support + quarterly strategy call\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
+        a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Dashboard access and support\n\nStarter plan ($79/mo): Dashboard + support\nStandard plan ($119/mo): Enhanced dashboard + priority support + Google Business Profile setup\nGrowth plan ($199/mo): Enhanced dashboard + custom integrations + priority support + quarterly strategy call\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
       },
       {
         q: "Is there a setup fee, and what does it cover?",
-        a: "Yes — there's a one-time setup fee that covers the cost of designing and building your custom website:\n\n• Starter: $249 setup\n• Standard: $499 setup\n• Growth: $999 setup\n• Custom: Custom quote\n\nThis is the cost of the actual design and development work. Most agencies charge $5,000–$15,000 for this upfront. Our setup fee lets you get a professionally built website for a fraction of that, with the ongoing maintenance and support spread into your monthly rate."
+        a: "Yes — there's a one-time setup fee that covers the cost of designing and building your custom website:\n\n• Starter: $299 setup\n• Standard: $499 setup\n• Growth: $599 setup\n• Custom: Custom quote\n\nThis is the cost of the actual design and development work. Most agencies charge $5,000–$15,000 for this upfront. Our setup fee lets you get a professionally built website for a fraction of that, with the ongoing maintenance and support spread into your monthly rate."
       },
       {
         q: "Are there any hidden fees or extra charges?",
@@ -183,6 +183,10 @@ export const FAQS = [
     category: "Features & What They Mean",
     id: "features-explained",
     questions: [
+      {
+        q: "What is a funnel page?",
+        a: "A funnel page is a focused, standalone page on your website designed to attract visitors searching for a specific service in a specific location — and guide them toward taking action (like calling you or filling out a form).\n\nUnlike a general \"Services\" page that lists everything, a funnel page zeroes in on one thing — for example, \"Tax Preparation for Small Businesses in Denver\" or \"Emergency Plumbing in Austin.\" It's written, structured, and optimized to rank for that exact search term.\n\nThe word \"funnel\" comes from the idea that these pages funnel the right people — those already searching for what you offer — toward becoming a lead. They're one of the most effective ways to get found on Google without paying for ads.\n\nThe Standard plan includes 5 funnel pages, and the Growth plan includes 10."
+      },
       {
         q: "What are SEO funnel pages, and why do they matter?",
         a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \"Services\" page, each funnel page targets a specific search term your customers are actually typing into Google.\n\nFor example, if you're a plumber in Austin, you might have individual pages for \"emergency plumber Austin,\" \"water heater repair Austin,\" and \"drain cleaning Round Rock.\" Each page is written, structured, and optimized to rank for that exact search — giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Standard plan includes 5 funnel pages, and the Growth plan includes 10 — enough to cover your core services and surrounding areas. Starter plan sites can absolutely be upgraded later if you want to add funnel pages down the road."

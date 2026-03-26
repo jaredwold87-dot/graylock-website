@@ -166,7 +166,7 @@ export default function AccountantsFunnel() {
     <>
       <SEO
         title="Websites for Accountants & CPA Firms | Graylock Digital"
-        description="Get a modern, SEO-optimized website built specifically for your accounting firm. Rank higher on Google, capture more leads, and grow your practice — starting at $69/mo."
+        description="Get a modern, SEO-optimized website built specifically for your accounting firm. Rank higher on Google, capture more leads, and grow your practice — starting at $79/mo."
         url="https://graylockdigital.com/accountants"
       />
 
@@ -214,7 +214,7 @@ export default function AccountantsFunnel() {
               {[
                 "Free homepage mockup",
                 "No contracts",
-                "Starts at $69/mo",
+                "Starts at $79/mo",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <Check size={14} className="text-orange" />
