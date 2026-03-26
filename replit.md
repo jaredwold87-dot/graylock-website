@@ -58,7 +58,10 @@ Frontend-only React + Vite marketing website for Graylock Digital, a subscriptio
 - **Tech**: React, Vite, Tailwind CSS, Framer Motion, wouter (routing), react-helmet-async (SEO)
 - **Brand Colors**: charcoal (#0F1117), navy (#1A1F2E), gunmetal (#2C3140), stone (#8A8F9E), offwhite (#F2F3F5), orange (#E8631A)
 - **Typography**: Barlow Condensed (700, headlines) + Barlow (400/600, body)
-- **Pages**: / (homepage), /how-it-works, /pricing, /work, /about, /faq, /get-started (onboarding wizard), /contact (redirects to /get-started), /thank-you
+- **Pages**: / (homepage), /how-it-works, /pricing, /work, /about, /faq, /get-started (onboarding wizard), /contact (redirects to /get-started), /thank-you, /accountants (legacy funnel)
+- **"Who We Help" Industry Pages** (7 pages, shared template): /websites-for-small-business-owners, /websites-for-contractors, /websites-for-solo-practitioners, /websites-for-group-practices, /websites-for-accountants, /websites-for-lawyers, /websites-for-house-cleaners — all use `IndustryLandingPage` component template at `src/components/industry/IndustryLandingPage.tsx`; individual page data + wrappers at `src/pages/industries/*.tsx`
+- **Navbar**: "Who We Help" dropdown (hover on desktop, accordion on mobile) positioned between "How It Works" and "Pricing"
+- **Footer**: Includes "WHO WE HELP" column linking to all 7 industry pages
 - **Onboarding Wizard** (`/get-started`): 6-step multi-step form replacing old contact page. Step 1 (name/email), Step 2 (has website? yes/no branch), Path A (URL → goal → target customer), Path B (business type → stage → lead gen), Final step (referral + submit). Uses WizardContext for state, WizardShell for progress bar, BookingState for post-submit Calendly embed or email follow-up confirmation. Formspree submission (placeholder URL: `https://formspree.io/f/REPLACE`). Calendly URL configurable in BookingState.tsx (empty = email follow-up flow).
 - **All CTAs**: Site-wide "Book Your Free Website Review" buttons link to `/get-started`
 - **Assets in public/**: logo-horizontal.png (navbar), logo-stacked.png (footer), hero-bg.png (homepage hero background), devices-hero.png (device mockup), about-hero.png (about/how-it-works hero bg), portfolio-before-{1,2,3}.png & portfolio-after-{1,2,3}.png (before/after portfolio images for CPA, Therapist, Contractor)

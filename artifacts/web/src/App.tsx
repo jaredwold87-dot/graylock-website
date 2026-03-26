@@ -16,6 +16,13 @@ import GetStarted from "@/pages/GetStarted";
 import ContactRedirect from "@/pages/Contact";
 import ThankYou from "@/pages/ThankYou";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
+import SmallBusinessOwners from "@/pages/industries/SmallBusinessOwners";
+import Contractors from "@/pages/industries/Contractors";
+import SoloPractitioners from "@/pages/industries/SoloPractitioners";
+import GroupPractices from "@/pages/industries/GroupPractices";
+import AccountantsIndustry from "@/pages/industries/Accountants";
+import LawyersIndustry from "@/pages/industries/Lawyers";
+import HouseCleaners from "@/pages/industries/HouseCleaners";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -41,6 +48,13 @@ function Router() {
       <Route path="/contact" component={ContactRedirect} />
       <Route path="/thank-you" component={ThankYou} />
       <Route path="/accountants" component={AccountantsFunnel} />
+      <Route path="/websites-for-small-business-owners" component={SmallBusinessOwners} />
+      <Route path="/websites-for-contractors" component={Contractors} />
+      <Route path="/websites-for-solo-practitioners" component={SoloPractitioners} />
+      <Route path="/websites-for-group-practices" component={GroupPractices} />
+      <Route path="/websites-for-accountants" component={AccountantsIndustry} />
+      <Route path="/websites-for-lawyers" component={LawyersIndustry} />
+      <Route path="/websites-for-house-cleaners" component={HouseCleaners} />
       <Route component={NotFound} />
     </Switch>
   );
