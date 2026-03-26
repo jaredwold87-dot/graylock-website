@@ -66,12 +66,12 @@ export interface IndustryPageData {
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-gunmetal rounded-xl overflow-hidden transition-all duration-300 hover:border-orange/40">
+    <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 hover:border-orange/40">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between p-5 md:p-6 text-left"
       >
-        <span className="text-offwhite font-sans font-semibold text-base md:text-lg pr-4">
+        <span className="text-charcoal font-sans font-semibold text-base md:text-lg pr-4">
           {q}
         </span>
         <ChevronDown
@@ -82,7 +82,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       <div
         className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96 pb-5 px-5 md:px-6" : "max-h-0"}`}
       >
-        <p className="text-stone font-sans leading-relaxed">{a}</p>
+        <p className="text-gray-600 font-sans leading-relaxed">{a}</p>
       </div>
     </div>
   );
