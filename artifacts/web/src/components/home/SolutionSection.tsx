@@ -23,6 +23,8 @@ export function SolutionSection() {
   return (
     <section className="bg-navy py-24 px-6 md:px-12 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#F2F3F5 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
+      <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -37,8 +39,10 @@ export function SolutionSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {solutions.map((sol, i) => (
-            <ScrollReveal key={i} delay={i * 0.15} className="bg-charcoal p-10 rounded-xl border-t-4 border-t-orange border-x border-b border-gunmetal shadow-lg shadow-black/20 hover:-translate-y-1 transition-transform duration-300">
-              {sol.icon}
+            <ScrollReveal key={i} delay={i * 0.15} className="card-glow gradient-border bg-charcoal/80 p-10 rounded-xl border border-gunmetal/50">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange/20 to-orange/5 rounded-xl flex items-center justify-center mb-6 border border-orange/10">
+                {sol.icon}
+              </div>
               <h3 className="text-2xl font-display text-offwhite mb-4">{sol.title}</h3>
               <p className="text-stone font-sans leading-relaxed">{sol.desc}</p>
             </ScrollReveal>

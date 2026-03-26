@@ -2,7 +2,8 @@ import { Link } from "wouter";
 
 export function Footer() {
   return (
-    <footer className="bg-charcoal border-t border-gunmetal pt-20 pb-10 px-6 md:px-12">
+    <footer className="bg-charcoal pt-20 pb-10 px-6 md:px-12 relative">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         
         {/* Brand & Tagline */}

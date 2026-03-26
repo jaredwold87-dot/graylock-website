@@ -6,8 +6,11 @@ import { cn } from "@/lib/utils";
 
 export function PricingSection() {
   return (
-    <section className="bg-charcoal py-24 px-6 md:px-12 relative">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-charcoal py-24 px-6 md:px-12 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
+      <div className="section-divider absolute top-0 left-0 right-0" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
@@ -21,11 +24,13 @@ export function PricingSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
           {PRICING_TIERS.map((tier: any, i: number) => (
             <ScrollReveal key={tier.name} delay={i * 0.1} className={cn(
-              "bg-navy rounded-2xl border flex flex-col p-7 relative",
-              tier.popular ? "border-orange shadow-[0_0_30px_rgba(232,99,26,0.15)] md:-translate-y-4" : "border-gunmetal"
+              "card-glow rounded-2xl border flex flex-col p-7 relative",
+              tier.popular 
+                ? "bg-gradient-to-b from-navy to-charcoal border-orange/50 shadow-[0_0_40px_rgba(232,99,26,0.12)] md:-translate-y-4" 
+                : "bg-navy/80 border-gunmetal/50 gradient-border"
             )}>
               {tier.popular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-md">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange to-orange/80 text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-orange/30">
                   Most Popular
                 </div>
               )}
@@ -35,21 +40,21 @@ export function PricingSection() {
                 <p className="text-stone text-sm mb-5 min-h-[40px]">{tier.description}</p>
                 {tier.isCustom ? (
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-display text-orange">Let's Talk</span>
+                    <span className="text-3xl font-display text-gradient">Let's Talk</span>
                   </div>
                 ) : (
                   <>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-display text-orange">{tier.price}</span>
+                      <span className="text-4xl font-display text-gradient">{tier.price}</span>
                       <span className="text-stone font-sans">/mo</span>
                     </div>
-                    <p className="text-stone text-sm font-semibold mt-2 border-t border-gunmetal pt-3">
+                    <p className="text-stone text-sm font-semibold mt-2 border-t border-gunmetal/50 pt-3">
                       + {tier.setup}
                     </p>
                   </>
                 )}
                 {tier.isCustom && (
-                  <p className="text-stone text-sm font-semibold mt-2 border-t border-gunmetal pt-3">
+                  <p className="text-stone text-sm font-semibold mt-2 border-t border-gunmetal/50 pt-3">
                     Custom quote
                   </p>
                 )}
@@ -59,7 +64,9 @@ export function PricingSection() {
                 <ul className="space-y-3">
                   {tier.features.map((feature: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <Check className="text-orange mt-0.5 flex-shrink-0" size={16} />
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 flex items-center justify-center mt-0.5">
+                        <Check className="text-orange" size={12} />
+                      </div>
                       <span className="text-offwhite font-sans text-sm">{feature}</span>
                     </li>
                   ))}

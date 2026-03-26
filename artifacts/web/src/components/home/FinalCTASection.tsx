@@ -4,9 +4,11 @@ import { Check } from "lucide-react";
 
 export function FinalCTASection() {
   return (
-    <section className="bg-orange py-24 px-6 md:px-12 text-center overflow-hidden relative">
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-white/10 rounded-full blur-2xl"></div>
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-black/10 rounded-full blur-2xl"></div>
+    <section className="bg-gradient-to-br from-orange via-orange to-orange/90 py-24 px-6 md:px-12 text-center overflow-hidden relative">
+      <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-black/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <ScrollReveal>
@@ -24,7 +26,9 @@ export function FinalCTASection() {
               "Zero obligation"
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2">
-                <Check className="text-white flex-shrink-0" size={18} />
+                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Check className="text-white" size={12} />
+                </div>
                 <span className="text-white/90 font-sans text-sm font-semibold">{item}</span>
               </div>
             ))}

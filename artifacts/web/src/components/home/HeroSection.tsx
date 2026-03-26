@@ -26,7 +26,9 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display text-offwhite leading-[1.1] mb-6">
-              Stop Losing Leads to a Dated & Ineffective Website.
+              Stop Losing Leads to a{" "}
+              <span className="text-gradient">Dated & Ineffective</span>{" "}
+              Website.
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
               We help growth-minded small and medium sized businesses dominate Google, get more leads, and keep client lists full – without locking you into long-term contracts or charging thousands of dollars upfront.
@@ -46,7 +48,7 @@ export function HeroSection() {
                 "Zero obligation to move forward"
               ].map((text, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-navy border border-gunmetal flex items-center justify-center">
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
                     <Check size={12} className="text-orange" />
                   </div>
                   <span className="text-stone font-sans text-sm md:text-base">{text}</span>

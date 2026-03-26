@@ -33,6 +33,7 @@ export function OfferBreakdownSection() {
   return (
     <section className="bg-navy py-24 px-6 md:px-12 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#F2F3F5 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
@@ -47,13 +48,13 @@ export function OfferBreakdownSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {offers.map((offer, i) => (
-            <ScrollReveal key={i} delay={i * 0.12} className="bg-charcoal p-8 rounded-xl border-t-4 border-t-orange border-x border-b border-gunmetal shadow-lg shadow-black/20 hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-              <div className="w-14 h-14 bg-orange/10 rounded-xl flex items-center justify-center mb-6">
+            <ScrollReveal key={i} delay={i * 0.12} className="card-glow gradient-border bg-charcoal/80 p-8 rounded-xl border border-gunmetal/50 flex flex-col">
+              <div className="w-14 h-14 bg-gradient-to-br from-orange/20 to-orange/5 rounded-xl flex items-center justify-center mb-6 border border-orange/10">
                 {offer.icon}
               </div>
               <h3 className="text-xl font-display text-offwhite mb-4">{offer.title}</h3>
               <p className="text-stone font-sans leading-relaxed mb-6 flex-grow text-sm">{offer.desc}</p>
-              <p className="text-orange/80 font-sans text-sm font-semibold border-t border-gunmetal pt-4">{offer.value}</p>
+              <p className="text-orange/80 font-sans text-sm font-semibold border-t border-gunmetal/50 pt-4">{offer.value}</p>
             </ScrollReveal>
           ))}
         </div>

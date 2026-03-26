@@ -29,7 +29,9 @@ export function ProblemSection() {
   ];
 
   return (
-    <section className="bg-offwhite py-24 px-6 md:px-12 border-y border-gray-200">
+    <section className="bg-offwhite py-24 px-6 md:px-12 border-y border-gray-200 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange/20 to-transparent" />
+
       <div className="max-w-7xl mx-auto">
         
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
@@ -43,7 +45,10 @@ export function ProblemSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {problems.map((prob, i) => (
-            <ScrollReveal key={i} delay={i * 0.1} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <ScrollReveal key={i} delay={i * 0.1} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg hover:border-orange/20 transition-all duration-400 group">
+              <div className="w-10 h-10 rounded-lg bg-orange/5 flex items-center justify-center mb-4 group-hover:bg-orange/10 transition-colors">
+                <div className="w-2 h-2 rounded-full bg-orange" />
+              </div>
               <h3 className="text-xl font-display text-charcoal mb-3">{prob.title}</h3>
               <p className="text-gray-600 font-sans leading-relaxed">{prob.desc}</p>
             </ScrollReveal>
