@@ -2,115 +2,116 @@ import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-function BeforeAfterShowcase() {
+function DeviceMockups() {
   const BASE = import.meta.env.BASE_URL;
   return (
     <div className="relative w-full">
-      <div className="flex gap-4 items-end">
+      <div className="flex gap-5 items-end">
         <div className="flex-1 flex flex-col">
-          <span className="text-xs font-sans font-bold uppercase tracking-widest text-stone/60 mb-2 text-center">Before</span>
-          <div className="relative rounded-lg overflow-hidden border border-gunmetal/60 shadow-xl shadow-black/40 opacity-75 grayscale-[30%]">
+          <span className="text-xs font-sans font-bold uppercase tracking-widest text-stone/60 mb-3 text-center">Before</span>
+          <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-black/50">
             <picture>
-              <source srcSet={`${BASE}wce-before.webp`} type="image/webp" />
+              <source srcSet={`${BASE}mockup-before-laptop.webp`} type="image/webp" />
               <img
-                src={`${BASE}wce-before.png`}
-                alt="West Coast Eye Institute — outdated website before redesign"
+                src={`${BASE}mockup-before-laptop.png`}
+                alt="Laptop displaying an outdated, ineffective small business website"
                 className="w-full block"
-                width={1024}
-                height={533}
+                width={1456}
+                height={816}
                 loading="eager"
               />
             </picture>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
           </div>
         </div>
 
         <div className="flex-1 flex flex-col">
-          <span className="text-xs font-sans font-bold uppercase tracking-widest text-orange mb-2 text-center">After</span>
-          <div className="relative rounded-lg overflow-hidden border border-orange/30 shadow-2xl shadow-orange/10">
+          <span className="text-xs font-sans font-bold uppercase tracking-widest text-orange mb-3 text-center">After</span>
+          <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-orange/15">
             <picture>
-              <source srcSet={`${BASE}wce-after-desktop.webp`} type="image/webp" />
+              <source srcSet={`${BASE}mockup-after-laptop.webp`} type="image/webp" />
               <img
-                src={`${BASE}wce-after-desktop.png`}
-                alt="West Coast Eye Institute — modern redesigned website by Graylock Digital"
+                src={`${BASE}mockup-after-laptop.png`}
+                alt="Laptop displaying a modern, high-converting website designed by Graylock Digital"
                 className="w-full block"
-                width={1024}
-                height={533}
+                width={1456}
+                height={816}
                 loading="eager"
               />
             </picture>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
           </div>
         </div>
       </div>
 
-      <div className="absolute -bottom-4 right-[2%] w-[18%] z-20">
-        <div className="relative rounded-xl overflow-hidden border-2 border-orange/40 shadow-2xl shadow-orange/20">
+      <div className="absolute -bottom-6 right-[4%] w-[16%] z-20">
+        <picture>
+          <source srcSet={`${BASE}mockup-after-mobile.webp`} type="image/webp" />
           <img
-            src={`${BASE}wce-after-mobile.jpeg`}
-            alt="West Coast Eye Institute — mobile responsive redesign"
-            className="w-full block"
-            width={473}
-            height={1024}
+            src={`${BASE}mockup-after-mobile.png`}
+            alt="iPhone displaying a mobile-responsive website by Graylock Digital"
+            className="w-full block drop-shadow-2xl"
+            width={816}
+            height={1456}
             loading="eager"
           />
-        </div>
+        </picture>
       </div>
     </div>
   );
 }
 
-function BeforeAfterShowcaseMobile() {
+function DeviceMockupsMobile() {
   const BASE = import.meta.env.BASE_URL;
   return (
     <div className="relative w-full">
       <div className="flex gap-2 sm:gap-3 items-end">
-        <div className="flex-[1.1] sm:flex-[1.2] flex flex-col min-w-0">
+        <div className="flex-[1.2] flex flex-col min-w-0">
           <span className="text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-widest text-stone/60 mb-1.5 text-center">Before</span>
-          <div className="relative rounded-lg overflow-hidden border border-gunmetal/60 shadow-lg shadow-black/30 opacity-75 grayscale-[30%]">
+          <div className="relative rounded-lg overflow-hidden shadow-xl shadow-black/40">
             <picture>
-              <source srcSet={`${BASE}wce-before.webp`} type="image/webp" />
+              <source srcSet={`${BASE}mockup-before-laptop.webp`} type="image/webp" />
               <img
-                src={`${BASE}wce-before.png`}
-                alt="Outdated website before redesign"
+                src={`${BASE}mockup-before-laptop.png`}
+                alt="Outdated website on laptop"
                 className="w-full block"
-                width={1024}
-                height={533}
+                width={1456}
+                height={816}
                 loading="eager"
               />
             </picture>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
           </div>
         </div>
 
-        <div className="flex-[1.1] sm:flex-[1.2] flex flex-col min-w-0">
+        <div className="flex-[1.2] flex flex-col min-w-0">
           <span className="text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-widest text-orange mb-1.5 text-center">After</span>
-          <div className="relative rounded-lg overflow-hidden border border-orange/30 shadow-xl shadow-orange/10">
+          <div className="relative rounded-lg overflow-hidden shadow-xl shadow-orange/10">
             <picture>
-              <source srcSet={`${BASE}wce-after-desktop.webp`} type="image/webp" />
+              <source srcSet={`${BASE}mockup-after-laptop.webp`} type="image/webp" />
               <img
-                src={`${BASE}wce-after-desktop.png`}
-                alt="Modern redesigned website by Graylock Digital"
+                src={`${BASE}mockup-after-laptop.png`}
+                alt="Modern website on laptop by Graylock Digital"
                 className="w-full block"
-                width={1024}
-                height={533}
+                width={1456}
+                height={816}
                 loading="eager"
               />
             </picture>
           </div>
         </div>
 
-        <div className="flex-[0.5] sm:flex-[0.55] flex flex-col min-w-0">
+        <div className="flex-[0.5] flex flex-col min-w-0">
           <span className="text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-widest text-orange/60 mb-1.5 text-center">Mobile</span>
-          <div className="relative rounded-lg overflow-hidden border border-orange/30 shadow-xl shadow-orange/10">
-            <img
-              src={`${BASE}wce-after-mobile.jpeg`}
-              alt="Mobile responsive redesign"
-              className="w-full block"
-              width={473}
-              height={1024}
-              loading="eager"
-            />
+          <div className="relative rounded-lg overflow-hidden shadow-xl shadow-orange/10">
+            <picture>
+              <source srcSet={`${BASE}mockup-after-mobile.webp`} type="image/webp" />
+              <img
+                src={`${BASE}mockup-after-mobile.png`}
+                alt="Mobile responsive website on iPhone"
+                className="w-full block"
+                width={816}
+                height={1456}
+                loading="eager"
+              />
+            </picture>
           </div>
         </div>
       </div>
@@ -131,7 +132,7 @@ export function HeroSection() {
 
         <div className="lg:hidden mb-10">
           <ScrollReveal>
-            <BeforeAfterShowcaseMobile />
+            <DeviceMockupsMobile />
           </ScrollReveal>
         </div>
 
@@ -171,7 +172,7 @@ export function HeroSection() {
 
           <div className="hidden lg:block">
             <ScrollReveal delay={0.2}>
-              <BeforeAfterShowcase />
+              <DeviceMockups />
             </ScrollReveal>
           </div>
         </div>
