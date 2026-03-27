@@ -144,10 +144,20 @@ export function HeroSection() {
   const isLg = useIsLg();
   return (
     <section className="bg-charcoal pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden relative">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-        style={{ backgroundImage: `url(${BASE}hero-bg-premium.webp)` }}
-      />
+      <div className="absolute inset-0 opacity-40">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster={`${BASE}hero-bg-premium.webp`}
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={`${BASE}hero-bg-video.mp4`} type="video/mp4" />
+          <source src={`${BASE}hero-bg-video.webm`} type="video/webm" />
+        </video>
+      </div>
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/70 to-charcoal/30" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
