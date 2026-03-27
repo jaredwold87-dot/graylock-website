@@ -137,7 +137,7 @@ function DeviceShowcase() {
   const showAfter = useFlip(2200);
   const isLg = useIsLg();
   return (
-    <div className={`flex items-center w-full ${isLg ? "gap-6 justify-center" : "gap-3 sm:gap-4 px-2"}`}>
+    <div className={`flex items-end w-full ${isLg ? "gap-6 justify-center" : "gap-3 sm:gap-4 px-2"}`}>
       <div className={isLg ? "flex-[3.2]" : "flex-[2.3]"}>
         <LaptopMockup showAfter={showAfter} />
       </div>
