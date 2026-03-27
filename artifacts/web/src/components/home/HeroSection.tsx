@@ -138,10 +138,10 @@ function DeviceShowcase() {
   const isLg = useIsLg();
   return (
     <div className={`flex items-center w-full ${isLg ? "gap-6 justify-center" : "gap-3 sm:gap-4 px-2"}`}>
-      <div className={isLg ? "flex-[2.8]" : "flex-[2]"}>
+      <div className={isLg ? "flex-[3.2]" : "flex-[2.3]"}>
         <LaptopMockup showAfter={showAfter} />
       </div>
-      <div className={isLg ? "flex-[0.85]" : "flex-[0.65]"}>
+      <div className={isLg ? "flex-[0.75]" : "flex-[0.55]"}>
         <PhoneMockup showAfter={showAfter} />
       </div>
     </div>
