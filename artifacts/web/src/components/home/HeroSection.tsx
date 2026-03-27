@@ -41,8 +41,8 @@ function LaptopMockup({ showAfter }: { showAfter: boolean }) {
       />
       <div
         className="relative w-full"
-        style={{ aspectRatio: "1952/994" }}
-        aria-label="Website redesign comparison on laptop"
+        style={{ aspectRatio: "1948/1036" }}
+        aria-label="Website redesign comparison on monitor"
         role="img"
       >
         <picture>
@@ -52,8 +52,8 @@ function LaptopMockup({ showAfter }: { showAfter: boolean }) {
             alt=""
             className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
             style={{ opacity: showAfter ? 0 : 1 }}
-            width={1952}
-            height={994}
+            width={1948}
+            height={1036}
             loading="eager"
           />
         </picture>
@@ -64,8 +64,8 @@ function LaptopMockup({ showAfter }: { showAfter: boolean }) {
             alt=""
             className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
             style={{ opacity: showAfter ? 1 : 0 }}
-            width={1952}
-            height={994}
+            width={1948}
+            height={1036}
             loading="eager"
           />
         </picture>
