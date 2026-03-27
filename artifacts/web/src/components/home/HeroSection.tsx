@@ -31,13 +31,26 @@ function useIsLg() {
 
 function LaptopFrame({ showAfter }: { showAfter: boolean }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-full rounded-t-xl bg-[#1c1c1e] border border-[#3a3a3c] shadow-2xl shadow-black/60 overflow-hidden">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#2c2c2e] border-b border-[#3a3a3c]">
+    <div className="flex flex-col items-center relative">
+      <div
+        className="absolute -inset-4 lg:-inset-6 rounded-3xl opacity-30 blur-2xl transition-colors duration-700 pointer-events-none"
+        style={{ background: showAfter
+          ? "radial-gradient(ellipse at center, rgba(232,99,26,0.5) 0%, transparent 70%)"
+          : "radial-gradient(ellipse at center, rgba(232,99,26,0.25) 0%, transparent 70%)"
+        }}
+      />
+      <div
+        className="relative w-full rounded-t-xl bg-[#1c1c1e] overflow-hidden"
+        style={{
+          border: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: "0 25px 60px -12px rgba(0,0,0,0.7), 0 0 40px -8px rgba(232,99,26,0.15), inset 0 1px 0 rgba(255,255,255,0.06)"
+        }}
+      >
+        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#2c2c2e]/80 border-b border-white/[0.06]">
           <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
           <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
           <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-          <span className="flex-1 mx-2 h-4 rounded-md bg-[#1c1c1e] border border-[#3a3a3c]" />
+          <span className="flex-1 mx-2 h-4 rounded-md bg-[#1c1c1e] border border-white/[0.06]" />
         </div>
 
         <div className="relative w-full bg-[#1c1c1e]" style={{ aspectRatio: "1920/930" }} aria-label="Website redesign comparison on laptop" role="img">
@@ -68,8 +81,21 @@ function LaptopFrame({ showAfter }: { showAfter: boolean }) {
         </div>
       </div>
 
-      <div className="w-[90%] h-3 bg-gradient-to-b from-[#2c2c2e] to-[#1c1c1e] rounded-b-lg border-x border-b border-[#3a3a3c]" />
-      <div className="w-[110%] h-[6px] bg-gradient-to-b from-[#3a3a3c] to-[#2c2c2e] rounded-b-xl" />
+      <div
+        className="w-[90%] h-3 rounded-b-lg"
+        style={{
+          background: "linear-gradient(to bottom, #2c2c2e, #1c1c1e)",
+          border: "1px solid rgba(255,255,255,0.06)",
+          borderTop: "none"
+        }}
+      />
+      <div
+        className="w-[110%] h-[6px] rounded-b-xl"
+        style={{
+          background: "linear-gradient(to bottom, #3a3a3c, #2c2c2e)",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.4)"
+        }}
+      />
 
       <span
         className="mt-3 text-[10px] font-sans font-bold uppercase tracking-widest transition-colors duration-500"
@@ -83,9 +109,22 @@ function LaptopFrame({ showAfter }: { showAfter: boolean }) {
 
 function PhoneFrame({ showAfter }: { showAfter: boolean }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-full rounded-[20px] lg:rounded-[24px] bg-[#1c1c1e] border-[2.5px] border-[#3a3a3c] shadow-2xl shadow-black/60 overflow-hidden p-[3px] lg:p-1">
-        <div className="absolute top-[3px] lg:top-1 left-1/2 -translate-x-1/2 w-[30%] h-[5px] lg:h-[6px] bg-[#1c1c1e] rounded-b-lg z-10 border-x border-b border-[#3a3a3c]" />
+    <div className="flex flex-col items-center relative">
+      <div
+        className="absolute -inset-4 lg:-inset-6 rounded-3xl opacity-30 blur-2xl transition-colors duration-700 pointer-events-none"
+        style={{ background: showAfter
+          ? "radial-gradient(ellipse at center, rgba(232,99,26,0.5) 0%, transparent 70%)"
+          : "radial-gradient(ellipse at center, rgba(232,99,26,0.25) 0%, transparent 70%)"
+        }}
+      />
+      <div
+        className="relative w-full rounded-[20px] lg:rounded-[24px] bg-[#1c1c1e] overflow-hidden p-[3px] lg:p-1"
+        style={{
+          border: "2.5px solid rgba(255,255,255,0.08)",
+          boxShadow: "0 25px 60px -12px rgba(0,0,0,0.7), 0 0 40px -8px rgba(232,99,26,0.15), inset 0 1px 0 rgba(255,255,255,0.06)"
+        }}
+      >
+        <div className="absolute top-[3px] lg:top-1 left-1/2 -translate-x-1/2 w-[30%] h-[5px] lg:h-[6px] bg-[#1c1c1e] rounded-b-lg z-10 border-x border-b border-white/[0.06]" />
 
         <div className="relative w-full rounded-[16px] lg:rounded-[20px] overflow-hidden" style={{ aspectRatio: "9/19.5" }} aria-label="Website redesign comparison on mobile" role="img">
           <picture>
