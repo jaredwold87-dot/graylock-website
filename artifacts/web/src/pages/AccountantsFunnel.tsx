@@ -534,7 +534,7 @@ export default function AccountantsFunnel() {
               {
                 step: "03",
                 title: "Build & Launch",
-                desc: "We build your full site, optimize it for search engines, and launch it — typically within 3–5 business days.",
+                desc: "We build your full site, optimize it for search engines, and launch it — typically within 3–5 business days on average.",
                 icon: Globe,
               },
               {

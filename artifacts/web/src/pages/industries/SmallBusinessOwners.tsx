@@ -171,7 +171,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How fast can you build my website?",
-      a: "Once you approve the plan and pay the setup fee, your website is typically live within 3–5 business days. Much of the timeline depends on how quickly you can provide feedback, photos, and logos. Most clients are surprised at how fast it happens.",
+      a: "Once you approve the plan and pay the setup fee, your website is typically live within 3–5 business days on average. Much of the timeline depends on how quickly you can provide feedback, photos, and logos. Most clients are surprised at how fast it happens.",
     },
     {
       q: "What do I own, and what does my monthly fee cover?",
@@ -220,7 +220,7 @@ const data: IndustryPageData = {
         name: "How fast can you build my website?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Your website is typically live within 3–5 business days after approval.",
+          text: "Your website is typically live within 3–5 business days on average after approval.",
         },
       },
     ],

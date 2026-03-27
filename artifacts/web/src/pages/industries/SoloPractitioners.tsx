@@ -209,18 +209,18 @@ const data: IndustryPageData = {
     },
     others: [
       {
-        name: "Elena R.",
-        title: "Family Attorney",
+        name: "Dr. Amy L.",
+        title: "Licensed Psychologist",
         location: "Austin, TX",
         quote:
-          "The done-for-you aspect is exactly what I needed. I bill by the hour, so I can't afford to waste time with WordPress.",
+          "I was paying for Psychology Today and getting almost nothing from it. My Graylock site brings in more inquiries than the directory ever did.",
       },
       {
-        name: "David K.",
-        title: "CPA & Tax Advisor",
-        location: "Henderson, NV",
+        name: "Karen W.",
+        title: "Licensed Clinical Social Worker",
+        location: "Denver, CO",
         quote:
-          "I just email Tim and it's done the next day. Like having a full-time web developer on staff for a fraction of the cost.",
+          "I just email Tim when I need an update and it's done the next day. It's like having a web team on staff for a fraction of the cost.",
       },
     ],
   },

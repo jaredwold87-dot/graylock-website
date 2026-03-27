@@ -207,18 +207,18 @@ const data: IndustryPageData = {
     },
     others: [
       {
-        name: "Elena R.",
-        title: "Family Attorney",
-        location: "Austin, TX",
-        quote:
-          "The done-for-you aspect is exactly what I needed. I bill by the hour, so I can't afford to waste time with WordPress.",
-      },
-      {
         name: "Jennifer P.",
         title: "Bookkeeper",
         location: "Boise, ID",
         quote:
           "I was invisible on Google and losing clients to the big chains. Now my site shows up for bookkeeping searches in my area, and I've picked up several new monthly clients.",
+      },
+      {
+        name: "Robert H.",
+        title: "Enrolled Agent",
+        location: "Sacramento, CA",
+        quote:
+          "Tax season used to be the only time I got calls. Now my website brings in new clients year-round. Graylock made the whole process painless.",
       },
     ],
   },

@@ -209,18 +209,18 @@ const data: IndustryPageData = {
     },
     others: [
       {
-        name: "James L.",
-        title: "HVAC Specialist",
-        location: "Denver, CO",
+        name: "Maria G.",
+        title: "Owner, Fresh Start Cleaning",
+        location: "Henderson, NV",
         quote:
-          "Our new site looks so much more professional. People tell us it's what made them call us over the competition.",
+          "I used to rely on Thumbtack and pay for every lead. Now homeowners find me on Google and book directly through my site. The quote form alone was worth it.",
       },
       {
-        name: "Marcus T.",
-        title: "General Contractor",
-        location: "Phoenix, AZ",
+        name: "Danielle T.",
+        title: "Residential Cleaning Pro",
+        location: "Mesa, AZ",
         quote:
-          "Agencies wanted $10k+ to build a site. Graylock got me up and running for the setup fee with total peace of mind.",
+          "My Facebook page wasn't cutting it anymore. Graylock gave me a real website that makes my business look as professional as it is.",
       },
     ],
   },
