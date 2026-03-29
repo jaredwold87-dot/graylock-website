@@ -39,7 +39,7 @@ export const PRICING_TIERS = [
     description: "For established businesses that need full control and maximum performance.",
     features: [
       "Custom 14-Page Website",
-      "14 SEO-Optimized Funnel Pages",
+      "10 SEO-Optimized Funnel Pages",
       "Enhanced Dashboard + Priority Support",
       "Monthly Performance Report",
       "Advanced Lead Generation Form",
@@ -185,11 +185,11 @@ export const FAQS = [
     questions: [
       {
         q: "What is a funnel page?",
-        a: "A funnel page is a focused, standalone page on your website designed to attract visitors searching for a specific service in a specific location — and guide them toward taking action (like calling you or filling out a form).\n\nUnlike a general \"Services\" page that lists everything, a funnel page zeroes in on one thing — for example, \"Tax Preparation for Small Businesses in Denver\" or \"Emergency Plumbing in Austin.\" It's written, structured, and optimized to rank for that exact search term.\n\nThe word \"funnel\" comes from the idea that these pages funnel the right people — those already searching for what you offer — toward becoming a lead. They're one of the most effective ways to get found on Google without paying for ads.\n\nThe Standard plan includes 5 funnel pages, and the Growth plan includes 14."
+        a: "A funnel page is a focused, standalone page on your website designed to attract visitors searching for a specific service in a specific location — and guide them toward taking action (like calling you or filling out a form).\n\nUnlike a general \"Services\" page that lists everything, a funnel page zeroes in on one thing — for example, \"Tax Preparation for Small Businesses in Denver\" or \"Emergency Plumbing in Austin.\" It's written, structured, and optimized to rank for that exact search term.\n\nThe word \"funnel\" comes from the idea that these pages funnel the right people — those already searching for what you offer — toward becoming a lead. They're one of the most effective ways to get found on Google without paying for ads.\n\nThe Standard plan includes 5 funnel pages, and the Growth plan includes 10."
       },
       {
         q: "What are SEO funnel pages, and why do they matter?",
-        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \"Services\" page, each funnel page targets a specific search term your customers are actually typing into Google.\n\nFor example, if you're a plumber in Austin, you might have individual pages for \"emergency plumber Austin,\" \"water heater repair Austin,\" and \"drain cleaning Round Rock.\" Each page is written, structured, and optimized to rank for that exact search — giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Standard plan includes 5 funnel pages, and the Growth plan includes 14 — enough to cover your core services and surrounding areas. Starter plan sites can absolutely be upgraded later if you want to add funnel pages down the road."
+        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \"Services\" page, each funnel page targets a specific search term your customers are actually typing into Google.\n\nFor example, if you're a plumber in Austin, you might have individual pages for \"emergency plumber Austin,\" \"water heater repair Austin,\" and \"drain cleaning Round Rock.\" Each page is written, structured, and optimized to rank for that exact search — giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Standard plan includes 5 funnel pages, and the Growth plan includes 10 — enough to cover your core services and surrounding areas. Starter plan sites can absolutely be upgraded later if you want to add funnel pages down the road."
       },
       {
         q: "What's the difference between basic SEO and local SEO optimization?",

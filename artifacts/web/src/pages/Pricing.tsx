@@ -8,7 +8,7 @@ import { Check, Minus } from "lucide-react";
 export default function Pricing() {
   const featureRows = [
     { name: "Pages Included", starter: "Up to 5", standard: "Up to 7", growth: "Up to 14", custom: "Custom" },
-    { name: "SEO Funnel Pages", starter: false, standard: "5 Pages", growth: "14 Pages", custom: "Custom" },
+    { name: "SEO Funnel Pages", starter: false, standard: "5 Pages", growth: "10 Pages", custom: "Custom" },
     { name: "Mobile-First Design", starter: true, standard: true, growth: true, custom: true },
     { name: "Secure Hosting & SSL", starter: true, standard: true, growth: true, custom: true },
     { name: "Monthly Performance Report", starter: false, standard: true, growth: true, custom: true },
