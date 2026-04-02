@@ -166,7 +166,7 @@ export function HeroSection() {
           <source src={`${BASE}hero-bg-video.webm`} type="video/webm" />
         </video>
       </div>
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(15,17,23,0.95) 0%, rgba(15,17,23,0.85) 25%, rgba(15,17,23,0.4) 60%, rgba(15,17,23,0.08) 80%, rgba(15,17,23,0) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(15,17,23,1) 0%, rgba(15,17,23,0.95) 25%, rgba(15,17,23,0.55) 60%, rgba(15,17,23,0.23) 80%, rgba(15,17,23,0.15) 100%)" }} />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {!isLg && (
