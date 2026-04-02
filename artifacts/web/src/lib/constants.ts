@@ -87,24 +87,6 @@ export const TESTIMONIALS = [
     title: "West Coast Eye Clinic",
     location: "West Coast",
     quote: "We had two outdated websites that were creating confusion for patients and extra work for our staff. Graylock consolidated everything into one clean, professional site and completely restructured how new patients contact us. I didn't want people calling the front desk \u2014 I wanted a controlled, professional intake process. Now every inquiry comes through an online form, and based on what the patient submits, it routes directly to the right person on my team. No more missed calls, no more phone tag. It's streamlined our entire front-end workflow."
-  },
-  {
-    name: "Sarah M.",
-    title: "Licensed Therapist",
-    location: "Reno, NV",
-    quote: "My old site looked outdated and unprofessional. Graylock built me a beautiful new site in under a week, and I finally feel confident sending people to it. Best decision I've made for my practice."
-  },
-  {
-    name: "David K.",
-    title: "CPA & Tax Advisor",
-    location: "Henderson, NV",
-    quote: "I used to spend hours trying to fix my Wix site. Now I just email Tim and it's done the next day. It's like having a full-time web developer on staff for a fraction of the cost."
-  },
-  {
-    name: "Marcus T.",
-    title: "General Contractor",
-    location: "Phoenix, AZ",
-    quote: "Agencies wanted $10k+ to build a site for my construction business. Graylock got me up and running for the setup fee, and the monthly maintenance gives me total peace of mind."
   }
 ];
 
