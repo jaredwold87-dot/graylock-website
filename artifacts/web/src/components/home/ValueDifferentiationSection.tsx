@@ -18,11 +18,21 @@ export function ValueDifferentiationSection() {
     <section className="bg-charcoal py-24 px-6 md:px-12 border-t border-gunmetal">
       <div className="max-w-5xl mx-auto">
 
-        <ScrollReveal className="text-center mb-16">
+        <ScrollReveal className="text-center mb-12">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Why Graylock</p>
-          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
-            This Isn't How Agencies Normally Work
+          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
+            Every other agency wants you to pay first.{" "}
+            <span className="text-orange">We think that's backwards.</span>
           </h2>
+          <p className="text-stone/80 text-lg md:text-xl font-sans max-w-2xl mx-auto">
+            We do the work first. You see the results first. Then you decide.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal className="text-center mb-16">
+          <h3 className="text-2xl md:text-4xl font-display text-offwhite mb-6">
+            This Isn't How Agencies Normally Work
+          </h3>
           <p className="text-stone text-lg font-sans max-w-2xl mx-auto">
             Most agencies ask you to commit before showing you anything. We believe you should see the value first — then decide.
           </p>

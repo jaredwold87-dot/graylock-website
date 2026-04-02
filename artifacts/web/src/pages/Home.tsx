@@ -1,6 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { HeroSection } from "@/components/home/HeroSection";
-import { ContrarianStatement } from "@/components/home/ContrarianStatement";
+
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiationSection";
@@ -19,7 +19,6 @@ export default function Home() {
     <>
       <SEO />
       <HeroSection />
-      <ContrarianStatement />
       <OfferBreakdownSection />
       <ProblemSection />
       <HowItWorksSection />
