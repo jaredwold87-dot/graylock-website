@@ -36,7 +36,7 @@ export function TestimonialSection() {
                 </div>
                 <div>
                   <h4 className="font-display text-offwhite text-lg">{test.name}</h4>
-                  <p className="text-stone text-sm">{test.title} • {test.location}</p>
+                  <p className="text-stone text-sm">{test.title}</p>
                 </div>
               </div>
             </ScrollReveal>
