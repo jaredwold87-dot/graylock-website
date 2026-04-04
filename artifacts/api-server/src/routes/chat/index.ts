@@ -11,6 +11,8 @@ const chatRouter = Router();
 
 const MAX_MESSAGES_PER_CONVERSATION = 30;
 const MAX_MESSAGE_LENGTH = 1000;
+const GOS_WEBHOOK_URL = "https://graylock-os-ymwca.sevalla.app/api/webhook/chatbot-lead";
+const MIN_USER_MESSAGES_FOR_GOS = 2;
 
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_WINDOW = 60_000;
@@ -52,6 +54,96 @@ function getOpenRouterClient(): OpenAI {
     baseURL: "https://openrouter.ai/api/v1",
     apiKey,
   });
+}
+
+interface ConversationMessage {
+  role: string;
+  content: string;
+}
+
+async function summarizeAndSendToGos(
+  visitorName: string,
+  visitorEmail: string,
+  allMessages: ConversationMessage[],
+) {
+  try {
+    const client = getOpenRouterClient();
+
+    const transcript = allMessages
+      .filter((m) => m.role !== "system")
+      .map((m) => `${m.role === "user" ? "Visitor" : "Assistant"}: ${m.content}`)
+      .join("\n");
+
+    const extractionPrompt = `Analyze this chatbot conversation between a website visitor and the Graylock Digital assistant. Extract the following as JSON:
+
+{
+  "chatSummary": "A 1-2 sentence summary of what the visitor discussed and asked about",
+  "businessName": "The visitor's business name if mentioned, or null",
+  "phone": "The visitor's phone number if mentioned, or null",
+  "websiteUrl": "The visitor's website URL if mentioned, or null",
+  "interests": ["array of topics they asked about, e.g. 'website design', 'SEO', 'pricing', 'funnel pages', 'Google Business Profile', etc."]
+}
+
+Return ONLY valid JSON, no markdown fences or other text.
+
+CONVERSATION:
+${transcript}`;
+
+    const completion = await client.chat.completions.create({
+      model: "openai/gpt-4o-mini",
+      max_tokens: 300,
+      messages: [{ role: "user", content: extractionPrompt }],
+      temperature: 0,
+    });
+
+    const raw = completion.choices[0]?.message?.content?.trim();
+    if (!raw) {
+      logger.warn("Empty extraction response for GOS lead sync");
+      return;
+    }
+
+    let extracted: {
+      chatSummary?: string;
+      businessName?: string | null;
+      phone?: string | null;
+      websiteUrl?: string | null;
+      interests?: string[];
+    };
+
+    try {
+      extracted = JSON.parse(raw);
+    } catch {
+      logger.warn({ raw }, "Failed to parse extraction JSON for GOS lead sync");
+      return;
+    }
+
+    const payload: Record<string, unknown> = {
+      name: visitorName,
+      email: visitorEmail,
+    };
+
+    if (extracted.chatSummary) payload.chatSummary = extracted.chatSummary;
+    if (extracted.businessName) payload.businessName = extracted.businessName;
+    if (extracted.phone) payload.phone = extracted.phone;
+    if (extracted.websiteUrl) payload.websiteUrl = extracted.websiteUrl;
+    if (extracted.interests && extracted.interests.length > 0) payload.interests = extracted.interests;
+
+    const gosRes = await fetch(GOS_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (!gosRes.ok) {
+      const body = await gosRes.text();
+      logger.error({ status: gosRes.status, body }, "GOS chatbot-lead webhook failed");
+    } else {
+      const result = await gosRes.json();
+      logger.info({ result, email: visitorEmail }, "Sent chatbot lead to GOS");
+    }
+  } catch (err) {
+    logger.error({ err }, "Failed to summarize/send chatbot lead to GOS");
+  }
 }
 
 chatRouter.post("/chat/conversations", async (req: Request, res: Response) => {
@@ -215,6 +307,18 @@ chatRouter.post("/chat/conversations/:id/messages", async (req: Request, res: Re
 
     res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
     res.end();
+
+    const userMessageCount = existingMessages.filter((m) => m.role === "user").length + 1;
+    if (userMessageCount >= MIN_USER_MESSAGES_FOR_GOS && fullResponse) {
+      const allMessages = [
+        ...existingMessages.map((m) => ({ role: m.role, content: m.content })),
+        { role: "user", content: message },
+        { role: "assistant", content: fullResponse },
+      ];
+      summarizeAndSendToGos(conversation.visitorName, conversation.visitorEmail, allMessages).catch(
+        (err) => logger.error({ err }, "Background GOS sync failed"),
+      );
+    }
   } catch (err) {
     logger.error({ err }, "Failed to process chat message");
     if (!res.headersSent) {
