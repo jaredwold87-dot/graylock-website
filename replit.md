@@ -68,7 +68,8 @@ Frontend-only React + Vite marketing website for Graylock Digital, a subscriptio
 - **Assets in public/**: logo-horizontal.png (navbar), logo-stacked.png (footer), hero-bg.png (homepage hero background), devices-hero.png (device mockup), about-hero.png (about/how-it-works hero bg), portfolio-before-{1,2,3}.png & portfolio-after-{1,2,3}.png (before/after portfolio images for CPA, Therapist, Contractor)
 - **Core Offer**: Free website review + free custom homepage demo (value-first, no obligation). Primary CTA: "Book Your Free Website Review"
 - **Dashboard Feature**: Personalized business dashboard for Standard & Growth tiers — view website analytics, edit business info (hours, phone, address), post announcement banners, submit update requests. DashboardSection on homepage includes mock UI preview.
-- **Key Components**: Navbar (sticky, mobile hamburger, includes Home link), Footer, BeforeAfterMockup (auto-cycling real portfolio images), OfferBreakdownSection (3-part free offer), ValueDifferentiationSection (agency comparison table + dashboard row), DashboardSection (mock dashboard preview + feature grid), PricingSection, FAQSection (offer + dashboard focused), NicheExamplesSection (AI-generated website screenshots)
+- **AI Chat Widget**: Floating chat bubble (bottom-right, every page) → opens chat panel. Lead capture gate (name + email) before chatting. Streaming AI responses via SSE. Dark theme with orange accents. Component at `src/components/chat/ChatWidget.tsx`, added to Layout.tsx.
+- **Key Components**: Navbar (sticky, mobile hamburger, includes Home link), Footer, ChatWidget (AI chatbot), BeforeAfterMockup (auto-cycling real portfolio images), OfferBreakdownSection (3-part free offer), ValueDifferentiationSection (agency comparison table + dashboard row), DashboardSection (mock dashboard preview + feature grid), PricingSection, FAQSection (offer + dashboard focused), NicheExamplesSection (AI-generated website screenshots)
 - **Section Rhythm**: Hero (charcoal) → Offer Breakdown (navy) → Problem (offwhite) → How It Works (offwhite) → Value Differentiation (charcoal) → Solution (navy) → Dashboard (navy) → Testimonials (charcoal) → Mission Blurb (charcoal) → Niche Examples (navy) → Pricing (charcoal) → FAQ (offwhite) → Final CTA (orange) → Footer (charcoal)
 - **Niche Images in public/**: niche-{accountant,therapist,contractor,consultant,dentist,lawyer}-{1,2,3}.png (18 AI-generated website mockup screenshots)
 - **Animations**: Framer Motion scroll-reveal (fade up, 0.5s, 20px offset)
@@ -80,8 +81,9 @@ Express 5 API server. Routes live in `src/routes/` and use `@workspace/api-zod` 
 
 - Entry: `src/index.ts` — reads `PORT` (defaults to 3000), starts Express
 - App setup: `src/app.ts` — mounts CORS, JSON/urlencoded parsing, routes at `/api`. In production, also serves Vite build output as static files and has SPA catch-all route (Express 5 `{*path}` syntax)
-- Routes: `src/routes/index.ts` mounts sub-routers; `src/routes/health.ts` exposes `GET /health` (full path: `/api/health`)
-- Depends on: `@workspace/db`, `@workspace/api-zod`
+- Routes: `src/routes/index.ts` mounts sub-routers; `src/routes/health.ts` exposes `GET /health` (full path: `/api/health`); `src/routes/chat/` handles AI chatbot (POST `/api/chat/conversations` to create with name+email, POST `/api/chat/conversations/:id/messages` for streaming SSE responses)
+- AI Chatbot: Uses OpenRouter API (`openai/gpt-4o-mini`) via the OpenAI SDK. System prompt in `src/routes/chat/systemPrompt.ts` contains all Graylock business knowledge. Rate limited (10 msgs/min per IP), message length capped (1000 chars), conversation length capped (30 exchanges). Requires `OPENROUTER_API_KEY` env var.
+- Depends on: `@workspace/db`, `@workspace/api-zod`, `openai`
 - `pnpm --filter @workspace/api-server run dev` — run the dev server
 - `pnpm --filter @workspace/api-server run build` — production esbuild bundle (`dist/index.mjs`)
 - Build bundles an allowlist of deps (express, cors, pg, drizzle-orm, zod, etc.) and externalizes the rest
@@ -105,7 +107,8 @@ Database layer using Drizzle ORM with PostgreSQL. Exports a Drizzle client insta
 
 - `src/index.ts` — creates a `Pool` + Drizzle instance, exports schema
 - `src/schema/index.ts` — barrel re-export of all models
-- `src/schema/<modelname>.ts` — table definitions with `drizzle-zod` insert schemas (no models definitions exist right now)
+- `src/schema/conversations.ts` — `chat_conversations` table (id, visitorName, visitorEmail, createdAt) for AI chatbot lead capture
+- `src/schema/messages.ts` — `chat_messages` table (id, conversationId, role, content, createdAt) for chatbot message history
 - `drizzle.config.ts` — Drizzle Kit config (requires `DATABASE_URL`, automatically provided by Replit)
 - Exports: `.` (pool, db, schema), `./schema` (schema only)
 
