@@ -110,6 +110,7 @@ function StreamingBubble({ content }: { content: string }) {
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [conversationId, setConversationId] = useState<number | null>(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -150,6 +151,7 @@ export function ChatWidget() {
 
       const data = await res.json();
       setConversationId(data.conversationId);
+      setAccessToken(data.accessToken);
       setMessages([{ role: "assistant", content: data.greeting }]);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
@@ -159,7 +161,7 @@ export function ChatWidget() {
   };
 
   const handleSendMessage = async () => {
-    if (!input.trim() || !conversationId || isStreaming) return;
+    if (!input.trim() || !conversationId || !accessToken || isStreaming) return;
 
     const userMessage = input.trim();
     setInput("");
@@ -171,7 +173,10 @@ export function ChatWidget() {
     try {
       const res = await fetch(apiUrl(`/chat/conversations/${conversationId}/messages`), {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${accessToken}`,
+        },
         body: JSON.stringify({ message: userMessage }),
       });
 
@@ -185,34 +190,62 @@ export function ChatWidget() {
 
       const decoder = new TextDecoder();
       let accumulated = "";
+      let buffer = "";
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        const text = decoder.decode(value, { stream: true });
-        const lines = text.split("\n");
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
 
         for (const line of lines) {
-          if (line.startsWith("data: ")) {
-            try {
-              const data = JSON.parse(line.slice(6));
-              if (data.done) {
-                setMessages((prev) => [...prev, { role: "assistant", content: accumulated }]);
-                setStreamContent("");
-                setIsStreaming(false);
-              } else if (data.content) {
-                accumulated += data.content;
-                setStreamContent(accumulated);
-              } else if (data.error) {
-                throw new Error(data.error);
-              }
-            } catch (parseErr) {
-              // skip malformed SSE lines
+          if (!line.startsWith("data: ")) continue;
+          const payload = line.slice(6).trim();
+          if (!payload) continue;
+
+          try {
+            const data = JSON.parse(payload);
+            if (data.done) {
+              setMessages((prev) => [...prev, { role: "assistant", content: accumulated }]);
+              setStreamContent("");
+              setIsStreaming(false);
+              return;
+            } else if (data.error) {
+              setError(data.error);
+              setIsStreaming(false);
+              setStreamContent("");
+              return;
+            } else if (data.content) {
+              accumulated += data.content;
+              setStreamContent(accumulated);
             }
+          } catch {
+            // skip malformed JSON
           }
         }
       }
+
+      if (buffer.startsWith("data: ")) {
+        try {
+          const data = JSON.parse(buffer.slice(6).trim());
+          if (data.done && accumulated) {
+            setMessages((prev) => [...prev, { role: "assistant", content: accumulated }]);
+          } else if (data.content) {
+            accumulated += data.content;
+            setMessages((prev) => [...prev, { role: "assistant", content: accumulated }]);
+          }
+        } catch {
+          // skip
+        }
+      }
+
+      if (accumulated && isStreaming) {
+        setMessages((prev) => [...prev, { role: "assistant", content: accumulated }]);
+      }
+      setStreamContent("");
+      setIsStreaming(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to send message");
       setIsStreaming(false);

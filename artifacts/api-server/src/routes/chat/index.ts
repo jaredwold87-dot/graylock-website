@@ -1,8 +1,9 @@
 import { Router, type Request, type Response } from "express";
+import { randomBytes } from "crypto";
 import OpenAI from "openai";
 import { db } from "@workspace/db";
 import { conversationsTable, messagesTable } from "@workspace/db/schema";
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import { logger } from "../../lib/logger";
 import { SYSTEM_PROMPT } from "./systemPrompt";
 
@@ -14,6 +15,15 @@ const MAX_MESSAGE_LENGTH = 1000;
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_WINDOW = 60_000;
 const RATE_LIMIT_MAX = 10;
+
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, entry] of rateLimitMap) {
+    if (now > entry.resetAt) {
+      rateLimitMap.delete(key);
+    }
+  }
+}, 5 * 60_000);
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -27,6 +37,10 @@ function checkRateLimit(ip: string): boolean {
   }
   entry.count++;
   return true;
+}
+
+function generateAccessToken(): string {
+  return randomBytes(32).toString("hex");
 }
 
 function getOpenRouterClient(): OpenAI {
@@ -60,9 +74,12 @@ chatRouter.post("/chat/conversations", async (req: Request, res: Response) => {
       return;
     }
 
+    const accessToken = generateAccessToken();
+
     const [conversation] = await db
       .insert(conversationsTable)
       .values({
+        accessToken,
         visitorName: name.trim().slice(0, 100),
         visitorEmail: email.trim().toLowerCase().slice(0, 200),
       })
@@ -78,6 +95,7 @@ chatRouter.post("/chat/conversations", async (req: Request, res: Response) => {
 
     res.json({
       conversationId: conversation.id,
+      accessToken,
       greeting,
     });
   } catch (err) {
@@ -91,6 +109,25 @@ chatRouter.post("/chat/conversations/:id/messages", async (req: Request, res: Re
     const conversationId = parseInt(req.params.id, 10);
     if (isNaN(conversationId)) {
       res.status(400).json({ error: "Invalid conversation ID" });
+      return;
+    }
+
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      res.status(401).json({ error: "Unauthorized" });
+      return;
+    }
+    const token = authHeader.slice(7);
+
+    const conversation = await db.query.conversationsTable.findFirst({
+      where: and(
+        eq(conversationsTable.id, conversationId),
+        eq(conversationsTable.accessToken, token),
+      ),
+    });
+
+    if (!conversation) {
+      res.status(403).json({ error: "Invalid conversation access" });
       return;
     }
 
@@ -109,15 +146,6 @@ chatRouter.post("/chat/conversations/:id/messages", async (req: Request, res: Re
     message = message.trim().slice(0, MAX_MESSAGE_LENGTH);
     if (message.length === 0) {
       res.status(400).json({ error: "Message cannot be empty" });
-      return;
-    }
-
-    const conversation = await db.query.conversationsTable.findFirst({
-      where: eq(conversationsTable.id, conversationId),
-    });
-
-    if (!conversation) {
-      res.status(404).json({ error: "Conversation not found" });
       return;
     }
 
