@@ -1,0 +1,28 @@
+{
+  "id": "09828a72-d283-4b28-a192-84bbe1587257",
+  "severity": "error",
+  "attributes": {
+    "err": {
+      "stack": "Error: Failed query: insert into \"chat_conversations\" (\"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\") values (default, $1, $2, $3, default) returning \"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\"\nparams: 4f1fdbca946e3477262e59bf3c6ceb460b55208d8256ec10fc3001d39c8c3087,Jared,jared.wold87@gmail.com\n    at NodePgPreparedQuery.queryWithCache (file:///app/artifacts/api-server/dist/index.mjs:64476:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///app/artifacts/api-server/dist/index.mjs:64709:22\n    at async file:///app/artifacts/api-server/dist/index.mjs:76518:28\ncaused by: Error: read ECONNRESET\n    at file:///app/artifacts/api-server/dist/index.mjs:41177:15\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///app/artifacts/api-server/dist/index.mjs:64716:18\n    at async NodePgPreparedQuery.queryWithCache (file:///app/artifacts/api-server/dist/index.mjs:64474:16)\n    at async file:///app/artifacts/api-server/dist/index.mjs:64709:22\n    at async file:///app/artifacts/api-server/dist/index.mjs:76518:28",
+      "message": "Failed query: insert into \"chat_conversations\" (\"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\") values (default, $1, $2, $3, default) returning \"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\"\nparams: 4f1fdbca946e3477262e59bf3c6ceb460b55208d8256ec10fc3001d39c8c3087,Jared,jared.wold87@gmail.com: read ECONNRESET",
+      "type": "_DrizzleQueryError",
+      "params": [
+        "4f1fdbca946e3477262e59bf3c6ceb460b55208d8256ec10fc3001d39c8c3087",
+        "Jared",
+        "jared.wold87@gmail.com"
+      ],
+      "query": "insert into \"chat_conversations\" (\"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\") values (default, $1, $2, $3, default) returning \"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\""
+    },
+    "level": "error",
+    "time": "1775327691788",
+    "message": "Failed to create chat conversation"
+  },
+  "tags": {
+    "idCompany": "3a5fe7fe-0739-4263-906b-b00e1721bcc9",
+    "idDeployment": "6c89a95d-d9b6-494f-820d-789a2dd983e7",
+    "idApp": "5c9e8d8b-b938-4675-8c75-d13e3a578347",
+    "container": "stateless",
+    "podName": "graylock-digital-lmuwc-web-7b75866c6c-9v8sf",
+    "idProcess": "937be03d-5db8-43bb-965b-9f32056275d0"
+  }
+}
