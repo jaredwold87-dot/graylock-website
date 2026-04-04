@@ -11,11 +11,11 @@ if (!process.env.DATABASE_URL) {
 }
 
 const dbUrl = process.env.DATABASE_URL;
-const skipSsl = process.env.DATABASE_SSL === "false";
+const forceSsl = dbUrl.includes("sslmode=require") || process.env.DATABASE_SSL === "true";
 
 export const pool = new Pool({
   connectionString: dbUrl,
-  ssl: skipSsl ? undefined : { rejectUnauthorized: false },
+  ssl: forceSsl ? { rejectUnauthorized: false } : false,
 });
 export const db = drizzle(pool, { schema });
 

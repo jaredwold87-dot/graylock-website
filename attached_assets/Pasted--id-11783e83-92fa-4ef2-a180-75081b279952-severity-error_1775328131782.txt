@@ -1,0 +1,28 @@
+{
+  "id": "11783e83-92fa-4ef2-a180-75081b279952",
+  "severity": "error",
+  "attributes": {
+    "time": "1775328091413",
+    "err": {
+      "stack": "Error: Failed query: insert into \"chat_conversations\" (\"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\") values (default, $1, $2, $3, default) returning \"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\"\nparams: d8fbed36063f813f2809f6e29f499901c3534b302c4255dd3c3799ffa5445719,Jared,jared.wold87@gmail.com\n    at NodePgPreparedQuery.queryWithCache (file:///app/artifacts/api-server/dist/index.mjs:64476:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///app/artifacts/api-server/dist/index.mjs:64709:22\n    at async file:///app/artifacts/api-server/dist/index.mjs:76518:28\ncaused by: Error: The server does not support SSL connections\n    at file:///app/artifacts/api-server/dist/index.mjs:41177:15\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///app/artifacts/api-server/dist/index.mjs:64716:18\n    at async NodePgPreparedQuery.queryWithCache (file:///app/artifacts/api-server/dist/index.mjs:64474:16)\n    at async file:///app/artifacts/api-server/dist/index.mjs:64709:22\n    at async file:///app/artifacts/api-server/dist/index.mjs:76518:28",
+      "query": "insert into \"chat_conversations\" (\"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\") values (default, $1, $2, $3, default) returning \"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\"",
+      "type": "_DrizzleQueryError",
+      "message": "Failed query: insert into \"chat_conversations\" (\"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\") values (default, $1, $2, $3, default) returning \"id\", \"access_token\", \"visitor_name\", \"visitor_email\", \"created_at\"\nparams: d8fbed36063f813f2809f6e29f499901c3534b302c4255dd3c3799ffa5445719,Jared,jared.wold87@gmail.com: The server does not support SSL connections",
+      "params": [
+        "d8fbed36063f813f2809f6e29f499901c3534b302c4255dd3c3799ffa5445719",
+        "Jared",
+        "jared.wold87@gmail.com"
+      ]
+    },
+    "message": "Failed to create chat conversation",
+    "level": "error"
+  },
+  "tags": {
+    "idCompany": "3a5fe7fe-0739-4263-906b-b00e1721bcc9",
+    "idDeployment": "c1d9fa9a-91ff-4e5c-af95-ba4231fda589",
+    "idApp": "5c9e8d8b-b938-4675-8c75-d13e3a578347",
+    "container": "stateless",
+    "podName": "graylock-digital-lmuwc-web-65c4978655-cvv8n",
+    "idProcess": "937be03d-5db8-43bb-965b-9f32056275d0"
+  }
+}

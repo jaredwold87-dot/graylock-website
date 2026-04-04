@@ -32,4 +32,3 @@ channel = "stable-25_05"
 [userenv]
 
 [userenv.development]
-DATABASE_SSL = "false"
