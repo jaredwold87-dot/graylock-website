@@ -37,8 +37,15 @@ async function runMigrations() {
   }
 }
 
-runMigrations().then(() => {
-  app.listen(port, () => {
-    logger.info({ port }, "Server listening");
+runMigrations()
+  .then(() => {
+    app.listen(port, () => {
+      logger.info({ port }, "Server listening");
+    });
+  })
+  .catch((err) => {
+    logger.error({ err }, "Failed to run migrations, starting server anyway");
+    app.listen(port, () => {
+      logger.info({ port }, "Server listening (migrations failed)");
+    });
   });
-});
