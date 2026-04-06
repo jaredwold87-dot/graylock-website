@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { Check, Minus } from "lucide-react";
+import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock } from "lucide-react";
 
 export default function Pricing() {
   const featureRows = [
@@ -86,6 +86,71 @@ export default function Pricing() {
                 ))}
               </tbody>
             </table>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="bg-charcoal py-24 px-6 md:px-12 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
+        <div className="section-divider absolute top-0 left-0 right-0" />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <ScrollReveal className="text-center mb-16">
+            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">What You're Actually Paying For</p>
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">Your Monthly Fee, Broken Down</h2>
+            <p className="text-stone text-lg font-sans max-w-2xl mx-auto">
+              Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your business every single day.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {[
+              { icon: <Server className="text-orange" size={22} />, title: "Premium Hosting", desc: "High-speed, enterprise-grade servers with 99.9% uptime — no shared hosting slowdowns." },
+              { icon: <Lock className="text-orange" size={22} />, title: "SSL Certificate", desc: "The security padlock that keeps your site trusted by browsers and protects visitor data." },
+              { icon: <Shield className="text-orange" size={22} />, title: "Security Monitoring", desc: "Weekly security scans, software updates, and proactive protection against vulnerabilities." },
+              { icon: <Activity className="text-orange" size={22} />, title: "Uptime Monitoring", desc: "Daily uptime checks so we catch and fix issues before your visitors ever notice." },
+              { icon: <BarChart3 className="text-orange" size={22} />, title: "Performance Reporting", desc: "Monthly reports on traffic, visitor behavior, and site performance — delivered to your dashboard." },
+              { icon: <Headphones className="text-orange" size={22} />, title: "Priority Support", desc: "Content update requests handled promptly with a dedicated point of contact on our team." },
+            ].map((item, i) => (
+              <ScrollReveal key={i} delay={i * 0.08} className="bg-navy/80 border border-gunmetal/50 rounded-xl p-6 flex items-start gap-4">
+                <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-orange/10">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-offwhite font-display text-lg mb-1">{item.title}</h3>
+                  <p className="text-stone font-sans text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal delay={0.5} className="max-w-3xl mx-auto">
+            <div className="bg-navy/60 border border-gunmetal/50 rounded-2xl p-8 md:p-10">
+              <h3 className="text-xl font-display text-offwhite mb-6 text-center">What This Replaces</h3>
+              <div className="space-y-3 mb-6">
+                {[
+                  { item: "Premium managed hosting", cost: "$25–50/mo" },
+                  { item: "SSL certificate", cost: "$10–15/mo" },
+                  { item: "Security & malware scanning", cost: "$20–30/mo" },
+                  { item: "Uptime monitoring service", cost: "$10–20/mo" },
+                  { item: "Form & lead capture plugin", cost: "$20–40/mo" },
+                  { item: "Analytics & reporting tools", cost: "$15–30/mo" },
+                  { item: "Web maintenance retainer", cost: "$150–300/mo" },
+                ].map((row, i) => (
+                  <div key={i} className="flex items-center justify-between py-2 border-b border-gunmetal/30 last:border-0">
+                    <span className="text-stone font-sans text-sm">{row.item}</span>
+                    <span className="text-offwhite font-sans text-sm font-semibold">{row.cost}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center justify-between pt-4 border-t border-gunmetal">
+                <span className="text-offwhite font-display text-lg">If purchased separately</span>
+                <span className="text-orange font-display text-xl">$250–485/mo</span>
+              </div>
+              <p className="text-stone/60 font-sans text-sm text-center mt-6">
+                Our Standard plan covers all of this for $119/mo — less than most businesses pay for hosting and a single plugin alone.
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>

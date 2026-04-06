@@ -60,8 +60,8 @@ export function Footer() {
           <ul className="space-y-4 flex flex-col">
             <Link href="/faq" className="text-stone hover:text-offwhite transition-colors">FAQ</Link>
             <Link href="/get-started" className="text-stone hover:text-offwhite transition-colors">Contact</Link>
-            <a href="#" className="text-stone hover:text-offwhite transition-colors">Privacy Policy</a>
-            <a href="#" className="text-stone hover:text-offwhite transition-colors">Terms of Service</a>
+            <Link href="/privacy-policy" className="text-stone hover:text-offwhite transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="text-stone hover:text-offwhite transition-colors">Terms of Service</Link>
           </ul>
         </div>
 

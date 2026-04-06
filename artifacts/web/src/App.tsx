@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation, Redirect } from "wouter";
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
@@ -15,6 +15,8 @@ import FAQ from "@/pages/FAQ";
 import GetStarted from "@/pages/GetStarted";
 import ContactRedirect from "@/pages/Contact";
 import ThankYou from "@/pages/ThankYou";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
 import SmallBusinessOwners from "@/pages/industries/SmallBusinessOwners";
 import Contractors from "@/pages/industries/Contractors";
@@ -69,6 +71,15 @@ function Router() {
       <Route path="/funnel-pages" component={FunnelPagesPage} />
       <Route path="/google-business-profile" component={GoogleBusinessProfilePage} />
       <Route path="/lead-generation-for-small-business" component={LeadGenerationPage} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
+
+      <Route path="/our-work">{() => <Redirect to="/work" />}</Route>
+      <Route path="/strategy">{() => <Redirect to="/our-strategy" />}</Route>
+      <Route path="/geo">{() => <Redirect to="/geo-generative-engine-optimization" />}</Route>
+      <Route path="/terms">{() => <Redirect to="/terms-of-service" />}</Route>
+      <Route path="/privacy">{() => <Redirect to="/privacy-policy" />}</Route>
+
       <Route component={NotFound} />
     </Switch>
   );
