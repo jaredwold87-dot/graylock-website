@@ -24,7 +24,6 @@ export function Footer() {
           <ul className="space-y-4 flex flex-col">
             <Link href="/how-it-works" className="text-stone hover:text-offwhite transition-colors">How It Works</Link>
             <Link href="/pricing" className="text-stone hover:text-offwhite transition-colors">Pricing</Link>
-            <Link href="/work" className="text-stone hover:text-offwhite transition-colors">Our Work</Link>
             <Link href="/about" className="text-stone hover:text-offwhite transition-colors">About Us</Link>
           </ul>
         </div>

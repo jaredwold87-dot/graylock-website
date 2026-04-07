@@ -45,8 +45,8 @@ export default function ThankYou() {
             <Link href="/how-it-works" className="text-orange font-bold font-sans hover:underline underline-offset-4 decoration-2 transition-all">
               See how we build sites &rarr;
             </Link>
-            <Link href="/work" className="text-orange font-bold font-sans hover:underline underline-offset-4 decoration-2 transition-all">
-              View our work &rarr;
+            <Link href="/about" className="text-orange font-bold font-sans hover:underline underline-offset-4 decoration-2 transition-all">
+              Learn about our team &rarr;
             </Link>
           </div>
 

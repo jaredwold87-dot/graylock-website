@@ -202,7 +202,6 @@ export function Navbar() {
 
   const navLinksAfter = [
     { name: "Pricing", path: "/pricing" },
-    { name: "Our Work", path: "/work" },
     { name: "About", path: "/about" },
   ];
 

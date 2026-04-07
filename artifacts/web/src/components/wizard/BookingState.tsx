@@ -50,8 +50,8 @@ export function BookingState() {
             <Link href="/how-it-works" className="text-orange font-bold font-sans hover:underline underline-offset-4 decoration-2 transition-all flex items-center gap-1">
               See how we build sites <ArrowRight size={16} />
             </Link>
-            <Link href="/work" className="text-orange font-bold font-sans hover:underline underline-offset-4 decoration-2 transition-all flex items-center gap-1">
-              View our work <ArrowRight size={16} />
+            <Link href="/about" className="text-orange font-bold font-sans hover:underline underline-offset-4 decoration-2 transition-all flex items-center gap-1">
+              Learn about our team <ArrowRight size={16} />
             </Link>
           </div>
         </div>
