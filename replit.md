@@ -53,13 +53,19 @@ Every package extends `tsconfig.base.json` which sets `composite: true`. The roo
 
 ### `artifacts/web` (`@workspace/web`) — Graylock Digital Marketing Website
 
-Frontend-only React + Vite marketing website for Graylock Digital, a subscription-based website company for small service businesses.
+Frontend-only React + Vite marketing website for Graylock Digital, a subscription-based website company for professional practices (attorneys, therapists, CPAs, physicians, group practices).
 
 - **Tech**: React, Vite, Tailwind CSS, Framer Motion, wouter (routing), react-helmet-async (SEO)
-- **Brand Colors**: charcoal (#0F1117), navy (#1A1F2E), gunmetal (#2C3140), stone (#8A8F9E), offwhite (#F2F3F5), orange (#E8631A)
+- **Brand Colors**: deep navy (#0F1E35), medium navy (#152847), gunmetal (#1E3554), stone (#8A8F9E), offwhite (#F2F3F5), steel blue (#2E7BB4)
 - **Typography**: Barlow Condensed (700, headlines) + Barlow (400/600, body)
+- **Pricing Tiers**: Solo Practice ($199/mo + $799 setup), Group Practice ($299/mo + $999 setup, most popular), Enterprise ($449/mo + $1,499 setup), Custom (quote-based)
+- **Target Market**: Professional practices — attorneys, therapists, CPAs, physicians, group practices (NOT generic small business)
+- **Competitors**: TherapySites, Brighter Vision ($149-$349/mo template), LawLytics, FindLaw, Scorpion
+- **Language Rules**: Never "audit" → use "evaluate/evaluation"; Never "Unlimited Change Requests"; "professional practices" not "small businesses"
+- **HIPAA Note**: Forms are appointment inquiry only, no PHI, no EHR/EMR integration
 - **Pages**: / (homepage), /how-it-works, /pricing, /work, /about, /faq, /get-started (onboarding wizard), /contact (redirects to /get-started), /thank-you, /accountants (legacy funnel)
-- **"Who We Help" Industry Pages** (7 pages, shared template): /websites-for-small-business-owners, /websites-for-contractors, /websites-for-solo-practitioners, /websites-for-group-practices, /websites-for-accountants, /websites-for-lawyers, /websites-for-house-cleaners — all use `IndustryLandingPage` component template at `src/components/industry/IndustryLandingPage.tsx`; individual page data + wrappers at `src/pages/industries/*.tsx`
+- **"Who We Help" Industry Pages** (active in nav): /websites-for-solo-practitioners, /websites-for-group-practices, /websites-for-accountants, /websites-for-lawyers, /websites-for-medical-practices — all use `IndustryLandingPage` component template at `src/components/industry/IndustryLandingPage.tsx`; individual page data + wrappers at `src/pages/industries/*.tsx`
+- **Legacy Industry Pages** (preserved, NOT in nav, old $79/mo pricing intentionally kept): /websites-for-small-business-owners, /websites-for-contractors, /websites-for-house-cleaners, /websites-for-pet-groomers
 - **"Our Strategy" Educational Pages** (6 pages + hub, shared template): /our-strategy (hub page), /website-design, /seo-for-small-business, /geo-generative-engine-optimization, /funnel-pages, /google-business-profile, /lead-generation-for-small-business — all use `StrategyLandingPage` component template at `src/components/strategy/StrategyLandingPage.tsx`; individual page data + wrappers at `src/pages/strategy/*.tsx`. Template has 9 sections: Hero → What Is It (with data-driven callout box) → Why It Matters → How Graylock Does It → Stats Strip → Key Concepts → Common Mistakes → FAQ → Bottom CTA → Related Strategy chips. Hub page (`OurStrategy.tsx`) has hero + 6 topic cards + bottom CTA.
 - **Navbar**: "Who We Help" and "Our Strategy" dropdowns (hover on desktop, accordion on mobile) using reusable `DesktopDropdown`/`MobileAccordion` components. Positioned between "How It Works" and "Pricing".
 - **Footer**: 6-column grid including "WHO WE HELP" and "OUR STRATEGY" columns linking to all industry and strategy pages
@@ -67,7 +73,7 @@ Frontend-only React + Vite marketing website for Graylock Digital, a subscriptio
 - **All CTAs**: Site-wide "Book Your Free Website Review" buttons link to `/get-started`
 - **Assets in public/**: logo-horizontal.png (navbar), logo-stacked.png (footer), hero-bg.png (homepage hero background), devices-hero.png (device mockup), about-hero.png (about/how-it-works hero bg), portfolio-before-{1,2,3}.png & portfolio-after-{1,2,3}.png (before/after portfolio images for CPA, Therapist, Contractor)
 - **Core Offer**: Free website review + free custom homepage demo (value-first, no obligation). Primary CTA: "Book Your Free Website Review"
-- **Dashboard Feature**: Personalized business dashboard for Standard & Growth tiers — view website analytics, edit business info (hours, phone, address), post announcement banners, submit update requests. DashboardSection on homepage includes mock UI preview.
+- **Dashboard Feature**: Personalized business dashboard for all tiers — Solo Practice: basic dashboard + email support; Group Practice: full dashboard + lead tracking + strategy calls; Enterprise: full dashboard + dedicated account management. DashboardSection on homepage includes mock UI preview.
 - **AI Chat Widget**: Floating chat bubble (bottom-right, every page) → opens chat panel. Lead capture gate (name + email) before chatting. Streaming AI responses via SSE. Dark theme with orange accents. Component at `src/components/chat/ChatWidget.tsx`, added to Layout.tsx.
 - **Key Components**: Navbar (sticky, mobile hamburger, includes Home link), Footer, ChatWidget (AI chatbot), BeforeAfterMockup (auto-cycling real portfolio images), OfferBreakdownSection (3-part free offer), ValueDifferentiationSection (agency comparison table + dashboard row), DashboardSection (mock dashboard preview + feature grid), PricingSection, FAQSection (offer + dashboard focused), NicheExamplesSection (AI-generated website screenshots)
 - **Section Rhythm**: Hero (charcoal) → Offer Breakdown (navy) → Problem (offwhite) → How It Works (offwhite) → Value Differentiation (charcoal) → Solution (navy) → Dashboard (navy) → Testimonials (charcoal) → Mission Blurb (charcoal) → Niche Examples (navy) → Pricing (charcoal) → FAQ (offwhite) → Final CTA (orange) → Footer (charcoal)
