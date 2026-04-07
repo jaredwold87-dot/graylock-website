@@ -83,7 +83,7 @@ export const TESTIMONIALS = [
     quote: "I had no website at all \u2014 I was doing everything through community outreach, showing up in person, handing out cards. It was exhausting and inconsistent. Graylock built me a site from scratch and within just a couple months, clients started finding me on Google without me doing anything. The funnel pages they set up drove real local search traffic almost immediately. Now leads come to me. I still love being in the community, but now it's by choice \u2014 not because I have no other option."
   },
   {
-    name: "Ben Lambright",
+    name: "Ben L.",
     title: "West Coast Eye Clinic",
     location: "West Coast",
     quote: "We had two outdated websites that were creating confusion for patients and extra work for our staff. Graylock consolidated everything into one clean, professional site and completely restructured how new patients contact us. I didn't want people calling the front desk \u2014 I wanted a controlled, professional intake process. Now every inquiry comes through an online form, and based on what the patient submits, it routes directly to the right person on my team. No more missed calls, no more phone tag. It's streamlined our entire front-end workflow."
