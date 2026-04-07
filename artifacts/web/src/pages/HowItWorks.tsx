@@ -31,11 +31,16 @@ export default function HowItWorks() {
     <>
       <SEO title="How It Works | Graylock Digital" />
       
-      <section className="bg-offwhite py-24 px-6 md:px-12 text-charcoal border-b border-gray-200">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-how-it-works.png)` }}
+        />
+        <div className="absolute inset-0 bg-charcoal/75" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Our Proven Process</h1>
-            <p className="text-xl font-sans text-gray-600">From an outdated liability to a lead-generating asset — within 3–5 business days on average.</p>
+            <p className="text-xl font-sans text-stone">From an outdated liability to a lead-generating asset — within 3–5 business days on average.</p>
           </ScrollReveal>
         </div>
       </section>

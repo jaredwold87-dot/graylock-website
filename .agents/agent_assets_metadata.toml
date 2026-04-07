@@ -6,3 +6,21 @@ id = "AwtDSWelJwUtEUcLSWEwX"
 uri = "file://artifacts/web/public/hero-dog-groomers.png"
 type = "image"
 title = "dog grooming salon hero"
+
+[[generated]]
+id = "bL7q5xI7BJwJaETHGmWeB"
+uri = "file://artifacts/web/public/hero-how-it-works.png"
+type = "image"
+title = "team planning website project"
+
+[[generated]]
+id = "tDmyaICGjK1rR8jvpxo7j"
+uri = "file://artifacts/web/public/hero-pricing.png"
+type = "image"
+title = "pricing workspace desk"
+
+[[generated]]
+id = "BlN_LgD98-IdpVJPm40BO"
+uri = "file://artifacts/web/public/hero-about.png"
+type = "image"
+title = "creative team working together"

@@ -46,11 +46,16 @@ export default function Pricing() {
     <>
       <SEO title="Pricing | Graylock Digital" />
       
-      <section className="bg-offwhite pt-24 pb-12 px-6 md:px-12 text-charcoal">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-pricing.png)` }}
+        />
+        <div className="absolute inset-0 bg-charcoal/75" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Simple, Honest Pricing</h1>
-            <p className="text-xl font-sans text-gray-600">No hidden fees. No long-term contracts. Just a flat setup fee and a predictable monthly rate.</p>
+            <p className="text-xl font-sans text-stone">No hidden fees. No long-term contracts. Just a flat setup fee and a predictable monthly rate.</p>
           </ScrollReveal>
         </div>
       </section>

@@ -15,11 +15,16 @@ export default function About() {
     <>
       <SEO title="About Us | Graylock Digital" />
       
-      <section className="bg-offwhite py-24 px-6 md:px-12 text-charcoal border-b border-gray-200">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-about.png)` }}
+        />
+        <div className="absolute inset-0 bg-charcoal/75" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Why We Built Graylock Digital</h1>
-            <p className="text-xl font-sans text-gray-600 leading-relaxed text-left md:text-center">
+            <p className="text-xl font-sans text-stone leading-relaxed text-left md:text-center">
               We've been on the other side of this. We've built our own websites from scratch, paid agencies thousands for underwhelming results, and spent weekends wrestling with WordPress. We know exactly what it feels like to overpay and underperform — and that frustration is precisely why Graylock exists. We saw small service businesses getting stuck with outdated, underperforming websites. They either had to spend $10,000 on an agency they couldn't afford, or spend 50 hours trying to figure it out themselves. There was no affordable, done-for-you middle ground. So we built it.
             </p>
           </ScrollReveal>
