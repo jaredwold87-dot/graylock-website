@@ -38,6 +38,7 @@ export function Footer() {
             <Link href="/websites-for-accountants" className="text-stone hover:text-offwhite transition-colors">Accountants</Link>
             <Link href="/websites-for-lawyers" className="text-stone hover:text-offwhite transition-colors">Lawyers</Link>
             <Link href="/websites-for-house-cleaners" className="text-stone hover:text-offwhite transition-colors">House Cleaners</Link>
+            <Link href="/websites-for-dog-groomers" className="text-stone hover:text-offwhite transition-colors">Dog Groomers</Link>
           </ul>
         </div>
 
