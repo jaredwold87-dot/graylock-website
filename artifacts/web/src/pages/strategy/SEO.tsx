@@ -9,15 +9,15 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "SEO for Small Business | Metadata, Backlinks & Local Search | Graylock Digital",
+    title: "SEO for Professional Practices | Metadata, Backlinks & Local Search | Graylock Digital",
     description:
-      "Learn how SEO works for small service businesses — metadata, backlinks, local search, content strategy, and technical SEO. Graylock builds SEO-ready websites from day one.",
+      "Learn how SEO works for professional practices — metadata, backlinks, local search, content strategy, and technical SEO. Graylock builds SEO-ready websites for attorneys, therapists, CPAs, and medical practices.",
     url: "https://graylockdigital.com/seo-for-small-business",
   },
   hero: {
     h1: "Show Up When Your Ideal Clients Are Already Searching for You",
     subheadline:
-      "SEO is the difference between a website that sits dormant and one that generates leads while you sleep. Here's how it works — and what Graylock does to make it work for you.",
+      "SEO is the difference between a website that sits dormant and one that generates leads while you sleep. Here's how it works — and what Graylock does to make it work for your practice.",
     ctaButton: "Book Your Free Website Review",
     ctaSubtext: "Free demo + full written report — no obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-seo.png`,
@@ -26,13 +26,13 @@ const data: StrategyPageData = {
     heading: "SEO — Explained Simply",
     paragraphs: [
       "SEO (Search Engine Optimization) is the practice of making your website show up higher in Google search results when people search for what you offer.",
-      "When a homeowner types 'plumber near me' or a business owner types 'CPA in Phoenix', Google decides which websites to show — and in what order. SEO is the work that determines where you appear in that list.",
+      "When a prospective client types 'family lawyer near me' or 'CPA in Phoenix', Google decides which websites to show — and in what order. SEO is the work that determines where you appear in that list.",
       "Good SEO means more organic traffic (visitors who found you through Google, not an ad), more qualified leads, and less dependence on referrals or paid advertising.",
     ],
     calloutTitle: "GOOD SEO DOES 3 THINGS",
     calloutBullets: [
-      "Gets your business found when people search for what you offer",
-      "Brings in visitors who are already looking to hire or buy",
+      "Gets your practice found when people search for what you offer",
+      "Brings in visitors who are already looking to hire or book",
       "Compounds over time — unlike ads that stop working when you stop paying",
     ],
   },
@@ -42,7 +42,7 @@ const data: StrategyPageData = {
         icon: Search,
         title: "93% of online experiences begin with a search engine",
         description:
-          "If you're not appearing when potential clients search for your service, you're invisible to the majority of your market.",
+          "If you're not appearing when potential clients search for your services, you're invisible to the majority of your market.",
       },
       {
         icon: TrendingUp,
@@ -60,13 +60,13 @@ const data: StrategyPageData = {
         icon: MapPin,
         title: "Local SEO is the great equalizer",
         description:
-          "A one-person operation with good local SEO can outrank a national chain in local search results. Geography is the main factor — not budget.",
+          "A solo practitioner with good local SEO can outrank a national firm in local search results. Geography is the main factor — not budget.",
       },
       {
         icon: Users,
         title: "Your competitors are investing in SEO",
         description:
-          "The businesses ranking at the top of Google aren't there by accident — they've invested in optimization. Not investing means falling further behind.",
+          "The practices ranking at the top of Google aren't there by accident — they've invested in optimization. Not investing means falling further behind.",
       },
     ],
   },
@@ -83,12 +83,12 @@ const data: StrategyPageData = {
           "Fast load times, mobile-friendly build, SSL certificate, XML sitemap, robots.txt, clean code with no unnecessary plugins. We build technically sound sites that Google can crawl efficiently.",
       },
       {
-        title: "Local SEO optimization (Standard & Growth plans)",
+        title: "Local SEO optimization (Group Practice & Enterprise plans)",
         description:
           "Location-specific page content, local keyword integration, NAP consistency (Name, Address, Phone), and schema markup that tells Google exactly where you operate.",
       },
       {
-        title: "Assistance with Google Business Profile Setup (Standard & Growth)",
+        title: "Google Business Profile setup (Group Practice & Enterprise)",
         description:
           "We create and optimize your GBP listing, which is the single most impactful local SEO action you can take.",
       },
@@ -100,7 +100,7 @@ const data: StrategyPageData = {
       {
         title: "Monthly SEO reporting",
         description:
-          "Every plan includes monthly performance reports showing keyword rankings, traffic trends, and opportunities. Growth plan clients get quarterly SEO reviews.",
+          "Every plan includes monthly performance reports showing keyword rankings, traffic trends, and opportunities. Group Practice clients get quarterly SEO reviews. Enterprise clients receive bi-annual strategy sessions.",
       },
     ],
   },
@@ -122,17 +122,17 @@ const data: StrategyPageData = {
       {
         title: "Backlinks and Domain Authority",
         description:
-          "A backlink is when another website links to yours. Google treats backlinks like votes of confidence — the more reputable websites that link to you, the more authority Google assigns your domain. Higher authority = higher rankings. Quality matters far more than quantity: one link from a trusted local news site is worth more than 50 links from spammy directories. Building backlinks naturally involves getting listed in local directories, earning mentions from local businesses, and creating content worth linking to.",
+          "A backlink is when another website links to yours. Google treats backlinks like votes of confidence — the more reputable websites that link to you, the more authority Google assigns your domain. Higher authority = higher rankings. Quality matters far more than quantity: one link from a trusted local news site is worth more than 50 links from spammy directories. Building backlinks naturally involves getting listed in local directories, earning mentions from local organizations, and creating content worth linking to.",
       },
       {
         title: "Local SEO and the Google Local Pack",
         description:
-          "The 'local pack' is the map + three business listings that appear at the top of Google results for location-based searches like 'accountant near me'. Getting into the local pack requires: (1) An optimized Google Business Profile, (2) Consistent NAP across the web, (3) Positive reviews, (4) Local-keyword-rich website content. Graylock handles all of this on Standard and Growth plans.",
+          "The 'local pack' is the map + three business listings that appear at the top of Google results for location-based searches like 'therapist near me'. Getting into the local pack requires: (1) An optimized Google Business Profile, (2) Consistent NAP across the web, (3) Positive reviews, (4) Local-keyword-rich website content. Graylock handles all of this on Group Practice and Enterprise plans.",
       },
       {
         title: "On-Page vs Off-Page SEO",
         description:
-          "On-page SEO is everything you control on your own website: title tags, headings, keyword usage, page speed, mobile friendliness, internal linking, and content quality. Off-page SEO is everything outside your site that affects your rankings: backlinks, social signals, and local citations. Graylock builds an on-page SEO foundation on every site. Off-page SEO (link building, citation building) is addressed in Growth and Custom plans.",
+          "On-page SEO is everything you control on your own website: title tags, headings, keyword usage, page speed, mobile friendliness, internal linking, and content quality. Off-page SEO is everything outside your site that affects your rankings: backlinks, social signals, and local citations. Graylock builds an on-page SEO foundation on every site. Off-page SEO (link building, citation building) is addressed in Enterprise and Custom plans.",
       },
       {
         title: "Technical SEO",
@@ -142,7 +142,7 @@ const data: StrategyPageData = {
       {
         title: "Content and Keyword Strategy",
         description:
-          "Keywords are the search terms your potential clients type into Google. Keyword strategy means identifying which terms they use, understanding the intent behind them (are they researching or ready to buy?), and creating pages that answer those searches better than your competitors. Service pages, location pages, and FAQ pages are the most valuable content types for local service businesses.",
+          "Keywords are the search terms your potential clients type into Google. Keyword strategy means identifying which terms they use, understanding the intent behind them (are they researching or ready to hire?), and creating pages that answer those searches better than your competitors. Service pages, location pages, and FAQ pages are the most valuable content types for professional practices.",
       },
     ],
   },
@@ -171,7 +171,7 @@ const data: StrategyPageData = {
       {
         mistake: "Ignoring Google Business Profile",
         cost: "Invisible in local pack and Google Maps searches",
-        fix: "GBP setup and optimization included in Standard and Growth plans",
+        fix: "GBP setup and optimization included in Group Practice and Enterprise plans",
       },
       {
         mistake: "No location-specific content",
@@ -182,12 +182,12 @@ const data: StrategyPageData = {
   },
   faqs: [
     {
-      q: "What is SEO and why does my small business need it?",
-      a: "SEO (Search Engine Optimization) is the work that helps your website appear higher in Google search results. For a small business, it means showing up when local customers search for your service — without paying for every click. It's the most cost-effective long-term marketing strategy available.",
+      q: "What is SEO and why does my practice need it?",
+      a: "SEO (Search Engine Optimization) is the work that helps your website appear higher in Google search results. For a professional practice, it means showing up when local clients search for your services — without paying for every click. It's the most cost-effective long-term marketing strategy available.",
     },
     {
       q: "What's the difference between SEO and paid ads (Google Ads)?",
-      a: "Paid ads (Google Ads / PPC) put you at the top of search results immediately, but stop the moment you stop paying. SEO builds organic rankings that persist and compound over time. Both have value, but SEO provides a better long-term return on investment for most service businesses.",
+      a: "Paid ads (Google Ads / PPC) put you at the top of search results immediately, but stop the moment you stop paying. SEO builds organic rankings that persist and compound over time. Both have value, but SEO provides a better long-term return on investment for most professional practices.",
     },
     {
       q: "What is a title tag and why does it matter?",
@@ -195,7 +195,7 @@ const data: StrategyPageData = {
     },
     {
       q: "What are backlinks and do I need them?",
-      a: "Backlinks are links from other websites pointing to yours. Google treats them as endorsements — the more authoritative sites that link to you, the higher your domain authority and rankings. For local service businesses, local citations, directory listings, and occasional press mentions are the most impactful backlinks to pursue.",
+      a: "Backlinks are links from other websites pointing to yours. Google treats them as endorsements — the more authoritative sites that link to you, the higher your domain authority and rankings. For professional practices, local citations, directory listings, and professional association listings are the most impactful backlinks to pursue.",
     },
     {
       q: "How long does SEO take to work?",
@@ -203,7 +203,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does Graylock handle SEO for my website?",
-      a: "Every Graylock plan includes an SEO foundation: proper metadata, clean URL structure, mobile optimization, fast load times, and schema markup. Standard and Growth plans add full local SEO optimization and assistance with Google Business Profile setup. Growth plan clients receive quarterly SEO reviews. Custom plans include advanced SEO strategy.",
+      a: "Every Graylock plan includes an SEO foundation: proper metadata, clean URL structure, mobile optimization, fast load times, and schema markup. Group Practice and Enterprise plans add full local SEO optimization and Google Business Profile setup. Group Practice clients receive quarterly SEO reviews. Enterprise clients receive bi-annual strategy sessions. Custom plans include advanced SEO strategy.",
     },
   ],
   bottomCta: {
@@ -221,15 +221,15 @@ const data: StrategyPageData = {
   schema: {
     "@context": "https://schema.org",
     "@type": ["WebPage", "FAQPage"],
-    name: "SEO for Small Business | Graylock Digital",
+    name: "SEO for Professional Practices | Graylock Digital",
     url: "https://graylockdigital.com/seo-for-small-business",
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is SEO and why does my small business need it?",
+        name: "What is SEO and why does my practice need it?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "SEO is the work that helps your website appear higher in Google search results. For a small business, it means showing up when local customers search for your service.",
+          text: "SEO is the work that helps your website appear higher in Google search results. For a professional practice, it means showing up when local clients search for your services.",
         },
       },
       {
@@ -245,7 +245,7 @@ const data: StrategyPageData = {
         name: "Does Graylock handle SEO for my website?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Every Graylock plan includes an SEO foundation. Standard and Growth plans add full local SEO optimization and assistance with Google Business Profile setup.",
+          text: "Every Graylock plan includes an SEO foundation. Group Practice and Enterprise plans add full local SEO optimization and Google Business Profile setup.",
         },
       },
     ],

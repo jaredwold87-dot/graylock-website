@@ -1,0 +1,359 @@
+You are updating the full Graylock Digital website (graylockdigital.com). This is a complete rebrand and pivot. Make every change listed below across every page and component. Do not skip any section. Apply all changes, then confirm what was updated.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 1 — GLOBAL BRAND & COLOR CHANGES
+Apply these everywhere across the entire site.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REPLACE the current color palette entirely:
+
+OLD → NEW
+- Near-black background (#0D0D0D or similar dark) → Deep navy: #0F1E35
+- Bright orange (#E8672A or similar) → Professional steel blue: #2E7BB4
+- Orange accent on hover/highlight → Lighter blue: #4A9FD5
+- Dark ember/fire particle animation on homepage hero → REMOVE completely. Replace with a clean, dark navy background with a subtle geometric pattern or very faint grid overlay — professional, not dramatic.
+- Any orange text, borders, buttons, or icons → Replace with #2E7BB4 (steel blue)
+- Light gray (#F5F5F5) → Keep as-is (used for section backgrounds)
+- White → Keep as-is
+- Dark text (#1A1A1A, #555555) → Keep as-is
+
+UPDATE the CSS variables or Tailwind config (wherever colors are defined globally) to reflect the above. Every component that uses the old orange must be updated to steel blue.
+
+UPDATE the logo: The word "DIGITAL" below "GRAYLOCK" should remain. If the logo uses orange in any way, update that orange element to steel blue (#2E7BB4). Do not change the logo typography or layout, only the color.
+
+UPDATE navigation: If the CTA button in the nav ("Free Website Review") is orange, change it to steel blue (#2E7BB4) with white text. On hover: darken slightly to #1E5C8A.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 2 — HOMEPAGE CHANGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HERO SECTION:
+- Remove the dark ember/fire particle background animation entirely
+- Replace with: solid deep navy background (#0F1E35) with a very subtle, low-opacity geometric hexagon or grid pattern in a slightly lighter navy — professional, clean, no motion
+- Update headline: Change "Stop Losing Leads to a Dated & Ineffective Website." to: "Your Practice Deserves a Website That Works as Hard as You Do."
+- Update subheadline: Change current text to: "We build custom, high-converting websites for law firms, medical practices, accounting firms, and therapy groups — and deliver them in 3–5 business days. Starting at $199/month. No long-term contracts."
+- Keep the "Book Your Free Website Review" CTA button but change its color to steel blue (#2E7BB4)
+- Keep the four bullet points under the CTA ("Free website evaluation", "Custom homepage demo", "Full written PDF report", "Zero obligation to move forward") — these are strong, keep them
+
+PAIN POINTS SECTION (the "Sound Familiar?" section):
+- Update the six pain point headlines to be relevant to professional practices:
+  1. "Your Site Doesn't Reflect Your Expertise" (was: Your Site Looks Outdated)
+  2. "Prospective Clients Can't Find You on Google" (was: You're Invisible on Google)
+  3. "Agencies Want $10K–$20K Upfront" — keep this one, it's perfect
+  4. "Your Website Looks Like Every Other Practice" (was: It's Broken on Mobile — move mobile into the body copy)
+  5. "You Don't Know What's Holding Your Site Back" — keep this one
+  6. "Every Month Without a Great Site Is Lost Referrals" (was: You've Been Putting It Off)
+- Update the body copy under each pain point to reference professional practices (attorneys, therapists, CPAs, physicians) rather than generic small businesses
+
+HOW IT WORKS SECTION:
+- Keep the four steps. Update the copy in Step 1 to: "Pick a time that works for you. It takes 20 minutes and there's zero obligation. We want to learn about your practice, your ideal clients, and your current online presence."
+- Keep Steps 2, 3, 4 as-is — they're accurate
+
+WHY GRAYLOCK COMPARISON TABLE:
+- This is a strong section. Keep the structure. Update the left column header from "Typical Agencies" to "Traditional Agencies & Template Platforms"
+- Add one new row: "Serves professional practices (law, medical, therapy, CPA)" → left column: "Rarely — usually generic small business focus" → right column (Graylock): "Purpose-built for professional practices"
+
+PRICING SECTION on homepage:
+- Remove the Starter plan ($79/month) entirely from the homepage display
+- Replace with the new three-tier structure:
+
+  TIER 1 — SOLO PRACTICE
+  $199/month + $799 one-time setup
+  Label: "For solo practitioners"
+  Features to list:
+  • Custom 8-Page Website
+  • Mobile-First Professional Design
+  • Local SEO Foundation
+  • Google Business Profile Setup
+  • Lead Capture Form
+  • Hosting, SSL & Daily Backups
+  • Monthly Performance Report
+  • Business Dashboard Access
+  • Priority Email Support
+
+  TIER 2 — GROUP PRACTICE (mark as "Most Popular")
+  $299/month + $999 one-time setup
+  Label: "For multi-provider practices & small firms"
+  Features to list:
+  • Custom 15-Page Website
+  • Multiple Provider Bio Pages (up to 5)
+  • 10 SEO-Optimized Funnel Pages
+  • Enhanced Lead Capture Form
+  • Full Local SEO Implementation
+  • Quarterly SEO Review
+  • Lead Activity Tracking Dashboard
+  • Custom Integrations (Calendly, scheduling, etc.)
+  • Quarterly Strategy Call
+  • Priority Support
+
+  TIER 3 — ENTERPRISE PRACTICE
+  $449/month + $1,499 one-time setup
+  Label: "For established multi-location practices"
+  Features to list:
+  • Custom 20+ Page Website
+  • Up to 10 Provider Bio Pages
+  • 20 SEO-Optimized Funnel Pages
+  • Multi-Location SEO Strategy
+  • Advanced Analytics & Reporting
+  • Bi-Annual Strategy Sessions
+  • Priority Build Queue
+  • Dedicated Account Management
+  • Custom Reporting Cadence
+
+  CUSTOM PLAN — keep as-is ("Let's Talk")
+
+- Update the note under the pricing table: "All plans include hosting, SSL, mobile optimization, dashboard access, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime with 30 days' notice. Client retains domain and all content."
+
+WHO WE ARE SECTION:
+- Keep the headline "We Only Work With Businesses We Genuinely Want to See Win"
+- Update the body copy to: "We're not trying to work with everyone. We look for law firms, medical practices, accounting firms, and therapy groups where we know — not hope, know — that a better website will change their trajectory. When a solo attorney is losing referrals because their site looks unprofessional, or a therapy group can't fill their caseload because they're invisible on Google — those are the practices we seek out. Not because they're the biggest contracts, but because we can see exactly how to help them."
+
+INDUSTRIES SECTION ("Built for Businesses Like Yours"):
+- Remove the current generic industry list
+- Replace with: Attorneys & Law Firms, Therapists & Counselors, Physicians & Medical Groups, CPAs & Accounting Firms, Group Practices, Psychiatrists & Psychologists
+- Keep the same card/tag visual format
+
+PORTFOLIO EXAMPLES (the three before/after cards):
+- Keep Johnson & Associates CPA and Peaceful Minds Counseling — these are relevant
+- Replace Summit Builders LLC (general contractor) with: "Meridian Family Law" — a small law firm website transformation. Use placeholder before/after screenshots consistent with the existing style.
+
+TESTIMONIALS:
+- Keep Sarah M. (Licensed Therapist, Reno NV) — this is perfect for the new direction
+- Keep David K. (CPA & Tax Advisor, Henderson NV) — perfect
+- Replace Marcus T. (General Contractor, Phoenix AZ) with: "Jennifer R. — Solo Attorney, Boise, ID" with quote: "I'd been on FindLaw for years paying for nothing. Graylock had my new site live in four days and it actually looks like a firm I'd want to hire."
+
+FAQ SECTION — keep as-is, it's accurate
+
+BOTTOM CTA — keep as-is
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 3 — PRICING PAGE (/pricing)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Remove Starter plan entirely
+- Implement the three new tiers as described in Section 2 above (Solo Practice / Group Practice / Enterprise Practice)
+- Update the comparison feature table below the pricing cards to reflect the new three tiers:
+
+  FEATURE COMPARISON TABLE — new columns: Solo / Group / Enterprise / Custom
+
+  Feature rows:
+  Pages Included | 8 | 15 | 20+ | Custom
+  Provider Bio Pages | 1 | Up to 5 | Up to 10 | Unlimited
+  SEO Funnel Pages | — | 10 | 20 | Custom
+  Mobile-First Design | ✓ | ✓ | ✓ | ✓
+  Hosting & SSL | ✓ | ✓ | ✓ | ✓
+  Google Business Profile | ✓ | ✓ | ✓ | ✓
+  Monthly Performance Report | ✓ | ✓ | ✓ | ✓
+  Local SEO | Foundation | Full | Advanced + Multi-Location | Custom
+  Lead Capture Form | Basic | Enhanced | Advanced | Custom
+  Lead Activity Tracking | — | ✓ | ✓ | ✓
+  Dashboard Access | Basic | Full | Full | Custom
+  Custom Integrations | — | ✓ | ✓ | ✓
+  Quarterly SEO Review | — | ✓ | ✓ | ✓
+  Quarterly Strategy Call | — | ✓ | ✓ | ✓
+  Bi-Annual Strategy Sessions | — | — | ✓ | ✓
+  Daily Backups | ✓ | ✓ | ✓ | ✓
+  Priority Support | — | ✓ | ✓ | ✓
+  Dedicated Account Manager | — | — | ✓ | ✓
+  Priority Build Queue | — | — | ✓ | ✓
+
+- Update page headline to: "Simple, Transparent Pricing for Professional Practices"
+- Update page subheadline to: "A one-time site development fee, then a flat monthly rate. No surprises. No long-term contracts. Not sure which plan fits your practice? Book a free review and we'll recommend the right one."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 4 — ABOUT PAGE (/about)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ORIGIN STORY — update to:
+"We built Graylock Digital after watching too many professional practices lose clients online to competitors with better-looking websites. Attorneys with decades of experience. Therapists with full waiting lists. CPAs with loyal books of business. All of them with websites that embarrassed them — or worse, made them invisible on Google entirely. The options were either paying an agency $10,000–$20,000 upfront and waiting three months for a result they couldn't predict, or fighting with a Squarespace template on a Sunday afternoon. We built the middle ground: genuinely custom, professionally designed websites delivered in 3–5 business days, starting at $199/month, with no long-term contracts and no technical headaches."
+
+PHILOSOPHY SECTION — update to:
+"We don't take on every practice that comes our way. We look for attorneys, therapists, physicians, and CPAs where we know — not hope, know — that a better website will directly impact their ability to serve more clients. When a solo attorney loses a prospective client because their site looked unprofessional, or a group practice can't fill an open clinician's caseload because they don't show up on Google — those are the moments we're solving for. Your growth is our portfolio."
+
+TEAM SECTION:
+- Keep Jared (Systems & Operations) bio — but update description to: "Jared designed and built the operating system that powers Graylock Digital. He handles every website build, the technology infrastructure behind our process, and the proprietary tools that let us deliver custom professional practice websites in days, not months."
+- Keep Tim (Client Relations & Growth) bio — but update description to: "Tim leads all client discovery, proposals, and account relationships. He's the first person you talk to and the person you'll always be able to reach. His background in professional services outreach means he understands what law firms, medical practices, and accounting firms actually need from a web partner."
+- Remove Marcus, Rachel, and Daniel from the team section entirely. Replace the section note with: "For specialized projects, we collaborate with a trusted network of U.S.-based professionals who share our standards and commitment to client outcomes."
+
+INDUSTRIES served section — update to list:
+Attorneys & Law Firms, Therapists & Counselors, Physicians & Medical Groups, CPAs & Accounting Firms, Group Practices, Psychiatrists & Psychologists
+
+CORE VALUES — keep the four values (Done-For-You, Transparent, Fast, Relationship-Driven) — update the "Fast" description to include: "Professional practice clients can't wait 6–10 weeks. We built a process that delivers custom sites in 3–5 business days without cutting corners."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5 — HOW IT WORKS PAGE (/how-it-works)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Page headline: Change to "Our Process — Built for Busy Professionals"
+- Keep the overall process structure (Day 1 call → Build → Review → Launch → Ongoing)
+- Update Day 1 copy to reference professional practices: "...We review your current online presence — your website, Google Business Profile, and how you appear in search results for your practice area and location..."
+- Add a note in the ongoing section: "For medical practices and healthcare providers: our lead capture forms are built for appointment inquiries only and do not collect protected health information (PHI). We do not integrate with EHR/EMR systems or patient portals — keeping your implementation clean and compliant."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6 — NAVIGATION & FOOTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NAVIGATION — update "Who We Help" dropdown to include:
+- Attorneys & Law Firms → /websites-for-lawyers (existing page, update as below)
+- Therapists & Counselors → /websites-for-solo-practitioners (rename/update as below)
+- Medical Practices → /websites-for-group-practices (update as below)
+- CPAs & Accounting Firms → /websites-for-accountants (existing page, update as below)
+- Group Practices → keep as link to /websites-for-group-practices
+
+Remove from "Who We Help": House Cleaners, Small Business Owners (or move to a generic page not in main nav)
+
+FOOTER:
+- Update the industries listed in footer to match new verticals: Attorneys, Therapists, Physicians, CPAs, Group Practices
+- Keep all other footer links and legal copy as-is
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7 — NICHE LANDING PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UPDATE existing niche pages and CREATE any missing ones. Each page should follow the same structure: hero with niche-specific headline → pain points for that profession → how Graylock solves it → pricing tiers → testimonial → CTA.
+
+Pages to update/create:
+
+1. /websites-for-lawyers (EXISTS — UPDATE)
+   - Headline: "Law Firm Websites That Win Client Trust Before the First Call"
+   - Target: Solo attorneys and small firms (2–6 attorneys)
+   - Pain points: Outdated site losing referrals, invisible on Google for practice area + city keywords, FindLaw/Scorpion too expensive, no time to manage WordPress
+   - Key differentiators to mention: Practice area funnel pages, attorney bio pages, no long-term contracts, 3–5 day delivery, client owns everything (unlike FindLaw)
+   - Testimonial: Use Jennifer R. (Solo Attorney, Boise ID) from updated homepage
+
+2. /websites-for-accountants (EXISTS — UPDATE)
+   - Headline: "CPA & Accounting Firm Websites That Fill Your Calendar Year-Round"
+   - Target: Solo CPAs, small accounting firms, tax practices
+   - Pain points: Generic site losing prospective clients to larger firms, invisible during tax season searches, no time or interest in website management
+   - Key differentiators: Local SEO for "[city] CPA" and "[city] tax preparation" searches, professional credibility signals, quick delivery before tax season
+
+3. /websites-for-group-practices (EXISTS — UPDATE)
+   - Headline: "Group Practice Websites That Fill Every Clinician's Caseload"
+   - Target: Multi-provider therapy groups, counseling centers, psychology practices
+   - Pain points: Brighter Vision or TherapySites template looks like every other practice, can't add providers without a redesign, no real local SEO
+   - Key differentiators: Individual clinician bio pages, specialty-specific funnel pages (e.g., "anxiety therapist [city]"), Group Practice plan at $299/month vs. Brighter Vision's $349 for a template
+
+4. /websites-for-solo-practitioners (EXISTS — UPDATE to focus on therapists/mental health)
+   - Headline: "Therapist Websites That Connect You With the Clients You're Meant to Serve"
+   - Target: Solo therapists, counselors, psychologists, LCSWs
+   - Pain points: TherapySites template ($69/month) looks like every other therapist, Brighter Vision raised prices to $349 for a template site, DIY Squarespace isn't generating leads
+   - Key differentiators: Genuinely custom (not a template), 3–5 day delivery, client owns domain and content, $199/month Solo Practice plan, no HIPAA complexity (inquiry forms only)
+
+5. CREATE NEW: /websites-for-medical-practices
+   - Headline: "Medical Practice Websites That Bring In Patients While You Focus on Care"
+   - Target: Solo physicians, specialty practices, small medical groups
+   - Pain points: Healthcare agencies charge $5,000–$35,000 upfront, existing site doesn't show up for "[specialty] in [city]" searches, no good mid-market option
+   - Key differentiators: Professional medical design, local SEO for specialty + location keywords, HIPAA note (inquiry forms only, no PHI collection), fast delivery, Group Practice plan starts at $299/month
+   - Add schema markup note: "Every Graylock medical practice website includes proper schema markup that helps AI tools like Google AI Overviews and ChatGPT identify and recommend your practice."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 8 — STRATEGY/SEO PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/seo-for-small-business — UPDATE page title and all references to:
+- Change page title to: "Local SEO for Professional Practices | Graylock Digital"
+- Replace "small businesses" throughout with "professional practices" where contextually appropriate
+- Add a section specifically about local SEO for professional services: "For attorneys, therapists, CPAs, and medical practices, local SEO works differently than for retail or e-commerce. Your prospective clients are searching with high intent — 'family law attorney Denver' or 'anxiety therapist near me' — and they're choosing from the first 3 results they see. Getting into that local pack requires a properly optimized Google Business Profile, location-specific practice area pages, and consistent NAP signals across the web. Every Graylock site is built with this in mind from day one."
+
+/website-design — UPDATE references from "service businesses" to "professional practices"
+
+/google-business-profile — keep as-is, it's accurate for the new market
+
+/geo-generative-engine-optimization — keep as-is, it's excellent and highly relevant to the new market (attorneys and medical practices especially benefit from AI search visibility)
+
+/lead-generation-for-small-business — UPDATE page title to: "Lead Generation for Professional Practices | Graylock Digital" and update body copy to reference professional practice context throughout
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 9 — FAQ PAGE (/faq)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Keep all existing FAQs. ADD the following new questions in the appropriate categories:
+
+Under "Your Website":
+Q: Do you work with medical practices? Are your forms HIPAA compliant?
+A: "Yes, we build websites for medical practices, physicians, therapists, and other healthcare providers. Our contact and lead capture forms are designed for appointment inquiries only — they do not collect protected health information (PHI). We do not integrate with EHR/EMR systems or patient portals. This keeps your implementation straightforward and outside the scope of HIPAA technical safeguards for websites. If you require a full HIPAA-compliant patient portal or health record integration, that falls outside our scope, and we'll tell you that upfront."
+
+Under "Working With Graylock":
+Q: What types of professional practices do you work with?
+A: "We specialize in websites for law firms (solo attorneys and small firms), therapists and counseling groups, CPA and accounting firms, medical practices, group practices, and other professional service providers. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments — not just look nice."
+
+Q: How is Graylock different from TherapySites, Brighter Vision, or LawLytics?
+A: "Those platforms offer templates or self-managed tools. Graylock builds genuinely custom websites — your site is designed from the ground up for your specific practice, your specialty, your location, and your ideal clients. We deliver in 3–5 business days (not weeks), you own your domain and all content, and our ongoing support means you never have to touch the technical side. Brighter Vision recently raised their prices to $149–$349/month for a template site where you don't own the content. Graylock starts at $199/month for a truly custom site where you own everything."
+
+Under "Pricing & Plans":
+Q: What is your minimum monthly price?
+A: "$199/month plus a one-time site development fee of $799. This is our Solo Practice plan, designed for individual attorneys, therapists, CPAs, and single-provider medical practices."
+
+Q: Why don't you have a cheaper plan?
+A: "We did. We retired it because the professional practice clients we serve — attorneys, therapists, CPAs, and physicians — need a site that genuinely represents their expertise and converts prospective clients into booked appointments. A 5-page template site doesn't do that for a law firm or a therapy practice. Our Solo Practice plan at $199/month is still dramatically less expensive than the $3,000–$10,000+ that traditional agencies charge for comparable quality, and you get it in 3–5 business days."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 10 — WORK/PORTFOLIO PAGE (/work)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Keep Johnson & Associates CPA example
+- Keep Peaceful Minds Counseling example
+- Replace Summit Builders LLC with: "Meridian Family Law" — described as a solo family law attorney who needed to move away from FindLaw. Same before/after format. Caption: "Replaced a generic FindLaw listing with a custom 8-page site. New client inquiries increased immediately after launch."
+- Update page headline to: "Real Transformations for Real Practices"
+- Update page subheadline to: "Before and after results we've delivered for law firms, medical practices, therapy groups, and accounting firms. Every site is built custom — not a template."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 11 — GET STARTED / CONTACT PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Update any "Book Your Free Website Review" form or landing page (/get-started) to include a dropdown field: "What type of practice are you?" with options:
+- Law Firm / Attorney
+- Therapy / Counseling Practice
+- Medical Practice
+- CPA / Accounting Firm
+- Group Practice
+- Other Professional Practice
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 12 — SEO METADATA (all pages)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Update page titles and meta descriptions across the site:
+
+Homepage:
+- Title: "Graylock Digital — Professional Practice Websites | Law, Medical, Therapy, CPA"
+- Meta: "Custom websites for law firms, therapists, medical practices, and CPAs. Delivered in 3–5 business days. Starting at $199/month. No long-term contracts."
+
+Pricing:
+- Title: "Pricing | Professional Practice Website Design | Graylock Digital"
+- Meta: "Transparent, flat-rate pricing for professional practice websites. Solo Practice from $199/month. Group Practice from $299/month. Enterprise from $449/month."
+
+About:
+- Title: "About Graylock Digital | Professional Practice Website Specialists"
+- Meta: "Graylock Digital builds custom websites for attorneys, therapists, CPAs, and medical practices — delivered in 3–5 business days, starting at $199/month."
+
+/websites-for-lawyers:
+- Title: "Law Firm Website Design | Custom Attorney Websites | Graylock Digital"
+- Meta: "Custom law firm websites delivered in 3–5 business days. Starting at $199/month. No long-term contracts. We build sites that win client trust before the first call."
+
+/websites-for-accountants:
+- Title: "CPA & Accounting Firm Websites | Graylock Digital"
+- Meta: "Professional website design for CPAs and accounting firms. Custom, fast, and built to fill your calendar. Starting at $199/month."
+
+/websites-for-group-practices:
+- Title: "Group Practice Website Design | Therapy & Counseling Groups | Graylock Digital"
+- Meta: "Custom websites for therapy groups and counseling practices. Individual clinician bio pages, local SEO, and specialty-specific funnel pages. Starting at $299/month."
+
+/websites-for-solo-practitioners:
+- Title: "Therapist Website Design | Private Practice Websites | Graylock Digital"
+- Meta: "Custom therapist websites in 3–5 days. Truly custom — not a Brighter Vision template. You own your domain and content. Starting at $199/month."
+
+/websites-for-medical-practices (new):
+- Title: "Medical Practice Website Design | Physician & Specialty Practice Websites | Graylock Digital"
+- Meta: "Professional medical practice websites designed to bring in patients. Custom, fast, and built for local search. Starting at $199/month."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINAL INSTRUCTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Make ALL of the above changes in a single pass.
+2. Do not change anything not listed here — do not redesign layouts, restructure page architecture, or remove sections not explicitly mentioned.
+3. Maintain all existing functionality (forms, dashboard preview, before/after sliders, FAQ accordions, etc.)
+4. After completing changes, output a summary list of every file or component modified so I can review.
+5. If any change requires a decision (e.g., exact before/after image for Meridian Family Law), use a placeholder that clearly labels what needs to be replaced — do not invent or hallucinate real client images.
+6. The site must remain fully functional and deployable after these changes.

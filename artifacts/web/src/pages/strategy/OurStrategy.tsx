@@ -56,8 +56,8 @@ export default function OurStrategy() {
   return (
     <>
       <SEO
-        title="Our Digital Strategy for Small Business | Graylock Digital"
-        description="Graylock's complete approach to getting small businesses found online — website design, SEO, GEO, funnel pages, Google Business Profiles, and lead generation."
+        title="Our Digital Strategy for Professional Practices | Graylock Digital"
+        description="Graylock's complete approach to getting professional practices found online — website design, SEO, GEO, funnel pages, Google Business Profiles, and lead generation."
         url="https://graylockdigital.com/our-strategy"
       />
 
@@ -74,7 +74,7 @@ export default function OurStrategy() {
               OUR STRATEGY
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-offwhite mb-6 leading-[1.1]">
-              The Complete Digital Strategy That Gets Small Businesses Found, Trusted, and Booked
+              The Complete Digital Strategy That Gets Professional Practices Found, Trusted, and Booked
             </h1>
             <p className="text-offwhite/80 font-sans text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               Every element of what we build is connected to one goal: generating qualified leads for your business. Here's how each piece works — and why it matters.

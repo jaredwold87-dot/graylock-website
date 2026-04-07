@@ -24,6 +24,7 @@ import SoloPractitioners from "@/pages/industries/SoloPractitioners";
 import GroupPractices from "@/pages/industries/GroupPractices";
 import AccountantsIndustry from "@/pages/industries/Accountants";
 import LawyersIndustry from "@/pages/industries/Lawyers";
+import MedicalPractices from "@/pages/industries/MedicalPractices";
 import HouseCleaners from "@/pages/industries/HouseCleaners";
 import PetGroomers from "@/pages/industries/PetGroomers";
 import OurStrategy from "@/pages/strategy/OurStrategy";
@@ -64,6 +65,7 @@ function Router() {
       <Route path="/websites-for-group-practices" component={GroupPractices} />
       <Route path="/websites-for-accountants" component={AccountantsIndustry} />
       <Route path="/websites-for-lawyers" component={LawyersIndustry} />
+      <Route path="/websites-for-medical-practices" component={MedicalPractices} />
       <Route path="/websites-for-house-cleaners" component={HouseCleaners} />
       <Route path="/websites-for-pet-groomers" component={PetGroomers} />
       <Route path="/our-strategy" component={OurStrategy} />

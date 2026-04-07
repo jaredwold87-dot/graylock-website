@@ -9,9 +9,9 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "SEO Funnel Pages for Small Business | Graylock Digital",
+    title: "SEO Funnel Pages for Professional Practices | Graylock Digital",
     description:
-      "Funnel pages are targeted landing pages that convert searchers into leads. Learn what they are, why they matter for local businesses, and how Graylock builds them into every website.",
+      "Funnel pages are targeted landing pages that convert searchers into leads. Learn what they are, why they matter for professional practices, and how Graylock builds them into every website.",
     url: "https://graylockdigital.com/funnel-pages",
   },
   hero: {
@@ -27,7 +27,7 @@ const data: StrategyPageData = {
     paragraphs: [
       "Funnel pages (also called landing pages or service pages) are targeted website pages designed to rank for specific search queries and convert visitors into leads.",
       "Instead of relying on your homepage to rank for everything, funnel pages let each service, specialty, or location have its own optimized page — giving Google clear signals about what you do and where you do it.",
-      "Example: A plumbing company might have a homepage, plus funnel pages for 'emergency plumbing repair', 'water heater installation', 'drain cleaning', and 'plumber in [City]'. Each page targets a different search and converts that specific visitor.",
+      "Example: A family law firm might have a homepage, plus funnel pages for 'divorce attorney [City]', 'child custody lawyer [City]', 'family mediator [City]', and 'prenuptial agreement attorney [City]'. Each page targets a different search and converts that specific visitor.",
     ],
     calloutTitle: "A GOOD FUNNEL PAGE DOES 3 THINGS",
     calloutBullets: [
@@ -80,7 +80,7 @@ const data: StrategyPageData = {
       {
         title: "One page per high-value service or location",
         description:
-          "Starter plan includes up to 5 pages, Standard up to 7 (plus 5 SEO funnel pages), Growth up to 14 pages (plus 10 SEO funnel pages).",
+          "Solo Practice includes 8 pages, Group Practice includes 15 pages (plus 10 SEO funnel pages), Enterprise includes 20+ pages (plus 20 SEO funnel pages).",
       },
       {
         title: "Optimized page structure",
@@ -117,7 +117,7 @@ const data: StrategyPageData = {
       {
         title: "Service Pages vs Location Pages",
         description:
-          "Service pages target what you do ('roof replacement', 'tax preparation', 'marriage counseling'). Location pages target where you do it ('plumber in Nashville', 'CPA in Phoenix', 'therapist in Austin'). Both types are critical for local service businesses. The most powerful funnel pages combine both: 'roof replacement in Nashville' captures highly motivated local buyers.",
+          "Service pages target what you do ('estate planning', 'tax preparation', 'marriage counseling'). Location pages target where you do it ('attorney in Nashville', 'CPA in Phoenix', 'therapist in Austin'). Both types are critical for professional practices. The most powerful funnel pages combine both: 'estate planning attorney in Nashville' captures highly motivated local prospects.",
       },
       {
         title: "Topic Clusters and Pillar Pages",
@@ -127,7 +127,7 @@ const data: StrategyPageData = {
       {
         title: "Search Intent and Page Matching",
         description:
-          "Every search query has an intent — informational (I want to learn), navigational (I want to find a specific site), commercial (I'm comparing options), or transactional (I'm ready to buy/book). Funnel pages for local service businesses primarily target commercial and transactional intent: 'best [service] in [city]' or '[service] near me'. These are the highest-converting searches.",
+          "Every search query has an intent — informational (I want to learn), navigational (I want to find a specific site), commercial (I'm comparing options), or transactional (I'm ready to hire/book). Funnel pages for professional practices primarily target commercial and transactional intent: 'best [service] in [city]' or '[service] near me'. These are the highest-converting searches.",
       },
       {
         title: "Above-the-Fold Conversion Structure",
@@ -141,7 +141,7 @@ const data: StrategyPageData = {
       {
         mistake: "Only having a homepage",
         cost: "Can't rank for any specific service or location searches",
-        fix: "Standard plan includes 5 SEO funnel pages; Growth includes 10",
+        fix: "Group Practice plan includes 10 SEO funnel pages; Enterprise includes 20",
       },
       {
         mistake: "Duplicate content across service pages",
@@ -172,15 +172,15 @@ const data: StrategyPageData = {
     },
     {
       q: "How many funnel pages does my business need?",
-      a: "It depends on how many services you offer and how many locations you serve. As a starting point: one page per major service + one page per main service area. Our Standard plan includes 5 SEO funnel pages, Growth includes 10, and Custom plans allow unlimited pages.",
+      a: "It depends on how many services you offer and how many locations you serve. As a starting point: one page per major service + one page per main service area. Our Group Practice plan includes 10 SEO funnel pages, Enterprise includes 20, and Custom plans allow unlimited pages.",
     },
     {
       q: "Can my homepage rank for everything without funnel pages?",
-      a: "For your business name, yes. For specific services and locations, no. Your homepage is too broad to rank for specific queries like 'emergency plumber in Dallas' or 'anxiety therapist in Portland'. You need dedicated pages for those.",
+      a: "For your practice name, yes. For specific services and locations, no. Your homepage is too broad to rank for specific queries like 'family law attorney in Dallas' or 'anxiety therapist in Portland'. You need dedicated pages for those.",
     },
     {
       q: "What's the difference between a funnel page and a blog post?",
-      a: "A funnel page targets commercial/transactional intent — someone ready to hire. A blog post typically targets informational intent — someone researching. Both have SEO value, but funnel pages drive direct conversions. Graylock focuses on funnel pages first; blog posts are added via content updates on Standard and Growth plans.",
+      a: "A funnel page targets commercial/transactional intent — someone ready to hire. A blog post typically targets informational intent — someone researching. Both have SEO value, but funnel pages drive direct conversions. Graylock focuses on funnel pages first; blog posts are added via content updates on Group Practice and Enterprise plans.",
     },
     {
       q: "How long does it take for funnel pages to rank?",
@@ -188,7 +188,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does every Graylock plan include funnel pages?",
-      a: "Yes. Starter includes up to 5 pages (which can include service pages). Standard includes 7 pages plus 5 additional SEO-optimized funnel pages. Growth includes 14 pages plus 10 SEO funnel pages. Custom plans support unlimited pages.",
+      a: "Yes. Solo Practice includes a custom 8-page website. Group Practice includes a 15-page website plus 10 SEO-optimized funnel pages. Enterprise includes a 20+ page website plus 20 SEO funnel pages. Custom plans support unlimited pages.",
     },
   ],
   bottomCta: {
@@ -206,7 +206,7 @@ const data: StrategyPageData = {
   schema: {
     "@context": "https://schema.org",
     "@type": ["WebPage", "FAQPage"],
-    name: "SEO Funnel Pages for Small Business | Graylock Digital",
+    name: "SEO Funnel Pages for Professional Practices | Graylock Digital",
     url: "https://graylockdigital.com/funnel-pages",
     mainEntity: [
       {
@@ -222,7 +222,7 @@ const data: StrategyPageData = {
         name: "How many funnel pages does my business need?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "One page per major service plus one page per main service area. Standard plan includes 5 SEO funnel pages, Growth includes 10.",
+          text: "One page per major service plus one page per main service area. Group Practice plan includes 10 SEO funnel pages, Enterprise includes 20.",
         },
       },
       {
@@ -230,7 +230,7 @@ const data: StrategyPageData = {
         name: "Does every Graylock plan include funnel pages?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Starter includes up to 5 pages. Standard includes 7 pages plus 5 SEO funnel pages. Growth includes 14 pages plus 10 SEO funnel pages.",
+          text: "Yes. Solo Practice includes 8 pages. Group Practice includes 15 pages plus 10 SEO funnel pages. Enterprise includes 20+ pages plus 20 SEO funnel pages.",
         },
       },
     ],

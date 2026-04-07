@@ -8,7 +8,7 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "GEO — Generative Engine Optimization | AI Search for Small Business | Graylock Digital",
+    title: "GEO — Generative Engine Optimization | AI Search for Professional Practices | Graylock Digital",
     description:
       "GEO is SEO for the AI era. Learn how to get your business recommended by ChatGPT, Google AI Overviews, and Perplexity — and why it matters for your leads.",
     url: "https://graylockdigital.com/geo-generative-engine-optimization",
@@ -115,17 +115,17 @@ const data: StrategyPageData = {
       {
         title: "How ChatGPT and Perplexity Find Local Businesses",
         description:
-          "When someone asks ChatGPT or Perplexity for a local business recommendation, these AI tools search the web in real time (via their browsing integrations) and synthesize answers from Google Business Profiles, Yelp, review sites, business directories, and business websites. A complete GBP, positive reviews, local citations, and a fast, structured website dramatically increase your chances of being recommended.",
+          "When someone asks ChatGPT or Perplexity for a local professional recommendation, these AI tools search the web in real time (via their browsing integrations) and synthesize answers from Google Business Profiles, Yelp, review sites, directories, and practice websites. A complete GBP, positive reviews, local citations, and a fast, structured website dramatically increase your chances of being recommended.",
       },
       {
         title: "Structured Data / Schema Markup",
         description:
-          "Schema markup is code added to your website that tells search engines and AI tools exactly what your content means — not just what it says. For a local business, schema communicates: your business name, type, address, phone, hours, services, price range, and reviews. AI models use schema as a trusted, structured data source. Every Graylock site includes comprehensive schema markup.",
+          "Schema markup is code added to your website that tells search engines and AI tools exactly what your content means — not just what it says. For a professional practice, schema communicates: your practice name, type, address, phone, hours, services, price range, and reviews. AI models use schema as a trusted, structured data source. Every Graylock site includes comprehensive schema markup.",
       },
       {
         title: "E-E-A-T and Why AI Models Care About It",
         description:
-          "E-E-A-T stands for Experience, Expertise, Authoritativeness, and Trustworthiness. It's Google's framework for evaluating content quality — and AI models use similar signals. For local businesses, E-E-A-T is demonstrated through: professional bios, credentials on the site, real reviews, consistent citations, and informative content that demonstrates genuine expertise in your field.",
+          "E-E-A-T stands for Experience, Expertise, Authoritativeness, and Trustworthiness. It's Google's framework for evaluating content quality — and AI models use similar signals. For professional practices, E-E-A-T is demonstrated through: professional bios, credentials on the site, real reviews, consistent citations, and informative content that demonstrates genuine expertise in your field.",
       },
     ],
   },
@@ -163,7 +163,7 @@ const data: StrategyPageData = {
       a: "Yes — they're complementary but distinct. Good SEO helps GEO (authoritative, structured content is valued by both), but GEO requires additional elements: comprehensive schema markup, consistent citations, conversational FAQ content, and a strong Google Business Profile. Graylock addresses both from day one.",
     },
     {
-      q: "Can a small local business really show up in ChatGPT recommendations?",
+      q: "Can a local professional practice really show up in ChatGPT recommendations?",
       a: "Yes. When someone asks ChatGPT 'find me a good accountant in Denver', the AI searches the web and synthesizes recommendations from Google Business Profiles, review sites, and business websites. A complete GBP, strong reviews, and a well-structured website significantly increase your chances of being recommended.",
     },
     {
@@ -176,7 +176,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does Graylock offer GEO as part of my plan?",
-      a: "Yes. GEO fundamentals are baked into every Graylock build: comprehensive schema markup, E-E-A-T-structured copy, FAQ sections, and consistent NAP. Standard and Growth plans include full local SEO and GBP optimization, which are the most impactful GEO levers for local businesses.",
+      a: "Yes. GEO fundamentals are baked into every Graylock build: comprehensive schema markup, E-E-A-T-structured copy, FAQ sections, and consistent NAP. Group Practice and Enterprise plans include full local SEO and GBP optimization, which are the most impactful GEO levers for professional practices.",
     },
   ],
   bottomCta: {
@@ -207,7 +207,7 @@ const data: StrategyPageData = {
       },
       {
         "@type": "Question",
-        name: "Can a small local business really show up in ChatGPT recommendations?",
+        name: "Can a local professional practice really show up in ChatGPT recommendations?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "Yes. A complete GBP, strong reviews, and a well-structured website significantly increase your chances of being recommended.",
@@ -218,7 +218,7 @@ const data: StrategyPageData = {
         name: "Does Graylock offer GEO as part of my plan?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. GEO fundamentals are baked into every Graylock build. Standard and Growth plans include full local SEO and GBP optimization.",
+          text: "Yes. GEO fundamentals are baked into every Graylock build. Group Practice and Enterprise plans include full local SEO and GBP optimization.",
         },
       },
     ],

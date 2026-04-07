@@ -17,12 +17,12 @@ export function DashboardSection() {
       <div className="max-w-7xl mx-auto">
 
         <ScrollReveal className="text-center mb-6">
-          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Standard & Growth Plans</p>
+          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Group Practice & Enterprise Plans</p>
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
             More Control, Without the Headache
           </h2>
           <p className="text-stone text-lg font-sans max-w-2xl mx-auto leading-relaxed">
-            Most small business owners have to call or email someone every time they need a simple update. Our Standard and Growth plans include a personalized dashboard that puts the essentials at your fingertips.
+            Most practice owners have to call or email someone every time they need a simple update. Our Group Practice and Enterprise plans include a personalized dashboard that puts the essentials at your fingertips.
           </p>
         </ScrollReveal>
 
@@ -123,8 +123,8 @@ export function DashboardSection() {
         <ScrollReveal delay={0.4} className="mt-20">
           <div className="bg-charcoal rounded-2xl border border-gunmetal p-8 md:p-10 text-center max-w-3xl mx-auto">
             <p className="text-offwhite font-sans text-lg leading-relaxed">
-              <span className="text-orange font-semibold">Most small business websites are hard to update.</span>{" "}
-              Owners have to wait on someone else for every little change. Our Standard and Growth plans give you a cleaner, easier way to manage the essentials — while we still handle the heavy lifting.
+              <span className="text-orange font-semibold">Most practice websites are hard to update.</span>{" "}
+              Owners have to wait on someone else for every little change. Our Group Practice and Enterprise plans give you a cleaner, easier way to manage the essentials — while we still handle the heavy lifting.
             </p>
           </div>
         </ScrollReveal>

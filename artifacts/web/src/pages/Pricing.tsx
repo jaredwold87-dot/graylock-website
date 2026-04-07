@@ -7,28 +7,25 @@ import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock, Fi
 
 export default function Pricing() {
   const featureRows = [
-    { name: "Pages Included", starter: "Up to 5", standard: "Up to 7", growth: "Up to 14", custom: "Custom" },
-    { name: "SEO Funnel Pages", starter: false, standard: "5 Pages", growth: "10 Pages", custom: "Custom" },
-    { name: "Mobile-First Design", starter: true, standard: true, growth: true, custom: true },
-    { name: "Secure Hosting & SSL", starter: true, standard: true, growth: true, custom: true },
-    { name: "Monthly Performance Report", starter: false, standard: true, growth: true, custom: true },
-    { name: "Lead Capture Forms", starter: "Basic", standard: "Enhanced", growth: "Advanced", custom: "Custom Integrated" },
-    { name: "SEO Optimization", starter: "Basic Setup", standard: "Local SEO Focus", growth: "Advanced + Schema", custom: "Advanced Strategy" },
-    { name: "Assistance with Google Business Profile Setup", starter: false, standard: true, growth: true, custom: true },
-    { name: "Business Dashboard", starter: "Dashboard + Support", standard: "Enhanced + Priority", growth: "Enhanced + Priority", custom: "Custom" },
-    { name: "Website Analytics", starter: false, standard: "Full Insights", growth: "Full Reports", custom: "Custom Reports" },
-    { name: "Edit Business Info (Hours, Phone, Address)", starter: true, standard: true, growth: true, custom: true },
-    { name: "Announcement / Message Banner", starter: false, standard: true, growth: true, custom: true },
-    { name: "Lead Activity Tracking", starter: false, standard: true, growth: true, custom: true },
-    { name: "Easy Update Request Submission", starter: false, standard: false, growth: true, custom: true },
-    { name: "Quarterly SEO Review", starter: false, standard: false, growth: true, custom: true },
-    { name: "Custom Integrations (Calendly, etc.)", starter: false, standard: false, growth: true, custom: true },
-    { name: "Priority Support", starter: false, standard: true, growth: true, custom: true },
-    { name: "Annual Strategy Call", starter: false, standard: false, growth: true, custom: true },
-    { name: "Custom Applications & Dashboards", starter: false, standard: false, growth: false, custom: true },
-    { name: "Operating System Builds", starter: false, standard: false, growth: false, custom: true },
-    { name: "Dedicated Account Manager", starter: false, standard: false, growth: false, custom: true },
-    { name: "Priority Build Queue", starter: false, standard: false, growth: false, custom: true },
+    { name: "Pages Included", solo: "8", group: "15", enterprise: "20+", custom: "Custom" },
+    { name: "Provider Bio Pages", solo: "1", group: "Up to 5", enterprise: "Up to 10", custom: "Unlimited" },
+    { name: "SEO Funnel Pages", solo: false, group: "10", enterprise: "20", custom: "Custom" },
+    { name: "Mobile-First Design", solo: true, group: true, enterprise: true, custom: true },
+    { name: "Hosting & SSL", solo: true, group: true, enterprise: true, custom: true },
+    { name: "Google Business Profile", solo: true, group: true, enterprise: true, custom: true },
+    { name: "Monthly Performance Report", solo: true, group: true, enterprise: true, custom: true },
+    { name: "Local SEO", solo: "Foundation", group: "Full", enterprise: "Advanced + Multi-Location", custom: "Custom" },
+    { name: "Lead Capture Form", solo: "Basic", group: "Enhanced", enterprise: "Advanced", custom: "Custom" },
+    { name: "Lead Activity Tracking", solo: false, group: true, enterprise: true, custom: true },
+    { name: "Dashboard Access", solo: "Basic", group: "Full", enterprise: "Full", custom: "Custom" },
+    { name: "Custom Integrations", solo: false, group: true, enterprise: true, custom: true },
+    { name: "Quarterly SEO Review", solo: false, group: true, enterprise: true, custom: true },
+    { name: "Quarterly Strategy Call", solo: false, group: true, enterprise: true, custom: true },
+    { name: "Bi-Annual Strategy Sessions", solo: false, group: false, enterprise: true, custom: true },
+    { name: "Daily Backups", solo: true, group: true, enterprise: true, custom: true },
+    { name: "Priority Support", solo: false, group: true, enterprise: true, custom: true },
+    { name: "Dedicated Account Manager", solo: false, group: false, enterprise: true, custom: true },
+    { name: "Priority Build Queue", solo: false, group: false, enterprise: true, custom: true },
   ];
 
   type CellValue = boolean | string;
@@ -44,7 +41,7 @@ export default function Pricing() {
 
   return (
     <>
-      <SEO title="Pricing | Graylock Digital" />
+      <SEO title="Pricing | Professional Practice Website Design | Graylock Digital" description="Transparent, flat-rate pricing for professional practice websites. Solo Practice from $199/month. Group Practice from $299/month. Enterprise from $449/month." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
@@ -54,8 +51,8 @@ export default function Pricing() {
         <div className="absolute inset-0 bg-charcoal/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <h1 className="text-4xl md:text-6xl font-display mb-6">Simple, Honest Pricing</h1>
-            <p className="text-xl font-sans text-stone">No hidden fees. No long-term contracts. Just a flat setup fee and a predictable monthly rate.</p>
+            <h1 className="text-4xl md:text-6xl font-display mb-6">Simple, Transparent Pricing for Professional Practices</h1>
+            <p className="text-xl font-sans text-stone">A one-time site development fee, then a flat monthly rate. No surprises. No long-term contracts. Not sure which plan fits your practice? Book a free review and we'll recommend the right one.</p>
           </ScrollReveal>
         </div>
       </section>
@@ -73,9 +70,9 @@ export default function Pricing() {
               <thead>
                 <tr>
                   <th className="p-4 border-b border-gunmetal font-display text-xl text-stone w-1/5">Features</th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Starter<br/><span className="text-sm text-stone font-sans">$79/mo</span></th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-orange w-1/5 text-center">Standard<br/><span className="text-sm text-stone font-sans">$119/mo</span></th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Growth<br/><span className="text-sm text-stone font-sans">$199/mo</span></th>
+                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Solo<br/><span className="text-sm text-stone font-sans">$199/mo</span></th>
+                  <th className="p-4 border-b border-gunmetal font-display text-xl text-orange w-1/5 text-center">Group<br/><span className="text-sm text-stone font-sans">$299/mo</span></th>
+                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Enterprise<br/><span className="text-sm text-stone font-sans">$449/mo</span></th>
                   <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Custom<br/><span className="text-sm text-stone font-sans">Contact Us</span></th>
                 </tr>
               </thead>
@@ -83,9 +80,9 @@ export default function Pricing() {
                 {featureRows.map((row, i) => (
                   <tr key={i} className="hover:bg-charcoal/50 transition-colors">
                     <td className="p-4 font-sans text-stone">{row.name}</td>
-                    <td className="p-4 text-center">{renderCell(row.starter)}</td>
-                    <td className="p-4 text-center bg-charcoal/20">{renderCell(row.standard, true)}</td>
-                    <td className="p-4 text-center">{renderCell(row.growth)}</td>
+                    <td className="p-4 text-center">{renderCell(row.solo)}</td>
+                    <td className="p-4 text-center bg-charcoal/20">{renderCell(row.group, true)}</td>
+                    <td className="p-4 text-center">{renderCell(row.enterprise)}</td>
                     <td className="p-4 text-center">{renderCell(row.custom)}</td>
                   </tr>
                 ))}
@@ -104,7 +101,7 @@ export default function Pricing() {
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">What You're Actually Paying For</p>
             <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">Your Monthly Fee, Broken Down</h2>
             <p className="text-stone text-lg font-sans max-w-2xl mx-auto">
-              Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your business every single day.
+              Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your practice every single day.
             </p>
           </ScrollReveal>
 
@@ -153,7 +150,7 @@ export default function Pricing() {
                 <span className="text-orange font-display text-xl">$250–485/mo</span>
               </div>
               <p className="text-stone/60 font-sans text-sm text-center mt-6">
-                Our Standard plan covers all of this for $119/mo — less than most businesses pay for hosting and a single plugin alone.
+                Our Solo Practice plan covers all of this for $199/mo — less than most practices pay for hosting and a single plugin alone.
               </p>
             </div>
           </ScrollReveal>

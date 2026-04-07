@@ -10,15 +10,15 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "Professional Website Design for Small Businesses | Graylock Digital",
+    title: "Professional Website Design for Practices | Graylock Digital",
     description:
-      "Graylock Digital builds custom, conversion-focused websites for small service businesses. Learn why great web design matters and what separates a website that converts from one that doesn't.",
+      "Graylock Digital builds custom, conversion-focused websites for professional practices — attorneys, therapists, CPAs, and medical practices. Learn why great web design matters and what separates a website that converts from one that doesn't.",
     url: "https://graylockdigital.com/website-design",
   },
   hero: {
     h1: "Your Website Is Either Making You Money or Costing You Business",
     subheadline:
-      "Most small business websites are digital brochures collecting dust. We design websites built around one goal: turning visitors into calls, bookings, and revenue.",
+      "Most practice websites are digital brochures collecting dust. We design websites built around one goal: turning visitors into calls, bookings, and revenue.",
     ctaButton: "Book Your Free Website Review",
     ctaSubtext: "Free demo + full written report — no obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-website-design.png`,
@@ -43,7 +43,7 @@ const data: StrategyPageData = {
         icon: Eye,
         title: "First impressions are made in 50 milliseconds",
         description:
-          "Before a visitor reads a single word, they've already judged your business. Good design makes that judgment positive.",
+          "Before a visitor reads a single word, they've already judged your practice. Good design makes that judgment positive.",
       },
       {
         icon: TrendingUp,
@@ -73,7 +73,7 @@ const data: StrategyPageData = {
         icon: DollarSign,
         title: "Bad design costs more than good design",
         description:
-          "Losing one client per month because your site underperforms can cost thousands per year. A $79/month professional site pays for itself with a single new client.",
+          "Losing one client per month because your site underperforms can cost thousands per year. A professional site starting at $199/month pays for itself with a single new client.",
       },
     ],
   },
@@ -82,7 +82,7 @@ const data: StrategyPageData = {
       {
         title: "Discovery call",
         description:
-          "We learn your business, your ideal clients, your existing brand, and what makes you different. We ask the questions most designers skip.",
+          "We learn your practice, your ideal clients, your existing brand, and what makes you different. We ask the questions most designers skip.",
       },
       {
         title: "Custom layout planning",
@@ -92,7 +92,7 @@ const data: StrategyPageData = {
       {
         title: "Professional copywriting brief",
         description:
-          "We help shape the language on your site so it speaks directly to your ideal client's fears, goals, and decisions.",
+          "We help shape the language on your site so it speaks directly to your ideal client's concerns, goals, and decisions.",
       },
       {
         title: "Mobile-first build",
@@ -180,19 +180,19 @@ const data: StrategyPageData = {
   faqs: [
     {
       q: "How much does professional website design cost?",
-      a: "Graylock Digital starts at $79/month with a $299 one-time setup fee. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance. Most agencies charge $5,000–$15,000 upfront for comparable quality. Our monthly model means no huge upfront risk.",
+      a: "Graylock Digital starts at $199/month with a $799 one-time setup fee for the Solo Practice plan. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance. Most agencies charge $5,000–$15,000 upfront for comparable quality. Our monthly model means no huge upfront risk.",
     },
     {
       q: "How long does it take to build a website?",
       a: "Most websites are built and launched within 3–5 business days on average after receiving your approval and setup fee. Larger or more complex builds may take longer. The initial call and onboarding form take less than 30 minutes of your time. The exact timeline depends on how quickly you can provide feedback and materials.",
     },
     {
-      q: "What makes a website 'good' for a service business?",
-      a: "A good service business website does three things: makes a strong first impression, clearly communicates your services and credibility, and makes it easy to contact you. It must also load fast and work perfectly on mobile.",
+      q: "What makes a website 'good' for a professional practice?",
+      a: "A good practice website does three things: makes a strong first impression, clearly communicates your services and credibility, and makes it easy to contact you. It must also load fast and work perfectly on mobile.",
     },
     {
       q: "What do I own, and what does my monthly fee cover?",
-      a: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and unlimited content updates. Think of it like having a full web team on retainer for a fraction of the cost.",
+      a: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and content updates. Think of it like having a full web team on retainer for a fraction of the cost.",
     },
     {
       q: "Can you redesign my existing website instead of building a new one?",
@@ -218,7 +218,7 @@ const data: StrategyPageData = {
   schema: {
     "@context": "https://schema.org",
     "@type": ["WebPage", "FAQPage"],
-    name: "Professional Website Design for Small Businesses | Graylock Digital",
+    name: "Professional Website Design for Practices | Graylock Digital",
     url: "https://graylockdigital.com/website-design",
     mainEntity: [
       {
@@ -226,7 +226,7 @@ const data: StrategyPageData = {
         name: "How much does professional website design cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Graylock Digital starts at $79/month with a $299 one-time setup fee. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance.",
+          text: "Graylock Digital starts at $199/month with a $799 one-time setup fee for the Solo Practice plan. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance.",
         },
       },
       {
@@ -239,10 +239,10 @@ const data: StrategyPageData = {
       },
       {
         "@type": "Question",
-        name: "What makes a website 'good' for a service business?",
+        name: "What makes a website 'good' for a professional practice?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "A good service business website does three things: makes a strong first impression, clearly communicates your services and credibility, and makes it easy to contact you.",
+          text: "A good practice website does three things: makes a strong first impression, clearly communicates your services and credibility, and makes it easy to contact you.",
         },
       },
       {
@@ -250,7 +250,7 @@ const data: StrategyPageData = {
         name: "What do I own, and what does my monthly fee cover?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and unlimited content updates.",
+          text: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and content updates.",
         },
       },
       {

@@ -14,13 +14,13 @@ export function PricingSection() {
         
         <ScrollReveal className="text-center mb-16">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">
-            Most of our clients start on Standard. Here's what's right for where you are now.
+            Most of our clients start on Group Practice. Here's what's right for where you are now.
           </p>
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
             Simple, Transparent Pricing
           </h2>
           <p className="text-stone text-lg font-sans max-w-2xl mx-auto">
-            Pay a one-time build fee, then a flat monthly rate. No surprises. Not sure which plan fits? Book a free review and we'll recommend the right one for your business.
+            A one-time site development fee, then a flat monthly rate. No surprises. No long-term contracts. Not sure which plan fits your practice? Book a free review and we'll recommend the right one.
           </p>
         </ScrollReveal>
 
@@ -81,7 +81,7 @@ export function PricingSection() {
                 variant={tier.popular ? 'primary' : 'outline'}
                 className="w-full"
               >
-                {tier.isCustom ? 'Contact Us' : tier.name === 'Starter' ? 'Start with a Free Review' : tier.name === 'Standard' ? 'Claim My Free Website Review' : "Let's Talk \u2014 Book a Free Review"}
+                {tier.isCustom ? 'Contact Us' : tier.popular ? 'Claim My Free Website Review' : "Book a Free Review"}
               </CTAButton>
             </ScrollReveal>
           ))}
@@ -89,10 +89,10 @@ export function PricingSection() {
 
         <ScrollReveal delay={0.5} className="mt-16 text-center">
           <p className="text-stone font-sans mb-2">
-            Not sure which plan is right? Book a free website review and we'll tell you exactly what your business needs.
+            Not sure which plan is right? Book a free website review and we'll tell you exactly what your practice needs.
           </p>
           <p className="text-stone/60 text-sm font-sans max-w-2xl mx-auto">
-            All plans include hosting, SSL, mobile optimization, dashboard access, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime.
+            All plans include hosting, SSL, mobile optimization, dashboard access, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime with 30 days' notice. Client retains domain and all content.
           </p>
         </ScrollReveal>
 

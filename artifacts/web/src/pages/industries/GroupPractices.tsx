@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Group Practices | Multi-Clinician Sites | $119/mo | Graylock Digital",
+    title: "Websites for Group Practices | Multi-Provider Sites | Starting at $299/mo | Graylock Digital",
     description:
-      "Graylock builds professional websites for group practices — showcasing your team, specialties, and individual clinicians. Custom built in 3–5 days. Starting at $119/mo. Free demo first.",
+      "Graylock builds custom websites for group practices — showcasing your team, specialties, and individual providers. Custom built in 3–5 days. Starting at $299/mo. Free demo first.",
     url: "https://graylockdigital.com/websites-for-group-practices",
   },
   hero: {
@@ -27,11 +27,11 @@ const data: IndustryPageData = {
     h1: "A Website That Represents",
     h1Highlight: "the Full Strength of Your Practice.",
     subheadline:
-      "Your group practice has grown. Your website should reflect that. We build multi-clinician, specialty-rich websites for group practices — showcasing every provider, every service area, and every reason clients should choose you.",
+      "Your group practice has grown. Your website should reflect that. We build multi-provider, specialty-rich websites for therapy groups, law firms, medical practices, and multi-provider organizations — showcasing every provider, every service area, and every reason clients should choose you. Starting at $299/month.",
     cta: "Book Your Free Website Review",
     backgroundImage: `${import.meta.env.BASE_URL}hero-group-practices.jpg`,
     trustSignals: [
-      "Individual clinician pages",
+      "Individual provider pages",
       "Specialty filtering",
       "3–5 day build",
       "Easy to update",
@@ -49,13 +49,13 @@ const data: IndustryPageData = {
       },
       {
         icon: Filter,
-        title: "Clients can't find the right clinician",
+        title: "Clients can't find the right provider",
         description:
-          "Prospective clients can't easily browse clinicians by specialty, insurance, or availability on your current site.",
+          "Prospective clients can't easily browse providers by specialty, insurance, or availability on your current site.",
       },
       {
         icon: Users,
-        title: "New clinicians feel underserved",
+        title: "New providers feel underserved",
         description:
           "Providers joining your practice are disappointed by a web presence that doesn't reflect the team they joined.",
       },
@@ -69,7 +69,7 @@ const data: IndustryPageData = {
         icon: Clock,
         title: "Updates require a developer",
         description:
-          "Changing a clinician bio, photo, or availability shouldn't require contacting a web developer.",
+          "Changing a provider bio, photo, or availability shouldn't require contacting a web developer.",
       },
       {
         icon: Search,
@@ -83,19 +83,19 @@ const data: IndustryPageData = {
     headline: "A Website That Matches Your Practice's Growth",
     items: [
       {
-        title: "Individual Clinician Pages",
+        title: "Individual Provider Pages",
         description:
           "Each provider gets their own bio, photo, and specialty page — so clients can find exactly who they need.",
       },
       {
         title: "Specialty Filtering",
         description:
-          "Help clients find the right therapist for their specific needs with easy-to-use filtering.",
+          "Help clients find the right provider for their specific needs with easy-to-use filtering.",
       },
       {
         title: "Easy to Update",
         description:
-          "Add or remove clinicians without a full rebuild. Request updates and we handle them quickly.",
+          "Add or remove providers without a full rebuild. Request updates and we handle them quickly.",
       },
       {
         title: "Referral-Worthy Design",
@@ -103,9 +103,9 @@ const data: IndustryPageData = {
           "Professional enough to be proud of in any context — referral partners, potential hires, and clients alike.",
       },
       {
-        title: "SEO for Every Clinician",
+        title: "SEO for Every Provider",
         description:
-          "Each clinician and specialty your practice covers gets its own SEO-optimized presence.",
+          "Each provider and specialty your practice covers gets its own SEO-optimized presence.",
       },
       {
         title: "Built in 3–5 Business Days",
@@ -119,7 +119,7 @@ const data: IndustryPageData = {
     items: [
       {
         icon: Users,
-        title: "Team/Clinician Directory",
+        title: "Team/Provider Directory",
         description: "A professional directory page showcasing your full team.",
       },
       {
@@ -144,7 +144,7 @@ const data: IndustryPageData = {
       },
       {
         icon: Search,
-        title: "Google Business Profile (Standard & Growth)",
+        title: "Google Business Profile",
         description: "Full setup so your practice appears in local map results.",
       },
       {
@@ -170,7 +170,7 @@ const data: IndustryPageData = {
       {
         title: "We Build Your Demo",
         description:
-          "We design a multi-clinician homepage and team directory layout for your review.",
+          "We design a multi-provider homepage and team directory layout for your review.",
       },
       {
         title: "Review & Refine",
@@ -211,24 +211,24 @@ const data: IndustryPageData = {
   },
   faqs: [
     {
-      q: "Can each clinician have their own page on our group practice website?",
-      a: "Yes — individual clinician pages with bio, headshot, specialty information, and contact details are a core feature. This is essential for group practices where clients want to choose a specific provider.",
+      q: "Can each provider have their own page on our group practice website?",
+      a: "Yes — individual provider pages with bio, headshot, specialty information, and contact details are a core feature. This is essential for group practices where clients want to choose a specific provider.",
     },
     {
-      q: "How do you handle adding or removing clinicians?",
+      q: "How do you handle adding or removing providers?",
       a: "Simple. When a new provider joins or someone leaves, just let us know. We'll update bios, photos, and directory listings within 1-2 business days. No rebuild needed.",
     },
     {
       q: "Can prospective clients filter by specialty or insurance?",
-      a: "Yes. Standard and Growth plans include specialty filtering so visitors can browse your team by the specific help they're looking for or the insurance they carry.",
+      a: "Yes. Group Practice and Enterprise plans include specialty filtering so visitors can browse your team by the specific help they're looking for or the insurance they carry.",
     },
     {
       q: "What if we have multiple locations?",
-      a: "We build location-specific pages with hours, directions, and provider assignments for each office. Each location also gets its own local SEO optimization.",
+      a: "We build location-specific pages with hours, directions, and provider assignments for each office. Each location also gets its own local SEO optimization. The Enterprise plan includes multi-location SEO strategy.",
     },
     {
-      q: "Is $119/month the starting price for group practices?",
-      a: "Our Standard plan at $119/month is recommended for most group practices due to the additional pages and features needed. Solo practitioners can start at $79/month with our Starter plan.",
+      q: "Which plan is right for our group practice?",
+      a: "Our Group Practice plan at $299/month is designed specifically for multi-provider practices. It includes up to 5 provider bio pages, 10 SEO funnel pages, and quarterly strategy calls. Larger practices should consider the Enterprise plan at $449/month for up to 10 provider pages and dedicated account management.",
     },
   ],
   bottomCta: {
@@ -237,12 +237,12 @@ const data: IndustryPageData = {
       "Book a free 20-minute call and see what a website built for your full team could look like — before you pay us anything.",
     button: "Book Your Free Website Review",
   },
-  pricingHeadline: "Starting at $119/month for Group Practices — Everything Included",
+  pricingHeadline: "Starting at $299/month for Group Practices — Everything Included",
   relatedPages: [
-    { name: "Solo Practitioners", path: "/websites-for-solo-practitioners" },
-    { name: "Lawyers", path: "/websites-for-lawyers" },
-    { name: "Accountants", path: "/websites-for-accountants" },
-    { name: "Small Business Owners", path: "/websites-for-small-business-owners" },
+    { name: "Therapists", path: "/websites-for-solo-practitioners" },
+    { name: "Medical Practices", path: "/websites-for-medical-practices" },
+    { name: "Attorneys", path: "/websites-for-lawyers" },
+    { name: "CPAs", path: "/websites-for-accountants" },
   ],
   schema: {
     "@context": "https://schema.org",
@@ -252,10 +252,10 @@ const data: IndustryPageData = {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Can each clinician have their own page?",
+        name: "Can each provider have their own page?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — individual clinician pages with bio, headshot, and specialty information are a core feature.",
+          text: "Yes — individual provider pages with bio, headshot, and specialty information are a core feature.",
         },
       },
     ],

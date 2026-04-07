@@ -8,9 +8,9 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "Lead Generation for Small Business | Convert Website Visitors Into Clients | Graylock Digital",
+    title: "Lead Generation for Professional Practices | Convert Website Visitors Into Clients | Graylock Digital",
     description:
-      "Lead generation is the process of turning website visitors into enquiries, calls, and booked appointments. Learn the strategies Graylock uses to help small businesses consistently generate leads online.",
+      "Lead generation is the process of turning website visitors into enquiries, calls, and booked appointments. Learn the strategies Graylock uses to help professional practices consistently generate leads online.",
     url: "https://graylockdigital.com/lead-generation-for-small-business",
   },
   hero: {
@@ -24,9 +24,9 @@ const data: StrategyPageData = {
   definition: {
     heading: "Lead Generation — Explained Simply",
     paragraphs: [
-      "Lead generation is the process of attracting potential clients to your business and converting them into enquiries, calls, or booked appointments.",
-      "For a small service business, online lead generation means: your ideal client searches Google, finds your business, visits your website, and takes an action — submitting a form, clicking to call, or booking a consultation.",
-      "Everything Graylock builds — your website design, SEO, funnel pages, GBP, and content — is ultimately in service of one goal: generating more qualified leads for your business.",
+      "Lead generation is the process of attracting potential clients to your practice and converting them into enquiries, calls, or booked appointments.",
+      "For a professional practice, online lead generation means: your ideal client searches Google, finds your practice, visits your website, and takes an action — submitting a form, clicking to call, or booking a consultation.",
+      "Everything Graylock builds — your website design, SEO, funnel pages, GBP, and content — is ultimately in service of one goal: generating more qualified leads for your practice.",
     ],
     calloutTitle: "GOOD LEAD GENERATION DOES 3 THINGS",
     calloutBullets: [
@@ -47,13 +47,13 @@ const data: StrategyPageData = {
         icon: Target,
         title: "Leads from your own website cost far less than directory leads",
         description:
-          "Platforms like Thumbtack, Houzz, Bark, or Zocdoc charge per lead — often $20–$100 each. Your own website generates leads for the cost of your monthly plan.",
+          "Platforms like Zocdoc, Psychology Today, FindLaw, or Avvo charge per lead or per listing — often $20–$100+ each. Your own website generates leads for the cost of your monthly plan.",
       },
       {
         icon: TrendingUp,
         title: "Online leads are often your warmest prospects",
         description:
-          "Someone who found your website through Google, read your about page, checked your reviews, and then submitted a form is much more likely to convert than a cold outreach target.",
+          "Someone who found your website through Google, read your about page, checked your reviews, and then submitted a form is much more likely to book than a cold outreach target.",
       },
       {
         icon: BarChart3,
@@ -73,7 +73,7 @@ const data: StrategyPageData = {
       {
         title: "Lead capture forms on every key page",
         description:
-          "Every service page, location page, and high-intent page has a contact or quote request form. Standard and Growth plans include enhanced forms with additional fields.",
+          "Every service page, location page, and high-intent page has a contact or inquiry request form. Group Practice and Enterprise plans include enhanced forms with additional fields.",
       },
       {
         title: "Phone click-to-call",
@@ -88,24 +88,24 @@ const data: StrategyPageData = {
       {
         title: "Lead activity tracking dashboard",
         description:
-          "Standard and Growth plan clients can see every enquiry that comes in through their website, in real time, through their Graylock dashboard.",
+          "Group Practice and Enterprise plan clients can see every enquiry that comes in through their website, in real time, through their Graylock dashboard.",
       },
       {
         title: "Monthly performance reporting",
         description:
-          "Every plan includes a monthly report showing traffic, new enquiries, and key metrics. Growth plan clients receive an annual strategy review to identify new lead generation opportunities.",
+          "Every plan includes a monthly report showing traffic, new enquiries, and key metrics. Group Practice clients receive quarterly strategy calls. Enterprise clients receive bi-annual strategy sessions.",
       },
       {
         title: "Google Business Profile optimization",
         description:
-          "GBP drives direct calls and website visits from Google Maps. For many local service businesses, GBP is their #1 lead source.",
+          "GBP drives direct calls and website visits from Google Maps. For many professional practices, GBP is their #1 lead source.",
       },
     ],
   },
   statsStrip: {
     stats: [
       { value: "5–15%", label: "conversion rate for a well-optimized site vs 1–3% average" },
-      { value: "126%", label: "more leads for businesses using tracking forms vs phone only" },
+      { value: "126%", label: "more leads for practices using tracking forms vs phone only" },
       { value: "80%", label: "increase in conversions from adding video to a landing page" },
       { value: "202%", label: "more leads for websites with clear, prominent CTAs" },
     ],
@@ -120,22 +120,22 @@ const data: StrategyPageData = {
       {
         title: "Call-to-Action (CTA) Strategy",
         description:
-          "A CTA is an instruction that prompts your visitor to take a specific action: 'Book a Free Consultation', 'Get a Free Quote', 'Call Us Now'. The placement, wording, design, and frequency of CTAs is one of the highest-leverage conversion factors on any website. Most small business websites have CTAs buried in footers or written as passive suggestions. Graylock places prominent, active CTAs in the hero, mid-page, and end of every key page.",
+          "A CTA is an instruction that prompts your visitor to take a specific action: 'Book a Free Consultation', 'Request an Appointment', 'Call Us Now'. The placement, wording, design, and frequency of CTAs is one of the highest-leverage conversion factors on any website. Most practice websites have CTAs buried in footers or written as passive suggestions. Graylock places prominent, active CTAs in the hero, mid-page, and end of every key page.",
       },
       {
         title: "Form Design and Lead Capture",
         description:
-          "Contact forms are your primary digital lead capture mechanism. The design of a form affects conversion rate dramatically: too many fields = abandoned forms; too few = low-quality leads. Graylock builds forms with the right balance for your business type — typically Name, Phone, Email, and one qualifying question. Standard and Growth plans include enhanced forms with additional fields and lead tracking.",
+          "Contact forms are your primary digital lead capture mechanism. The design of a form affects conversion rate dramatically: too many fields = abandoned forms; too few = low-quality leads. Graylock builds forms with the right balance for your practice type — typically Name, Phone, Email, and one qualifying question. Group Practice and Enterprise plans include enhanced forms with additional fields and lead tracking.",
       },
       {
         title: "Lead Tracking and Attribution",
         description:
-          "Lead tracking means knowing which visitors came in, which page they came from, what they searched for, and what action they took. Without tracking, you have no idea what's working. The Graylock dashboard (Standard and Growth plans) gives you a real-time view of enquiry activity so you can identify your best-performing pages and optimize accordingly.",
+          "Lead tracking means knowing which visitors came in, which page they came from, what they searched for, and what action they took. Without tracking, you have no idea what's working. The Graylock dashboard (Group Practice and Enterprise plans) gives you a real-time view of enquiry activity so you can identify your best-performing pages and optimize accordingly.",
       },
       {
         title: "Conversion Rate Optimization (CRO) for Lead Gen",
         description:
-          "CRO is the practice of systematically improving the percentage of visitors who take a desired action. For a lead-generation website, this means testing and refining: headline copy, CTA button text, form placement, social proof positioning, and page structure. Graylock builds with CRO best practices from day one, and Growth plan clients receive annual strategy reviews that include CRO recommendations.",
+          "CRO is the practice of systematically improving the percentage of visitors who take a desired action. For a lead-generation website, this means testing and refining: headline copy, CTA button text, form placement, social proof positioning, and page structure. Graylock builds with CRO best practices from day one, and Enterprise plan clients receive bi-annual strategy sessions that include CRO recommendations.",
       },
     ],
   },
@@ -154,7 +154,7 @@ const data: StrategyPageData = {
       {
         mistake: "No lead tracking",
         cost: "No idea what's working — can't improve what you can't measure",
-        fix: "Dashboard with lead activity tracking on Standard and Growth plans",
+        fix: "Dashboard with lead activity tracking on Group Practice and Enterprise plans",
       },
       {
         mistake: "Phone number not clickable on mobile",
@@ -164,7 +164,7 @@ const data: StrategyPageData = {
       {
         mistake: "Asking for too much information in forms",
         cost: "High form abandonment rate — visitors don't want to fill out 10 fields",
-        fix: "Forms are designed with optimal field count for each business type",
+        fix: "Forms are designed with optimal field count for each practice type",
       },
       {
         mistake: "No follow-up system",
@@ -180,7 +180,7 @@ const data: StrategyPageData = {
     },
     {
       q: "How many leads should my website be generating?",
-      a: "It depends on your traffic volume and industry, but a well-optimized local service business website should convert 5–15% of visitors into leads. If you're getting 100 visitors per month and zero enquiries, something is structurally broken — and it's almost always fixable.",
+      a: "It depends on your traffic volume and practice area, but a well-optimized professional practice website should convert 5–15% of visitors into leads. If you're getting 100 visitors per month and zero enquiries, something is structurally broken — and it's almost always fixable.",
     },
     {
       q: "What's the most important thing I can do to generate more leads from my website?",
@@ -188,7 +188,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does Graylock track the leads my website generates?",
-      a: "Yes. Standard and Growth plan clients get access to the Graylock dashboard, which includes real-time lead activity tracking. You can see every enquiry that comes in through your website — which page it came from, when it arrived, and the contact details submitted.",
+      a: "Yes. Group Practice and Enterprise plan clients get access to the Graylock dashboard, which includes real-time lead activity tracking. You can see every enquiry that comes in through your website — which page it came from, when it arrived, and the contact details submitted.",
     },
     {
       q: "How is lead generation different from advertising?",
@@ -196,7 +196,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Which Graylock plan is best for lead generation?",
-      a: "All plans include lead capture forms, click-to-call, and a monthly performance report. For active lead generation with tracking and optimization, the Standard plan ($119/mo) or Growth plan ($199/mo) are ideal — they include enhanced forms, lead activity tracking in the dashboard, and SEO funnel pages that create multiple entry points for new leads.",
+      a: "All plans include lead capture forms, click-to-call, and a monthly performance report. For active lead generation with tracking and optimization, the Group Practice plan ($299/mo) is ideal — it includes enhanced forms, lead activity tracking in the dashboard, SEO funnel pages, and quarterly strategy calls. The Enterprise plan ($449/mo) adds advanced analytics, bi-annual strategy sessions, and dedicated account management.",
     },
   ],
   bottomCta: {
@@ -214,7 +214,7 @@ const data: StrategyPageData = {
   schema: {
     "@context": "https://schema.org",
     "@type": ["WebPage", "FAQPage"],
-    name: "Lead Generation for Small Business | Graylock Digital",
+    name: "Lead Generation for Professional Practices | Graylock Digital",
     url: "https://graylockdigital.com/lead-generation-for-small-business",
     mainEntity: [
       {
@@ -230,7 +230,7 @@ const data: StrategyPageData = {
         name: "Does Graylock track the leads my website generates?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Standard and Growth plan clients get access to real-time lead activity tracking in the Graylock dashboard.",
+          text: "Yes. Group Practice and Enterprise plan clients get access to real-time lead activity tracking in the Graylock dashboard.",
         },
       },
       {
@@ -238,7 +238,7 @@ const data: StrategyPageData = {
         name: "Which Graylock plan is best for lead generation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "All plans include lead capture forms. For active lead generation with tracking, the Standard ($119/mo) or Growth ($199/mo) plans are ideal.",
+          text: "All plans include lead capture forms. For active lead generation with tracking, the Group Practice ($299/mo) or Enterprise ($449/mo) plans are ideal.",
         },
       },
     ],

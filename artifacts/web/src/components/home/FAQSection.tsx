@@ -19,11 +19,11 @@ const homepageFaqs = [
   },
   {
     q: "What is the business dashboard?",
-    a: "It's a simple, private dashboard included with every plan. Starter plan clients get basic access to view traffic and edit business info. Standard and Growth plans include full dashboard features — lead activity tracking, announcement banners, update request submission, and performance reports."
+    a: "It's a simple, private dashboard included with every plan. Solo Practice clients get basic access to view traffic and edit business info. Group Practice and Enterprise plans include full dashboard features — lead activity tracking, announcement banners, update request submission, and performance reports."
   },
   {
     q: "Which plans include dashboard access?",
-    a: "All plans now include dashboard access. Starter includes basic features (view traffic, edit hours/phone/address). Standard and Growth plans include full features (announcement banner, lead activity, update requests, performance reports). The Custom plan offers a tailored dashboard configuration."
+    a: "All plans include dashboard access. Solo Practice includes basic features (view traffic, edit hours/phone/address). Group Practice and Enterprise plans include full features (announcement banner, lead activity, update requests, performance reports). Custom plans offer a tailored dashboard configuration."
   },
   {
     q: "What do I own, and what happens if I cancel?",

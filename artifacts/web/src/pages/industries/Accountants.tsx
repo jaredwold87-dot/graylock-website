@@ -16,18 +16,18 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Accountants & CPA Firms | $79/mo | Graylock Digital",
+    title: "Websites for CPAs & Accounting Firms | Starting at $199/mo | Graylock Digital",
     description:
-      "Graylock builds professional, SEO-optimized websites for accountants, CPAs, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 3–5 days. $79/mo. Free demo.",
+      "Graylock builds custom, SEO-optimized websites for CPAs, accountants, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 3–5 days. Starting at $199/mo.",
     url: "https://graylockdigital.com/websites-for-accountants",
   },
   hero: {
-    badge: "For Accountants & CPA Firms",
+    badge: "For CPAs & Accounting Firms",
     badgeIcon: Calculator,
     h1: "A Website That Reflects Your Expertise —",
     h1Highlight: "and Brings In the Clients to Prove It.",
     subheadline:
-      "Your clients trust you with their finances. Your website should reflect that level of professionalism. We build credible, SEO-optimized websites for accountants and CPA firms — fast, affordable, and fully managed.",
+      "Your clients trust you with their finances. Your website should reflect that level of professionalism. We build credible, SEO-optimized websites for CPAs and accounting firms — fast, affordable, and fully managed. Starting at $199/month.",
     cta: "Book Your Free Website Review",
     backgroundImage: `${import.meta.env.BASE_URL}hero-accountants.jpg`,
     trustSignals: [
@@ -111,9 +111,9 @@ const data: IndustryPageData = {
           "The kind of polished, authoritative design that reassures high-value clients.",
       },
       {
-        title: "Assistance with Google Business Profile Setup",
+        title: "Google Business Profile Setup",
         description:
-          "Included on Standard and Growth plans so you show up on Google Maps and local results.",
+          "Included so you show up on Google Maps and local results.",
       },
       {
         title: "Built in 3–5 Business Days",
@@ -121,7 +121,7 @@ const data: IndustryPageData = {
           "Before tax season or after — your call. We move fast so you don't have to wait.",
       },
       {
-        title: "Monthly Updates Included",
+        title: "Updates Included",
         description:
           "Add new services, team members, or seasonal messaging anytime. We handle it for you.",
       },
@@ -147,7 +147,7 @@ const data: IndustryPageData = {
       },
       {
         icon: Search,
-        title: "Google Business Profile (Standard & Growth)",
+        title: "Google Business Profile",
         description: "Full setup so you appear in local map results.",
       },
       {
@@ -229,11 +229,11 @@ const data: IndustryPageData = {
     },
     {
       q: "Will my accounting website show up when locals search for a CPA?",
-      a: "Every Graylock site includes a local SEO foundation. Standard and Growth plans include full local SEO optimization and assistance with Google Business Profile setup — critical for showing up in 'CPA near me' searches.",
+      a: "Every Graylock site includes a local SEO foundation. Group Practice and Enterprise plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'CPA near me' searches.",
     },
     {
       q: "I'm too busy during tax season to work on a website. Can we start now?",
-      a: "We built our process to be fast and low-effort on your end. Most of the information we need can be gathered in a 20-minute call. You review and approve, we do the rest. 3–5 business days from approval to live on average — the exact timeline depends on how quickly you can provide feedback, logos, and photos.",
+      a: "We built our process to be fast and low-effort on your end. Most of the information we need can be gathered in a 20-minute call. You review and approve, we do the rest. 3–5 business days from approval to live on average.",
     },
     {
       q: "Can we add team member bios and photos?",
@@ -241,7 +241,7 @@ const data: IndustryPageData = {
     },
     {
       q: "Do you offer any kind of client portal integration?",
-      a: "Our standard plans don't include a document portal, but our Growth and Custom plans can include secure inquiry forms and we can discuss integration options on a Custom plan.",
+      a: "Our standard plans don't include a document portal, but our Enterprise and Custom plans can include secure inquiry forms and we can discuss integration options on a Custom plan.",
     },
   ],
   bottomCta: {
@@ -251,15 +251,15 @@ const data: IndustryPageData = {
     button: "Book Your Free Website Review",
   },
   relatedPages: [
-    { name: "Lawyers", path: "/websites-for-lawyers" },
-    { name: "Solo Practitioners", path: "/websites-for-solo-practitioners" },
+    { name: "Attorneys", path: "/websites-for-lawyers" },
+    { name: "Therapists", path: "/websites-for-solo-practitioners" },
+    { name: "Medical Practices", path: "/websites-for-medical-practices" },
     { name: "Group Practices", path: "/websites-for-group-practices" },
-    { name: "Small Business Owners", path: "/websites-for-small-business-owners" },
   ],
   schema: {
     "@context": "https://schema.org",
     "@type": ["WebPage", "FAQPage"],
-    name: "Websites for Accountants | Graylock Digital",
+    name: "Websites for CPAs & Accountants | Graylock Digital",
     url: "https://graylockdigital.com/websites-for-accountants",
     mainEntity: [
       {

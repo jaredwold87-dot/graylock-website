@@ -7,7 +7,7 @@ export function HowItWorksSection() {
     {
       num: "01",
       title: "Book a Free Call",
-      desc: "Pick a time that works for you. It takes 20 minutes and there's zero obligation. We just want to learn about your business and take a look at your current site."
+      desc: "Pick a time that works for you. It takes 20 minutes and there's zero obligation. We want to learn about your practice, your ideal clients, and your current online presence."
     },
     {
       num: "02",
@@ -17,7 +17,7 @@ export function HowItWorksSection() {
     {
       num: "03",
       title: "We Build You a Demo Homepage",
-      desc: "We create a custom homepage concept for your business so you can see exactly how we'd improve your messaging, design, and brand presence. You also receive a comprehensive written report. Both are yours to keep — whether you work with us or not."
+      desc: "We create a custom homepage concept for your practice so you can see exactly how we'd improve your messaging, design, and brand presence. You also receive a comprehensive written report. Both are yours to keep — whether you work with us or not."
     },
     {
       num: "04",
@@ -35,7 +35,7 @@ export function HowItWorksSection() {
             How It Works — Simple and Risk-Free
           </h2>
           <p className="text-gray-600 text-lg font-sans max-w-2xl mx-auto">
-            From first call to a live website that gets you leads. No contracts, no surprises, no pressure.
+            From first call to a live website that gets you clients. No contracts, no surprises, no pressure.
           </p>
         </ScrollReveal>
 
@@ -62,7 +62,7 @@ export function HowItWorksSection() {
               <div>
                 <h3 className="text-xl md:text-2xl font-display text-offwhite mb-3">How We Build Fast Without Cutting Corners</h3>
                 <p className="text-stone font-sans leading-relaxed mb-4">
-                  We don't reinvent the wheel for every client. We use a proven, high-converting structural framework — then we customize the design, copy, and SEO strategy entirely around your business. That's how we launch in 5 days without cutting corners.
+                  We don't reinvent the wheel for every client. We use a proven, high-converting structural framework — then we customize the design, copy, and SEO strategy entirely around your practice. That's how we launch in 5 days without cutting corners.
                 </p>
                 <p className="text-stone font-sans leading-relaxed">
                   Think of it like a custom-built home using tested construction methods. The foundation and engineering are proven — but the layout, finishes, and details are designed specifically for you. Not a prefab kit. Not a template. A real website built on a system that works.
@@ -73,7 +73,7 @@ export function HowItWorksSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.6} className="text-center mt-12">
-          <CTAButton href="/get-started">See How It Works for My Business</CTAButton>
+          <CTAButton href="/get-started">See How It Works for My Practice</CTAButton>
         </ScrollReveal>
 
       </div>

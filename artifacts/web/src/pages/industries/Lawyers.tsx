@@ -17,25 +17,25 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Lawyers & Law Firms | $79/mo | Graylock Digital",
+    title: "Websites for Lawyers & Law Firms | Starting at $199/mo | Graylock Digital",
     description:
-      "Graylock builds professional, SEO-optimized websites for solo attorneys and small law firms. Practice area pages, attorney bios, client intake forms. Built in 3–5 days. Free demo. $79/mo.",
+      "Graylock builds custom, SEO-optimized websites for solo attorneys and law firms. Practice area pages, attorney bios, client intake forms. Built in 3–5 days. Starting at $199/mo. Free demo.",
     url: "https://graylockdigital.com/websites-for-lawyers",
   },
   hero: {
-    badge: "For Lawyers & Law Firms",
+    badge: "For Attorneys & Law Firms",
     badgeIcon: Scale,
     h1: "A Law Firm Website That",
     h1Highlight: "Converts Searchers Into Clients.",
     subheadline:
-      "One new client from your website pays for years of service. We build credible, SEO-optimized websites for solo attorneys and small law firms — with practice area pages, attorney bios, and intake forms that turn visitors into consultations.",
+      "One new client from your website pays for years of service. We build credible, SEO-optimized websites for solo attorneys and law firms — with practice area pages, attorney bios, and intake forms that turn visitors into consultations. Starting at $199/month.",
     cta: "Book Your Free Website Review",
     backgroundImage: `${import.meta.env.BASE_URL}hero-lawyers.jpg`,
     trustSignals: [
       "Practice area pages",
       "24/7 intake forms",
       "Local SEO included",
-      "$79/month — less than LawLytics",
+      "Starting at $199/month",
     ],
   },
   specialties: {
@@ -82,9 +82,9 @@ const data: IndustryPageData = {
       },
       {
         icon: DollarSign,
-        title: "Competitors charge $150–$225/month",
+        title: "Template platforms charge more for less",
         description:
-          "LawLytics and other legal website platforms charge significantly more. Graylock starts at $79/month.",
+          "LawLytics and FindLaw charge $150–$300+/month for template-based sites. Graylock builds truly custom sites starting at $199/month.",
       },
       {
         icon: Clock,
@@ -108,14 +108,14 @@ const data: IndustryPageData = {
           "Capture potential clients the moment they're ready to act, even at midnight. Every inquiry is a potential case.",
       },
       {
-        title: "Attorney Bio Page",
+        title: "Attorney Bio Pages",
         description:
-          "Build personal credibility and connection with prospects through a professional, well-written bio.",
+          "Build personal credibility and connection with prospects through professional, well-written bios.",
       },
       {
-        title: "Starting at $79/month",
+        title: "Starting at $199/month",
         description:
-          "Significantly less than LawLytics or FindLaw. Professional quality at a fraction of the cost.",
+          "Less than what most legal website platforms charge for a template. You get a fully custom site.",
       },
       {
         title: "Built in 3–5 Business Days",
@@ -139,8 +139,8 @@ const data: IndustryPageData = {
       },
       {
         icon: UserCheck,
-        title: "Attorney Bio Page",
-        description: "Professional bio with credentials, experience, and personal approach.",
+        title: "Attorney Bio Pages",
+        description: "Professional bios with credentials, experience, and personal approach.",
       },
       {
         icon: FileText,
@@ -154,7 +154,7 @@ const data: IndustryPageData = {
       },
       {
         icon: Search,
-        title: "Google Business Profile (Standard & Growth)",
+        title: "Google Business Profile",
         description: "Full setup so you appear in local map results.",
       },
       {
@@ -220,7 +220,7 @@ const data: IndustryPageData = {
         title: "Estate Planning Attorney",
         location: "Charlotte, NC",
         quote:
-          "I tried LawLytics and it wasn't worth the premium. Graylock gave me a better site for half the price, and they handle everything.",
+          "I tried LawLytics and it wasn't worth the premium. Graylock gave me a better site at a comparable price, and they handle everything.",
       },
     ],
   },
@@ -230,16 +230,16 @@ const data: IndustryPageData = {
       a: "Yes — separate practice area pages are essential for legal SEO and for clearly communicating your expertise. Each page targets specific keywords and helps the right clients find you.",
     },
     {
-      q: "How does your pricing compare to LawLytics?",
-      a: "LawLytics starts at approximately $150–$225/month. Graylock starts at $79/month with a $299 setup fee — meaningfully less expensive, with a custom design, 3–5 day build, and the same month-to-month flexibility.",
+      q: "How does your pricing compare to LawLytics or FindLaw?",
+      a: "LawLytics starts at approximately $150–$225/month for a template. FindLaw and Scorpion can run $300+/month. Graylock starts at $199/month with a $799 setup fee — with a fully custom design, 3–5 day build, and month-to-month flexibility. No long-term contracts.",
     },
     {
       q: "Can you include an online consultation request form?",
-      a: "Yes. Every Graylock plan includes an intake/consultation request form. Standard and Growth plans include enhanced forms with lead activity tracking in your dashboard.",
+      a: "Yes. Every Graylock plan includes an intake/consultation request form. Group Practice and Enterprise plans include enhanced forms with lead activity tracking in your dashboard.",
     },
     {
       q: "How long does it take to build a law firm website?",
-      a: "3–5 business days on average from when you approve the plan and pay the setup fee. The exact timeline depends on how quickly you can provide feedback, photos, and any materials. We gather everything we need in the initial call and onboarding form.",
+      a: "3–5 business days on average from when you approve the plan and pay the setup fee. The exact timeline depends on how quickly you can provide feedback, photos, and any materials.",
     },
     {
       q: "Do you understand attorney advertising rules?",
@@ -253,10 +253,10 @@ const data: IndustryPageData = {
     button: "Book Your Free Website Review",
   },
   relatedPages: [
+    { name: "Therapists", path: "/websites-for-solo-practitioners" },
+    { name: "Medical Practices", path: "/websites-for-medical-practices" },
     { name: "Accountants", path: "/websites-for-accountants" },
-    { name: "Solo Practitioners", path: "/websites-for-solo-practitioners" },
     { name: "Group Practices", path: "/websites-for-group-practices" },
-    { name: "Small Business Owners", path: "/websites-for-small-business-owners" },
   ],
   schema: {
     "@context": "https://schema.org",

@@ -7,13 +7,13 @@ export default function About() {
   const values = [
     { title: "Done-For-You", desc: "We don't sell tools, we sell results. We take the burden entirely off your plate." },
     { title: "Transparent", desc: "No hidden fees, no confusing jargon, and no holding your digital assets hostage." },
-    { title: "Fast", desc: "We move fast because we have a refined, repeatable process — not because we cut corners. Our structured process, proven build framework, and experienced team let us deliver within 3–5 business days on average without sacrificing an ounce of quality. Larger or more complex builds may take longer." },
+    { title: "Fast", desc: "Professional practice clients can't wait 6–10 weeks. We built a process that delivers custom sites in 3–5 business days without cutting corners. Our structured process, proven build framework, and experienced team make this possible. Larger or more complex builds may take longer." },
     { title: "Relationship-Driven", desc: "We aren't a faceless platform. You always know exactly who is working on your site." }
   ];
 
   return (
     <>
-      <SEO title="About Us | Graylock Digital" />
+      <SEO title="About Graylock Digital | Professional Practice Website Specialists" description="Graylock Digital builds custom websites for attorneys, therapists, CPAs, and medical practices — delivered in 3–5 business days, starting at $199/month." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
@@ -25,7 +25,7 @@ export default function About() {
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Why We Built Graylock Digital</h1>
             <p className="text-xl font-sans text-stone leading-relaxed text-left md:text-center">
-              We've been on the other side of this. We've built our own websites from scratch, paid agencies thousands for underwhelming results, and spent weekends wrestling with WordPress. We know exactly what it feels like to overpay and underperform — and that frustration is precisely why Graylock exists. We saw small service businesses getting stuck with outdated, underperforming websites. They either had to spend $10,000 on an agency they couldn't afford, or spend 50 hours trying to figure it out themselves. There was no affordable, done-for-you middle ground. So we built it.
+              We built Graylock Digital after watching too many professional practices lose clients online to competitors with better-looking websites. Attorneys with decades of experience. Therapists with full waiting lists. CPAs with loyal books of business. All of them with websites that embarrassed them — or worse, made them invisible on Google entirely. The options were either paying an agency $10,000–$20,000 upfront and waiting three months for a result they couldn't predict, or fighting with Squarespace on weekends between client sessions. There was no affordable, done-for-you middle ground for professional practices. So we built it.
             </p>
           </ScrollReveal>
         </div>
@@ -35,19 +35,19 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <ScrollReveal className="text-center mb-14">
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Our Philosophy</p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">We Only Work With Businesses We Genuinely Want to See Win</h2>
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">We Only Work With Practices We Genuinely Want to See Win</h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <div className="bg-navy rounded-2xl border border-gunmetal p-8 md:p-12 mb-10">
               <p className="text-offwhite font-sans text-lg md:text-xl leading-relaxed mb-6">
-                This isn't a volume play. We don't take on every business that comes our way. We look for small service businesses where we know — not hope, <em className="text-orange not-italic font-semibold">know</em> — that a better website will change their trajectory.
+                We don't take on every practice that comes our way. We look for attorneys, therapists, physicians, and CPAs where we know — not hope, <em className="text-orange not-italic font-semibold">know</em> — that a better website will directly impact their ability to serve more clients.
               </p>
               <p className="text-stone font-sans text-lg leading-relaxed mb-6">
-                When a local contractor is losing bids because their site looks like it was built in 2008, or a therapist can't fill their practice because their website doesn't show up on Google — those are the businesses we seek out. Not because they're the biggest contracts, but because we can see exactly how to help them.
+                When a solo attorney loses a prospective client because their site looked unprofessional, or a group practice can't fill an open clinician's caseload because they don't show up on Google — those are the moments we're solving for.
               </p>
               <p className="text-stone font-sans text-lg leading-relaxed">
-                We measure our success by yours. When your phone starts ringing more, when you're booking more appointments, when you stop being embarrassed to share your website — that's what drives us. Your growth is our portfolio.
+                Your growth is our portfolio.
               </p>
             </div>
           </ScrollReveal>
@@ -56,7 +56,7 @@ export default function About() {
             <ScrollReveal delay={0.15} className="bg-navy/50 rounded-xl border border-gunmetal p-6 text-center">
               <Search className="text-orange mx-auto mb-4" size={28} />
               <h3 className="text-lg font-display text-offwhite mb-2">We Seek You Out</h3>
-              <p className="text-stone font-sans text-sm leading-relaxed">We actively look for businesses where a new site will make a measurable difference — not just anyone willing to pay.</p>
+              <p className="text-stone font-sans text-sm leading-relaxed">We actively look for practices where a new site will make a measurable difference — not just anyone willing to pay.</p>
             </ScrollReveal>
             <ScrollReveal delay={0.25} className="bg-navy/50 rounded-xl border border-gunmetal p-6 text-center">
               <Heart className="text-orange mx-auto mb-4" size={28} />
@@ -78,7 +78,7 @@ export default function About() {
             <h2 className="text-3xl md:text-5xl font-display text-offwhite">Meet the Team</h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <ScrollReveal delay={0.1} className="bg-charcoal p-10 rounded-2xl border border-gunmetal hover:border-gunmetal/80 transition-colors shadow-xl">
               <div className="w-20 h-20 bg-gunmetal rounded-full flex items-center justify-center text-stone mb-6">
                 <User size={32} />
@@ -86,7 +86,7 @@ export default function About() {
               <h3 className="text-3xl font-display text-offwhite mb-2 uppercase tracking-wide">Jared</h3>
               <p className="text-orange font-sans font-semibold mb-6">Systems & Operations</p>
               <p className="text-stone font-sans leading-relaxed">
-                Jared focuses on building the processes, workflows, and technology that power Graylock Digital. He designed the operating system that allows the company to build and maintain websites efficiently at scale, ensuring every site is fast, secure, and reliably updated.
+                Jared designed and built the operating system that powers Graylock Digital. He handles every website build, the technology infrastructure behind our process, and the proprietary tools that let us deliver custom professional practice websites in days, not months.
               </p>
             </ScrollReveal>
 
@@ -97,48 +97,15 @@ export default function About() {
               <h3 className="text-3xl font-display text-offwhite mb-2 uppercase tracking-wide">Tim</h3>
               <p className="text-orange font-sans font-semibold mb-6">Client Relations & Growth</p>
               <p className="text-stone font-sans leading-relaxed">
-                Tim leads outreach, discovery calls, and client relationships. He's the first person you talk to — and he makes sure every client gets exactly what their business needs from day one. He bridges the gap between your business goals and our technical execution.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2} className="bg-charcoal p-10 rounded-2xl border border-gunmetal hover:border-gunmetal/80 transition-colors shadow-xl">
-              <div className="w-20 h-20 bg-gunmetal rounded-full flex items-center justify-center text-stone mb-6">
-                <User size={32} />
-              </div>
-              <h3 className="text-3xl font-display text-offwhite mb-2 uppercase tracking-wide">Marcus</h3>
-              <p className="text-orange font-sans font-semibold mb-6">SEO Specialist</p>
-              <p className="text-stone font-sans leading-relaxed">
-                Marcus handles everything search — from local SEO and Google Business Profile optimization to keyword strategy and schema markup. He makes sure your business gets found by the right people in your area.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.25} className="bg-charcoal p-10 rounded-2xl border border-gunmetal hover:border-gunmetal/80 transition-colors shadow-xl">
-              <div className="w-20 h-20 bg-gunmetal rounded-full flex items-center justify-center text-stone mb-6">
-                <User size={32} />
-              </div>
-              <h3 className="text-3xl font-display text-offwhite mb-2 uppercase tracking-wide">Rachel</h3>
-              <p className="text-orange font-sans font-semibold mb-6">Web Developer</p>
-              <p className="text-stone font-sans leading-relaxed">
-                Rachel brings designs to life with clean, fast, accessible code. She builds responsive websites that look great on every device and load in under two seconds — because speed matters for both users and search rankings.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.3} className="bg-charcoal p-10 rounded-2xl border border-gunmetal hover:border-gunmetal/80 transition-colors shadow-xl">
-              <div className="w-20 h-20 bg-gunmetal rounded-full flex items-center justify-center text-stone mb-6">
-                <User size={32} />
-              </div>
-              <h3 className="text-3xl font-display text-offwhite mb-2 uppercase tracking-wide">Daniel</h3>
-              <p className="text-orange font-sans font-semibold mb-6">Web Developer</p>
-              <p className="text-stone font-sans leading-relaxed">
-                Daniel specializes in performance optimization, integrations, and custom functionality. When a project needs something beyond the standard build, he's the one making it happen.
+                Tim leads all client discovery, proposals, and account relationships. He's the first person you talk to and the person you'll always be able to reach. His background in professional services outreach means he understands what law firms, medical practices, and accounting firms actually need from a web partner.
               </p>
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={0.35} className="mt-10">
-            <div className="bg-charcoal/50 rounded-xl border border-gunmetal p-6 text-center">
+          <ScrollReveal delay={0.25} className="mt-10">
+            <div className="bg-charcoal/50 rounded-xl border border-gunmetal p-6 text-center max-w-3xl mx-auto">
               <p className="text-stone font-sans leading-relaxed">
-                For specialized or one-off projects, we also partner with a trusted network of U.S.-based professionals who meet our quality standards and share our commitment to client success.
+                For specialized projects, we collaborate with a trusted network of U.S.-based professionals who share our standards and commitment to client outcomes.
               </p>
             </div>
           </ScrollReveal>
@@ -158,7 +125,7 @@ export default function About() {
               100% U.S.-Based. Zero Outsourcing.
             </h2>
             <p className="text-gray-600 font-sans text-lg max-w-3xl mx-auto leading-relaxed">
-              Every person who touches your project — from the first phone call to the final pixel — is a hardworking American who cares about your business like it's their own.
+              Every person who touches your project — from the first phone call to the final pixel — is a hardworking American who cares about your practice like it's their own.
             </p>
           </ScrollReveal>
 
@@ -189,7 +156,7 @@ export default function About() {
           <ScrollReveal delay={0.35}>
             <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 rounded-2xl p-8 md:p-10 text-center shadow-xl">
               <p className="text-white font-sans text-lg md:text-xl leading-relaxed italic">
-                "We started Graylock because we saw too many hardworking business owners getting left behind online. These are the people who show up early, stay late, and take care of their customers. They deserve a website that works as hard as they do — and a team that actually gives a damn."
+                "We started Graylock because we saw too many hardworking practice owners getting left behind online. These are the people who show up early, stay late, and take care of their clients. They deserve a website that works as hard as they do — and a team that actually gives a damn."
               </p>
               <p className="text-blue-200 font-sans font-semibold mt-4 text-sm uppercase tracking-widest">— The Graylock Team</p>
             </div>

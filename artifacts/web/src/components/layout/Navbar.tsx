@@ -4,14 +4,11 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const WHO_WE_HELP = [
-  { name: "Small Business Owners", path: "/websites-for-small-business-owners" },
-  { name: "Contractors", path: "/websites-for-contractors" },
-  { name: "Solo Practitioners", path: "/websites-for-solo-practitioners" },
+  { name: "Attorneys & Law Firms", path: "/websites-for-lawyers" },
+  { name: "Therapists & Counselors", path: "/websites-for-solo-practitioners" },
+  { name: "Medical Practices", path: "/websites-for-medical-practices" },
+  { name: "CPAs & Accounting Firms", path: "/websites-for-accountants" },
   { name: "Group Practices", path: "/websites-for-group-practices" },
-  { name: "Accountants", path: "/websites-for-accountants" },
-  { name: "Lawyers", path: "/websites-for-lawyers" },
-  { name: "House Cleaners", path: "/websites-for-house-cleaners" },
-  { name: "Pet Groomers", path: "/websites-for-pet-groomers" },
 ];
 
 const OUR_STRATEGY = [

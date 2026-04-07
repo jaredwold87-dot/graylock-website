@@ -24,12 +24,12 @@ const portfolioItems = [
     results: ["Online booking integration", "Warm, trust-building design", "Professional credibility"],
   },
   {
-    name: "Summit Builders LLC",
-    type: "Contractors",
+    name: "Westlake Family Law",
+    type: "Attorneys",
     before: `${import.meta.env.BASE_URL}portfolio-before-3.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-3.png`,
-    goal: "Modernize their early-2000s site to win larger residential projects",
-    results: ["Project gallery showcase", "Built-in quote request form", "Local SEO optimization"],
+    goal: "Replace a template-based LawLytics site with a credible, custom law firm website",
+    results: ["Practice area pages", "24/7 intake forms", "Local SEO optimization"],
   },
 ];
 
@@ -121,14 +121,14 @@ function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; inde
 export default function Work() {
   return (
     <>
-      <SEO title="Our Work | Graylock Digital" />
+      <SEO title="Our Work | Professional Practice Websites | Graylock Digital" />
 
       <section className="bg-charcoal pt-24 pb-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display text-offwhite mb-6">Real Transformations</h1>
             <p className="text-xl font-sans text-stone mb-4">
-              See the dramatic before-and-after results we deliver for small service businesses. Click "Before" and "After" to compare.
+              See the dramatic before-and-after results we deliver for professional practices. Click "Before" and "After" to compare.
             </p>
           </ScrollReveal>
         </div>

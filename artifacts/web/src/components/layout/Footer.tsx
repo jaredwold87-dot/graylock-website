@@ -15,7 +15,7 @@ export function Footer() {
             />
           </Link>
           <p className="text-stone font-sans mt-4 max-w-xs">
-            Modern websites for small service businesses. Done for you, maintained forever.
+            Custom websites for professional practices. Done for you, maintained forever.
           </p>
         </div>
 
@@ -31,14 +31,11 @@ export function Footer() {
         <div>
           <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">WHO WE HELP</h4>
           <ul className="space-y-4 flex flex-col">
-            <Link href="/websites-for-small-business-owners" className="text-stone hover:text-offwhite transition-colors">Small Business Owners</Link>
-            <Link href="/websites-for-contractors" className="text-stone hover:text-offwhite transition-colors">Contractors</Link>
-            <Link href="/websites-for-solo-practitioners" className="text-stone hover:text-offwhite transition-colors">Solo Practitioners</Link>
+            <Link href="/websites-for-lawyers" className="text-stone hover:text-offwhite transition-colors">Attorneys</Link>
+            <Link href="/websites-for-solo-practitioners" className="text-stone hover:text-offwhite transition-colors">Therapists</Link>
+            <Link href="/websites-for-medical-practices" className="text-stone hover:text-offwhite transition-colors">Physicians</Link>
+            <Link href="/websites-for-accountants" className="text-stone hover:text-offwhite transition-colors">CPAs</Link>
             <Link href="/websites-for-group-practices" className="text-stone hover:text-offwhite transition-colors">Group Practices</Link>
-            <Link href="/websites-for-accountants" className="text-stone hover:text-offwhite transition-colors">Accountants</Link>
-            <Link href="/websites-for-lawyers" className="text-stone hover:text-offwhite transition-colors">Lawyers</Link>
-            <Link href="/websites-for-house-cleaners" className="text-stone hover:text-offwhite transition-colors">House Cleaners</Link>
-            <Link href="/websites-for-pet-groomers" className="text-stone hover:text-offwhite transition-colors">Pet Groomers</Link>
           </ul>
         </div>
 
@@ -84,7 +81,7 @@ export function Footer() {
         <p className="text-stone text-sm flex gap-4">
           <span>Based in the USA</span>
           <span>•</span>
-          <span>Built for local businesses</span>
+          <span>Built for professional practices</span>
         </p>
       </div>
     </footer>

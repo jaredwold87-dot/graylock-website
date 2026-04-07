@@ -35,7 +35,7 @@ function LaptopMockup({ showAfter }: { showAfter: boolean }) {
       <div
         className="absolute -inset-6 lg:-inset-10 rounded-3xl blur-2xl pointer-events-none transition-opacity duration-700"
         style={{
-          background: "radial-gradient(ellipse at center, rgba(232,99,26,0.35) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(46,123,180,0.35) 0%, transparent 70%)",
           opacity: showAfter ? 1 : 0.6,
         }}
       />
@@ -73,7 +73,7 @@ function LaptopMockup({ showAfter }: { showAfter: boolean }) {
 
       <span
         className="mt-4 text-xs sm:text-sm font-sans font-bold uppercase tracking-[0.2em] transition-colors duration-500"
-        style={{ color: showAfter ? "#E8631A" : "#8A8F9E" }}
+        style={{ color: showAfter ? "#2E7BB4" : "#8A8F9E" }}
       >
         {showAfter ? "After" : "Before"}
       </span>
@@ -87,7 +87,7 @@ function PhoneMockup({ showAfter }: { showAfter: boolean }) {
       <div
         className="absolute -inset-4 lg:-inset-8 rounded-3xl blur-2xl pointer-events-none transition-opacity duration-700"
         style={{
-          background: "radial-gradient(ellipse at center, rgba(232,99,26,0.35) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(46,123,180,0.35) 0%, transparent 70%)",
           opacity: showAfter ? 1 : 0.6,
         }}
       />
@@ -125,7 +125,7 @@ function PhoneMockup({ showAfter }: { showAfter: boolean }) {
 
       <span
         className="mt-4 text-xs sm:text-sm font-sans font-bold uppercase tracking-[0.2em] transition-colors duration-500"
-        style={{ color: showAfter ? "#E8631A" : "#8A8F9E" }}
+        style={{ color: showAfter ? "#2E7BB4" : "#8A8F9E" }}
       >
         {showAfter ? "After" : "Before"}
       </span>
@@ -152,21 +152,11 @@ export function HeroSection() {
   const isLg = useIsLg();
   return (
     <section className="bg-charcoal pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden relative">
-      <div className="absolute inset-0 opacity-40">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster={`${BASE}hero-bg-premium.webp`}
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={`${BASE}hero-bg-video.mp4`} type="video/mp4" />
-          <source src={`${BASE}hero-bg-video.webm`} type="video/webm" />
-        </video>
-      </div>
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(15,17,23,1) 0%, rgba(15,17,23,1) 25%, rgba(15,17,23,1) 60%, rgba(15,17,23,0.73) 80%, rgba(15,17,23,0.65) 100%)" }} />
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L55 20V40L30 55L5 40V20L30 5Z' fill='none' stroke='%232E7BB4' stroke-width='0.5'/%3E%3C/svg%3E")`,
+        backgroundSize: "60px 60px",
+      }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(15,30,53,1) 0%, rgba(15,30,53,1) 25%, rgba(15,30,53,1) 60%, rgba(15,30,53,0.73) 80%, rgba(15,30,53,0.65) 100%)" }} />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {!isLg && (
@@ -180,25 +170,24 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display text-offwhite leading-[1.1] mb-6">
-              Stop Losing Leads to a{" "}
-              <span className="text-gradient">Dated & Ineffective</span>{" "}
-              Website.
+              Your Practice Deserves a Website That Works as Hard as{" "}
+              <span className="text-gradient">You Do.</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              Your competitors are winning clients online right now — because their website works and yours doesn't. We fix that. No long-term contracts. No thousands upfront. Just a site that fills your calendar.
+              We build custom, high-converting websites for law firms, medical practices, accounting firms, and therapy groups — and deliver them in 3–5 business days. Starting at $199/month. No long-term contracts.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">
               <CTAButton href="/get-started">
-                Show Me What My Site Is Losing
+                Book Your Free Website Review
               </CTAButton>
             </div>
 
             <div className="flex flex-col gap-3">
               {[
                 "Free website evaluation — no strings attached",
+                "Custom homepage demo built for your practice",
                 "Full written PDF report yours to keep",
-                "Custom homepage demo built for your business",
                 "Zero obligation to move forward",
               ].map((text, i) => (
                 <div key={i} className="flex items-center gap-3">

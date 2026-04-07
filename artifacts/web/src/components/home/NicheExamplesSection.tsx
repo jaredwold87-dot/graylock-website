@@ -3,40 +3,35 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/utils";
 
 const nicheImages: Record<string, string[]> = {
-  Accountants: [
-    "/niche-accountant-1.png",
-    "/niche-accountant-2.png",
-    "/niche-accountant-3.png",
+  Attorneys: [
+    "/niche-lawyer-1.png",
+    "/niche-lawyer-2.png",
+    "/niche-lawyer-3.png",
   ],
   Therapists: [
     "/niche-therapist-1.png",
     "/niche-therapist-2.png",
     "/niche-therapist-3.png",
   ],
-  Contractors: [
-    "/niche-contractor-1.png",
-    "/niche-contractor-2.png",
-    "/niche-contractor-3.png",
-  ],
-  Consultants: [
-    "/niche-consultant-1.png",
-    "/niche-consultant-2.png",
-    "/niche-consultant-3.png",
-  ],
-  Dentists: [
-    "/niche-dentist-1.png",
-    "/niche-dentist-2.png",
-    "/niche-dentist-3.png",
-  ],
   Physicians: [
     "/niche-dentist-1.png",
     "/niche-dentist-2.png",
     "/niche-dentist-3.png",
   ],
-  Lawyers: [
-    "/niche-lawyer-1.png",
-    "/niche-lawyer-2.png",
-    "/niche-lawyer-3.png",
+  CPAs: [
+    "/niche-accountant-1.png",
+    "/niche-accountant-2.png",
+    "/niche-accountant-3.png",
+  ],
+  "Group Practices": [
+    "/niche-therapist-1.png",
+    "/niche-consultant-1.png",
+    "/niche-dentist-1.png",
+  ],
+  Psychiatrists: [
+    "/niche-therapist-2.png",
+    "/niche-therapist-3.png",
+    "/niche-consultant-2.png",
   ],
 };
 
@@ -48,33 +43,30 @@ type NicheItem = {
 };
 
 const niches: NicheItem[] = [
-  { type: "Accountants", name: "Peak CPA Group", tagline: "Tax season lead generation", imageIdx: 0 },
+  { type: "Attorneys", name: "Gavel & Stone Law", tagline: "Case inquiry generation", imageIdx: 0 },
+  { type: "Attorneys", name: "Redwood Family Law", tagline: "Consultation requests", imageIdx: 1 },
+  { type: "Attorneys", name: "Pinnacle Injury Attorneys", tagline: "Free consultation signups", imageIdx: 2 },
   { type: "Therapists", name: "Mindful Care", tagline: "Private pay client attraction", imageIdx: 0 },
-  { type: "Contractors", name: "Solid Built Construction", tagline: "High-end remodel showcases", imageIdx: 0 },
-  { type: "Consultants", name: "Synergy Management", tagline: "Discovery call bookings", imageIdx: 0 },
-  { type: "Dentists", name: "Bright Smile Family Dental", tagline: "New patient acquisition", imageIdx: 0 },
-  { type: "Lawyers", name: "Gavel & Stone Law", tagline: "Case inquiry generation", imageIdx: 0 },
-  { type: "Accountants", name: "Vanguard Tax", tagline: "Corporate account outreach", imageIdx: 1 },
   { type: "Therapists", name: "Healing Space", tagline: "Family trust building", imageIdx: 1 },
-  { type: "Contractors", name: "IronClad Roofing", tagline: "Local search dominance", imageIdx: 1 },
-  { type: "Consultants", name: "Apex HR Solutions", tagline: "Authority positioning", imageIdx: 1 },
-  { type: "Dentists", name: "Summit Dental Care", tagline: "Appointment scheduling", imageIdx: 1 },
-  { type: "Lawyers", name: "Redwood Family Law", tagline: "Consultation requests", imageIdx: 1 },
-  { type: "Accountants", name: "Clear Books Bookkeeping", tagline: "Local retailer targeting", imageIdx: 2 },
   { type: "Therapists", name: "New Chapter Counseling", tagline: "Online booking integration", imageIdx: 2 },
-  { type: "Contractors", name: "Precision Plumbing Co.", tagline: "Emergency call conversions", imageIdx: 2 },
-  { type: "Consultants", name: "Meridian Strategy Group", tagline: "Lead magnet funnels", imageIdx: 2 },
-  { type: "Dentists", name: "Lakewood Orthodontics", tagline: "Treatment plan inquiries", imageIdx: 2 },
-  { type: "Lawyers", name: "Pinnacle Injury Attorneys", tagline: "Free consultation signups", imageIdx: 2 },
   { type: "Physicians", name: "Summit Internal Medicine", tagline: "New patient acquisition", imageIdx: 0 },
   { type: "Physicians", name: "Valley Family Practice", tagline: "Online appointment booking", imageIdx: 1 },
   { type: "Physicians", name: "Cascade Cardiology Group", tagline: "Referral network building", imageIdx: 2 },
+  { type: "CPAs", name: "Peak CPA Group", tagline: "Tax season lead generation", imageIdx: 0 },
+  { type: "CPAs", name: "Vanguard Tax", tagline: "Corporate account outreach", imageIdx: 1 },
+  { type: "CPAs", name: "Clear Books Bookkeeping", tagline: "Local client targeting", imageIdx: 2 },
+  { type: "Group Practices", name: "Peaceful Minds Group", tagline: "Multi-provider caseload", imageIdx: 0 },
+  { type: "Group Practices", name: "Synergy Wellness Center", tagline: "Clinician bio pages", imageIdx: 1 },
+  { type: "Group Practices", name: "Summit Behavioral Health", tagline: "Specialty funnel pages", imageIdx: 2 },
+  { type: "Psychiatrists", name: "Clarity Psychiatry", tagline: "Medication management inquiries", imageIdx: 0 },
+  { type: "Psychiatrists", name: "Mindbridge Psychology", tagline: "Evaluation scheduling", imageIdx: 1 },
+  { type: "Psychiatrists", name: "Northern Psych Associates", tagline: "Referral intake forms", imageIdx: 2 },
 ];
 
 export function NicheExamplesSection() {
-  const [activeTab, setActiveTab] = useState("Accountants");
+  const [activeTab, setActiveTab] = useState("Attorneys");
 
-  const tabs = ["Accountants", "Therapists", "Contractors", "Consultants", "Dentists", "Physicians", "Lawyers"];
+  const tabs = ["Attorneys", "Therapists", "Physicians", "CPAs", "Group Practices", "Psychiatrists"];
 
   const filteredNiches = niches.filter(n => n.type === activeTab).slice(0, 3);
 
@@ -84,10 +76,10 @@ export function NicheExamplesSection() {
 
         <ScrollReveal className="text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
-            Built for Businesses Like Yours
+            Built for Professional Practices Like Yours
           </h2>
           <p className="text-stone font-sans text-lg mb-8 max-w-2xl mx-auto">
-            We work with any local service business that relies on trust, reputation, and local visibility to grow. Here are just a few of the industries we serve.
+            We specialize in websites for attorneys, therapists, physicians, CPAs, and group practices. Here are just a few examples of the practices we serve.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12">

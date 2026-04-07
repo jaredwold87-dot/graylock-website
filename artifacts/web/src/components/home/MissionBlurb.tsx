@@ -13,7 +13,7 @@ export function MissionBlurb() {
               We Only Work With Businesses We Genuinely Want to See Win
             </h2>
             <p className="text-stone font-sans text-lg leading-relaxed mb-6">
-              We're not trying to work with everyone. We look for hardworking small business owners who deserve a website that matches the quality of their work — and we pour everything we have into making that happen.
+              We're not trying to work with everyone. We look for dedicated practice owners who deserve a website that matches the quality of their work — and we pour everything we have into making that happen.
             </p>
             <p className="text-stone font-sans leading-relaxed mb-8">
               When your phone starts ringing more, when clients tell you they found you online, when you're no longer embarrassed to share your URL — that's our win too.
@@ -42,7 +42,7 @@ export function MissionBlurb() {
                 </div>
                 <div>
                   <h3 className="text-lg font-display text-offwhite mb-1">100% American Team</h3>
-                  <p className="text-stone font-sans text-sm leading-relaxed">Every person who touches your project is based in the United States. Nothing is outsourced. We're proud American small business owners helping fellow Americans grow.</p>
+                  <p className="text-stone font-sans text-sm leading-relaxed">Every person who touches your project is based in the United States. Nothing is outsourced. We're proud American professionals helping fellow professionals grow.</p>
                 </div>
               </div>
             </div>

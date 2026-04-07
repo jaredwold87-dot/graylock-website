@@ -48,7 +48,7 @@ function WizardContent() {
 export default function GetStarted() {
   return (
     <>
-      <SEO title="Get Your Free Growth Report | Graylock Digital" />
+      <SEO title="Get Your Free Website Evaluation | Graylock Digital" />
       <section className="bg-charcoal min-h-[80vh]">
         <WizardProvider>
           <WizardShell>

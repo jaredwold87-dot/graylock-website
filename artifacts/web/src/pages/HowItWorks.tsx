@@ -8,7 +8,7 @@ export default function HowItWorks() {
     {
       day: "Day 1",
       title: "Call + Evaluation",
-      desc: "We start with a free 20-minute consultation. We review your current online presence, discuss your target audience, and determine exactly what features your business needs to succeed. After the call, you receive a comprehensive written report covering website analysis, SEO gaps, competitive landscape, and growth opportunities. You keep the full report regardless of whether you move forward — it's yours as a premium standalone deliverable."
+      desc: "We start with a free 20-minute consultation. We review your current online presence, discuss your target clients, and determine exactly what features your practice needs to succeed. After the call, you receive a comprehensive written report covering website analysis, SEO gaps, competitive landscape, and growth opportunities. You keep the full report regardless of whether you move forward — it's yours as a premium standalone deliverable."
     },
     {
       day: "Day 1–2",
@@ -29,7 +29,7 @@ export default function HowItWorks() {
 
   return (
     <>
-      <SEO title="How It Works | Graylock Digital" />
+      <SEO title="How It Works | Professional Practice Websites | Graylock Digital" description="From free website evaluation to a live, lead-generating website in 3–5 business days. See our proven process for attorneys, therapists, CPAs, and medical practices." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
@@ -95,9 +95,9 @@ export default function HowItWorks() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.4} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-2xl font-display text-charcoal mb-4">Quarterly SEO Reviews</h3>
+              <h3 className="text-2xl font-display text-charcoal mb-4">Quarterly SEO Reviews & Strategy Calls</h3>
               <p className="text-gray-600 font-sans leading-relaxed">
-                For Growth plan clients, we conduct quarterly SEO reviews to keep your site competitive in local search results. We also offer a long-term website refresh and strategy review at the 2-year mark — because great websites evolve with your business.
+                Group Practice and Enterprise clients receive quarterly SEO reviews and strategy calls to keep your site competitive in local search results. We also offer a long-term website refresh and strategy review at the 2-year mark — because great websites evolve with your practice.
               </p>
             </ScrollReveal>
           </div>

@@ -24,7 +24,7 @@ export function Step5A_TargetCustomer() {
           <textarea
             value={data.targetCustomer}
             onChange={(e) => updateData({ targetCustomer: e.target.value })}
-            placeholder="e.g., Small business owners in my city looking for tax prep, homeowners needing plumbing work, etc."
+            placeholder="e.g., Professionals looking for legal representation, individuals seeking therapy in my area, etc."
             rows={4}
             className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50 resize-y"
           />

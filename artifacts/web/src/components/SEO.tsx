@@ -7,8 +7,8 @@ interface SEOProps {
 }
 
 export function SEO({ 
-  title = "Graylock Digital — Modern Websites for Small Service Businesses", 
-  description = "Graylock Digital builds and maintains modern, lead-focused websites for small service businesses — for one simple monthly subscription.",
+  title = "Graylock Digital — Professional Practice Websites | Law, Medical, Therapy, CPA", 
+  description = "Custom websites for law firms, therapists, medical practices, and CPAs. Delivered in 3–5 business days. Starting at $199/month. No long-term contracts.",
   url = "https://graylockdigital.com" 
 }: SEOProps) {
   return (

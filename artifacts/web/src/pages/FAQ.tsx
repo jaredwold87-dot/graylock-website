@@ -127,7 +127,7 @@ export default function FAQ() {
     <>
       <Helmet>
         <title>Frequently Asked Questions | Graylock Digital</title>
-        <meta name="description" content="Answers to the questions small business owners ask most about Graylock Digital's web design service, pricing, contracts, and process." />
+        <meta name="description" content="Answers to the questions professional practice owners ask most about Graylock Digital's web design service, pricing, contracts, and process." />
         <script type="application/ld+json">
           {JSON.stringify(generateSchemaMarkup())}
         </script>
@@ -141,7 +141,7 @@ export default function FAQ() {
               <span className="text-orange">Before You Sign Anything</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
-              We answer the questions small business owners ask most. No jargon, no pressure — just straight answers.
+              We answer the questions practice owners ask most. No jargon, no pressure — just straight answers.
             </p>
           </ScrollReveal>
         </div>

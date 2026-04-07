@@ -16,18 +16,18 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Solo Practitioners | Private Practice Websites | $79/mo | Graylock Digital",
+    title: "Websites for Therapists & Counselors | Starting at $199/mo | Graylock Digital",
     description:
-      "Graylock builds warm, professional websites for solo practitioners in private practice. Therapists, counselors, coaches and more. Custom built in 3–5 days. Starting at $79/mo. Free demo.",
+      "Graylock builds warm, professional websites for therapists, counselors, and solo practitioners in private practice. Custom built in 3–5 days. Starting at $199/mo. Free demo.",
     url: "https://graylockdigital.com/websites-for-solo-practitioners",
   },
   hero: {
-    badge: "For Solo Practitioners",
+    badge: "For Therapists & Counselors",
     badgeIcon: Heart,
     h1: "A Website That Fills Your Practice —",
     h1Highlight: "Not Just Your Time.",
     subheadline:
-      "Your expertise changes lives. Your website should make it easy for the right clients to find you, trust you, and book with you. We build warm, conversion-focused websites for solo practitioners — fast, affordable, and entirely done for you.",
+      "Your expertise changes lives. Your website should make it easy for the right clients to find you, trust you, and book with you. We build warm, conversion-focused websites for therapists and counselors — fast, affordable, and entirely done for you. Starting at $199/month.",
     cta: "Book Your Free Website Review",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -38,18 +38,17 @@ const data: IndustryPageData = {
     ],
   },
   specialties: {
-    headline: "Built for Solo Practitioners in Every Field",
+    headline: "Built for Therapists & Counselors in Every Specialty",
     tags: [
       "Therapists",
       "Counselors",
       "Psychologists",
-      "Life Coaches",
-      "Nutritionists",
-      "Physical Therapists",
-      "Chiropractors",
+      "Psychiatrists",
       "Social Workers",
-      "Occupational Therapists",
-      "Speech Pathologists",
+      "Marriage & Family Therapists",
+      "Play Therapists",
+      "Trauma Specialists",
+      "Addiction Counselors",
     ],
   },
   painPoints: {
@@ -88,9 +87,9 @@ const data: IndustryPageData = {
       },
       {
         icon: Phone,
-        title: "Clients are unsure about reaching out",
+        title: "Brighter Vision charges more for a template",
         description:
-          "New clients tell you they were hesitant to contact you based on your online presence. That's costing you referrals.",
+          "Template platforms like Brighter Vision charge $149–$349/month for cookie-cutter sites. You deserve better.",
       },
     ],
   },
@@ -123,7 +122,7 @@ const data: IndustryPageData = {
           "No months of delays. Your new professional website is live within one business week.",
       },
       {
-        title: "Starting at $79/month",
+        title: "Starting at $199/month",
         description:
           "A fraction of one new client's revenue. The ROI pays for itself immediately.",
       },
@@ -159,7 +158,7 @@ const data: IndustryPageData = {
       },
       {
         icon: Search,
-        title: "Assistance with Google Business Profile Setup (Standard & Growth)",
+        title: "Google Business Profile Setup",
         description: "Get found on Google Maps and local search results.",
       },
       {
@@ -227,23 +226,23 @@ const data: IndustryPageData = {
   faqs: [
     {
       q: "Do you have experience building websites for therapists and counselors?",
-      a: "Yes. We've built websites for licensed therapists, counselors, and private practice owners across the country. We understand the trust factor, the warmth your design needs to convey, and what makes clients reach out.",
+      a: "Yes. We've built websites for licensed therapists, counselors, psychologists, and private practice owners across the country. We understand the trust factor, the warmth your design needs to convey, and what makes clients reach out.",
+    },
+    {
+      q: "How does Graylock compare to Brighter Vision or TherapySites?",
+      a: "Brighter Vision charges $149–$349/month for template-based sites where you don't own the content. TherapySites is similar. Graylock starts at $199/month for a fully custom site where you own your content and domain. We deliver in 3–5 days and handle everything for you.",
     },
     {
       q: "Can my website include an online client inquiry form?",
-      a: "Absolutely. Every Graylock plan includes a contact/inquiry form. Standard and Growth plans include enhanced lead forms with additional fields and lead activity tracking in your dashboard.",
+      a: "Absolutely. Every Graylock plan includes a contact/inquiry form. Group Practice and Enterprise plans include enhanced lead forms with additional fields and lead activity tracking in your dashboard.",
     },
     {
-      q: "How do I show up on Google for my specialty and location?",
-      a: "Every Graylock site includes a local SEO foundation — your practice name, specialty, and city are optimized throughout the site. Standard and Growth plans include full local SEO optimization and assistance with Google Business Profile setup.",
-    },
-    {
-      q: "Can you include my bio, credentials, and approach on the site?",
-      a: "Yes — your about page and bio are a core part of the build. We'll work with you to write or refine copy that reflects your personality, credentials, and therapeutic approach.",
+      q: "Are your forms HIPAA compliant?",
+      a: "Our contact and lead capture forms are designed for appointment inquiries only — they do not collect protected health information (PHI). We do not integrate with EHR/EMR systems or patient portals. This keeps your implementation straightforward and outside the scope of HIPAA technical safeguards.",
     },
     {
       q: "What's included in the monthly fee?",
-      a: "Hosting, SSL, software updates, monthly content changes, a business dashboard, and a monthly performance report. Nothing is extra — it's all included in your plan.",
+      a: "Hosting, SSL, daily backups, dashboard access, monthly performance reporting, and priority support. Everything is included in your plan — no hidden fees.",
     },
   ],
   bottomCta: {
@@ -254,14 +253,14 @@ const data: IndustryPageData = {
   },
   relatedPages: [
     { name: "Group Practices", path: "/websites-for-group-practices" },
-    { name: "Lawyers", path: "/websites-for-lawyers" },
-    { name: "Accountants", path: "/websites-for-accountants" },
-    { name: "Small Business Owners", path: "/websites-for-small-business-owners" },
+    { name: "Medical Practices", path: "/websites-for-medical-practices" },
+    { name: "Attorneys", path: "/websites-for-lawyers" },
+    { name: "CPAs", path: "/websites-for-accountants" },
   ],
   schema: {
     "@context": "https://schema.org",
     "@type": ["WebPage", "FAQPage"],
-    name: "Websites for Solo Practitioners | Graylock Digital",
+    name: "Websites for Therapists & Counselors | Graylock Digital",
     url: "https://graylockdigital.com/websites-for-solo-practitioners",
     mainEntity: [
       {
