@@ -33,6 +33,7 @@ const data: IndustryPageData = {
     subheadline:
       "Pet owners want to see your work, read your reviews, and book online — before they ever call. A professional website makes you the obvious choice. Graylock builds clean, credible, SEO-optimized websites for dog groomers and pet grooming salons — fast, affordable, and fully managed.",
     cta: "Get Your Free Website Review",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-dog-groomers.png`,
     trustSignals: [
       "3–5 day build",
       "Booking forms included",

@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "AwtDSWelJwUtEUcLSWEwX"
+uri = "file://artifacts/web/public/hero-dog-groomers.png"
+type = "image"
+title = "dog grooming salon hero"
