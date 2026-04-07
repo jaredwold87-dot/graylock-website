@@ -31,14 +31,11 @@ export function OfferBreakdownSection() {
   ];
 
   return (
-    <section className="bg-navy py-24 px-6 md:px-12 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#F2F3F5 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
-
+    <section className="bg-offwhite py-24 px-6 md:px-12 relative overflow-hidden border-y border-gray-200">
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Your Free Call Includes</p>
-          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
+          <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
             See How We'd Elevate Your Site — Before You Pay Us Anything
           </h2>
           <p className="text-stone text-lg font-sans">
@@ -48,19 +45,19 @@ export function OfferBreakdownSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {offers.map((offer, i) => (
-            <ScrollReveal key={i} delay={i * 0.12} className="card-glow gradient-border bg-charcoal/80 p-8 rounded-xl border border-gunmetal/50 flex flex-col">
+            <ScrollReveal key={i} delay={i * 0.12} className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm flex flex-col">
               <div className="w-14 h-14 bg-gradient-to-br from-orange/20 to-orange/5 rounded-xl flex items-center justify-center mb-6 border border-orange/10">
                 {offer.icon}
               </div>
-              <h3 className="text-xl font-display text-offwhite mb-4">{offer.title}</h3>
+              <h3 className="text-xl font-display text-charcoal mb-4">{offer.title}</h3>
               <p className="text-stone font-sans leading-relaxed mb-6 flex-grow text-sm">{offer.desc}</p>
-              <p className="text-orange/80 font-sans text-sm font-semibold border-t border-gunmetal/50 pt-4">{offer.value}</p>
+              <p className="text-orange/80 font-sans text-sm font-semibold border-t border-gray-200 pt-4">{offer.value}</p>
             </ScrollReveal>
           ))}
         </div>
 
         <ScrollReveal delay={0.5} className="mt-20 max-w-4xl mx-auto">
-          <div className="bg-charcoal/60 border border-gunmetal/50 rounded-2xl p-8 md:p-12">
+          <div className="bg-charcoal rounded-2xl p-8 md:p-12">
             <div className="flex items-start gap-5 mb-6">
               <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-orange/10">
                 <ShieldCheck className="text-orange" size={24} />

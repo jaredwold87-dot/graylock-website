@@ -6,17 +6,14 @@ import { cn } from "@/lib/utils";
 
 export function PricingSection() {
   return (
-    <section className="bg-charcoal py-24 px-6 md:px-12 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
-      <div className="section-divider absolute top-0 left-0 right-0" />
-
+    <section className="bg-offwhite py-24 px-6 md:px-12 relative overflow-hidden border-y border-gray-200">
       <div className="max-w-7xl mx-auto relative z-10">
         
         <ScrollReveal className="text-center mb-16">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">
             Most of our clients start on Group Practice. Here's what's right for where you are now.
           </p>
-          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
+          <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
             Simple, Transparent Pricing
           </h2>
           <p className="text-stone text-lg font-sans max-w-2xl mx-auto">
@@ -27,10 +24,10 @@ export function PricingSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
           {PRICING_TIERS.map((tier: any, i: number) => (
             <ScrollReveal key={tier.name} delay={i * 0.1} className={cn(
-              "card-glow rounded-2xl border flex flex-col p-7 relative",
+              "rounded-2xl border flex flex-col p-7 relative",
               tier.popular 
-                ? "bg-gradient-to-b from-navy to-charcoal border-orange/50 shadow-[0_0_40px_rgba(232,99,26,0.12)] md:-translate-y-4" 
-                : "bg-navy/80 border-gunmetal/50 gradient-border"
+                ? "bg-charcoal border-orange/50 shadow-lg shadow-orange/10 md:-translate-y-4" 
+                : "bg-white border-gray-200 shadow-sm"
             )}>
               {tier.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange to-orange/80 text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-orange/30">
@@ -39,25 +36,25 @@ export function PricingSection() {
               )}
               
               <div className="mb-6">
-                <h3 className="text-2xl font-display text-offwhite mb-2">{tier.name}</h3>
+                <h3 className={cn("text-2xl font-display mb-2", tier.popular ? "text-offwhite" : "text-charcoal")}>{tier.name}</h3>
                 <p className="text-stone text-sm mb-5 min-h-[60px]">{tier.description}</p>
                 {tier.isCustom ? (
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-display text-gradient">Let's Talk</span>
+                    <span className={cn("text-3xl font-display", tier.popular ? "text-gradient" : "text-orange")}> Let's Talk</span>
                   </div>
                 ) : (
                   <>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-display text-gradient">{tier.price}</span>
+                      <span className={cn("text-4xl font-display", tier.popular ? "text-gradient" : "text-orange")}>{tier.price}</span>
                       <span className="text-stone font-sans">/mo</span>
                     </div>
-                    <p className="text-stone text-sm font-semibold mt-2 border-t border-gunmetal/50 pt-3">
+                    <p className={cn("text-sm font-semibold mt-2 border-t pt-3", tier.popular ? "text-stone border-gunmetal/50" : "text-stone border-gray-200")}>
                       + {tier.setup}
                     </p>
                   </>
                 )}
                 {tier.isCustom && (
-                  <p className="text-stone text-sm font-semibold mt-2 border-t border-gunmetal/50 pt-3">
+                  <p className={cn("text-sm font-semibold mt-2 border-t pt-3", tier.popular ? "text-stone border-gunmetal/50" : "text-stone border-gray-200")}>
                     Custom quote
                   </p>
                 )}
@@ -70,7 +67,7 @@ export function PricingSection() {
                       <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 flex items-center justify-center mt-0.5">
                         <Check className="text-orange" size={12} />
                       </div>
-                      <span className="text-offwhite font-sans text-sm">{feature}</span>
+                      <span className={cn("font-sans text-sm", tier.popular ? "text-offwhite" : "text-charcoal")}>{feature}</span>
                     </li>
                   ))}
                 </ul>

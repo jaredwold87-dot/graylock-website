@@ -6,7 +6,7 @@ const BASE = import.meta.env.BASE_URL;
 function SolutionLaptop() {
   return (
     <div className="flex flex-col items-center">
-      <div className="relative w-full rounded-t-xl bg-[#1c1c1e] border border-[#3a3a3c] shadow-2xl shadow-black/60 overflow-hidden">
+      <div className="relative w-full rounded-t-xl bg-[#1c1c1e] border border-[#3a3a3c] shadow-2xl shadow-black/20 overflow-hidden">
         <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#2c2c2e] border-b border-[#3a3a3c]">
           <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
           <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
@@ -28,7 +28,7 @@ function SolutionLaptop() {
 
 function SolutionTablet() {
   return (
-    <div className="relative w-full rounded-[16px] bg-[#1c1c1e] border-[2.5px] border-[#3a3a3c] shadow-2xl shadow-black/60 overflow-hidden p-[3px]">
+    <div className="relative w-full rounded-[16px] bg-[#1c1c1e] border-[2.5px] border-[#3a3a3c] shadow-2xl shadow-black/20 overflow-hidden p-[3px]">
       <div className="absolute top-1/2 right-[3px] -translate-y-1/2 w-[5px] h-[15%] bg-[#1c1c1e] rounded-l-lg z-10 border-y border-l border-[#3a3a3c]" />
       <div className="relative w-full rounded-[12px] overflow-hidden bg-[#1c1c1e]" style={{ aspectRatio: "16/10" }}>
         <picture>
@@ -42,7 +42,7 @@ function SolutionTablet() {
 
 function SolutionPhone() {
   return (
-    <div className="relative w-full rounded-[20px] bg-[#1c1c1e] border-[2.5px] border-[#3a3a3c] shadow-2xl shadow-black/60 overflow-hidden p-[3px]">
+    <div className="relative w-full rounded-[20px] bg-[#1c1c1e] border-[2.5px] border-[#3a3a3c] shadow-2xl shadow-black/20 overflow-hidden p-[3px]">
       <div className="absolute top-[3px] left-1/2 -translate-x-1/2 w-[30%] h-[5px] bg-[#1c1c1e] rounded-b-lg z-10 border-x border-b border-[#3a3a3c]" />
       <div className="relative w-full rounded-[16px] overflow-hidden" style={{ aspectRatio: "9/19.5" }}>
         <picture>
@@ -57,17 +57,13 @@ function SolutionPhone() {
 function SolutionDevices() {
   return (
     <div className="relative flex items-center justify-center gap-4 sm:gap-6 md:gap-8 w-full max-w-5xl mx-auto px-4">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-orange/[0.04] rounded-full blur-[80px] pointer-events-none" />
       <div className="flex-[2.5] relative group">
-        <div className="absolute -inset-1 bg-gradient-to-b from-orange/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
         <SolutionLaptop />
       </div>
       <div className="flex-[1.4] hidden md:block relative group">
-        <div className="absolute -inset-1 bg-gradient-to-b from-orange/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
         <SolutionTablet />
       </div>
       <div className="flex-[0.55] hidden sm:block relative group">
-        <div className="absolute -inset-1 bg-gradient-to-b from-orange/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
         <SolutionPhone />
       </div>
     </div>
@@ -94,15 +90,11 @@ export function SolutionSection() {
   ];
 
   return (
-    <section id="solution" className="bg-navy py-24 px-6 md:px-12 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#F2F3F5 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
-      <div className="section-divider absolute top-0 left-0 right-0" />
-
+    <section id="solution" className="bg-offwhite py-24 px-6 md:px-12 relative overflow-hidden border-y border-gray-200">
       <div className="max-w-7xl mx-auto relative z-10">
         
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
+          <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
             A Done-For-You Website That Actually Gets Results — Starting at $199/month
           </h2>
           <p className="text-stone text-lg font-sans">
@@ -112,21 +104,19 @@ export function SolutionSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {solutions.map((sol, i) => (
-            <ScrollReveal key={i} delay={i * 0.15} className="card-glow gradient-border bg-charcoal/80 p-10 rounded-xl border border-gunmetal/50">
+            <ScrollReveal key={i} delay={i * 0.15} className="bg-white p-10 rounded-xl border border-gray-200 shadow-sm">
               <div className="w-16 h-16 bg-gradient-to-br from-orange/20 to-orange/5 rounded-xl flex items-center justify-center mb-6 border border-orange/10">
                 {sol.icon}
               </div>
-              <h3 className="text-2xl font-display text-offwhite mb-4">{sol.title}</h3>
+              <h3 className="text-2xl font-display text-charcoal mb-4">{sol.title}</h3>
               <p className="text-stone font-sans leading-relaxed">{sol.desc}</p>
             </ScrollReveal>
           ))}
         </div>
 
         <ScrollReveal className="w-full relative" aria-label="Graylock Digital websites displayed across laptop, tablet, and mobile devices">
-          <div className="absolute -inset-8 md:-inset-12 bg-gradient-to-b from-orange/[0.03] via-transparent to-transparent rounded-3xl pointer-events-none" />
           <div className="relative">
             <SolutionDevices />
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-orange/20 to-transparent" />
           </div>
         </ScrollReveal>
       </div>
