@@ -107,7 +107,7 @@ chatRouter.post("/chat/conversations", async (req: Request, res: Response) => {
 
 chatRouter.post("/chat/conversations/:id/messages", async (req: Request, res: Response) => {
   try {
-    const conversationId = parseInt(req.params.id, 10);
+    const conversationId = parseInt(String(req.params.id), 10);
     if (isNaN(conversationId)) {
       res.status(400).json({ error: "Invalid conversation ID" });
       return;
