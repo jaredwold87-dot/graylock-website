@@ -82,9 +82,9 @@ const data: IndustryPageData = {
       },
       {
         icon: DollarSign,
-        title: "Template platforms charge more for less",
+        title: "Custom builds cost $10K+ before you see a single page",
         description:
-          "LawLytics and FindLaw charge $150–$300+/month for template-based sites. Graylock builds truly custom sites starting at $199/month.",
+          "Most agencies charge $10,000–$30,000 upfront for a custom law firm website — and then $300–$800/month to maintain it. Graylock starts at $199/month with a small setup fee.",
       },
       {
         icon: Clock,
