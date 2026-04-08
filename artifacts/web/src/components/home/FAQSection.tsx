@@ -34,6 +34,10 @@ const homepageFaqs = [
     a: "You own your domain, your written content, your images, and your brand assets — always. Our service is an all-inclusive subscription. We own the code, the design framework, and the hosting infrastructure. If you cancel, we package up all of your content and data, and transfer your domain to wherever you choose — with 30 days' notice and no cancellation fees. You'll never lose your domain authority, your content, or your brand."
   },
   {
+    q: "How do you build a website in just 5 days?",
+    a: "We don't reinvent the wheel for every client. We use a proven, high-converting structural framework — then we customize the design, copy, and SEO strategy entirely around your practice. Think of it like a custom-built home using tested construction methods. The foundation and engineering are proven — but the layout, finishes, and details are designed specifically for you. Not a prefab kit. Not a template. A real website built on a system that works."
+  },
+  {
     q: "What types of businesses do you work with?",
     a: "We work with any local service business that relies on trust, reputation, and local visibility to grow — accountants, therapists, contractors, consultants, dentists, physicians, lawyers, and more. If that sounds like you, we're a great fit."
   }
