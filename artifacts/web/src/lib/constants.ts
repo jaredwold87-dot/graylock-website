@@ -69,26 +69,6 @@ export const PRICING_TIERS = [
   }
 ];
 
-export const TESTIMONIALS = [
-  {
-    name: "Bobbie W.",
-    title: "Montana Counseling Solutions",
-    location: "Montana",
-    quote: "Before Graylock, I was getting leads \u2014 but they weren't the right leads. People who weren't a good fit, who couldn't afford my services, or who just weren't aligned with the kind of work I do. Since launching my new site, my monthly leads have more than doubled, but more importantly, the clients coming through are exactly who I want to work with. It's like the website filters for me. I'm spending less time on consultations that go nowhere and more time doing the work I actually love."
-  },
-  {
-    name: "Kim W.",
-    title: "Senior Health Solutions",
-    location: "United States",
-    quote: "I had no website at all \u2014 I was doing everything through community outreach, showing up in person, handing out cards. It was exhausting and inconsistent. Graylock built me a site from scratch and within just a couple months, clients started finding me on Google without me doing anything. The funnel pages they set up drove real local search traffic almost immediately. Now leads come to me. I still love being in the community, but now it's by choice \u2014 not because I have no other option."
-  },
-  {
-    name: "Ben L.",
-    title: "West Coast Eye Clinic",
-    location: "West Coast",
-    quote: "We had two outdated websites that were creating confusion for patients and extra work for our staff. Graylock consolidated everything into one clean, professional site and completely restructured how new patients contact us. I didn't want people calling the front desk \u2014 I wanted a controlled, professional intake process. Now every inquiry comes through an online form, and based on what the patient submits, it routes directly to the right person on my team. No more missed calls, no more phone tag. It's streamlined our entire front-end workflow."
-  }
-];
 
 export const FAQS = [
   {

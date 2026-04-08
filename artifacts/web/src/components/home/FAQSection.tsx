@@ -39,20 +39,28 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-offwhite py-24 px-6 md:px-12 border-t border-gray-200">
-      <div className="max-w-3xl mx-auto">
-        
-        <ScrollReveal className="text-center mb-12">
+    <section className="relative py-28 px-6 md:px-12 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f4f5f7] via-[#f7f8fa] to-[#f0f1f3]" />
+      <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
+
+      <div className="max-w-3xl mx-auto relative z-10">
+        <ScrollReveal className="text-center mb-14">
           <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-4">
             Common Questions
           </h2>
         </ScrollReveal>
 
-        <div className="space-y-4 mb-10">
+        <div className="space-y-3 mb-12">
           {homepageFaqs.map((faq, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
+            <ScrollReveal key={i} delay={i * 0.08}>
               <div 
-                className="bg-white border border-charcoal rounded-lg overflow-hidden cursor-pointer"
+                className={cn(
+                  "bg-white/80 backdrop-blur-sm border rounded-xl overflow-hidden cursor-pointer transition-all duration-300",
+                  openIndex === i 
+                    ? "border-orange/30 shadow-[0_2px_8px_rgba(46,123,180,0.08)]" 
+                    : "border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
+                )}
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
                 <div className="p-6 flex items-center justify-between gap-4">
@@ -77,7 +85,6 @@ export function FAQSection() {
             See all FAQs &rarr;
           </Link>
         </ScrollReveal>
-
       </div>
     </section>
   );

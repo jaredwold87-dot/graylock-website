@@ -31,36 +31,41 @@ export function OfferBreakdownSection() {
   ];
 
   return (
-    <section className="bg-offwhite py-24 px-6 md:px-12 relative overflow-hidden border-y border-gray-200">
+    <section className="relative py-28 px-6 md:px-12 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
+      <div className="absolute inset-0 opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
+
       <div className="max-w-7xl mx-auto relative z-10">
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-20">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Your Free Call Includes</p>
           <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
             See How We'd Elevate Your Site — Before You Pay Us Anything
           </h2>
-          <p className="text-stone text-lg font-sans">
+          <p className="text-stone text-lg font-sans leading-relaxed">
             Most agencies ask for thousands upfront before showing you a single thing. We do real work for you first — so you can decide with confidence.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
           {offers.map((offer, i) => (
-            <ScrollReveal key={i} delay={i * 0.12} className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm flex flex-col">
-              <div className="w-14 h-14 bg-gradient-to-br from-orange/20 to-orange/5 rounded-xl flex items-center justify-center mb-6 border border-orange/10">
+            <ScrollReveal key={i} delay={i * 0.12} className="group bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_16px_40px_rgba(0,0,0,0.06)] transition-all duration-500 flex flex-col hover:-translate-y-1">
+              <div className="w-14 h-14 bg-gradient-to-br from-orange/15 to-orange/5 rounded-2xl flex items-center justify-center mb-6 border border-orange/10 group-hover:border-orange/25 transition-colors duration-300">
                 {offer.icon}
               </div>
               <h3 className="text-xl font-display text-charcoal mb-4">{offer.title}</h3>
               <p className="text-stone font-sans leading-relaxed mb-6 flex-grow text-sm">{offer.desc}</p>
-              <p className="text-orange/80 font-sans text-sm font-semibold border-t border-gray-200 pt-4">{offer.value}</p>
+              <p className="text-orange/80 font-sans text-sm font-semibold border-t border-gray-100 pt-4">{offer.value}</p>
             </ScrollReveal>
           ))}
         </div>
 
-        <ScrollReveal delay={0.5} className="text-center mt-12">
+        <ScrollReveal delay={0.5} className="text-center mt-14">
           <CTAButton href="/get-started">
             Book Your Free Website Review
           </CTAButton>
-          <p className="text-stone/60 text-sm font-sans mt-4">No credit card. No obligation. Just answers.</p>
+          <p className="text-stone/50 text-sm font-sans mt-4">No credit card. No obligation. Just answers.</p>
         </ScrollReveal>
       </div>
     </section>
