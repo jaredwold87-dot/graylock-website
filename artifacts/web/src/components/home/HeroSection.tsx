@@ -158,7 +158,7 @@ export function HeroSection() {
               <span className="text-gradient">Better Websites.</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              We build fully custom websites for law firms, therapy practices, medical groups, and CPAs — delivered in 3–5 business days. Starting at $199/month. No long-term contracts. You own everything.
+              We build fully custom websites for law firms, therapy practices, medical groups, and CPAs — delivered in 7–10 business days. Starting at $199/month. No long-term contracts. You own everything.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">
