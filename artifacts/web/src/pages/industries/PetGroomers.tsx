@@ -22,7 +22,7 @@ const data: IndustryPageData = {
   seo: {
     title: "Websites for Pet Groomers & Grooming Salons | $79/mo | Graylock Digital",
     description:
-      "Graylock builds professional, trust-building websites for pet groomers and grooming businesses. Appointment forms, service menus, local SEO. Built in 7–10 days. $79/mo. Free demo.",
+      "Graylock builds professional, trust-building websites for pet groomers and grooming businesses. Appointment forms, service menus, local SEO. Built in 3–5 days. $79/mo. Free demo.",
     url: "https://graylockdigital.com/websites-for-pet-groomers",
   },
   hero: {
@@ -35,7 +35,7 @@ const data: IndustryPageData = {
     cta: "Get Your Free Website Review",
     backgroundImage: `${import.meta.env.BASE_URL}hero-pet-groomers.png`,
     trustSignals: [
-      "7–10 day build",
+      "3–5 day build",
       "Booking forms included",
       "Local SEO optimized",
       "$79/month",
@@ -120,7 +120,7 @@ const data: IndustryPageData = {
           "Bath & brush, full groom, de-shed, nail trim — each service clearly listed with pricing transparency.",
       },
       {
-        title: "Built in 7–10 Days for $79/month",
+        title: "Built in 3–5 Days for $79/month",
         description:
           "Less than one grooming session per month. The ROI pays for itself with your first online booking.",
       },

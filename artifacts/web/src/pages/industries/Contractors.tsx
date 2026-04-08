@@ -18,7 +18,7 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Contractor Websites | Custom Built in 7–10 Days | $79/mo | Graylock Digital",
+    title: "Contractor Websites | Custom Built in 3–5 Days | $79/mo | Graylock Digital",
     description:
       "Graylock builds high-converting contractor websites that get you more bids and project calls. Fast builds, local SEO, photo galleries, quote forms. Starting at $79/mo. Free demo first.",
     url: "https://graylockdigital.com/websites-for-contractors",
@@ -29,14 +29,14 @@ const data: IndustryPageData = {
     h1: "Win More Jobs With a Website That",
     h1Highlight: "Makes You Look Like the Pro You Are.",
     subheadline:
-      "Homeowners judge contractors online before they ever pick up the phone. Graylock builds fast-loading, professional contractor websites with project galleries, quote forms, and local SEO — built and live within 7–10 business days on average.",
+      "Homeowners judge contractors online before they ever pick up the phone. Graylock builds fast-loading, professional contractor websites with project galleries, quote forms, and local SEO — built and live within 3–5 business days on average.",
     cta: "Get Your Free Website Review",
     backgroundImage: `${import.meta.env.BASE_URL}hero-contractors.png`,
     trustSignals: [
       "Project gallery built in",
       "Quote request forms",
       "Local SEO optimized",
-      "7–10 day build",
+      "3–5 day build",
     ],
   },
   specialties: {
@@ -121,7 +121,7 @@ const data: IndustryPageData = {
           "Over 70% of contractor searches happen on mobile. Your site will look perfect on every device.",
       },
       {
-        title: "Built in 7–10 Business Days",
+        title: "Built in 3–5 Business Days",
         description:
           "No months of waiting. You approve, we build, and you're live within one business week.",
       },

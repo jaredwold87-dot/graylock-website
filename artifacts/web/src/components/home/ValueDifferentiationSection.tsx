@@ -23,7 +23,7 @@ export function ValueDifferentiationSection() {
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Why Graylock</p>
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
             Every other agency wants you to pay first.{" "}
-            <span className="text-gradient">We think that's backwards.</span>
+            <span className="text-orange">We think that's backwards.</span>
           </h2>
           <p className="text-stone/80 text-lg md:text-xl font-sans max-w-2xl mx-auto">
             We do the work first. You see the results first. Then you decide.
@@ -31,24 +31,24 @@ export function ValueDifferentiationSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
-          <div className="bg-navy rounded-2xl border border-gunmetal overflow-hidden shadow-xl">
+          <div className="bg-navy rounded-2xl border border-gunmetal overflow-hidden">
             <div className="grid grid-cols-2 text-center">
-              <div className="p-3 md:p-5 border-b border-r border-gunmetal">
-                <h3 className="font-display text-stone/80 text-base md:text-lg uppercase tracking-wide">Other Agencies</h3>
+              <div className="p-4 md:p-6 border-b border-r border-gunmetal">
+                <h3 className="font-display text-stone text-lg md:text-xl">Traditional Agencies & Template Platforms</h3>
               </div>
-              <div className="p-3 md:p-5 border-b border-gunmetal bg-gradient-to-br from-orange/10 to-orange/5">
-                <h3 className="font-display text-orange text-base md:text-lg uppercase tracking-wide">Graylock Digital</h3>
+              <div className="p-4 md:p-6 border-b border-gunmetal bg-orange/5">
+                <h3 className="font-display text-orange text-lg md:text-xl">Graylock Digital</h3>
               </div>
             </div>
             {comparisons.map((row, i) => (
               <div key={i} className="grid grid-cols-2">
-                <div className="p-3 md:p-5 border-b border-r border-gunmetal/60 flex items-start gap-2.5">
-                  <X className="text-red-400/50 flex-shrink-0 mt-0.5" size={16} />
-                  <span className="text-stone/60 font-sans text-xs md:text-sm leading-relaxed">{row.theirs}</span>
+                <div className="p-4 md:p-6 border-b border-r border-gunmetal flex items-start gap-3">
+                  <X className="text-red-400/60 flex-shrink-0 mt-0.5" size={18} />
+                  <span className="text-stone/70 font-sans text-sm leading-relaxed">{row.theirs}</span>
                 </div>
-                <div className="p-3 md:p-5 border-b border-gunmetal/60 bg-orange/[0.04] flex items-start gap-2.5">
-                  <Check className="text-orange flex-shrink-0 mt-0.5" size={16} />
-                  <span className="text-offwhite/90 font-sans text-xs md:text-sm leading-relaxed">{row.ours}</span>
+                <div className="p-4 md:p-6 border-b border-gunmetal bg-orange/5 flex items-start gap-3">
+                  <Check className="text-orange flex-shrink-0 mt-0.5" size={18} />
+                  <span className="text-offwhite font-sans text-sm leading-relaxed">{row.ours}</span>
                 </div>
               </div>
             ))}
@@ -57,7 +57,7 @@ export function ValueDifferentiationSection() {
 
         <ScrollReveal delay={0.3} className="text-center mt-12">
           <CTAButton href="/get-started">
-            See What This Looks Like for My Practice
+            See What This Looks Like for My Business
           </CTAButton>
         </ScrollReveal>
 

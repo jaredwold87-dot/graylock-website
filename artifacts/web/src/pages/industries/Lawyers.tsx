@@ -19,7 +19,7 @@ const data: IndustryPageData = {
   seo: {
     title: "Websites for Lawyers & Law Firms | Starting at $199/mo | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for solo attorneys and law firms. Practice area pages, attorney bios, client intake forms. Built in 7–10 days. Starting at $199/mo. Free demo.",
+      "Graylock builds custom, SEO-optimized websites for solo attorneys and law firms. Practice area pages, attorney bios, client intake forms. Built in 3–5 days. Starting at $199/mo. Free demo.",
     url: "https://graylockdigital.com/websites-for-lawyers",
   },
   hero: {
@@ -118,7 +118,7 @@ const data: IndustryPageData = {
           "Less than what most legal website platforms charge for a template. You get a fully custom site.",
       },
       {
-        title: "Built in 7–10 Business Days",
+        title: "Built in 3–5 Business Days",
         description:
           "No months of waiting. From consultation to live website in one business week.",
       },
@@ -231,7 +231,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How does your pricing compare to LawLytics or FindLaw?",
-      a: "LawLytics starts at approximately $150–$225/month for a template. FindLaw and Scorpion can run $300+/month. Graylock starts at $199/month with a $799 setup fee — with a fully custom design, 7–10 day build, and month-to-month flexibility. No long-term contracts.",
+      a: "LawLytics starts at approximately $150–$225/month for a template. FindLaw and Scorpion can run $300+/month. Graylock starts at $199/month with a $799 setup fee — with a fully custom design, 3–5 day build, and month-to-month flexibility. No long-term contracts.",
     },
     {
       q: "Can you include an online consultation request form?",
@@ -239,7 +239,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How long does it take to build a law firm website?",
-      a: "7–10 business days on average from when you approve the plan and pay the setup fee. The exact timeline depends on how quickly you can provide feedback, photos, and any materials.",
+      a: "3–5 business days on average from when you approve the plan and pay the setup fee. The exact timeline depends on how quickly you can provide feedback, photos, and any materials.",
     },
     {
       q: "Do you understand attorney advertising rules?",

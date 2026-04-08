@@ -75,7 +75,7 @@ export function SolutionSection() {
     {
       icon: <Clock className="text-orange mb-4" size={32} />,
       title: "Built Fast",
-      desc: "Once you say go, we build and launch your custom website within 7–10 business days on average. No endless back and forth."
+      desc: "Once you say go, we build and launch your custom website within 3–5 business days on average. No endless back and forth."
     },
     {
       icon: <Wrench className="text-orange mb-4" size={32} />,

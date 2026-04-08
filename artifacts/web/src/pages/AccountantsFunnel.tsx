@@ -110,7 +110,7 @@ const features = [
 const faqs = [
   {
     q: "How long does it take to build my website?",
-    a: "We build and launch your website within 7–10 business days on average. The exact timeline depends on how quickly you can provide feedback, logos, and photos — but we handle all the design, copywriting, and SEO setup so you don't have to lift a finger.",
+    a: "We build and launch your website within 3–5 business days on average. The exact timeline depends on how quickly you can provide feedback, logos, and photos — but we handle all the design, copywriting, and SEO setup so you don't have to lift a finger.",
   },
   {
     q: "Do I need to provide content or images?",
@@ -252,7 +252,7 @@ export default function AccountantsFunnel() {
       <section className="bg-navy py-6 border-y border-gunmetal">
         <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-x-10 gap-y-3">
           {[
-            { value: "7–10", label: "Business Days to Launch" },
+            { value: "3–5", label: "Business Days to Launch" },
             { value: "$0", label: "Upfront Before Your Demo" },
             { value: "100%", label: "US-Based Team" },
             { value: "0", label: "Long-Term Contracts" },
@@ -534,7 +534,7 @@ export default function AccountantsFunnel() {
               {
                 step: "03",
                 title: "Build & Launch",
-                desc: "We build your full site, optimize it for search engines, and launch it — typically within 7–10 business days on average.",
+                desc: "We build your full site, optimize it for search engines, and launch it — typically within 3–5 business days on average.",
                 icon: Globe,
               },
               {

@@ -39,35 +39,37 @@ function LaptopMockup({ showAfter }: { showAfter: boolean }) {
           opacity: showAfter ? 1 : 0.6,
         }}
       />
-      <div className="relative w-full" aria-label="Website redesign comparison on laptop" role="img">
-        <div className="rounded-t-lg bg-[#2a2a2a] pt-2 pb-1 px-3 flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-          <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
-          <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-          <span className="flex-1 mx-4 h-4 rounded bg-[#1a1a1a]" />
-        </div>
-        <div className="relative bg-[#1a1a1a] border-x-4 border-b-4 border-[#2a2a2a] rounded-b-lg overflow-hidden" style={{ aspectRatio: "16/9.5" }}>
-          <img
-            src={`${BASE}mockup-laptop-before.png`}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out"
-            style={{ opacity: showAfter ? 0 : 1 }}
-            loading="eager"
-          />
+      <div
+        className="relative w-full"
+        style={{ aspectRatio: "1948/1036" }}
+        aria-label="Website redesign comparison on monitor"
+        role="img"
+      >
+        <img
+          src={`${BASE}mockup-laptop-before.png`}
+          alt=""
+          className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
+          style={{ opacity: showAfter ? 0 : 1 }}
+          width={2916}
+          height={1588}
+          loading="eager"
+        />
+        <picture>
+          <source srcSet={`${BASE}mockup-laptop-after.webp`} type="image/webp" />
           <img
             src={`${BASE}mockup-laptop-after.png`}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out"
+            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
             style={{ opacity: showAfter ? 1 : 0 }}
+            width={1948}
+            height={1036}
             loading="eager"
           />
-        </div>
-        <div className="mx-auto w-[40%] h-3 bg-[#2a2a2a] rounded-b-lg" />
-        <div className="mx-auto w-[55%] h-1.5 bg-[#333] rounded-b-md" />
+        </picture>
       </div>
 
       <span
-        className="mt-3 text-xs sm:text-sm font-sans font-bold uppercase tracking-[0.2em] transition-colors duration-500"
+        className="mt-4 text-xs sm:text-sm font-sans font-bold uppercase tracking-[0.2em] transition-colors duration-500"
         style={{ color: showAfter ? "#2E7BB4" : "#8A8F9E" }}
       >
         {showAfter ? "After" : "Before"}
@@ -86,33 +88,37 @@ function PhoneMockup({ showAfter }: { showAfter: boolean }) {
           opacity: showAfter ? 1 : 0.6,
         }}
       />
-      <div className="relative w-full" aria-label="Website redesign comparison on iPhone" role="img">
-        <div className="rounded-[1.5rem] bg-[#1a1a1a] p-1.5 shadow-2xl border border-[#333]">
-          <div className="relative mx-auto w-[35%] h-4 bg-[#1a1a1a] rounded-b-xl z-10 -mb-1 flex items-center justify-center">
-            <span className="w-2 h-2 rounded-full bg-[#0a0a0a] border border-[#222]" />
-          </div>
-          <div className="relative rounded-[1.1rem] overflow-hidden bg-white" style={{ aspectRatio: "9/19" }}>
-            <img
-              src={`${BASE}mockup-phone-before.png`}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out"
-              style={{ opacity: showAfter ? 0 : 1 }}
-              loading="eager"
-            />
-            <img
-              src={`${BASE}mockup-phone-after.png`}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out"
-              style={{ opacity: showAfter ? 1 : 0 }}
-              loading="eager"
-            />
-          </div>
-          <div className="mx-auto w-[30%] h-1 mt-1.5 bg-[#333] rounded-full" />
-        </div>
+      <div
+        className="relative w-full"
+        style={{ aspectRatio: "410/864" }}
+        aria-label="Website redesign comparison on mobile"
+        role="img"
+      >
+        <img
+          src={`${BASE}mockup-phone-before.png`}
+          alt=""
+          className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
+          style={{ opacity: showAfter ? 0 : 1 }}
+          width={824}
+          height={1374}
+          loading="eager"
+        />
+        <picture>
+          <source srcSet={`${BASE}mockup-phone-after.webp`} type="image/webp" />
+          <img
+            src={`${BASE}mockup-phone-after.png`}
+            alt=""
+            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
+            style={{ opacity: showAfter ? 1 : 0 }}
+            width={410}
+            height={864}
+            loading="eager"
+          />
+        </picture>
       </div>
 
       <span
-        className="mt-3 text-xs sm:text-sm font-sans font-bold uppercase tracking-[0.2em] transition-colors duration-500"
+        className="mt-4 text-xs sm:text-sm font-sans font-bold uppercase tracking-[0.2em] transition-colors duration-500"
         style={{ color: showAfter ? "#2E7BB4" : "#8A8F9E" }}
       >
         {showAfter ? "After" : "Before"}
@@ -141,12 +147,14 @@ export function HeroSection() {
   return (
     <section className="bg-charcoal pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden relative">
       <div className="absolute inset-0">
-        <img
-          src={`${BASE}hero-bg-blue.png`}
-          alt=""
-          className="w-full h-full object-cover animate-hero-drift"
-          loading="eager"
-        />
+        <picture>
+          <img
+            src={`${BASE}hero-bg-blue.png`}
+            alt=""
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        </picture>
       </div>
       <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(15,30,53,0.92) 0%, rgba(15,30,53,0.85) 40%, rgba(15,30,53,0.7) 70%, rgba(15,30,53,0.5) 100%)" }} />
 
@@ -166,7 +174,7 @@ export function HeroSection() {
               <span className="text-gradient">You Do.</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              We build custom, high-converting websites for law firms, medical practices, accounting firms, and therapy groups — and deliver them in 7–10 business days. Starting at $199/month. No long-term contracts.
+              We build custom, high-converting websites for law firms, medical practices, accounting firms, and therapy groups — and deliver them in 3–5 business days. Starting at $199/month. No long-term contracts.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">

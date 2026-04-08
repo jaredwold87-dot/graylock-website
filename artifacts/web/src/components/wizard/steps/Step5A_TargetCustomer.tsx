@@ -32,7 +32,7 @@ export function Step5A_TargetCustomer() {
 
         <button
           onClick={handleContinue}
-          className="mt-4 bg-orange text-white font-sans font-semibold text-lg px-8 py-4 rounded-lg hover:bg-orange/90 transition-all shadow-[0_4px_14px_rgba(46,123,180,0.3)] hover:shadow-[0_6px_20px_rgba(46,123,180,0.4)] hover:-translate-y-0.5"
+          className="mt-4 bg-orange text-white font-sans font-semibold text-lg px-8 py-4 rounded-lg hover:bg-orange/90 transition-all shadow-[0_4px_14px_rgba(232,99,26,0.25)] hover:shadow-[0_6px_20px_rgba(232,99,26,0.35)] hover:-translate-y-0.5"
         >
           Continue
         </button>
