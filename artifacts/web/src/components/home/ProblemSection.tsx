@@ -52,12 +52,12 @@ export function ProblemSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {problems.map((prob, i) => (
-            <ScrollReveal key={i} delay={i * 0.1} className="bg-navy/60 p-8 rounded-xl border border-gunmetal hover:border-orange/30 transition-all duration-400 group">
-              <div className="w-10 h-10 rounded-lg bg-orange/10 flex items-center justify-center mb-4 group-hover:bg-orange/15 transition-colors text-orange">
+            <ScrollReveal key={i} delay={i * 0.1} className="glass-card p-8 rounded-xl group">
+              <div className="relative z-10 w-10 h-10 rounded-lg bg-orange/10 flex items-center justify-center mb-4 group-hover:bg-orange/15 transition-colors text-orange">
                 {prob.icon}
               </div>
-              <h3 className="text-xl font-display text-offwhite mb-3">{prob.title}</h3>
-              <p className="text-stone font-sans leading-relaxed text-sm">{prob.desc}</p>
+              <h3 className="relative z-10 text-xl font-display text-offwhite mb-3">{prob.title}</h3>
+              <p className="relative z-10 text-stone font-sans leading-relaxed text-sm">{prob.desc}</p>
             </ScrollReveal>
           ))}
         </div>
