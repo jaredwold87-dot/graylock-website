@@ -18,7 +18,7 @@ const data: IndustryPageData = {
   seo: {
     title: "Websites for CPAs & Accounting Firms | Starting at $199/mo | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for CPAs, accountants, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 3–5 days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for CPAs, accountants, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 7–10 days. Starting at $199/mo.",
     url: "https://graylockdigital.com/websites-for-accountants",
   },
   hero: {
@@ -34,7 +34,7 @@ const data: IndustryPageData = {
       "Services pages for every offering",
       "Local SEO included",
       "Free demo first",
-      "3–5 day build",
+      "7–10 day build",
     ],
   },
   specialties: {
@@ -116,7 +116,7 @@ const data: IndustryPageData = {
           "Included so you show up on Google Maps and local results.",
       },
       {
-        title: "Built in 3–5 Business Days",
+        title: "Built in 7–10 Business Days",
         description:
           "Before tax season or after — your call. We move fast so you don't have to wait.",
       },
@@ -233,7 +233,7 @@ const data: IndustryPageData = {
     },
     {
       q: "I'm too busy during tax season to work on a website. Can we start now?",
-      a: "We built our process to be fast and low-effort on your end. Most of the information we need can be gathered in a 20-minute call. You review and approve, we do the rest. 3–5 business days from approval to live on average.",
+      a: "We built our process to be fast and low-effort on your end. Most of the information we need can be gathered in a 20-minute call. You review and approve, we do the rest. 7–10 business days from approval to live on average.",
     },
     {
       q: "Can we add team member bios and photos?",

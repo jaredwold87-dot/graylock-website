@@ -17,7 +17,7 @@ Graylock Digital builds custom, mobile-first websites for professional practices
 2. Live strategy walkthrough — a 20-minute call walking through findings in plain English
 3. Comprehensive written PDF report — covering competitive analysis, audience insights, performance analysis, and strategic recommendations. The visitor keeps this regardless of whether they hire us
 4. Custom homepage demo — we design a concept homepage for their practice before they pay anything
-5. If they like it, we build and launch the full site within 3–5 business days on average
+5. If they like it, we build and launch the full site within 7–10 business days on average
 
 ### Pricing
 - Solo Practice: $199/mo + $799 one-time setup — custom 8-page website, mobile-first design, local SEO foundation, Google Business Profile setup, lead capture form, hosting & SSL & daily backups, monthly performance report, dashboard access, priority email support
@@ -32,7 +32,7 @@ Setup fee + monthly rate is all they pay. No surprise invoices. Month-to-month, 
 - We do the work FIRST — free evaluation, free report, free homepage demo before they pay anything
 - No long-term contracts
 - US-based team, nothing outsourced
-- 3–5 business day turnaround
+- 7–10 business day turnaround
 - Business dashboard included on every plan
 - Most agencies charge $5,000–$15,000 upfront — we charge a fraction of that
 - We specialize in professional practices, not generic small businesses
@@ -41,7 +41,7 @@ Setup fee + monthly rate is all they pay. No surprise invoices. Month-to-month, 
 Attorneys & law firms, therapists & counselors, CPAs & accounting firms, medical practices & physicians, group practices (therapy groups, multi-provider firms), psychiatrists — any professional practice that relies on trust, expertise, and local visibility.
 
 ### Competitors We're Better Than
-- Brighter Vision / TherapySites: $149–$349/mo for template-based sites where you don't own content. Graylock is custom-built, you own your content, and we deliver in 3–5 days.
+- Brighter Vision / TherapySites: $149–$349/mo for template-based sites where you don't own content. Graylock is custom-built, you own your content, and we deliver in 7–10 days.
 - LawLytics / FindLaw / Scorpion: $150–$300+/mo for templates or locked-in contracts. Graylock is month-to-month with no contracts and a fully custom design.
 
 ### What is a Funnel Page?

@@ -11,17 +11,17 @@ export default function HowItWorks() {
       desc: "We start with a free 20-minute consultation. We review your current online presence, discuss your target clients, and determine exactly what features your practice needs to succeed. After the call, you receive a comprehensive written report covering website analysis, SEO gaps, competitive landscape, and growth opportunities. You keep the full report regardless of whether you move forward — it's yours as a premium standalone deliverable."
     },
     {
-      day: "Day 1–2",
+      day: "Day 1–3",
       title: "The Build",
-      desc: "Once you approve the plan and pay the setup fee, our team gets to work. We craft custom copy, source high-quality imagery, and build a blazing-fast site — typically within 3–5 business days on average. Throughout the build, you'll have full transparency: a dedicated project portal where you can upload assets, communicate directly with our team, and track progress in real time."
+      desc: "Once you approve the plan and pay the setup fee, our team gets to work. We craft custom copy, source high-quality imagery, and build a blazing-fast site — typically within 7–10 business days on average. Throughout the build, you'll have full transparency: a dedicated project portal where you can upload assets, communicate directly with our team, and track progress in real time."
     },
     {
-      day: "Day 3–4",
+      day: "Day 4–7",
       title: "Client Review",
       desc: "We send you a private link to review your new website and schedule a review call to walk you through the completed site together. This is a structured opportunity for feedback — we go page by page, answer your questions, and make any adjustments to ensure it's exactly what you envisioned. We don't launch until you sign off."
     },
     {
-      day: "Day 5",
+      day: "Day 7–10",
       title: "Launch",
       desc: "We connect your domain, set up SSL security, configure your SEO, and push the site live to the world. Your site is live and working for you — every visitor is now a potential client. Google indexing begins, leads start flowing, and your monthly subscription kicks in."
     }
@@ -29,7 +29,7 @@ export default function HowItWorks() {
 
   return (
     <>
-      <SEO title="How It Works | Professional Practice Websites | Graylock Digital" description="From free website evaluation to a live, lead-generating website in 3–5 business days. See our proven process for attorneys, therapists, CPAs, and medical practices." />
+      <SEO title="How It Works | Professional Practice Websites | Graylock Digital" description="From free website evaluation to a live, lead-generating website in 7–10 business days. See our proven process for attorneys, therapists, CPAs, and medical practices." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
@@ -40,7 +40,7 @@ export default function HowItWorks() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Our Proven Process</h1>
-            <p className="text-xl font-sans text-stone">From an outdated liability to a lead-generating asset — within 3–5 business days on average.</p>
+            <p className="text-xl font-sans text-stone">From an outdated liability to a lead-generating asset — within 7–10 business days on average.</p>
           </ScrollReveal>
         </div>
       </section>

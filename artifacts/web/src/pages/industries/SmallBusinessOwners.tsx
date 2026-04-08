@@ -18,7 +18,7 @@ const data: IndustryPageData = {
   seo: {
     title: "Websites for Small Business Owners | $79/mo | Graylock Digital",
     description:
-      "Graylock Digital builds high-converting websites for small business owners — fast (3–5 days), affordable ($79/mo), and fully managed. No tech headaches. Free website review.",
+      "Graylock Digital builds high-converting websites for small business owners — fast (7–10 days), affordable ($79/mo), and fully managed. No tech headaches. Free website review.",
     url: "https://graylockdigital.com/websites-for-small-business-owners",
   },
   hero: {
@@ -31,7 +31,7 @@ const data: IndustryPageData = {
     cta: "Book Your Free Website Review",
     backgroundImage: `${import.meta.env.BASE_URL}hero-small-business.jpg`,
     trustSignals: [
-      "3–5 business days",
+      "7–10 business days",
       "$79/month",
       "Free demo first",
       "100% American team",
@@ -83,7 +83,7 @@ const data: IndustryPageData = {
     headline: "Finally — A Website Partner Who Delivers Before You Pay",
     items: [
       {
-        title: "Built in 3–5 Business Days",
+        title: "Built in 7–10 Business Days",
         description:
           "No endless back-and-forth. You approve, we launch. Your new website is live and working within one business week.",
       },
@@ -171,7 +171,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How fast can you build my website?",
-      a: "Once you approve the plan and pay the setup fee, your website is typically live within 3–5 business days on average. Much of the timeline depends on how quickly you can provide feedback, photos, and logos. Most clients are surprised at how fast it happens.",
+      a: "Once you approve the plan and pay the setup fee, your website is typically live within 7–10 business days on average. Much of the timeline depends on how quickly you can provide feedback, photos, and logos. Most clients are surprised at how fast it happens.",
     },
     {
       q: "What do I own, and what does my monthly fee cover?",
@@ -220,7 +220,7 @@ const data: IndustryPageData = {
         name: "How fast can you build my website?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Your website is typically live within 3–5 business days on average after approval.",
+          text: "Your website is typically live within 7–10 business days on average after approval.",
         },
       },
     ],

@@ -18,7 +18,7 @@ const data: IndustryPageData = {
   seo: {
     title: "Websites for Group Practices | Multi-Provider Sites | Starting at $299/mo | Graylock Digital",
     description:
-      "Graylock builds custom websites for group practices — showcasing your team, specialties, and individual providers. Custom built in 3–5 days. Starting at $299/mo. Free demo first.",
+      "Graylock builds custom websites for group practices — showcasing your team, specialties, and individual providers. Custom built in 7–10 days. Starting at $299/mo. Free demo first.",
     url: "https://graylockdigital.com/websites-for-group-practices",
   },
   hero: {
@@ -33,7 +33,7 @@ const data: IndustryPageData = {
     trustSignals: [
       "Individual provider pages",
       "Specialty filtering",
-      "3–5 day build",
+      "7–10 day build",
       "Easy to update",
     ],
   },
@@ -108,7 +108,7 @@ const data: IndustryPageData = {
           "Each provider and specialty your practice covers gets its own SEO-optimized presence.",
       },
       {
-        title: "Built in 3–5 Business Days",
+        title: "Built in 7–10 Business Days",
         description:
           "With a dedicated review call before launch to make sure everything represents your practice perfectly.",
       },

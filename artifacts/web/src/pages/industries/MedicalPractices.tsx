@@ -19,7 +19,7 @@ const data: IndustryPageData = {
   seo: {
     title: "Websites for Medical Practices & Physicians | Starting at $199/mo | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for medical practices, physicians, and healthcare providers. Provider bios, service pages, patient inquiry forms. Built in 3–5 days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for medical practices, physicians, and healthcare providers. Provider bios, service pages, patient inquiry forms. Built in 7–10 days. Starting at $199/mo.",
     url: "https://graylockdigital.com/websites-for-medical-practices",
   },
   hero: {
@@ -121,7 +121,7 @@ const data: IndustryPageData = {
           "Optimized for 'doctor near me' and specialty-specific searches in your area from day one.",
       },
       {
-        title: "Built in 3–5 Business Days",
+        title: "Built in 7–10 Business Days",
         description:
           "No months of waiting. From consultation to live website in one business week.",
       },
@@ -246,7 +246,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How long does it take to build a medical practice website?",
-      a: "3–5 business days on average from when you approve the plan and pay the setup fee. The exact timeline depends on how quickly you can provide feedback, provider photos, and other materials.",
+      a: "7–10 business days on average from when you approve the plan and pay the setup fee. The exact timeline depends on how quickly you can provide feedback, provider photos, and other materials.",
     },
   ],
   bottomCta: {

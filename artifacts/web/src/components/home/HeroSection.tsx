@@ -166,7 +166,7 @@ export function HeroSection() {
               <span className="text-gradient">You Do.</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              We build custom, high-converting websites for law firms, medical practices, accounting firms, and therapy groups — and deliver them in 3–5 business days. Starting at $199/month. No long-term contracts.
+              We build custom, high-converting websites for law firms, medical practices, accounting firms, and therapy groups — and deliver them in 7–10 business days. Starting at $199/month. No long-term contracts.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">
