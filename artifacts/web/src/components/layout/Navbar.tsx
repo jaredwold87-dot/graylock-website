@@ -4,11 +4,9 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const WHO_WE_HELP = [
-  { name: "Attorneys & Law Firms", path: "/websites-for-lawyers" },
-  { name: "Therapists & Counselors", path: "/websites-for-solo-practitioners" },
-  { name: "Medical Practices", path: "/websites-for-medical-practices" },
-  { name: "CPAs & Accounting Firms", path: "/websites-for-accountants" },
-  { name: "Group Practices", path: "/websites-for-group-practices" },
+  { name: "Law Firms", path: "/websites-for-lawyers" },
+  { name: "Private Practices", path: "/websites-for-private-practices" },
+  { name: "Accounting Firms", path: "/websites-for-accountants" },
 ];
 
 const OUR_STRATEGY = [

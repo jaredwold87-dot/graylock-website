@@ -31,11 +31,9 @@ export function Footer() {
         <div>
           <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">WHO WE HELP</h4>
           <ul className="space-y-4 flex flex-col">
-            <Link href="/websites-for-lawyers" className="text-stone hover:text-offwhite transition-colors">Attorneys</Link>
-            <Link href="/websites-for-solo-practitioners" className="text-stone hover:text-offwhite transition-colors">Therapists</Link>
-            <Link href="/websites-for-medical-practices" className="text-stone hover:text-offwhite transition-colors">Physicians</Link>
-            <Link href="/websites-for-accountants" className="text-stone hover:text-offwhite transition-colors">CPAs</Link>
-            <Link href="/websites-for-group-practices" className="text-stone hover:text-offwhite transition-colors">Group Practices</Link>
+            <Link href="/websites-for-lawyers" className="text-stone hover:text-offwhite transition-colors">Law Firms</Link>
+            <Link href="/websites-for-private-practices" className="text-stone hover:text-offwhite transition-colors">Private Practices</Link>
+            <Link href="/websites-for-accountants" className="text-stone hover:text-offwhite transition-colors">Accounting Firms</Link>
           </ul>
         </div>
 

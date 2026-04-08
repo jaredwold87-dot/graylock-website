@@ -251,10 +251,8 @@ const data: IndustryPageData = {
     button: "Book Your Free Website Review",
   },
   relatedPages: [
-    { name: "Attorneys", path: "/websites-for-lawyers" },
-    { name: "Therapists", path: "/websites-for-solo-practitioners" },
-    { name: "Medical Practices", path: "/websites-for-medical-practices" },
-    { name: "Group Practices", path: "/websites-for-group-practices" },
+    { name: "Law Firms", path: "/websites-for-lawyers" },
+    { name: "Private Practices", path: "/websites-for-private-practices" },
   ],
   schema: {
     "@context": "https://schema.org",

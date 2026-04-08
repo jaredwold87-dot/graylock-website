@@ -38,7 +38,10 @@ Setup fee + monthly rate is all they pay. No surprise invoices. Month-to-month, 
 - We specialize in professional practices, not generic small businesses
 
 ### Industries We Serve
-Attorneys & law firms, therapists & counselors, CPAs & accounting firms, medical practices & physicians, group practices (therapy groups, multi-provider firms), psychiatrists — any professional practice that relies on trust, expertise, and local visibility.
+We serve three core customer categories:
+1. **Law Firms** — Solo attorneys and multi-attorney firms across every practice area (family law, personal injury, criminal defense, immigration, estate planning, etc.)
+2. **Private Practices** — Dentists, optometrists, chiropractors, therapists, counselors, physicians, dermatologists, physical therapists, psychiatrists, veterinarians, and any other private practice that sees patients or clients by appointment.
+3. **Accounting Firms** — CPAs, tax preparers, bookkeepers, enrolled agents, and financial advisory practices.
 
 ### Competitors We're Better Than
 - Brighter Vision / TherapySites: $149–$349/mo for template-based sites where you don't own content. Graylock is custom-built, you own your content, and we deliver in 7–10 business days.

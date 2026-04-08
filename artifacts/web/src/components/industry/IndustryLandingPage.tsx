@@ -158,7 +158,7 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
                 {data.hero.trustSignals.length > 0 && (
                   <>
                     <div className="bg-navy/80 border border-gunmetal rounded-xl p-6 text-center">
-                      <div className="text-3xl font-display text-orange font-bold mb-1">3–5</div>
+                      <div className="text-3xl font-display text-orange font-bold mb-1">7–10</div>
                       <div className="text-offwhite/70 text-xs font-sans uppercase tracking-wider">Day Build</div>
                     </div>
                     <div className="bg-navy/80 border border-gunmetal rounded-xl p-6 text-center">
