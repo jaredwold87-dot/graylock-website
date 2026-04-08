@@ -87,7 +87,7 @@ export function TrustStatsSection() {
               <div className="text-stone font-display text-xl tracking-wide uppercase">Cost for Your Review</div>
             </div>
             <div className="flex-1 text-center py-6 md:py-0 px-4 relative z-10">
-              <div className="text-4xl md:text-6xl font-display text-gradient stat-glow mb-2">3–5 Days</div>
+              <div className="text-4xl md:text-6xl font-display text-gradient stat-glow mb-2">7–10 Days</div>
               <div className="text-stone font-display text-xl tracking-wide uppercase">Average Build Time</div>
             </div>
             <div className="flex-1 text-center py-6 md:py-0 px-4 relative z-10">

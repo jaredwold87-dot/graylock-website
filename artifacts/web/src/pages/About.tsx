@@ -7,13 +7,13 @@ export default function About() {
   const values = [
     { title: "Done-For-You", desc: "We don't sell tools, we sell results. We take the burden entirely off your plate." },
     { title: "Transparent", desc: "No hidden fees, no confusing jargon, and no holding your digital assets hostage." },
-    { title: "Fast", desc: "Professional practice clients can't wait 6–10 weeks. We built a process that delivers custom sites in 3–5 business days without cutting corners. Our structured process, proven build framework, and experienced team make this possible. Larger or more complex builds may take longer." },
+    { title: "Fast", desc: "Professional practice clients can't wait 6–10 weeks. We built a process that delivers custom sites in 7–10 business days without cutting corners. Our structured process, proven build framework, and experienced team make this possible. Larger or more complex builds may take longer." },
     { title: "Relationship-Driven", desc: "We aren't a faceless platform. You always know exactly who is working on your site." }
   ];
 
   return (
     <>
-      <SEO title="About Graylock Digital | Professional Practice Website Specialists" description="Graylock Digital builds custom websites for attorneys, therapists, CPAs, and medical practices — delivered in 3–5 business days, starting at $199/month." />
+      <SEO title="About Graylock Digital | Professional Practice Website Specialists" description="Graylock Digital builds custom websites for attorneys, therapists, CPAs, and medical practices — delivered in 7–10 business days, starting at $199/month." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div

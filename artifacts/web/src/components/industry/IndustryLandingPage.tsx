@@ -185,7 +185,7 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
       <section className="bg-navy py-6 border-y border-gunmetal">
         <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-x-10 gap-y-3">
           {[
-            { value: "3–5", label: "Business Days to Launch" },
+            { value: "7–10", label: "Business Days to Launch" },
             { value: "$0", label: "Upfront Before Your Demo" },
             { value: "100%", label: "US-Based Team" },
             { value: "0", label: "Long-Term Contracts" },

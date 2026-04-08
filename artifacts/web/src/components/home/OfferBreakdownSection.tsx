@@ -1,4 +1,4 @@
-import { Search, MessageSquare, Monitor, FileText, ShieldCheck } from "lucide-react";
+import { Search, MessageSquare, Monitor, FileText } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 
@@ -56,29 +56,7 @@ export function OfferBreakdownSection() {
           ))}
         </div>
 
-        <ScrollReveal delay={0.5} className="mt-20 max-w-4xl mx-auto">
-          <div className="bg-charcoal rounded-2xl p-8 md:p-12">
-            <div className="flex items-start gap-5 mb-6">
-              <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-orange/10">
-                <ShieldCheck className="text-orange" size={24} />
-              </div>
-              <div>
-                <h3 className="text-xl md:text-2xl font-display text-offwhite mb-3">Why We Do This for Free</h3>
-                <p className="text-stone font-sans leading-relaxed mb-4">
-                  We absorb the upfront cost because our clients stay with us for years. We'd rather prove our value first than ask you to take our word for it.
-                </p>
-                <p className="text-stone font-sans leading-relaxed mb-4">
-                  We use a high-converting structural framework, then customize it to your brand, services, and local market — that's how we deliver quality in 5 days. Your homepage demo, evaluation, and written report are built around your actual business, not pulled from a template library.
-                </p>
-                <p className="text-stone/70 font-sans text-sm leading-relaxed">
-                  Even if you don't move forward, you walk away with a professional-grade report and a clear picture of what's holding your website back. No strings attached.
-                </p>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.6} className="text-center mt-12">
+        <ScrollReveal delay={0.5} className="text-center mt-12">
           <CTAButton href="/get-started">
             Get My Free Website Evaluation
           </CTAButton>

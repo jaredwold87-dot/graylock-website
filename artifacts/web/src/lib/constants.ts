@@ -104,6 +104,14 @@ export const FAQS = [
         a: "Once you give us the green light, we build and launch your website within 3\u20135 business days on average. We move fast because professional practices can\u2019t afford to wait weeks for a website.\n\nBefore we start building, we\u2019ll have a short onboarding call to gather your logo, photos, business info, and anything specific you want included. Much of the timeline depends on how quickly you can provide feedback and materials \u2014 the faster you can get us that information, the faster we launch."
       },
       {
+        q: "Why do you offer the website review for free?",
+        a: "We absorb the upfront cost because our clients stay with us for years. We\u2019d rather prove our value first than ask you to take our word for it.\n\nWe use a high-converting structural framework, then customize it to your brand, services, and local market \u2014 that\u2019s how we deliver quality in 7\u201310 business days. Your homepage demo, evaluation, and written report are built around your actual practice, not pulled from a template library.\n\nEven if you don\u2019t move forward, you walk away with a professional-grade report and a clear picture of what\u2019s holding your website back. No strings attached."
+      },
+      {
+        q: "How do you build so fast without cutting corners?",
+        a: "We don\u2019t reinvent the wheel for every client. We use a proven, high-converting structural framework \u2014 then we customize the design, copy, and SEO strategy entirely around your practice. That\u2019s how we launch in 7\u201310 business days without cutting corners.\n\nThink of it like a custom-built home using tested construction methods. The foundation and engineering are proven \u2014 but the layout, finishes, and details are designed specifically for you. Not a prefab kit. Not a template. A real website built on a system that works."
+      },
+      {
         q: "What information do you need from me to get started?",
         a: "Not much \u2014 we do most of the heavy lifting. We\u2019ll ask for:\n\n\u2022 Your logo (or we can discuss a simple logo refresh)\n\u2022 Any photos of your team, workspace, or office (or we\u2019ll use professional stock imagery)\n\u2022 Your practice name, services, service area, and contact details\n\u2022 Provider bios and headshots (for Group and Enterprise plans)\n\u2022 Any existing content you\u2019d like to keep\n\u2022 Domain access credentials (or the ability to point DNS)\n\u2022 Current hosting login, if applicable\n\nWe\u2019ll send you a short intake form after your review call to gather everything we need."
       }

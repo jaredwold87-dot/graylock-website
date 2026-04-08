@@ -13,7 +13,7 @@ export default function HowItWorks() {
     {
       day: "Day 1–2",
       title: "The Build",
-      desc: "Once you approve the plan and pay the setup fee, our team gets to work. We craft custom copy, source high-quality imagery, and build a blazing-fast site — typically within 3–5 business days on average. Throughout the build, you'll have full transparency: a dedicated project portal where you can upload assets, communicate directly with our team, and track progress in real time."
+      desc: "Once you approve the plan and pay the setup fee, our team gets to work. We craft custom copy, source high-quality imagery, and build a blazing-fast site — typically within 7–10 business days on average. Throughout the build, you'll have full transparency: a dedicated project portal where you can upload assets, communicate directly with our team, and track progress in real time."
     },
     {
       day: "Day 3–4",
@@ -29,7 +29,7 @@ export default function HowItWorks() {
 
   return (
     <>
-      <SEO title="How It Works | Professional Practice Websites | Graylock Digital" description="From free website evaluation to a live, lead-generating website in 3–5 business days. See our proven process for attorneys, therapists, CPAs, and medical practices." />
+      <SEO title="How It Works | Professional Practice Websites | Graylock Digital" description="From free website evaluation to a live, lead-generating website in 7–10 business days. See our proven process for attorneys, therapists, CPAs, and medical practices." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
@@ -40,7 +40,7 @@ export default function HowItWorks() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Our Proven Process</h1>
-            <p className="text-xl font-sans text-stone">From an outdated liability to a lead-generating asset — within 3–5 business days on average.</p>
+            <p className="text-xl font-sans text-stone">From an outdated liability to a lead-generating asset — within 7–10 business days on average.</p>
           </ScrollReveal>
         </div>
       </section>

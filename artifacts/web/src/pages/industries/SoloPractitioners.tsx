@@ -18,7 +18,7 @@ const data: IndustryPageData = {
   seo: {
     title: "Websites for Therapists & Counselors | Starting at $199/mo | Graylock Digital",
     description:
-      "Graylock builds warm, professional websites for therapists, counselors, and solo practitioners in private practice. Custom built in 3–5 days. Starting at $199/mo. Free demo.",
+      "Graylock builds warm, professional websites for therapists, counselors, and solo practitioners in private practice. Custom built in 7–10 business days. Starting at $199/mo. Free demo.",
     url: "https://graylockdigital.com/websites-for-solo-practitioners",
   },
   hero: {
@@ -117,7 +117,7 @@ const data: IndustryPageData = {
           "Contact and intake inquiry forms included from day one so potential clients can reach you easily.",
       },
       {
-        title: "Built in 3–5 Business Days",
+        title: "Built in 7–10 Business Days",
         description:
           "No months of delays. Your new professional website is live within one business week.",
       },
@@ -230,7 +230,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How does Graylock compare to Brighter Vision or TherapySites?",
-      a: "Brighter Vision charges $149–$349/month for template-based sites where you don't own the content. TherapySites is similar. Graylock starts at $199/month for a fully custom site where you own your content and domain. We deliver in 3–5 days and handle everything for you.",
+      a: "Brighter Vision charges $149–$349/month for template-based sites where you don't own the content. TherapySites is similar. Graylock starts at $199/month for a fully custom site where you own your content and domain. We deliver in 7–10 business days and handle everything for you.",
     },
     {
       q: "Can my website include an online client inquiry form?",

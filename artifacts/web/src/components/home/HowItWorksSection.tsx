@@ -1,6 +1,5 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { Layers } from "lucide-react";
 
 export function HowItWorksSection() {
   const steps = [
@@ -22,7 +21,7 @@ export function HowItWorksSection() {
     {
       num: "04",
       title: "You Decide — No Pressure",
-      desc: "Love it? We build the full site within 3–5 business days on average and launch. Not ready? No problem. You keep the evaluation insights, the full report, and the demo concept. Zero hard feelings."
+      desc: "Love it? We build the full site within 7–10 business days on average and launch. Not ready? No problem. You keep the evaluation insights, the full report, and the demo concept. Zero hard feelings."
     }
   ];
 
@@ -53,26 +52,7 @@ export function HowItWorksSection() {
           ))}
         </div>
 
-        <ScrollReveal delay={0.5} className="mt-16 max-w-3xl mx-auto">
-          <div className="bg-charcoal rounded-2xl p-8 md:p-10 border border-gray-200/10">
-            <div className="flex items-start gap-5">
-              <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Layers className="text-orange" size={24} />
-              </div>
-              <div>
-                <h3 className="text-xl md:text-2xl font-display text-offwhite mb-3">How We Build Fast Without Cutting Corners</h3>
-                <p className="text-stone font-sans leading-relaxed mb-4">
-                  We don't reinvent the wheel for every client. We use a proven, high-converting structural framework — then we customize the design, copy, and SEO strategy entirely around your practice. That's how we launch in 5 days without cutting corners.
-                </p>
-                <p className="text-stone font-sans leading-relaxed">
-                  Think of it like a custom-built home using tested construction methods. The foundation and engineering are proven — but the layout, finishes, and details are designed specifically for you. Not a prefab kit. Not a template. A real website built on a system that works.
-                </p>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.6} className="text-center mt-12">
+        <ScrollReveal delay={0.5} className="text-center mt-12">
           <CTAButton href="/get-started">See How It Works for My Practice</CTAButton>
         </ScrollReveal>
 
