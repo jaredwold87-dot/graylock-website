@@ -149,8 +149,8 @@ const data: IndustryPageData = {
       },
       {
         icon: ShieldCheck,
-        title: "Case Results Section",
-        description: "Optional section to highlight successful case outcomes.",
+        title: "Client Testimonials Section",
+        description: "Showcase reviews and social proof from satisfied clients.",
       },
       {
         icon: Search,
