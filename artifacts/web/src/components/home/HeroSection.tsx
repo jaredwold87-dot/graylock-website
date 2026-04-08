@@ -141,14 +141,12 @@ export function HeroSection() {
   return (
     <section className="bg-charcoal pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden relative">
       <div className="absolute inset-0">
-        <picture>
-          <img
-            src={`${BASE}hero-bg-blue.png`}
-            alt=""
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
-        </picture>
+        <img
+          src={`${BASE}hero-bg-blue.png`}
+          alt=""
+          className="w-full h-full object-cover animate-hero-drift"
+          loading="eager"
+        />
       </div>
       <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(15,30,53,0.92) 0%, rgba(15,30,53,0.85) 40%, rgba(15,30,53,0.7) 70%, rgba(15,30,53,0.5) 100%)" }} />
 
