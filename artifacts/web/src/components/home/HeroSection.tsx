@@ -54,18 +54,15 @@ function LaptopMockup({ showAfter }: { showAfter: boolean }) {
           height={1588}
           loading="eager"
         />
-        <picture>
-          <source srcSet={`${BASE}mockup-laptop-after.webp`} type="image/webp" />
-          <img
-            src={`${BASE}mockup-laptop-after.png`}
-            alt=""
-            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
-            style={{ opacity: showAfter ? 1 : 0 }}
-            width={1948}
-            height={1036}
-            loading="eager"
-          />
-        </picture>
+        <img
+          src={`${BASE}mockup-laptop-after.png`}
+          alt=""
+          className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
+          style={{ opacity: showAfter ? 1 : 0 }}
+          width={2926}
+          height={1600}
+          loading="eager"
+        />
       </div>
 
       <span
@@ -103,18 +100,15 @@ function PhoneMockup({ showAfter }: { showAfter: boolean }) {
           height={1374}
           loading="eager"
         />
-        <picture>
-          <source srcSet={`${BASE}mockup-phone-after.webp`} type="image/webp" />
-          <img
-            src={`${BASE}mockup-phone-after.png`}
-            alt=""
-            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
-            style={{ opacity: showAfter ? 1 : 0 }}
-            width={410}
-            height={864}
-            loading="eager"
-          />
-        </picture>
+        <img
+          src={`${BASE}mockup-phone-after.png`}
+          alt=""
+          className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out"
+          style={{ opacity: showAfter ? 1 : 0 }}
+          width={798}
+          height={1432}
+          loading="eager"
+        />
       </div>
 
       <span
