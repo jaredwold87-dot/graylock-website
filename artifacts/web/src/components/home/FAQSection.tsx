@@ -39,14 +39,12 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-28 px-6 md:px-12 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#f4f5f7] via-[#f7f8fa] to-[#f0f1f3]" />
-      <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
+    <section className="bg-charcoal py-28 px-6 md:px-12 relative overflow-hidden border-t border-gunmetal">
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
       <div className="max-w-3xl mx-auto relative z-10">
         <ScrollReveal className="text-center mb-14">
-          <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-4">
+          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
             Common Questions
           </h2>
         </ScrollReveal>
@@ -56,20 +54,18 @@ export function FAQSection() {
             <ScrollReveal key={i} delay={i * 0.08}>
               <div 
                 className={cn(
-                  "bg-white/80 backdrop-blur-sm border rounded-xl overflow-hidden cursor-pointer transition-all duration-300",
-                  openIndex === i 
-                    ? "border-orange/30 shadow-[0_2px_8px_rgba(46,123,180,0.08)]" 
-                    : "border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
+                  "glass-card rounded-xl overflow-hidden cursor-pointer",
+                  openIndex === i && "!border-orange/30"
                 )}
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <div className="p-6 flex items-center justify-between gap-4">
-                  <h3 className="font-sans font-semibold text-charcoal text-lg">{faq.q}</h3>
+                <div className="relative z-10 p-6 flex items-center justify-between gap-4">
+                  <h3 className="font-sans font-semibold text-offwhite text-lg">{faq.q}</h3>
                   <ChevronDown className={cn("text-orange transition-transform duration-300 flex-shrink-0", openIndex === i ? "rotate-180" : "rotate-0")} />
                 </div>
                 <div 
                   className={cn(
-                    "px-6 overflow-hidden transition-all duration-300 ease-in-out",
+                    "relative z-10 px-6 overflow-hidden transition-all duration-300 ease-in-out",
                     openIndex === i ? "max-h-[500px] pb-6 opacity-100" : "max-h-0 opacity-0"
                   )}
                 >

@@ -12,13 +12,16 @@ const results = [
 
 export function CaseStudySection() {
   return (
-    <section className="bg-charcoal py-28 px-6 md:px-12 border-t border-gunmetal relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+    <section className="relative py-28 px-6 md:px-12 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
+      <div className="absolute inset-0 opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <ScrollReveal className="text-center mb-16">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Featured Project</p>
-          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
+          <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-4">
             See What We Built for West Coast Eye Institute
           </h2>
           <p className="text-stone text-lg font-sans max-w-2xl mx-auto leading-relaxed">
@@ -30,21 +33,21 @@ export function CaseStudySection() {
           <ScrollReveal delay={0.1}>
             <div className="space-y-8">
               <div>
-                <h3 className="text-xl font-display text-offwhite mb-3">The Challenge</h3>
+                <h3 className="text-xl font-display text-charcoal mb-3">The Challenge</h3>
                 <p className="text-stone font-sans leading-relaxed">
                   West Coast Eye Institute had two separate, outdated websites creating confusion for patients and extra work for staff. The intake process relied entirely on phone calls — leading to missed calls, phone tag, and lost new-patient opportunities.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-display text-offwhite mb-4">What We Delivered</h3>
+                <h3 className="text-xl font-display text-charcoal mb-4">What We Delivered</h3>
                 <ul className="space-y-3">
                   {results.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange/15 flex items-center justify-center mt-0.5 border border-orange/20">
                         <Check className="text-orange" size={13} />
                       </div>
-                      <span className="text-offwhite/90 font-sans text-sm leading-relaxed">{item}</span>
+                      <span className="text-charcoal/80 font-sans text-sm leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -62,7 +65,7 @@ export function CaseStudySection() {
             <div className="space-y-6">
               <div className="relative">
                 <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-orange/10 via-transparent to-orange/5 blur-xl pointer-events-none" />
-                <div className="relative bg-navy rounded-xl border border-gunmetal overflow-hidden p-1.5">
+                <div className="relative bg-charcoal rounded-xl border border-gray-200 overflow-hidden p-1.5 shadow-xl">
                   <div className="flex items-center gap-1.5 px-2 py-1.5 mb-1.5">
                     <div className="w-2 h-2 rounded-full bg-red-500/50" />
                     <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
@@ -82,7 +85,7 @@ export function CaseStudySection() {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative bg-navy rounded-xl border border-gunmetal overflow-hidden p-1.5">
+                <div className="relative bg-charcoal rounded-xl border border-gray-200 overflow-hidden p-1.5 shadow-lg">
                   <img
                     src={`${BASE}mockup-laptop-before.png`}
                     alt="West Coast Eye Institute — before redesign"
@@ -93,7 +96,7 @@ export function CaseStudySection() {
                     <span className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-stone/60">Before — Desktop</span>
                   </div>
                 </div>
-                <div className="relative bg-navy rounded-xl border border-gunmetal overflow-hidden p-1.5 flex flex-col items-center">
+                <div className="relative bg-charcoal rounded-xl border border-gray-200 overflow-hidden p-1.5 shadow-lg flex flex-col items-center">
                   <img
                     src={`${BASE}mockup-phone-after.png`}
                     alt="West Coast Eye Institute — mobile view"
