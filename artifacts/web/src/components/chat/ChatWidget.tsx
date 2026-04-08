@@ -263,7 +263,7 @@ export function ChatWidget() {
   return (
     <>
       {isOpen && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[340px] sm:w-[380px] max-h-[min(520px,calc(100vh-120px))] bg-navy border border-gunmetal rounded-2xl shadow-2xl shadow-black/40 flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-200">
+        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-[380px] max-h-[min(520px,calc(100vh-120px))] bg-navy border border-gunmetal rounded-2xl shadow-2xl shadow-black/40 flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-200">
           <div className="flex items-center justify-between px-4 py-3 border-b border-gunmetal bg-charcoal/50">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-orange/20 flex items-center justify-center">
