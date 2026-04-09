@@ -254,7 +254,6 @@ const data: IndustryPageData = {
   relatedPages: [
     { name: "Group Practices", path: "/websites-for-group-practices" },
     { name: "Medical Practices", path: "/websites-for-medical-practices" },
-    { name: "Attorneys", path: "/websites-for-lawyers" },
     { name: "CPAs", path: "/websites-for-accountants" },
   ],
   schema: {

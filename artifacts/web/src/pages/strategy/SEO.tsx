@@ -11,7 +11,7 @@ const data: StrategyPageData = {
   seo: {
     title: "SEO for Professional Practices | Metadata, Backlinks & Local Search | Graylock Digital",
     description:
-      "Learn how SEO works for professional practices — metadata, backlinks, local search, content strategy, and technical SEO. Graylock builds SEO-ready websites for attorneys, therapists, CPAs, and medical practices.",
+      "Learn how SEO works for professional practices — metadata, backlinks, local search, content strategy, and technical SEO. Graylock builds SEO-ready websites for therapists, dentists, physicians, CPAs, and private practices.",
     url: "https://graylockdigital.com/seo-for-small-business",
   },
   hero: {
@@ -26,7 +26,7 @@ const data: StrategyPageData = {
     heading: "SEO — Explained Simply",
     paragraphs: [
       "SEO (Search Engine Optimization) is the practice of making your website show up higher in Google search results when people search for what you offer.",
-      "When a prospective client types 'family lawyer near me' or 'CPA in Phoenix', Google decides which websites to show — and in what order. SEO is the work that determines where you appear in that list.",
+      "When a prospective client types 'therapist near me' or 'CPA in Phoenix', Google decides which websites to show — and in what order. SEO is the work that determines where you appear in that list.",
       "Good SEO means more organic traffic (visitors who found you through Google, not an ad), more qualified leads, and less dependence on referrals or paid advertising.",
     ],
     calloutTitle: "GOOD SEO DOES 3 THINGS",

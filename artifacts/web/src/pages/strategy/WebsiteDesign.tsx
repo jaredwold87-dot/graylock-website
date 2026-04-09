@@ -12,7 +12,7 @@ const data: StrategyPageData = {
   seo: {
     title: "Professional Website Design for Practices | Graylock Digital",
     description:
-      "Graylock Digital builds custom, conversion-focused websites for professional practices — attorneys, therapists, CPAs, and medical practices. Learn why great web design matters and what separates a website that converts from one that doesn't.",
+      "Graylock Digital builds custom, conversion-focused websites for professional practices — therapists, dentists, physicians, CPAs, and more. Learn why great web design matters and what separates a website that converts from one that doesn't.",
     url: "https://graylockdigital.com/website-design",
   },
   hero: {

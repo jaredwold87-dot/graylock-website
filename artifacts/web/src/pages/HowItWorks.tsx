@@ -29,7 +29,7 @@ export default function HowItWorks() {
 
   return (
     <>
-      <SEO title="How It Works | Professional Practice Websites | Graylock Digital" description="From free website evaluation to a live, lead-generating website in 7–10 business days. See our proven process for attorneys, therapists, CPAs, and medical practices." />
+      <SEO title="How It Works | Professional Practice Websites | Graylock Digital" description="From free website evaluation to a live, lead-generating website in 7–10 business days. See our proven process for therapists, dentists, physicians, CPAs, and private practices." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div

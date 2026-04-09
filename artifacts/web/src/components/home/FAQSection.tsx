@@ -31,7 +31,7 @@ const homepageFaqs = [
   },
   {
     q: "What types of practices do you work with?",
-    a: "We specialize in websites for professional practices — attorneys, therapists, CPAs, physicians, and group practices. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments."
+    a: "We specialize in websites for private practices and accounting firms — therapists, dentists, physicians, chiropractors, CPAs, and other professional service providers. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments."
   }
 ];
 

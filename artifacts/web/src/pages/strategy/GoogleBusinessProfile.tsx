@@ -127,7 +127,7 @@ const data: StrategyPageData = {
       {
         title: "Reviews and Why They Dominate Local Ranking",
         description:
-          "Google uses review count, review recency, review rating, and review keywords as major local ranking signals. A practice with 50 reviews at 4.8 stars will outrank a competitor with 5 reviews at 5.0 stars every time. More importantly, review keywords matter — reviews that mention your services and location ('great family attorney in Austin') actively help you rank for those terms.",
+          "Google uses review count, review recency, review rating, and review keywords as major local ranking signals. A practice with 50 reviews at 4.8 stars will outrank a competitor with 5 reviews at 5.0 stars every time. More importantly, review keywords matter — reviews that mention your services and location ('great dentist in Austin' or 'best CPA in Phoenix') actively help you rank for those terms.",
       },
       {
         title: "GBP Posts and Freshness Signals",

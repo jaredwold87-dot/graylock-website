@@ -27,7 +27,7 @@ const data: IndustryPageData = {
     h1: "A Website That Represents",
     h1Highlight: "the Full Strength of Your Practice.",
     subheadline:
-      "Your group practice has grown. Your website should reflect that. We build multi-provider, specialty-rich websites for therapy groups, law firms, medical practices, and multi-provider organizations — showcasing every provider, every service area, and every reason clients should choose you. Starting at $299/month.",
+      "Your group practice has grown. Your website should reflect that. We build multi-provider, specialty-rich websites for therapy groups, medical practices, accounting firms, and multi-provider organizations — showcasing every provider, every service area, and every reason clients should choose you. Starting at $299/month.",
     cta: "Book Your Free Website Review",
     backgroundImage: `${import.meta.env.BASE_URL}hero-group-practices.jpg`,
     trustSignals: [
@@ -241,7 +241,6 @@ const data: IndustryPageData = {
   relatedPages: [
     { name: "Therapists", path: "/websites-for-solo-practitioners" },
     { name: "Medical Practices", path: "/websites-for-medical-practices" },
-    { name: "Attorneys", path: "/websites-for-lawyers" },
     { name: "CPAs", path: "/websites-for-accountants" },
   ],
   schema: {

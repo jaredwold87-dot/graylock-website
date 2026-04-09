@@ -27,7 +27,7 @@ const data: StrategyPageData = {
     paragraphs: [
       "Funnel pages (also called landing pages or service pages) are targeted website pages designed to rank for specific search queries and convert visitors into leads.",
       "Instead of relying on your homepage to rank for everything, funnel pages let each service, specialty, or location have its own optimized page — giving Google clear signals about what you do and where you do it.",
-      "Example: A family law firm might have a homepage, plus funnel pages for 'divorce attorney [City]', 'child custody lawyer [City]', 'family mediator [City]', and 'prenuptial agreement attorney [City]'. Each page targets a different search and converts that specific visitor.",
+      "Example: A therapy practice might have a homepage, plus funnel pages for 'anxiety therapist [City]', 'couples counselor [City]', 'child psychologist [City]', and 'EMDR therapist [City]'. Each page targets a different search and converts that specific visitor.",
     ],
     calloutTitle: "A GOOD FUNNEL PAGE DOES 3 THINGS",
     calloutBullets: [
@@ -117,7 +117,7 @@ const data: StrategyPageData = {
       {
         title: "Service Pages vs Location Pages",
         description:
-          "Service pages target what you do ('estate planning', 'tax preparation', 'marriage counseling'). Location pages target where you do it ('attorney in Nashville', 'CPA in Phoenix', 'therapist in Austin'). Both types are critical for professional practices. The most powerful funnel pages combine both: 'estate planning attorney in Nashville' captures highly motivated local prospects.",
+          "Service pages target what you do ('tax preparation', 'marriage counseling', 'teeth whitening'). Location pages target where you do it ('CPA in Phoenix', 'therapist in Austin', 'dentist in Nashville'). Both types are critical for professional practices. The most powerful funnel pages combine both: 'cosmetic dentist in Nashville' captures highly motivated local prospects.",
       },
       {
         title: "Topic Clusters and Pillar Pages",
@@ -176,7 +176,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Can my homepage rank for everything without funnel pages?",
-      a: "For your practice name, yes. For specific services and locations, no. Your homepage is too broad to rank for specific queries like 'family law attorney in Dallas' or 'anxiety therapist in Portland'. You need dedicated pages for those.",
+      a: "For your practice name, yes. For specific services and locations, no. Your homepage is too broad to rank for specific queries like 'anxiety therapist in Portland' or 'CPA in Dallas'. You need dedicated pages for those.",
     },
     {
       q: "What's the difference between a funnel page and a blog post?",

@@ -13,7 +13,7 @@ export default function About() {
 
   return (
     <>
-      <SEO title="About Graylock Digital | Professional Practice Website Specialists" description="Graylock Digital builds custom websites for attorneys, therapists, CPAs, and medical practices — delivered in 7–10 business days, starting at $199/month." />
+      <SEO title="About Graylock Digital | Professional Practice Website Specialists" description="Graylock Digital builds custom websites for private practices and accounting firms — therapists, dentists, physicians, CPAs, and more. Delivered in 7–10 business days, starting at $199/month." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
@@ -25,7 +25,7 @@ export default function About() {
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Why We Built Graylock Digital</h1>
             <p className="text-xl font-sans text-stone leading-relaxed text-left md:text-center">
-              We built Graylock Digital after watching too many professional practices lose clients online to competitors with better-looking websites. Attorneys with decades of experience. Therapists with full waiting lists. CPAs with loyal books of business. All of them with websites that embarrassed them — or worse, made them invisible on Google entirely. The options were either paying an agency $10,000–$20,000 upfront and waiting three months for a result they couldn't predict, or fighting with Squarespace on weekends between client sessions. There was no affordable, done-for-you middle ground for professional practices. So we built it.
+              We built Graylock Digital after watching too many professional practices lose clients online to competitors with better-looking websites. Therapists with full waiting lists. CPAs with loyal books of business. Dentists with five-star reputations. All of them with websites that embarrassed them — or worse, made them invisible on Google entirely. The options were either paying an agency $10,000–$20,000 upfront and waiting three months for a result they couldn't predict, or fighting with Squarespace on weekends between client sessions. There was no affordable, done-for-you middle ground for professional practices. So we built it.
             </p>
           </ScrollReveal>
         </div>
@@ -41,10 +41,10 @@ export default function About() {
           <ScrollReveal delay={0.1}>
             <div className="bg-navy rounded-2xl border border-gunmetal p-8 md:p-12 mb-10">
               <p className="text-offwhite font-sans text-lg md:text-xl leading-relaxed mb-6">
-                We don't take on every practice that comes our way. We look for attorneys, therapists, physicians, and CPAs where we know — not hope, <em className="text-orange not-italic font-semibold">know</em> — that a better website will directly impact their ability to serve more clients.
+                We don't take on every practice that comes our way. We look for therapists, physicians, dentists, and CPAs where we know — not hope, <em className="text-orange not-italic font-semibold">know</em> — that a better website will directly impact their ability to serve more clients.
               </p>
               <p className="text-stone font-sans text-lg leading-relaxed mb-6">
-                When a solo attorney loses a prospective client because their site looked unprofessional, or a group practice can't fill an open clinician's caseload because they don't show up on Google — those are the moments we're solving for.
+                When a therapist loses a prospective client because their site looked outdated, or a group practice can't fill an open clinician's caseload because they don't show up on Google — those are the moments we're solving for.
               </p>
               <p className="text-stone font-sans text-lg leading-relaxed">
                 Your growth is our portfolio.
@@ -97,7 +97,7 @@ export default function About() {
               <h3 className="text-3xl font-display text-offwhite mb-2 uppercase tracking-wide">Tim</h3>
               <p className="text-orange font-sans font-semibold mb-6">Client Relations & Growth</p>
               <p className="text-stone font-sans leading-relaxed">
-                Tim leads all client discovery, proposals, and account relationships. He's the first person you talk to and the person you'll always be able to reach. His background in professional services outreach means he understands what law firms, medical practices, and accounting firms actually need from a web partner.
+                Tim leads all client discovery, proposals, and account relationships. He's the first person you talk to and the person you'll always be able to reach. His background in professional services outreach means he understands what private practices and accounting firms actually need from a web partner.
               </p>
             </ScrollReveal>
           </div>

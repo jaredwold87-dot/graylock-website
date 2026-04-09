@@ -3,7 +3,7 @@ export const PRICING_TIERS = [
     name: "Solo Practice",
     price: "$199",
     setup: "$799 one-time setup",
-    description: "For solo practitioners — attorneys, therapists, CPAs, and single-provider medical practices. A professional foundation that builds trust and brings in new clients.",
+    description: "For solo practitioners — therapists, CPAs, dentists, and single-provider medical practices. A professional foundation that builds trust and brings in new clients.",
     features: [
       "Custom 8-Page Website",
       "Mobile-First Professional Design",
@@ -23,7 +23,7 @@ export const PRICING_TIERS = [
     price: "$299",
     setup: "$999 one-time setup",
     popular: true,
-    description: "For multi-provider practices & small firms — therapy groups, law firms with multiple attorneys, and growing medical practices that need more visibility and more pages.",
+    description: "For multi-provider practices & small firms — therapy groups, growing medical practices, and accounting firms that need more visibility and more pages.",
     features: [
       "Custom 15-Page Website",
       "Multiple Provider Bio Pages (up to 5)",
@@ -120,11 +120,11 @@ export const FAQS = [
       },
       {
         q: "What is your minimum monthly price?",
-        a: "$199/month plus a one-time site development fee of $799. This is our Solo Practice plan, designed for individual attorneys, therapists, CPAs, and single-provider medical practices."
+        a: "$199/month plus a one-time site development fee of $799. This is our Solo Practice plan, designed for individual therapists, CPAs, dentists, physicians, and single-provider practices."
       },
       {
         q: "Why don\u2019t you have a cheaper plan?",
-        a: "We did. We retired it because the professional practice clients we serve \u2014 attorneys, therapists, CPAs, and physicians \u2014 need a site that genuinely represents their expertise and converts prospective clients into booked appointments. A 5-page template site doesn\u2019t do that for a law firm or a therapy practice. Our Solo Practice plan at $199/month is still dramatically less expensive than the $3,000\u2013$10,000+ that traditional agencies charge for comparable quality, and you get it in 3\u20135 business days."
+        a: "We did. We retired it because the professional practice clients we serve \u2014 therapists, CPAs, dentists, physicians, and other providers \u2014 need a site that genuinely represents their expertise and converts prospective clients into booked appointments. A 5-page template site doesn\u2019t do that for a medical practice or an accounting firm. Our Solo Practice plan at $199/month is still dramatically less expensive than the $3,000\u2013$10,000+ that traditional agencies charge for comparable quality, and you get it in 7\u201310 business days."
       }
     ]
   },
@@ -174,11 +174,11 @@ export const FAQS = [
     questions: [
       {
         q: "What is a funnel page?",
-        a: "A funnel page is a focused, standalone page on your website designed to attract visitors searching for a specific service in a specific location \u2014 and guide them toward taking action (like calling you or filling out a form).\n\nUnlike a general \u201cServices\u201d page that lists everything, a funnel page zeroes in on one thing \u2014 for example, \u201cFamily Law Attorney in Denver\u201d or \u201cAnxiety Therapist in Austin.\u201d It\u2019s written, structured, and optimized to rank for that exact search term.\n\nThe word \u201cfunnel\u201d comes from the idea that these pages funnel the right people \u2014 those already searching for what you offer \u2014 toward becoming a lead. They\u2019re one of the most effective ways to get found on Google without paying for ads.\n\nThe Group Practice plan includes 10 funnel pages, and the Enterprise plan includes 20."
+        a: "A funnel page is a focused, standalone page on your website designed to attract visitors searching for a specific service in a specific location \u2014 and guide them toward taking action (like calling you or filling out a form).\n\nUnlike a general \u201cServices\u201d page that lists everything, a funnel page zeroes in on one thing \u2014 for example, \u201cAnxiety Therapist in Austin\u201d or \u201cCPA in Phoenix.\u201d It\u2019s written, structured, and optimized to rank for that exact search term.\n\nThe word \u201cfunnel\u201d comes from the idea that these pages funnel the right people \u2014 those already searching for what you offer \u2014 toward becoming a lead. They\u2019re one of the most effective ways to get found on Google without paying for ads.\n\nThe Group Practice plan includes 10 funnel pages, and the Enterprise plan includes 20."
       },
       {
         q: "What are SEO funnel pages, and why do they matter?",
-        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \u201cServices\u201d page, each funnel page targets a specific search term your prospective clients are actually typing into Google.\n\nFor example, if you\u2019re a family law attorney in Denver, you might have individual pages for \u201cchild custody attorney Denver,\u201d \u201cdivorce lawyer Denver,\u201d and \u201cfamily mediator Lakewood.\u201d Each page is written, structured, and optimized to rank for that exact search \u2014 giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Group Practice plan includes 10 funnel pages, and the Enterprise plan includes 20 \u2014 enough to cover your core practice areas and surrounding locations."
+        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \u201cServices\u201d page, each funnel page targets a specific search term your prospective clients are actually typing into Google.\n\nFor example, if you\u2019re a therapist in Denver, you might have individual pages for \u201canxiety therapist Denver,\u201d \u201ccouples counselor Denver,\u201d and \u201cchild psychologist Lakewood.\u201d Each page is written, structured, and optimized to rank for that exact search \u2014 giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Group Practice plan includes 10 funnel pages, and the Enterprise plan includes 20 \u2014 enough to cover your core practice areas and surrounding locations."
       },
       {
         q: "What\u2019s the difference between basic SEO and local SEO optimization?",
@@ -208,7 +208,7 @@ export const FAQS = [
     questions: [
       {
         q: "Who will I be working with?",
-        a: "Every project is handled by our US-based team. Nothing is outsourced. You\u2019ll have a dedicated point of contact from your first call through to launch and ongoing support.\n\nWe specialise in professional practices \u2014 attorneys, therapists, CPAs, physicians, and group practices \u2014 so we understand your industry and your clients."
+        a: "Every project is handled by our US-based team. Nothing is outsourced. You\u2019ll have a dedicated point of contact from your first call through to launch and ongoing support.\n\nWe specialise in professional practices \u2014 therapists, CPAs, physicians, dentists, and group practices \u2014 so we understand your industry and your clients."
       },
       {
         q: "What if I don\u2019t like how my site turns out?",
@@ -216,7 +216,7 @@ export const FAQS = [
       },
       {
         q: "What types of professional practices do you work with?",
-        a: "We specialize in websites for law firms (solo attorneys and small firms), therapists and counseling groups, CPA and accounting firms, medical practices, group practices, and other professional service providers. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments \u2014 not just look nice."
+        a: "We specialize in websites for private practices and accounting firms \u2014 therapists, counselors, dentists, physicians, chiropractors, CPAs, and other professional service providers. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments \u2014 not just look nice."
       },
       {
         q: "How is Graylock different from other website platforms?",

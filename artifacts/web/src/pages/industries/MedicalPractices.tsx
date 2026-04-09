@@ -258,7 +258,6 @@ const data: IndustryPageData = {
   relatedPages: [
     { name: "Therapists", path: "/websites-for-solo-practitioners" },
     { name: "Group Practices", path: "/websites-for-group-practices" },
-    { name: "Attorneys", path: "/websites-for-lawyers" },
     { name: "CPAs", path: "/websites-for-accountants" },
   ],
   schema: {

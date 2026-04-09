@@ -196,7 +196,6 @@ const data: IndustryPageData = {
     { name: "Contractors", path: "/websites-for-contractors" },
     { name: "Solo Practitioners", path: "/websites-for-solo-practitioners" },
     { name: "Accountants", path: "/websites-for-accountants" },
-    { name: "Lawyers", path: "/websites-for-lawyers" },
     { name: "House Cleaners", path: "/websites-for-house-cleaners" },
   ],
   schema: {

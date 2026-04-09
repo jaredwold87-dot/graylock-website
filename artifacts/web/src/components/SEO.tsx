@@ -7,8 +7,8 @@ interface SEOProps {
 }
 
 export function SEO({ 
-  title = "Graylock Digital — Professional Practice Websites | Law, Medical, Therapy, CPA", 
-  description = "Custom websites for law firms, therapists, medical practices, and CPAs. Delivered in 7–10 business days. Starting at $199/month. No long-term contracts.",
+  title = "Graylock Digital — Custom Websites for Private Practices & Accounting Firms", 
+  description = "Custom websites for private practices and accounting firms — therapists, dentists, physicians, CPAs, and more. Delivered in 7–10 business days. Starting at $199/month. No long-term contracts.",
   url = "https://graylockdigital.com" 
 }: SEOProps) {
   return (

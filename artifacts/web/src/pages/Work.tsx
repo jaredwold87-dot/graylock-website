@@ -25,11 +25,11 @@ const portfolioItems = [
   },
   {
     name: "Westlake Family Law",
-    type: "Attorneys",
+    type: "Professional Services",
     before: `${import.meta.env.BASE_URL}portfolio-before-3.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-3.png`,
-    goal: "Replace a template-based LawLytics site with a credible, custom law firm website",
-    results: ["Practice area pages", "24/7 intake forms", "Local SEO optimization"],
+    goal: "Replace a template-based site with a credible, custom professional practice website",
+    results: ["Service area pages", "24/7 intake forms", "Local SEO optimization"],
   },
 ];
 

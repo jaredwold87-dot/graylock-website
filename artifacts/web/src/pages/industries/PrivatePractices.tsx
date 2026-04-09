@@ -259,7 +259,6 @@ const data: IndustryPageData = {
     button: "Book Your Free Website Review",
   },
   relatedPages: [
-    { name: "Law Firms", path: "/websites-for-lawyers" },
     { name: "Accounting Firms", path: "/websites-for-accountants" },
   ],
   schema: {
