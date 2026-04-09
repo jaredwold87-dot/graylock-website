@@ -89,7 +89,7 @@ export function PricingSection() {
                 variant={tier.popular ? 'primary' : 'outline'}
                 className="w-full"
               >
-                {tier.isCustom ? 'Contact Us' : 'Book Your Free Website Review'}
+                {tier.isCustom ? 'Contact Us' : 'Schedule a Free Consultation'}
               </CTAButton>
             </ScrollReveal>
           ))}
@@ -97,7 +97,7 @@ export function PricingSection() {
 
         <ScrollReveal delay={0.5} className="mt-16 text-center">
           <p className="text-stone font-sans mb-2">
-            Not sure which plan is right? Book a free website review and we'll tell you exactly what your practice needs.
+            Not sure which plan is right? Schedule a free consultation and we'll tell you exactly what your practice needs.
           </p>
           <p className="text-stone/50 text-sm font-sans max-w-2xl mx-auto">
             All plans include hosting, SSL, mobile optimization, dashboard access, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime with 30 days' notice. Client retains domain and all content.

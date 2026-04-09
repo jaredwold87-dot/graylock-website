@@ -154,7 +154,7 @@ export default function FAQ() {
             <div className="bg-navy border border-gunmetal rounded-xl p-6 text-center">
               <p className="text-stone font-sans text-sm mb-4">Still have questions?</p>
               <CTAButton href="/get-started" className="w-full justify-center">
-                Book Your Free Website Review
+                Schedule a Free Consultation
               </CTAButton>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function FAQ() {
                 <div className="border-t border-gunmetal pt-6">
                   <p className="text-stone font-sans text-sm mb-4">Still have questions?</p>
                   <CTAButton href="/get-started" className="w-full justify-center text-sm px-4 py-3">
-                    Book Your Free Website Review
+                    Schedule a Free Consultation
                   </CTAButton>
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function FAQ() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <CTAButton href="/get-started" className="px-8 py-4">
-                Book Your Free Website Review
+                Schedule a Free Consultation
               </CTAButton>
               <Link
                 href="/pricing"

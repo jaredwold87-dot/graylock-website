@@ -58,7 +58,7 @@ export function FinalCTASection() {
         <ScrollReveal delay={0.25}>
           <div className="flex flex-col items-center gap-3">
             <CTAButton href="/get-started" className="px-10 py-5 text-lg group">
-              Book Your Free Website Review
+              Schedule Your Free Consultation
               <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </CTAButton>
             <p className="text-stone/60 text-xs font-sans mt-2">

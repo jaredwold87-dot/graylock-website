@@ -17,7 +17,7 @@ const data: StrategyPageData = {
     h1: "Your Website Should Be Generating Leads Every Single Day",
     subheadline:
       "A website that doesn't generate leads is just an online brochure. Graylock builds websites with lead generation as the primary goal — the forms, CTAs, content, and tracking to turn visitors into clients.",
-    ctaButton: "Book Your Free Website Review",
+    ctaButton: "Schedule a Free Consultation",
     ctaSubtext: "Free demo + full written report — no obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-lead-gen.png`,
   },
@@ -198,7 +198,7 @@ const data: StrategyPageData = {
     headline: "Is Your Website Generating Leads Every Day — or Just Sitting There?",
     subtext:
       "Book a free 20-minute review. We'll evaluate your current conversion setup, show you exactly what's stopping visitors from becoming leads, and give you a clear plan to fix it — at no cost.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   relatedStrategy: [
     { name: "Website Design", path: "/website-design" },

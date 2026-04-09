@@ -55,7 +55,7 @@ export function CaseStudySection() {
 
               <div className="pt-2">
                 <CTAButton href="/get-started">
-                  Book Your Free Website Review
+                  Schedule a Free Consultation
                 </CTAButton>
               </div>
             </div>

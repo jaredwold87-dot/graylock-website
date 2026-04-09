@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Physical Therapists | Custom Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Physical Therapists | Custom Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for physical therapists and PT clinics. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for physical therapists and PT clinics. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-physical-therapists",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "Until They Google Their Pain.",
     subheadline:
       "When someone's knee aches or their back won't stop hurting, they Google their symptoms — not 'physical therapist.' If your website doesn't show up for those searches and clearly explain how you can help, they'll end up at someone else's clinic. We build SEO-optimized websites for physical therapy practices that turn pain-driven searches into booked evaluations. Fully managed — so you can focus on patient outcomes.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for PT practices",
@@ -230,7 +230,7 @@ const data: IndustryPageData = {
     headline: "Patients Are Searching for Physical Therapy in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your PT website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [

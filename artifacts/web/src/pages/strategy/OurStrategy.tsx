@@ -118,7 +118,7 @@ export default function OurStrategy() {
               Book a free 20-minute call. We'll evaluate your current online presence and show you exactly which parts of our strategy would have the biggest impact on your business.
             </p>
             <CTAButton href="/get-started" variant="dark" className="px-10 py-5 text-lg">
-              Book Your Free Website Review
+              Schedule a Free Consultation
             </CTAButton>
           </ScrollReveal>
         </div>

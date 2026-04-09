@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Optometrists | Custom Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Optometrists | Custom Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for optometrists and eye care practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for optometrists and eye care practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-optometrists",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "Are They Picking You?",
     subheadline:
       "When someone needs a new eye doctor — whether for an annual exam, contact lens fitting, or something more urgent — they Google it. If your practice doesn't show up or your website looks like it belongs to a different decade, they're booking with the optometrist whose site does. We build modern, SEO-optimized websites for optometry practices. Fully managed — so you can focus on patient care.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for optometry practices",
@@ -228,7 +228,7 @@ const data: IndustryPageData = {
     headline: "New Patients Are Searching for an Eye Doctor in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your optometry website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [

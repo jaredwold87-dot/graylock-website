@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Physicians | Custom Medical Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Physicians | Custom Medical Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for physicians and medical practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for physicians and medical practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-physicians",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "It's on Your Website.",
     subheadline:
       "Before a patient ever walks through your door, they've already Googled you, read reviews, and visited your website. If your site looks outdated or generic, they move on to the next physician in the search results. We build professional, SEO-optimized websites for physicians and medical practices that convert online searches into new patient appointments. Fully managed — so you can focus on patient care.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for medical practices",
@@ -231,7 +231,7 @@ const data: IndustryPageData = {
     headline: "New Patients Are Searching for a Doctor in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your medical practice website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [

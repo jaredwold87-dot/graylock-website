@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Dentists | Custom Dental Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Dentists | Custom Dental Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for dentists and dental practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for dentists and dental practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-dentists",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "What Does Your Website Say About You?",
     subheadline:
       "When someone moves to a new city or loses their dentist, the first thing they do is Google it. If your website looks outdated, loads slowly, or doesn't show up at all — they're booking with the practice that does. We build custom, SEO-optimized websites for dental practices that turn searches into scheduled appointments. Fully managed — so you can focus on your patients.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for dental practices",
@@ -231,7 +231,7 @@ const data: IndustryPageData = {
     headline: "New Patients Are Searching for a Dentist in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your dental website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [

@@ -276,7 +276,7 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
               That's exactly why we review your site for free — so you finally know what to fix.
             </p>
             <CTAButton href="/get-started" className="px-8 py-4">
-              Book Your Free Website Review
+              Schedule a Free Consultation
             </CTAButton>
           </ScrollReveal>
         </div>
@@ -391,7 +391,7 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
               SIMPLE PRICING
             </p>
             <h2 className={`text-3xl md:text-5xl font-display ${data.features ? "text-offwhite" : "text-[#1A1A1A]"}`}>
-              {data.pricingHeadline || `Starting at ${PRICING_TIERS[0].price}/month — Everything Included`}
+              {data.pricingHeadline || "Simple, Transparent Pricing — Everything Included"}
             </h2>
           </ScrollReveal>
 

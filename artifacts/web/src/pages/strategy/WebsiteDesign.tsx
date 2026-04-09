@@ -19,7 +19,7 @@ const data: StrategyPageData = {
     h1: "Your Website Is Either Making You Money or Costing You Business",
     subheadline:
       "Most practice websites are digital brochures collecting dust. We design websites built around one goal: turning visitors into calls, bookings, and revenue.",
-    ctaButton: "Book Your Free Website Review",
+    ctaButton: "Schedule a Free Consultation",
     ctaSubtext: "Free demo + full written report — no obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-website-design.png`,
   },
@@ -207,7 +207,7 @@ const data: StrategyPageData = {
     headline: "See What Your Website Could Look Like — Before You Pay",
     subtext:
       "Book a free 20-minute call. We'll evaluate your current site, show you what's holding it back, and build a custom homepage demo — all before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },

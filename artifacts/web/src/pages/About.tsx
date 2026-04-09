@@ -13,7 +13,7 @@ export default function About() {
 
   return (
     <>
-      <SEO title="About Graylock Digital | Professional Practice Website Specialists" description="Graylock Digital builds custom websites for private practices and accounting firms — therapists, dentists, physicians, CPAs, and more. Delivered in 7–10 business days, starting at $199/month." />
+      <SEO title="About Graylock Digital | Professional Practice Website Specialists" description="Graylock Digital builds custom websites for private practices and accounting firms — therapists, dentists, physicians, CPAs, and more. Delivered in 7–10 business days. No long-term contracts." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div

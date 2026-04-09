@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for CPAs & Accounting Firms | Starting at $199/mo | Graylock Digital",
+    title: "Websites for CPAs & Accounting Firms | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for CPAs, accountants, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for CPAs, accountants, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-accountants",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "Does Your Website Earn That Same Trust?",
     subheadline:
       "When a business owner searches for a new CPA, your website is your first impression — and for most accounting firms, it's the weakest link. We build sharp, professional websites for CPAs and accounting firms that rank locally, showcase your expertise, and make it easy for prospects to reach out. Fully managed — so you can focus on your clients.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-accountants.jpg`,
     trustSignals: [
       "Services pages for every offering",
@@ -248,7 +248,7 @@ const data: IndustryPageData = {
     headline: "Stop Sending Prospects to a Website That Undersells Your Expertise",
     subtext:
       "Book a free 20-minute call. We'll evaluate your current site and show you a custom demo of what your accounting firm's website could become — before you pay us anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   relatedPages: [],
   schema: {

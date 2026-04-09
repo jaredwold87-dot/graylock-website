@@ -91,7 +91,7 @@ export function ProblemSection() {
             That's exactly why we review your site for free — so you finally know what to fix.
           </p>
           <CTAButton href="/get-started">
-            Book Your Free Website Review
+            Schedule a Free Consultation
           </CTAButton>
         </ScrollReveal>
 

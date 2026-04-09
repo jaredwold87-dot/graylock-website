@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Psychologists | Custom Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Psychologists | Custom Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for psychologists and psychology practices. Service pages, local SEO, client inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for psychologists and psychology practices. Service pages, local SEO, client inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-psychologists",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "Your Website Shouldn't Make It Harder.",
     subheadline:
       "When someone finally decides to reach out to a psychologist, they need to feel safe, understood, and confident before they ever pick up the phone. If your website is clinical, impersonal, or hard to navigate, they'll keep searching. We build warm, professional, SEO-optimized websites for psychologists that make it easy for the right clients to find you and feel comfortable reaching out. Fully managed — so you can focus on your clients.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for psychology practices",
@@ -230,7 +230,7 @@ const data: IndustryPageData = {
     headline: "Clients Are Searching for a Psychologist in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your psychology practice website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [

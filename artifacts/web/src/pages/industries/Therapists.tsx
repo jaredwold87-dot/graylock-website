@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Therapists & Counselors | Custom Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Therapists & Counselors | Custom Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for therapists and counselors. Service pages, local SEO, client inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for therapists and counselors. Service pages, local SEO, client inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-therapists",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "Your Website Should Make It Easier.",
     subheadline:
       "When someone finally decides to look for a therapist, they're already anxious. If your website feels cold, confusing, or generic, they won't reach out — they'll keep scrolling. We build warm, professional, SEO-optimized websites for therapists and counselors that help the right clients find you and feel safe enough to make that first call. Fully managed — so you can focus on your clients.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for therapists & counselors",
@@ -231,7 +231,7 @@ const data: IndustryPageData = {
     headline: "Someone Is Searching for a Therapist in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your therapy website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [

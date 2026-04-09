@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Dermatologists | Custom Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Dermatologists | Custom Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for dermatologists and dermatology practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for dermatologists and dermatology practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-dermatologists",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "Your Website Should Match.",
     subheadline:
       "Patients searching for a dermatologist judge your competence by your website before they ever walk through your door. A dated site with stock photos and generic copy doesn't reflect the care you provide. We build modern, SEO-optimized websites for dermatology practices that attract the right patients and convert searches into consultations. Fully managed — so you can focus on patient care.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for dermatology practices",
@@ -228,7 +228,7 @@ const data: IndustryPageData = {
     headline: "Patients Are Searching for a Dermatologist in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your dermatology website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [

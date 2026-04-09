@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Veterinarians | Custom Vet Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Veterinarians | Custom Vet Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for veterinarians and animal hospitals. Service pages, local SEO, appointment request forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for veterinarians and animal hospitals. Service pages, local SEO, appointment request forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-veterinarians",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "What Does Your Website Say About Your Practice?",
     subheadline:
       "When someone moves to a new area or their pet needs care, the first thing they do is Google 'vet near me.' If your website looks outdated, doesn't showcase your services, or doesn't let them request an appointment — they're calling the animal hospital down the road instead. We build modern, SEO-optimized websites for veterinary practices that turn pet owners into loyal clients. Fully managed — so you can focus on animal care.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for veterinary practices",
@@ -230,7 +230,7 @@ const data: IndustryPageData = {
     headline: "Pet Owners Are Searching for a Vet in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your veterinary website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [

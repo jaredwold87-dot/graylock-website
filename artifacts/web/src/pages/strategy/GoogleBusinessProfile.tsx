@@ -18,7 +18,7 @@ const data: StrategyPageData = {
     h1: "Your Google Business Profile Is Your Most Powerful Free Marketing Tool",
     subheadline:
       "Before a potential client visits your website, they've already seen your Google Business Profile. Reviews, hours, photos, and your location — all of it determines whether they call you or your competitor.",
-    ctaButton: "Book Your Free Website Review",
+    ctaButton: "Schedule a Free Consultation",
     ctaSubtext: "Free demo + full written report — no obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-gbp.png`,
   },
@@ -210,7 +210,7 @@ const data: StrategyPageData = {
     headline: "Is Your Google Business Profile Complete and Optimized?",
     subtext:
       "Book a free review. We'll evaluate your GBP listing, identify every gap, and show you exactly what needs to be done to rank higher in local search and Google Maps.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },

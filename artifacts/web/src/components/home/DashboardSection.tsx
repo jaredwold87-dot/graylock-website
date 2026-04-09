@@ -112,7 +112,7 @@ export function DashboardSection() {
 
               <div className="mt-10">
                 <CTAButton href="/get-started">
-                  Book Your Free Website Review
+                  Schedule a Free Consultation
                 </CTAButton>
               </div>
             </ScrollReveal>

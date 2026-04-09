@@ -18,7 +18,7 @@ const data: StrategyPageData = {
     h1: "One Page for Every Way a Client Searches for You",
     subheadline:
       "Your homepage can't do everything. Funnel pages are the targeted, keyword-specific pages that capture visitors searching for your exact service, in your exact location — and convert them into calls.",
-    ctaButton: "Book Your Free Website Review",
+    ctaButton: "Schedule a Free Consultation",
     ctaSubtext: "Free demo + full written report — no obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-funnel-pages.png`,
   },
@@ -195,7 +195,7 @@ const data: StrategyPageData = {
     headline: "How Many of Your Services Could Be Showing Up on Google Right Now?",
     subtext:
       "Book a free review. We'll identify the highest-value funnel pages your business is missing and show you exactly what you could be ranking for.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },

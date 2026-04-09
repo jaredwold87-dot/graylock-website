@@ -51,7 +51,7 @@ export function ValueDifferentiationSection() {
 
         <ScrollReveal delay={0.3} className="text-center mt-12">
           <CTAButton href="/get-started">
-            Book Your Free Website Review
+            Schedule a Free Consultation
           </CTAButton>
         </ScrollReveal>
 

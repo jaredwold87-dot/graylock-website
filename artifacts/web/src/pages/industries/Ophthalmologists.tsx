@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Ophthalmologists | Custom Sites Starting at $199/mo | Graylock Digital",
+    title: "Websites for Ophthalmologists | Custom Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for ophthalmologists and eye surgery centers. LASIK pages, cataract surgery, local SEO, patient inquiry forms. Built in 7–10 business days. Starting at $199/mo.",
+      "Graylock builds custom, SEO-optimized websites for ophthalmologists and eye surgery centers. LASIK pages, cataract surgery, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-ophthalmologists",
   },
   hero: {
@@ -28,7 +28,7 @@ const data: IndustryPageData = {
     h1Highlight: "Your Website Should Earn That Trust First.",
     subheadline:
       "Patients considering LASIK, cataract surgery, or any eye procedure research extensively online before choosing a surgeon. If your website doesn't communicate your expertise, credentials, and results — they'll schedule a consultation with the ophthalmologist whose site does. We build authoritative, SEO-optimized websites for ophthalmology practices. Fully managed — so you can focus on your patients.",
-    cta: "Book Your Free Website Review",
+    cta: "Schedule a Free Consultation",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for ophthalmology practices",
@@ -228,7 +228,7 @@ const data: IndustryPageData = {
     headline: "Patients Are Researching Eye Surgeons in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your ophthalmology website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Book Your Free Website Review",
+    button: "Schedule a Free Consultation",
   },
   showPrivacyNote: true,
   relatedPages: [
