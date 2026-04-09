@@ -18,7 +18,7 @@ export default function Pricing() {
     { name: "Dashboard Access", solo: true, group: true, enterprise: true, custom: true },
     { name: "Dedicated Account Manager", solo: true, group: true, enterprise: true, custom: true },
     { name: "Site Update Hours", solo: "1 hr/quarter", group: "1 hr/month", enterprise: "2 hrs/month", custom: "Custom" },
-    { name: "Custom Integrations", solo: false, group: true, enterprise: true, custom: true },
+    { name: "Custom Integrations", solo: false, group: false, enterprise: true, custom: true },
     { name: "Daily Backups", solo: true, group: true, enterprise: true, custom: true },
     { name: "Priority Support", solo: false, group: true, enterprise: true, custom: true },
     { name: "Priority Build Queue", solo: false, group: false, enterprise: true, custom: true },

@@ -32,7 +32,6 @@ export const PRICING_TIERS = [
       "Full Local SEO Implementation",
       "Dedicated Account Manager",
       "1 Hour Site Updates / Month",
-      "Custom Integrations (Calendly, scheduling, etc.)",
       "Priority Support"
     ]
   },
@@ -47,6 +46,7 @@ export const PRICING_TIERS = [
       "20 SEO-Optimized Funnel Pages",
       "Multi-Location SEO Strategy",
       "Advanced Analytics & Reporting",
+      "Custom Integrations (Calendly, scheduling, etc.)",
       "Dedicated Account Manager",
       "2 Hours Site Updates / Month",
       "Priority Build Queue",
