@@ -250,9 +250,7 @@ const data: IndustryPageData = {
       "Book a free 20-minute call. We'll evaluate your current site and show you a custom demo of what your accounting firm's website could become — before you pay us anything.",
     button: "Book Your Free Website Review",
   },
-  relatedPages: [
-    { name: "Private Practices", path: "/websites-for-private-practices" },
-  ],
+  relatedPages: [],
   schema: {
     "@context": "https://schema.org",
     "@type": ["WebPage", "FAQPage"],

@@ -20,16 +20,7 @@ import TermsOfService from "@/pages/TermsOfService";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
 import NotFound from "@/pages/not-found";
 
-const SmallBusinessOwners = lazy(() => import("@/pages/industries/SmallBusinessOwners"));
-const Contractors = lazy(() => import("@/pages/industries/Contractors"));
-const SoloPractitioners = lazy(() => import("@/pages/industries/SoloPractitioners"));
-const GroupPractices = lazy(() => import("@/pages/industries/GroupPractices"));
 const AccountantsIndustry = lazy(() => import("@/pages/industries/Accountants"));
-const LawyersIndustry = lazy(() => import("@/pages/industries/Lawyers"));
-const MedicalPractices = lazy(() => import("@/pages/industries/MedicalPractices"));
-const PrivatePractices = lazy(() => import("@/pages/industries/PrivatePractices"));
-const HouseCleaners = lazy(() => import("@/pages/industries/HouseCleaners"));
-const PetGroomers = lazy(() => import("@/pages/industries/PetGroomers"));
 const Chiropractors = lazy(() => import("@/pages/industries/Chiropractors"));
 const Dentists = lazy(() => import("@/pages/industries/Dentists"));
 const Dermatologists = lazy(() => import("@/pages/industries/Dermatologists"));
@@ -73,16 +64,7 @@ function Router() {
         <Route path="/contact" component={ContactRedirect} />
         <Route path="/thank-you" component={ThankYou} />
         <Route path="/accountants" component={AccountantsFunnel} />
-        <Route path="/websites-for-small-business-owners" component={SmallBusinessOwners} />
-        <Route path="/websites-for-contractors" component={Contractors} />
-        <Route path="/websites-for-solo-practitioners" component={SoloPractitioners} />
-        <Route path="/websites-for-group-practices" component={GroupPractices} />
         <Route path="/websites-for-accountants" component={AccountantsIndustry} />
-        <Route path="/websites-for-lawyers" component={LawyersIndustry} />
-        <Route path="/websites-for-medical-practices" component={MedicalPractices} />
-        <Route path="/websites-for-private-practices" component={PrivatePractices} />
-        <Route path="/websites-for-house-cleaners" component={HouseCleaners} />
-        <Route path="/websites-for-pet-groomers" component={PetGroomers} />
         <Route path="/websites-for-chiropractors" component={Chiropractors} />
         <Route path="/websites-for-dentists" component={Dentists} />
         <Route path="/websites-for-dermatologists" component={Dermatologists} />
