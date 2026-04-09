@@ -5,10 +5,10 @@ import { ArrowRight, Clock, FileText, Sparkles } from "lucide-react";
 export function FinalCTASection() {
   return (
     <section className="relative py-28 px-6 md:px-12 overflow-hidden">
-      <div className="absolute inset-0 bg-navy" />
-      <div className="absolute inset-0 bg-gradient-to-b from-orange/15 via-orange/5 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-orange/8 rounded-full blur-[120px]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
+      <div className="absolute inset-0 opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
@@ -16,7 +16,7 @@ export function FinalCTASection() {
             <span className="inline-block text-orange font-sans text-sm font-semibold tracking-widest uppercase mb-4">
               Get Started in 20 Minutes
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-charcoal mb-6 leading-tight">
               Your Practice Deserves a<br className="hidden md:block" /> Website That Works as Hard as You Do
             </h2>
             <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
@@ -44,12 +44,12 @@ export function FinalCTASection() {
                 desc: "From sign-off to launch — we move fast"
               }
             ].map((item, i) => (
-              <div key={i} className="bg-charcoal/50 border border-gunmetal/40 rounded-xl p-5 text-center hover:border-orange/30 transition-colors duration-300">
+              <div key={i} className="bg-white border border-gray-200 rounded-xl p-5 text-center hover:border-orange/40 hover:shadow-md transition-all duration-300 shadow-sm">
                 <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center mx-auto mb-3 text-orange border border-orange/10">
                   {item.icon}
                 </div>
-                <h3 className="text-white font-display text-sm mb-1">{item.title}</h3>
-                <p className="text-stone/70 font-sans text-xs leading-relaxed">{item.desc}</p>
+                <h3 className="text-charcoal font-display text-sm mb-1">{item.title}</h3>
+                <p className="text-stone font-sans text-xs leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -61,7 +61,7 @@ export function FinalCTASection() {
               Book Your Free Website Review
               <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </CTAButton>
-            <p className="text-stone/40 text-xs font-sans mt-2">
+            <p className="text-stone/60 text-xs font-sans mt-2">
               No contracts. No obligation. Just a clear look at what's possible.
             </p>
           </div>
