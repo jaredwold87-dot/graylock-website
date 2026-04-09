@@ -17,10 +17,10 @@ export function FinalCTASection() {
               Get Started in 20 Minutes
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-charcoal mb-6 leading-tight">
-              Your Practice Deserves a<br className="hidden md:block" /> Website That Works as Hard as You Do
+              Stop Wondering Why Your<br className="hidden md:block" /> Website Isn't Bringing In New Clients
             </h2>
             <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
-              Book a free 20-minute call. We'll walk through your current site, identify what's holding you back, and show you exactly what we'd build — before you spend a dime.
+              Book a free 20-minute call. We'll walk through your current site, show you exactly what's costing you new patients and clients, and mock up what a better version looks like — before you spend a dime.
             </p>
           </div>
         </ScrollReveal>
