@@ -54,6 +54,7 @@ export function Footer() {
         <div>
           <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">OUR STRATEGY</h4>
           <ul className="space-y-4 flex flex-col">
+            <Link href="/our-strategy" className="text-stone hover:text-offwhite transition-colors">Strategy Overview</Link>
             <Link href="/website-design" className="text-stone hover:text-offwhite transition-colors">Website Design</Link>
             <Link href="/seo-for-small-business" className="text-stone hover:text-offwhite transition-colors">SEO</Link>
             <Link href="/geo-generative-engine-optimization" className="text-stone hover:text-offwhite transition-colors">GEO</Link>
