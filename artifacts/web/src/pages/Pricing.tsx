@@ -17,13 +17,14 @@ export default function Pricing() {
     { name: "Lead Capture Form", solo: "Basic", group: "Enhanced", enterprise: "Advanced", custom: "Custom" },
     { name: "Dashboard Access", solo: true, group: true, enterprise: true, custom: true },
     { name: "Dedicated Account Manager", solo: true, group: true, enterprise: true, custom: true },
-    { name: "Site Update Hours", solo: "1 hr/quarter", group: "1 hr/month", enterprise: "2 hrs/month", custom: "Custom" },
+    { name: "Site Update Hours", solo: "1 hr/quarter", group: "1 hr/month", enterprise: "2 hrs/month", custom: "Custom", footnote: "Additional updates billed at $100/hr — quoted and approved before any work begins" },
     { name: "Custom Integrations", solo: false, group: false, enterprise: true, custom: true },
     { name: "Daily Backups", solo: true, group: true, enterprise: true, custom: true },
     { name: "Priority Support", solo: false, group: true, enterprise: true, custom: true },
     { name: "Priority Build Queue", solo: false, group: false, enterprise: true, custom: true },
   ];
 
+  type FeatureRow = { name: string; solo: boolean | string; group: boolean | string; enterprise: boolean | string; custom: boolean | string; footnote?: string };
   type CellValue = boolean | string;
 
   const renderCell = (val: CellValue, highlight?: boolean) => {
@@ -73,9 +74,14 @@ export default function Pricing() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gunmetal">
-                {featureRows.map((row, i) => (
+                {featureRows.map((row: FeatureRow, i: number) => (
                   <tr key={i} className="hover:bg-charcoal/50 transition-colors">
-                    <td className="p-4 font-sans text-stone">{row.name}</td>
+                    <td className="p-4 font-sans text-stone">
+                      {row.name}
+                      {row.footnote && (
+                        <span className="block text-xs text-stone/50 mt-1 leading-snug">{row.footnote}</span>
+                      )}
+                    </td>
                     <td className="p-4 text-center">{renderCell(row.solo)}</td>
                     <td className="p-4 text-center bg-charcoal/20">{renderCell(row.group, true)}</td>
                     <td className="p-4 text-center">{renderCell(row.enterprise)}</td>

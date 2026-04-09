@@ -67,11 +67,18 @@ export function PricingSection() {
               <div className="flex-grow mb-7">
                 <ul className="space-y-3">
                   {tier.features.map((feature: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 flex items-center justify-center mt-0.5">
-                        <Check className="text-orange" size={12} />
+                    <li key={idx}>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 flex items-center justify-center mt-0.5">
+                          <Check className="text-orange" size={12} />
+                        </div>
+                        <span className={cn("font-sans text-sm", tier.popular ? "text-offwhite" : "text-charcoal")}>{feature}</span>
                       </div>
-                      <span className={cn("font-sans text-sm", tier.popular ? "text-offwhite" : "text-charcoal")}>{feature}</span>
+                      {!tier.isCustom && /site updates/i.test(feature) && (
+                        <p className={cn("font-sans text-xs mt-1.5 ml-8 leading-snug", tier.popular ? "text-stone/70" : "text-stone/60")}>
+                          Additional updates billed at $100/hr — quoted and approved before any work begins
+                        </p>
+                      )}
                     </li>
                   ))}
                 </ul>
