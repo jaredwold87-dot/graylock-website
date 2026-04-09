@@ -57,6 +57,7 @@ const data: IndustryPageData = {
   painPoints: {
     sectionLabel: "SOUND FAMILIAR?",
     headline: "Every Day Your Website Underperforms, You're Losing Patients to the Practice Down the Street",
+    image: `${import.meta.env.BASE_URL}before-desktop.png`,
     cards: [
       {
         icon: Eye,

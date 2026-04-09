@@ -31,6 +31,7 @@ export interface IndustryPageData {
   painPoints: {
     sectionLabel: string;
     headline: string;
+    image?: string;
     cards: { icon: LucideIcon; title: string; description: string }[];
   };
   benefits: {
@@ -227,31 +228,47 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
 
       <section className="bg-charcoal py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal className="text-center mb-12 md:mb-16">
             <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
               {data.painPoints.sectionLabel}
             </p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite">
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite max-w-4xl mx-auto">
               {data.painPoints.headline}
             </h2>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.painPoints.cards.map((card, i) => (
-              <ScrollReveal key={i} delay={i * 0.05}>
-                <div className="bg-navy border border-gunmetal rounded-xl p-6 hover:border-orange/30 transition-all duration-300 h-full">
-                  <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center mb-4">
-                    <card.icon size={20} className="text-orange" />
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+            <ScrollReveal>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gunmetal/50">
+                <img
+                  src={data.painPoints.image || `${import.meta.env.BASE_URL}mockup-laptop-before.png`}
+                  alt="Example of an outdated practice website"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent pointer-events-none" />
+              </div>
+            </ScrollReveal>
+
+            <div className="space-y-5">
+              {data.painPoints.cards.map((card, i) => (
+                <ScrollReveal key={i} delay={i * 0.05}>
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-orange/10">
+                      <card.icon size={18} className="text-orange" />
+                    </div>
+                    <div>
+                      <h3 className="text-offwhite font-sans font-semibold text-base md:text-lg mb-1">
+                        {card.title}
+                      </h3>
+                      <p className="text-stone font-sans text-sm leading-relaxed">
+                        {card.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-offwhite font-sans font-semibold text-lg mb-2">
-                    {card.title}
-                  </h3>
-                  <p className="text-stone font-sans text-sm leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
