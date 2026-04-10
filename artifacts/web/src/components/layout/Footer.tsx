@@ -92,6 +92,15 @@ export function Footer() {
           <span>Based in the USA</span>
           <span>•</span>
           <span>Built for professional practices</span>
+          <span>•</span>
+          <a
+            href="https://graylock-os-ymwca.sevalla.app/portal?site=99c58e46-33ee-4c7c-ab23-eeb7badcc57b"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-stone hover:text-offwhite transition-colors"
+          >
+            Client Dashboard
+          </a>
         </p>
       </div>
     </footer>
