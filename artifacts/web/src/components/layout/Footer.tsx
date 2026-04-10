@@ -1,6 +1,11 @@
 import { Link } from "wouter";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 export function Footer() {
+  const settings = useSiteSettings();
+  const phone = settings?.contact_info?.phone || "hello@graylockdigital.com";
+  const email = settings?.contact_info?.email || "hello@graylockdigital.com";
+
   return (
     <footer className="bg-charcoal pt-20 pb-10 px-6 md:px-12 relative">
       <div className="section-divider absolute top-0 left-0 right-0" />
@@ -76,8 +81,13 @@ export function Footer() {
             <Link href="/get-started" className="inline-block bg-orange text-white font-sans font-bold px-6 py-3 rounded hover:bg-orange/90 transition-colors w-full text-center shadow-lg shadow-orange/20">
               Get a Free Evaluation
             </Link>
-            <p className="text-stone text-sm text-center mt-4">
-              hello@graylockdigital.com
+            {phone !== email && (
+              <p className="text-stone text-sm text-center mt-4">
+                <a href={`tel:${phone}`} className="hover:text-offwhite transition-colors">{phone}</a>
+              </p>
+            )}
+            <p className="text-stone text-sm text-center mt-2">
+              <a href={`mailto:${email}`} className="hover:text-offwhite transition-colors">{email}</a>
             </p>
           </div>
         </div>

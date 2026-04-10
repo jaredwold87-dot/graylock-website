@@ -23,15 +23,36 @@ export function StepFinalReferral() {
       heard_about_us: data.referralSource || "",
     };
 
-    try {
-      await fetch(`${import.meta.env.BASE_URL || "/"}api/leads`, {
+    const apiPromise = fetch(`${import.meta.env.BASE_URL || "/"}api/leads`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).catch((err) => console.error("Lead submission error:", err));
+
+    const gosPromise = fetch(
+      "https://graylock-os-ymwca.sevalla.app/api/public/leads/99c58e46-33ee-4c7c-ab23-eeb7badcc57b",
+      {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-    } catch (err) {
-      console.error("Lead submission error:", err);
-    }
+        credentials: "omit",
+        body: JSON.stringify({
+          name: data.firstName,
+          email: data.email,
+          phone: data.phone || undefined,
+          subject: data.businessName || undefined,
+          message: [
+            data.primaryGoal && `Goal: ${data.primaryGoal}`,
+            data.websiteUrl && `Website: ${data.websiteUrl}`,
+            data.serviceArea && `Area: ${data.serviceArea}`,
+            data.targetCustomer && `Ideal client: ${data.targetCustomer}`,
+            data.brandingNotes && `Branding: ${data.brandingNotes}`,
+            data.referralSource && `Heard about us: ${data.referralSource}`,
+          ].filter(Boolean).join("\n"),
+        }),
+      }
+    ).catch(() => {});
+
+    await Promise.allSettled([apiPromise, gosPromise]);
 
     setPhase("booking");
     setIsSubmitting(false);
