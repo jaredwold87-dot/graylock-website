@@ -16,6 +16,8 @@ function categorizeReferrer(ref: string): string {
   }
 }
 
+declare const gtag: ((...args: unknown[]) => void) | undefined;
+
 function sendEvent(path: string, loadTimeMs: number | null) {
   const device = window.innerWidth < 768 ? "mobile" : "desktop";
   const referrer = categorizeReferrer(document.referrer);
@@ -37,6 +39,10 @@ function sendEvent(path: string, loadTimeMs: number | null) {
     credentials: "omit",
     keepalive: true,
   }).catch(() => {});
+
+  if (typeof gtag === "function") {
+    gtag("config", "G-9YFQ865HBJ", { page_path: path });
+  }
 }
 
 export function usePageTracking() {
