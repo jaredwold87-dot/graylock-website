@@ -1,6 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CheckCircle, Compass, Eye, Tag, ArrowRight } from "lucide-react";
+import { CheckCircle, Compass, Eye, Tag, ArrowRight, Clock, Home, Heart } from "lucide-react";
 import { Link } from "wouter";
 
 const WHILE_YOU_WAIT = [
@@ -27,6 +27,13 @@ const WHILE_YOU_WAIT = [
   },
 ];
 
+const SECONDARY_LINKS = [
+  { icon: Home, label: "Back to homepage", href: "/" },
+  { icon: Eye, label: "Browse our work", href: "/work" },
+  { icon: Compass, label: "Our strategy", href: "/our-strategy" },
+  { icon: Tag, label: "Service overview", href: "/how-it-works" },
+];
+
 export default function ThankYou() {
   return (
     <>
@@ -38,30 +45,77 @@ export default function ThankYou() {
 
           <CheckCircle className="text-orange w-20 h-20 mx-auto mb-8 relative z-10" />
 
-          <h1 className="text-5xl md:text-7xl font-display text-offwhite mb-6 relative z-10">
+          <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-4 relative z-10">
+            Inquiry received
+          </p>
+
+          <h1 className="text-5xl md:text-7xl font-display text-offwhite mb-6 relative z-10 leading-[1.05]">
             You're All Set.
           </h1>
 
-          <p className="text-stone font-sans text-xl mb-10 relative z-10 max-w-lg mx-auto">
+          <p className="text-stone font-sans text-xl mb-10 relative z-10 max-w-lg mx-auto leading-relaxed">
             Tim will personally review your website and reach out within 1 business day to schedule your free evaluation call.
           </p>
 
-          <div className="bg-charcoal rounded-xl p-6 text-left border border-gunmetal relative z-10">
-            <h3 className="font-display text-offwhite text-xl mb-4 uppercase tracking-wide">What Happens Next:</h3>
-            <ul className="space-y-4">
-              <li className="flex gap-3">
-                <span className="text-orange font-bold">1.</span>
-                <span className="text-stone font-sans">Check your email for a confirmation message.</span>
+          <div className="bg-charcoal rounded-2xl p-6 md:p-8 text-left border border-orange/30 relative z-10 ring-1 ring-orange/10">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-9 h-9 rounded-full bg-orange/15 border border-orange/30 flex items-center justify-center">
+                <ArrowRight size={16} className="text-orange" />
+              </div>
+              <h3 className="font-display text-offwhite text-lg md:text-xl uppercase tracking-wide">Your Next Step</h3>
+            </div>
+            <ol className="space-y-5">
+              <li className="flex gap-4">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange text-charcoal font-bold flex items-center justify-center text-sm">1</span>
+                <div>
+                  <p className="text-offwhite font-sans font-semibold mb-1">Check your inbox</p>
+                  <p className="text-stone font-sans text-sm leading-relaxed">A confirmation email is on its way right now.</p>
+                </div>
               </li>
-              <li className="flex gap-3">
-                <span className="text-orange font-bold">2.</span>
-                <span className="text-stone font-sans">Look out for an email from Tim with calendar options for your call.</span>
+              <li className="flex gap-4">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange text-charcoal font-bold flex items-center justify-center text-sm">2</span>
+                <div>
+                  <p className="text-offwhite font-sans font-semibold mb-1">Watch for Tim's email</p>
+                  <p className="text-stone font-sans text-sm leading-relaxed">Within one business day, with calendar options for your call.</p>
+                </div>
               </li>
-              <li className="flex gap-3">
-                <span className="text-orange font-bold">3.</span>
-                <span className="text-stone font-sans">Hop on the 20-minute call and walk away with a clear, no-pressure plan for your practice.</span>
+              <li className="flex gap-4">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange text-charcoal font-bold flex items-center justify-center text-sm">3</span>
+                <div>
+                  <p className="text-offwhite font-sans font-semibold mb-1">Hop on the 20-minute call</p>
+                  <p className="text-stone font-sans text-sm leading-relaxed">Walk away with a clear, no-pressure plan for your practice.</p>
+                </div>
               </li>
-            </ul>
+            </ol>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      <section className="bg-charcoal pb-16 md:pb-20 px-6 md:px-12">
+        <ScrollReveal className="max-w-2xl mx-auto">
+          <div className="bg-navy/50 border border-gunmetal rounded-2xl p-6 md:p-8">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-11 h-11 rounded-full bg-orange/10 border border-orange/20 flex items-center justify-center">
+                <Heart size={18} className="text-orange" />
+              </div>
+              <div>
+                <h3 className="font-display text-offwhite text-lg mb-2">A real person — not a chatbot.</h3>
+                <p className="text-stone font-sans text-[15px] leading-relaxed mb-3">
+                  Every inquiry goes straight to Tim. No support tickets, no auto-responders, no offshore handoffs. You'll hear back from the person who'll actually be working on your project.
+                </p>
+                <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                  <span className="inline-flex items-center gap-2 text-stone font-sans">
+                    <Clock size={14} className="text-orange" /> Within 1 business day
+                  </span>
+                  <span className="inline-flex items-center gap-2 text-stone font-sans">
+                    <CheckCircle size={14} className="text-orange" /> No sales pitch
+                  </span>
+                  <span className="inline-flex items-center gap-2 text-stone font-sans">
+                    <CheckCircle size={14} className="text-orange" /> Zero obligation
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
       </section>
@@ -100,6 +154,26 @@ export default function ThankYou() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal className="mt-10">
+            <div className="border-t border-gunmetal pt-8">
+              <p className="text-center text-stone font-sans text-xs uppercase tracking-widest mb-5">
+                Or jump back to
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+                {SECONDARY_LINKS.map(link => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gunmetal bg-navy/40 text-stone hover:text-offwhite hover:border-orange/40 transition-colors font-sans text-sm"
+                  >
+                    <link.icon size={14} />
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
