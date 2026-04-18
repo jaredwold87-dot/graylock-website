@@ -25,7 +25,7 @@ export function HeroSection() {
             "linear-gradient(to right, #0a121e 0%, rgba(10,18,30,0.95) 35%, rgba(10,18,30,0.4) 55%, transparent 70%)",
         }}
       />
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:pl-24 xl:pl-32 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
             <h1 className="text-3xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.1] mb-6">
