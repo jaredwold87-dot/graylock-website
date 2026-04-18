@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
@@ -42,10 +43,7 @@ export default function Pricing() {
       <SEO title="Pricing | Practice Website Design Plans | Graylock Digital" description="Three flat monthly plans, one upfront setup fee, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-pricing.png)` }}
-        />
+        <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-pricing.png`} />
         <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>

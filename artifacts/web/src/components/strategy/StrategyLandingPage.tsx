@@ -1,4 +1,5 @@
 import { SEO } from "@/components/SEO";
+import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { useState } from "react";
@@ -123,10 +124,7 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
       <section className="relative bg-charcoal pt-24 pb-20 md:pt-32 md:pb-28 px-6 md:px-12 overflow-hidden">
         {data.hero.backgroundImage && (
           <>
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${data.hero.backgroundImage})` }}
-            />
+            <HeroBackgroundImage src={data.hero.backgroundImage} />
             <div className="absolute inset-0 bg-charcoal/85" />
           </>
         )}

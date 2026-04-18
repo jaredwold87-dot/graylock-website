@@ -1,4 +1,5 @@
 import { SEO } from "@/components/SEO";
+import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { CheckCircle2, User, Heart, Handshake, Search, Shield, MapPin, Flag } from "lucide-react";
@@ -17,10 +18,7 @@ export default function About() {
       <SEO title="About Graylock Digital | Practice Website Specialists" description="We build websites for therapists, dentists, physicians, CPAs, and other private practices — for a fraction of what an agency charges. Delivered in 7–10 business days." url="https://graylockdigital.com/about" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-about.png)` }}
-        />
+        <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-about.png`} />
         <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>

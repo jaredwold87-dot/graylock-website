@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
+import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const BASE = import.meta.env.BASE_URL;
@@ -10,13 +11,9 @@ export function HeroSection() {
       className="-mt-16 md:-mt-20 pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden relative"
       style={{ backgroundColor: "#0a121e" }}
     >
-      <div
-        className="absolute inset-0 bg-no-repeat"
-        style={{
-          backgroundImage: `url(${BASE}hero-bg-devices.png?v=11)`,
-          backgroundSize: "cover",
-          backgroundPosition: "right center",
-        }}
+      <HeroBackgroundImage
+        src={`${BASE}hero-bg-devices.png`}
+        objectPosition="right center"
       />
       {/* Mobile/tablet: strong full overlay so text reads cleanly over the laptop photo */}
       <div
