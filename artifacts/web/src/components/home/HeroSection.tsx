@@ -28,7 +28,7 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display text-offwhite leading-[1.1] mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.1] mb-6">
               Stop Losing Clients to Competitors With{" "}
               <span className="text-gradient">Better Websites.</span>
             </h1>
