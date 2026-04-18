@@ -45,7 +45,7 @@ export function ProblemSection() {
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Sound Familiar?</p>
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
-            Most Practice Owners Know Their Website Needs Work
+            Most Practice and Business Owners Know Their Website Needs Work
           </h2>
           <p className="text-stone text-lg font-sans">
             They just don't know exactly what's wrong — or how to fix it without spending a fortune.

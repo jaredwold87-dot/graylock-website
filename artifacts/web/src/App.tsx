@@ -20,6 +20,7 @@ import ThankYou from "@/pages/ThankYou";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
+import OtherServiceBusinesses from "@/pages/OtherServiceBusinesses";
 import NotFound from "@/pages/not-found";
 
 const AccountantsIndustry = lazy(() => import("@/pages/industries/Accountants"));
@@ -72,6 +73,7 @@ function Router() {
         <Route path="/thank-you" component={ThankYou} />
         <Route path="/accountants" component={AccountantsFunnel} />
         <Route path="/websites-for-accountants" component={AccountantsIndustry} />
+        <Route path="/other-service-businesses" component={OtherServiceBusinesses} />
         <Route path="/websites-for-chiropractors" component={Chiropractors} />
         <Route path="/websites-for-dentists" component={Dentists} />
         <Route path="/websites-for-dermatologists" component={Dermatologists} />

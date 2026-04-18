@@ -158,7 +158,7 @@ export function HeroSection() {
               <span className="text-gradient">Better Websites.</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              We build fully custom websites for private practices and accounting firms — delivered in 7–10 business days. No long-term contracts.
+              We build fully custom websites for private practices, accounting firms, and trust-based local businesses — delivered in 7–10 business days. No long-term contracts.
             </p>
 
             <div className="block lg:hidden mb-8">

@@ -18,6 +18,7 @@ const WHO_WE_HELP_PRACTICES = [
 
 const WHO_WE_HELP_OTHER = [
   { name: "Accounting Firms", path: "/websites-for-accountants" },
+  { name: "Other Service Businesses", path: "/other-service-businesses" },
 ];
 
 const WHO_WE_HELP_ALL = [...WHO_WE_HELP_PRACTICES, ...WHO_WE_HELP_OTHER];

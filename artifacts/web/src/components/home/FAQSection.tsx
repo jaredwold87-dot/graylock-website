@@ -32,6 +32,10 @@ const homepageFaqs = [
   {
     q: "What types of practices do you work with?",
     a: "We specialize in websites for private practices and accounting firms — therapists, dentists, physicians, chiropractors, CPAs, and other professional service providers. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments."
+  },
+  {
+    q: "Do you only work with medical practices and accountants?",
+    a: "No. While private practices and accounting firms are our core specialties, we regularly partner with law firms, consultants, home service companies, and other local service businesses. If your business relies on building trust and generating local leads, our framework will work for you."
   }
 ];
 
