@@ -15,14 +15,6 @@ export function HeroSection() {
           loading="eager"
         />
       </div>
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(15,30,53,0.95) 0%, rgba(15,30,53,0.88) 35%, rgba(15,30,53,0.55) 65%, rgba(15,30,53,0.25) 100%)",
-        }}
-      />
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
