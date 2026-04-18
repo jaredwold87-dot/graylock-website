@@ -1,15 +1,12 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CTAButton } from "@/components/ui/CTAButton";
 import { X, Check } from "lucide-react";
 
 export function ValueDifferentiationSection() {
   const comparisons = [
-    { theirs: "Charge $5,000–$20,000 before showing you anything", ours: "Show you a custom homepage demo before you pay a dollar" },
-    { theirs: "Take weeks for a generic pitch deck", ours: "Walk you through real findings in a 20-minute call" },
-    { theirs: "Lock you into long-term contracts", ours: "Month-to-month, cancel anytime" },
-    { theirs: "Hand you a template and call it custom", ours: "Build a site designed specifically for your practice and specialty" },
-    { theirs: "Leave you alone after launch", ours: "Handle hosting, updates, and maintenance every month" },
-    { theirs: "No visibility into how your site performs", ours: "Business dashboard with traffic insights and performance reporting" },
+    { theirs: "Ask for thousands before showing real work", ours: "Show you a custom homepage direction before you commit" },
+    { theirs: "Take weeks to pitch and scope", ours: "Move quickly with a clear process" },
+    { theirs: "Lock you into long-term contracts", ours: "Month-to-month support, cancel anytime" },
+    { theirs: "Deliver generic templates", ours: "Build custom sites around your business and positioning" },
   ];
 
   return (
@@ -19,8 +16,7 @@ export function ValueDifferentiationSection() {
         <ScrollReveal className="text-center mb-12">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Why Graylock</p>
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
-            Every other agency wants you to pay first.{" "}
-            <span className="text-orange">We think that's backwards.</span>
+            A Lower-Risk Way to Build a Better Website
           </h2>
         </ScrollReveal>
 
@@ -47,12 +43,6 @@ export function ValueDifferentiationSection() {
               </div>
             ))}
           </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.3} className="text-center mt-12">
-          <CTAButton href="/get-started">
-            Schedule a Free Consultation
-          </CTAButton>
         </ScrollReveal>
 
       </div>

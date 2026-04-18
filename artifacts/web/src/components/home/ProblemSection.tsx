@@ -1,54 +1,38 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CTAButton } from "@/components/ui/CTAButton";
-import { Award, SearchX, DollarSign, Copy, HelpCircle, Clock } from "lucide-react";
+import { Award, MessageSquareWarning, TrendingDown } from "lucide-react";
 
 const BASE = import.meta.env.BASE_URL;
 
 export function ProblemSection() {
   const problems = [
     {
-      icon: <Award size={18} />,
-      title: "Your Site Doesn't Reflect Your Expertise",
-      desc: "Prospective clients judge your credibility in seconds. An outdated design undermines the trust you've spent years building."
+      icon: <Award size={20} />,
+      title: "Your website does not reflect your expertise",
+      desc: "If your website looks outdated or generic, potential clients may question the quality of your business before they ever contact you.",
     },
     {
-      icon: <SearchX size={18} />,
-      title: "Clients Can't Find You on Google",
-      desc: "Without a proper local SEO foundation, the clients searching for your services are finding your competitors instead."
+      icon: <MessageSquareWarning size={20} />,
+      title: "Your message is unclear",
+      desc: "If visitors cannot quickly understand what you do, who you help, and why you are different, they leave and choose someone easier to understand.",
     },
     {
-      icon: <DollarSign size={18} />,
-      title: "Agencies Want $10K–$30K Upfront",
-      desc: "Most agencies charge $10K–$30K just to build your site — before you've seen a single mockup. That's a huge gamble for a practice trying to grow responsibly."
+      icon: <TrendingDown size={20} />,
+      title: "Your site is not converting",
+      desc: "Even if people find your website, weak structure, poor mobile experience, and unclear calls to action can quietly cost you leads every month.",
     },
-    {
-      icon: <Clock size={18} />,
-      title: "Then $300–$800/Month to Keep It Running",
-      desc: "After paying tens of thousands to build it, agencies charge $300–$800/month for hosting and maintenance. You're locked in and paying forever for a site you already paid for."
-    },
-    {
-      icon: <Copy size={18} />,
-      title: "Your Site Looks Like Every Other Practice",
-      desc: "Template platforms make every practice look the same. Your site should reflect your unique expertise — not a cookie-cutter layout."
-    },
-    {
-      icon: <HelpCircle size={18} />,
-      title: "You Don't Know What's Holding You Back",
-      desc: "You know your site isn't converting — but is it the design? The copy? The SEO? You need someone to show you clearly."
-    }
   ];
 
   return (
     <section className="bg-charcoal py-24 px-6 md:px-12 relative overflow-hidden border-t border-gunmetal">
       <div className="max-w-6xl mx-auto">
-        
+
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Sound Familiar?</p>
+          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">The Cost of an Underperforming Website</p>
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
-            Most Practice and Business Owners Know Their Website Needs Work
+            If Your Website Is Underperforming, It Is Costing You More Than You Think.
           </h2>
-          <p className="text-stone text-lg font-sans">
-            They just don't know exactly what's wrong — or how to fix it without spending a fortune.
+          <p className="text-stone text-lg font-sans leading-relaxed">
+            Most business owners know their website needs work, but they are not sure what is wrong, what to fix first, or who to trust to fix it. That uncertainty costs credibility, inquiries, and momentum.
           </p>
         </ScrollReveal>
 
@@ -65,7 +49,7 @@ export function ProblemSection() {
             </div>
           </ScrollReveal>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             {problems.map((prob, i) => (
               <ScrollReveal key={i} delay={i * 0.05}>
                 <div className="flex gap-4 items-start">
@@ -73,10 +57,10 @@ export function ProblemSection() {
                     {prob.icon}
                   </div>
                   <div>
-                    <h3 className="text-offwhite font-sans font-semibold text-base md:text-lg mb-1">
+                    <h3 className="text-offwhite font-sans font-semibold text-base md:text-lg mb-1.5">
                       {prob.title}
                     </h3>
-                    <p className="text-stone font-sans text-sm leading-relaxed">
+                    <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
                       {prob.desc}
                     </p>
                   </div>
@@ -86,13 +70,10 @@ export function ProblemSection() {
           </div>
         </div>
 
-        <ScrollReveal className="text-center mt-14">
-          <p className="text-lg font-sans text-stone mb-5">
-            That's exactly why we review your site for free — so you finally know what to fix.
+        <ScrollReveal className="text-center mt-14 max-w-2xl mx-auto">
+          <p className="text-lg font-sans text-stone leading-relaxed">
+            That is exactly why we start with a free review — so you can see clearly what is helping, what is hurting, and what to fix first.
           </p>
-          <CTAButton href="/get-started">
-            Schedule a Free Consultation
-          </CTAButton>
         </ScrollReveal>
 
       </div>

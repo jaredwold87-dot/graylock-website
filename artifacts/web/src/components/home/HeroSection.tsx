@@ -29,25 +29,27 @@ export function HeroSection() {
         <div className="max-w-2xl">
           <ScrollReveal>
             <h1 className="text-3xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.1] mb-6">
-              Stop Losing Clients to Competitors With{" "}
-              <span className="text-gradient">Better Websites.</span>
+              Your Website Should Build Trust and Bring in Clients —{" "}
+              <span className="text-gradient">Not Send Them to Competitors.</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              We build fully custom websites for private practices, accounting firms, and trust-based local businesses — delivered in 7–10 business days. No long-term contracts.
+              Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and better lead flow.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
               <CTAButton href="/get-started">
                 Schedule Your Free Consultation
               </CTAButton>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <p className="text-stone/80 font-sans text-sm md:text-base mb-8">
+              See what we would improve before you spend a dollar.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
               {[
-                "Free website evaluation — no strings attached",
-                "Custom homepage demo built for your practice",
-                "Full written PDF report yours to keep",
-                "Zero obligation to move forward",
+                "Custom homepage demo before you commit",
+                "No long-term contracts",
               ].map((text, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">

@@ -328,7 +328,6 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileWhoWeHelpOpen, setMobileWhoWeHelpOpen] = useState(false);
-  const [mobileStrategyOpen, setMobileStrategyOpen] = useState(false);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -342,15 +341,11 @@ export function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileWhoWeHelpOpen(false);
-    setMobileStrategyOpen(false);
   }, [location]);
 
   const isWhoWeHelpActive = WHO_WE_HELP_ALL.some((item) => location === item.path);
-  const isStrategyActive =
-    OUR_STRATEGY.some((item) => location === item.path) || location === "/our-strategy";
 
   const navLinks = [
-    { name: "Home", path: "/" },
     { name: "How It Works", path: "/how-it-works" },
   ];
 
@@ -403,13 +398,6 @@ export function Navbar() {
 
               <DesktopMegaMenu
                 isActive={isWhoWeHelpActive}
-                location={location}
-              />
-
-              <DesktopDropdown
-                label="Our Strategy"
-                items={OUR_STRATEGY}
-                isActive={isStrategyActive}
                 location={location}
               />
 
@@ -484,15 +472,6 @@ export function Navbar() {
             location={location}
             open={mobileWhoWeHelpOpen}
             onToggle={() => setMobileWhoWeHelpOpen(!mobileWhoWeHelpOpen)}
-          />
-
-          <MobileAccordion
-            label="Our Strategy"
-            items={OUR_STRATEGY}
-            isActive={isStrategyActive}
-            location={location}
-            open={mobileStrategyOpen}
-            onToggle={() => setMobileStrategyOpen(!mobileStrategyOpen)}
           />
 
           {navLinksAfter.map((link) => (
