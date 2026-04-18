@@ -14,8 +14,15 @@ export function HeroSection() {
         className="absolute inset-0 bg-no-repeat"
         style={{
           backgroundImage: `url(${BASE}hero-bg-devices.png)`,
-          backgroundSize: "100% auto",
-          backgroundPosition: "right top",
+          backgroundSize: "cover",
+          backgroundPosition: "right center",
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden lg:block pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, #0a121e 0%, rgba(10,18,30,0.95) 35%, rgba(10,18,30,0.4) 55%, transparent 70%)",
         }}
       />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
