@@ -164,7 +164,7 @@ export const FAQS = [
       },
       {
         q: "What is the business dashboard, and do all plans include it?",
-        a: "Yes \u2014 all plans include the same dashboard access. Every client gets a private, easy-to-use portal where you can view your website traffic, edit business hours, phone number, and address, manage announcement banners, and submit update requests.\n\nAll plans also include a dedicated account manager, so you always have a real person to reach out to.\n\nCustom plan: Custom dashboard configuration tailored to your specific needs.\n\nThe dashboard puts you in control of your key business information without needing to contact a developer."
+        a: "Yes \u2014 all plans include the same dashboard access. Every client gets a private, easy-to-use portal where you can view your website traffic analytics, track inquiry activity, add and edit your website announcement bar, and submit support requests.\n\nAll plans also include a dedicated account manager, so you always have a real person to reach out to for content updates and anything else.\n\nCustom plan: Custom dashboard configuration tailored to your specific needs."
       }
     ]
   },

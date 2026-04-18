@@ -19,11 +19,11 @@ const homepageFaqs = [
   },
   {
     q: "What is the business dashboard?",
-    a: "It's a simple, private dashboard included with every plan. You can view your website traffic, edit business info, manage announcement banners, and submit update requests. Every plan also includes a dedicated account manager."
+    a: "It's a simple, private dashboard included with every plan. You can view your website traffic analytics, track inquiry activity, add and edit your website announcement bar, and submit support requests. Every plan also includes a dedicated account manager who handles content updates for you."
   },
   {
     q: "Which plans include dashboard access?",
-    a: "All plans include the same dashboard access. Every client gets a private portal to view traffic, edit business info, manage announcements, and submit update requests. All plans also include a dedicated account manager."
+    a: "All plans include the same dashboard access. Every client gets a private portal to view traffic analytics, track inquiry activity, manage their website announcement bar, and submit support requests. All plans also include a dedicated account manager who handles content updates for you."
   },
   {
     q: "What do I own, and what happens if I cancel?",

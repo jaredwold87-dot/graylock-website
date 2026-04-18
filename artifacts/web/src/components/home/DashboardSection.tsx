@@ -1,9 +1,10 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Clock, BarChart3, Send } from "lucide-react";
+import { BarChart3, Inbox, Megaphone, Send } from "lucide-react";
 
 const bullets = [
-  { icon: Clock, text: "Update hours and contact details" },
-  { icon: BarChart3, text: "View traffic and inquiry activity" },
+  { icon: BarChart3, text: "View website traffic analytics" },
+  { icon: Inbox, text: "Track inquiry activity in real time" },
+  { icon: Megaphone, text: "Add and edit your announcement bar" },
   { icon: Send, text: "Submit support requests easily" },
 ];
 
@@ -23,7 +24,7 @@ export function DashboardSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {bullets.map((b, i) => (
               <div key={i} className="bg-charcoal/60 border border-gunmetal rounded-xl p-5 flex flex-col items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-orange/10 flex items-center justify-center border border-orange/10">
