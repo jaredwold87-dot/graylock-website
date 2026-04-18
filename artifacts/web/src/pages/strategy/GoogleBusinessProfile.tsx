@@ -15,11 +15,11 @@ const data: StrategyPageData = {
     url: "https://graylockdigital.com/google-business-profile",
   },
   hero: {
-    h1: "Your Google Business Profile Is Your Most Powerful Free Marketing Tool",
+    h1: "When Locals Search 'Near Me,' Your Practice Should Be the One They Tap.",
     subheadline:
-      "Before a potential client visits your website, they've already seen your Google Business Profile. Reviews, hours, photos, and your location — all of it determines whether they call you or your competitor.",
-    ctaButton: "Schedule a Free Consultation",
-    ctaSubtext: "Free demo + full written report — no obligation.",
+      "Most prospective clients decide who to call before they ever visit your website — based on what they see in Google Maps and the local results pack. We make sure that first impression sells your practice instead of sending them to a competitor.",
+    ctaButton: "Get a Free Local Visibility Review",
+    ctaSubtext: "20-minute review · See where you rank vs. your local competitors · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-gbp.png`,
   },
   definition: {

@@ -23,8 +23,8 @@ const data: StrategyPageData = {
     h1: "AI Is Changing How Clients Find Businesses. Is Yours Showing Up?",
     subheadline:
       "When someone asks ChatGPT, Google AI Overview, or Perplexity for a recommendation, what comes up? GEO is the emerging practice of optimizing your online presence for AI-generated answers — not just traditional search results.",
-    ctaButton: "Schedule a Free Consultation",
-    ctaSubtext: "Free demo + full written report — no obligation.",
+    ctaButton: "Get a Free AI Visibility Check",
+    ctaSubtext: "20-minute review · We'll test what AI tools currently say about your practice · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-geo.png`,
   },
   definition: {

@@ -15,11 +15,11 @@ const data: StrategyPageData = {
     url: "https://graylockdigital.com/funnel-pages",
   },
   hero: {
-    h1: "One Page for Every Way a Client Searches for You",
+    h1: "Every Service. Every Location. Its Own Page That Actually Ranks.",
     subheadline:
-      "Your homepage can't do everything. Funnel pages are the targeted, keyword-specific pages that capture visitors searching for your exact service, in your exact location — and convert them into calls.",
-    ctaButton: "Schedule a Free Consultation",
-    ctaSubtext: "Free demo + full written report — no obligation.",
+      "Your homepage can only rank for so much. The clients you're missing are searching for very specific things — a specific service, in a specific town. Funnel pages capture those searches and turn them into booked appointments.",
+    ctaButton: "Get a Free Funnel-Page Plan",
+    ctaSubtext: "20-minute review · We'll map the exact pages your practice is missing · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-funnel-pages.png`,
   },
   definition: {

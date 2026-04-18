@@ -429,35 +429,59 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-12">
             <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
-              COMMON MISTAKES
+              PROBLEMS WE SOLVE
             </p>
-            <h2 className="text-3xl md:text-4xl font-display text-offwhite">
-              What Goes Wrong — and How We Fix It
+            <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-3">
+              The Costly Pitfalls — Already Handled
             </h2>
+            <p className="text-stone font-sans max-w-2xl mx-auto">
+              These are the issues we see most often on practice websites. Every Graylock build is engineered to avoid them by default.
+            </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[700px]">
-                <thead>
-                  <tr className="border-b border-gunmetal">
-                    <th className="text-left py-4 px-4 text-orange font-sans font-bold text-sm uppercase tracking-wider">Mistake</th>
-                    <th className="text-left py-4 px-4 text-orange font-sans font-bold text-sm uppercase tracking-wider">What It Costs You</th>
-                    <th className="text-left py-4 px-4 text-orange font-sans font-bold text-sm uppercase tracking-wider">How Graylock Fixes It</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.commonMistakes.rows.map((row, i) => (
-                    <tr key={i} className="border-b border-gunmetal/50 hover:bg-navy/30 transition-colors">
-                      <td className="py-4 px-4 text-offwhite font-sans text-sm font-semibold">{row.mistake}</td>
-                      <td className="py-4 px-4 text-stone font-sans text-sm">{row.cost}</td>
-                      <td className="py-4 px-4 text-stone font-sans text-sm">{row.fix}</td>
+          <div className="hidden md:block">
+            <ScrollReveal delay={0.1}>
+              <div className="overflow-x-auto rounded-xl border border-gunmetal">
+                <table className="w-full min-w-[700px]">
+                  <thead>
+                    <tr className="bg-navy/40 border-b border-gunmetal">
+                      <th className="text-left py-4 px-5 text-stone font-sans font-bold text-xs uppercase tracking-wider">Common Pitfall</th>
+                      <th className="text-left py-4 px-5 text-stone font-sans font-bold text-xs uppercase tracking-wider">What It Costs Practices</th>
+                      <th className="text-left py-4 px-5 text-orange font-sans font-bold text-xs uppercase tracking-wider">How Graylock Solves It</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </ScrollReveal>
+                  </thead>
+                  <tbody>
+                    {data.commonMistakes.rows.map((row, i) => (
+                      <tr key={i} className="border-b border-gunmetal/40 last:border-b-0 hover:bg-navy/20 transition-colors">
+                        <td className="py-4 px-5 text-offwhite font-sans text-sm font-semibold align-top">{row.mistake}</td>
+                        <td className="py-4 px-5 text-stone font-sans text-sm align-top">{row.cost}</td>
+                        <td className="py-4 px-5 text-offwhite font-sans text-sm align-top bg-orange/[0.04]">
+                          <span className="inline-flex items-center gap-2">
+                            <Check size={14} className="text-orange flex-shrink-0" /> {row.fix}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="md:hidden space-y-4">
+            {data.commonMistakes.rows.map((row, i) => (
+              <ScrollReveal key={i} delay={i * 0.04}>
+                <div className="bg-navy/40 border border-gunmetal rounded-xl p-5">
+                  <p className="text-offwhite font-sans font-semibold text-sm mb-2">{row.mistake}</p>
+                  <p className="text-stone/80 font-sans text-xs leading-relaxed mb-3">{row.cost}</p>
+                  <div className="flex gap-2 items-start pt-3 border-t border-gunmetal/60">
+                    <Check size={16} className="text-orange flex-shrink-0 mt-0.5" />
+                    <p className="text-offwhite font-sans text-sm leading-snug">{row.fix}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

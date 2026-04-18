@@ -19,8 +19,8 @@ const data: StrategyPageData = {
     h1: "Your Website Is Either Making You Money or Costing You Business",
     subheadline:
       "Most practice websites are digital brochures collecting dust. We design websites built around one goal: turning visitors into calls, bookings, and revenue.",
-    ctaButton: "Schedule a Free Consultation",
-    ctaSubtext: "Free demo + full written report — no obligation.",
+    ctaButton: "Get a Free Homepage Demo",
+    ctaSubtext: "20-minute review · See what your homepage could look like · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-website-design.png`,
   },
   definition: {

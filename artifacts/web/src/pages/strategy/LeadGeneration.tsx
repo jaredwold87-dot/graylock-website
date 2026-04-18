@@ -14,11 +14,11 @@ const data: StrategyPageData = {
     url: "https://graylockdigital.com/lead-generation-for-small-business",
   },
   hero: {
-    h1: "Your Website Should Be Generating Leads Every Single Day",
+    h1: "Getting Traffic but No New Clients? Your Website Is the Bottleneck.",
     subheadline:
-      "A website that doesn't generate leads is just an online brochure. Graylock builds websites with lead generation as the primary goal — the forms, CTAs, content, and tracking to turn visitors into clients.",
-    ctaButton: "Schedule a Free Consultation",
-    ctaSubtext: "Free demo + full written report — no obligation.",
+      "Most practice websites get visitors. Far fewer turn those visitors into calls and bookings. We build the forms, CTAs, tracking, and follow-up paths that close the gap — so the traffic you already have starts paying off.",
+    ctaButton: "Get a Free Lead-Gen Evaluation",
+    ctaSubtext: "20-minute review · Specific fixes you can act on · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-lead-gen.png`,
   },
   definition: {

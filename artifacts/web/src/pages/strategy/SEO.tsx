@@ -18,8 +18,8 @@ const data: StrategyPageData = {
     h1: "Show Up When Your Ideal Clients Are Already Searching for You",
     subheadline:
       "SEO is the difference between a website that sits dormant and one that generates leads while you sleep. Here's how it works — and what Graylock does to make it work for your practice.",
-    ctaButton: "Schedule a Free Consultation",
-    ctaSubtext: "Free demo + full written report — no obligation.",
+    ctaButton: "Get a Free SEO Evaluation",
+    ctaSubtext: "20-minute review · We'll show you what's holding your rankings back · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-seo.png`,
   },
   definition: {
