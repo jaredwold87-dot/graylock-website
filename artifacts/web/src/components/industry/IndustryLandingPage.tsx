@@ -111,15 +111,39 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
       />
 
       <section className="relative bg-charcoal pt-24 pb-20 md:pt-32 md:pb-28 px-6 md:px-12 overflow-hidden">
-        {data.hero.backgroundImage && (
-          <>
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${data.hero.backgroundImage})` }}
-            />
-            <div className="absolute inset-0 bg-charcoal/85" />
-          </>
-        )}
+        {data.hero.backgroundImage && (() => {
+          const src = data.hero.backgroundImage;
+          const base = src.replace(/\.(jpg|jpeg|png)$/i, "");
+          const desktopWebp = `${base}.webp`;
+          const mobileWebp = `${base}-mobile.webp`;
+          const mobileJpg = `${base}-mobile.jpg`;
+          return (
+            <>
+              <picture>
+                <source
+                  type="image/webp"
+                  media="(max-width: 767px)"
+                  srcSet={mobileWebp}
+                />
+                <source
+                  type="image/jpeg"
+                  media="(max-width: 767px)"
+                  srcSet={mobileJpg}
+                />
+                <source type="image/webp" srcSet={desktopWebp} />
+                <img
+                  src={src}
+                  alt=""
+                  aria-hidden="true"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+              </picture>
+              <div className="absolute inset-0 bg-charcoal/85" />
+            </>
+          );
+        })()}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange/5 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
