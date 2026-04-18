@@ -40,7 +40,7 @@ export function ProblemSection() {
           <ScrollReveal>
             <div className="relative">
               <img
-                src={`${BASE}outdated-practice-website.png?v=5`}
+                src={`${BASE}outdated-practice-website.png?v=6`}
                 alt="Example of an outdated practice website"
                 className="w-full h-auto drop-shadow-2xl"
                 loading="lazy"
