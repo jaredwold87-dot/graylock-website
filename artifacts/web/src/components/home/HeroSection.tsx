@@ -6,12 +6,15 @@ const BASE = import.meta.env.BASE_URL;
 
 export function HeroSection() {
   return (
-    <section className="bg-charcoal -mt-16 md:-mt-20 pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden relative">
+    <section
+      className="-mt-16 md:-mt-20 pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden relative"
+      style={{ backgroundColor: "#0a121e" }}
+    >
       <div
         className="absolute inset-0 bg-no-repeat"
         style={{
-          backgroundImage: `url(${BASE}hero-bg-devices.jpg)`,
-          backgroundSize: "auto 75%",
+          backgroundImage: `url(${BASE}hero-bg-devices.png)`,
+          backgroundSize: "100% auto",
           backgroundPosition: "right top",
         }}
       />
