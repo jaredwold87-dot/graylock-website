@@ -12,9 +12,9 @@ const PLAN_FOR_LABELS: Record<string, string> = {
 };
 
 const PLAN_CTA_LABELS: Record<string, string> = {
-  Starter: "Schedule a Free Consultation",
-  Growth: "Schedule a Free Consultation",
-  Scale: "Schedule a Free Consultation",
+  Starter: "Get Started with Starter",
+  Growth: "Get Started with Growth",
+  Scale: "Get Started with Scale",
   Custom: "Schedule a Scoping Call",
 };
 

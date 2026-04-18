@@ -2,6 +2,7 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { CheckCircle2, User, Heart, Handshake, Search, Shield, MapPin, Flag } from "lucide-react";
+import { Link } from "wouter";
 
 export default function About() {
   const values = [
@@ -92,6 +93,19 @@ export default function About() {
               <p className="text-stone font-sans text-sm leading-relaxed">We think of ourselves as part of your team. When you win, we win. It's that simple.</p>
             </ScrollReveal>
           </div>
+
+          <ScrollReveal delay={0.4} className="mt-12 max-w-3xl mx-auto">
+            <div className="bg-charcoal/60 border border-gunmetal rounded-xl p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <p className="text-offwhite font-sans text-base md:text-lg leading-snug">
+                Curious what this looks like in practice?
+              </p>
+              <Link href="/work">
+                <span className="inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-sans font-bold px-6 py-3 rounded-lg whitespace-nowrap cursor-pointer transition-colors">
+                  See Real Transformations →
+                </span>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -132,6 +146,46 @@ export default function About() {
               </p>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="bg-charcoal py-20 px-6 md:px-12 border-t border-gunmetal">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-3">Proof, Not Promises</p>
+            <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-3">What This Looks Like for Real Practices</h2>
+            <p className="text-stone font-sans text-base max-w-2xl mx-auto">A few outcomes from sites we've shipped recently.</p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            {[
+              { stat: "3×", label: "Inquiry form submissions in the first 90 days", who: "Johnson & Associates CPA" },
+              { stat: "−40%", label: "Bounce rate, with new client inquiries weekly", who: "Peaceful Minds Counseling" },
+              { stat: "Page 1", label: "Google ranking on two priority service searches", who: "Westlake Family Law" },
+            ].map((p) => (
+              <div key={p.who} className="bg-navy/60 border border-gunmetal rounded-xl p-6 text-center">
+                <p className="text-orange font-display text-4xl md:text-5xl mb-2">{p.stat}</p>
+                <p className="text-offwhite font-sans text-sm leading-snug mb-3">{p.label}</p>
+                <p className="text-stone/70 font-sans text-xs uppercase tracking-widest">{p.who}</p>
+              </div>
+            ))}
+          </div>
+
+          <ScrollReveal delay={0.2} className="bg-navy/40 border border-gunmetal rounded-2xl p-8 md:p-10">
+            <p className="text-offwhite font-sans text-lg md:text-xl leading-relaxed italic mb-4">
+              "I was dreading the website project — every other quote we got was $15,000+ and three months minimum. Graylock had us live in nine business days, the design feels like a real firm finally, and we are getting inquiries through the site that we simply were not getting before."
+            </p>
+            <p className="text-stone font-sans text-sm uppercase tracking-widest font-semibold">— Practice owner, Johnson & Associates CPA</p>
+          </ScrollReveal>
+
+          <div className="text-center mt-10">
+            <Link href="/get-started">
+              <span className="inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-sans font-bold px-8 py-4 rounded-lg cursor-pointer transition-colors">
+                Get Your Free Evaluation →
+              </span>
+            </Link>
+            <p className="text-stone/60 font-sans text-sm mt-3">No commitment. We'll show you a custom homepage demo.</p>
+          </div>
         </div>
       </section>
 

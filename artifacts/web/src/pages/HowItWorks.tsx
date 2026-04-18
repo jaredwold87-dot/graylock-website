@@ -2,6 +2,7 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
+import { Wrench, MessagesSquare, UserCheck, TrendingUp } from "lucide-react";
 
 export default function HowItWorks() {
   const steps = [
@@ -76,30 +77,40 @@ export default function HowItWorks() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <ScrollReveal delay={0.1} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-2xl font-display text-charcoal mb-4">Total Maintenance</h3>
-              <p className="text-gray-600 font-sans leading-relaxed">
-                We handle all the invisible technical work. Software updates, plugin management, security scans, and uptime monitoring. You never have to log into a complicated dashboard or worry about your site getting hacked.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-2xl font-display text-charcoal mb-4">Easy Change Requests</h3>
-              <p className="text-gray-600 font-sans leading-relaxed">
-                Need to update your team page or change your holiday hours? Just email us. We treat your requests like an internal IT team would. Most content updates are reviewed and completed within 3 business days.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.3} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-2xl font-display text-charcoal mb-4">Dedicated Account Manager</h3>
-              <p className="text-gray-600 font-sans leading-relaxed">
-                Every plan includes a dedicated account manager — a real person who knows your practice and your website. Need to discuss performance, request changes, or ask a question? You have a direct line. No support tickets, no chatbots.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.4} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-2xl font-display text-charcoal mb-4">Ongoing SEO & Performance Monitoring</h3>
-              <p className="text-gray-600 font-sans leading-relaxed">
-                Your dedicated account manager monitors your site's SEO performance and keeps your site competitive in local search results. We also offer a long-term website refresh and strategy review at the 2-year mark — because great websites evolve with your practice.
-              </p>
-            </ScrollReveal>
+            {[
+              {
+                icon: <Wrench className="text-orange" size={22} />,
+                title: "Total Maintenance",
+                desc: "We handle all the invisible technical work. Software updates, plugin management, security scans, and uptime monitoring. You never have to log into a complicated dashboard or worry about your site getting hacked.",
+                delay: 0.1,
+              },
+              {
+                icon: <MessagesSquare className="text-orange" size={22} />,
+                title: "Easy Change Requests",
+                desc: "Need to update your team page or change your holiday hours? Just email us. We treat your requests like an internal IT team would. Most content updates are reviewed and completed within 3 business days.",
+                delay: 0.2,
+              },
+              {
+                icon: <UserCheck className="text-orange" size={22} />,
+                title: "Dedicated Account Manager",
+                desc: "Every plan includes a dedicated account manager — a real person who knows your practice and your website. Need to discuss performance, request changes, or ask a question? You have a direct line. No support tickets, no chatbots.",
+                delay: 0.3,
+              },
+              {
+                icon: <TrendingUp className="text-orange" size={22} />,
+                title: "Ongoing SEO & Performance Monitoring",
+                desc: "Your dedicated account manager monitors your site's SEO performance and keeps your site competitive in local search results. We also offer a long-term website refresh and strategy review at the 2-year mark — because great websites evolve with your practice.",
+                delay: 0.4,
+              },
+            ].map((card) => (
+              <ScrollReveal key={card.title} delay={card.delay} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <div className="w-11 h-11 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center mb-4">
+                  {card.icon}
+                </div>
+                <h3 className="text-2xl font-display text-charcoal mb-4">{card.title}</h3>
+                <p className="text-gray-600 font-sans leading-relaxed">{card.desc}</p>
+              </ScrollReveal>
+            ))}
           </div>
 
           <ScrollReveal delay={0.5} className="bg-orange/5 border border-orange/20 rounded-xl p-8 text-center">
