@@ -38,14 +38,13 @@ export function ProblemSection() {
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <ScrollReveal>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gunmetal/50">
+            <div className="relative">
               <img
-                src={`${BASE}outdated-practice-website.png`}
+                src={`${BASE}outdated-practice-website.png?v=2`}
                 alt="Example of an outdated practice website"
-                className="w-full h-auto"
+                className="w-full h-auto drop-shadow-2xl"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent pointer-events-none" />
             </div>
           </ScrollReveal>
 
