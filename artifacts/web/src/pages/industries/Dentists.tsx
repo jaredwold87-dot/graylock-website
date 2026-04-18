@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Patients Choose Their Dentist Online.",
     h1Highlight: "What Does Your Website Say About You?",
     subheadline:
-      "When someone moves to a new city or loses their dentist, the first thing they do is Google it. If your website looks outdated, loads slowly, or doesn't show up at all — they're booking with the practice that does. We build custom, SEO-optimized websites for dental practices that turn searches into scheduled appointments. Fully managed — so you can focus on your patients.",
-    cta: "Get a Free Dental Website Review",
+      "New patients in your area Google a dentist before they call one. An outdated, slow, or invisible site sends them to the practice down the street. We build SEO-optimized dental sites that turn searches into scheduled appointments — fully managed, so you can focus on your patients.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -57,7 +57,7 @@ const data: IndustryPageData = {
   },
   painPoints: {
     sectionLabel: "SOUND FAMILIAR?",
-    headline: "Every Day Your Website Underperforms, You're Losing Patients to the Practice Down the Street",
+    headline: "Every Day Your Site Underperforms, New Patients Book the Practice Down the Street",
     image: `${import.meta.env.BASE_URL}outdated-practice-website.png`,
     cards: [
       {
@@ -112,51 +112,6 @@ const data: IndustryPageData = {
         title: "Fully Managed — You Focus on Patients",
         description:
           "Hosting, updates, SEO, and support all included. One new patient appointment covers months of service.",
-      },
-    ],
-  },
-  features: {
-    headline: "Everything Your Dental Website Includes",
-    items: [
-      {
-        icon: Smile,
-        title: "Service & Procedure Pages",
-        description: "Each dental service gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Provider Bio Pages",
-        description: "Professional bios with credentials, education, and treatment philosophy.",
-      },
-      {
-        icon: FileText,
-        title: "Patient Inquiry Forms",
-        description: "Appointment request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Payment Info",
-        description: "Clearly communicate accepted insurance and financing options.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your practice appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for dental + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Patient Testimonials Section",
-        description: "Showcase reviews and success stories from satisfied patients.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional on every device your patients use to find you.",
       },
     ],
   },
@@ -228,6 +183,7 @@ const data: IndustryPageData = {
       a: "Every Graylock site includes a local SEO foundation. Growth and Scale plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'dentist near me' and procedure-specific searches in your area.",
     },
   ],
+  pricingHeadline: "Pricing That Scales From Solo Dentist to Multi-Location DSO",
   bottomCta: {
     headline: "New Patients Are Searching for a Dentist in Your Area Right Now",
     subtext:

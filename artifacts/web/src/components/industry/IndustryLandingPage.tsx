@@ -43,10 +43,6 @@ export interface IndustryPageData {
     headline: string;
     tags: string[];
   };
-  features?: {
-    headline: string;
-    items: { icon: LucideIcon; title: string; description: string }[];
-  };
   process: {
     headline: string;
     steps: { title: string; description: string }[];
@@ -92,6 +88,12 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+const TIER_STAGE_LABELS: Record<string, string> = {
+  Starter: "Best for solo practitioners",
+  Growth: "Best for growing teams",
+  Scale: "Best for multi-location practices",
+};
+
 export default function IndustryLandingPage({ data }: { data: IndustryPageData }) {
   const pricingTiers = PRICING_TIERS.filter((t) => !t.isCustom).slice(0, 3);
 
@@ -118,8 +120,7 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
             <div className="absolute inset-0 bg-charcoal/85" />
           </>
         )}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/3 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange/5 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
           <ScrollReveal>
@@ -159,50 +160,45 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <div className="relative w-full max-w-lg mx-auto">
-              <div className="grid grid-cols-2 gap-4">
-                {data.hero.trustSignals.length > 0 && (
-                  <>
-                    <div className="bg-navy/80 border border-gunmetal rounded-xl p-6 text-center">
-                      <div className="text-3xl font-display text-orange font-bold mb-1">7–10</div>
-                      <div className="text-offwhite/70 text-xs font-sans uppercase tracking-wider">Day Build</div>
-                    </div>
-                    <div className="bg-navy/80 border border-gunmetal rounded-xl p-6 text-center">
-                      <div className="text-3xl font-display text-orange font-bold mb-1">SEO</div>
-                      <div className="text-offwhite/70 text-xs font-sans uppercase tracking-wider">Built In</div>
-                    </div>
-                    <div className="bg-navy/80 border border-gunmetal rounded-xl p-6 text-center">
-                      <div className="text-3xl font-display text-orange font-bold mb-1">100%</div>
-                      <div className="text-offwhite/70 text-xs font-sans uppercase tracking-wider">US Team</div>
-                    </div>
-                    <div className="bg-navy/80 border border-gunmetal rounded-xl p-6 text-center">
-                      <div className="text-3xl font-display text-orange font-bold mb-1">Free</div>
-                      <div className="text-offwhite/70 text-xs font-sans uppercase tracking-wider">Demo First</div>
-                    </div>
-                  </>
-                )}
+            <div className="relative w-full max-w-md mx-auto bg-navy/70 border border-gunmetal rounded-2xl p-8">
+              <div className="flex items-center gap-2 mb-5 pb-5 border-b border-gunmetal">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} className="text-orange fill-orange" />
+                  ))}
+                </div>
+                <span className="text-offwhite/80 font-sans text-xs uppercase tracking-wider">
+                  Trusted by US practices
+                </span>
               </div>
-              <div className="absolute -inset-4 bg-orange/10 rounded-2xl blur-2xl -z-10" />
+              <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+                <div>
+                  <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
+                    7–10
+                  </div>
+                  <div className="text-offwhite/70 text-xs font-sans">Business days to launch</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
+                    $0
+                  </div>
+                  <div className="text-offwhite/70 text-xs font-sans">Up front before your demo</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
+                    100%
+                  </div>
+                  <div className="text-offwhite/70 text-xs font-sans">US-based, fully managed</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
+                    0
+                  </div>
+                  <div className="text-offwhite/70 text-xs font-sans">Long-term contracts</div>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
-        </div>
-      </section>
-
-      <section className="bg-navy py-6 border-y border-gunmetal">
-        <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-x-10 gap-y-3">
-          {[
-            { value: "7–10", label: "Business Days to Launch" },
-            { value: "$0", label: "Upfront Before Your Demo" },
-            { value: "100%", label: "US-Based Team" },
-            { value: "0", label: "Long-Term Contracts" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex items-center gap-3 py-2">
-              <span className="text-orange font-display text-2xl md:text-3xl font-bold">
-                {stat.value}
-              </span>
-              <span className="text-offwhite/70 font-sans text-sm">{stat.label}</span>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -276,12 +272,15 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
           </div>
 
           <ScrollReveal className="text-center mt-14">
-            <p className="text-stone font-sans text-lg mb-5">
-              That's exactly why we review your site for free — so you finally know what to fix.
+            <p className="text-stone font-sans text-lg">
+              That's exactly why we review your site for free — so you finally know what to fix.{" "}
+              <Link
+                href="/get-started"
+                className="text-orange font-semibold hover:underline inline-flex items-center gap-1"
+              >
+                See the fix <ArrowRight size={14} />
+              </Link>
             </p>
-            <CTAButton href="/get-started" className="px-8 py-4">
-              {data.hero.cta}
-            </CTAButton>
           </ScrollReveal>
         </div>
       </section>
@@ -292,9 +291,12 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
             <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
               WHY GRAYLOCK
             </p>
-            <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A]">
+            <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] mb-4">
               {data.benefits.headline}
             </h2>
+            <p className="text-[#4A4A4A] font-sans text-base md:text-lg max-w-2xl mx-auto">
+              The outcomes practices like yours actually get when their site is built right.
+            </p>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -319,48 +321,13 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
         </div>
       </section>
 
-      {data.features && (
-        <section className="bg-charcoal py-20 md:py-28 px-6 md:px-12">
-          <div className="max-w-6xl mx-auto">
-            <ScrollReveal className="text-center mb-16">
-              <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
-                WHAT&apos;S INCLUDED
-              </p>
-              <h2 className="text-3xl md:text-4xl font-display text-offwhite">
-                {data.features.headline}
-              </h2>
-            </ScrollReveal>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {data.features.items.map((item, i) => (
-                <ScrollReveal key={i} delay={i * 0.04}>
-                  <div className="flex gap-4 bg-navy/50 border border-gunmetal rounded-xl p-5 hover:border-orange/30 transition-all duration-300">
-                    <div className="flex-shrink-0 w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center">
-                      <item.icon size={20} className="text-orange" />
-                    </div>
-                    <div>
-                      <h3 className="text-offwhite font-sans font-semibold mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-stone font-sans text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      <section className={`${data.features ? "bg-[#F5F5F5]" : "bg-charcoal"} py-20 md:py-28 px-6 md:px-12`}>
+      <section className="bg-charcoal py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <p className={`text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3`}>
+            <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
               HOW IT WORKS
             </p>
-            <h2 className={`text-3xl md:text-5xl font-display ${data.features ? "text-[#1A1A1A]" : "text-offwhite"}`}>
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite">
               {data.process.headline}
             </h2>
           </ScrollReveal>
@@ -375,10 +342,10 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
                   {i < data.process.steps.length - 1 && (
                     <div className="hidden md:block absolute top-7 left-[calc(50%+28px)] w-[calc(100%-56px)] h-0.5 bg-orange/20" />
                   )}
-                  <h3 className={`font-sans font-bold text-lg mb-2 ${data.features ? "text-[#1A1A1A]" : "text-offwhite"}`}>
+                  <h3 className="font-sans font-bold text-lg mb-2 text-offwhite">
                     {step.title}
                   </h3>
-                  <p className={`font-sans text-sm leading-relaxed ${data.features ? "text-[#4A4A4A]" : "text-stone"}`}>
+                  <p className="font-sans text-sm leading-relaxed text-stone">
                     {step.description}
                   </p>
                 </div>
@@ -388,13 +355,13 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
         </div>
       </section>
 
-      <section className={`${data.features ? "bg-charcoal" : "bg-[#F5F5F5]"} py-20 md:py-28 px-6 md:px-12`}>
+      <section className="bg-[#F5F5F5] py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-16">
             <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
               SIMPLE PRICING
             </p>
-            <h2 className={`text-3xl md:text-5xl font-display ${data.features ? "text-offwhite" : "text-[#1A1A1A]"}`}>
+            <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A]">
               {data.pricingHeadline || "Simple, Transparent Pricing — Everything Included"}
             </h2>
           </ScrollReveal>
@@ -406,9 +373,7 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
                   className={`rounded-xl p-6 border h-full flex flex-col ${
                     tier.popular
                       ? "border-orange bg-orange/5 ring-1 ring-orange/30"
-                      : data.features
-                        ? "border-gunmetal bg-navy/50"
-                        : "border-gray-200 bg-white"
+                      : "border-gray-200 bg-white"
                   }`}
                 >
                   {tier.popular && (
@@ -416,23 +381,30 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
                       Most Popular
                     </div>
                   )}
-                  <h3 className={`font-display text-2xl mb-1 ${data.features ? "text-offwhite" : "text-[#1A1A1A]"}`}>
+                  <h3 className="font-display text-2xl mb-1 text-[#1A1A1A]">
                     {tier.name}
                   </h3>
+                  {TIER_STAGE_LABELS[tier.name] && (
+                    <p className={`text-xs font-sans font-semibold uppercase tracking-wider mb-3 ${
+                      tier.popular ? "text-orange" : "text-[#4A4A4A]"
+                    }`}>
+                      {TIER_STAGE_LABELS[tier.name]}
+                    </p>
+                  )}
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className={`text-3xl font-display font-bold ${data.features ? "text-offwhite" : "text-[#1A1A1A]"}`}>
+                    <span className="text-3xl font-display font-bold text-[#1A1A1A]">
                       {tier.price}
                     </span>
-                    <span className={`text-sm ${data.features ? "text-stone" : "text-[#4A4A4A]"}`}>/mo</span>
+                    <span className="text-sm text-[#4A4A4A]">/mo</span>
                   </div>
-                  <p className={`text-xs mb-4 ${data.features ? "text-stone" : "text-[#4A4A4A]"}`}>
+                  <p className="text-xs mb-4 text-[#4A4A4A]">
                     {tier.setup}
                   </p>
                   <ul className="space-y-2 mb-6 flex-1">
                     {tier.features.slice(0, 5).map((f) => (
                       <li key={f} className="flex items-start gap-2">
                         <Check size={14} className="text-orange flex-shrink-0 mt-0.5" />
-                        <span className={`text-sm ${data.features ? "text-stone" : "text-[#4A4A4A]"}`}>{f}</span>
+                        <span className="text-sm text-[#4A4A4A]">{f}</span>
                       </li>
                     ))}
                   </ul>

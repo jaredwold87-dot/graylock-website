@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Your Expertise Is World-Class.",
     h1Highlight: "Your Website Should Match.",
     subheadline:
-      "Patients searching for a dermatologist judge your competence by your website before they ever walk through your door. A dated site with stock photos and generic copy doesn't reflect the care you provide. We build modern, SEO-optimized websites for dermatology practices that attract the right patients and convert searches into consultations. Fully managed — so you can focus on patient care.",
-    cta: "Get a Free Dermatology Website Review",
+      "Patients judge your competence by your website long before they walk in. We build modern, SEO-optimized dermatology sites that attract the right patients and convert searches into consultations — fully managed, so you can focus on care.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -112,51 +112,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  features: {
-    headline: "Everything Your Dermatology Website Includes",
-    items: [
-      {
-        icon: Sparkles,
-        title: "Service & Procedure Pages",
-        description: "Each treatment and service gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Provider Bio Pages",
-        description: "Professional bios with board certifications, training, and specialties.",
-      },
-      {
-        icon: FileText,
-        title: "Patient Inquiry Forms",
-        description: "Consultation request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Payment Info",
-        description: "Clearly communicate accepted insurance and cosmetic pricing.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your practice appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for dermatology + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Patient Testimonials Section",
-        description: "Showcase reviews and success stories from satisfied patients.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional on every device your patients use to find you.",
-      },
-    ],
-  },
   process: {
     headline: "From Consultation to Live Dermatology Website",
     steps: [
@@ -217,14 +172,15 @@ const data: IndustryPageData = {
       a: "We can build a gallery or results section into your site. You provide the images (with patient consent), and we display them professionally. This is especially valuable for cosmetic services like Botox, fillers, and laser treatments.",
     },
     {
-      q: "How long does it take to build a dermatology website?",
-      a: "7–10 business days on average from when you approve the plan and pay the setup fee. The process requires minimal time from you.",
+      q: "How long does it take to launch a new dermatology site?",
+      a: "Most practices go live in 7–10 business days from kickoff. We do the heavy lifting — copy, design, SEO, image selection — so you usually spend under an hour total reviewing drafts.",
     },
     {
       q: "Will my site rank for procedure-specific searches?",
       a: "Every service gets its own dedicated page optimized for relevant keywords. Combined with local SEO, this helps you show up for searches like 'Botox in [city]' or 'dermatologist near me' — the searches that actually bring in new patients.",
     },
   ],
+  pricingHeadline: "Pricing Built for Solo Derms and Multi-Provider Practices",
   bottomCta: {
     headline: "Patients Are Searching for a Dermatologist in Your Area Right Now",
     subtext:

@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Your Patients Trust You With Their Vision.",
     h1Highlight: "Your Website Should Earn That Trust First.",
     subheadline:
-      "Patients considering LASIK, cataract surgery, or any eye procedure research extensively online before choosing a surgeon. If your website doesn't communicate your expertise, credentials, and results — they'll schedule a consultation with the ophthalmologist whose site does. We build authoritative, SEO-optimized websites for ophthalmology practices. Fully managed — so you can focus on your patients.",
-    cta: "Get a Free Ophthalmology Website Review",
+      "Patients considering LASIK, cataract, or any eye procedure research surgeons heavily before they ever book. If your site doesn't convey your expertise, credentials, and outcomes, they'll consult the surgeon whose site does. We build authoritative, SEO-optimized ophthalmology sites — fully managed, so you can focus on patient care.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -112,51 +112,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  features: {
-    headline: "Everything Your Ophthalmology Website Includes",
-    items: [
-      {
-        icon: Eye,
-        title: "Procedure & Service Pages",
-        description: "Each surgical procedure and service gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Surgeon Bio Pages",
-        description: "Professional bios with credentials, fellowship, and surgical expertise.",
-      },
-      {
-        icon: FileText,
-        title: "Consultation Request Forms",
-        description: "Capture surgical consultation inquiries 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Financing Info",
-        description: "Clearly communicate accepted insurance and financing options for elective procedures.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your practice appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for ophthalmology + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Patient Testimonials Section",
-        description: "Showcase reviews and outcomes from patients whose vision you've restored.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional on every device your patients use to research surgeons.",
-      },
-    ],
-  },
   process: {
     headline: "From Consultation to Live Ophthalmology Website",
     steps: [
@@ -225,6 +180,7 @@ const data: IndustryPageData = {
       a: "Yes. We can build sections highlighting your surgical technology, diagnostic equipment, and facility features. For ophthalmology patients, seeing that you invest in advanced technology is a major trust signal.",
     },
   ],
+  pricingHeadline: "Pricing for Solo Surgeons and Multi-Location Surgery Centers",
   bottomCta: {
     headline: "Patients Are Researching Eye Surgeons in Your Area Right Now",
     subtext:

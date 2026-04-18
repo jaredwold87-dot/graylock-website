@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Patients Don't Know They Need PT.",
     h1Highlight: "Until They Google Their Pain.",
     subheadline:
-      "When someone's knee aches or their back won't stop hurting, they Google their symptoms — not 'physical therapist.' If your website doesn't show up for those searches and clearly explain how you can help, they'll end up at someone else's clinic. We build SEO-optimized websites for physical therapy practices that turn pain-driven searches into booked evaluations. Fully managed — so you can focus on patient outcomes.",
-    cta: "Get a Free PT Practice Website Review",
+      "Patients in pain Google symptoms, not specialties — and book with the PT clinic that shows up first and clearly explains the fix. We build SEO-optimized PT sites that turn those pain-driven searches into booked evaluations, and we run the site for you so you stay focused on outcomes. Every engagement starts with a free demo of your homepage — before you pay a cent.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -114,51 +114,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  features: {
-    headline: "Everything Your Physical Therapy Website Includes",
-    items: [
-      {
-        icon: Dumbbell,
-        title: "Service & Specialty Pages",
-        description: "Each treatment area gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Therapist Bio Pages",
-        description: "Professional bios with credentials, certifications, and areas of expertise.",
-      },
-      {
-        icon: FileText,
-        title: "Patient Inquiry Forms",
-        description: "Evaluation request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Payment Info",
-        description: "Clearly communicate accepted insurance plans and payment options.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your clinic appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for physical therapy + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Patient Testimonials Section",
-        description: "Showcase recovery stories and outcomes from patients you've helped.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional on every device your patients use to find you.",
-      },
-    ],
-  },
   process: {
     headline: "From Consultation to Live PT Website",
     steps: [
@@ -227,6 +182,7 @@ const data: IndustryPageData = {
       a: "Yes. A professional, well-organized website builds confidence with referring physicians, orthopedic surgeons, and other providers. Many of our PT clients report that their referral sources mention the website as a factor in their confidence to refer.",
     },
   ],
+  pricingHeadline: "Pricing for Solo PTs and Growing Multi-Therapist Clinics",
   bottomCta: {
     headline: "Patients Are Searching for Physical Therapy in Your Area Right Now",
     subtext:

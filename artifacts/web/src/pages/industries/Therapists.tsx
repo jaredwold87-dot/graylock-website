@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Asking for Help Is the Hardest Part.",
     h1Highlight: "Your Website Should Make It Easier.",
     subheadline:
-      "When someone finally decides to look for a therapist, they're already anxious. If your website feels cold, confusing, or generic, they won't reach out — they'll keep scrolling. We build warm, professional, SEO-optimized websites for therapists and counselors that help the right clients find you and feel safe enough to make that first call. Fully managed — so you can focus on your clients.",
-    cta: "Get a Free Therapy Website Review",
+      "Anyone searching for a therapist is already anxious. A cold, confusing, or generic site costs you the first call. We build warm, SEO-optimized sites for therapists and counselors that help the right clients find you and feel safe reaching out — fully managed, so you stay focused on your clients.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -115,51 +115,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  features: {
-    headline: "Everything Your Therapy Website Includes",
-    items: [
-      {
-        icon: HeartHandshake,
-        title: "Specialty & Service Pages",
-        description: "Each area of practice gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Therapist Bio Pages",
-        description: "Warm, professional bios with credentials, approach, and personal style.",
-      },
-      {
-        icon: FileText,
-        title: "Client Inquiry Forms",
-        description: "Contact and consultation request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Rates Section",
-        description: "Clearly communicate accepted insurance, out-of-network policies, and session rates.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your practice appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for therapy + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Client Testimonials Section",
-        description: "Showcase reviews and recommendations that build trust with prospective clients.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Warm and professional on every device clients use to find you.",
-      },
-    ],
-  },
   process: {
     headline: "From Consultation to Live Therapy Website",
     steps: [
@@ -228,6 +183,7 @@ const data: IndustryPageData = {
       a: "That's one of the biggest benefits. A well-optimized website gives you your own source of client inquiries — one you own and control. Many of our therapist clients reduce or eliminate directory spending after their site starts ranking.",
     },
   ],
+  pricingHeadline: "Pricing for Solo Therapists and Group Practices",
   bottomCta: {
     headline: "Someone Is Searching for a Therapist in Your Area Right Now",
     subtext:

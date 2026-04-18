@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Patients Pick Their Eye Doctor Online.",
     h1Highlight: "Are They Picking You?",
     subheadline:
-      "When someone needs a new eye doctor — whether for an annual exam, contact lens fitting, or something more urgent — they Google it. If your practice doesn't show up or your website looks like it belongs to a different decade, they're booking with the optometrist whose site does. We build modern, SEO-optimized websites for optometry practices. Fully managed — so you can focus on patient care.",
-    cta: "Get a Free Optometry Website Review",
+      "New patients find their eye doctor through Google. If your site doesn't show up — or doesn't look current when they land on it — they book with the practice whose site does. We build modern, SEO-optimized optometry sites and fully manage them, so you stay focused on patient care.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -112,51 +112,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  features: {
-    headline: "Everything Your Optometry Website Includes",
-    items: [
-      {
-        icon: Glasses,
-        title: "Service & Specialty Pages",
-        description: "Each service area gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Provider Bio Pages",
-        description: "Professional bios with credentials, certifications, and areas of focus.",
-      },
-      {
-        icon: FileText,
-        title: "Patient Inquiry Forms",
-        description: "Appointment request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Vision Plans",
-        description: "Clearly communicate accepted insurance and vision plans.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your practice appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for optometry + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Patient Testimonials Section",
-        description: "Showcase reviews and recommendations from satisfied patients.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional on every device your patients use to find you.",
-      },
-    ],
-  },
   process: {
     headline: "From Consultation to Live Optometry Website",
     steps: [
@@ -225,6 +180,7 @@ const data: IndustryPageData = {
       a: "Every Graylock site includes a local SEO foundation. Growth and Scale plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'optometrist near me' and 'eye exam in [city]' searches.",
     },
   ],
+  pricingHeadline: "Pricing for Solo ODs and Multi-Location Optometry Groups",
   bottomCta: {
     headline: "New Patients Are Searching for an Eye Doctor in Your Area Right Now",
     subtext:

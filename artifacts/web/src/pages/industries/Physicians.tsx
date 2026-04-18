@@ -27,7 +27,7 @@ const data: IndustryPageData = {
     h1: "Your Patients' First Impression Isn't in Your Office.",
     h1Highlight: "It's on Your Website.",
     subheadline:
-      "Before a patient ever walks through your door, they've already Googled you, read reviews, and visited your website. If your site looks outdated or generic, they move on to the next physician in the search results. We build professional, SEO-optimized websites for physicians and medical practices that convert online searches into new patient appointments. Fully managed — so you can focus on patient care.",
+      "Patients vet you online before they ever call. An outdated or generic site sends them to the next physician in the search results. We build SEO-optimized medical practice sites that convert searches into appointments — fully managed, so you stay focused on patient care.",
     cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
@@ -115,51 +115,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  features: {
-    headline: "Everything Your Medical Practice Website Includes",
-    items: [
-      {
-        icon: Stethoscope,
-        title: "Service & Specialty Pages",
-        description: "Each service area gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Provider Bio Pages",
-        description: "Professional bios with board certifications, education, and clinical approach.",
-      },
-      {
-        icon: FileText,
-        title: "Patient Inquiry Forms",
-        description: "Appointment request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Payment Info",
-        description: "Clearly communicate accepted insurance plans and payment policies.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your practice appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for medical + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Patient Testimonials Section",
-        description: "Showcase reviews and recommendations from satisfied patients.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional on every device your patients use to find you.",
-      },
-    ],
-  },
   process: {
     headline: "From Consultation to Live Medical Website",
     steps: [
@@ -228,6 +183,7 @@ const data: IndustryPageData = {
       a: "Our inquiry forms collect contact information only — name, phone, email, and a brief message about what they're looking for. This is how most physician practice websites handle initial contact.\n\nIf you use a HIPAA-compliant platform like SimplePractice, TherapyNotes, or Jane App for intake, we link directly to those portals from your website. Your marketing site handles the first impression; your clinical tools handle everything after that.",
     },
   ],
+  pricingHeadline: "Pricing for Solo Physicians and Multi-Provider Practices",
   bottomCta: {
     headline: "New Patients Are Searching for a Doctor in Your Area Right Now",
     subtext:

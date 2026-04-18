@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Your Clients Trust You With Their Finances.",
     h1Highlight: "Does Your Website Earn That Same Trust?",
     subheadline:
-      "When a business owner searches for a new CPA, your website is your first impression — and for most accounting firms, it's the weakest link. We build sharp, professional websites for CPAs and accounting firms that rank locally, showcase your expertise, and make it easy for prospects to reach out. Fully managed — so you can focus on your clients.",
-    cta: "Get a Free Accounting Firm Website Review",
+      "For most accounting firms, the website is the weakest link in the new-client pipeline. We build sharp, locally-ranked sites for CPAs that showcase your expertise and make it easy for prospects to reach out — and we run the whole thing for you, end to end. You stay focused on clients.",
+    cta: "Get a Free Firm Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-accountants.jpg`,
     trustSignals: [
@@ -128,51 +128,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  features: {
-    headline: "Everything Your Accounting Firm Website Includes",
-    items: [
-      {
-        icon: FileText,
-        title: "Services Pages",
-        description: "Tax, bookkeeping, payroll, advisory — each with its own dedicated page.",
-      },
-      {
-        icon: Users,
-        title: "Team Bio Pages",
-        description: "Individual pages for each partner and team member with credentials.",
-      },
-      {
-        icon: Phone,
-        title: "Contact & Appointment Forms",
-        description: "Client inquiry and appointment request forms built in.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so you appear in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for your firm + city searches from day one.",
-      },
-      {
-        icon: BarChart3,
-        title: "Client Testimonials Section",
-        description: "Showcase reviews and social proof from satisfied clients.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Secure Inquiry Forms",
-        description: "Professional, secure forms for client communications.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Looks sharp on every device your clients use.",
-      },
-    ],
-  },
   process: {
     headline: "From Call to Live in Days, Not Months",
     steps: [
@@ -245,6 +200,7 @@ const data: IndustryPageData = {
       a: "Our standard plans don't include a document portal, but our Scale and Custom plans can include secure inquiry forms and we can discuss integration options on a Custom plan.",
     },
   ],
+  pricingHeadline: "Pricing Built for Solo CPAs and Multi-Partner Firms",
   bottomCta: {
     headline: "Stop Sending Prospects to a Website That Undersells Your Expertise",
     subtext:

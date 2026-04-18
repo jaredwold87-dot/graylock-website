@@ -24,11 +24,11 @@ const data: IndustryPageData = {
   hero: {
     badge: "For Veterinarians",
     badgeIcon: PawPrint,
-    h1: "Pet Owners Choose Their Vet Online.",
-    h1Highlight: "What Does Your Website Say About Your Practice?",
+    h1: "When Their Pet Needs Help,",
+    h1Highlight: "Pet Owners Pick the First Vet They Trust Online.",
     subheadline:
-      "When someone moves to a new area or their pet needs care, the first thing they do is Google 'vet near me.' If your website looks outdated, doesn't showcase your services, or doesn't let them request an appointment — they're calling the animal hospital down the road instead. We build modern, SEO-optimized websites for veterinary practices that turn pet owners into loyal clients. Fully managed — so you can focus on animal care.",
-    cta: "Get a Free Veterinary Website Review",
+      "If your site doesn't show up — or doesn't let them request an appointment in the moment — they're calling the animal hospital down the road. We build modern, SEO-optimized vet sites that turn worried pet owners into loyal clients, fully managed so you can focus on animal care.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -36,23 +36,6 @@ const data: IndustryPageData = {
       "Online appointment requests",
       "Local SEO included",
       "Fully managed for you",
-    ],
-  },
-  specialties: {
-    headline: "Veterinary Websites for Every Type of Practice",
-    tags: [
-      "General Veterinary",
-      "Emergency & Critical Care",
-      "Veterinary Surgery",
-      "Veterinary Dentistry",
-      "Dermatology",
-      "Internal Medicine",
-      "Oncology",
-      "Exotic Animal Care",
-      "Equine Veterinary",
-      "Mobile Veterinary",
-      "Holistic & Integrative",
-      "Behavioral Medicine",
     ],
   },
   painPoints: {
@@ -111,51 +94,6 @@ const data: IndustryPageData = {
         title: "Fully Managed — You Focus on Animal Care",
         description:
           "Hosting, updates, SEO, and support all included. One new pet owner visit covers months of service.",
-      },
-    ],
-  },
-  features: {
-    headline: "Everything Your Veterinary Website Includes",
-    items: [
-      {
-        icon: PawPrint,
-        title: "Service & Specialty Pages",
-        description: "Each service area gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Doctor Bio Pages",
-        description: "Professional bios for each veterinarian with credentials and specialties.",
-      },
-      {
-        icon: FileText,
-        title: "Appointment Request Forms",
-        description: "Online appointment request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "New Client Information",
-        description: "Clearly communicate what new clients need to know — forms, policies, and what to bring.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your practice appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for veterinary + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Client Testimonials Section",
-        description: "Showcase reviews from pet owners who trust you with their animals' care.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional on every device pet owners use to find you.",
       },
     ],
   },
@@ -227,6 +165,7 @@ const data: IndustryPageData = {
       a: "Yes — and we strongly encourage it. Pet owners want to see your clinic, meet your doctors, and get a feel for the environment before bringing their pet in. We'll work the photos you provide into a professional, polished design.",
     },
   ],
+  pricingHeadline: "Pricing for Solo Vets and Multi-Location Animal Hospitals",
   bottomCta: {
     headline: "Pet Owners Are Searching for a Vet in Your Area Right Now",
     subtext:

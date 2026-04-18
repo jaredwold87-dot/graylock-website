@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Patients Don't Pick the Best Chiropractor.",
     h1Highlight: "They Pick the One They Find First.",
     subheadline:
-      "When someone's back goes out at 9pm, they Google 'chiropractor near me' — not your name. If your website doesn't show up or doesn't look credible when they find it, that new patient walks into someone else's office. We build professional, SEO-optimized websites for chiropractors that convert searches into booked appointments. Fully managed — so you can focus on patient care.",
-    cta: "Get a Free Chiropractic Website Review",
+      "When someone's back goes out at 9pm, they Google 'chiropractor near me' — not your name. If your site doesn't show up (or doesn't look credible), that new patient walks into someone else's office. We build SEO-optimized chiropractic sites that turn searches into booked appointments — fully managed, so you can focus on patient care.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -55,7 +55,7 @@ const data: IndustryPageData = {
   },
   painPoints: {
     sectionLabel: "SOUND FAMILIAR?",
-    headline: "Every Day Your Website Underperforms, You're Losing Patients to the Clinic Down the Street",
+    headline: "Every Day Your Site Underperforms, New Patients Book the Clinic Down the Street",
     cards: [
       {
         icon: Eye,
@@ -109,51 +109,6 @@ const data: IndustryPageData = {
         title: "Fully Managed — You Focus on Patients",
         description:
           "Hosting, updates, SEO, and support all included. One new patient covers months of service.",
-      },
-    ],
-  },
-  features: {
-    headline: "Everything Your Chiropractic Website Includes",
-    items: [
-      {
-        icon: Bone,
-        title: "Service & Technique Pages",
-        description: "Each adjustment type and service gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Provider Bio Pages",
-        description: "Professional bios with credentials, certifications, and treatment philosophy.",
-      },
-      {
-        icon: FileText,
-        title: "Patient Inquiry Forms",
-        description: "Appointment request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Payment Info",
-        description: "Clearly communicate accepted insurance plans and payment options.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your clinic appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for chiropractic + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Patient Testimonials Section",
-        description: "Showcase reviews and success stories from patients who found relief.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional on every device your patients use to find you.",
       },
     ],
   },
@@ -225,6 +180,7 @@ const data: IndustryPageData = {
       a: "Every Graylock site includes a local SEO foundation. Growth and Scale plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'chiropractor near me' and 'back pain relief' searches in your area.",
     },
   ],
+  pricingHeadline: "Pricing for Solo Practitioners and Multi-Location Clinics",
   bottomCta: {
     headline: "New Patients Are Searching for a Chiropractor in Your Area Right Now",
     subtext:

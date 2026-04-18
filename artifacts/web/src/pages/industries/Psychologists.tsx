@@ -27,8 +27,8 @@ const data: IndustryPageData = {
     h1: "Finding a Psychologist Is Hard Enough.",
     h1Highlight: "Your Website Shouldn't Make It Harder.",
     subheadline:
-      "When someone finally decides to reach out to a psychologist, they need to feel safe, understood, and confident before they ever pick up the phone. If your website is clinical, impersonal, or hard to navigate, they'll keep searching. We build warm, professional, SEO-optimized websites for psychologists that make it easy for the right clients to find you and feel comfortable reaching out. Fully managed — so you can focus on your clients.",
-    cta: "Get a Free Psychology Practice Review",
+      "Clients need to feel safe before they pick up the phone. A cold or confusing site costs you the inquiry. We build warm, SEO-optimized psychology sites — fully managed — that make it easy for the right clients to find you and reach out.",
+    cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
@@ -114,51 +114,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  features: {
-    headline: "Everything Your Psychology Website Includes",
-    items: [
-      {
-        icon: Brain,
-        title: "Service & Specialty Pages",
-        description: "Each area of practice gets its own SEO-optimized page.",
-      },
-      {
-        icon: UserCheck,
-        title: "Provider Bio Pages",
-        description: "Professional bios with credentials, approach, and areas of expertise.",
-      },
-      {
-        icon: FileText,
-        title: "Client Inquiry Forms",
-        description: "Contact and consultation request forms that capture leads 24/7.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance & Rates Section",
-        description: "Clearly communicate accepted insurance, out-of-network policies, and session rates.",
-      },
-      {
-        icon: Search,
-        title: "Google Business Profile",
-        description: "Full setup so your practice appears in local map results.",
-      },
-      {
-        icon: Globe,
-        title: "Local SEO Foundation",
-        description: "Optimized for psychology + city searches from day one.",
-      },
-      {
-        icon: Heart,
-        title: "Client Testimonials Section",
-        description: "Showcase reviews and recommendations from clients who've benefited from your care.",
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile-First Design",
-        description: "Professional and inviting on every device clients use to find you.",
-      },
-    ],
-  },
   process: {
     headline: "From Consultation to Live Psychology Website",
     steps: [
@@ -227,6 +182,7 @@ const data: IndustryPageData = {
       a: "Yes. We build informative, patient-friendly pages that walk potential clients through what to expect — from initial consultation to results. This reduces anxiety and increases the likelihood they'll follow through with booking.",
     },
   ],
+  pricingHeadline: "Pricing for Solo Psychologists and Group Practices",
   bottomCta: {
     headline: "Clients Are Searching for a Psychologist in Your Area Right Now",
     subtext:
