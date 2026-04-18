@@ -150,7 +150,7 @@ const data: StrategyPageData = {
     subtitle: "GEO fundamentals are built into every Graylock website. Advanced GEO strategy scales with your plan.",
     tiers: [
       {
-        name: "Solo Practice",
+        name: "Starter",
         price: "$199",
         description: "GEO fundamentals baked into your website from day one — schema markup, E-E-A-T copy, and FAQ sections on every page.",
         features: [
@@ -163,11 +163,11 @@ const data: StrategyPageData = {
         ],
       },
       {
-        name: "Group Practice",
+        name: "Growth",
         price: "$299",
         description: "Full GEO strategy with advanced optimization, monitoring, and ongoing structured data management.",
         features: [
-          "Everything in Solo Practice",
+          "Everything in Starter",
           "Full Google Business Profile optimization",
           "Structured data audits (quarterly)",
           "AI citation monitoring",
@@ -177,11 +177,11 @@ const data: StrategyPageData = {
         highlighted: true,
       },
       {
-        name: "Enterprise",
+        name: "Scale",
         price: "$449",
         description: "Maximum AI visibility with multi-location GEO, advanced analytics, and dedicated strategy management.",
         features: [
-          "Everything in Group Practice",
+          "Everything in Growth",
           "Multi-location GEO strategy",
           "Monthly structured data audits",
           "Advanced AI citation analytics",
@@ -270,7 +270,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does Graylock offer GEO as part of my plan?",
-      a: "Yes. GEO fundamentals are baked into every Graylock build: comprehensive schema markup, E-E-A-T-structured copy, FAQ sections, and consistent NAP. Group Practice and Enterprise plans include full local SEO and GBP optimization, which are the most impactful GEO levers for professional practices.",
+      a: "Yes. GEO fundamentals are baked into every Graylock build: comprehensive schema markup, E-E-A-T-structured copy, FAQ sections, and consistent NAP. Growth and Scale plans include full local SEO and GBP optimization, which are the most impactful GEO levers for professional practices.",
     },
   ],
   bottomCta: {
@@ -312,7 +312,7 @@ const data: StrategyPageData = {
         name: "Does Graylock offer GEO as part of my plan?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. GEO fundamentals are baked into every Graylock build. Group Practice and Enterprise plans include full local SEO and GBP optimization.",
+          text: "Yes. GEO fundamentals are baked into every Graylock build. Growth and Scale plans include full local SEO and GBP optimization.",
         },
       },
     ],

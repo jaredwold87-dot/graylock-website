@@ -80,7 +80,7 @@ const data: StrategyPageData = {
       {
         title: "One page per high-value service or location",
         description:
-          "Solo Practice includes 8 pages, Group Practice includes 15 pages (plus 10 SEO funnel pages), Enterprise includes 20+ pages (plus 20 SEO funnel pages).",
+          "Starter includes 8 pages, Growth includes 15 pages (plus 10 SEO funnel pages), Scale includes 20+ pages (plus 20 SEO funnel pages).",
       },
       {
         title: "Optimized page structure",
@@ -141,7 +141,7 @@ const data: StrategyPageData = {
       {
         mistake: "Only having a homepage",
         cost: "Can't rank for any specific service or location searches",
-        fix: "Group Practice plan includes 10 SEO funnel pages; Enterprise includes 20",
+        fix: "Growth plan includes 10 SEO funnel pages; Scale includes 20",
       },
       {
         mistake: "Duplicate content across service pages",
@@ -172,7 +172,7 @@ const data: StrategyPageData = {
     },
     {
       q: "How many funnel pages does my business need?",
-      a: "It depends on how many services you offer and how many locations you serve. As a starting point: one page per major service + one page per main service area. Our Group Practice plan includes 10 SEO funnel pages, Enterprise includes 20, and Custom plans allow unlimited pages.",
+      a: "It depends on how many services you offer and how many locations you serve. As a starting point: one page per major service + one page per main service area. Our Growth plan includes 10 SEO funnel pages, Scale includes 20, and Custom plans allow unlimited pages.",
     },
     {
       q: "Can my homepage rank for everything without funnel pages?",
@@ -180,7 +180,7 @@ const data: StrategyPageData = {
     },
     {
       q: "What's the difference between a funnel page and a blog post?",
-      a: "A funnel page targets commercial/transactional intent — someone ready to hire. A blog post typically targets informational intent — someone researching. Both have SEO value, but funnel pages drive direct conversions. Graylock focuses on funnel pages first; blog posts are added via content updates on Group Practice and Enterprise plans.",
+      a: "A funnel page targets commercial/transactional intent — someone ready to hire. A blog post typically targets informational intent — someone researching. Both have SEO value, but funnel pages drive direct conversions. Graylock focuses on funnel pages first; blog posts are added via content updates on Growth and Scale plans.",
     },
     {
       q: "How long does it take for funnel pages to rank?",
@@ -188,7 +188,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does every Graylock plan include funnel pages?",
-      a: "Yes. Solo Practice includes a custom 8-page website. Group Practice includes a 15-page website plus 10 SEO-optimized funnel pages. Enterprise includes a 20+ page website plus 20 SEO funnel pages. Custom plans support unlimited pages.",
+      a: "Yes. Starter includes a custom 8-page website. Growth includes a 15-page website plus 10 SEO-optimized funnel pages. Scale includes a 20+ page website plus 20 SEO funnel pages. Custom plans support unlimited pages.",
     },
   ],
   bottomCta: {
@@ -222,7 +222,7 @@ const data: StrategyPageData = {
         name: "How many funnel pages does my business need?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "One page per major service plus one page per main service area. Group Practice plan includes 10 SEO funnel pages, Enterprise includes 20.",
+          text: "One page per major service plus one page per main service area. Growth plan includes 10 SEO funnel pages, Scale includes 20.",
         },
       },
       {
@@ -230,7 +230,7 @@ const data: StrategyPageData = {
         name: "Does every Graylock plan include funnel pages?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Solo Practice includes 8 pages. Group Practice includes 15 pages plus 10 SEO funnel pages. Enterprise includes 20+ pages plus 20 SEO funnel pages.",
+          text: "Yes. Starter includes 8 pages. Growth includes 15 pages plus 10 SEO funnel pages. Scale includes 20+ pages plus 20 SEO funnel pages.",
         },
       },
     ],

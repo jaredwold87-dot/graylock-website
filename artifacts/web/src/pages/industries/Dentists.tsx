@@ -224,7 +224,7 @@ const data: IndustryPageData = {
     },
     {
       q: "Will my site show up when people search 'dentist near me'?",
-      a: "Every Graylock site includes a local SEO foundation. Group Practice and Enterprise plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'dentist near me' and procedure-specific searches in your area.",
+      a: "Every Graylock site includes a local SEO foundation. Growth and Scale plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'dentist near me' and procedure-specific searches in your area.",
     },
   ],
   bottomCta: {

@@ -1,0 +1,29 @@
+Here is the full strategy. The core principle is simple: change what signals the audience, not what signals the value. Your pricing and homepage are converting well for your core market — the goal is to stop accidentally excluding other buyers without watering down what's working.
+Part 1: Pricing Plan Names — The Fix
+The current names (Solo Practice, Group Practice, Enterprise) describe a type of business, not a size of business. A roofing company owner, a law firm, or a consulting agency reads "Solo Practice" and immediately thinks "this isn't for me." The fix is to shift to names that describe scale, not specialty.
+Current Name
+Recommended New Name
+Why It Works
+Solo Practice
+Starter
+Universal — any solo operator or small business identifies with this
+Group Practice
+Growth
+Signals the buyer's ambition, not their industry
+Enterprise
+Scale
+Applies equally to a 10-location medical group or a regional accounting firm
+Custom
+Keep as Custom
+Already industry-neutral
+These names are used by Basecamp, HubSpot, and dozens of SaaS companies for exactly this reason — they describe where the buyer is, not what they do.
+Updated Plan Descriptions (Exact Copy Suggestions)
+Starter — $199/mo + $799 setup
+"For solo practitioners and independent businesses. Whether you're a single-provider clinic, a solo CPA, or an independent consultant, this is the professional foundation that builds trust and brings in new clients."
+Growth — $299/mo + $999 setup (Most Popular)
+"For growing teams and small firms. Perfect for multi-provider practices, accounting firms, and local service businesses that need more visibility, more pages, and a stronger local SEO foundation."
+Scale — $449/mo + $1,499 setup
+"For established and multi-location businesses. Built for large practices, regional firms, and organizations that demand maximum visibility, advanced analytics, and dedicated account management."
+Add this callout directly below the pricing table (above the "What You're Actually Paying For" section):
+Not a medical practice or accounting firm?
+We specialize in healthcare and professional services, but our model works for any service-based business that relies on trust and local visibility. We regularly build high-converting sites for law firms, consultants, home service companies, and B2B agencies. [Let's talk about your business →]

@@ -1,0 +1,20 @@
+Part 2: Homepage Changes — Specific Copy Edits
+You need to make four targeted edits to the homepage. None of them require redesigning anything — they are copy-level changes only.
+Edit 1 — The Hero Subheadline
+Copy
+Current
+"We build fully custom websites for private practices and accounting firms — delivered in 7–10 business days. No long-term contracts."
+New
+"We build fully custom websites for private practices, accounting firms, and trust-based local businesses — delivered in 7–10 business days. No long-term contracts."
+The phrase "trust-based local businesses" is doing a lot of work here. It signals to a lawyer, a consultant, or a home service company that they belong — without diluting the primary audience at all.
+Edit 2 — The "Sound Familiar?" Section
+Replace every instance of "practice owners" with "practice and business owners." This is a one-word change in two places and costs nothing in terms of specificity.
+Edit 3 — The "Who We Help" Navigation Dropdown
+Add a single new link at the bottom of the dropdown, after "Accounting Firms":
+Other Service Businesses → links to a simple page that says: "While we specialize in healthcare and finance, the Graylock framework is built for any business where trust, expertise, and local visibility drive revenue. If you sell a professional service, we can help."
+This is the lowest-friction possible signal to a non-medical buyer that they are welcome, without changing anything about how your core audience experiences the site.
+Edit 4 — Add One FAQ Question to the Homepage FAQ
+Q: Do you only work with medical practices and accountants?
+A: No. While private practices and accounting firms are our core specialties, we regularly partner with law firms, consultants, home service companies, and other local service businesses. If your business relies on building trust and generating local leads, our framework will work for you.
+The Strategic Logic
+The reason to be surgical here rather than broad is that your niche is your moat. The moment your homepage says "we work with everyone," you lose the credibility signal that makes private practice owners trust you. The edits above keep you positioned as a specialist while opening a side door for other buyers. The FAQ question and the pricing callout box do the heavy lifting for non-medical prospects — they find their answer without you having to change your primary message at all.

@@ -11,7 +11,7 @@ const data: StrategyPageData = {
   seo: {
     title: "Google Business Profile Setup & Optimization | Graylock Digital",
     description:
-      "Your Google Business Profile is the single most powerful free tool for local visibility. Learn how to optimize it and why Graylock sets it up on every Group Practice and Enterprise plan.",
+      "Your Google Business Profile is the single most powerful free tool for local visibility. Learn how to optimize it and why Graylock sets it up on every Growth and Scale plan.",
     url: "https://graylockdigital.com/google-business-profile",
   },
   hero: {
@@ -132,7 +132,7 @@ const data: StrategyPageData = {
       {
         title: "GBP Posts and Freshness Signals",
         description:
-          "Google Business Profile allows you to post updates, offers, events, and announcements directly to your listing. These posts appear in your profile in search results and on Maps. Regularly posting tells Google your business is active — which is a ranking signal. Group Practice and Enterprise plan clients can request new GBP posts as part of their content updates.",
+          "Google Business Profile allows you to post updates, offers, events, and announcements directly to your listing. These posts appear in your profile in search results and on Maps. Regularly posting tells Google your business is active — which is a ranking signal. Growth and Scale plan clients can request new GBP posts as part of their content updates.",
       },
       {
         title: "Services, Attributes, and Q&A",
@@ -151,7 +151,7 @@ const data: StrategyPageData = {
       {
         mistake: "Unclaimed or unverified GBP",
         cost: "Competitors can suggest edits to your listing; you have no control over it",
-        fix: "Graylock claims and verifies your GBP as part of Group Practice and Enterprise plans",
+        fix: "Graylock claims and verifies your GBP as part of Growth and Scale plans",
       },
       {
         mistake: "Wrong or missing business category",
@@ -199,7 +199,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does Graylock set up my Google Business Profile?",
-      a: "Yes — GBP setup and optimization is included in our Group Practice and Enterprise plans. Solo Practice plans include basic Google Business Profile setup. We claim, verify, and optimize your profile as part of the onboarding process.",
+      a: "Yes — GBP setup and optimization is included in our Growth and Scale plans. Starter plans include basic Google Business Profile setup. We claim, verify, and optimize your profile as part of the onboarding process.",
     },
     {
       q: "Can my Google Business Profile help me show up in ChatGPT?",
@@ -237,7 +237,7 @@ const data: StrategyPageData = {
         name: "Does Graylock set up my Google Business Profile?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — GBP setup and optimization is included in our Group Practice and Enterprise plans. Solo Practice plans include basic setup.",
+          text: "Yes — GBP setup and optimization is included in our Growth and Scale plans. Starter plans include basic setup.",
         },
       },
       {

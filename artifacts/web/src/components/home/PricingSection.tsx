@@ -15,7 +15,7 @@ export function PricingSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal className="text-center mb-20">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">
-            Most of our clients start on Group Practice. Here's what's right for where you are now.
+            Most of our clients start on Growth. Here's what's right for where you are now.
           </p>
           <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
             Simple, Transparent Pricing

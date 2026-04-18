@@ -216,7 +216,7 @@ const data: IndustryPageData = {
     },
     {
       q: "Can each provider in our group practice have their own page?",
-      a: "Yes — individual provider pages with bio, headshot, board certifications, and specialty information are a core feature. Solo Practice includes 1 provider page, Group Practice includes up to 5, and Enterprise includes up to 10.",
+      a: "Yes — individual provider pages with bio, headshot, board certifications, and specialty information are a core feature. Starter includes 1 provider page, Growth includes up to 5, and Scale includes up to 10.",
     },
     {
       q: "How long does it take to build a medical practice website?",

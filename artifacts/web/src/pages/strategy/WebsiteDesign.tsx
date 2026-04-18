@@ -180,7 +180,7 @@ const data: StrategyPageData = {
   faqs: [
     {
       q: "How much does professional website design cost?",
-      a: "Graylock Digital starts at $199/month with a $799 one-time setup fee for the Solo Practice plan. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance. Most agencies charge $5,000–$15,000 upfront for comparable quality. Our monthly model means no huge upfront risk.",
+      a: "Graylock Digital starts at $199/month with a $799 one-time setup fee for the Starter plan. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance. Most agencies charge $5,000–$15,000 upfront for comparable quality. Our monthly model means no huge upfront risk.",
     },
     {
       q: "How long does it take to build a website?",
@@ -226,7 +226,7 @@ const data: StrategyPageData = {
         name: "How much does professional website design cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Graylock Digital starts at $199/month with a $799 one-time setup fee for the Solo Practice plan. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance.",
+          text: "Graylock Digital starts at $199/month with a $799 one-time setup fee for the Starter plan. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance.",
         },
       },
       {

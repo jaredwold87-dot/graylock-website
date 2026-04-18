@@ -38,7 +38,7 @@ export default function Pricing() {
 
   return (
     <>
-      <SEO title="Pricing | Professional Practice Website Design | Graylock Digital" description="Transparent, flat-rate pricing for professional practice websites. Solo Practice from $199/month. Group Practice from $299/month. Enterprise from $449/month." />
+      <SEO title="Pricing | Professional Practice Website Design | Graylock Digital" description="Transparent, flat-rate pricing for professional websites. Starter from $199/month. Growth from $299/month. Scale from $449/month." />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
@@ -56,6 +56,27 @@ export default function Pricing() {
 
       <PricingSection />
 
+      <section className="bg-charcoal pt-12 pb-4 px-6 md:px-12">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal>
+            <div className="bg-navy/60 border border-orange/30 rounded-2xl p-6 md:p-8 text-center">
+              <h3 className="text-xl md:text-2xl font-display text-offwhite mb-3">
+                Not a medical practice or accounting firm?
+              </h3>
+              <p className="text-stone font-sans leading-relaxed mb-5 max-w-2xl mx-auto">
+                We specialize in healthcare and professional services, but our model works for any service-based business that relies on trust and local visibility. We regularly build high-converting sites for law firms, consultants, home service companies, and B2B agencies.
+              </p>
+              <a
+                href="/get-started"
+                className="inline-flex items-center gap-2 text-orange font-sans font-semibold hover:underline"
+              >
+                Let's talk about your business →
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <section className="bg-navy py-24 px-6 md:px-12 border-t border-gunmetal hidden md:block">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-16">
@@ -67,9 +88,9 @@ export default function Pricing() {
               <thead>
                 <tr>
                   <th className="p-4 border-b border-gunmetal font-display text-xl text-stone w-1/5">Features</th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Solo<br/><span className="text-sm text-stone font-sans">$199/mo</span></th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-orange w-1/5 text-center">Group<br/><span className="text-sm text-stone font-sans">$299/mo</span></th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Enterprise<br/><span className="text-sm text-stone font-sans">$449/mo</span></th>
+                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Starter<br/><span className="text-sm text-stone font-sans">$199/mo</span></th>
+                  <th className="p-4 border-b border-gunmetal font-display text-xl text-orange w-1/5 text-center">Growth<br/><span className="text-sm text-stone font-sans">$299/mo</span></th>
+                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Scale<br/><span className="text-sm text-stone font-sans">$449/mo</span></th>
                   <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Custom<br/><span className="text-sm text-stone font-sans">Contact Us</span></th>
                 </tr>
               </thead>
@@ -160,7 +181,7 @@ export default function Pricing() {
                 <span className="text-orange font-display text-xl">$10K+ upfront + $250–485/mo</span>
               </div>
               <p className="text-stone/60 font-sans text-sm text-center mt-6">
-                Our Solo Practice plan covers all of this for $199/mo + a $799 setup fee — a fraction of what most agencies charge.
+                Our Starter plan covers all of this for $199/mo + a $799 setup fee — a fraction of what most agencies charge.
               </p>
             </div>
           </ScrollReveal>

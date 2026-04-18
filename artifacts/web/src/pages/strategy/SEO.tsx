@@ -83,12 +83,12 @@ const data: StrategyPageData = {
           "Fast load times, mobile-friendly build, SSL certificate, XML sitemap, robots.txt, clean code with no unnecessary plugins. We build technically sound sites that Google can crawl efficiently.",
       },
       {
-        title: "Local SEO optimization (Group Practice & Enterprise plans)",
+        title: "Local SEO optimization (Growth & Scale plans)",
         description:
           "Location-specific page content, local keyword integration, NAP consistency (Name, Address, Phone), and schema markup that tells Google exactly where you operate.",
       },
       {
-        title: "Google Business Profile setup (Group Practice & Enterprise)",
+        title: "Google Business Profile setup (Growth & Scale)",
         description:
           "We create and optimize your GBP listing, which is the single most impactful local SEO action you can take.",
       },
@@ -127,12 +127,12 @@ const data: StrategyPageData = {
       {
         title: "Local SEO and the Google Local Pack",
         description:
-          "The 'local pack' is the map + three business listings that appear at the top of Google results for location-based searches like 'therapist near me'. Getting into the local pack requires: (1) An optimized Google Business Profile, (2) Consistent NAP across the web, (3) Positive reviews, (4) Local-keyword-rich website content. Graylock handles all of this on Group Practice and Enterprise plans.",
+          "The 'local pack' is the map + three business listings that appear at the top of Google results for location-based searches like 'therapist near me'. Getting into the local pack requires: (1) An optimized Google Business Profile, (2) Consistent NAP across the web, (3) Positive reviews, (4) Local-keyword-rich website content. Graylock handles all of this on Growth and Scale plans.",
       },
       {
         title: "On-Page vs Off-Page SEO",
         description:
-          "On-page SEO is everything you control on your own website: title tags, headings, keyword usage, page speed, mobile friendliness, internal linking, and content quality. Off-page SEO is everything outside your site that affects your rankings: backlinks, social signals, and local citations. Graylock builds an on-page SEO foundation on every site. Off-page SEO (link building, citation building) is addressed in Enterprise and Custom plans.",
+          "On-page SEO is everything you control on your own website: title tags, headings, keyword usage, page speed, mobile friendliness, internal linking, and content quality. Off-page SEO is everything outside your site that affects your rankings: backlinks, social signals, and local citations. Graylock builds an on-page SEO foundation on every site. Off-page SEO (link building, citation building) is addressed in Scale and Custom plans.",
       },
       {
         title: "Technical SEO",
@@ -171,7 +171,7 @@ const data: StrategyPageData = {
       {
         mistake: "Ignoring Google Business Profile",
         cost: "Invisible in local pack and Google Maps searches",
-        fix: "GBP setup and optimization included in Group Practice and Enterprise plans",
+        fix: "GBP setup and optimization included in Growth and Scale plans",
       },
       {
         mistake: "No location-specific content",
@@ -203,7 +203,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does Graylock handle SEO for my website?",
-      a: "Every Graylock plan includes an SEO foundation: proper metadata, clean URL structure, mobile optimization, fast load times, and schema markup. Group Practice and Enterprise plans add full local SEO optimization and Google Business Profile setup. Custom plans include advanced SEO strategy. All plans include a dedicated account manager.",
+      a: "Every Graylock plan includes an SEO foundation: proper metadata, clean URL structure, mobile optimization, fast load times, and schema markup. Growth and Scale plans add full local SEO optimization and Google Business Profile setup. Custom plans include advanced SEO strategy. All plans include a dedicated account manager.",
     },
   ],
   bottomCta: {
@@ -245,7 +245,7 @@ const data: StrategyPageData = {
         name: "Does Graylock handle SEO for my website?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Every Graylock plan includes an SEO foundation. Group Practice and Enterprise plans add full local SEO optimization and Google Business Profile setup.",
+          text: "Every Graylock plan includes an SEO foundation. Growth and Scale plans add full local SEO optimization and Google Business Profile setup.",
         },
       },
     ],

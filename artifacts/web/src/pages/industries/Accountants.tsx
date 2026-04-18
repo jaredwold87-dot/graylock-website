@@ -229,7 +229,7 @@ const data: IndustryPageData = {
     },
     {
       q: "Will my accounting website show up when locals search for a CPA?",
-      a: "Every Graylock site includes a local SEO foundation. Group Practice and Enterprise plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'CPA near me' searches.",
+      a: "Every Graylock site includes a local SEO foundation. Growth and Scale plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'CPA near me' searches.",
     },
     {
       q: "I'm too busy during tax season to work on a website. Can we start now?",
@@ -241,7 +241,7 @@ const data: IndustryPageData = {
     },
     {
       q: "Do you offer any kind of client portal integration?",
-      a: "Our standard plans don't include a document portal, but our Enterprise and Custom plans can include secure inquiry forms and we can discuss integration options on a Custom plan.",
+      a: "Our standard plans don't include a document portal, but our Scale and Custom plans can include secure inquiry forms and we can discuss integration options on a Custom plan.",
     },
   ],
   bottomCta: {

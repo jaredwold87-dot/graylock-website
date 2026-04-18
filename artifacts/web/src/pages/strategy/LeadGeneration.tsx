@@ -73,7 +73,7 @@ const data: StrategyPageData = {
       {
         title: "Lead capture forms on every key page",
         description:
-          "Every service page, location page, and high-intent page has a contact or inquiry request form. Group Practice and Enterprise plans include enhanced forms with additional fields.",
+          "Every service page, location page, and high-intent page has a contact or inquiry request form. Growth and Scale plans include enhanced forms with additional fields.",
       },
       {
         title: "Phone click-to-call",
@@ -120,17 +120,17 @@ const data: StrategyPageData = {
       {
         title: "Form Design and Lead Capture",
         description:
-          "Contact forms are your primary digital lead capture mechanism. The design of a form affects conversion rate dramatically: too many fields = abandoned forms; too few = low-quality leads. Graylock builds forms with the right balance for your practice type — typically Name, Phone, Email, and one qualifying question. Group Practice and Enterprise plans include enhanced forms with additional fields and lead tracking.",
+          "Contact forms are your primary digital lead capture mechanism. The design of a form affects conversion rate dramatically: too many fields = abandoned forms; too few = low-quality leads. Graylock builds forms with the right balance for your practice type — typically Name, Phone, Email, and one qualifying question. Growth and Scale plans include enhanced forms with additional fields and lead tracking.",
       },
       {
         title: "Lead Tracking and Attribution",
         description:
-          "Lead tracking means knowing which visitors came in, which page they came from, what they searched for, and what action they took. Without tracking, you have no idea what's working. The Graylock dashboard (Group Practice and Enterprise plans) gives you a real-time view of enquiry activity so you can identify your best-performing pages and optimize accordingly.",
+          "Lead tracking means knowing which visitors came in, which page they came from, what they searched for, and what action they took. Without tracking, you have no idea what's working. The Graylock dashboard (Growth and Scale plans) gives you a real-time view of enquiry activity so you can identify your best-performing pages and optimize accordingly.",
       },
       {
         title: "Conversion Rate Optimization (CRO) for Lead Gen",
         description:
-          "CRO is the practice of systematically improving the percentage of visitors who take a desired action. For a lead-generation website, this means testing and refining: headline copy, CTA button text, form placement, social proof positioning, and page structure. Graylock builds with CRO best practices from day one, and Enterprise plan clients receive advanced analytics and reporting that include CRO recommendations.",
+          "CRO is the practice of systematically improving the percentage of visitors who take a desired action. For a lead-generation website, this means testing and refining: headline copy, CTA button text, form placement, social proof positioning, and page structure. Graylock builds with CRO best practices from day one, and Scale plan clients receive advanced analytics and reporting that include CRO recommendations.",
       },
     ],
   },
@@ -191,7 +191,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Which Graylock plan is best for lead generation?",
-      a: "All plans include lead capture forms, click-to-call, dashboard access, and a dedicated account manager. For active lead generation with more funnel pages and enhanced forms, the Group Practice plan ($299/mo) is ideal. The Enterprise plan ($449/mo) adds advanced analytics and more site update hours.",
+      a: "All plans include lead capture forms, click-to-call, dashboard access, and a dedicated account manager. For active lead generation with more funnel pages and enhanced forms, the Growth plan ($299/mo) is ideal. The Scale plan ($449/mo) adds advanced analytics and more site update hours.",
     },
   ],
   bottomCta: {
@@ -233,7 +233,7 @@ const data: StrategyPageData = {
         name: "Which Graylock plan is best for lead generation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "All plans include lead capture forms. For active lead generation with tracking, the Group Practice ($299/mo) or Enterprise ($449/mo) plans are ideal.",
+          text: "All plans include lead capture forms. For active lead generation with tracking, the Growth ($299/mo) or Scale ($449/mo) plans are ideal.",
         },
       },
     ],
