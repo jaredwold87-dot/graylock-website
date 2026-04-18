@@ -33,7 +33,7 @@ export function HeroSection() {
               <span className="text-gradient">Not Send Them to Competitors.</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
-              Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and better lead flow.
+              Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
