@@ -3,8 +3,6 @@ import {
   Eye,
   TrendingUp,
   Search,
-  Clock,
-  Shield,
   DollarSign,
 } from "lucide-react";
 
@@ -43,37 +41,25 @@ const data: StrategyPageData = {
         icon: Eye,
         title: "First impressions are made in 50 milliseconds",
         description:
-          "Before a visitor reads a single word, they've already judged your practice. Good design makes that judgment positive.",
+          "Before a visitor reads a single word, they've judged your practice. Good design — and the trust it signals — makes that judgment positive.",
       },
       {
         icon: TrendingUp,
-        title: "Conversion rate is design-driven",
+        title: "Conversion is design-driven, not decorative",
         description:
-          "The layout, typography, button placement, and visual hierarchy of a page determine whether a visitor becomes a lead. Design isn't decoration — it's strategy.",
+          "Layout, typography, button placement, and visual hierarchy decide whether a visitor becomes a lead. Design is strategy, not styling.",
       },
       {
         icon: Search,
-        title: "Google rewards well-designed sites",
+        title: "Google rewards well-built sites",
         description:
-          "Page speed, mobile usability, and Core Web Vitals are all ranking factors. A well-built site performs better in search than a poorly coded one.",
-      },
-      {
-        icon: Clock,
-        title: "Your website works 24/7",
-        description:
-          "Unlike a sales rep, it never sleeps. A properly designed site captures leads at midnight, on weekends, and during holidays.",
-      },
-      {
-        icon: Shield,
-        title: "Trust is visual",
-        description:
-          "Clients in professional services need to feel confident before they reach out. A site that looks credible removes the biggest barrier to contact.",
+          "Page speed, mobile usability, and Core Web Vitals are ranking factors. A clean, fast site outranks a bloated, pretty one every time.",
       },
       {
         icon: DollarSign,
         title: "Bad design costs more than good design",
         description:
-          "Losing one client per month because your site underperforms can cost thousands per year. A professional site starting at $199/month pays for itself with a single new client.",
+          "Losing one client a month to an underperforming site can cost thousands a year. A professional site from $199/month pays for itself with a single new client.",
       },
     ],
   },
@@ -207,7 +193,7 @@ const data: StrategyPageData = {
     headline: "See What Your Website Could Look Like — Before You Pay",
     subtext:
       "Book a free 20-minute call. We'll evaluate your current site, show you what's holding it back, and build a custom homepage demo — all before you commit to anything.",
-    button: "Schedule a Free Consultation",
+    button: "Get My Free Homepage Demo",
   },
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },

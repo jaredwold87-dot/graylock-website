@@ -198,7 +198,7 @@ const data: StrategyPageData = {
     headline: "Is Your Website Generating Leads Every Day — or Just Sitting There?",
     subtext:
       "Book a free 20-minute review. We'll evaluate your current conversion setup, show you exactly what's stopping visitors from becoming leads, and give you a clear plan to fix it — at no cost.",
-    button: "Schedule a Free Consultation",
+    button: "Get My Free Lead-Gen Action Plan",
   },
   relatedStrategy: [
     { name: "Website Design", path: "/website-design" },

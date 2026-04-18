@@ -91,26 +91,17 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 function ConceptCard({ title, description }: { title: string; description: string }) {
-  const [open, setOpen] = useState(false);
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 hover:border-orange/40 bg-white">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 md:p-6 text-left"
-      >
-        <span className="text-charcoal font-sans font-bold text-base md:text-lg pr-4">
+    <div className="border border-gray-200 rounded-xl bg-white p-6 md:p-7 hover:border-orange/40 transition-all duration-300 h-full">
+      <div className="flex items-start gap-3 mb-3">
+        <span className="w-1.5 h-6 bg-orange rounded-full flex-shrink-0 mt-1" />
+        <h3 className="text-charcoal font-sans font-bold text-base md:text-lg leading-snug">
           {title}
-        </span>
-        <ChevronDown
-          className={`text-orange flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-          size={20}
-        />
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${open ? "max-h-[600px] pb-5 px-5 md:px-6" : "max-h-0"}`}
-      >
-        <p className="text-gray-600 font-sans leading-relaxed">{description}</p>
+        </h3>
       </div>
+      <p className="text-gray-600 font-sans text-sm md:text-base leading-relaxed">
+        {description}
+      </p>
     </div>
   );
 }
@@ -157,6 +148,23 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
             </div>
             <p className="text-offwhite/60 font-sans text-sm">{data.hero.ctaSubtext}</p>
           </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="bg-navy py-8 border-y border-gunmetal">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {data.statsStrip.stats.map((stat, i) => (
+            <ScrollReveal key={i} delay={i * 0.05}>
+              <div className="text-center py-4">
+                <div className="text-orange font-display text-3xl md:text-4xl font-bold mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-stone font-sans text-xs md:text-sm leading-snug">
+                  {stat.label}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 
@@ -387,23 +395,6 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
         </section>
       )}
 
-      <section className="bg-navy py-8 border-y border-gunmetal">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {data.statsStrip.stats.map((stat, i) => (
-            <ScrollReveal key={i} delay={i * 0.05}>
-              <div className="text-center py-4">
-                <div className="text-orange font-display text-3xl md:text-4xl font-bold mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-stone font-sans text-xs md:text-sm leading-snug">
-                  {stat.label}
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
       <section className="bg-[#F5F5F5] py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="text-center mb-12">
@@ -411,7 +402,7 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
               KEY CONCEPTS
             </p>
             <h2 className="text-3xl md:text-4xl font-display text-[#1A1A1A]">
-              Deeper Dive
+              The Concepts That Matter Most
             </h2>
           </ScrollReveal>
 
@@ -432,10 +423,10 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
               PROBLEMS WE SOLVE
             </p>
             <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-3">
-              The Costly Pitfalls — Already Handled
+              How Graylock Solves the Problems Most Sites Have
             </h2>
             <p className="text-stone font-sans max-w-2xl mx-auto">
-              These are the issues we see most often on practice websites. Every Graylock build is engineered to avoid them by default.
+              The most common issues we see on practice websites — and exactly how every Graylock build is engineered to avoid them.
             </p>
           </ScrollReveal>
 

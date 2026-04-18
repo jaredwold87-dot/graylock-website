@@ -20,9 +20,9 @@ const data: StrategyPageData = {
     url: "https://graylockdigital.com/geo-generative-engine-optimization",
   },
   hero: {
-    h1: "AI Is Changing How Clients Find Businesses. Is Yours Showing Up?",
+    h1: "Your Future Clients Are Asking ChatGPT for Recommendations. Are You In the Answer?",
     subheadline:
-      "When someone asks ChatGPT, Google AI Overview, or Perplexity for a recommendation, what comes up? GEO is the emerging practice of optimizing your online presence for AI-generated answers — not just traditional search results.",
+      "Every day, more prospects skip Google entirely and ask AI tools for the best practice in their area. If your business isn't structured for AI to recommend, you're invisible to a fast-growing slice of the market.",
     ctaButton: "Get a Free AI Visibility Check",
     ctaSubtext: "20-minute review · We'll test what AI tools currently say about your practice · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-geo.png`,
@@ -277,7 +277,7 @@ const data: StrategyPageData = {
     headline: "Is Your Business Ready for the AI Search Era?",
     subtext:
       "Book a free 20-minute review. We'll check your GEO readiness — schema markup, GBP status, review presence, and structured content — and show you exactly where you stand.",
-    button: "Get Your Free GEO Readiness Report",
+    button: "Get My Free GEO Readiness Report",
   },
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },

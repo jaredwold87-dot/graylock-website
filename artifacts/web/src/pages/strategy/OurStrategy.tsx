@@ -146,24 +146,32 @@ export default function OurStrategy() {
               </div>
 
               <div className={`grid gap-6 ${tier.pages.length === 1 ? "md:grid-cols-1" : tier.pages.length === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-4"}`}>
-                {tier.pages.map((page) => (
-                  <Link key={page.path} href={page.path} className="block h-full group">
-                    <div className={`bg-white border border-gray-200 rounded-xl p-7 hover:border-orange/50 hover:shadow-lg transition-all duration-300 h-full flex flex-col ${tier.pages.length === 1 ? "md:flex-row md:items-center md:gap-8" : ""}`}>
-                      <div className={tier.pages.length === 1 ? "md:flex-shrink-0" : ""}>
-                        <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center mb-5">
-                          <page.icon size={24} className="text-orange" />
+                {tier.pages.map((page) => {
+                  const isFoundation = tier.number === "01";
+                  return (
+                    <Link key={page.path} href={page.path} className="block h-full group">
+                      <div className={`relative bg-white border-2 rounded-xl p-7 hover:shadow-lg transition-all duration-300 h-full flex flex-col ${isFoundation ? "border-orange shadow-md shadow-orange/10 hover:shadow-orange/20" : "border-gray-200 hover:border-orange/50"} ${tier.pages.length === 1 ? "md:flex-row md:items-center md:gap-8" : ""}`}>
+                        {isFoundation && (
+                          <span className="absolute -top-3 left-7 bg-orange text-white text-xs font-sans font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                            Start Here
+                          </span>
+                        )}
+                        <div className={tier.pages.length === 1 ? "md:flex-shrink-0" : ""}>
+                          <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center mb-5">
+                            <page.icon size={24} className="text-orange" />
+                          </div>
+                        </div>
+                        <div className="flex-1 flex flex-col">
+                          <h3 className="text-xl font-display text-[#1A1A1A] mb-3">{page.name}</h3>
+                          <p className="text-[#4A4A4A] font-sans text-sm leading-relaxed mb-5 flex-1">{page.description}</p>
+                          <span className="text-orange font-sans font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            {page.linkText} <ArrowRight size={14} />
+                          </span>
                         </div>
                       </div>
-                      <div className="flex-1 flex flex-col">
-                        <h3 className="text-xl font-display text-[#1A1A1A] mb-3">{page.name}</h3>
-                        <p className="text-[#4A4A4A] font-sans text-sm leading-relaxed mb-5 flex-1">{page.description}</p>
-                        <span className="text-orange font-sans font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                          {page.linkText} <ArrowRight size={14} />
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  );
+                })}
               </div>
             </ScrollReveal>
           ))}

@@ -17,7 +17,7 @@ const data: StrategyPageData = {
   hero: {
     h1: "Show Up When Your Ideal Clients Are Already Searching for You",
     subheadline:
-      "SEO is the difference between a website that sits dormant and one that generates leads while you sleep. Here's how it works — and what Graylock does to make it work for your practice.",
+      "Right now, prospective clients are searching Google for what you offer — and choosing a competitor. SEO is what gets you onto that first page so you stop losing them.",
     ctaButton: "Get a Free SEO Evaluation",
     ctaSubtext: "20-minute review · We'll show you what's holding your rankings back · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-seo.png`,
@@ -210,7 +210,7 @@ const data: StrategyPageData = {
     headline: "Find Out How Your Website Is Performing in Search — Free",
     subtext:
       "Book a free 20-minute call. We'll run a full SEO evaluation, show you where you're invisible on Google, and give you a clear picture of what's fixable — at no cost.",
-    button: "Schedule a Free Consultation",
+    button: "Get My Free SEO Action Plan",
   },
   relatedStrategy: [
     { name: "Website Design", path: "/website-design" },

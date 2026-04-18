@@ -4,7 +4,6 @@ import {
   Star,
   Sparkles,
   Smartphone,
-  TrendingUp,
 } from "lucide-react";
 
 const data: StrategyPageData = {
@@ -48,25 +47,19 @@ const data: StrategyPageData = {
         icon: Sparkles,
         title: "GBP directly feeds Google AI Overviews",
         description:
-          "Google's AI recommendations pull heavily from GBP data. A complete, review-rich profile dramatically increases your chances of being recommended in AI-generated answers.",
+          "Google's AI recommendations pull heavily from GBP data. A complete, review-rich profile dramatically increases your chances of being recommended.",
       },
       {
         icon: Smartphone,
-        title: "76% of nearby smartphone searchers visit a business within one day",
+        title: "76% of nearby smartphone searchers visit a business within a day",
         description:
-          "GBP is the first thing they see — and it must inspire confidence.",
+          "GBP is the first thing they see on mobile — it must inspire confidence and make calling you frictionless.",
       },
       {
         icon: Star,
-        title: "Your GBP is often the first review platform clients visit",
+        title: "Your GBP is the first review platform clients check",
         description:
-          "Before calling you, most potential clients check your Google reviews. More positive reviews = more calls.",
-      },
-      {
-        icon: TrendingUp,
-        title: "GBP posts and updates keep your listing active and fresh",
-        description:
-          "Google rewards regularly updated profiles with higher placement in local results.",
+          "Before calling, most prospects scan your Google reviews. More positive reviews directly translate into more calls.",
       },
     ],
   },
@@ -210,7 +203,7 @@ const data: StrategyPageData = {
     headline: "Is Your Google Business Profile Complete and Optimized?",
     subtext:
       "Book a free review. We'll evaluate your GBP listing, identify every gap, and show you exactly what needs to be done to rank higher in local search and Google Maps.",
-    button: "Schedule a Free Consultation",
+    button: "Get My Free Local Visibility Report",
   },
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },

@@ -15,9 +15,9 @@ const data: StrategyPageData = {
     url: "https://graylockdigital.com/funnel-pages",
   },
   hero: {
-    h1: "Every Service. Every Location. Its Own Page That Actually Ranks.",
+    h1: "The Clients Searching for Exactly What You Offer Aren't Finding You.",
     subheadline:
-      "Your homepage can only rank for so much. The clients you're missing are searching for very specific things — a specific service, in a specific town. Funnel pages capture those searches and turn them into booked appointments.",
+      "Right now, someone in your service area is typing the exact service you sell into Google — and landing on a competitor's page instead. Funnel pages put a focused, ranking page in front of every one of those searches.",
     ctaButton: "Get a Free Funnel-Page Plan",
     ctaSubtext: "20-minute review · We'll map the exact pages your practice is missing · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-funnel-pages.png`,
@@ -195,7 +195,7 @@ const data: StrategyPageData = {
     headline: "How Many of Your Services Could Be Showing Up on Google Right Now?",
     subtext:
       "Book a free review. We'll identify the highest-value funnel pages your business is missing and show you exactly what you could be ranking for.",
-    button: "Schedule a Free Consultation",
+    button: "Get My Free Funnel-Page Plan",
   },
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },
