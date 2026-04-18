@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "Your Website Should Earn That Trust First.",
     subheadline:
       "Patients considering LASIK, cataract surgery, or any eye procedure research extensively online before choosing a surgeon. If your website doesn't communicate your expertise, credentials, and results — they'll schedule a consultation with the ophthalmologist whose site does. We build authoritative, SEO-optimized websites for ophthalmology practices. Fully managed — so you can focus on your patients.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Ophthalmology Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for ophthalmology practices",

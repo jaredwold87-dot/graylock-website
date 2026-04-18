@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "Are They Picking You?",
     subheadline:
       "When someone needs a new eye doctor — whether for an annual exam, contact lens fitting, or something more urgent — they Google it. If your practice doesn't show up or your website looks like it belongs to a different decade, they're booking with the optometrist whose site does. We build modern, SEO-optimized websites for optometry practices. Fully managed — so you can focus on patient care.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Optometry Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for optometry practices",

@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "Your Website Shouldn't Make It Harder.",
     subheadline:
       "When someone finally decides to reach out to a psychologist, they need to feel safe, understood, and confident before they ever pick up the phone. If your website is clinical, impersonal, or hard to navigate, they'll keep searching. We build warm, professional, SEO-optimized websites for psychologists that make it easy for the right clients to find you and feel comfortable reaching out. Fully managed — so you can focus on your clients.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Psychology Practice Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for psychology practices",

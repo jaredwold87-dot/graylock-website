@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "What Does Your Website Say About You?",
     subheadline:
       "When someone moves to a new city or loses their dentist, the first thing they do is Google it. If your website looks outdated, loads slowly, or doesn't show up at all — they're booking with the practice that does. We build custom, SEO-optimized websites for dental practices that turn searches into scheduled appointments. Fully managed — so you can focus on your patients.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Dental Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for dental practices",

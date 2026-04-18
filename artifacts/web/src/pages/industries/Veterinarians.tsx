@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "What Does Your Website Say About Your Practice?",
     subheadline:
       "When someone moves to a new area or their pet needs care, the first thing they do is Google 'vet near me.' If your website looks outdated, doesn't showcase your services, or doesn't let them request an appointment — they're calling the animal hospital down the road instead. We build modern, SEO-optimized websites for veterinary practices that turn pet owners into loyal clients. Fully managed — so you can focus on animal care.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Veterinary Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for veterinary practices",

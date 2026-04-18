@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "Until They Google Their Pain.",
     subheadline:
       "When someone's knee aches or their back won't stop hurting, they Google their symptoms — not 'physical therapist.' If your website doesn't show up for those searches and clearly explain how you can help, they'll end up at someone else's clinic. We build SEO-optimized websites for physical therapy practices that turn pain-driven searches into booked evaluations. Fully managed — so you can focus on patient outcomes.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free PT Practice Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for PT practices",

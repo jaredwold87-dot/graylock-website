@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "They Pick the One They Find First.",
     subheadline:
       "When someone's back goes out at 9pm, they Google 'chiropractor near me' — not your name. If your website doesn't show up or doesn't look credible when they find it, that new patient walks into someone else's office. We build professional, SEO-optimized websites for chiropractors that convert searches into booked appointments. Fully managed — so you can focus on patient care.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Chiropractic Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for chiropractic practices",

@@ -25,6 +25,7 @@ export interface IndustryPageData {
     h1Highlight: string;
     subheadline: string;
     cta: string;
+    ctaSubtext?: string;
     trustSignals: string[];
     backgroundImage?: string;
   };
@@ -138,11 +139,14 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
               {data.hero.subheadline}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-3">
               <CTAButton href="/get-started" className="px-8 py-5 text-lg">
                 {data.hero.cta}
               </CTAButton>
             </div>
+            {data.hero.ctaSubtext && (
+              <p className="text-offwhite/60 font-sans text-sm mb-6">{data.hero.ctaSubtext}</p>
+            )}
 
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {data.hero.trustSignals.map((item) => (
@@ -276,7 +280,7 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
               That's exactly why we review your site for free — so you finally know what to fix.
             </p>
             <CTAButton href="/get-started" className="px-8 py-4">
-              Schedule a Free Consultation
+              {data.hero.cta}
             </CTAButton>
           </ScrollReveal>
         </div>

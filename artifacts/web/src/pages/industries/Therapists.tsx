@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "Your Website Should Make It Easier.",
     subheadline:
       "When someone finally decides to look for a therapist, they're already anxious. If your website feels cold, confusing, or generic, they won't reach out — they'll keep scrolling. We build warm, professional, SEO-optimized websites for therapists and counselors that help the right clients find you and feel safe enough to make that first call. Fully managed — so you can focus on your clients.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Therapy Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for therapists & counselors",

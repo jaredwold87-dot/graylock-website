@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "Your Website Should Match.",
     subheadline:
       "Patients searching for a dermatologist judge your competence by your website before they ever walk through your door. A dated site with stock photos and generic copy doesn't reflect the care you provide. We build modern, SEO-optimized websites for dermatology practices that attract the right patients and convert searches into consultations. Fully managed — so you can focus on patient care.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Dermatology Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for dermatology practices",

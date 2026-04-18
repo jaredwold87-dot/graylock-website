@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "It's on Your Website.",
     subheadline:
       "Before a patient ever walks through your door, they've already Googled you, read reviews, and visited your website. If your site looks outdated or generic, they move on to the next physician in the search results. We build professional, SEO-optimized websites for physicians and medical practices that convert online searches into new patient appointments. Fully managed — so you can focus on patient care.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Practice Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "Built for medical practices",

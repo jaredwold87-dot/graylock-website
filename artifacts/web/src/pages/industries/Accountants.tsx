@@ -28,7 +28,8 @@ const data: IndustryPageData = {
     h1Highlight: "Does Your Website Earn That Same Trust?",
     subheadline:
       "When a business owner searches for a new CPA, your website is your first impression — and for most accounting firms, it's the weakest link. We build sharp, professional websites for CPAs and accounting firms that rank locally, showcase your expertise, and make it easy for prospects to reach out. Fully managed — so you can focus on your clients.",
-    cta: "Schedule a Free Consultation",
+    cta: "Get a Free Accounting Firm Website Review",
+    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-accountants.jpg`,
     trustSignals: [
       "Services pages for every offering",
