@@ -13,7 +13,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0 bg-no-repeat"
         style={{
-          backgroundImage: `url(${BASE}hero-bg-devices.png?v=10)`,
+          backgroundImage: `url(${BASE}hero-bg-devices.png?v=11)`,
           backgroundSize: "cover",
           backgroundPosition: "right center",
         }}
