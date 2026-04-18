@@ -69,8 +69,8 @@ function DesktopMegaMenu({
     >
       <button
         className={cn(
-          "text-sm font-sans font-semibold transition-all duration-300 relative flex items-center gap-1",
-          isActive ? "text-orange" : "text-stone hover:text-offwhite"
+          "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative flex items-center gap-1",
+          isActive ? "text-orange" : "text-offwhite/90 hover:text-orange"
         )}
         onClick={() => setOpen(!open)}
       >
@@ -193,8 +193,8 @@ function DesktopDropdown({
     >
       <button
         className={cn(
-          "text-sm font-sans font-semibold transition-all duration-300 relative flex items-center gap-1",
-          isActive ? "text-orange" : "text-stone hover:text-offwhite"
+          "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative flex items-center gap-1",
+          isActive ? "text-orange" : "text-offwhite/90 hover:text-orange"
         )}
         onClick={() => setOpen(!open)}
       >
@@ -380,10 +380,10 @@ export function Navbar() {
                   key={link.path}
                   href={link.path}
                   className={cn(
-                    "text-sm font-sans font-semibold transition-all duration-300 relative",
+                    "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative",
                     location === link.path
                       ? "text-orange"
-                      : "text-stone hover:text-offwhite"
+                      : "text-offwhite/90 hover:text-orange"
                   )}
                 >
                   {link.name}
@@ -406,10 +406,10 @@ export function Navbar() {
                   key={link.path}
                   href={link.path}
                   className={cn(
-                    "text-sm font-sans font-semibold transition-all duration-300 relative",
+                    "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative",
                     location === link.path
                       ? "text-orange"
-                      : "text-stone hover:text-offwhite"
+                      : "text-offwhite/90 hover:text-orange"
                   )}
                 >
                   {link.name}
