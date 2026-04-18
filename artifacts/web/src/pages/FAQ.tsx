@@ -152,9 +152,10 @@ export default function FAQ() {
 
           <div className="md:hidden mb-8">
             <div className="bg-navy border border-gunmetal rounded-xl p-6 text-center">
-              <p className="text-stone font-sans text-sm mb-4">Still have questions?</p>
+              <p className="text-offwhite font-sans text-sm mb-2 font-semibold">Don't see your question?</p>
+              <p className="text-stone font-sans text-xs mb-4">Get a 20-minute call with Tim and ask anything — no commitment.</p>
               <CTAButton href="/get-started" className="w-full justify-center">
-                Schedule a Free Consultation
+                Book a Free Q&amp;A Call
               </CTAButton>
             </div>
           </div>
@@ -190,9 +191,10 @@ export default function FAQ() {
                 </nav>
 
                 <div className="border-t border-gunmetal pt-6">
-                  <p className="text-stone font-sans text-sm mb-4">Still have questions?</p>
+                  <p className="text-offwhite font-sans text-sm mb-1 font-semibold">Don't see your question?</p>
+                  <p className="text-stone font-sans text-xs mb-4 leading-relaxed">A 20-minute call with Tim — ask anything.</p>
                   <CTAButton href="/get-started" className="w-full justify-center text-sm px-4 py-3">
-                    Schedule a Free Consultation
+                    Book a Free Q&amp;A Call
                   </CTAButton>
                 </div>
               </div>
@@ -232,14 +234,14 @@ export default function FAQ() {
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-offwhite mb-4 leading-tight">
-              Still not sure? Let's talk it through.
+              Got a question we didn't cover?
             </h2>
             <p className="text-stone text-lg font-sans mb-8 max-w-xl mx-auto leading-relaxed">
-              Book a free 20-minute call. We'll answer every question and show you exactly what your site could look like — before you pay a penny.
+              Book a free 20-minute call with Tim. Ask anything — pricing, process, what your site would look like, what we'd do for your specific practice. Zero pressure, zero obligation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <CTAButton href="/get-started" className="px-8 py-4">
-                Schedule a Free Consultation
+                Book a Free Q&amp;A Call
               </CTAButton>
               <Link
                 href="/pricing"
@@ -248,6 +250,7 @@ export default function FAQ() {
                 See our pricing <ArrowRight size={16} />
               </Link>
             </div>
+            <p className="text-stone/70 font-sans text-sm mt-4">20-minute call · No sales pitch · Just straight answers.</p>
           </ScrollReveal>
         </div>
       </section>

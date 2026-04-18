@@ -71,7 +71,11 @@ export default function PrivacyPolicy() {
           <ScrollReveal>
             <h2 className="text-2xl font-display text-offwhite mb-4">Contact Us</h2>
             <p className="text-stone font-sans leading-relaxed">
-              If you have questions about this privacy policy, please contact us at hello@graylockdigital.com.
+              If you have questions about this privacy policy, please email{" "}
+              <a href="mailto:hello@graylockdigital.com" className="text-orange font-semibold hover:underline">
+                hello@graylockdigital.com
+              </a>{" "}
+              and a real person will get back to you within one business day.
             </p>
           </ScrollReveal>
         </div>
