@@ -6,15 +6,15 @@ const BASE = import.meta.env.BASE_URL;
 
 export function HeroSection() {
   return (
-    <section className="bg-charcoal pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden relative">
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          src={`${BASE}hero-bg-devices.jpg`}
-          alt=""
-          className="w-full h-full object-cover object-right"
-          loading="eager"
-        />
-      </div>
+    <section className="bg-charcoal -mt-16 md:-mt-20 pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden relative">
+      <div
+        className="absolute inset-0 bg-no-repeat"
+        style={{
+          backgroundImage: `url(${BASE}hero-bg-devices.jpg)`,
+          backgroundSize: "auto 75%",
+          backgroundPosition: "right top",
+        }}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
