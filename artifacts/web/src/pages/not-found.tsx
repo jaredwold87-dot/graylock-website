@@ -5,7 +5,7 @@ import { SEO } from "@/components/SEO";
 export default function NotFound() {
   return (
     <>
-      <SEO title="404 Page Not Found | Graylock Digital" />
+      <SEO title="Page Not Found | Graylock Digital" description="The page you're looking for doesn't exist. Head back to the homepage to see our work, plans, or schedule a free evaluation." noindex />
       <div className="min-h-[80vh] w-full flex items-center justify-center bg-charcoal text-offwhite px-6">
         <div className="text-center max-w-md bg-navy p-10 rounded-2xl border border-gunmetal shadow-2xl">
           <AlertCircle className="w-16 h-16 text-orange mx-auto mb-6" />

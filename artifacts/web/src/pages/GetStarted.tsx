@@ -48,7 +48,7 @@ function WizardContent() {
 export default function GetStarted() {
   return (
     <>
-      <SEO title="Get Your Free Website Evaluation | Graylock Digital" />
+      <SEO title="Get Your Free Website Evaluation | Graylock Digital" description="Book a free 20-minute call with Tim and get a custom homepage demo for your practice — before you spend a dollar. No obligation, no pressure." url="https://graylockdigital.com/get-started" />
       <section className="bg-charcoal pt-28 md:pt-32 pb-6 px-6 md:px-12 text-center border-b border-gunmetal/40">
         <div className="max-w-3xl mx-auto">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-xs mb-3">Free Consultation</p>

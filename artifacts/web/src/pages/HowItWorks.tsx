@@ -30,14 +30,14 @@ export default function HowItWorks() {
 
   return (
     <>
-      <SEO title="How It Works | Professional Practice Websites | Graylock Digital" description="From free website evaluation to a live, lead-generating website in 7–10 business days. See our proven process for therapists, dentists, physicians, CPAs, and private practices." />
+      <SEO title="How It Works | Practice Website Process | Graylock Digital" description="From free website evaluation to a live, lead-generating site in 7–10 business days. See our proven process for therapists, dentists, physicians, and CPAs." url="https://graylockdigital.com/how-it-works" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-how-it-works.png)` }}
         />
-        <div className="absolute inset-0 bg-charcoal/75" />
+        <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Our Proven Process</h1>

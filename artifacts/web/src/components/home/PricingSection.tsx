@@ -18,26 +18,32 @@ const PLAN_CTA_LABELS: Record<string, string> = {
   Custom: "Schedule a Scoping Call",
 };
 
-export function PricingSection() {
+interface PricingSectionProps {
+  hideHeader?: boolean;
+}
+
+export function PricingSection({ hideHeader = false }: PricingSectionProps = {}) {
   return (
-    <section className="relative py-28 px-6 md:px-12 overflow-hidden">
+    <section className={cn("relative px-6 md:px-12 overflow-hidden", hideHeader ? "pt-12 pb-28" : "py-28")}>
       <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
       <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <ScrollReveal className="text-center mb-20">
-          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">
-            Most of our clients start on Growth. Here's what's right for where you are now.
-          </p>
-          <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
-            Simple, Transparent Pricing
-          </h2>
-          <p className="text-stone text-lg font-sans max-w-2xl mx-auto leading-relaxed">
-            A one-time site development fee, then a flat monthly rate. No surprises. No long-term contracts. Not sure which plan fits your practice? Book a free review and we'll recommend the right one.
-          </p>
-        </ScrollReveal>
+        {!hideHeader && (
+          <ScrollReveal className="text-center mb-20">
+            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">
+              Most of our clients start on Growth. Here's what's right for where you are now.
+            </p>
+            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-stone text-lg font-sans max-w-2xl mx-auto leading-relaxed">
+              A one-time site development fee, then a flat monthly rate. No surprises. No long-term contracts. Not sure which plan fits your practice? Book a free review and we'll recommend the right one.
+            </p>
+          </ScrollReveal>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
           {PRICING_TIERS.map((tier: any, i: number) => (

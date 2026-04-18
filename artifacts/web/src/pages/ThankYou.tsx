@@ -30,7 +30,7 @@ const WHILE_YOU_WAIT = [
 export default function ThankYou() {
   return (
     <>
-      <SEO title="Thank You | Graylock Digital" />
+      <SEO title="Thank You | Graylock Digital" description="Your inquiry has been received. Tim will reach out within one business day to schedule your free evaluation call." noindex />
 
       <section className="bg-charcoal pt-32 pb-12 md:pt-40 md:pb-16 px-6 md:px-12">
         <ScrollReveal className="max-w-2xl w-full mx-auto text-center bg-navy p-10 md:p-16 rounded-3xl border border-gunmetal shadow-2xl relative overflow-hidden">

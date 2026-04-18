@@ -14,7 +14,11 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 export default function Home() {
   return (
     <>
-      <SEO />
+      <SEO
+        title="Graylock Digital — Custom Websites for Private Practices"
+        description="Mobile-first websites for therapists, dentists, physicians, CPAs, and other professional practices. Built in 7–10 business days. Flat monthly rate, no long-term contracts."
+        url="https://graylockdigital.com/"
+      />
       <HeroSection />
       <TrustBar />
       <OfferBreakdownSection />

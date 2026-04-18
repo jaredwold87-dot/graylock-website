@@ -39,23 +39,26 @@ export default function Pricing() {
 
   return (
     <>
-      <SEO title="Pricing | Professional Practice Website Design | Graylock Digital" description="Transparent, flat-rate pricing for professional websites. Starter from $199/month. Growth from $299/month. Scale from $449/month." />
+      <SEO title="Pricing | Practice Website Design Plans | Graylock Digital" description="Three flat monthly plans, one upfront setup fee, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-pricing.png)` }}
         />
-        <div className="absolute inset-0 bg-charcoal/75" />
+        <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <h1 className="text-4xl md:text-6xl font-display mb-6">Simple, Transparent Pricing for Professional Practices</h1>
-            <p className="text-xl font-sans text-stone">A one-time site development fee, then a flat monthly rate. No surprises. No long-term contracts. Not sure which plan fits your practice? Book a free review and we'll recommend the right one.</p>
+            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">
+              Pricing
+            </p>
+            <h1 className="text-4xl md:text-6xl font-display mb-6 leading-tight">Three plans. One flat fee. <span className="text-gradient">No surprises.</span></h1>
+            <p className="text-lg md:text-xl font-sans text-stone leading-relaxed">A one-time site development fee, then a flat monthly rate that covers hosting, maintenance, security, and ongoing support. Month-to-month — never locked in.</p>
           </ScrollReveal>
         </div>
       </section>
 
-      <PricingSection />
+      <PricingSection hideHeader />
 
       <section className="bg-charcoal pt-12 pb-4 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">

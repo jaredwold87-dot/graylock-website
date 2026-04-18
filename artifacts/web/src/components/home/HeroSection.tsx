@@ -18,6 +18,15 @@ export function HeroSection() {
           backgroundPosition: "right center",
         }}
       />
+      {/* Mobile/tablet: strong full overlay so text reads cleanly over the laptop photo */}
+      <div
+        className="absolute inset-0 lg:hidden pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10,18,30,0.92) 0%, rgba(10,18,30,0.85) 55%, rgba(10,18,30,0.78) 100%)",
+        }}
+      />
+      {/* Desktop: side gradient that lets the laptop show through on the right */}
       <div
         className="absolute inset-0 hidden lg:block pointer-events-none"
         style={{

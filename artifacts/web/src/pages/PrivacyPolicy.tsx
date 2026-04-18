@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export default function PrivacyPolicy() {
   return (
     <>
-      <SEO title="Privacy Policy | Graylock Digital" />
+      <SEO title="Privacy Policy | Graylock Digital" description="How Graylock Digital collects, uses, and protects the personal information you share with us through our website, contact forms, and chat widget." url="https://graylockdigital.com/privacy" />
       <section className="bg-offwhite pt-24 pb-12 px-6 md:px-12 text-charcoal">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
