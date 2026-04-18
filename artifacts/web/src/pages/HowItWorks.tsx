@@ -11,17 +11,17 @@ export default function HowItWorks() {
       desc: "We start with a free 20-minute consultation. We review your current online presence, discuss your target clients, and determine exactly what features your practice needs to succeed. After the call, you receive a comprehensive written report covering website analysis, SEO gaps, competitive landscape, and growth opportunities. You keep the full report regardless of whether you move forward — it's yours as a premium standalone deliverable."
     },
     {
-      day: "Day 1–2",
+      day: "Days 2–7",
       title: "The Build",
-      desc: "Once you approve the plan and pay the setup fee, our team gets to work. We craft custom copy, source high-quality imagery, and build a blazing-fast site — typically within 7–10 business days on average. Throughout the build, you'll have full transparency: a dedicated project portal where you can upload assets, communicate directly with our team, and track progress in real time."
+      desc: "Once you approve the plan and pay the setup fee, our team gets to work. We craft custom copy, source high-quality imagery, and build a blazing-fast site. Throughout the build, you have full transparency: a dedicated project portal where you can upload assets, communicate directly with our team, and track progress in real time."
     },
     {
-      day: "Day 3–4",
+      day: "Days 8–9",
       title: "Client Review",
       desc: "We send you a private link to review your new website and schedule a review call to walk you through the completed site together. This is a structured opportunity for feedback — we go page by page, answer your questions, and make any adjustments to ensure it's exactly what you envisioned. We don't launch until you sign off."
     },
     {
-      day: "Day 5",
+      day: "Day 10",
       title: "Launch",
       desc: "We connect your domain, set up SSL security, configure your SEO, and push the site live to the world. Your site is live and working for you — every visitor is now a potential client. Google indexing begins, leads start flowing, and your monthly subscription kicks in."
     }

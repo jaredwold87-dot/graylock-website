@@ -4,6 +4,7 @@ import { PricingSection } from "@/components/home/PricingSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock, FileCheck, Globe, Image as ImageIcon, Package, ShieldCheck } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Pricing() {
   const featureRows = [
@@ -74,6 +75,55 @@ export default function Pricing() {
               </a>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="bg-navy py-16 px-6 border-t border-gunmetal md:hidden">
+        <div className="max-w-md mx-auto">
+          <ScrollReveal className="text-center mb-10">
+            <h2 className="text-2xl font-display text-offwhite mb-3">Compare Plan Features</h2>
+            <p className="text-stone/70 font-sans text-sm">Quick side-by-side of what is included on each plan.</p>
+          </ScrollReveal>
+
+          {[
+            { key: "solo", name: "Starter", price: "$199/mo + $799 setup" },
+            { key: "group", name: "Growth", price: "$299/mo + $999 setup", popular: true },
+            { key: "enterprise", name: "Scale", price: "$449/mo + $1,499 setup" },
+            { key: "custom", name: "Custom", price: "Custom quote" },
+          ].map((plan) => (
+            <ScrollReveal key={plan.key} className={cn(
+              "rounded-2xl border mb-6 overflow-hidden",
+              plan.popular ? "border-orange/50 bg-charcoal" : "border-gunmetal bg-charcoal/40"
+            )}>
+              <div className={cn(
+                "px-5 py-4 border-b",
+                plan.popular ? "bg-orange/10 border-orange/30" : "bg-navy/60 border-gunmetal"
+              )}>
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className={cn("font-display text-xl", plan.popular ? "text-orange" : "text-offwhite")}>{plan.name}</h3>
+                  {plan.popular && <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange">Most Popular</span>}
+                </div>
+                <p className="text-stone text-sm font-sans mt-1">{plan.price}</p>
+              </div>
+              <ul className="divide-y divide-gunmetal/40">
+                {featureRows.map((row, i) => {
+                  const val = row[plan.key as keyof typeof row] as boolean | string;
+                  return (
+                    <li key={i} className="flex items-start justify-between gap-4 px-5 py-3">
+                      <span className="text-stone font-sans text-sm flex-1 leading-snug">{row.name}</span>
+                      <span className="flex-shrink-0 text-right">
+                        {typeof val === "boolean" ? (
+                          val ? <Check className="text-orange ml-auto" size={18} /> : <Minus className="text-gunmetal ml-auto" size={18} />
+                        ) : (
+                          <span className="text-offwhite font-sans text-sm font-semibold">{val}</span>
+                        )}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 

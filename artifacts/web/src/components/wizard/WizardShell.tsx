@@ -32,8 +32,8 @@ export function WizardShell({ children }: WizardShellProps) {
               <ArrowLeft size={16} />
               Back
             </button>
-            <span className="text-stone text-sm font-sans">
-              Step {currentStep} of {totalSteps}
+            <span className="text-stone/70 text-xs font-sans">
+              {currentStep === totalSteps ? "Last step" : `Step ${currentStep} · about ${Math.max(1, Math.round((totalSteps - currentStep) * 0.5))} min left`}
             </span>
           </div>
           <div className="w-full bg-gunmetal rounded-full h-1.5 overflow-hidden">

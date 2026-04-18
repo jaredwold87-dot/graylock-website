@@ -49,7 +49,21 @@ export default function GetStarted() {
   return (
     <>
       <SEO title="Get Your Free Website Evaluation | Graylock Digital" />
-      <section className="bg-charcoal min-h-[80vh]">
+      <section className="bg-charcoal pt-28 md:pt-32 pb-6 px-6 md:px-12 text-center border-b border-gunmetal/40">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-xs mb-3">Free Consultation</p>
+          <h1 className="text-3xl md:text-5xl font-display text-offwhite mb-4 leading-tight">
+            See Exactly What Your Website Could Become — Before You Spend a Dollar
+          </h1>
+          <p className="text-stone font-sans text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-3">
+            Tell us a little about your business and we'll get back to you within 1 business day to schedule your free 20-minute review and homepage demo.
+          </p>
+          <p className="text-stone/60 font-sans text-sm">
+            Takes about 2 minutes · No commitment · We never share your info
+          </p>
+        </div>
+      </section>
+      <section className="bg-charcoal min-h-[60vh]">
         <WizardProvider>
           <WizardShell>
             <WizardContent />

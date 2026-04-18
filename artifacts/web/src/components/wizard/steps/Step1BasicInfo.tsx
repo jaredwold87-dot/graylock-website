@@ -28,11 +28,11 @@ export function Step1BasicInfo() {
 
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-3">
-        Let's get started
+      <h2 className="text-2xl md:text-3xl font-display text-offwhite mb-3">
+        First, the basics
       </h2>
       <p className="text-stone font-sans mb-10">
-        Takes about 60 seconds. No commitment.
+        Just a few quick details so we know who is reaching out and where you serve clients.
       </p>
 
       <div className="flex flex-col gap-6">

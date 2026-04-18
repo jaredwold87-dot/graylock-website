@@ -23,10 +23,33 @@ export default function About() {
         <div className="absolute inset-0 bg-charcoal/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <h1 className="text-4xl md:text-6xl font-display mb-6">Why We Built Graylock Digital</h1>
+            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Built For Practice Owners</p>
+            <h1 className="text-4xl md:text-6xl font-display mb-6">A Better Website Should Not Cost You Three Months and $20,000</h1>
             <p className="text-xl font-sans text-stone leading-relaxed text-left md:text-center">
-              We built Graylock Digital after watching too many professional practices lose clients online to competitors with better-looking websites. Therapists with full waiting lists. CPAs with loyal books of business. Dentists with five-star reputations. All of them with websites that embarrassed them — or worse, made them invisible on Google entirely. The options were either paying an agency $10,000–$20,000 upfront and waiting three months for a result they couldn't predict, or fighting with Squarespace on weekends between client sessions. There was no affordable, done-for-you middle ground for professional practices. So we built it.
+              You did not start your practice to manage a website. You started it to take care of clients. But every month your site sends prospective clients to a competitor is a month of growth you do not get back — and the typical fix is a long, expensive agency engagement most practice owners cannot justify.
             </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="bg-navy py-20 px-6 md:px-12 border-t border-gunmetal">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Why We Built Graylock Digital</p>
+            <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-6">The Middle Ground That Did Not Exist</h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="bg-charcoal rounded-2xl border border-gunmetal p-8 md:p-10">
+              <p className="text-stone font-sans text-lg leading-relaxed mb-5">
+                We kept meeting practice owners with great reputations and embarrassing websites — therapists with full waiting lists, CPAs with loyal books, dentists with five-star reviews — all losing prospective clients online before they ever had a chance to help them.
+              </p>
+              <p className="text-stone font-sans text-lg leading-relaxed mb-5">
+                Their options were brutal: pay an agency $10,000–$20,000 upfront and wait three months for a result they could not predict, or fight with Squarespace on weekends between client sessions.
+              </p>
+              <p className="text-offwhite font-sans text-lg leading-relaxed">
+                There was no affordable, done-for-you middle ground for professional practices. So we built it.
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -112,9 +135,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-offwhite py-24 px-6 md:px-12" style={{ borderTop: '4px solid #1d4ed8' }}>
-        <div className="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
-
+      <section className="relative overflow-hidden bg-offwhite py-24 px-6 md:px-12 border-t border-gray-200">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="text-center mb-14">
             <div className="inline-flex items-center gap-3 bg-blue-900/10 text-blue-800 px-5 py-2 rounded-full font-sans font-semibold text-sm uppercase tracking-widest mb-6 border border-blue-200">

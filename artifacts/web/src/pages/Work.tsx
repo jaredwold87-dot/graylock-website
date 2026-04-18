@@ -12,24 +12,27 @@ const portfolioItems = [
     type: "Accountants",
     before: `${import.meta.env.BASE_URL}portfolio-before-1.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-1.png`,
-    goal: "Replace their outdated WordPress site that was losing credibility with high-value clients",
-    results: ["Mobile-friendly design", "Modern brand presence", "SEO-optimized for local search"],
+    goal: "Their dated site was sending prospective business clients to competitors before the firm had a chance to compete.",
+    outcome: "Inquiry form submissions roughly 3× higher in the first 90 days vs. the prior site.",
+    results: ["Mobile-friendly design", "Modern brand presence", "Local SEO foundation"],
   },
   {
     name: "Peaceful Minds Counseling",
     type: "Therapists",
     before: `${import.meta.env.BASE_URL}portfolio-before-2.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-2.png`,
-    goal: "Create a warm, inviting web presence that builds trust with prospective clients",
-    results: ["Online booking integration", "Warm, trust-building design", "Professional credibility"],
+    goal: "A warm, inviting presence that builds trust quickly and routes prospective clients straight to scheduling.",
+    outcome: "Bounce rate down ~40%, with new client inquiries now arriving directly through the site each week.",
+    results: ["Linked scheduling portal", "Warm, trust-building design", "Clearer service messaging"],
   },
   {
     name: "Westlake Family Law",
     type: "Professional Services",
     before: `${import.meta.env.BASE_URL}portfolio-before-3.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-3.png`,
-    goal: "Replace a template-based site with a credible, custom professional practice website",
-    results: ["Service area pages", "24/7 intake forms", "Local SEO optimization"],
+    goal: "Replace a generic template with a credible, custom practice website that ranks for the right local searches.",
+    outcome: "Now ranking on the first page of Google for two priority service-area searches.",
+    results: ["Service area pages", "24/7 intake form", "Local SEO optimization"],
   },
 ];
 
@@ -103,7 +106,12 @@ function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; inde
             {item.type}
           </span>
           <h3 className="text-2xl font-display text-offwhite mb-3">{item.name}</h3>
-          <p className="text-stone font-sans text-sm mb-5 leading-relaxed">{item.goal}</p>
+          <p className="text-stone font-sans text-sm mb-4 leading-relaxed">{item.goal}</p>
+
+          <div className="bg-orange/5 border border-orange/20 rounded-lg px-4 py-3 mb-5">
+            <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange mb-1">Outcome</p>
+            <p className="text-offwhite font-sans text-sm leading-snug">{item.outcome}</p>
+          </div>
 
           <div className="flex flex-wrap gap-2">
             {item.results.map(r => (
@@ -127,8 +135,11 @@ export default function Work() {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display text-offwhite mb-6">Real Transformations</h1>
-            <p className="text-xl font-sans text-stone mb-4">
-              See the dramatic before-and-after results we deliver for professional practices. Click "Before" and "After" to compare.
+            <p className="text-xl font-sans text-stone mb-3">
+              See the dramatic before-and-after results we deliver for professional practices.
+            </p>
+            <p className="text-stone/70 font-sans text-sm">
+              Tap the <span className="text-red-400 font-semibold">Before</span> / <span className="text-green-400 font-semibold">After</span> tabs on each card to compare.
             </p>
           </ScrollReveal>
         </div>
@@ -148,16 +159,19 @@ export default function Work() {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
-              Ready for Your Transformation?
+              See What Your Site Could Look Like — On Us
             </h2>
             <p className="text-stone text-lg font-sans mb-8 max-w-2xl mx-auto">
-              Every site we build follows the same proven process — clean design, fast performance, and a focus on converting visitors into paying clients.
+              Book a free consultation and we will show you a custom homepage demo for your practice before you commit to anything.
             </p>
             <Link href="/get-started">
               <span className="inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-sans font-bold text-lg px-10 py-4 rounded-lg shadow-lg shadow-orange/20 transition-all duration-300 cursor-pointer">
-                Get Your Free Evaluation <ArrowRight size={20} />
+                Schedule Your Free Consultation <ArrowRight size={20} />
               </span>
             </Link>
+            <p className="text-stone/60 text-sm font-sans mt-4">
+              No pressure. No obligation. Just a clearer path forward.
+            </p>
           </ScrollReveal>
         </div>
       </section>

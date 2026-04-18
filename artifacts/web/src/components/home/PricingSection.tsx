@@ -4,6 +4,20 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { PRICING_TIERS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+const PLAN_FOR_LABELS: Record<string, string> = {
+  Starter: "Solo Provider",
+  Growth: "Growing Practice",
+  Scale: "Multi-Location",
+  Custom: "Beyond Standard",
+};
+
+const PLAN_CTA_LABELS: Record<string, string> = {
+  Starter: "Schedule a Free Consultation",
+  Growth: "Schedule a Free Consultation",
+  Scale: "Schedule a Free Consultation",
+  Custom: "Schedule a Scoping Call",
+};
+
 export function PricingSection() {
   return (
     <section className="relative py-28 px-6 md:px-12 overflow-hidden">
@@ -40,6 +54,12 @@ export function PricingSection() {
               )}
               
               <div className="mb-7">
+                <p className={cn(
+                  "text-[10px] font-sans font-bold uppercase tracking-widest mb-2",
+                  tier.popular ? "text-orange" : "text-orange/80"
+                )}>
+                  For {PLAN_FOR_LABELS[tier.name] || "Your Practice"}
+                </p>
                 <h3 className={cn("text-2xl font-display mb-2", tier.popular ? "text-offwhite" : "text-charcoal")}>{tier.name}</h3>
                 <p className="text-stone text-sm mb-5 min-h-[60px]">{tier.description}</p>
                 {tier.isCustom ? (
@@ -89,8 +109,16 @@ export function PricingSection() {
                 variant={tier.popular ? 'primary' : 'outline'}
                 className="w-full"
               >
-                {tier.isCustom ? 'Contact Us' : 'Schedule a Free Consultation'}
+                {PLAN_CTA_LABELS[tier.name] || 'Schedule a Free Consultation'}
               </CTAButton>
+              {tier.isCustom && (
+                <p className={cn(
+                  "text-xs font-sans text-center mt-3",
+                  tier.popular ? "text-stone/70" : "text-stone/60"
+                )}>
+                  30-min call · Written quote · No obligation
+                </p>
+              )}
             </ScrollReveal>
           ))}
         </div>
