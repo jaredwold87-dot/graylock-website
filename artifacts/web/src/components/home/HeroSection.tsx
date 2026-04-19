@@ -45,7 +45,7 @@ export function HeroSection() {
               Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-6">
               <CTAButton href="/get-started">
                 Schedule Your Free Consultation
               </CTAButton>
