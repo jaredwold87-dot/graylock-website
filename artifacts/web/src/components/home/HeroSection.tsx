@@ -11,6 +11,28 @@ export function HeroSection() {
       className="-mt-16 md:-mt-20 pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
       style={{ backgroundColor: "#0a121e" }}
     >
+      {/* Mobile only: subtle stylized background — steel-blue glow + faint dot grid */}
+      <div
+        className="absolute inset-0 md:hidden pointer-events-none"
+        aria-hidden="true"
+        style={{
+          backgroundImage: [
+            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(46,123,180,0.18) 0%, rgba(46,123,180,0.08) 35%, transparent 70%)",
+            "radial-gradient(ellipse 60% 40% at 100% 100%, rgba(46,123,180,0.10) 0%, transparent 60%)",
+            "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.06) 1px, transparent 0)",
+          ].join(", "),
+          backgroundSize: "auto, auto, 22px 22px",
+        }}
+      />
+      {/* Mobile only: soft top vignette to anchor the headline */}
+      <div
+        className="absolute inset-x-0 top-0 h-40 md:hidden pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10,18,30,0.6) 0%, transparent 100%)",
+        }}
+      />
       {/* Desktop/tablet background image — unchanged behavior */}
       <div className="hidden md:block">
         <HeroBackgroundImage
