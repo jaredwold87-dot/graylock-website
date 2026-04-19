@@ -108,17 +108,17 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
-            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.1] mb-6">
+            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.15] md:leading-[1.1] mb-6">
               Your Website Should Build Trust and Bring in Clients —{" "}
               <span className="text-gradient">Not Send Them to Competitors.</span>
             </h1>
-            <p className="text-stone text-xl md:text-xl font-sans mb-8 max-w-xl leading-snug md:leading-relaxed">
+            <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
               Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
             </p>
 
             {/* Mobile-only sequence: reassurance → CTA → bullets → proof image */}
             <div className="md:hidden">
-              <div className="flex justify-center mb-5">
+              <div className="flex justify-center mb-6">
                 <CTAButton
                   href="/get-started"
                   className="bg-transparent text-white border border-white/80 hover:bg-white hover:text-navy px-7 py-3 text-base shadow-none hover:shadow-none hover:-translate-y-0 hover:border-white"
