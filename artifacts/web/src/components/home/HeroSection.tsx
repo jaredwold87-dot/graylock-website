@@ -116,57 +116,80 @@ export function HeroSection() {
               Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-6">
-              {/* Mobile: smaller white outline button */}
-              <CTAButton
-                href="/get-started"
-                className="md:hidden bg-transparent text-white border border-white/80 hover:bg-white hover:text-navy px-6 py-2.5 text-sm shadow-none hover:shadow-none hover:-translate-y-0 hover:border-white"
-              >
-                Schedule Your Free Consultation
-              </CTAButton>
-              {/* Tablet/desktop: original orange button */}
-              <CTAButton href="/get-started" className="hidden md:inline-flex">
-                Schedule Your Free Consultation
-              </CTAButton>
-            </div>
-
-            {/* Mobile only: real Graylock-built website shown on a laptop and phone — directly below the CTA */}
-            <div className="md:hidden -mx-6 mb-6">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcSet={`${BASE}hero-mobile-eye-institute-mobile.webp`}
-                />
-                <img
-                  src={`${BASE}hero-mobile-eye-institute.png`}
-                  alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
-                  className="w-full h-auto"
-                  loading="eager"
-                  decoding="async"
-                />
-              </picture>
-              <p className="text-stone/70 font-sans text-xs text-center mt-1">
-                A real Graylock-built website on every device.
+            {/* Mobile-only sequence: reassurance → CTA → bullets → proof image */}
+            <div className="md:hidden">
+              <p className="text-stone/80 font-sans text-lg text-center mb-5">
+                See what we would improve before you spend a dollar.
               </p>
+
+              <div className="flex justify-center mb-6">
+                <CTAButton
+                  href="/get-started"
+                  className="bg-transparent text-white border border-white/80 hover:bg-white hover:text-navy px-7 py-3 text-base shadow-none hover:shadow-none hover:-translate-y-0 hover:border-white"
+                >
+                  Schedule Your Free Consultation
+                </CTAButton>
+              </div>
+
+              <div className="flex flex-col gap-3 mb-8">
+                {[
+                  "Custom homepage demo before you commit",
+                  "No long-term contracts",
+                ].map((text, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
+                      <Check size={14} className="text-orange" />
+                    </div>
+                    <span className="text-stone font-sans text-lg">{text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="-mx-6">
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet={`${BASE}hero-mobile-eye-institute-mobile.webp`}
+                  />
+                  <img
+                    src={`${BASE}hero-mobile-eye-institute.png`}
+                    alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
+                    className="w-full h-auto"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
+                <p className="text-stone/70 font-sans text-xs text-center mt-1">
+                  A real Graylock-built website on every device.
+                </p>
+              </div>
             </div>
 
-            <p className="text-stone/80 font-sans text-lg md:text-base mb-8">
-              See what we would improve before you spend a dollar.
-            </p>
+            {/* Tablet/desktop sequence: unchanged */}
+            <div className="hidden md:block">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+                <CTAButton href="/get-started">
+                  Schedule Your Free Consultation
+                </CTAButton>
+              </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-              {[
-                "Custom homepage demo before you commit",
-                "No long-term contracts",
-              ].map((text, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 md:w-5 md:h-5 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
-                    <Check size={14} className="text-orange md:hidden" />
-                    <Check size={12} className="text-orange hidden md:block" />
+              <p className="text-stone/80 font-sans text-base mb-8">
+                See what we would improve before you spend a dollar.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                {[
+                  "Custom homepage demo before you commit",
+                  "No long-term contracts",
+                ].map((text, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
+                      <Check size={12} className="text-orange" />
+                    </div>
+                    <span className="text-stone font-sans text-base">{text}</span>
                   </div>
-                  <span className="text-stone font-sans text-lg md:text-base">{text}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </ScrollReveal>
         </div>
