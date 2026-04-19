@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background-color: #0a121e;
+    font-family: 'Barlow', sans-serif;
+    color: #F2F3F5;
+  }
+  .dot-grid {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(242,243,245,0.07) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .glow-blue {
+    position: absolute;
+    top: -200px; left: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(46,123,180,0.45) 0%, rgba(46,123,180,0.12) 45%, transparent 70%);
+    filter: blur(50px);
+  }
+  .glow-orange {
+    position: absolute;
+    top: -100px; right: -150px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,127,54,0.22) 0%, rgba(244,127,54,0.08) 45%, transparent 70%);
+    filter: blur(60px);
+  }
+  .glow-blue-2 {
+    position: absolute;
+    bottom: -150px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(46,123,180,0.30) 0%, rgba(46,123,180,0.10) 45%, transparent 70%);
+    filter: blur(60px);
+  }
+  .content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    padding: 64px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .logo {
+    height: 64px;
+    width: auto;
+  }
+  .headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 78px;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    color: #F2F3F5;
+    max-width: 1040px;
+  }
+  .accent {
+    background: linear-gradient(135deg, #2E7BB4, #4A9FD5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .subline {
+    font-family: 'Barlow', sans-serif;
+    font-size: 24px;
+    color: #8A8F9E;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    max-width: 720px;
+    line-height: 1.35;
+  }
+  .url {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2E7BB4;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .divider {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent 0%, #2E7BB4 50%, transparent 100%);
+  }
+</style>
+</head>
+<body>
+  <div class="dot-grid"></div>
+  <div class="glow-blue"></div>
+  <div class="glow-orange"></div>
+  <div class="glow-blue-2"></div>
+  <div class="content">
+    <img class="logo" src="/logo-horizontal.png" alt="Graylock Digital" />
+    <div class="headline">
+      Your Website Should Build Trust and Bring in Clients <span class="accent">— Not Send Them to Competitors.</span>
+    </div>
+    <div class="footer">
+      <div class="subline">
+        Custom websites for private practices, accounting firms, and trust-based local businesses.
+      </div>
+      <div class="url">graylockdigital.com</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+</body>
+</html>
