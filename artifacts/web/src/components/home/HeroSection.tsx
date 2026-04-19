@@ -71,7 +71,7 @@ export function HeroSection() {
               </p>
             </div>
 
-            <p className="text-stone/80 font-sans text-sm md:text-base mb-8">
+            <p className="text-stone/80 font-sans text-lg md:text-base mb-8">
               See what we would improve before you spend a dollar.
             </p>
 
@@ -81,10 +81,11 @@ export function HeroSection() {
                 "No long-term contracts",
               ].map((text, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
-                    <Check size={12} className="text-orange" />
+                  <div className="flex-shrink-0 w-6 h-6 md:w-5 md:h-5 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
+                    <Check size={14} className="text-orange md:hidden" />
+                    <Check size={12} className="text-orange hidden md:block" />
                   </div>
-                  <span className="text-stone font-sans text-sm md:text-base">{text}</span>
+                  <span className="text-stone font-sans text-lg md:text-base">{text}</span>
                 </div>
               ))}
             </div>
