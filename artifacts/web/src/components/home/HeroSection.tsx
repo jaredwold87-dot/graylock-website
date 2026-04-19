@@ -13,14 +13,15 @@ export function HeroSection() {
     >
       <HeroBackgroundImage
         src={`${BASE}hero-bg-devices.png`}
+        mobileSrc={`${BASE}hero-bg-devices-mobile-source.png`}
         objectPosition="right center"
       />
-      {/* Mobile/tablet: strong full overlay so text reads cleanly over the laptop photo */}
+      {/* Mobile/tablet: top-weighted gradient — keeps headline readable while letting the devices show through below */}
       <div
         className="absolute inset-0 lg:hidden pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,18,30,0.92) 0%, rgba(10,18,30,0.85) 55%, rgba(10,18,30,0.78) 100%)",
+            "linear-gradient(to bottom, rgba(10,18,30,0.95) 0%, rgba(10,18,30,0.88) 30%, rgba(10,18,30,0.55) 65%, rgba(10,18,30,0.25) 100%)",
         }}
       />
       {/* Desktop: side gradient that lets the laptop show through on the right */}

@@ -1,20 +1,29 @@
 interface HeroBackgroundImageProps {
   src: string;
+  mobileSrc?: string;
   className?: string;
   objectPosition?: string;
   fetchPriority?: "high" | "low" | "auto";
 }
 
+function stripExt(path: string) {
+  return path.replace(/\.(jpg|jpeg|png)$/i, "");
+}
+
 export function HeroBackgroundImage({
   src,
+  mobileSrc,
   className = "absolute inset-0 w-full h-full object-cover object-center",
   objectPosition,
   fetchPriority = "high",
 }: HeroBackgroundImageProps) {
-  const base = src.replace(/\.(jpg|jpeg|png)$/i, "");
-  const desktopWebp = `${base}.webp`;
-  const mobileWebp = `${base}-mobile.webp`;
-  const mobileJpg = `${base}-mobile.jpg`;
+  const desktopBase = stripExt(src);
+  const desktopWebp = `${desktopBase}.webp`;
+
+  const mobileBase = stripExt(mobileSrc ?? src);
+  const mobileWebp = `${mobileBase}-mobile.webp`;
+  const mobileJpg = `${mobileBase}-mobile.jpg`;
+
   const style = objectPosition ? { objectPosition } : undefined;
 
   return (
