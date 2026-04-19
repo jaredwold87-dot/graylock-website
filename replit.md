@@ -79,6 +79,7 @@ Frontend-only React + Vite marketing website for Graylock Digital, a subscriptio
 - **Removed Sections**: TestimonialSection (fabricated testimonials), MissionBlurb, NicheExamplesSection, TrustStatsSection (dead code), SolutionSection — all deleted
 - **TESTIMONIALS constant removed** from constants.ts (was fabricated; replaced by real West Coast Eye case study)
 - **Animations**: Framer Motion scroll-reveal (fade up, 0.5s, 20px offset)
+- **Image Variants (auto-generated)**: Drop a source `.png`/`.jpg`/`.jpeg` into `artifacts/web/public/` and the build will automatically produce `<name>.webp`, `<name>-mobile.webp`, and `<name>-mobile.jpg` (mobile = max 768px wide). The `prebuild` hook runs `scripts/generate-image-variants.mjs` (uses `sharp`) before `vite build`. Generation is incremental (skips up-to-date variants by mtime). Skip rules: (1) sources < 100KB, (2) files matching `favicon*`, `apple-touch-icon*`, `opengraph*`, `logo-*`, (3) `<stem>-mobile.jpg` / `.jpeg` files when a sibling source `<stem>.{png,jpg,jpeg}` exists (treated as already-generated variants — note that `*-mobile.png` filenames are still treated as sources since we never generate `-mobile.png`). `HeroBackgroundImage` and `ResponsiveImage` consume these variants — no component changes needed when adding new images.
 - `pnpm --filter @workspace/web run dev` — run the dev server
 
 ### `artifacts/api-server` (`@workspace/api-server`)
