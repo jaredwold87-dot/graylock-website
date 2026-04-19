@@ -2,7 +2,7 @@ import { SEO } from "@/components/SEO";
 import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { CheckCircle2, User, Heart, Handshake, Search, Shield, MapPin, Flag } from "lucide-react";
+import { CheckCircle2, Heart, Handshake, Search, Shield, MapPin, Flag, Compass, PenTool, Code2, Rocket, LifeBuoy } from "lucide-react";
 import { Link } from "wouter";
 
 export default function About() {
@@ -109,38 +109,63 @@ export default function About() {
 
       <section className="bg-navy py-24 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite">Meet the Team</h2>
+          <ScrollReveal className="text-center mb-14">
+            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">The Team Behind Your Website</p>
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">A Senior, U.S.-Based Team — Founder-Led on Every Project</h2>
+            <p className="text-stone font-sans text-lg max-w-3xl mx-auto leading-relaxed">
+              Graylock Digital was founded by <span className="text-offwhite font-semibold">Tim and Jared</span>, who personally lead every engagement alongside a small, vetted team of U.S.-based strategists, designers, and developers. You will never be handed off to a junior account manager or routed through an offshore queue — the people who scope your project are the people who build it.
+            </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <ScrollReveal delay={0.1} className="bg-charcoal p-10 rounded-2xl border border-gunmetal hover:border-gunmetal/80 transition-colors shadow-xl">
-              <div className="w-20 h-20 bg-gunmetal rounded-full flex items-center justify-center text-stone mb-6">
-                <User size={32} />
+          <ScrollReveal delay={0.1}>
+            <div className="bg-charcoal rounded-2xl border border-gunmetal p-8 md:p-10 mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                  <p className="text-orange font-display text-4xl md:text-5xl mb-2">100%</p>
+                  <p className="text-offwhite font-sans font-semibold mb-1">U.S.-based team</p>
+                  <p className="text-stone/80 font-sans text-sm leading-relaxed">Strategy, design, copy, and development — all in-house, all in the United States.</p>
+                </div>
+                <div>
+                  <p className="text-orange font-display text-4xl md:text-5xl mb-2">7–10</p>
+                  <p className="text-offwhite font-sans font-semibold mb-1">Business-day delivery</p>
+                  <p className="text-stone/80 font-sans text-sm leading-relaxed">A repeatable build framework, refined project after project, that ships fast without cutting corners.</p>
+                </div>
+                <div>
+                  <p className="text-orange font-display text-4xl md:text-5xl mb-2">1</p>
+                  <p className="text-offwhite font-sans font-semibold mb-1">Named point of contact</p>
+                  <p className="text-stone/80 font-sans text-sm leading-relaxed">A single, accountable owner from kickoff through launch and beyond. No tickets. No phone trees.</p>
+                </div>
               </div>
-              <h3 className="text-3xl font-display text-offwhite mb-2 uppercase tracking-wide">Jared</h3>
-              <p className="text-orange font-sans font-semibold mb-6">Systems & Operations</p>
-              <p className="text-stone font-sans leading-relaxed">
-                Jared designed and built the operating system that powers Graylock Digital. He handles every website build, the technology infrastructure behind our process, and the proprietary tools that let us deliver custom professional practice websites in days, not months.
-              </p>
-            </ScrollReveal>
+            </div>
+          </ScrollReveal>
 
-            <ScrollReveal delay={0.15} className="bg-charcoal p-10 rounded-2xl border border-gunmetal hover:border-gunmetal/80 transition-colors shadow-xl">
-              <div className="w-20 h-20 bg-gunmetal rounded-full flex items-center justify-center text-stone mb-6">
-                <User size={32} />
-              </div>
-              <h3 className="text-3xl font-display text-offwhite mb-2 uppercase tracking-wide">Tim</h3>
-              <p className="text-orange font-sans font-semibold mb-6">Client Relations & Growth</p>
-              <p className="text-stone font-sans leading-relaxed">
-                Tim leads all client discovery, proposals, and account relationships. He's the first person you talk to and the person you'll always be able to reach. His background in professional services outreach means he understands what private practices and accounting firms actually need from a web partner.
-              </p>
-            </ScrollReveal>
+          <ScrollReveal className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-display text-offwhite mb-3">How We Actually Build Your Website</h3>
+            <p className="text-stone font-sans text-base max-w-2xl mx-auto">A documented, five-step process every Graylock site moves through — so quality is the default, not an accident.</p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+            {[
+              { icon: Compass, title: "Discovery", desc: "We learn your practice, ideal client, and the inquiries you actually want more of." },
+              { icon: PenTool, title: "Strategy & Design", desc: "Messaging, structure, and visual direction tailored to how your prospects decide." },
+              { icon: Code2, title: "Build", desc: "Custom-coded, fast, mobile-first, and tuned for search from day one." },
+              { icon: Rocket, title: "Launch", desc: "We handle migration, redirects, analytics, and a calm, controlled go-live." },
+              { icon: LifeBuoy, title: "Ongoing Care", desc: "Hosting, security, edits, and a real human to call whenever something needs to change." },
+            ].map(({ icon: Icon, title, desc }, i) => (
+              <ScrollReveal key={title} delay={0.1 + i * 0.08} className="bg-charcoal/80 rounded-xl border border-gunmetal p-6 flex flex-col">
+                <div className="w-11 h-11 rounded-lg bg-navy flex items-center justify-center text-orange mb-4 border border-gunmetal">
+                  <Icon size={22} />
+                </div>
+                <h4 className="text-lg font-display text-offwhite mb-2">{title}</h4>
+                <p className="text-stone/80 font-sans text-sm leading-relaxed">{desc}</p>
+              </ScrollReveal>
+            ))}
           </div>
 
-          <ScrollReveal delay={0.25} className="mt-10">
+          <ScrollReveal delay={0.4} className="mt-10">
             <div className="bg-charcoal/50 rounded-xl border border-gunmetal p-6 text-center max-w-3xl mx-auto">
               <p className="text-stone font-sans leading-relaxed">
-                For specialized projects, we collaborate with a trusted network of U.S.-based professionals who share our standards and commitment to client outcomes.
+                For specialized work, we collaborate with a vetted network of U.S.-based professionals who meet our standards on quality, communication, and client outcomes.
               </p>
             </div>
           </ScrollReveal>
