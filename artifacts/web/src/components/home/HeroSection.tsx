@@ -11,26 +11,75 @@ export function HeroSection() {
       className="-mt-16 md:-mt-20 pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
       style={{ backgroundColor: "#0a121e" }}
     >
-      {/* Mobile only: subtle stylized background — steel-blue glow + faint dot grid */}
+      {/* Mobile only: layered stylized background */}
+      {/* Layer 1: faint dot grid covering entire hero */}
       <div
         className="absolute inset-0 md:hidden pointer-events-none"
         aria-hidden="true"
         style={{
-          backgroundImage: [
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(46,123,180,0.18) 0%, rgba(46,123,180,0.08) 35%, transparent 70%)",
-            "radial-gradient(ellipse 60% 40% at 100% 100%, rgba(46,123,180,0.10) 0%, transparent 60%)",
-            "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.06) 1px, transparent 0)",
-          ].join(", "),
-          backgroundSize: "auto, auto, 22px 22px",
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.07) 1px, transparent 0)",
+          backgroundSize: "22px 22px",
         }}
       />
-      {/* Mobile only: soft top vignette to anchor the headline */}
+      {/* Layer 2: large soft steel-blue aurora blob upper-left */}
       <div
-        className="absolute inset-x-0 top-0 h-40 md:hidden pointer-events-none"
+        className="absolute md:hidden pointer-events-none rounded-full"
+        aria-hidden="true"
+        style={{
+          top: "-120px",
+          left: "-100px",
+          width: "420px",
+          height: "420px",
+          background:
+            "radial-gradient(circle, rgba(46,123,180,0.45) 0%, rgba(46,123,180,0.12) 45%, transparent 70%)",
+          filter: "blur(40px)",
+        }}
+      />
+      {/* Layer 3: orange accent glow upper-right */}
+      <div
+        className="absolute md:hidden pointer-events-none rounded-full"
+        aria-hidden="true"
+        style={{
+          top: "-60px",
+          right: "-120px",
+          width: "320px",
+          height: "320px",
+          background:
+            "radial-gradient(circle, rgba(244,127,54,0.22) 0%, rgba(244,127,54,0.08) 45%, transparent 70%)",
+          filter: "blur(50px)",
+        }}
+      />
+      {/* Layer 4: deeper steel-blue blob lower-right for depth */}
+      <div
+        className="absolute md:hidden pointer-events-none rounded-full"
+        aria-hidden="true"
+        style={{
+          bottom: "-100px",
+          right: "-80px",
+          width: "380px",
+          height: "380px",
+          background:
+            "radial-gradient(circle, rgba(46,123,180,0.30) 0%, rgba(46,123,180,0.10) 45%, transparent 70%)",
+          filter: "blur(50px)",
+        }}
+      />
+      {/* Layer 5: thin diagonal sheen line */}
+      <div
+        className="absolute inset-0 md:hidden pointer-events-none"
         aria-hidden="true"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,18,30,0.6) 0%, transparent 100%)",
+            "linear-gradient(115deg, transparent 0%, transparent 45%, rgba(242,243,245,0.04) 50%, transparent 55%, transparent 100%)",
+        }}
+      />
+      {/* Layer 6: hairline divider at bottom of hero */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-px md:hidden pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(to right, transparent 0%, rgba(46,123,180,0.5) 50%, transparent 100%)",
         }}
       />
       {/* Desktop/tablet background image — unchanged behavior */}
