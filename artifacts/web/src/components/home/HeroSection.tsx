@@ -37,11 +37,11 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
-            <h1 className="text-3xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.1] mb-6">
               Your Website Should Build Trust and Bring in Clients —{" "}
               <span className="text-gradient">Not Send Them to Competitors.</span>
             </h1>
-            <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
+            <p className="text-stone text-xl md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
               Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
             </p>
 
