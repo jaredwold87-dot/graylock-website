@@ -127,29 +127,26 @@ export function HeroSection() {
                 </CTAButton>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-sm px-4 py-5 mb-8">
-                <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance mb-4">
-                  See what we would improve before you spend a dollar.
-                </p>
-                <div className="h-px bg-white/10 mb-4" />
-                <ul className="flex flex-col gap-2.5">
-                  {[
-                    "Free custom homepage demo",
-                    "No long-term contracts",
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-2.5 justify-center">
-                      <Check
-                        size={16}
-                        strokeWidth={2.5}
-                        className="text-orange flex-shrink-0"
-                      />
-                      <span className="text-stone font-sans text-sm leading-snug whitespace-nowrap">
-                        {text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance mb-4">
+                See what we would improve before you spend a dollar.
+              </p>
+              <ul className="flex flex-col gap-2.5 mb-8">
+                {[
+                  "Free custom homepage demo",
+                  "No long-term contracts",
+                ].map((text, i) => (
+                  <li key={i} className="flex items-center gap-2.5 justify-center">
+                    <Check
+                      size={16}
+                      strokeWidth={2.5}
+                      className="text-orange flex-shrink-0"
+                    />
+                    <span className="text-stone font-sans text-sm leading-snug whitespace-nowrap">
+                      {text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
 
               <div className="-mx-6">
                 <picture>
