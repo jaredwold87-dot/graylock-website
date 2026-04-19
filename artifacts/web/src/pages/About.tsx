@@ -111,7 +111,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="text-center mb-14">
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">The Team Behind Your Website</p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">A Senior, U.S.-Based Team — Founder-Led on Every Project</h2>
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">U.S.-Based Team — Founder-Led on Every Project</h2>
             <p className="text-stone font-sans text-lg max-w-3xl mx-auto leading-relaxed">
               Graylock Digital was founded by <span className="text-offwhite font-semibold">Tim and Jared</span>, who personally lead every engagement alongside a small, vetted team of U.S.-based strategists, designers, and developers. You will never be handed off to a junior account manager or routed through an offshore queue — the people who scope your project are the people who build it.
             </p>
