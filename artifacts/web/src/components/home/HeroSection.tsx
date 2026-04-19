@@ -16,12 +16,20 @@ export function HeroSection() {
         mobileSrc={`${BASE}hero-bg-devices-mobile-source.png`}
         objectPosition="right center"
       />
-      {/* Mobile/tablet: top-weighted gradient — keeps headline readable while letting the devices show through below */}
+      {/* Mobile only (<768px): top-weighted gradient — keeps headline readable while letting the new mobile devices image show through below */}
       <div
-        className="absolute inset-0 lg:hidden pointer-events-none"
+        className="absolute inset-0 md:hidden pointer-events-none"
         style={{
           background:
             "linear-gradient(to bottom, rgba(10,18,30,0.95) 0%, rgba(10,18,30,0.88) 30%, rgba(10,18,30,0.55) 65%, rgba(10,18,30,0.25) 100%)",
+        }}
+      />
+      {/* Tablet only (768–1023px): preserve original heavy overlay over the desktop image */}
+      <div
+        className="absolute inset-0 hidden md:block lg:hidden pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10,18,30,0.92) 0%, rgba(10,18,30,0.85) 55%, rgba(10,18,30,0.78) 100%)",
         }}
       />
       {/* Desktop: side gradient that lets the laptop show through on the right */}
