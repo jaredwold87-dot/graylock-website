@@ -149,19 +149,13 @@ export function HeroSection() {
               </ul>
 
               <div className="-mx-6">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={`${BASE}hero-mobile-eye-institute-mobile.webp`}
-                  />
-                  <img
-                    src={`${BASE}hero-mobile-eye-institute.png`}
-                    alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
-                    className="w-full h-auto"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </picture>
+                <img
+                  src={`${BASE}hero-mobile-device-v2.png`}
+                  alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
+                  className="w-full h-auto"
+                  loading="eager"
+                  decoding="async"
+                />
                 <p className="text-stone/70 font-sans text-xs text-center mt-1">
                   A real Graylock-built website on every device.
                 </p>
