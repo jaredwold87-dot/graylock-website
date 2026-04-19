@@ -7,7 +7,7 @@ interface HeroBackgroundImageProps {
 }
 
 function stripExt(path: string) {
-  return path.replace(/\.(jpg|jpeg|png)$/i, "");
+  return path.replace(/\.(jpg|jpeg|png|webp)$/i, "");
 }
 
 export function HeroBackgroundImage({
