@@ -69,7 +69,7 @@ export function CaseStudySection() {
             <div className="relative">
               <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-orange/15 via-transparent to-orange/10 blur-2xl pointer-events-none" />
               <img
-                src={`${BASE}case-study-eye-institute.webp`}
+                src={`${BASE}case-study-eye-institute.png`}
                 alt="West Coast Eye Institute — a Graylock Digital website shown on laptop and phone"
                 className="relative w-full h-auto"
                 loading="lazy"
