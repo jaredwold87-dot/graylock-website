@@ -112,7 +112,7 @@ export function HeroSection() {
               Your Website Should Build Trust and Bring in Clients —{" "}
               <span className="text-gradient">Not Send Them to Competitors.</span>
             </h1>
-            <p className="text-stone text-2xl md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
+            <p className="text-stone text-xl md:text-xl font-sans mb-8 max-w-xl leading-snug md:leading-relaxed">
               Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
             </p>
 
