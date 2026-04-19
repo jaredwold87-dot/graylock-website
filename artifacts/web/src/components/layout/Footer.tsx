@@ -4,7 +4,6 @@ import { useSiteSettingsContext } from "@/hooks/SiteSettingsContext";
 export function Footer() {
   const settings = useSiteSettingsContext();
   const phone = settings?.contact_info?.phone;
-  const email = settings?.contact_info?.email || "hello@graylockdigital.com";
 
   const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const officeHours = settings?.office_hours;
@@ -98,19 +97,13 @@ export function Footer() {
             <Link href="/privacy-policy" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Terms of Service</Link>
           </ul>
-          <div className="mt-8">
-            <Link href="/get-started" className="inline-block bg-orange text-white font-sans font-bold px-6 py-3 rounded hover:bg-orange/90 transition-colors w-full text-center shadow-lg shadow-orange/20">
-              Get a Free Evaluation
-            </Link>
-            {phone && (
-              <p className="text-offwhite/80 text-sm text-center mt-4 font-sans">
+          {phone && (
+            <div className="mt-8">
+              <p className="text-offwhite/80 text-sm text-center font-sans">
                 <a href={`tel:${phone}`} className="hover:text-orange transition-colors">{phone}</a>
               </p>
-            )}
-            <p className="text-offwhite/80 text-sm text-center mt-2 font-sans">
-              <a href={`mailto:${email}`} className="hover:text-orange transition-colors">{email}</a>
-            </p>
-          </div>
+            </div>
+          )}
         </div>
 
       </div>
