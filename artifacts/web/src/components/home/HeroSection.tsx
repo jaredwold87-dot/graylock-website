@@ -118,11 +118,7 @@ export function HeroSection() {
 
             {/* Mobile-only sequence: reassurance → CTA → bullets → proof image */}
             <div className="md:hidden">
-              <p className="text-stone/80 font-sans text-lg text-center mb-5">
-                See what we would improve before you spend a dollar.
-              </p>
-
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center mb-5">
                 <CTAButton
                   href="/get-started"
                   className="bg-transparent text-white border border-white/80 hover:bg-white hover:text-navy px-7 py-3 text-base shadow-none hover:shadow-none hover:-translate-y-0 hover:border-white"
@@ -130,6 +126,10 @@ export function HeroSection() {
                   Schedule Your Free Consultation
                 </CTAButton>
               </div>
+
+              <p className="text-stone/80 font-sans text-lg text-center mb-6">
+                See what we would improve before you spend a dollar.
+              </p>
 
               <div className="flex flex-col gap-3 mb-8">
                 {[
