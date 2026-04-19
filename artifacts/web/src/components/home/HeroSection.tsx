@@ -40,10 +40,10 @@ export function HeroSection() {
           <picture>
             <source
               type="image/webp"
-              srcSet={`${BASE}hero-bg-devices-mobile-source-mobile.webp`}
+              srcSet={`${BASE}hero-mobile-eye-institute-mobile.webp`}
             />
             <img
-              src={`${BASE}hero-bg-devices-mobile-source.png`}
+              src={`${BASE}hero-mobile-eye-institute.png`}
               alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
               className="w-full h-auto"
               loading="eager"
