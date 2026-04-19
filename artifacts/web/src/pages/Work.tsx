@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -71,19 +72,23 @@ function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; inde
           </div>
 
           <div className="relative aspect-[4/3] overflow-hidden bg-navy">
-            <img
+            <ResponsiveImage
               src={item.before}
               alt={`${item.name} - before redesign`}
               aria-hidden={showAfter}
+              loading="lazy"
+              decoding="async"
               className={cn(
                 "absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500",
                 showAfter ? "opacity-0 pointer-events-none" : "opacity-100"
               )}
             />
-            <img
+            <ResponsiveImage
               src={item.after}
               alt={`${item.name} - after redesign by Graylock Digital`}
               aria-hidden={!showAfter}
+              loading="lazy"
+              decoding="async"
               className={cn(
                 "absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500",
                 showAfter ? "opacity-100" : "opacity-0 pointer-events-none"

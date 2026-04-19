@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
+import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { PRICING_TIERS } from "@/lib/constants";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -264,11 +265,12 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
             <ScrollReveal>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gunmetal/50">
-                <img
+                <ResponsiveImage
                   src={data.painPoints.image || `${import.meta.env.BASE_URL}outdated-practice-website.png`}
                   alt="Example of an outdated practice website"
                   className="w-full h-auto"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent pointer-events-none" />
               </div>

@@ -1,5 +1,6 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
+import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { ArrowRight } from "lucide-react";
 
 const BASE = import.meta.env.BASE_URL;
@@ -75,11 +76,12 @@ export function CaseStudySection() {
                   <div className="w-2 h-2 rounded-full bg-green-500/50" />
                   <span className="ml-2 text-[10px] text-stone/40 font-sans">yourpracticename.com</span>
                 </div>
-                <img
+                <ResponsiveImage
                   src={`${BASE}mockup-laptop-after.png`}
                   alt="Practice website — after redesign"
                   className="w-full rounded-md"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="text-center mt-3">

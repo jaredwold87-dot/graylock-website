@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
+import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { PRICING_TIERS } from "@/lib/constants";
 import { useState } from "react";
 import {
@@ -236,10 +237,12 @@ export default function AccountantsFunnel() {
                   </span>
                 </div>
                 <div className="relative aspect-[4/3] bg-navy">
-                  <img
+                  <ResponsiveImage
                     src={`${import.meta.env.BASE_URL}niche-accountant-1.png`}
                     alt="Modern accounting firm website design by Graylock Digital"
                     className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -352,10 +355,12 @@ export default function AccountantsFunnel() {
                     Before — Outdated & Generic
                   </div>
                   <div className="aspect-[4/3] bg-charcoal">
-                    <img
+                    <ResponsiveImage
                       src={beforeAfterPairs[activeBeforeAfter].before}
                       alt="Accounting firm website before redesign"
                       className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
@@ -367,10 +372,12 @@ export default function AccountantsFunnel() {
                     After — Modern & Conversion-Focused
                   </div>
                   <div className="aspect-[4/3] bg-charcoal">
-                    <img
+                    <ResponsiveImage
                       src={beforeAfterPairs[activeBeforeAfter].after}
                       alt="Accounting firm website after redesign by Graylock Digital"
                       className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>

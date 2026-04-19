@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 
 const pairs = [
   {
@@ -59,16 +60,20 @@ export function BeforeAfterMockup() {
         </div>
 
         <div className="relative aspect-[4/3] bg-navy">
-          <img
+          <ResponsiveImage
             src={pair.before}
             alt={`${pair.label} website before redesign`}
             aria-hidden={showAfter}
+            loading="lazy"
+            decoding="async"
             className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${showAfter ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           />
-          <img
+          <ResponsiveImage
             src={pair.after}
             alt={`${pair.label} website after redesign by Graylock Digital`}
             aria-hidden={!showAfter}
+            loading="lazy"
+            decoding="async"
             className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${showAfter ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
           />
 

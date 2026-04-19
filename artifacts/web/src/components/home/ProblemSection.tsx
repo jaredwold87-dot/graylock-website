@@ -1,4 +1,5 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { Award, MessageSquareWarning, TrendingDown } from "lucide-react";
 
 const BASE = import.meta.env.BASE_URL;
@@ -39,11 +40,12 @@ export function ProblemSection() {
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <ScrollReveal>
             <div className="relative">
-              <img
-                src={`${BASE}outdated-practice-website.png?v=6`}
+              <ResponsiveImage
+                src={`${BASE}outdated-practice-website.png`}
                 alt="Example of an outdated practice website"
                 className="w-full h-auto drop-shadow-2xl"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </ScrollReveal>
