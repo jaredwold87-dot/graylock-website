@@ -18,10 +18,10 @@ export function Step4B_BusinessStage() {
 
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-3">
+      <h2 className="text-3xl md:text-4xl font-display text-charcoal mb-3">
         What stage is your business in?
       </h2>
-      <p className="text-stone font-sans mb-10">
+      <p className="text-slate-600 font-sans mb-10">
         This helps us tailor our recommendations to where you are right now.
       </p>
 
@@ -34,13 +34,13 @@ export function Step4B_BusinessStage() {
               "flex items-center gap-4 p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer text-left group",
               data.businessStage === stage.value
                 ? "border-orange bg-orange/10"
-                : "border-gunmetal bg-navy hover:border-orange/50"
+                : "border-slate-200 bg-white hover:border-orange/50 hover:bg-orange/5 shadow-sm"
             )}
           >
-            <stage.icon size={28} className={cn("flex-shrink-0 transition-colors", data.businessStage === stage.value ? "text-orange" : "text-stone group-hover:text-orange")} />
+            <stage.icon size={28} className={cn("flex-shrink-0 transition-colors", data.businessStage === stage.value ? "text-orange" : "text-slate-600 group-hover:text-orange")} />
             <div>
-              <span className="text-lg font-sans font-semibold text-offwhite block">{stage.label}</span>
-              <span className="text-stone text-sm font-sans">{stage.desc}</span>
+              <span className="text-lg font-sans font-semibold text-charcoal block">{stage.label}</span>
+              <span className="text-slate-600 text-sm font-sans">{stage.desc}</span>
             </div>
           </button>
         ))}

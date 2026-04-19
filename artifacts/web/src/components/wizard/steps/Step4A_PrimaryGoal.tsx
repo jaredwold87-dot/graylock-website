@@ -20,10 +20,10 @@ export function Step4A_PrimaryGoal() {
 
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-3">
+      <h2 className="text-3xl md:text-4xl font-display text-charcoal mb-3">
         What's your primary goal?
       </h2>
-      <p className="text-stone font-sans mb-10">
+      <p className="text-slate-600 font-sans mb-10">
         This helps us focus your report on what matters most to you.
       </p>
 
@@ -36,11 +36,11 @@ export function Step4A_PrimaryGoal() {
               "flex items-center gap-4 p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer text-left group",
               data.primaryGoal === goal.value
                 ? "border-orange bg-orange/10"
-                : "border-gunmetal bg-navy hover:border-orange/50"
+                : "border-slate-200 bg-white hover:border-orange/50 hover:bg-orange/5 shadow-sm"
             )}
           >
-            <goal.icon size={24} className={cn("flex-shrink-0 transition-colors", data.primaryGoal === goal.value ? "text-orange" : "text-stone group-hover:text-orange")} />
-            <span className="text-lg font-sans font-semibold text-offwhite">{goal.label}</span>
+            <goal.icon size={24} className={cn("flex-shrink-0 transition-colors", data.primaryGoal === goal.value ? "text-orange" : "text-slate-600 group-hover:text-orange")} />
+            <span className="text-lg font-sans font-semibold text-charcoal">{goal.label}</span>
           </button>
         ))}
       </div>

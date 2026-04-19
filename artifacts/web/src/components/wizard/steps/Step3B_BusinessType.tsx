@@ -20,10 +20,10 @@ export function Step3B_BusinessType() {
 
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-3">
+      <h2 className="text-3xl md:text-4xl font-display text-charcoal mb-3">
         What type of business is this?
       </h2>
-      <p className="text-stone font-sans mb-10">
+      <p className="text-slate-600 font-sans mb-10">
         This helps us understand your market and build a better growth report.
       </p>
 
@@ -36,11 +36,11 @@ export function Step3B_BusinessType() {
               "flex items-center gap-4 p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer text-left group",
               data.businessType === type.value
                 ? "border-orange bg-orange/10"
-                : "border-gunmetal bg-navy hover:border-orange/50"
+                : "border-slate-200 bg-white hover:border-orange/50 hover:bg-orange/5 shadow-sm"
             )}
           >
-            <type.icon size={24} className={cn("flex-shrink-0 transition-colors", data.businessType === type.value ? "text-orange" : "text-stone group-hover:text-orange")} />
-            <span className="text-lg font-sans font-semibold text-offwhite">{type.label}</span>
+            <type.icon size={24} className={cn("flex-shrink-0 transition-colors", data.businessType === type.value ? "text-orange" : "text-slate-600 group-hover:text-orange")} />
+            <span className="text-lg font-sans font-semibold text-charcoal">{type.label}</span>
           </button>
         ))}
       </div>

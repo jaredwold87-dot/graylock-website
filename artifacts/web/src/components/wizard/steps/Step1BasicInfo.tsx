@@ -28,73 +28,73 @@ export function Step1BasicInfo() {
 
   return (
     <div>
-      <h2 className="text-2xl md:text-3xl font-display text-offwhite mb-3">
+      <h2 className="text-2xl md:text-3xl font-display text-charcoal mb-3">
         First, the basics
       </h2>
-      <p className="text-stone font-sans mb-10">
+      <p className="text-slate-600 font-sans mb-10">
         Just a few quick details so we know who is reaching out and where you serve clients.
       </p>
 
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <label className="text-offwhite font-sans text-sm font-semibold">First Name *</label>
+          <label className="text-charcoal font-sans text-sm font-semibold">First Name *</label>
           <input
             type="text"
             value={data.firstName}
             onChange={(e) => updateData({ firstName: e.target.value })}
             placeholder="Jane"
-            className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50"
+            className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400"
           />
-          {errors.firstName && <span className="text-red-400 text-sm font-sans">{errors.firstName}</span>}
+          {errors.firstName && <span className="text-red-600 text-sm font-sans">{errors.firstName}</span>}
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-offwhite font-sans text-sm font-semibold">Business Name *</label>
+          <label className="text-charcoal font-sans text-sm font-semibold">Business Name *</label>
           <input
             type="text"
             value={data.businessName}
             onChange={(e) => updateData({ businessName: e.target.value })}
             placeholder="Jane's Consulting"
-            className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50"
+            className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400"
           />
-          {errors.businessName && <span className="text-red-400 text-sm font-sans">{errors.businessName}</span>}
+          {errors.businessName && <span className="text-red-600 text-sm font-sans">{errors.businessName}</span>}
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-offwhite font-sans text-sm font-semibold">Email Address *</label>
+          <label className="text-charcoal font-sans text-sm font-semibold">Email Address *</label>
           <input
             type="email"
             value={data.email}
             onChange={(e) => updateData({ email: e.target.value })}
             placeholder="jane@yourbusiness.com"
-            className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50"
+            className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400"
           />
-          {errors.email && <span className="text-red-400 text-sm font-sans">{errors.email}</span>}
+          {errors.email && <span className="text-red-600 text-sm font-sans">{errors.email}</span>}
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-offwhite font-sans text-sm font-semibold">Phone Number *</label>
+          <label className="text-charcoal font-sans text-sm font-semibold">Phone Number *</label>
           <input
             type="tel"
             value={data.phone}
             onChange={(e) => updateData({ phone: e.target.value })}
             placeholder="(555) 123-4567"
-            className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50"
+            className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400"
           />
-          {errors.phone && <span className="text-red-400 text-sm font-sans">{errors.phone}</span>}
+          {errors.phone && <span className="text-red-600 text-sm font-sans">{errors.phone}</span>}
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-offwhite font-sans text-sm font-semibold">Primary Service Area *</label>
+          <label className="text-charcoal font-sans text-sm font-semibold">Primary Service Area *</label>
           <input
             type="text"
             value={data.serviceArea}
             onChange={(e) => updateData({ serviceArea: e.target.value })}
             placeholder="Austin, TX or 78701, 78702"
-            className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50"
+            className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400"
           />
-          <span className="text-stone/50 text-xs font-sans">City, State or zip code(s) where you serve clients</span>
-          {errors.serviceArea && <span className="text-red-400 text-sm font-sans">{errors.serviceArea}</span>}
+          <span className="text-slate-400 text-xs font-sans">City, State or zip code(s) where you serve clients</span>
+          {errors.serviceArea && <span className="text-red-600 text-sm font-sans">{errors.serviceArea}</span>}
         </div>
 
         <button

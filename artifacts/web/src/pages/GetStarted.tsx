@@ -49,28 +49,28 @@ export default function GetStarted() {
   return (
     <>
       <SEO title="Get Your Free Website Evaluation | Graylock Digital" description="Book a free 20-minute call with Tim and get a custom homepage demo for your practice — before you spend a dollar. No obligation, no pressure." url="https://graylockdigital.com/get-started" />
-      <section className="bg-charcoal pt-28 md:pt-32 pb-6 px-6 md:px-12 text-center border-b border-gunmetal/40">
+      <section className="bg-white pt-28 md:pt-32 pb-6 px-6 md:px-12 text-center border-b border-slate-200">
         <div className="max-w-3xl mx-auto">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-xs mb-3">Free Consultation</p>
-          <h1 className="text-3xl md:text-5xl font-display text-offwhite mb-4 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-display text-charcoal mb-4 leading-tight">
             See Exactly What Your Website Could Become — Before You Spend a Dollar
           </h1>
-          <p className="text-stone font-sans text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-3">
+          <p className="text-slate-600 font-sans text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-3">
             Tell us a little about your business and we'll get back to you within 1 business day to schedule your free 20-minute review and homepage demo.
           </p>
-          <p className="text-stone/60 font-sans text-sm">
+          <p className="text-slate-500 font-sans text-sm">
             Takes about 2 minutes · No commitment · We never share your info
           </p>
         </div>
       </section>
-      <section className="bg-charcoal min-h-[60vh]">
+      <section className="bg-white min-h-[60vh]">
         <WizardProvider>
           <WizardShell>
             <WizardContent />
           </WizardShell>
         </WizardProvider>
         <div className="max-w-2xl mx-auto px-6 pb-12 text-center">
-          <p className="text-stone/60 text-sm font-sans">
+          <p className="text-slate-500 text-sm font-sans">
             Prefer to email us? Reach out at{" "}
             <a href="mailto:hello@graylockdigital.com" className="text-orange hover:underline">
               hello@graylockdigital.com

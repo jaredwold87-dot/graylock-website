@@ -16,7 +16,7 @@ export function WizardShell({ children }: WizardShellProps) {
 
   return (
     <div className="w-full">
-      <div className="sticky top-16 md:top-[68px] z-30 bg-charcoal/95 backdrop-blur-md border-b border-gunmetal px-6 py-3">
+      <div className="sticky top-16 md:top-[68px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-3">
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center justify-between mb-2">
             <button
@@ -25,18 +25,18 @@ export function WizardShell({ children }: WizardShellProps) {
               className={cn(
                 "flex items-center gap-1.5 text-sm font-sans transition-colors",
                 canGoBack
-                  ? "text-stone hover:text-offwhite cursor-pointer"
-                  : "text-gunmetal cursor-not-allowed"
+                  ? "text-slate-600 hover:text-charcoal cursor-pointer"
+                  : "text-slate-300 cursor-not-allowed"
               )}
             >
               <ArrowLeft size={16} />
               Back
             </button>
-            <span className="text-stone/70 text-xs font-sans">
+            <span className="text-slate-500 text-xs font-sans">
               {currentStep === totalSteps ? "Last step" : `Step ${currentStep} · about ${Math.max(1, Math.round((totalSteps - currentStep) * 0.5))} min left`}
             </span>
           </div>
-          <div className="w-full bg-gunmetal rounded-full h-1.5 overflow-hidden">
+          <div className="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
             <motion.div
               className="bg-orange h-full rounded-full"
               initial={{ width: 0 }}

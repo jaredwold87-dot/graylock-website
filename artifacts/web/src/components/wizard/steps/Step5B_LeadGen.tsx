@@ -16,24 +16,24 @@ export function Step5B_LeadGen() {
 
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-3">
+      <h2 className="text-3xl md:text-4xl font-display text-charcoal mb-3">
         How are you currently getting leads?
       </h2>
-      <p className="text-stone font-sans mb-10">
+      <p className="text-slate-600 font-sans mb-10">
         This helps us understand what's working and where a website can fill the gap.
       </p>
 
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <label className="text-offwhite font-sans text-sm font-semibold">Current lead sources *</label>
+          <label className="text-charcoal font-sans text-sm font-semibold">Current lead sources *</label>
           <textarea
             value={data.leadGenMethod}
             onChange={(e) => updateData({ leadGenMethod: e.target.value })}
             placeholder="e.g., Word of mouth, Google Maps, social media, Yelp, referrals..."
             rows={4}
-            className="bg-charcoal border border-gunmetal rounded-lg p-4 text-offwhite font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-stone/50 resize-y"
+            className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400 resize-y"
           />
-          {error && <span className="text-red-400 text-sm font-sans">{error}</span>}
+          {error && <span className="text-red-600 text-sm font-sans">{error}</span>}
         </div>
 
         <button
