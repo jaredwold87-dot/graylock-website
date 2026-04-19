@@ -8,7 +8,7 @@ const BASE = import.meta.env.BASE_URL;
 export function HeroSection() {
   return (
     <section
-      className="-mt-16 md:-mt-20 pt-20 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
+      className="-mt-16 md:-mt-20 pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
       style={{ backgroundColor: "#0a121e" }}
     >
       {/* Desktop/tablet background image — unchanged behavior */}
@@ -35,23 +35,6 @@ export function HeroSection() {
         }}
       />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Mobile only: prominent foreground devices image at the very top, above the headline */}
-        <div className="md:hidden -mx-6 mb-6">
-          <picture>
-            <source
-              type="image/webp"
-              srcSet={`${BASE}hero-bg-devices-mobile-source-mobile.webp`}
-            />
-            <img
-              src={`${BASE}hero-bg-devices-mobile-source.png`}
-              alt="A laptop and phone displaying a Graylock Digital website"
-              className="w-full h-auto"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
-          </picture>
-        </div>
         <div className="max-w-2xl">
           <ScrollReveal>
             <h1 className="text-3xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.1] mb-6">
@@ -61,6 +44,24 @@ export function HeroSection() {
             <p className="text-stone text-lg md:text-xl font-sans mb-8 max-w-xl leading-relaxed">
               Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
             </p>
+
+            {/* Mobile only: prominent foreground devices image, between subhead and CTA */}
+            <div className="md:hidden -mx-6 mb-8">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${BASE}hero-bg-devices-mobile-source-mobile.webp`}
+                />
+                <img
+                  src={`${BASE}hero-bg-devices-mobile-source.png`}
+                  alt="A laptop and phone displaying a Graylock Digital website"
+                  className="w-full h-auto"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </picture>
+            </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
               <CTAButton href="/get-started">
