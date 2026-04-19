@@ -35,26 +35,6 @@ export function HeroSection() {
         }}
       />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Mobile only: real Graylock-built website shown on a laptop and phone — full-bleed at top of hero */}
-        <div className="md:hidden -mx-6 mb-2">
-          <picture>
-            <source
-              type="image/webp"
-              srcSet={`${BASE}hero-mobile-eye-institute-mobile.webp`}
-            />
-            <img
-              src={`${BASE}hero-mobile-eye-institute.png`}
-              alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
-              className="w-full h-auto"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
-          </picture>
-          <p className="text-stone/70 font-sans text-xs text-center mt-1 mb-2">
-            A real Graylock-built website on every device.
-          </p>
-        </div>
         <div className="max-w-2xl">
           <ScrollReveal>
             <h1 className="text-3xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.1] mb-6">
@@ -69,6 +49,26 @@ export function HeroSection() {
               <CTAButton href="/get-started">
                 Schedule Your Free Consultation
               </CTAButton>
+            </div>
+
+            {/* Mobile only: real Graylock-built website shown on a laptop and phone — directly below the CTA */}
+            <div className="md:hidden -mx-6 mb-6">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${BASE}hero-mobile-eye-institute-mobile.webp`}
+                />
+                <img
+                  src={`${BASE}hero-mobile-eye-institute.png`}
+                  alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
+                  className="w-full h-auto"
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
+              <p className="text-stone/70 font-sans text-xs text-center mt-1">
+                A real Graylock-built website on every device.
+              </p>
             </div>
 
             <p className="text-stone/80 font-sans text-sm md:text-base mb-8">
