@@ -1,6 +1,5 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { ArrowRight } from "lucide-react";
 
 const BASE = import.meta.env.BASE_URL;
@@ -68,24 +67,16 @@ export function CaseStudySection() {
 
           <ScrollReveal delay={0.2}>
             <div className="relative">
-              <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-orange/10 via-transparent to-orange/5 blur-xl pointer-events-none" />
-              <div className="relative bg-charcoal rounded-xl border border-gray-200 overflow-hidden p-1.5 shadow-xl">
-                <div className="flex items-center gap-1.5 px-2 py-1.5 mb-1.5">
-                  <div className="w-2 h-2 rounded-full bg-red-500/50" />
-                  <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-                  <div className="w-2 h-2 rounded-full bg-green-500/50" />
-                  <span className="ml-2 text-[10px] text-stone/40 font-sans">yourpracticename.com</span>
-                </div>
-                <ResponsiveImage
-                  src={`${BASE}mockup-laptop-after.png`}
-                  alt="Practice website — after redesign"
-                  className="w-full rounded-md"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-orange/15 via-transparent to-orange/10 blur-2xl pointer-events-none" />
+              <img
+                src={`${BASE}case-study-eye-institute.webp`}
+                alt="West Coast Eye Institute — a Graylock Digital website shown on laptop and phone"
+                className="relative w-full h-auto"
+                loading="lazy"
+                decoding="async"
+              />
               <div className="text-center mt-3">
-                <span className="text-xs font-sans font-bold uppercase tracking-[0.2em] text-orange">After Redesign</span>
+                <span className="text-xs font-sans font-bold uppercase tracking-[0.2em] text-orange">After Redesign — West Coast Eye Institute</span>
               </div>
             </div>
           </ScrollReveal>
