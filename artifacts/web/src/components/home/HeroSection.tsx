@@ -117,7 +117,15 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-6">
-              <CTAButton href="/get-started">
+              {/* Mobile: smaller white outline button */}
+              <CTAButton
+                href="/get-started"
+                className="md:hidden bg-transparent text-white border border-white/80 hover:bg-white hover:text-navy px-6 py-2.5 text-sm shadow-none hover:shadow-none hover:-translate-y-0 hover:border-white"
+              >
+                Schedule Your Free Consultation
+              </CTAButton>
+              {/* Tablet/desktop: original orange button */}
+              <CTAButton href="/get-started" className="hidden md:inline-flex">
                 Schedule Your Free Consultation
               </CTAButton>
             </div>
