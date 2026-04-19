@@ -127,22 +127,28 @@ export function HeroSection() {
                 </CTAButton>
               </div>
 
-              <p className="text-stone/80 font-sans text-lg text-center mb-6">
-                See what we would improve before you spend a dollar.
-              </p>
-
-              <div className="flex flex-col gap-3 mb-8">
-                {[
-                  "Custom homepage demo before you commit",
-                  "No long-term contracts",
-                ].map((text, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
-                      <Check size={14} className="text-orange" />
-                    </div>
-                    <span className="text-stone font-sans text-lg">{text}</span>
-                  </div>
-                ))}
+              <div className="rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-sm px-5 py-5 mb-8">
+                <p className="text-offwhite font-sans text-base text-center leading-snug mb-4">
+                  See what we would improve before you spend a dollar.
+                </p>
+                <div className="h-px bg-white/10 mb-4" />
+                <ul className="flex flex-col gap-2.5">
+                  {[
+                    "Custom homepage demo before you commit",
+                    "No long-term contracts",
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <Check
+                        size={18}
+                        strokeWidth={2.5}
+                        className="text-orange flex-shrink-0 mt-0.5"
+                      />
+                      <span className="text-stone font-sans text-base leading-snug">
+                        {text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className="-mx-6">
