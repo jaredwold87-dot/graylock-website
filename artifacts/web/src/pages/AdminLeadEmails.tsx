@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { SEO } from "@/components/SEO";
-import { AlertTriangle, Mail, MailCheck, MailOpen, MousePointerClick, Clock, ShieldAlert, RefreshCw, LogOut, Send, X } from "lucide-react";
+import { AlertTriangle, Mail, MailCheck, MailOpen, MousePointerClick, Clock, ShieldAlert, RefreshCw, LogOut, Send, X, Download } from "lucide-react";
 
 type LeadRow = {
   id: number;
@@ -195,6 +195,57 @@ export default function AdminLeadEmails() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, statusFilter]);
 
+  function handleExportCsv() {
+    const headers = [
+      "email",
+      "first_name",
+      "lead_magnet",
+      "status",
+      "bounce_type",
+      "sent_at",
+      "delivered_at",
+      "opened_at",
+      "clicked_at",
+      "bounced_at",
+      "complained_at",
+    ];
+    const escape = (val: string | null | undefined) => {
+      let s = val == null ? "" : String(val);
+      if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
+      if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+      return s;
+    };
+    const rows = filteredLeads.map((l) =>
+      [
+        l.email,
+        l.firstName,
+        l.leadMagnet,
+        l.status,
+        l.bounceType,
+        l.sentAt,
+        l.deliveredAt,
+        l.openedAt,
+        l.clickedAt,
+        l.bouncedAt,
+        l.complainedAt,
+      ]
+        .map(escape)
+        .join(","),
+    );
+    const csv = [headers.join(","), ...rows].join("\r\n");
+    const blob = new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const ts = new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
+    const suffix = statusFilter ? `-${statusFilter}` : "";
+    a.href = url;
+    a.download = `lead-emails${suffix}-${ts}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   const filteredLeads = useMemo(() => {
     if (!data) return [];
     const q = search.trim().toLowerCase();
@@ -244,6 +295,15 @@ export default function AdminLeadEmails() {
               </p>
             </div>
             <div className="flex items-center gap-2">
+              <button
+                onClick={handleExportCsv}
+                disabled={loading || filteredLeads.length === 0}
+                data-testid="button-export-csv"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gunmetal bg-navy text-offwhite font-sans text-sm hover:border-orange/50 disabled:opacity-50"
+              >
+                <Download size={14} />
+                Export CSV
+              </button>
               <button
                 onClick={() => token && load(token, statusFilter)}
                 disabled={loading}
