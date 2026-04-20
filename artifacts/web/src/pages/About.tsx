@@ -204,7 +204,7 @@ export default function About() {
           <div className="text-center mt-10">
             <Link href="/get-started">
               <span className="inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-sans font-bold px-8 py-4 rounded-lg cursor-pointer transition-colors">
-                Get Your Free Evaluation →
+                Get a Free Demo →
               </span>
             </Link>
             <p className="text-stone/60 font-sans text-sm mt-3">No commitment. We'll show you a custom homepage demo.</p>

@@ -352,7 +352,7 @@ export default function FAQ() {
                   <p className="text-offwhite font-sans text-sm mb-1 font-semibold">Don't see your question?</p>
                   <p className="text-stone font-sans text-xs mb-4 leading-relaxed">A 20-minute call with Tim — ask anything.</p>
                   <CTAButton href="/get-started" className="w-full justify-center text-sm px-4 py-3">
-                    Book a Free Q&amp;A Call
+                    Get a Free Demo
                   </CTAButton>
                 </div>
               </div>
@@ -363,7 +363,7 @@ export default function FAQ() {
                 <div className="bg-navy border border-gunmetal rounded-xl p-8 text-center">
                   <p className="text-offwhite font-sans font-semibold mb-2">No questions match that search.</p>
                   <p className="text-stone font-sans text-sm mb-5">Try a different word — or just ask Tim directly.</p>
-                  <CTAButton href="/get-started">Book a Free Q&amp;A Call</CTAButton>
+                  <CTAButton href="/get-started">Get a Free Demo</CTAButton>
                 </div>
               )}
 
@@ -429,7 +429,7 @@ export default function FAQ() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <CTAButton href="/get-started" className="px-8 py-4">
-                Book a Free Q&amp;A Call
+                Get a Free Demo
               </CTAButton>
               <Link
                 href="/pricing"
