@@ -155,7 +155,10 @@ export async function runReminderJob(): Promise<{
           )
           OR EXISTS (
             SELECT 1 FROM lead_magnet_email_events e
-            WHERE e.event_type = ANY(${ENGAGEMENT_EVENT_TYPES})
+            WHERE e.event_type IN (${sql.join(
+              ENGAGEMENT_EVENT_TYPES.map((t) => sql`${t}`),
+              sql`, `,
+            )})
               AND (
                 e.email = c.email
                 OR EXISTS (

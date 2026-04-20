@@ -1,4 +1,5 @@
 import { Router, type Request, type Response } from "express";
+import { randomUUID } from "node:crypto";
 import { Resend } from "resend";
 import { eq, sql } from "drizzle-orm";
 import {
@@ -177,6 +178,10 @@ Reply directly to this email to reach the lead.`;
         return;
       }
       const resend = new Resend(resendKey);
+      // Set a deterministic Message-Id we control so inbound replies
+      // (which arrive with this value in their In-Reply-To/References
+      // headers) can be linked back to the exact original send.
+      const messageId = `<lm-${randomUUID()}@graylockdigital.com>`;
       const result = await resend.emails.send({
         from: "Graylock Digital <noreply@graylockdigital.com>",
         to: [email],
@@ -184,6 +189,7 @@ Reply directly to this email to reach the lead.`;
         subject: "Your Free Practice Growth Guide from Graylock Digital",
         html: userEmailHtml,
         text: userEmailText,
+        headers: { "Message-Id": messageId },
       });
       if (result?.error) {
         logger.error(
@@ -193,7 +199,7 @@ Reply directly to this email to reach the lead.`;
         return;
       }
       const resendEmailId = result?.data?.id ?? null;
-      logger.info({ email, resendEmailId }, "Lead magnet user email sent");
+      logger.info({ email, resendEmailId, messageId }, "Lead magnet user email sent");
       try {
         await db.insert(leadMagnetEmailsTable).values({
           email,
@@ -201,6 +207,7 @@ Reply directly to this email to reach the lead.`;
           resendEmailId: resendEmailId ?? undefined,
           leadMagnet: LEAD_MAGNET_NAME,
           status: "sent",
+          messageId,
         });
       } catch (err) {
         logger.error({ err }, "Failed to record lead-magnet send in DB");
