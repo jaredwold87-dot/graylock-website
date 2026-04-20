@@ -101,13 +101,13 @@ Submitted: ${submittedAt}
 ---
 Reply directly to this email to reach the lead.`;
 
-  const teamRecipients = ["jared@graylockdigital.com"];
-  const timEmail = process.env.TEAM_EMAIL_TIM;
-  if (timEmail) {
-    teamRecipients.push(timEmail);
-  } else {
-    logger.error(
-      "TEAM_EMAIL_TIM is not configured — Tim will NOT receive the lead-magnet notification. Set this env var in production immediately.",
+  const teamRecipients = [
+    "jared@graylockdigital.com",
+    process.env.TEAM_EMAIL_TIM || "tim@graylockdigital.com",
+  ];
+  if (!process.env.TEAM_EMAIL_TIM) {
+    logger.warn(
+      "TEAM_EMAIL_TIM env var not set — falling back to tim@graylockdigital.com for lead-magnet notifications.",
     );
   }
 
