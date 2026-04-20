@@ -35,6 +35,19 @@ export default function TermsOfService() {
           </ScrollReveal>
 
           <ScrollReveal>
+            <h2 className="text-2xl md:text-3xl font-display text-offwhite mb-5 leading-snug">30-Day "Love It or Leave It" Guarantee</h2>
+            <p className="text-stone font-sans text-base md:text-[17px] leading-[1.85] mb-4">
+              We back every new website with a 30-Day "Love It or Leave It" Guarantee. If, within 30 days of your website going live, you tell us in writing that you are not satisfied with the website we built, we will refund 100% of the one-time setup fee you paid for that website.
+            </p>
+            <p className="text-stone font-sans text-base md:text-[17px] leading-[1.85] mb-4">
+              The guarantee applies only to the one-time setup fee. Monthly fees already paid for hosting, maintenance, and support during the period the website was live and serviced are not refundable. Custom-quoted work and Custom plan engagements may have separate guarantee terms specified in writing at the time of engagement.
+            </p>
+            <p className="text-stone font-sans text-base md:text-[17px] leading-[1.85]">
+              To request a refund under this guarantee, email <a href="mailto:hello@graylockdigital.com" className="text-orange font-semibold hover:underline">hello@graylockdigital.com</a> within 30 days of your launch date. You keep the website code, copy, images, and brand assets we created for you — there are no clawbacks.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal>
             <h2 className="text-2xl md:text-3xl font-display text-offwhite mb-5 leading-snug">Cancellation</h2>
             <p className="text-stone font-sans text-base md:text-[17px] leading-[1.85]">
               All plans are month-to-month with no long-term contracts. You may cancel at any time with 30 days' written notice and no cancellation fees. Upon cancellation, we will package up all of your content and data, and transfer your domain to wherever you choose. You will need to build a new site on your new host, but you will never lose your domain authority, your content, or your brand.

@@ -200,7 +200,7 @@ export default function AccountantsFunnel() {
                 href="/get-started"
                 className="px-8 py-5 text-lg"
               >
-                Schedule a Free Consultation
+                Get a Free Demo
               </CTAButton>
               <CTAButton
                 href="#before-after"
@@ -684,7 +684,7 @@ export default function AccountantsFunnel() {
                 variant="dark"
                 className="px-10 py-5 text-lg"
               >
-                Schedule a Free Consultation
+                Get a Free Demo
                 <ArrowRight size={18} className="ml-2" />
               </CTAButton>
               <p className="text-white/75 text-sm font-sans mt-2">

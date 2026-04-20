@@ -132,7 +132,7 @@ export default function HowItWorks() {
               You'll also receive a comprehensive written report covering your competitive landscape, SEO gaps, and growth opportunities — yours to keep no matter what.
             </p>
             <CTAButton href="/get-started" className="px-8 py-4">
-              Schedule a Free Consultation
+              Get a Free Demo
             </CTAButton>
           </ScrollReveal>
         </div>

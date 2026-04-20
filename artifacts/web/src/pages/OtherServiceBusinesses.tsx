@@ -51,7 +51,7 @@ export default function OtherServiceBusinesses() {
 
           <ScrollReveal delay={0.2} className="text-center">
             <CTAButton href="/get-started">
-              Schedule a Free Consultation
+              Get a Free Demo
             </CTAButton>
             <p className="text-stone/70 font-sans text-sm mt-5">
               Or browse our <Link href="/pricing" className="text-orange hover:underline underline-offset-4 decoration-2">pricing plans</Link>

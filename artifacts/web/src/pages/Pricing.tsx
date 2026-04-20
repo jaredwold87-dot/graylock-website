@@ -2,6 +2,8 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { PricingSection } from "@/components/home/PricingSection";
+import { GuaranteeSection } from "@/components/pricing/GuaranteeSection";
+import { PracticeGrowthBundleSection } from "@/components/pricing/PracticeGrowthBundleSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock, FileCheck, Globe, Image as ImageIcon, Package, ShieldCheck } from "lucide-react";
@@ -16,7 +18,7 @@ export default function Pricing() {
     { name: "Hosting & SSL", solo: true, group: true, enterprise: true, custom: true },
     { name: "Google Business Profile", solo: true, group: true, enterprise: true, custom: true },
     { name: "Local SEO", solo: "Foundation", group: "Full", enterprise: "Advanced + Multi-Location", custom: "Custom" },
-    { name: "Lead Capture Form", solo: "Basic", group: "Enhanced", enterprise: "Advanced", custom: "Custom" },
+    { name: "Patient Intake Flow", solo: "Secure", group: "Advanced", enterprise: "Conversion-Optimized", custom: "Custom" },
     { name: "Dashboard Access", solo: true, group: true, enterprise: true, custom: true },
     { name: "Dedicated Account Manager", solo: true, group: true, enterprise: true, custom: true },
     { name: "Site Update Hours", solo: "1 hr/quarter", group: "1 hr/month", enterprise: "2 hrs/month", custom: "Custom", footnote: "Additional updates billed at $100/hr — quoted and approved before any work begins" },
@@ -57,6 +59,9 @@ export default function Pricing() {
       </section>
 
       <PricingSection hideHeader />
+
+      <GuaranteeSection />
+      <PracticeGrowthBundleSection />
 
       <section className="bg-charcoal pt-12 pb-4 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">

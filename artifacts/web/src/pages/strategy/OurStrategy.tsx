@@ -222,7 +222,7 @@ export default function OurStrategy() {
               Book a free 20-minute call. We'll evaluate your current online presence and show you exactly which parts of our strategy would have the biggest impact on your business.
             </p>
             <CTAButton href="/get-started" variant="dark" className="px-10 py-5 text-lg">
-              Schedule a Free Consultation
+              Get a Free Demo
             </CTAButton>
             <p className="text-white/70 font-sans text-sm mt-4">No commitment. No obligation. Just a clearer path forward.</p>
           </ScrollReveal>

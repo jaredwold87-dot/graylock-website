@@ -170,7 +170,7 @@ const data: IndustryPageData = {
     headline: "Pet Owners Are Searching for a Vet in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your veterinary website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Schedule a Free Consultation",
+    button: "Get a Free Demo",
   },
   showPrivacyNote: true,
   relatedPages: [

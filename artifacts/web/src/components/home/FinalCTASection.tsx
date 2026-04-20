@@ -16,14 +16,14 @@ export function FinalCTASection() {
             Get Clear on What Your Website Should Be Doing Better
           </h2>
           <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-10">
-            Schedule a free consultation and we will show you where your current site is losing trust, clarity, or leads — and what we would do differently before you spend a dollar.
+            Get a free homepage demo and we will show you where your current site is losing trust, clarity, or leads — and what we would do differently before you spend a dollar.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
           <div className="flex flex-col items-center gap-3">
             <CTAButton href="/get-started" className="px-10 py-5 text-lg group">
-              Schedule Your Free Consultation
+              Get Your Free Homepage Demo
               <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </CTAButton>
             <p className="text-stone/60 text-sm font-sans mt-2">

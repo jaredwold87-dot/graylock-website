@@ -73,7 +73,7 @@ export function PricingSnapshotSection() {
                   variant={tier.popular ? 'primary' : 'outline'}
                   className="w-full"
                 >
-                  {tier.isCustom ? 'Contact Us' : 'Schedule a Free Consultation'}
+                  {tier.isCustom ? 'Contact Us' : 'Get a Free Demo'}
                 </CTAButton>
               </div>
             </ScrollReveal>

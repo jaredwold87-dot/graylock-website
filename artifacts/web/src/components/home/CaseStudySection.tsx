@@ -60,7 +60,7 @@ export function CaseStudySection() {
 
             <div className="mt-8">
               <CTAButton href="/get-started">
-                Schedule a Free Consultation
+                Get a Free Demo
               </CTAButton>
             </div>
           </ScrollReveal>

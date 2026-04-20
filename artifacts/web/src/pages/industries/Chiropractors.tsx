@@ -185,7 +185,7 @@ const data: IndustryPageData = {
     headline: "New Patients Are Searching for a Chiropractor in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your chiropractic website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Schedule a Free Consultation",
+    button: "Get a Free Demo",
   },
   showPrivacyNote: true,
   relatedPages: [

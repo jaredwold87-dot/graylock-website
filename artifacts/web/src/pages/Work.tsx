@@ -167,11 +167,11 @@ export default function Work() {
               See What Your Site Could Look Like — On Us
             </h2>
             <p className="text-stone text-lg font-sans mb-8 max-w-2xl mx-auto">
-              Book a free consultation and we will show you a custom homepage demo for your practice before you commit to anything.
+              Book a free homepage demo and we will show you exactly what your practice's site could look like — before you commit to anything.
             </p>
             <Link href="/get-started">
               <span className="inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-sans font-bold text-lg px-10 py-4 rounded-lg shadow-lg shadow-orange/20 transition-all duration-300 cursor-pointer">
-                Schedule Your Free Consultation <ArrowRight size={20} />
+                Get Your Free Homepage Demo <ArrowRight size={20} />
               </span>
             </Link>
             <p className="text-stone/60 text-sm font-sans mt-4">

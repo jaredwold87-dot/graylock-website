@@ -115,7 +115,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
                 variant={tier.popular ? 'primary' : 'outline'}
                 className="w-full"
               >
-                {PLAN_CTA_LABELS[tier.name] || 'Schedule a Free Consultation'}
+                {PLAN_CTA_LABELS[tier.name] || 'Get a Free Demo'}
               </CTAButton>
               {tier.isCustom && (
                 <p className={cn(
@@ -131,7 +131,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
 
         <ScrollReveal delay={0.5} className="mt-16 text-center">
           <p className="text-stone font-sans mb-2">
-            Not sure which plan is right? Schedule a free consultation and we'll tell you exactly what your practice needs.
+            Not sure which plan is right? Get a free demo and we'll tell you exactly what your practice needs.
           </p>
           <p className="text-stone/50 text-sm font-sans max-w-2xl mx-auto">
             All plans include hosting, SSL, mobile optimization, dashboard access, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime with 30 days' notice. Client retains domain and all content.
