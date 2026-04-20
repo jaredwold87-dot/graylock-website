@@ -25,6 +25,7 @@ export const leadMagnetEmailsTable = pgTable(
     bouncedAt: timestamp("bounced_at"),
     complainedAt: timestamp("complained_at"),
     deliveryDelayedAt: timestamp("delivery_delayed_at"),
+    reminderSentAt: timestamp("reminder_sent_at"),
     updatedAt: timestamp("updated_at").defaultNow().notNull(),
   },
   (table) => ({

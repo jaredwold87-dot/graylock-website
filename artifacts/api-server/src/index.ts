@@ -1,6 +1,7 @@
 import app from "./app";
 import { logger } from "./lib/logger";
 import { pool } from "@workspace/db";
+import { startReminderScheduler } from "./lib/reminderJob";
 
 const port = Number(process.env["PORT"] || 3000);
 
@@ -43,8 +44,10 @@ async function runMigrations() {
         bounced_at TIMESTAMP,
         complained_at TIMESTAMP,
         delivery_delayed_at TIMESTAMP,
+        reminder_sent_at TIMESTAMP,
         updated_at TIMESTAMP DEFAULT NOW() NOT NULL
       );
+      ALTER TABLE lead_magnet_emails ADD COLUMN IF NOT EXISTS reminder_sent_at TIMESTAMP;
       CREATE INDEX IF NOT EXISTS idx_lead_magnet_emails_email ON lead_magnet_emails(email);
 
       CREATE TABLE IF NOT EXISTS lead_magnet_email_events (
@@ -80,11 +83,13 @@ runMigrations()
   .then(() => {
     app.listen(port, () => {
       logger.info({ port }, "Server listening");
+      startReminderScheduler();
     });
   })
   .catch((err) => {
     logger.error({ err }, "Failed to run migrations, starting server anyway");
     app.listen(port, () => {
       logger.info({ port }, "Server listening (migrations failed)");
+      startReminderScheduler();
     });
   });
