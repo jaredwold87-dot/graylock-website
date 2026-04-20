@@ -1,5 +1,11 @@
 import { Router, type Request, type Response } from "express";
 import { Resend } from "resend";
+import { eq } from "drizzle-orm";
+import {
+  db,
+  leadMagnetEmailsTable,
+  suppressedEmailsTable,
+} from "@workspace/db";
 import { logger } from "../lib/logger";
 
 const leadMagnetRouter = Router();
@@ -12,6 +18,7 @@ interface LeadMagnetPayload {
 }
 
 const PDF_PUBLIC_URL = "https://graylockdigital.com/website-playbook.pdf";
+const LEAD_MAGNET_NAME = "Private Practice Website Playbook";
 
 leadMagnetRouter.post("/lead-magnet", async (req: Request, res: Response) => {
   const payload: LeadMagnetPayload = req.body;
@@ -35,7 +42,7 @@ leadMagnetRouter.post("/lead-magnet", async (req: Request, res: Response) => {
   }
 
   const firstName = payload.first_name.trim();
-  const email = payload.email.trim();
+  const email = payload.email.trim().toLowerCase();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!firstName || firstName.length > 100) {
@@ -49,6 +56,23 @@ leadMagnetRouter.post("/lead-magnet", async (req: Request, res: Response) => {
   if (payload.consent !== true) {
     res.status(400).json({ success: false, error: "Consent is required" });
     return;
+  }
+
+  let suppressed = false;
+  try {
+    const rows = await db
+      .select()
+      .from(suppressedEmailsTable)
+      .where(eq(suppressedEmailsTable.email, email));
+    suppressed = rows.length > 0;
+    if (suppressed) {
+      logger.warn(
+        { email, reason: rows[0]?.reason },
+        "Skipping lead-magnet user email — address is suppressed",
+      );
+    }
+  } catch (err) {
+    logger.error({ err }, "Failed to check suppression list — proceeding");
   }
 
   const userEmailHtml = `<!DOCTYPE html>
@@ -97,7 +121,7 @@ First name: ${firstName}
 Email: ${email}
 Consent: ${payload.consent ? "Yes" : "No"}
 Submitted: ${submittedAt}
-
+${suppressed ? "\nNOTE: This address is on the suppression list — playbook email was NOT sent.\n" : ""}
 ---
 Reply directly to this email to reach the lead.`;
 
@@ -112,6 +136,19 @@ Reply directly to this email to reach the lead.`;
   }
 
   const userEmailPromise = (async () => {
+    if (suppressed) {
+      try {
+        await db.insert(leadMagnetEmailsTable).values({
+          email,
+          firstName,
+          leadMagnet: LEAD_MAGNET_NAME,
+          status: "suppressed",
+        });
+      } catch (err) {
+        logger.error({ err }, "Failed to record suppressed lead-magnet send");
+      }
+      return;
+    }
     try {
       const resendKey = process.env.RESEND_API_KEY;
       if (!resendKey) {
@@ -119,7 +156,7 @@ Reply directly to this email to reach the lead.`;
         return;
       }
       const resend = new Resend(resendKey);
-      await resend.emails.send({
+      const result = await resend.emails.send({
         from: "Graylock Digital <noreply@graylockdigital.com>",
         to: [email],
         replyTo: "hello@graylockdigital.com",
@@ -127,7 +164,26 @@ Reply directly to this email to reach the lead.`;
         html: userEmailHtml,
         text: userEmailText,
       });
-      logger.info({ email }, "Lead magnet user email sent");
+      if (result?.error) {
+        logger.error(
+          { err: result.error, email },
+          "Resend returned an error for lead magnet user email",
+        );
+        return;
+      }
+      const resendEmailId = result?.data?.id ?? null;
+      logger.info({ email, resendEmailId }, "Lead magnet user email sent");
+      try {
+        await db.insert(leadMagnetEmailsTable).values({
+          email,
+          firstName,
+          resendEmailId: resendEmailId ?? undefined,
+          leadMagnet: LEAD_MAGNET_NAME,
+          status: "sent",
+        });
+      } catch (err) {
+        logger.error({ err }, "Failed to record lead-magnet send in DB");
+      }
     } catch (err) {
       logger.error({ err }, "Failed to send lead magnet user email");
     }
@@ -167,8 +223,9 @@ Reply directly to this email to reach the lead.`;
           consent: payload.consent,
           source: "graylockdigital.com",
           leadType: "lead-magnet",
-          leadMagnet: "Private Practice Website Playbook",
+          leadMagnet: LEAD_MAGNET_NAME,
           submittedAt,
+          emailSuppressed: suppressed,
         }),
       });
       logger.info({ status: response.status }, "GOS webhook (lead-magnet) response");

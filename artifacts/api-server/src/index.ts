@@ -27,6 +27,45 @@ async function runMigrations() {
         created_at TIMESTAMP DEFAULT NOW() NOT NULL
       );
       CREATE INDEX IF NOT EXISTS idx_messages_conversation_id ON chat_messages(conversation_id);
+
+      CREATE TABLE IF NOT EXISTS lead_magnet_emails (
+        id SERIAL PRIMARY KEY,
+        email TEXT NOT NULL,
+        first_name TEXT NOT NULL,
+        resend_email_id TEXT UNIQUE,
+        lead_magnet TEXT NOT NULL,
+        status TEXT NOT NULL DEFAULT 'queued',
+        bounce_type TEXT,
+        sent_at TIMESTAMP DEFAULT NOW() NOT NULL,
+        delivered_at TIMESTAMP,
+        opened_at TIMESTAMP,
+        clicked_at TIMESTAMP,
+        bounced_at TIMESTAMP,
+        complained_at TIMESTAMP,
+        delivery_delayed_at TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT NOW() NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS idx_lead_magnet_emails_email ON lead_magnet_emails(email);
+
+      CREATE TABLE IF NOT EXISTS lead_magnet_email_events (
+        id SERIAL PRIMARY KEY,
+        lead_magnet_email_id INTEGER REFERENCES lead_magnet_emails(id),
+        resend_email_id TEXT,
+        email TEXT,
+        event_type TEXT NOT NULL,
+        svix_id TEXT UNIQUE,
+        payload JSONB NOT NULL,
+        occurred_at TIMESTAMP NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW() NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS idx_lead_magnet_email_events_lme_id ON lead_magnet_email_events(lead_magnet_email_id);
+
+      CREATE TABLE IF NOT EXISTS suppressed_emails (
+        email TEXT PRIMARY KEY,
+        reason TEXT NOT NULL,
+        bounce_type TEXT,
+        created_at TIMESTAMP DEFAULT NOW() NOT NULL
+      );
     `);
     logger.info("Database migrations completed");
   } catch (err) {
