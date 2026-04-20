@@ -1,0 +1,42 @@
+2. Pricing Page Changes
+The Guarantee Section (NEW)
+Placement: Insert this new section immediately below the three pricing tiers, before the "What You're Actually Paying For" breakdown.
+Design Instruction: Put this in a visually distinct box (e.g., a light blue or gray background, or with a shield icon) so it stands out as a major risk-reversal mechanism.
+Headline: The 30-Day "Love It Or Leave It" Guarantee
+Body Copy: We are so confident in our 7-day build process that we take all the risk. If you don't absolutely love the custom website we build for your practice within the first 30 days, tell us. We will refund your setup fee in full, and you can walk away. No questions asked, no hard feelings.
+The Bonuses Section (NEW)
+Placement: Insert this new section immediately below the new Guarantee section.
+Design Instruction: Display as three distinct items with checkmarks or icons.
+Headline: Included Free With Every Plan: The Practice Growth Bundle
+Body Copy: A website only works if you have the systems to support it. We include over $1,500 in proven practice growth assets free with your build.
+Bonus 1:
+Title: The "5-Star Review" Automation Script
+Copy: The exact text and email templates to send to happy patients to ethically and consistently build your Google reviews.
+Bonus 2:
+Title: The "No-Show Reduction" Email Sequence
+Copy: A proven 3-part email onboarding sequence for new patients that builds trust and dramatically reduces no-show rates.
+Bonus 3:
+Title: Google Business Profile Optimization Guide
+Copy: Our internal checklist for setting up your local Google profile to rank higher in the "map pack" for your specific services.
+Pricing Tiers Feature Updates
+Update the feature lists in the pricing cards to reflect outcomes, not just technical features.
+Starter Plan Feature Updates:
+Change "Custom 8-Page Website" to: Custom 8-Page Conversion Website
+Change "Lead Capture Form" to: Secure Patient Intake Flow
+Growth Plan Feature Updates:
+Change "Custom 15-Page Website" to: Custom 15-Page Conversion Website
+Change "Enhanced Lead Capture Form" to: Advanced Patient Intake Flow
+Scale Plan Feature Updates:
+Change "Custom 20+ Page Website" to: Custom 20+ Page Conversion Website
+3. Global Site Changes
+Navigation & Footer
+CTA Button in Header:
+Current: Schedule a Free Consultation
+New: Get a Free Demo
+CTA Button in Footer:
+Current: Schedule Your Free Consultation
+New: Get Your Free Homepage Demo
+Developer Implementation Notes
+Guarantee Tracking: The 30-day guarantee needs to be reflected in the Terms of Service / Client Agreement document that is sent during onboarding.
+Bonus Delivery: The three bonuses (Review Script, No-Show Sequence, GBP Guide) need to be created as simple PDF documents. They should be automatically emailed to the client or added to their Client Dashboard immediately upon signing up.
+Button Links: Ensure all changed CTA buttons ("Get Your Free Homepage Demo") still link to the exact same scheduling calendar or intake form as before. The destination doesn't change, only the button text.

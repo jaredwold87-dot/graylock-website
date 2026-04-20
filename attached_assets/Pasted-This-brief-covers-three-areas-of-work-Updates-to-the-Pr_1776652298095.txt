@@ -1,0 +1,97 @@
+This brief covers three areas of work:
+Updates to the Pricing Page — new guarantee section, new bonus section, and feature list copy updates
+Global site CTA changes across the header and footer
+Deployment of the new Lead Magnet (free download) on the homepage
+All copy below is final. Do not paraphrase or rewrite. Use the exact text as written.
+SECTION 1: Pricing Page Changes
+1A. Pricing Tier Feature List Updates
+Make the following copy changes inside the existing pricing cards. No structural changes to the cards are needed — these are text replacements only.
+Starter Plan
+Current Text
+Replace With
+Custom 8-Page Website
+Custom 8-Page Conversion Website
+Lead Capture Form
+Secure Patient Intake Flow
+Growth Plan
+Current Text
+Replace With
+Custom 15-Page Website
+Custom 15-Page Conversion Website
+Enhanced Lead Capture Form
+Advanced Patient Intake Flow
+Scale Plan
+Current Text
+Replace With
+Custom 20+ Page Website
+Custom 20+ Page Conversion Website
+1B. New Guarantee Section
+Placement: Insert this section immediately below the three pricing tier cards, before any existing "What You're Actually Paying For" or comparison section.
+Design Instructions: Display this section in a visually distinct container — a light gray or off-white background box with a subtle border, or a shield/checkmark icon in the top left. It should read as a trust signal, not a promotional banner. Do not use bright or distracting colors.
+EXACT COPY:
+Headline: The 30-Day "Love It or Leave It" Guarantee
+Body: We stand behind every website we build. If you are not completely satisfied with the custom site we deliver for your practice within the first 30 days, tell us. We will refund your setup fee in full, and you can walk away. No questions asked, no hard feelings.
+1C. New Bonus Section
+Placement: Insert this section immediately below the Guarantee section (1B above).
+Design Instructions: Display the three bonus items as a horizontal row of cards (on desktop) or stacked vertically (on mobile). Each card should have a checkmark or document icon, a bold title, and a short description. The overall section should feel like a value-add reveal — something the prospect did not expect to get.
+EXACT COPY:
+Section Eyebrow Label: Included Free With Every Plan
+Section Headline: The Practice Growth Bundle
+Section Subheadline: A website only works if you have the systems to support it. Every Graylock client receives our complete Practice Growth Bundle — a collection of proven resources to help you get found, build trust, and fill your schedule from day one.
+Bonus Item 1:
+Title: The "5-Star Review" Automation Script
+Description: The exact SMS and email templates to send to happy patients to ethically and consistently build your Google reviews — without feeling awkward or pushy.
+Bonus Item 2:
+Title: The "No-Show Reduction" Email Sequence
+Description: A proven 3-part email onboarding sequence for new patients that builds trust before their first appointment and dramatically reduces no-show rates.
+Bonus Item 3:
+Title: The Private Practice Growth System
+Description: Our complete 11-chapter client playbook covering local SEO, Google Business Profile mastery, referral systems, patient retention, and a 90-day action plan. Delivered to every new client on Day 1.
+Below the three bonus items, add this closing line in smaller supporting text:
+A $1,500+ value — included free with every Graylock plan.
+SECTION 2: Global CTA Changes
+Make the following text replacements on every instance of these buttons across the entire site (header, footer, any inline CTAs).
+Location
+Current Text
+New Text
+Header navigation button
+Schedule a Free Consultation
+Get a Free Demo
+Footer CTA button
+Schedule Your Free Consultation
+Get Your Free Homepage Demo
+Any other inline CTA buttons
+Schedule a Free Consultation
+Get a Free Demo
+Important: Do not change the destination URL that these buttons link to. The button text changes; the link destination stays exactly the same.
+SECTION 3: Lead Magnet Deployment (Homepage)
+This is a new section to be added to the homepage. We now have a free downloadable guide to use as a lead capture tool.
+Asset: The Private Practice Website Playbook (PDF — file will be provided separately)
+Placement: Add a new section to the homepage. Recommended placement is either:
+Directly below the hero section (above the "How It Works" or services section), OR
+As an inline section near the bottom of the homepage, above the footer
+Choose whichever placement fits the existing homepage layout better. The section should not feel intrusive — it is an offer, not a popup.
+Design Instructions: Simple, clean layout. White or very light gray background. A small thumbnail image of the guide cover on the left (or top on mobile), copy on the right, and a single CTA button. No distracting colors.
+EXACT COPY:
+Eyebrow Label: Free Download
+Headline: Is Your Website Losing You Patients?
+Subheadline: Download our free guide: The Private Practice Website Playbook — 5 reasons most practice websites fail, and exactly how to fix each one.
+CTA Button Text: Download the Free Guide
+CTA Button Action: Opens a simple modal or inline form with two fields — First Name and Email Address — and a "Send Me the Guide" submit button. On submission, the PDF is automatically emailed to the address provided and the lead is added to the email list/CRM.
+Note for developer: The email delivery of the PDF must be automated. When someone submits the form, they should receive an email within 60 seconds with the subject line: "Your Free Practice Growth Guide from Graylock Digital" and the PDF attached or linked. Confirm the automation is live before this goes to production.
+SECTION 4: Developer Implementation Notes
+The following items require coordination beyond front-end copy changes.
+Guarantee Documentation: The 30-day money-back guarantee referenced in Section 1B must be added to the Terms of Service and the Client Agreement document sent during onboarding. Confirm with the business owner before deploying the guarantee language on the live site.
+Bonus Delivery — Growth System Book: The Private Practice Growth System (11-chapter PDF) must be automatically delivered to every new paying client. Recommended delivery method: triggered email on Day 1 of onboarding, with the PDF attached or linked. It should also be available in the client dashboard if one exists.
+Bonus Delivery — Individual Scripts: The Review Script and No-Show Sequence are included inside the Growth System book. No separate PDFs need to be sent unless the business owner decides to deliver them individually as well.
+Lead Magnet Form Integration: The homepage download form must connect to the existing email platform (confirm which platform — Mailchimp, ActiveCampaign, HubSpot, etc.) and tag the subscriber as "Lead Magnet — Website Playbook" for segmentation purposes.
+QA Checklist Before Go-Live:
+ All three pricing card copy changes confirmed
+ Guarantee section live and visually distinct
+ Bonus section live with all three items and closing value line
+ Header CTA updated globally
+ Footer CTA updated globally
+ Lead magnet section live on homepage
+ Lead magnet form submits and triggers automated email within 60 seconds
+ Guarantee language added to Terms of Service / Client Agreement
+ Growth System PDF delivery automated for new paying clients
