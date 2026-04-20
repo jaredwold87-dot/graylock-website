@@ -83,6 +83,75 @@ The project is structured as a pnpm monorepo with separate packages for applicat
 - **Lead Capture Forms:** Formspree
 - **Meeting Scheduling:** Calendly
 - **Lead Webhook:** `https://graylock-os-ymwca.sevalla.app/api/webhook/chatbot-lead` (Graylock OS webhook)
+- **Playbook Inbound Replies:** Configured inbound parser (Resend Inbound, CloudMailin, or Postmark) forwarding `hello@graylockdigital.com` replies into `POST /api/lead-magnet/inbound-reply` (see "Playbook Inbound Reply Forwarding" below).
+
+## Playbook Inbound Reply Forwarding
+
+The Playbook nudge sequence (`reminderJob.ts`) suppresses follow-up nudges for any lead that has an `email.replied` event. Resend's outbound webhook does not deliver inbound mail, so replies to `hello@graylockdigital.com` must be POSTed into the API by an inbound mail parser.
+
+**Endpoint**
+
+- URL: `POST https://<production-domain>/api/lead-magnet/inbound-reply`
+- Content-Type: `application/json`
+- Auth: send the shared secret in either header:
+    - `Authorization: Bearer <LEAD_MAGNET_INBOUND_SECRET>`, or
+    - `X-Inbound-Token: <LEAD_MAGNET_INBOUND_SECRET>`
+- Expected JSON body fields (all optional except `from`):
+    - `from` (string, required) — RFC5322 address, e.g. `"Jane <jane@example.com>"`
+    - `to` (string or string[])
+    - `subject` (string)
+    - `message_id` (string) — the inbound `Message-Id` header (used as the dedupe key)
+    - `in_reply_to` (string) — the original Playbook send's `Message-Id`; used to match the parent send
+    - `references` (string or string[]) — additional `Message-Id`s to try
+    - `text` (string) — plain-text body (only the first 500 chars are stored)
+    - `html` (string)
+    - `received_at` (ISO 8601 string)
+
+The endpoint returns `{ success, tracked, matchedBy, parentEmailId }`. `tracked: true` means the reply was linked to a specific Playbook send (by `Message-Id` if available, otherwise by most-recent initial send to the same `from` address). Either way, the lead is now excluded from future nudges.
+
+**Configuring an inbound source**
+
+Pick one — only one needs to be live in production:
+
+1. **Resend Inbound parsing** (preferred if Resend is already managing the domain): in the Resend dashboard, add an inbound route for `hello@graylockdigital.com` that forwards parsed mail to the endpoint above. Add a custom header `X-Inbound-Token` set to the `LEAD_MAGNET_INBOUND_SECRET` value. Map Resend's parsed fields to the JSON keys listed above (Resend's default JSON shape already matches `from` / `to` / `subject` / `text` / `html`; map their `messageId` → `message_id`, `inReplyTo` → `in_reply_to`, `references` → `references`).
+2. **CloudMailin / Postmark inbound forwarding rule**: set the destination URL to the endpoint above with the bearer token in the `Authorization` header. Use the provider's "JSON (normalized)" format and confirm the field names match — both providers expose `from`, `to`, `subject`, `message_id` (or `MessageID`), `in_reply_to`, `references`, `text`, `html`, and a received timestamp; rename if the provider uses different casing.
+3. **Forwarding-only fallback**: if no parser is available, a Google Workspace / mailbox forwarding rule can pipe mail into a Zapier / Make.com webhook step that POSTs the JSON shape above. In this mode, `in_reply_to` and `references` are usually missing, so matching falls back to "most recent initial send for this sender" — still correct for genuine replies, but less precise.
+
+**Example request**
+
+```bash
+curl -X POST "https://<production-domain>/api/lead-magnet/inbound-reply" \
+  -H "Authorization: Bearer $LEAD_MAGNET_INBOUND_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "from": "Jane Doe <jane@example.com>",
+    "to": "hello@graylockdigital.com",
+    "subject": "Re: Your Practice Website Playbook",
+    "message_id": "<CAF=abc123@mail.example.com>",
+    "in_reply_to": "<playbook-initial-42@graylockdigital.com>",
+    "references": "<playbook-initial-42@graylockdigital.com>",
+    "text": "Thanks — interested, can we chat next week?",
+    "received_at": "2026-04-20T14:05:00Z"
+  }'
+```
+
+A successful call responds with `{"success":true,"tracked":true,"matchedBy":"message_id","parentEmailId":42}`.
+
+**Rotating `LEAD_MAGNET_INBOUND_SECRET`**
+
+1. Generate a new secret (e.g. `openssl rand -hex 32`).
+2. Update the inbound provider's header (`Authorization: Bearer …` or `X-Inbound-Token: …`) to the new value.
+3. Update the `LEAD_MAGNET_INBOUND_SECRET` environment variable in the production deployment and restart the API service.
+4. Send a test reply to `hello@graylockdigital.com` and confirm a new `email.replied` event with `payload.source = "inbound-reply"` appears in `lead_magnet_email_events`.
+
+**End-to-end verification**
+
+After configuring the inbound source in production, send a real reply to a recent Playbook email from an external mailbox and confirm:
+
+- The provider's delivery log shows a `200` response from `/api/lead-magnet/inbound-reply`.
+- A row appears in `lead_magnet_email_events` with `event_type = 'email.replied'` and `payload->>'source' = 'inbound-reply'`.
+- `payload->>'matchedBy'` is `"message_id"` (preferred) or `"from_email"`, and `lead_magnet_email_id` is populated.
+- The lead no longer receives subsequent nudges from `reminderJob`.
 - **Image Processing:** `sharp` (for image variant generation)
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion
