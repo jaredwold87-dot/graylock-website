@@ -15,9 +15,9 @@ export function LeadMagnetSection() {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-12 bg-navy overflow-hidden border-t border-gunmetal/50">
+    <section className="relative py-24 px-6 md:px-12 bg-offwhite border-t border-gray-200 overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/3 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -26,7 +26,7 @@ export function LeadMagnetSection() {
               <BookOpen className="text-orange" size={16} />
               <span className="text-orange text-xs font-sans font-bold uppercase tracking-widest">Free Download</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-5 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-5 leading-tight">
               Is Your Website Losing You Patients?
             </h2>
             <p className="text-stone text-lg font-sans leading-relaxed mb-7">
@@ -37,7 +37,7 @@ export function LeadMagnetSection() {
               {bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle2 className="text-orange flex-shrink-0 mt-0.5" size={20} />
-                  <span className="text-stone font-sans">{b}</span>
+                  <span className="text-charcoal/85 font-sans">{b}</span>
                 </li>
               ))}
             </ul>
@@ -51,18 +51,18 @@ export function LeadMagnetSection() {
               <Download size={18} />
               Download the Free Guide
             </button>
-            <p className="text-stone/60 text-sm font-sans mt-3">
+            <p className="text-stone/70 text-sm font-sans mt-3">
               Instant PDF download. No credit card. Unsubscribe anytime.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
             <div className="relative">
-              <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-orange/25 via-transparent to-orange/10 blur-2xl pointer-events-none" />
+              <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-orange/20 via-transparent to-orange/10 blur-2xl pointer-events-none" />
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="relative block w-full group rounded-2xl overflow-hidden shadow-2xl shadow-black/40 hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
+                className="relative block w-full group rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(15,30,53,0.18)] hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
                 aria-label="Download the free Private Practice Website Playbook"
               >
                 <img

@@ -37,13 +37,13 @@ export default function TermsOfService() {
           <ScrollReveal>
             <h2 className="text-2xl md:text-3xl font-display text-offwhite mb-5 leading-snug">30-Day "Love It or Leave It" Guarantee</h2>
             <p className="text-stone font-sans text-base md:text-[17px] leading-[1.85] mb-4">
-              We back every new website with a 30-Day "Love It or Leave It" Guarantee. If, within 30 days of your website going live, you tell us in writing that you are not satisfied with the website we built, we will refund 100% of the one-time setup fee you paid for that website.
+              If your new website is live for 30 days and you genuinely don't love it, just tell us. We will refund every dollar of your setup fee — no clawbacks, no fine print, no awkward conversations. You keep the full website code, copy, and assets we built for you. We are confident enough in our work to put our money behind it, so you never have to gamble on yours.
             </p>
             <p className="text-stone font-sans text-base md:text-[17px] leading-[1.85] mb-4">
-              The guarantee applies only to the one-time setup fee. Monthly fees already paid for hosting, maintenance, and support during the period the website was live and serviced are not refundable. Custom-quoted work and Custom plan engagements may have separate guarantee terms specified in writing at the time of engagement.
+              For legal clarity: the guarantee covers the one-time setup fee only. Monthly fees already paid for hosting, maintenance, and support during the period the website was live and serviced are not refundable. Custom-quoted work and Custom plan engagements may have separate guarantee terms specified in writing at the time of engagement.
             </p>
             <p className="text-stone font-sans text-base md:text-[17px] leading-[1.85]">
-              To request a refund under this guarantee, email <a href="mailto:hello@graylockdigital.com" className="text-orange font-semibold hover:underline">hello@graylockdigital.com</a> within 30 days of your launch date. You keep the website code, copy, images, and brand assets we created for you — there are no clawbacks.
+              To request a refund under this guarantee, send a written request by email to <a href="mailto:hello@graylockdigital.com" className="text-orange font-semibold hover:underline">hello@graylockdigital.com</a> within 30 days of your website's launch date. You keep the website code, copy, images, and brand assets we created for you — there are no clawbacks.
             </p>
           </ScrollReveal>
 

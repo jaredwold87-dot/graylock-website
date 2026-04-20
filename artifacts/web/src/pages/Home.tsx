@@ -30,8 +30,8 @@ export default function Home() {
       <CaseStudySection />
       <DashboardSection />
       <PricingSnapshotSection />
-      <LeadMagnetSection />
       <FinalCTASection />
+      <LeadMagnetSection />
     </>
   );
 }
