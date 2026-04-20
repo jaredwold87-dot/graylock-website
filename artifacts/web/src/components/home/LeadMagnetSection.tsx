@@ -27,10 +27,10 @@ export function LeadMagnetSection() {
               <span className="text-orange text-xs font-sans font-bold uppercase tracking-widest">Free Download</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-5 leading-tight">
-              The Private Practice Website Playbook
+              Is Your Website Losing You Patients?
             </h2>
             <p className="text-stone text-lg font-sans leading-relaxed mb-7">
-              A free, plain-English guide for therapists, dentists, physicians, CPAs, and other private practice owners who suspect their website is costing them new patients.
+              Get the free guide private practice owners are using to spot the silent leaks costing them new patients every month — and the plain-English fixes that turn a tired website back into a steady source of bookings.
             </p>
 
             <ul className="space-y-3 mb-8">
@@ -49,7 +49,7 @@ export function LeadMagnetSection() {
               data-testid="button-open-lead-magnet"
             >
               <Download size={18} />
-              Get the Free Playbook
+              Download the Free Guide
             </button>
             <p className="text-stone/60 text-sm font-sans mt-3">
               Instant PDF download. No credit card. Unsubscribe anytime.
@@ -63,7 +63,7 @@ export function LeadMagnetSection() {
                 type="button"
                 onClick={() => setOpen(true)}
                 className="relative block w-full group rounded-2xl overflow-hidden shadow-2xl shadow-black/40 hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
-                aria-label="Get the free Private Practice Website Playbook"
+                aria-label="Download the free Private Practice Website Playbook"
               >
                 <img
                   src={playbookCover}

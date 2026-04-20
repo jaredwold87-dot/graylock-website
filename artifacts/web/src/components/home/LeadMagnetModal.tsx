@@ -90,6 +90,7 @@ export function LeadMagnetModal({ open, onClose }: LeadMagnetModalProps) {
           first_name: firstName.trim(),
           email: email.trim(),
           consent,
+          submitted_at: new Date().toISOString(),
         }),
       });
       if (!res.ok) throw new Error(`Request failed: ${res.status}`);
@@ -136,7 +137,7 @@ export function LeadMagnetModal({ open, onClose }: LeadMagnetModalProps) {
           {!success ? (
             <>
               <h3 id="lead-magnet-title" className="text-2xl font-display text-offwhite mb-2 leading-snug pr-8">
-                Get the Free Playbook
+                Download the Free Guide
               </h3>
               <p className="text-stone font-sans text-sm leading-relaxed mb-6">
                 Tell us where to send it. Instant download — and a copy emailed to you for safekeeping.
@@ -188,7 +189,7 @@ export function LeadMagnetModal({ open, onClose }: LeadMagnetModalProps) {
                     data-testid="input-consent"
                   />
                   <span className="text-stone/80 font-sans text-xs leading-relaxed">
-                    I'd like to receive the playbook plus occasional helpful emails from Graylock Digital. Unsubscribe anytime.
+                    I'd like to receive the guide plus occasional helpful emails from Graylock Digital. Unsubscribe anytime.
                   </span>
                 </label>
 
@@ -210,7 +211,7 @@ export function LeadMagnetModal({ open, onClose }: LeadMagnetModalProps) {
                   ) : (
                     <>
                       <Download size={18} />
-                      Send Me the Playbook
+                      Send Me the Guide
                     </>
                   )}
                 </button>
@@ -226,7 +227,7 @@ export function LeadMagnetModal({ open, onClose }: LeadMagnetModalProps) {
                 <CheckCircle2 className="text-orange" size={36} />
               </div>
               <h3 className="text-2xl font-display text-offwhite mb-3 leading-snug">
-                Your playbook is on the way.
+                Check your inbox — your guide is on the way.
               </h3>
               <p className="text-stone font-sans leading-relaxed mb-6">
                 We've emailed your copy. Your download should also have opened in a new tab — if not, grab it here:
@@ -239,7 +240,7 @@ export function LeadMagnetModal({ open, onClose }: LeadMagnetModalProps) {
                 data-testid="link-download-playbook"
               >
                 <Download size={18} />
-                Download the Playbook
+                Download the Guide
               </a>
             </div>
           )}

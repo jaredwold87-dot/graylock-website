@@ -8,13 +8,13 @@ interface LeadMagnetPayload {
   first_name: string;
   email: string;
   consent: boolean;
+  submitted_at?: string;
 }
 
 const PDF_PUBLIC_URL = "https://graylockdigital.com/website-playbook.pdf";
 
 leadMagnetRouter.post("/lead-magnet", async (req: Request, res: Response) => {
   const payload: LeadMagnetPayload = req.body;
-  const submittedAt = new Date().toISOString();
 
   if (
     !payload ||
@@ -24,6 +24,14 @@ leadMagnetRouter.post("/lead-magnet", async (req: Request, res: Response) => {
   ) {
     res.status(400).json({ success: false, error: "Invalid payload" });
     return;
+  }
+
+  let submittedAt = new Date().toISOString();
+  if (typeof payload.submitted_at === "string") {
+    const parsed = new Date(payload.submitted_at);
+    if (!isNaN(parsed.getTime())) {
+      submittedAt = parsed.toISOString();
+    }
   }
 
   const firstName = payload.first_name.trim();
@@ -107,7 +115,7 @@ Reply directly to this email to reach the lead.`;
       }
       const resend = new Resend(resendKey);
       await resend.emails.send({
-        from: "Graylock Digital <hello@graylockdigital.com>",
+        from: "Graylock Digital <noreply@graylockdigital.com>",
         to: [email],
         replyTo: "hello@graylockdigital.com",
         subject: "Your Free Practice Growth Guide from Graylock Digital",

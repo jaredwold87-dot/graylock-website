@@ -1,27 +1,24 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Gift, FileText, Search, MapPin } from "lucide-react";
+import { Gift, Star, CalendarX, BookOpen } from "lucide-react";
 
 const bonuses = [
   {
-    icon: <Search className="text-orange" size={26} />,
+    icon: <Star className="text-orange" size={26} />,
     label: "Bonus #1",
-    title: "Local SEO Audit",
-    value: "$500 Value",
-    desc: "A line-by-line review of your local search presence — Google Business Profile, citations, reviews, schema, and the keywords your competitors are stealing from you. Yours to keep, even if you never become a client.",
+    title: "5-Star Review Script",
+    desc: "A done-for-you message sequence your front desk can send to every happy patient — designed to turn quiet appreciation into public 5-star Google reviews that compound your local search rankings month after month.",
   },
   {
-    icon: <FileText className="text-orange" size={26} />,
+    icon: <CalendarX className="text-orange" size={26} />,
     label: "Bonus #2",
-    title: "Custom Homepage Demo",
-    value: "$500 Value",
-    desc: "We design a real homepage concept for your practice — your brand, your services, your local market — so you can see exactly how a Graylock site would look and feel before you commit a dollar.",
+    title: "No-Show Reduction Sequence",
+    desc: "An automated reminder + confirmation sequence built to cut no-show and last-minute cancellation rates dramatically — recovering revenue most practices write off as a cost of doing business.",
   },
   {
-    icon: <MapPin className="text-orange" size={26} />,
+    icon: <BookOpen className="text-orange" size={26} />,
     label: "Bonus #3",
-    title: "90-Day Practice Growth Plan",
-    value: "$500 Value",
-    desc: "A written 90-day roadmap covering content priorities, funnel pages, review-generation strategy, and the highest-leverage moves for your specialty and service area. Built around your practice — not a template.",
+    title: "Private Practice Growth System",
+    desc: "Our complete book on building a thriving, owner-led private practice — covering positioning, patient acquisition, retention, referrals, and the operational moves that separate practices that grow from practices that stall.",
   },
 ];
 
@@ -39,7 +36,7 @@ export function PracticeGrowthBundleSection() {
             The Practice Growth Bundle
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed">
-            Three premium deliverables — a $1,500 value — included free when you start with any Graylock plan. Yours to keep regardless of whether you stay with us.
+            Three high-leverage extras built to help your practice fill the calendar, keep it full, and grow with confidence — included with every Graylock plan, at no additional cost.
           </p>
         </ScrollReveal>
 
@@ -53,8 +50,7 @@ export function PracticeGrowthBundleSection() {
                   </div>
                   <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80">{bonus.label}</span>
                 </div>
-                <h3 className="text-xl font-display text-offwhite mb-2 leading-snug">{bonus.title}</h3>
-                <p className="text-orange font-sans text-sm font-bold mb-4">{bonus.value}</p>
+                <h3 className="text-xl font-display text-offwhite mb-3 leading-snug">{bonus.title}</h3>
                 <p className="text-stone font-sans text-sm leading-relaxed">{bonus.desc}</p>
               </div>
             </ScrollReveal>
@@ -62,8 +58,8 @@ export function PracticeGrowthBundleSection() {
         </div>
 
         <ScrollReveal delay={0.5} className="text-center mt-10">
-          <p className="text-stone/60 font-sans text-sm">
-            Total bundle value: <span className="text-orange font-bold">$1,500</span> — included free, even if you never become a client.
+          <p className="text-offwhite font-display text-lg md:text-xl">
+            A <span className="text-orange font-bold">$1,500+ value</span> — included free with every Graylock plan.
           </p>
         </ScrollReveal>
       </div>
