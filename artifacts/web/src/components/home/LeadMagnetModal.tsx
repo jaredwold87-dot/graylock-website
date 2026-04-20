@@ -93,7 +93,25 @@ export function LeadMagnetModal({ open, onClose }: LeadMagnetModalProps) {
           submitted_at: new Date().toISOString(),
         }),
       });
-      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+      if (!res.ok) {
+        let serverMessage: string | null = null;
+        try {
+          const data = await res.json();
+          if (data && typeof data.error === "string") {
+            serverMessage = data.error;
+          }
+        } catch {
+          // non-JSON response; fall through to generic message
+        }
+        if (serverMessage) {
+          setError(serverMessage);
+        } else if (res.status === 429) {
+          setError("Too many requests. Please try again in a few minutes.");
+        } else {
+          setError("Something went wrong. Please try again or email hello@graylockdigital.com.");
+        }
+        return;
+      }
       setSuccess(true);
       try {
         window.open(PDF_URL, "_blank", "noopener,noreferrer");

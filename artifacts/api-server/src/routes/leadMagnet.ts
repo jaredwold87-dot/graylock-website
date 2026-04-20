@@ -7,8 +7,19 @@ import {
   suppressedEmailsTable,
 } from "@workspace/db";
 import { logger } from "../lib/logger";
+import { isDisposableEmail } from "../lib/disposableEmails";
+import { createRateLimiter } from "../lib/rateLimit";
 
 const leadMagnetRouter = Router();
+
+const RATE_LIMIT_WINDOW_MS = Number(process.env.LEAD_MAGNET_RATE_WINDOW_MS) || 10 * 60 * 1000;
+const RATE_LIMIT_MAX = Number(process.env.LEAD_MAGNET_RATE_MAX) || 5;
+
+const leadMagnetRateLimit = createRateLimiter({
+  windowMs: RATE_LIMIT_WINDOW_MS,
+  max: RATE_LIMIT_MAX,
+  keyPrefix: "lead-magnet",
+});
 
 interface LeadMagnetPayload {
   first_name: string;
@@ -20,7 +31,7 @@ interface LeadMagnetPayload {
 const PDF_PUBLIC_URL = "https://graylockdigital.com/website-playbook.pdf";
 const LEAD_MAGNET_NAME = "Private Practice Website Playbook";
 
-leadMagnetRouter.post("/lead-magnet", async (req: Request, res: Response) => {
+leadMagnetRouter.post("/lead-magnet", leadMagnetRateLimit, async (req: Request, res: Response) => {
   const payload: LeadMagnetPayload = req.body;
 
   if (
@@ -51,6 +62,16 @@ leadMagnetRouter.post("/lead-magnet", async (req: Request, res: Response) => {
   }
   if (!email || email.length > 254 || !emailRegex.test(email)) {
     res.status(400).json({ success: false, error: "Invalid email" });
+    return;
+  }
+  if (isDisposableEmail(email)) {
+    logger.info({ email }, "Lead magnet rejected: disposable email domain");
+    res.status(400).json({
+      success: false,
+      error:
+        "Please use your work or practice email — we can't deliver the guide to disposable inboxes.",
+      code: "DISPOSABLE_EMAIL",
+    });
     return;
   }
   if (payload.consent !== true) {

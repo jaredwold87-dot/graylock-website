@@ -8,6 +8,19 @@ import { fileURLToPath } from "node:url";
 
 const app: Express = express();
 
+// Trust proxy so req.ip reflects the real client behind our ingress instead of
+// any user-supplied X-Forwarded-For value. Configurable via TRUST_PROXY (e.g.
+// "loopback", "uniquelocal", a hop count like "1", or a comma-separated list
+// of trusted IPs). Defaults to "loopback" which is safe for local dev and for
+// deployments where the platform terminates on the loopback interface.
+const trustProxyRaw = process.env.TRUST_PROXY ?? "loopback";
+const trustProxyValue: number | string | string[] = /^\d+$/.test(trustProxyRaw)
+  ? Number(trustProxyRaw)
+  : trustProxyRaw.includes(",")
+    ? trustProxyRaw.split(",").map((s) => s.trim()).filter(Boolean)
+    : trustProxyRaw;
+app.set("trust proxy", trustProxyValue);
+
 app.use(
   pinoHttp({
     logger,
