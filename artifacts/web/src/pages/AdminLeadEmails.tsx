@@ -27,6 +27,203 @@ type LeadsResponse = {
   leads: LeadRow[];
 };
 
+type LeadEvent = {
+  id: number;
+  eventType: string;
+  occurredAt: string;
+  payload: unknown;
+};
+
+type EventsResponse = {
+  success: boolean;
+  events: LeadEvent[];
+};
+
+function extractClickUrl(payload: unknown): string | null {
+  if (!payload || typeof payload !== "object") return null;
+  const data = (payload as { data?: unknown }).data;
+  if (!data || typeof data !== "object") return null;
+  const click = (data as { click?: unknown }).click;
+  if (!click || typeof click !== "object") return null;
+  const link = (click as { link?: unknown }).link;
+  return typeof link === "string" ? link : null;
+}
+
+function eventLabel(eventType: string): string {
+  return eventType.replace(/^email\./, "").replace(/[._]/g, " ");
+}
+
+function eventBadgeClasses(eventType: string): string {
+  if (eventType.includes("clicked")) return "bg-emerald-500/15 text-emerald-300 border-emerald-500/40";
+  if (eventType.includes("opened")) return "bg-sky-500/15 text-sky-300 border-sky-500/40";
+  if (eventType.includes("delivered")) return "bg-blue-500/15 text-blue-300 border-blue-500/40";
+  if (eventType.includes("delivery_delayed") || eventType.includes("delayed"))
+    return "bg-yellow-500/15 text-yellow-300 border-yellow-500/40";
+  if (eventType.includes("bounced")) return "bg-red-500/20 text-red-300 border-red-500/50";
+  if (eventType.includes("complained")) return "bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/50";
+  if (eventType.includes("sent")) return "bg-stone/20 text-stone border-stone/40";
+  return "bg-stone/15 text-stone border-stone/30";
+}
+
+function EventTimelinePanel({
+  lead,
+  token,
+  onClose,
+}: {
+  lead: LeadRow;
+  token: string;
+  onClose: () => void;
+}) {
+  const [events, setEvents] = useState<LeadEvent[] | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      setLoading(true);
+      setError(null);
+      try {
+        const url = `${import.meta.env.BASE_URL}api/admin/lead-magnet-emails/${lead.id}/events`;
+        const res = await fetch(url, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) {
+          if (!cancelled) setError(`Request failed (${res.status})`);
+          return;
+        }
+        const json = (await res.json()) as EventsResponse;
+        if (!cancelled) setEvents(json.events ?? []);
+      } catch (err) {
+        if (!cancelled) setError(err instanceof Error ? err.message : "Network error");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    void load();
+    return () => {
+      cancelled = true;
+    };
+  }, [lead.id, token]);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Sort chronologically (oldest first) for a natural timeline.
+  const sorted = useMemo(() => {
+    if (!events) return [];
+    return [...events].sort(
+      (a, b) => new Date(a.occurredAt).getTime() - new Date(b.occurredAt).getTime(),
+    );
+  }, [events]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex justify-end bg-black/60"
+      onClick={onClose}
+      data-testid="panel-events-backdrop"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-xl h-full overflow-y-auto bg-navy border-l border-gunmetal shadow-2xl"
+        role="dialog"
+        aria-modal="true"
+        aria-label={`Email event timeline for ${lead.email}`}
+        data-testid="panel-events"
+      >
+        <div className="sticky top-0 z-10 bg-navy/95 backdrop-blur border-b border-gunmetal px-6 py-4 flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            <p className="text-orange text-[11px] font-sans font-bold uppercase tracking-widest">
+              Event timeline
+            </p>
+            <h2 className="font-display text-xl text-offwhite truncate" data-testid="text-panel-email">
+              {lead.email}
+            </h2>
+            <p className="text-stone font-sans text-xs mt-0.5 truncate">
+              {lead.firstName} · {lead.leadMagnet}
+            </p>
+          </div>
+          <button
+            onClick={onClose}
+            data-testid="button-close-panel"
+            className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg border border-gunmetal text-stone hover:text-offwhite hover:border-orange/50"
+            aria-label="Close panel"
+          >
+            <X size={16} />
+          </button>
+        </div>
+
+        <div className="px-6 py-5">
+          {loading && (
+            <p className="text-stone font-sans text-sm" data-testid="text-events-loading">
+              Loading events…
+            </p>
+          )}
+          {error && (
+            <div
+              className="rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-red-200 font-sans text-sm"
+              data-testid="text-events-error"
+            >
+              {error}
+            </div>
+          )}
+          {!loading && !error && sorted.length === 0 && (
+            <p className="text-stone font-sans text-sm" data-testid="text-events-empty">
+              No webhook events recorded yet for this lead.
+            </p>
+          )}
+          {!loading && !error && sorted.length > 0 && (
+            <ol className="relative border-l border-gunmetal ml-2" data-testid="list-events">
+              {sorted.map((event) => {
+                const clickUrl = extractClickUrl(event.payload);
+                return (
+                  <li
+                    key={event.id}
+                    data-testid={`event-${event.id}`}
+                    className="ml-4 mb-5 last:mb-0"
+                  >
+                    <span className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-orange border border-charcoal" />
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span
+                        className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[11px] font-sans font-semibold uppercase tracking-wide ${eventBadgeClasses(event.eventType)}`}
+                        data-testid={`event-type-${event.id}`}
+                      >
+                        {eventLabel(event.eventType)}
+                      </span>
+                      <time
+                        className="text-stone font-sans text-xs"
+                        data-testid={`event-time-${event.id}`}
+                      >
+                        {formatDate(event.occurredAt)}
+                      </time>
+                    </div>
+                    {clickUrl && (
+                      <a
+                        href={clickUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-testid={`event-url-${event.id}`}
+                        className="block mt-1.5 text-orange hover:text-orange/80 font-sans text-xs break-all underline-offset-2 hover:underline"
+                      >
+                        {clickUrl}
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const TOKEN_KEY = "graylock_admin_token";
 
 const STATUS_FILTERS: { value: string; label: string }[] = [
@@ -154,6 +351,7 @@ export default function AdminLeadEmails() {
   const [error, setError] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<string>("");
   const [search, setSearch] = useState("");
+  const [selectedLead, setSelectedLead] = useState<LeadRow | null>(null);
 
   async function load(currentToken: string, status: string) {
     setLoading(true);
@@ -427,7 +625,17 @@ export default function AdminLeadEmails() {
                       <tr
                         key={lead.id}
                         data-testid={`row-lead-${lead.id}`}
-                        className={`text-offwhite font-sans align-top ${flagged ? "bg-red-500/5" : ""}`}
+                        onClick={() => setSelectedLead(lead)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            setSelectedLead(lead);
+                          }
+                        }}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={`View event timeline for ${lead.email}`}
+                        className={`text-offwhite font-sans align-top cursor-pointer hover:bg-charcoal/40 focus:outline-none focus:bg-charcoal/40 ${flagged ? "bg-red-500/5" : ""}`}
                       >
                         <td className="px-4 py-3">
                           <div className="font-semibold">{lead.firstName}</div>
@@ -477,6 +685,13 @@ export default function AdminLeadEmails() {
           </p>
         </div>
       </div>
+      {selectedLead && token && (
+        <EventTimelinePanel
+          lead={selectedLead}
+          token={token}
+          onClose={() => setSelectedLead(null)}
+        />
+      )}
     </>
   );
 }
