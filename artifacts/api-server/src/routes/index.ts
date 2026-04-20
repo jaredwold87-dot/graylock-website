@@ -3,6 +3,7 @@ import healthRouter from "./health";
 import leadsRouter from "./leads";
 import leadMagnetRouter from "./leadMagnet";
 import resendWebhookRouter from "./resendWebhook";
+import leadContactRouter from "./leadContact";
 import chatRouter from "./chat";
 import adminRouter from "./admin";
 
@@ -12,6 +13,7 @@ router.use(healthRouter);
 router.use(leadsRouter);
 router.use(leadMagnetRouter);
 router.use(resendWebhookRouter);
+router.use(leadContactRouter);
 router.use(chatRouter);
 router.use(adminRouter);
 
