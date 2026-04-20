@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Download, BookOpen } from "lucide-react";
 import { LeadMagnetModal } from "./LeadMagnetModal";
-import playbookCover from "@assets/playbook_cover_no_bg.png";
+import playbookCover from "@assets/The_Private_Practice_Series_The_WebsitePlaybook._Five_reasons__1776707750851.png";
 
 export function LeadMagnetSection() {
   const [open, setOpen] = useState(false);
@@ -15,24 +15,27 @@ export function LeadMagnetSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <ScrollReveal>
-            <div className="relative flex justify-center lg:justify-start">
+            <div className="relative">
+              <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-orange/20 via-transparent to-orange/10 blur-2xl pointer-events-none" />
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="relative block w-full max-w-md group cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+                className="relative block w-full max-w-md mx-auto lg:mx-0 group rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(15,30,53,0.18)] hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
                 aria-label="Download the free Private Practice Website Playbook"
               >
                 <img
                   src={playbookCover}
                   alt="The Private Practice Website Playbook by Graylock Digital — free guide cover"
                   className="w-full h-auto block"
-                  style={{
-                    filter:
-                      "drop-shadow(0 18px 30px rgba(15, 30, 53, 0.22)) drop-shadow(0 6px 12px rgba(15, 30, 53, 0.12))",
-                  }}
                   loading="lazy"
                   decoding="async"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                  <span className="bg-orange text-white font-sans font-bold text-sm px-5 py-2.5 rounded-full inline-flex items-center gap-2">
+                    <Download size={16} />
+                    Download Free PDF
+                  </span>
+                </div>
               </button>
             </div>
           </ScrollReveal>
