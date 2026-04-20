@@ -34,6 +34,10 @@ adminRouter.get(
       .map((s) => s.trim().toLowerCase())
       .filter((s) => s && KNOWN_STATUSES.has(s));
 
+    const repliedOnly =
+      typeof req.query.replied === "string" &&
+      ["1", "true", "yes"].includes(req.query.replied.toLowerCase());
+
     try {
       const baseQuery = db
         .select({
@@ -57,8 +61,18 @@ adminRouter.get(
         .orderBy(desc(leadMagnetEmailsTable.sentAt))
         .limit(limit);
 
-      const rows = await (requestedStatuses.length > 0
-        ? baseQuery.where(inArray(leadMagnetEmailsTable.status, requestedStatuses))
+      const repliedExists = sql`EXISTS (SELECT 1 FROM ${leadMagnetEmailEventsTable} WHERE ${leadMagnetEmailEventsTable.leadMagnetEmailId} = ${leadMagnetEmailsTable.id} AND ${leadMagnetEmailEventsTable.eventType} = 'email.replied')`;
+
+      const conditions = [];
+      if (requestedStatuses.length > 0) {
+        conditions.push(inArray(leadMagnetEmailsTable.status, requestedStatuses));
+      }
+      if (repliedOnly) {
+        conditions.push(repliedExists);
+      }
+
+      const rows = await (conditions.length > 0
+        ? baseQuery.where(conditions.length === 1 ? conditions[0] : and(...conditions))
         : baseQuery);
 
       // Pull the earliest reply event per lead-magnet email so we can surface

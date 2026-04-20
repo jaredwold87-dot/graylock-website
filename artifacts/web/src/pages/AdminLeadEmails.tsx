@@ -276,6 +276,7 @@ const STATUS_FILTERS: { value: string; label: string }[] = [
   { value: "complained", label: "Complained" },
   { value: "delivery_delayed", label: "Delayed" },
   { value: "suppressed", label: "Suppressed" },
+  { value: "replied", label: "Replied" },
 ];
 
 function formatDate(value: string | null): string {
@@ -401,7 +402,11 @@ export default function AdminLeadEmails() {
         `${import.meta.env.BASE_URL}api/admin/lead-magnet-emails`,
         window.location.origin,
       );
-      if (status) url.searchParams.set("status", status);
+      if (status === "replied") {
+        url.searchParams.set("replied", "1");
+      } else if (status) {
+        url.searchParams.set("status", status);
+      }
       const res = await fetch(url.toString(), {
         headers: { Authorization: `Bearer ${currentToken}` },
       });
@@ -585,7 +590,12 @@ export default function AdminLeadEmails() {
 
           <div className="flex flex-wrap items-center gap-2 mb-4">
             {STATUS_FILTERS.map((opt) => {
-              const count = opt.value ? statusCounts[opt.value] ?? 0 : data?.total ?? 0;
+              const count =
+                opt.value === "replied"
+                  ? data?.repliedCount ?? 0
+                  : opt.value
+                    ? statusCounts[opt.value] ?? 0
+                    : data?.total ?? 0;
               const active = statusFilter === opt.value;
               return (
                 <button
