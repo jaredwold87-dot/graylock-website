@@ -42,6 +42,7 @@ const GEOPage = lazy(() => import("@/pages/strategy/GEO"));
 const FunnelPagesPage = lazy(() => import("@/pages/strategy/FunnelPages"));
 const GoogleBusinessProfilePage = lazy(() => import("@/pages/strategy/GoogleBusinessProfile"));
 const LeadGenerationPage = lazy(() => import("@/pages/strategy/LeadGeneration"));
+const AdminLeadEmails = lazy(() => import("@/pages/AdminLeadEmails"));
 
 const queryClient = new QueryClient();
 
@@ -91,6 +92,7 @@ function Router() {
         <Route path="/funnel-pages" component={FunnelPagesPage} />
         <Route path="/google-business-profile" component={GoogleBusinessProfilePage} />
         <Route path="/lead-generation-for-small-business" component={LeadGenerationPage} />
+        <Route path="/admin/lead-emails" component={AdminLeadEmails} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms-of-service" component={TermsOfService} />
 

@@ -4,6 +4,7 @@ import leadsRouter from "./leads";
 import leadMagnetRouter from "./leadMagnet";
 import resendWebhookRouter from "./resendWebhook";
 import chatRouter from "./chat";
+import adminRouter from "./admin";
 
 const router: IRouter = Router();
 
@@ -12,5 +13,6 @@ router.use(leadsRouter);
 router.use(leadMagnetRouter);
 router.use(resendWebhookRouter);
 router.use(chatRouter);
+router.use(adminRouter);
 
 export default router;
