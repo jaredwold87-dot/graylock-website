@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { SEO } from "@/components/SEO";
-import { AlertTriangle, Mail, MailCheck, MailOpen, MousePointerClick, Clock, ShieldAlert, RefreshCw, LogOut, Send, X, Download } from "lucide-react";
+import { AlertTriangle, Mail, MailCheck, MailOpen, MousePointerClick, Clock, ShieldAlert, RefreshCw, LogOut, Send, X, Download, MessageSquareReply } from "lucide-react";
 
 type LeadRow = {
   id: number;
@@ -18,12 +18,15 @@ type LeadRow = {
   complainedAt: string | null;
   deliveryDelayedAt: string | null;
   updatedAt: string;
+  firstRepliedAt: string | null;
+  firstReplySnippet: string | null;
 };
 
 type LeadsResponse = {
   success: boolean;
   total: number;
   statusCounts: Record<string, number>;
+  repliedCount: number;
   leads: LeadRow[];
 };
 
@@ -53,7 +56,20 @@ function eventLabel(eventType: string): string {
   return eventType.replace(/^email\./, "").replace(/[._]/g, " ");
 }
 
+function extractReplySnippet(payload: unknown): string | null {
+  if (!payload || typeof payload !== "object") return null;
+  const snippet = (payload as { textSnippet?: unknown }).textSnippet;
+  return typeof snippet === "string" && snippet.trim() ? snippet : null;
+}
+
+function extractReplySubject(payload: unknown): string | null {
+  if (!payload || typeof payload !== "object") return null;
+  const subject = (payload as { subject?: unknown }).subject;
+  return typeof subject === "string" && subject.trim() ? subject : null;
+}
+
 function eventBadgeClasses(eventType: string): string {
+  if (eventType.includes("replied")) return "bg-emerald-500/20 text-emerald-200 border-emerald-500/50";
   if (eventType.includes("clicked")) return "bg-emerald-500/15 text-emerald-300 border-emerald-500/40";
   if (eventType.includes("opened")) return "bg-sky-500/15 text-sky-300 border-sky-500/40";
   if (eventType.includes("delivered")) return "bg-blue-500/15 text-blue-300 border-blue-500/40";
@@ -181,6 +197,14 @@ function EventTimelinePanel({
             <ol className="relative border-l border-gunmetal ml-2" data-testid="list-events">
               {sorted.map((event) => {
                 const clickUrl = extractClickUrl(event.payload);
+                const replySnippet =
+                  event.eventType === "email.replied"
+                    ? extractReplySnippet(event.payload)
+                    : null;
+                const replySubject =
+                  event.eventType === "email.replied"
+                    ? extractReplySubject(event.payload)
+                    : null;
                 return (
                   <li
                     key={event.id}
@@ -212,6 +236,22 @@ function EventTimelinePanel({
                       >
                         {clickUrl}
                       </a>
+                    )}
+                    {replySubject && (
+                      <div
+                        className="mt-1.5 text-offwhite font-sans text-xs"
+                        data-testid={`event-reply-subject-${event.id}`}
+                      >
+                        Subject: <span className="text-stone">{replySubject}</span>
+                      </div>
+                    )}
+                    {replySnippet && (
+                      <blockquote
+                        className="mt-1.5 border-l-2 border-emerald-500/40 pl-3 text-stone font-sans text-xs italic whitespace-pre-wrap"
+                        data-testid={`event-reply-snippet-${event.id}`}
+                      >
+                        {replySnippet}
+                      </blockquote>
                     )}
                   </li>
                 );
@@ -406,6 +446,8 @@ export default function AdminLeadEmails() {
       "clicked_at",
       "bounced_at",
       "complained_at",
+      "first_replied_at",
+      "first_reply_snippet",
     ];
     const escape = (val: string | null | undefined) => {
       let s = val == null ? "" : String(val);
@@ -426,6 +468,8 @@ export default function AdminLeadEmails() {
         l.clickedAt,
         l.bouncedAt,
         l.complainedAt,
+        l.firstRepliedAt,
+        l.firstReplySnippet,
       ]
         .map(escape)
         .join(","),
@@ -600,20 +644,21 @@ export default function AdminLeadEmails() {
                     <th className="text-left px-4 py-3">Delivered</th>
                     <th className="text-left px-4 py-3">Opened</th>
                     <th className="text-left px-4 py-3">Clicked</th>
+                    <th className="text-left px-4 py-3">Replied</th>
                     <th className="text-left px-4 py-3">Issue</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gunmetal">
                   {loading && !data && (
                     <tr>
-                      <td colSpan={7} className="px-4 py-10 text-center text-stone font-sans">
+                      <td colSpan={8} className="px-4 py-10 text-center text-stone font-sans">
                         Loading…
                       </td>
                     </tr>
                   )}
                   {!loading && filteredLeads.length === 0 && (
                     <tr>
-                      <td colSpan={7} className="px-4 py-10 text-center text-stone font-sans" data-testid="text-empty">
+                      <td colSpan={8} className="px-4 py-10 text-center text-stone font-sans" data-testid="text-empty">
                         No leads match the current filters.
                       </td>
                     </tr>
@@ -649,6 +694,33 @@ export default function AdminLeadEmails() {
                         <td className="px-4 py-3 text-stone text-xs whitespace-nowrap">{formatDate(lead.deliveredAt)}</td>
                         <td className="px-4 py-3 text-stone text-xs whitespace-nowrap">{formatDate(lead.openedAt)}</td>
                         <td className="px-4 py-3 text-stone text-xs whitespace-nowrap">{formatDate(lead.clickedAt)}</td>
+                        <td className="px-4 py-3 text-xs align-top max-w-[16rem]">
+                          {lead.firstRepliedAt ? (
+                            <div data-testid={`reply-${lead.id}`}>
+                              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border bg-emerald-500/15 text-emerald-300 border-emerald-500/40 text-[11px] font-sans font-semibold uppercase tracking-wide">
+                                <MessageSquareReply size={11} />
+                                Replied
+                              </span>
+                              <div
+                                className="text-stone/80 mt-1 whitespace-nowrap"
+                                data-testid={`reply-date-${lead.id}`}
+                              >
+                                {formatDate(lead.firstRepliedAt)}
+                              </div>
+                              {lead.firstReplySnippet && (
+                                <div
+                                  className="text-stone/70 mt-1 line-clamp-2 whitespace-normal italic"
+                                  title={lead.firstReplySnippet}
+                                  data-testid={`reply-snippet-${lead.id}`}
+                                >
+                                  “{lead.firstReplySnippet}”
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            <span className="text-stone/40">—</span>
+                          )}
+                        </td>
                         <td className="px-4 py-3 text-xs">
                           {lead.status === "bounced" && (
                             <span className="text-red-300">

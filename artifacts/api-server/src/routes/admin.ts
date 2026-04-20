@@ -1,5 +1,5 @@
 import { Router, type Request, type Response } from "express";
-import { desc, eq, inArray, sql } from "drizzle-orm";
+import { and, desc, eq, inArray, sql } from "drizzle-orm";
 import { db, leadMagnetEmailsTable, leadMagnetEmailEventsTable } from "@workspace/db";
 import { adminAuth } from "../middlewares/adminAuth";
 import { logger } from "../lib/logger";
@@ -61,6 +61,57 @@ adminRouter.get(
         ? baseQuery.where(inArray(leadMagnetEmailsTable.status, requestedStatuses))
         : baseQuery);
 
+      // Pull the earliest reply event per lead-magnet email so we can surface
+      // a "Replied" indicator (date + first reply snippet) on each row.
+      const leadIds = rows.map((r) => r.id);
+      const replyMap = new Map<
+        number,
+        { occurredAt: Date; snippet: string | null }
+      >();
+      if (leadIds.length > 0) {
+        const replyRows = await db
+          .select({
+            leadMagnetEmailId: leadMagnetEmailEventsTable.leadMagnetEmailId,
+            occurredAt: leadMagnetEmailEventsTable.occurredAt,
+            payload: leadMagnetEmailEventsTable.payload,
+          })
+          .from(leadMagnetEmailEventsTable)
+          .where(
+            and(
+              eq(leadMagnetEmailEventsTable.eventType, "email.replied"),
+              inArray(
+                leadMagnetEmailEventsTable.leadMagnetEmailId,
+                leadIds,
+              ),
+            ),
+          )
+          .orderBy(leadMagnetEmailEventsTable.occurredAt);
+        for (const row of replyRows) {
+          if (row.leadMagnetEmailId == null) continue;
+          if (replyMap.has(row.leadMagnetEmailId)) continue;
+          const payload = row.payload as { textSnippet?: unknown } | null;
+          const snippetRaw =
+            payload && typeof payload === "object"
+              ? (payload as { textSnippet?: unknown }).textSnippet
+              : null;
+          const snippet =
+            typeof snippetRaw === "string" ? snippetRaw.slice(0, 240) : null;
+          replyMap.set(row.leadMagnetEmailId, {
+            occurredAt: row.occurredAt,
+            snippet,
+          });
+        }
+      }
+
+      const rowsWithReply = rows.map((r) => {
+        const reply = replyMap.get(r.id);
+        return {
+          ...r,
+          firstRepliedAt: reply ? reply.occurredAt : null,
+          firstReplySnippet: reply ? reply.snippet : null,
+        };
+      });
+
       const counts = await db
         .select({
           status: leadMagnetEmailsTable.status,
@@ -76,11 +127,18 @@ adminRouter.get(
         total += Number(row.count);
       }
 
+      const repliedRows = await db
+        .select({ count: sql<number>`count(distinct ${leadMagnetEmailEventsTable.leadMagnetEmailId})::int` })
+        .from(leadMagnetEmailEventsTable)
+        .where(eq(leadMagnetEmailEventsTable.eventType, "email.replied"));
+      const repliedCount = Number(repliedRows[0]?.count ?? 0);
+
       res.json({
         success: true,
         total,
         statusCounts,
-        leads: rows,
+        repliedCount,
+        leads: rowsWithReply,
       });
     } catch (err) {
       logger.error({ err }, "Failed to load admin lead-magnet emails");
