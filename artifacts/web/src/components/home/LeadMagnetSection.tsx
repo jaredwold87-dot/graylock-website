@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Download, BookOpen } from "lucide-react";
 import { LeadMagnetModal } from "./LeadMagnetModal";
-import playbookCover from "@assets/The_Private_Practice_Series_The_WebsitePlaybook._Five_reasons__1776705489416.png";
+import playbookCover from "@assets/The_Private_Practice_Series_The_WebsitePlaybook._Five_reasons__1776707750851.png";
 
 export function LeadMagnetSection() {
   const [open, setOpen] = useState(false);
