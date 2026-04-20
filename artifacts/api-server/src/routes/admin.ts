@@ -61,14 +61,54 @@ adminRouter.get(
         .orderBy(desc(leadMagnetEmailsTable.sentAt))
         .limit(limit);
 
-      const repliedExists = sql`EXISTS (SELECT 1 FROM ${leadMagnetEmailEventsTable} WHERE ${leadMagnetEmailEventsTable.leadMagnetEmailId} = ${leadMagnetEmailsTable.id} AND ${leadMagnetEmailEventsTable.eventType} = 'email.replied')`;
+      // The set of ids that should show a "Replied" indicator: either the
+      // event matched this row directly, or the event matched a nudge whose
+      // chain rolls up to this row (the initial send). We compute it once
+      // here so the `?replied=true` filter stays consistent with what the
+      // rolled-up indicator surfaces below.
+      let repliedIdSet: Set<number> | null = null;
+      if (repliedOnly) {
+        const repliedRows = await db.execute<{ id: number }>(sql`
+          WITH RECURSIVE chain AS (
+            SELECT id, parent_email_id, id AS root_id
+            FROM lead_magnet_emails
+            WHERE parent_email_id IS NULL
+            UNION ALL
+            SELECT e.id, e.parent_email_id, c.root_id
+            FROM lead_magnet_emails e
+            JOIN chain c ON e.parent_email_id = c.id
+          )
+          SELECT DISTINCT id FROM (
+            SELECT ev.lead_magnet_email_id AS id
+            FROM lead_magnet_email_events ev
+            WHERE ev.event_type = 'email.replied'
+              AND ev.lead_magnet_email_id IS NOT NULL
+            UNION
+            SELECT c.root_id AS id
+            FROM lead_magnet_email_events ev
+            JOIN chain c ON c.id = ev.lead_magnet_email_id
+            WHERE ev.event_type = 'email.replied'
+          ) t
+        `);
+        const repliedIds = repliedRows.rows
+          .map((r) => Number(r.id))
+          .filter((n) => Number.isFinite(n));
+        repliedIdSet = new Set(repliedIds);
+      }
 
       const conditions = [];
       if (requestedStatuses.length > 0) {
         conditions.push(inArray(leadMagnetEmailsTable.status, requestedStatuses));
       }
       if (repliedOnly) {
-        conditions.push(repliedExists);
+        const ids = repliedIdSet ? [...repliedIdSet] : [];
+        if (ids.length === 0) {
+          // No replies anywhere — short-circuit to an empty result while
+          // still returning the usual counts payload.
+          conditions.push(sql`false`);
+        } else {
+          conditions.push(inArray(leadMagnetEmailsTable.id, ids));
+        }
       }
 
       const rows = await (conditions.length > 0
@@ -77,43 +117,90 @@ adminRouter.get(
 
       // Pull the earliest reply event per lead-magnet email so we can surface
       // a "Replied" indicator (date + first reply snippet) on each row.
+      // A reply that matched a nudge is also rolled up to the initial send
+      // (the root of the parentEmailId chain) so the indicator appears on
+      // the lead's original Playbook send row, not just the nudge row.
       const leadIds = rows.map((r) => r.id);
       const replyMap = new Map<
         number,
         { occurredAt: Date; snippet: string | null }
       >();
       if (leadIds.length > 0) {
-        const replyRows = await db
-          .select({
-            leadMagnetEmailId: leadMagnetEmailEventsTable.leadMagnetEmailId,
-            occurredAt: leadMagnetEmailEventsTable.occurredAt,
-            payload: leadMagnetEmailEventsTable.payload,
-          })
-          .from(leadMagnetEmailEventsTable)
-          .where(
-            and(
-              eq(leadMagnetEmailEventsTable.eventType, "email.replied"),
-              inArray(
-                leadMagnetEmailEventsTable.leadMagnetEmailId,
-                leadIds,
-              ),
-            ),
+        const replyRows = await db.execute<{
+          lead_magnet_email_id: number | null;
+          root_id: number | null;
+          occurred_at: Date | string;
+          payload: unknown;
+        }>(sql`
+          WITH RECURSIVE chain AS (
+            SELECT id, parent_email_id, id AS root_id
+            FROM lead_magnet_emails
+            WHERE parent_email_id IS NULL
+            UNION ALL
+            SELECT e.id, e.parent_email_id, c.root_id
+            FROM lead_magnet_emails e
+            JOIN chain c ON e.parent_email_id = c.id
           )
-          .orderBy(leadMagnetEmailEventsTable.occurredAt);
-        for (const row of replyRows) {
-          if (row.leadMagnetEmailId == null) continue;
-          if (replyMap.has(row.leadMagnetEmailId)) continue;
-          const payload = row.payload as { textSnippet?: unknown } | null;
+          SELECT
+            ev.lead_magnet_email_id,
+            c.root_id,
+            ev.occurred_at,
+            ev.payload
+          FROM lead_magnet_email_events ev
+          LEFT JOIN chain c ON c.id = ev.lead_magnet_email_id
+          WHERE ev.event_type = 'email.replied'
+            AND (
+              ev.lead_magnet_email_id = ANY(${leadIds}::int[])
+              OR c.root_id = ANY(${leadIds}::int[])
+            )
+          ORDER BY ev.occurred_at ASC
+        `);
+
+        const recordReply = (
+          targetId: number,
+          occurredAt: Date,
+          payload: unknown,
+        ) => {
+          if (replyMap.has(targetId)) return;
           const snippetRaw =
             payload && typeof payload === "object"
               ? (payload as { textSnippet?: unknown }).textSnippet
               : null;
           const snippet =
             typeof snippetRaw === "string" ? snippetRaw.slice(0, 240) : null;
-          replyMap.set(row.leadMagnetEmailId, {
-            occurredAt: row.occurredAt,
-            snippet,
-          });
+          replyMap.set(targetId, { occurredAt, snippet });
+        };
+
+        const leadIdSet = new Set(leadIds);
+        const eventRows = (replyRows as unknown as {
+          rows: Array<{
+            lead_magnet_email_id: number | null;
+            root_id: number | null;
+            occurred_at: Date | string;
+            payload: unknown;
+          }>;
+        }).rows;
+
+        for (const row of eventRows) {
+          const directId = row.lead_magnet_email_id;
+          const rootId = row.root_id;
+          const occurredAt =
+            row.occurred_at instanceof Date
+              ? row.occurred_at
+              : new Date(row.occurred_at);
+          // Surface the reply on the row it was matched to (existing behavior)…
+          if (directId != null && leadIdSet.has(directId)) {
+            recordReply(directId, occurredAt, row.payload);
+          }
+          // …and roll it up to the initial send at the root of the chain so
+          // teams see "this lead replied" on the original Playbook send too.
+          if (
+            rootId != null &&
+            rootId !== directId &&
+            leadIdSet.has(rootId)
+          ) {
+            recordReply(rootId, occurredAt, row.payload);
+          }
         }
       }
 
