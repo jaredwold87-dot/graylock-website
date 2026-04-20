@@ -66,13 +66,32 @@ If you'd rather just chat through what's on your homepage today, hit reply — w
 — The Graylock Digital Team`;
 }
 
+// Event types from `lead_magnet_email_events` that indicate the lead has
+// already engaged with us through some other channel and so doesn't need a
+// nudge. `email.replied` covers inbound-reply parsing if/when wired up;
+// `lead.contacted` / `lead.responded` are reserved for GOS-driven signals
+// (e.g. a sales rep marking the lead as contacted) recorded into the same
+// events table.
+const ENGAGEMENT_EVENT_TYPES = [
+  "email.replied",
+  "lead.contacted",
+  "lead.responded",
+];
+
 export async function runReminderJob(): Promise<{
   claimed: number;
   sent: number;
   skipped: number;
+  skippedEngaged: number;
   failed: number;
 }> {
-  const stats = { claimed: 0, sent: 0, skipped: 0, failed: 0 };
+  const stats = {
+    claimed: 0,
+    sent: 0,
+    skipped: 0,
+    skippedEngaged: 0,
+    failed: 0,
+  };
   const cutoffMs = REMINDER_DELAY_MS;
 
   // Atomically claim eligible rows by stamping reminder_sent_at. Doing the
@@ -87,6 +106,7 @@ export async function runReminderJob(): Promise<{
     firstName: string;
     isWinner: boolean;
     isSuppressed: boolean;
+    isEngaged: boolean;
   }> = [];
 
   try {
@@ -127,7 +147,25 @@ export async function runReminderJob(): Promise<{
         (c.rn = 1) AS "isWinner",
         EXISTS (
           SELECT 1 FROM suppressed_emails s WHERE s.email = c.email
-        ) AS "isSuppressed"
+        ) AS "isSuppressed",
+        (
+          EXISTS (
+            SELECT 1 FROM chat_conversations cc
+            WHERE LOWER(cc.visitor_email) = c.email
+          )
+          OR EXISTS (
+            SELECT 1 FROM lead_magnet_email_events e
+            WHERE e.event_type = ANY(${ENGAGEMENT_EVENT_TYPES})
+              AND (
+                e.email = c.email
+                OR EXISTS (
+                  SELECT 1 FROM lead_magnet_emails sib
+                  WHERE sib.email = c.email
+                    AND sib.id = e.lead_magnet_email_id
+                )
+              )
+          )
+        ) AS "isEngaged"
       FROM claimed c
     `);
     const rows = (result as unknown as { rows?: unknown[] }).rows
@@ -138,6 +176,7 @@ export async function runReminderJob(): Promise<{
       firstName: String(r.firstName),
       isWinner: Boolean(r.isWinner),
       isSuppressed: Boolean(r.isSuppressed),
+      isEngaged: Boolean(r.isEngaged),
     }));
   } catch (err) {
     logger.error({ err }, "Reminder job: failed to claim candidate rows");
@@ -147,8 +186,23 @@ export async function runReminderJob(): Promise<{
   stats.claimed = claimed.length;
   if (claimed.length === 0) return stats;
 
-  const sendable = claimed.filter((c) => c.isWinner && !c.isSuppressed);
+  const sendable = claimed.filter(
+    (c) => c.isWinner && !c.isSuppressed && !c.isEngaged,
+  );
   stats.skipped = claimed.length - sendable.length;
+  stats.skippedEngaged = claimed.filter(
+    (c) => c.isWinner && !c.isSuppressed && c.isEngaged,
+  ).length;
+
+  for (const lead of claimed) {
+    if (lead.isWinner && !lead.isSuppressed && lead.isEngaged) {
+      logger.info(
+        { email: lead.email, leadId: lead.id },
+        "Reminder job: skipping nudge — lead already engaged (chat or recorded reply/contact event)",
+      );
+    }
+  }
+
   if (sendable.length === 0) {
     logger.info(stats, "Reminder job run complete");
     return stats;
