@@ -102,8 +102,13 @@ Submitted: ${submittedAt}
 Reply directly to this email to reach the lead.`;
 
   const teamRecipients = ["jared@graylockdigital.com"];
-  if (process.env.TEAM_EMAIL_TIM) {
-    teamRecipients.push(process.env.TEAM_EMAIL_TIM);
+  const timEmail = process.env.TEAM_EMAIL_TIM;
+  if (timEmail) {
+    teamRecipients.push(timEmail);
+  } else {
+    logger.error(
+      "TEAM_EMAIL_TIM is not configured — Tim will NOT receive the lead-magnet notification. Set this env var in production immediately.",
+    );
   }
 
   const userEmailPromise = (async () => {
