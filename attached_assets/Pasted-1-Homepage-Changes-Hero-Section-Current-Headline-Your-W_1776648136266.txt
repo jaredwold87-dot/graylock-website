@@ -1,0 +1,31 @@
+1. Homepage Changes
+Hero Section
+Current Headline: Your Website Should Build Trust and Bring in Clients — Not Send Them to Competitors.
+New Headline: Turn Your Private Practice Website Into Your Best Source of New Patients.
+Current Subheadline: Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
+New Subheadline: We build custom patient acquisition websites for private practices. Get a professional site live in 7 days that builds trust, ranks locally, and turns visitors into booked appointments.
+Current Primary CTA Button: Schedule Your Free Consultation
+New Primary CTA Button: Get Your Free Homepage Demo
+Current Trust Badges (Under CTA):
+Custom homepage demo before you commit
+No long-term contracts
+100% Custom-Built Websites
+7–10 Business Day Delivery
+100% U.S.-Based Team
+$0 Upfront for Your Review
+New Trust Badges (Update 2 items):
+Change "$0 Upfront for Your Review" to: 30-Day 100% Money-Back Guarantee
+Change "100% Custom-Built Websites" to: Includes $1,500 in Practice Growth Bonuses
+(Keep the rest the same)
+"Your Free Consultation" Section (The Free Offer)
+Current Section Title: YOUR FREE CONSULTATION
+New Section Title: YOUR FREE WEBSITE AUDIT & DEMO
+Current Section Headline: What You Get on the Free Consultation
+New Section Headline: We Prove Our Value Before You Pay a Dollar.
+Structural Change: Add a value anchor to this section. Above the four boxes (Website Review, Strategy Walkthrough, Written Report, Custom Homepage Demo), add this text:
+New Text: This is a $500 strategic engagement that we do completely free for qualified practices.
+"Why Graylock" Section (The Comparison Table)
+Structural Change: We need to anchor the price explicitly in this table. Add a new row at the bottom of the comparison table.
+New Row Label: Upfront Cost & Risk
+Traditional Agencies Column: $10,000–$20,000 upfront. No refunds if you hate it.
+Graylock Digital Column: $799 upfront. 30-Day 100% Money-Back Guarantee.

@@ -109,11 +109,11 @@ export function HeroSection() {
         <div className="max-w-2xl">
           <ScrollReveal>
             <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.15] md:leading-[1.1] mb-6">
-              Your Website Should Build Trust and Bring in Clients —{" "}
-              <span className="text-gradient">Not Send Them to Competitors.</span>
+              Turn Your Private Practice Website Into{" "}
+              <span className="text-gradient">Your Best Source of New Patients.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
-              Graylock Digital builds custom websites for private practices, accounting firms, and trust-based local businesses that need clearer messaging, stronger credibility, and more qualified inquiries.
+              We build custom patient acquisition websites for private practices. Get a professional site live in 7 days that builds trust, ranks locally, and turns visitors into booked appointments.
             </p>
 
             {/* Mobile-only sequence: reassurance → CTA → bullets → proof image */}
@@ -123,7 +123,7 @@ export function HeroSection() {
                   href="/get-started"
                   className="bg-transparent text-white border border-white/80 hover:bg-white hover:text-navy px-7 py-3 text-base shadow-none hover:shadow-none hover:-translate-y-0 hover:border-white"
                 >
-                  Schedule Your Free Consultation
+                  Get Your Free Homepage Demo
                 </CTAButton>
               </div>
 
@@ -166,7 +166,7 @@ export function HeroSection() {
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
                 <CTAButton href="/get-started">
-                  Schedule Your Free Consultation
+                  Get Your Free Homepage Demo
                 </CTAButton>
               </div>
 

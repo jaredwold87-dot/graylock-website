@@ -33,14 +33,22 @@ export function OfferBreakdownSection() {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Your Free Consultation</p>
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12">
+          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Your Free Website Audit & Demo</p>
           <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
-            What You Get on the Free Consultation
+            We Prove Our Value Before You Pay a Dollar.
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed">
             We do real strategic work before asking you to commit, so you can see the direction clearly and decide with confidence.
           </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1} className="max-w-3xl mx-auto mb-12">
+          <div className="bg-white border border-orange/30 rounded-2xl px-6 py-5 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
+            <p className="text-charcoal font-sans text-base md:text-lg leading-relaxed">
+              This is a <span className="font-bold text-orange">$500 strategic engagement</span> that we do <span className="font-semibold">completely free</span> for qualified practices.
+            </p>
+          </div>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">

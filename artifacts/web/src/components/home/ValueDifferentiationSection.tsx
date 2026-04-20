@@ -42,6 +42,23 @@ export function ValueDifferentiationSection() {
                 </div>
               </div>
             ))}
+            {/* Emphasized price-anchor row */}
+            <div className="grid grid-cols-2">
+              <div className="p-4 md:p-6 border-r border-gunmetal bg-navy/60 flex items-start gap-3">
+                <X className="text-red-400/70 flex-shrink-0 mt-0.5" size={18} />
+                <div>
+                  <p className="text-stone/60 font-sans text-[11px] uppercase tracking-widest font-semibold mb-1">Upfront Cost & Risk</p>
+                  <p className="text-stone/80 font-sans text-sm leading-relaxed">$10,000–$20,000 upfront. No refunds if you hate it.</p>
+                </div>
+              </div>
+              <div className="p-4 md:p-6 bg-orange/10 flex items-start gap-3">
+                <Check className="text-orange flex-shrink-0 mt-0.5" size={18} />
+                <div>
+                  <p className="text-orange font-sans text-[11px] uppercase tracking-widest font-semibold mb-1">Upfront Cost & Risk</p>
+                  <p className="text-offwhite font-sans text-sm leading-relaxed font-semibold">$799 upfront. 30-Day 100% Money-Back Guarantee.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 
