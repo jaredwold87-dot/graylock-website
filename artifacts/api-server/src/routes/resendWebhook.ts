@@ -122,13 +122,23 @@ resendWebhookRouter.post(
       .toLowerCase();
 
     let leadMagnetEmailId: number | null = null;
+    let emailKind: string | null = null;
+    let parentEmailId: number | null = null;
     if (resendEmailId) {
       try {
         const rows = await db
-          .select({ id: leadMagnetEmailsTable.id })
+          .select({
+            id: leadMagnetEmailsTable.id,
+            kind: leadMagnetEmailsTable.kind,
+            parentEmailId: leadMagnetEmailsTable.parentEmailId,
+          })
           .from(leadMagnetEmailsTable)
           .where(eq(leadMagnetEmailsTable.resendEmailId, resendEmailId));
-        if (rows[0]) leadMagnetEmailId = rows[0].id;
+        if (rows[0]) {
+          leadMagnetEmailId = rows[0].id;
+          emailKind = rows[0].kind ?? null;
+          parentEmailId = rows[0].parentEmailId ?? null;
+        }
       } catch (err) {
         logger.error({ err }, "Failed to look up lead magnet email row");
       }
@@ -306,6 +316,9 @@ resendWebhookRouter.post(
               status: newStatus,
               clickedUrl,
               isPdfClick,
+              kind: emailKind,
+              parentLeadMagnetEmailId: parentEmailId,
+              isReminder: emailKind === "reminder",
             }),
           },
         );

@@ -8,6 +8,7 @@ import {
 import { logger } from "./logger";
 
 const PDF_PUBLIC_URL = "https://graylockdigital.com/website-playbook.pdf";
+const LEAD_MAGNET_NAME = "Private Practice Website Playbook";
 const REMINDER_DELAY_MS = 3 * 24 * 60 * 60 * 1000;
 const RUN_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
@@ -93,7 +94,8 @@ export async function runReminderJob(): Promise<{
       WITH eligible AS (
         SELECT id, email, first_name
         FROM lead_magnet_emails
-        WHERE status IN ('sent', 'delivered')
+        WHERE kind = 'initial'
+          AND status IN ('sent', 'delivered')
           AND sent_at < (NOW() - (${cutoffMs} || ' milliseconds')::interval)
           AND reminder_sent_at IS NULL
           AND NOT EXISTS (
@@ -198,9 +200,50 @@ export async function runReminderJob(): Promise<{
         stats.failed += 1;
         continue;
       }
+      const reminderResendId = result?.data?.id ?? null;
+      // Insert a child row representing the nudge itself. The Resend webhook
+      // looks up rows by resend_email_id, so giving the reminder its own row
+      // means delivered/opened/clicked events for the nudge get attributed
+      // separately from the original Playbook send. The send already
+      // succeeded at this point, so we retry briefly on transient DB errors
+      // to avoid losing attribution for a nudge that did go out.
+      let inserted = false;
+      let lastInsertErr: unknown = null;
+      for (let attempt = 0; attempt < 3 && !inserted; attempt += 1) {
+        try {
+          await db.insert(leadMagnetEmailsTable).values({
+            email: lead.email,
+            firstName: lead.firstName,
+            resendEmailId: reminderResendId ?? undefined,
+            leadMagnet: LEAD_MAGNET_NAME,
+            status: "sent",
+            kind: "reminder",
+            parentEmailId: lead.id,
+          });
+          inserted = true;
+        } catch (err) {
+          lastInsertErr = err;
+          if (attempt < 2) {
+            await new Promise((r) => setTimeout(r, 250 * (attempt + 1)));
+          }
+        }
+      }
+      if (!inserted) {
+        // Loud log so the resend_email_id can be reconciled manually if
+        // webhook events arrive before we're able to record the row.
+        logger.error(
+          {
+            err: lastInsertErr,
+            leadId: lead.id,
+            reminderResendId,
+            email: lead.email,
+          },
+          "Reminder job: failed to record reminder row after retries (nudge was sent)",
+        );
+      }
       stats.sent += 1;
       logger.info(
-        { email: lead.email, leadId: lead.id },
+        { email: lead.email, leadId: lead.id, reminderResendId },
         "Reminder job: nudge email sent",
       );
     } catch (err) {

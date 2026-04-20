@@ -1,6 +1,6 @@
 import { Router, type Request, type Response } from "express";
 import { Resend } from "resend";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import {
   db,
   leadMagnetEmailsTable,
@@ -259,6 +259,126 @@ Reply directly to this email to reach the lead.`;
 
   res.json({ success: true });
 });
+
+// Aggregate stats for the 3-day nudge so the team can see whether it actually
+// recovers leads. Returns counts for both the original Playbook send and the
+// reminder nudge so they can be compared side by side.
+//
+// Optionally protected with a shared token via LEAD_MAGNET_STATS_TOKEN; if the
+// env var is set, requests must pass it as ?token=... or the
+// `x-stats-token` header.
+leadMagnetRouter.get(
+  "/lead-magnet/reminder-stats",
+  async (req: Request, res: Response) => {
+    const requiredToken = process.env.LEAD_MAGNET_STATS_TOKEN;
+    if (requiredToken) {
+      const provided =
+        (typeof req.query.token === "string" ? req.query.token : "") ||
+        String(req.header("x-stats-token") || "");
+      if (provided !== requiredToken) {
+        res.status(401).json({ success: false, error: "Unauthorized" });
+        return;
+      }
+    }
+
+    try {
+      const result = await db.execute(sql`
+        SELECT
+          kind,
+          COUNT(*)::int AS sent,
+          COUNT(delivered_at)::int AS delivered,
+          COUNT(opened_at)::int AS opened,
+          COUNT(clicked_at)::int AS clicked,
+          COUNT(bounced_at)::int AS bounced,
+          COUNT(complained_at)::int AS complained
+        FROM lead_magnet_emails
+        WHERE status <> 'suppressed'
+        GROUP BY kind
+      `);
+      const rows = ((result as unknown as { rows?: unknown[] }).rows ??
+        (result as unknown as unknown[])) as Array<Record<string, unknown>>;
+
+      const buckets: Record<
+        string,
+        {
+          sent: number;
+          delivered: number;
+          opened: number;
+          clicked: number;
+          bounced: number;
+          complained: number;
+        }
+      > = {
+        initial: { sent: 0, delivered: 0, opened: 0, clicked: 0, bounced: 0, complained: 0 },
+        reminder: { sent: 0, delivered: 0, opened: 0, clicked: 0, bounced: 0, complained: 0 },
+      };
+      for (const r of rows) {
+        const k = String(r.kind ?? "initial");
+        if (!buckets[k]) {
+          buckets[k] = { sent: 0, delivered: 0, opened: 0, clicked: 0, bounced: 0, complained: 0 };
+        }
+        buckets[k].sent = Number(r.sent ?? 0);
+        buckets[k].delivered = Number(r.delivered ?? 0);
+        buckets[k].opened = Number(r.opened ?? 0);
+        buckets[k].clicked = Number(r.clicked ?? 0);
+        buckets[k].bounced = Number(r.bounced ?? 0);
+        buckets[k].complained = Number(r.complained ?? 0);
+      }
+
+      const pct = (num: number, denom: number) =>
+        denom > 0 ? Math.round((num / denom) * 1000) / 10 : 0;
+
+      const initial = buckets.initial;
+      const reminder = buckets.reminder;
+
+      // Recovery: of leads who got a nudge, how many opened/clicked the nudge
+      // when they had not opened/clicked the original. We compute this in a
+      // separate query to compare paired rows.
+      const recoveryResult = await db.execute(sql`
+        SELECT
+          COUNT(*) FILTER (
+            WHERE r.opened_at IS NOT NULL AND p.opened_at IS NULL
+          )::int AS opened_only_after_nudge,
+          COUNT(*) FILTER (
+            WHERE r.clicked_at IS NOT NULL AND p.clicked_at IS NULL
+          )::int AS clicked_only_after_nudge,
+          COUNT(*)::int AS reminders_with_parent
+        FROM lead_magnet_emails r
+        JOIN lead_magnet_emails p ON p.id = r.parent_email_id
+        WHERE r.kind = 'reminder'
+      `);
+      const recRows = ((recoveryResult as unknown as { rows?: unknown[] }).rows ??
+        (recoveryResult as unknown as unknown[])) as Array<Record<string, unknown>>;
+      const rec = recRows[0] ?? {};
+
+      res.json({
+        success: true,
+        initial: {
+          ...initial,
+          deliveredRate: pct(initial.delivered, initial.sent),
+          openRate: pct(initial.opened, initial.delivered || initial.sent),
+          clickRate: pct(initial.clicked, initial.delivered || initial.sent),
+        },
+        reminder: {
+          ...reminder,
+          deliveredRate: pct(reminder.delivered, reminder.sent),
+          openRate: pct(reminder.opened, reminder.delivered || reminder.sent),
+          clickRate: pct(reminder.clicked, reminder.delivered || reminder.sent),
+        },
+        recovery: {
+          remindersWithParent: Number(rec.reminders_with_parent ?? 0),
+          openedOnlyAfterNudge: Number(rec.opened_only_after_nudge ?? 0),
+          clickedOnlyAfterNudge: Number(rec.clicked_only_after_nudge ?? 0),
+        },
+      });
+    } catch (err) {
+      logger.error({ err }, "Failed to compute lead-magnet reminder stats");
+      res
+        .status(500)
+        .json({ success: false, error: "Failed to compute stats" });
+    }
+  },
+);
 
 function escapeHtml(s: string): string {
   return s

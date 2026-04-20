@@ -48,7 +48,11 @@ async function runMigrations() {
         updated_at TIMESTAMP DEFAULT NOW() NOT NULL
       );
       ALTER TABLE lead_magnet_emails ADD COLUMN IF NOT EXISTS reminder_sent_at TIMESTAMP;
+      ALTER TABLE lead_magnet_emails ADD COLUMN IF NOT EXISTS kind TEXT NOT NULL DEFAULT 'initial';
+      ALTER TABLE lead_magnet_emails ADD COLUMN IF NOT EXISTS parent_email_id INTEGER REFERENCES lead_magnet_emails(id);
       CREATE INDEX IF NOT EXISTS idx_lead_magnet_emails_email ON lead_magnet_emails(email);
+      CREATE INDEX IF NOT EXISTS idx_lead_magnet_emails_kind ON lead_magnet_emails(kind);
+      CREATE INDEX IF NOT EXISTS idx_lead_magnet_emails_parent ON lead_magnet_emails(parent_email_id);
 
       CREATE TABLE IF NOT EXISTS lead_magnet_email_events (
         id SERIAL PRIMARY KEY,

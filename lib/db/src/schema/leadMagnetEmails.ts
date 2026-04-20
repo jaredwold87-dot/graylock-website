@@ -26,10 +26,14 @@ export const leadMagnetEmailsTable = pgTable(
     complainedAt: timestamp("complained_at"),
     deliveryDelayedAt: timestamp("delivery_delayed_at"),
     reminderSentAt: timestamp("reminder_sent_at"),
+    kind: text("kind").notNull().default("initial"),
+    parentEmailId: integer("parent_email_id"),
     updatedAt: timestamp("updated_at").defaultNow().notNull(),
   },
   (table) => ({
     emailIdx: index("idx_lead_magnet_emails_email").on(table.email),
+    kindIdx: index("idx_lead_magnet_emails_kind").on(table.kind),
+    parentIdx: index("idx_lead_magnet_emails_parent").on(table.parentEmailId),
   }),
 );
 
