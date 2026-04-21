@@ -43,15 +43,7 @@ export function OfferBreakdownSection() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.1} className="max-w-3xl mx-auto mb-12">
-          <div className="bg-white border border-orange/30 rounded-2xl px-6 py-5 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
-            <p className="text-charcoal font-sans text-base md:text-lg leading-relaxed">
-              This is a <span className="font-bold text-orange">$500 strategic engagement</span> that we do <span className="font-semibold">completely free</span> for qualified practices.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 mt-12">
           {offers.map((offer, i) => (
             <ScrollReveal key={i} delay={i * 0.12} className="group bg-white/80 backdrop-blur-sm p-7 rounded-2xl border border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_16px_40px_rgba(0,0,0,0.06)] transition-all duration-500 flex flex-col hover:-translate-y-1">
               <div className="w-12 h-12 rounded-2xl bg-charcoal flex items-center justify-center mb-5 text-white shadow-md group-hover:shadow-lg group-hover:shadow-orange/10 transition-all duration-500 relative overflow-hidden">
