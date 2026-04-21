@@ -26,11 +26,14 @@ export function DashboardSection() {
         <ScrollReveal delay={0.15}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {bullets.map((b, i) => (
-              <div key={i} className="bg-charcoal/60 border border-gunmetal rounded-xl p-5 flex flex-col items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-orange/10 flex items-center justify-center border border-orange/10">
-                  <b.icon size={18} className="text-orange" />
+              <div
+                key={i}
+                className="bg-offwhite border border-gray-200 rounded-xl p-5 flex flex-col items-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(46,123,180,0.25)] transition-all duration-300"
+              >
+                <div className="w-11 h-11 rounded-lg bg-orange flex items-center justify-center shadow-md">
+                  <b.icon size={20} className="text-white" />
                 </div>
-                <p className="text-offwhite font-sans text-sm leading-relaxed">{b.text}</p>
+                <p className="text-charcoal font-sans text-sm font-medium leading-relaxed">{b.text}</p>
               </div>
             ))}
           </div>
