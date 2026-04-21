@@ -8,24 +8,34 @@ import { Wrench, MessagesSquare, UserCheck, TrendingUp } from "lucide-react";
 export default function HowItWorks() {
   const steps = [
     {
-      day: "Day 1",
-      title: "Call + Evaluation",
-      desc: "We start with a free 20-minute consultation. We review your current online presence, discuss your target clients, and determine exactly what features your practice needs to succeed. After the call, you receive a comprehensive written report covering website analysis, SEO gaps, competitive landscape, and growth opportunities. You keep the full report regardless of whether you move forward — it's yours as a premium standalone deliverable."
+      day: "Step 1",
+      title: "Initial Call & Evaluation",
+      desc: "We start with a free call to learn your practice, your patients or clients, and your goals — paired with a hands-on review of your current website. You walk away with a clear picture of what's working, what isn't, and the strategy we'd recommend for your custom site."
     },
     {
-      day: "Days 2–7",
-      title: "The Build",
-      desc: "Once you approve the plan and pay the setup fee, our team gets to work. We craft custom copy, source high-quality imagery, and build a blazing-fast site. Throughout the build, you have full transparency: a dedicated project portal where you can upload assets, communicate directly with our team, and track progress in real time."
+      day: "Step 2",
+      title: "Free Demo Page",
+      desc: "Before you commit a dollar, we build a real homepage demo tailored to your business. You see the layout, the copy direction, and the design language in action — and we collect your feedback and input so the final concept genuinely fits your practice."
     },
     {
-      day: "Days 8–9",
+      day: "Step 3",
+      title: "Build to 90%",
+      desc: "Once you approve the demo concept, our team completes the full website build to roughly 90% — every page, every funnel, every integration. Custom copy, professional imagery, fast performance, and your branding throughout."
+    },
+    {
+      day: "Step 4",
       title: "Client Review",
-      desc: "We send you a private link to review your new website and schedule a review call to walk you through the completed site together. This is a structured opportunity for feedback — we go page by page, answer your questions, and make any adjustments to ensure it's exactly what you envisioned. We don't launch until you sign off."
+      desc: "We hand you a private preview link and walk you through the completed build page by page. You see the entire site exactly as your visitors will, flag anything that needs tightening, and give us a clear list of what to refine before launch."
     },
     {
-      day: "Day 10",
-      title: "Launch",
-      desc: "We connect your domain, set up SSL security, configure your SEO, and push the site live to the world. Your site is live and working for you — every visitor is now a potential client. Google indexing begins, leads start flowing, and your monthly subscription kicks in."
+      day: "Step 5",
+      title: "Final Adjustments",
+      desc: "We take your feedback and make the final adjustments — copy tweaks, design refinements, image swaps, page additions — until the site is something you're genuinely proud to put your name on."
+    },
+    {
+      day: "Step 6",
+      title: "Launch Together",
+      desc: "When you give the green light, we launch the site with you — connecting your domain, configuring SSL, finalizing SEO, and pushing it live. Your new website is officially in front of the world, and your monthly subscription kicks in."
     }
   ];
 
