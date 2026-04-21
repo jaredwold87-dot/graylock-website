@@ -3,13 +3,40 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { PRICING_TIERS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 const SHORT_DESCRIPTIONS: Record<string, string> = {
   Starter: "For solo practitioners and independent businesses.",
   Growth: "For growing teams and small firms that need more visibility.",
   Scale: "For established and multi-location businesses.",
   Custom: "For practices with unique needs beyond our standard plans.",
+};
+
+const HIGHLIGHTS: Record<string, string[]> = {
+  Starter: [
+    "Custom 8-page conversion website",
+    "Mobile-first professional design",
+    "Local SEO foundation",
+    "Secure patient intake flow",
+  ],
+  Growth: [
+    "Custom 15-page conversion website",
+    "Up to 5 provider bio pages",
+    "10 SEO-optimized funnel pages",
+    "Full local SEO implementation",
+  ],
+  Scale: [
+    "Custom 20+ page conversion website",
+    "Up to 10 provider bio pages",
+    "Multi-location SEO strategy",
+    "Advanced analytics & reporting",
+  ],
+  Custom: [
+    "Everything in Scale",
+    "Custom page count",
+    "Custom apps & dashboards",
+    "Operating-system builds",
+  ],
 };
 
 export function PricingSnapshotSection() {
@@ -67,7 +94,22 @@ export function PricingSnapshotSection() {
                 )}
               </div>
 
-              <div className="mt-auto">
+              <ul className="space-y-3 mb-6">
+                {(HIGHLIGHTS[tier.name] || []).map((item) => (
+                  <li key={item} className="flex items-start gap-2.5">
+                    <Check
+                      size={16}
+                      strokeWidth={2.5}
+                      className={cn("flex-shrink-0 mt-0.5", tier.popular ? "text-orange" : "text-orange")}
+                    />
+                    <span className={cn("font-sans text-sm leading-snug", tier.popular ? "text-offwhite/90" : "text-charcoal/85")}>
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto space-y-3">
                 <CTAButton
                   href="/get-started"
                   variant={tier.popular ? 'primary' : 'outline'}
@@ -75,6 +117,15 @@ export function PricingSnapshotSection() {
                 >
                   {tier.isCustom ? 'Contact Us' : 'Get a Free Demo'}
                 </CTAButton>
+                <Link
+                  href="/pricing"
+                  className={cn(
+                    "block text-center text-xs font-sans font-semibold transition-colors",
+                    tier.popular ? "text-stone hover:text-orange" : "text-stone hover:text-orange",
+                  )}
+                >
+                  See full plan →
+                </Link>
               </div>
             </ScrollReveal>
           ))}
