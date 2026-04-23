@@ -1,24 +1,67 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown } from "lucide-react";
+import {
+  Menu, X, ChevronDown,
+  Palette, Search, Sparkles, MousePointerClick, MapPin, Magnet,
+  Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, PawPrint, Calculator, Briefcase, HardHat,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const SERVICES = [
+  {
+    icon: Palette,
+    name: "Custom Website Design",
+    desc: "Conversion-built sites, mobile-first.",
+    path: "/website-design",
+  },
+  {
+    icon: Search,
+    name: "Local SEO",
+    desc: "Rank in your city. Show up on Google Maps.",
+    path: "/seo-for-small-business",
+  },
+  {
+    icon: Sparkles,
+    name: "GEO — AI Search",
+    desc: "Get cited by ChatGPT, Perplexity, Gemini.",
+    path: "/geo-generative-engine-optimization",
+  },
+  {
+    icon: MousePointerClick,
+    name: "Funnel Pages",
+    desc: "High-intent landing pages that convert.",
+    path: "/funnel-pages",
+  },
+  {
+    icon: MapPin,
+    name: "Google Business Profile",
+    desc: "Optimized profile, reviews, posts, photos.",
+    path: "/google-business-profile",
+  },
+  {
+    icon: Magnet,
+    name: "Lead Generation",
+    desc: "Forms, intake flows & lead magnets that work.",
+    path: "/lead-generation-for-small-business",
+  },
+];
+
+const SERVICE_PATHS = SERVICES.map((s) => s.path).concat(["/our-strategy"]);
+
 const WHO_WE_HELP_PRACTICES = [
-  { name: "Chiropractors", path: "/websites-for-chiropractors" },
-  { name: "Dentists", path: "/websites-for-dentists" },
-  { name: "Dermatologists", path: "/websites-for-dermatologists" },
-  { name: "Ophthalmologists", path: "/websites-for-ophthalmologists" },
-  { name: "Optometrists", path: "/websites-for-optometrists" },
-  { name: "Physical Therapists", path: "/websites-for-physical-therapists" },
-  { name: "Physicians", path: "/websites-for-physicians" },
-  { name: "Psychologists", path: "/websites-for-psychologists" },
-  { name: "Therapists & Counselors", path: "/websites-for-therapists" },
-  { name: "Veterinarians", path: "/websites-for-veterinarians" },
+  { name: "Chiropractors", desc: "Adjustments, posture, sports recovery.", icon: Activity, path: "/websites-for-chiropractors" },
+  { name: "Dentists", desc: "Family, cosmetic, implants, ortho.", icon: Smile, path: "/websites-for-dentists" },
+  { name: "Optometrists", desc: "Exams, contacts, frames, dry eye.", icon: Focus, path: "/websites-for-optometrists" },
+  { name: "Physical Therapists", desc: "Rehab, sports, ortho & pain.", icon: Dumbbell, path: "/websites-for-physical-therapists" },
+  { name: "Physicians", desc: "Family, internal & specialty practices.", icon: Stethoscope, path: "/websites-for-physicians" },
+  { name: "Psychologists", desc: "Testing, therapy & evaluations.", icon: Brain, path: "/websites-for-psychologists" },
+  { name: "Veterinarians", desc: "Small animal, exotic & mobile vets.", icon: PawPrint, path: "/websites-for-veterinarians" },
 ];
 
 const WHO_WE_HELP_OTHER = [
-  { name: "Accounting Firms", path: "/websites-for-accountants" },
-  { name: "Other Service Businesses", path: "/other-service-businesses" },
+  { name: "Accounting Firms", desc: "CPAs, bookkeeping, tax & advisory.", icon: Calculator, path: "/websites-for-accountants" },
+  { name: "Industrial & Construction", desc: "Contractors, trades, manufacturing.", icon: HardHat, path: "/websites-for-industrial-construction" },
+  { name: "Other Service Businesses", desc: "Trust-based pros — law, finance, more.", icon: Briefcase, path: "/other-service-businesses" },
 ];
 
 const WHO_WE_HELP_ALL = [...WHO_WE_HELP_PRACTICES, ...WHO_WE_HELP_OTHER];
@@ -32,6 +75,88 @@ const OUR_STRATEGY = [
   { name: "Google Business Profiles", path: "/google-business-profile" },
   { name: "Lead Generation", path: "/lead-generation-for-small-business" },
 ];
+
+function ServicesMegaMenu({
+  isActive,
+  location,
+}: {
+  isActive: boolean;
+  location: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+  };
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
+
+  return (
+    <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <button
+        className={cn(
+          "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative flex items-center gap-1",
+          isActive ? "text-orange" : "text-offwhite/90 hover:text-orange"
+        )}
+        onClick={() => setOpen(!open)}
+      >
+        Services
+        <ChevronDown size={14} className={cn("transition-transform duration-200", open ? "rotate-180" : "")} />
+        <span className={cn("absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300", isActive ? "w-full" : "w-0")} />
+      </button>
+
+      <div
+        className={cn(
+          "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[640px] rounded-xl border border-gunmetal/60 bg-charcoal/95 backdrop-blur-xl shadow-2xl shadow-black/40 transition-all duration-200 overflow-hidden",
+          open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+        )}
+      >
+        <div className="p-4">
+          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mb-3 px-2">What We Do</p>
+          <div className="grid grid-cols-2 gap-1">
+            {SERVICES.map((s) => {
+              const Icon = s.icon;
+              const active = location === s.path;
+              return (
+                <Link
+                  key={s.path}
+                  href={s.path}
+                  className={cn(
+                    "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group/item",
+                    active ? "bg-orange/10" : "hover:bg-white/5"
+                  )}
+                >
+                  <div className="w-9 h-9 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange/15 transition-colors">
+                    <Icon size={16} className="text-orange" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className={cn("text-sm font-sans font-semibold leading-tight", active ? "text-orange" : "text-offwhite")}>
+                      {s.name}
+                    </div>
+                    <div className="text-[11.5px] text-stone leading-snug mt-0.5">{s.desc}</div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="border-t border-gunmetal/40 mt-3 pt-3 px-2 flex items-center justify-between">
+            <span className="text-xs text-stone">See how it all works together</span>
+            <Link href="/our-strategy" className="text-xs font-sans font-semibold text-orange hover:text-orange/80 transition-colors">
+              Our full strategy →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function DesktopMegaMenu({
   isActive,
@@ -57,9 +182,6 @@ function DesktopMegaMenu({
     setOpen(false);
   }, [location]);
 
-  const col1 = WHO_WE_HELP_PRACTICES.slice(0, 5);
-  const col2 = WHO_WE_HELP_PRACTICES.slice(5);
-
   return (
     <div
       ref={ref}
@@ -74,13 +196,10 @@ function DesktopMegaMenu({
         )}
         onClick={() => setOpen(!open)}
       >
-        Who We Help
+        Industries
         <ChevronDown
           size={14}
-          className={cn(
-            "transition-transform duration-200",
-            open ? "rotate-180" : ""
-          )}
+          className={cn("transition-transform duration-200", open ? "rotate-180" : "")}
         />
         <span
           className={cn(
@@ -92,63 +211,74 @@ function DesktopMegaMenu({
 
       <div
         className={cn(
-          "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[480px] rounded-xl border border-gunmetal/60 bg-charcoal/95 backdrop-blur-xl shadow-2xl shadow-black/40 transition-all duration-200 overflow-hidden",
+          "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[760px] rounded-xl border border-gunmetal/60 bg-charcoal/95 backdrop-blur-xl shadow-2xl shadow-black/40 transition-all duration-200 overflow-hidden",
           open
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"
         )}
       >
         <div className="p-4">
-          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone/60 mb-2 px-1">Private Practices</p>
-          <div className="grid grid-cols-2 gap-x-2">
-            <div>
-              {col1.map((item) => (
+          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mb-3 px-2">Healthcare Practices</p>
+          <div className="grid grid-cols-2 gap-1">
+            {WHO_WE_HELP_PRACTICES.map((item) => {
+              const Icon = item.icon;
+              const active = location === item.path;
+              return (
                 <Link
                   key={item.path}
                   href={item.path}
                   className={cn(
-                    "block px-3 py-2 text-sm font-sans rounded-lg transition-all duration-200",
-                    location === item.path
-                      ? "text-orange bg-orange/5"
-                      : "text-stone hover:text-offwhite hover:bg-white/5"
+                    "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group/item",
+                    active ? "bg-orange/10" : "hover:bg-white/5"
                   )}
                 >
-                  {item.name}
+                  <div className="w-9 h-9 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange/15 transition-colors">
+                    <Icon size={16} className="text-orange" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className={cn("text-sm font-sans font-semibold leading-tight", active ? "text-orange" : "text-offwhite")}>
+                      {item.name}
+                    </div>
+                    <div className="text-[11.5px] text-stone leading-snug mt-0.5">{item.desc}</div>
+                  </div>
                 </Link>
-              ))}
-            </div>
-            <div>
-              {col2.map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={cn(
-                    "block px-3 py-2 text-sm font-sans rounded-lg transition-all duration-200",
-                    location === item.path
-                      ? "text-orange bg-orange/5"
-                      : "text-stone hover:text-offwhite hover:bg-white/5"
-                  )}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+              );
+            })}
           </div>
-          <div className="border-t border-gunmetal/40 mt-3 pt-3">
-            {WHO_WE_HELP_OTHER.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                className={cn(
-                  "block px-3 py-2 text-sm font-sans rounded-lg transition-all duration-200",
-                  location === item.path
-                    ? "text-orange bg-orange/5"
-                    : "text-stone hover:text-offwhite hover:bg-white/5"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+
+          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mt-4 mb-3 px-2">Other Trust-Based Businesses</p>
+          <div className="grid grid-cols-2 gap-1">
+            {WHO_WE_HELP_OTHER.map((item) => {
+              const Icon = item.icon;
+              const active = location === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className={cn(
+                    "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group/item",
+                    active ? "bg-orange/10" : "hover:bg-white/5"
+                  )}
+                >
+                  <div className="w-9 h-9 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange/15 transition-colors">
+                    <Icon size={16} className="text-orange" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className={cn("text-sm font-sans font-semibold leading-tight", active ? "text-orange" : "text-offwhite")}>
+                      {item.name}
+                    </div>
+                    <div className="text-[11.5px] text-stone leading-snug mt-0.5">{item.desc}</div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="border-t border-gunmetal/40 mt-3 pt-3 px-2 flex items-center justify-between">
+            <span className="text-xs text-stone">Don't see your industry?</span>
+            <Link href="/get-started" className="text-xs font-sans font-semibold text-orange hover:text-orange/80 transition-colors">
+              Talk to us →
+            </Link>
           </div>
         </div>
       </div>
@@ -328,7 +458,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileWhoWeHelpOpen, setMobileWhoWeHelpOpen] = useState(false);
-  const [mobileOurStrategyOpen, setMobileOurStrategyOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -342,17 +472,14 @@ export function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileWhoWeHelpOpen(false);
-    setMobileOurStrategyOpen(false);
+    setMobileServicesOpen(false);
   }, [location]);
 
   const isWhoWeHelpActive = WHO_WE_HELP_ALL.some((item) => location === item.path);
-  const isOurStrategyActive = OUR_STRATEGY.some((item) => location === item.path);
-
-  const navLinks = [
-    { name: "How It Works", path: "/how-it-works" },
-  ];
+  const isServicesActive = SERVICE_PATHS.some((p) => location === p);
 
   const navLinksAfter = [
+    { name: "Process", path: "/how-it-works" },
     { name: "Pricing", path: "/pricing" },
     { name: "About", path: "/about" },
   ];
@@ -378,31 +505,8 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  href={link.path}
-                  className={cn(
-                    "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative",
-                    location === link.path
-                      ? "text-orange"
-                      : "text-offwhite/90 hover:text-orange"
-                  )}
-                >
-                  {link.name}
-                  <span
-                    className={cn(
-                      "absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300",
-                      location === link.path ? "w-full" : "w-0"
-                    )}
-                  />
-                </Link>
-              ))}
-
-              <DesktopDropdown
-                label="Our Strategy"
-                items={OUR_STRATEGY}
-                isActive={isOurStrategyActive}
+              <ServicesMegaMenu
+                isActive={isServicesActive}
                 location={location}
               />
 
@@ -459,32 +563,18 @@ export function Navbar() {
         )}
       >
         <div className="flex flex-col items-center gap-6 text-center pb-12 w-full px-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              href={link.path}
-              className={cn(
-                "text-2xl font-display uppercase tracking-widest",
-                location === link.path
-                  ? "text-orange"
-                  : "text-offwhite hover:text-orange transition-colors"
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
-
           <MobileAccordion
-            label="Our Strategy"
-            items={OUR_STRATEGY}
-            isActive={isOurStrategyActive}
+            label="Services"
+            items={SERVICES.map((s) => ({ name: s.name, path: s.path }))}
+            extraItems={[{ name: "Our Full Strategy", path: "/our-strategy" }]}
+            isActive={isServicesActive}
             location={location}
-            open={mobileOurStrategyOpen}
-            onToggle={() => setMobileOurStrategyOpen(!mobileOurStrategyOpen)}
+            open={mobileServicesOpen}
+            onToggle={() => setMobileServicesOpen(!mobileServicesOpen)}
           />
 
           <MobileAccordion
-            label="Who We Help"
+            label="Industries"
             items={WHO_WE_HELP_PRACTICES}
             extraItems={WHO_WE_HELP_OTHER}
             isActive={isWhoWeHelpActive}
