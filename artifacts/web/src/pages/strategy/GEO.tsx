@@ -14,7 +14,7 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "GEO — Generative Engine Optimization | AI Search for Professional Practices | Graylock Digital",
+    title: "GEO — Generative Engine Optimization | Graylock Digital",
     description:
       "GEO is SEO for the AI era. Learn how to get your business recommended by ChatGPT, Google AI Overviews, and Perplexity — and why it matters for your leads.",
     url: "https://graylockdigital.com/geo-generative-engine-optimization",

@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Psychologists | Custom Sites | Graylock Digital",
+    title: "Websites for Psychologists | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for psychologists and psychology practices. Service pages, local SEO, client inquiry forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for psychologists and psychology practices. Local SEO, client inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-psychologists",
   },
   hero: {

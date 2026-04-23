@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Graylock Digital — Client-Winning Websites for Practices, Construction Firms & Accountants"
-        description="Custom, mobile-first websites for private practices, construction companies, and accounting firms that want more new clients. Built in 7–10 business days. Flat monthly rate, no long-term contracts."
+        title="Graylock Digital — Websites for Practices & Contractors"
+        description="Mobile-first websites for practices, construction firms, and accounting offices. Built in 7–10 days. Flat monthly rate, no long-term contracts."
         url="https://graylockdigital.com/"
       />
       <HeroSection />

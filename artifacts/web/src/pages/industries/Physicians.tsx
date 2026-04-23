@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Physicians | Custom Medical Sites | Graylock Digital",
+    title: "Websites for Physicians | Medical Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for physicians and medical practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for physicians and medical practices. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-physicians",
   },
   hero: {

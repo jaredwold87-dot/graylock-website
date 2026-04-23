@@ -18,7 +18,7 @@ const data: IndustryPageData = {
   seo: {
     title: "Websites for CPAs & Accounting Firms | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for CPAs, accountants, and tax professionals. Services pages, local SEO, client inquiry forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for CPAs, accountants, and tax professionals. Local SEO, client inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-accountants",
   },
   hero: {

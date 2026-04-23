@@ -9,9 +9,9 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "SEO for Professional Practices | Metadata, Backlinks & Local Search | Graylock Digital",
+    title: "SEO for Professional Practices | Graylock Digital",
     description:
-      "Learn how SEO works for professional practices — metadata, backlinks, local search, content strategy, and technical SEO. Graylock builds SEO-ready websites for therapists, dentists, physicians, CPAs, and private practices.",
+      "How SEO works for private practices — metadata, backlinks, local search, content, and technical SEO. Graylock builds SEO-ready sites for therapists and CPAs.",
     url: "https://graylockdigital.com/seo-for-small-business",
   },
   hero: {

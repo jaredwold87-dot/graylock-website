@@ -8,8 +8,8 @@ export default function OtherServiceBusinesses() {
     <>
       <SEO
         title="Websites for Service Businesses — Graylock Digital"
-        description="The Graylock framework is built for any business where trust, expertise, and local visibility drive revenue. Custom websites for law firms, consultants, home service companies, and other professional services."
-        url="https://graylockdigital.com/other-service-businesses"
+        description="Custom websites for law firms, consultants, home service companies, and other professional services where trust and local visibility drive revenue."
+        path="/other-service-businesses"
       />
 
       <section className="bg-charcoal pt-32 md:pt-40 pb-24 px-6 md:px-12 relative overflow-hidden border-b border-gunmetal">

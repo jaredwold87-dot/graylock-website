@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Physical Therapists | Custom Sites | Graylock Digital",
+    title: "Websites for Physical Therapists | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for physical therapists and PT clinics. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for physical therapists and PT clinics. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-physical-therapists",
   },
   hero: {

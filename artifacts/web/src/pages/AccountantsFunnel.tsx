@@ -166,7 +166,7 @@ export default function AccountantsFunnel() {
     <>
       <SEO
         title="Websites for Accountants & CPA Firms | Graylock Digital"
-        description="Get a modern, SEO-optimized website built specifically for your accounting firm. Rank higher on Google, capture more leads, and grow your practice. No long-term contracts."
+        description="Modern, SEO-optimized websites built for your accounting firm. Rank higher on Google, capture more leads, no long-term contracts."
         url="https://graylockdigital.com/accountants"
       />
 

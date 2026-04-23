@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Veterinarians | Custom Vet Sites | Graylock Digital",
+    title: "Websites for Veterinarians | Vet Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for veterinarians and animal hospitals. Service pages, local SEO, appointment request forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for veterinarians and animal hospitals. Local SEO, appointment request forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-veterinarians",
   },
   hero: {

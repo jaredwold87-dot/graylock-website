@@ -11,9 +11,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Industrial & Construction Companies | Graylock Digital",
+    title: "Websites for Industrial & Construction | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for general contractors, commercial construction, industrial services, manufacturing, and trades. Project galleries, capability pages, RFQ forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for general contractors, industrial services, manufacturing, and trades. Project galleries, RFQ forms, built in 7–10 business days.",
     url: "https://graylockdigital.com/websites-for-industrial-construction",
   },
   hero: {

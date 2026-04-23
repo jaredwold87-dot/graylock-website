@@ -15,7 +15,7 @@ export default function About() {
 
   return (
     <>
-      <SEO title="About Graylock Digital | Practice Website Specialists" description="We build websites for therapists, dentists, physicians, CPAs, and other private practices — for a fraction of what an agency charges. Delivered in 7–10 business days." url="https://graylockdigital.com/about" />
+      <SEO title="About Graylock Digital | Practice Website Specialists" description="Websites for therapists, dentists, physicians, CPAs, and private practices — for a fraction of what an agency charges. Delivered in 7–10 days." url="https://graylockdigital.com/about" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-about.png`} />

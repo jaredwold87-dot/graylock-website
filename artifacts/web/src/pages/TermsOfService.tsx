@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export default function TermsOfService() {
   return (
     <>
-      <SEO title="Terms of Service | Graylock Digital" description="The terms governing Graylock Digital's website design, hosting, maintenance, and ongoing support services for professional practices." url="https://graylockdigital.com/terms" />
+      <SEO title="Terms of Service | Graylock Digital" description="The terms governing Graylock Digital's website design, hosting, maintenance, and ongoing support services for professional practices." path="/terms-of-service" />
       <section className="bg-offwhite pt-28 pb-16 md:pt-32 md:pb-20 px-6 md:px-12 text-charcoal">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>

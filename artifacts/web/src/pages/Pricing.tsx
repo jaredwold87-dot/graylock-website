@@ -42,7 +42,7 @@ export default function Pricing() {
 
   return (
     <>
-      <SEO title="Pricing | Website Plans for Practices, Construction & Accounting | Graylock Digital" description="Flat monthly plans for private practices, construction companies, and accounting firms. One upfront setup fee, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
+      <SEO title="Pricing | Plans for Practices & Firms | Graylock Digital" description="Flat monthly website plans for practices, construction, and accounting firms. Starter $199/mo, Growth $299/mo, Scale $449/mo. No long-term contracts." url="https://graylockdigital.com/pricing" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-pricing.png`} />

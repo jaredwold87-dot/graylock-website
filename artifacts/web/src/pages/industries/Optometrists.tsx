@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Optometrists | Custom Sites | Graylock Digital",
+    title: "Websites for Optometrists | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for optometrists and eye care practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for optometrists and eye care practices. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-optometrists",
   },
   hero: {

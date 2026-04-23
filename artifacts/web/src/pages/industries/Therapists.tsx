@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Therapists & Counselors | Custom Sites | Graylock Digital",
+    title: "Websites for Therapists & Counselors | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for therapists and counselors. Service pages, local SEO, client inquiry forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for therapists and counselors. Local SEO, client inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-therapists",
   },
   hero: {

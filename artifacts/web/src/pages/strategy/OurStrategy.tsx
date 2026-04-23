@@ -103,9 +103,9 @@ export default function OurStrategy() {
   return (
     <>
       <SEO
-        title="Our Digital Strategy for Professional Practices | Graylock Digital"
-        description="Graylock's complete approach to getting professional practices found online — website design, SEO, GEO, funnel pages, Google Business Profiles, and lead generation."
-        url="https://graylockdigital.com/our-strategy"
+        title="Our Digital Strategy for Practices | Graylock Digital"
+        description="Graylock's approach to getting practices found online — website design, SEO, GEO, funnel pages, Google Business Profiles, and lead generation."
+        path="/our-strategy"
       />
 
       <section className="relative bg-charcoal pt-24 pb-20 md:pt-32 md:pb-28 px-6 md:px-12 overflow-hidden">

@@ -9,9 +9,9 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "SEO Funnel Pages for Professional Practices | Graylock Digital",
+    title: "SEO Funnel Pages for Practices | Graylock Digital",
     description:
-      "Funnel pages are targeted landing pages that convert searchers into leads. Learn what they are, why they matter for professional practices, and how Graylock builds them into every website.",
+      "Funnel pages are targeted landing pages that convert searchers into leads. Why they matter for professional practices and how Graylock builds them in.",
     url: "https://graylockdigital.com/funnel-pages",
   },
   hero: {

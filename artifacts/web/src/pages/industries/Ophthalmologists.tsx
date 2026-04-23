@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Ophthalmologists | Custom Sites | Graylock Digital",
+    title: "Websites for Ophthalmologists | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for ophthalmologists and eye surgery centers. LASIK pages, cataract surgery, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for ophthalmologists and eye surgery centers. LASIK and cataract pages, local SEO, patient inquiry forms in 7–10 business days.",
     url: "https://graylockdigital.com/websites-for-ophthalmologists",
   },
   hero: {

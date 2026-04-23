@@ -8,9 +8,9 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "Lead Generation for Professional Practices | Convert Website Visitors Into Clients | Graylock Digital",
+    title: "Lead Generation for Practices | Graylock Digital",
     description:
-      "Lead generation is the process of turning website visitors into enquiries, calls, and booked appointments. Learn the strategies Graylock uses to help professional practices consistently generate leads online.",
+      "How professional practices turn website visitors into enquiries, calls, and booked appointments — the lead-gen strategies Graylock uses for clients.",
     url: "https://graylockdigital.com/lead-generation-for-small-business",
   },
   hero: {

@@ -8,9 +8,9 @@ import {
 
 const data: StrategyPageData = {
   seo: {
-    title: "Google Business Profile Setup & Optimization | Graylock Digital",
+    title: "Google Business Profile Optimization | Graylock Digital",
     description:
-      "Your Google Business Profile is the single most powerful free tool for local visibility. Learn how to optimize it and why Graylock sets it up on every Growth and Scale plan.",
+      "Your Google Business Profile is the most powerful free tool for local visibility. How to optimize it and why Graylock sets it up on Growth and Scale plans.",
     url: "https://graylockdigital.com/google-business-profile",
   },
   hero: {

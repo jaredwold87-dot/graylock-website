@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { FAQS } from "@/lib/constants";
@@ -209,9 +210,12 @@ export default function FAQ() {
 
   return (
     <>
+      <SEO
+        title="FAQ | Practice Website Questions Answered | Graylock Digital"
+        description="Straight answers to the questions practice owners ask most about Graylock Digital's web design service, pricing, contracts, and process."
+        path="/faq"
+      />
       <Helmet>
-        <title>Frequently Asked Questions | Graylock Digital</title>
-        <meta name="description" content="Answers to the questions professional practice owners ask most about Graylock Digital's web design service, pricing, contracts, and process." />
         <script type="application/ld+json">
           {JSON.stringify(generateSchemaMarkup())}
         </script>

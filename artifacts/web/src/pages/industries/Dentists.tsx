@@ -16,9 +16,9 @@ import {
 
 const data: IndustryPageData = {
   seo: {
-    title: "Websites for Dentists | Custom Dental Sites | Graylock Digital",
+    title: "Websites for Dentists | Dental Sites | Graylock Digital",
     description:
-      "Graylock builds custom, SEO-optimized websites for dentists and dental practices. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
+      "Custom websites for dentists and dental practices. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-dentists",
   },
   hero: {

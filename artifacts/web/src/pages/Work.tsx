@@ -134,7 +134,7 @@ function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; inde
 export default function Work() {
   return (
     <>
-      <SEO title="Our Work | Real Practice Website Transformations | Graylock Digital" description="Real before-and-after website transformations we've delivered for therapists, dentists, accountants, and other private practices. See the results our clients are getting." url="https://graylockdigital.com/work" />
+      <SEO title="Our Work | Practice Website Examples | Graylock Digital" description="Real before-and-after website transformations for therapists, dentists, accountants, and other private practices. See the results our clients are getting." path="/work" />
 
       <section className="bg-charcoal pt-24 pb-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
