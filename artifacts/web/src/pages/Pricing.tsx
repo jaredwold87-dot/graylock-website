@@ -210,20 +210,22 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="bg-charcoal py-24 px-6 md:px-12 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
-        <div className="section-divider absolute top-0 left-0 right-0" />
+      <section className="relative py-24 px-6 md:px-12 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
+        <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
 
         <div className="max-w-5xl mx-auto relative z-10">
           <ScrollReveal className="text-center mb-16">
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">What You're Actually Paying For</p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">Your Monthly Fee, Broken Down</h2>
-            <p className="text-stone text-lg font-sans max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">Your Monthly Fee, Broken Down</h2>
+            <p className="text-slate-600 text-lg font-sans max-w-2xl mx-auto leading-relaxed">
               Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your practice every single day.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {[
               { icon: <Server className="text-orange" size={22} />, title: "Premium Hosting", desc: "High-speed, enterprise-grade servers with 99.9% uptime — no shared hosting slowdowns." },
               { icon: <Lock className="text-orange" size={22} />, title: "SSL Certificate", desc: "The security padlock that keeps your site trusted by browsers and protects visitor data." },
@@ -232,58 +234,52 @@ export default function Pricing() {
               { icon: <BarChart3 className="text-orange" size={22} />, title: "Performance Reporting", desc: "Monthly reports on traffic, visitor behavior, and site performance — delivered to your dashboard." },
               { icon: <Headphones className="text-orange" size={22} />, title: "Priority Support", desc: "Content update requests handled promptly with a dedicated point of contact on our team." },
             ].map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.08} className="bg-navy/80 border border-gunmetal/50 rounded-xl p-6 flex items-start gap-4">
+              <ScrollReveal key={i} delay={i * 0.08} className="bg-white border border-gray-200/80 rounded-xl p-6 flex items-start gap-4 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
                 <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-orange/10">
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-offwhite font-display text-lg mb-1">{item.title}</h3>
-                  <p className="text-stone font-sans text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="text-charcoal font-display text-lg mb-1">{item.title}</h3>
+                  <p className="text-slate-600 font-sans text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
 
-        </div>
-      </section>
+          <div className="max-w-4xl mx-auto">
+            <ScrollReveal className="text-center mb-12 pt-8 border-t border-gray-300/60">
+              <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4 mt-8">No Lock-In</p>
+              <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">What You Own</h2>
+              <p className="text-slate-600 text-lg font-sans max-w-2xl mx-auto leading-relaxed">
+                You're never locked in. Here's exactly what belongs to you — during your plan and after.
+              </p>
+            </ScrollReveal>
 
-      <section className="bg-navy py-24 px-6 md:px-12 relative overflow-hidden">
-        <div className="section-divider absolute top-0 left-0 right-0" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-orange/3 rounded-full blur-[150px] pointer-events-none" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {[
+                { icon: <Globe className="text-orange" size={22} />, title: "Your Domain", desc: "Registered in your name. We transfer it to wherever you choose — no questions asked." },
+                { icon: <FileCheck className="text-orange" size={22} />, title: "Your Written Content", desc: "Every word of copy on every page. It's yours whether you stay or go." },
+                { icon: <ImageIcon className="text-orange" size={22} />, title: "Your Images & Brand Assets", desc: "Photos, logos, brand elements — everything you provided for your brand." },
+                { icon: <Lock className="text-orange" size={22} />, title: "No Long-Term Contracts", desc: "Month-to-month on every plan. Cancel with 30 days' notice — no penalties, no hassle." },
+              ].map((item, i) => (
+                <ScrollReveal key={i} delay={i * 0.1} className="bg-white border border-gray-200/80 rounded-xl p-6 flex items-start gap-4 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-orange/10">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-charcoal font-display text-lg mb-1">{item.title}</h3>
+                    <p className="text-slate-600 font-sans text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
 
-        <div className="max-w-4xl mx-auto relative z-10">
-          <ScrollReveal className="text-center mb-16">
-            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">No Lock-In</p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">What You Own</h2>
-            <p className="text-stone text-lg font-sans max-w-2xl mx-auto">
-              You're never locked in. Here's exactly what belongs to you — during your plan and after.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {[
-              { icon: <Globe className="text-orange" size={22} />, title: "Your Domain", desc: "Registered in your name. We transfer it to wherever you choose — no questions asked." },
-              { icon: <FileCheck className="text-orange" size={22} />, title: "Your Written Content", desc: "Every word of copy on every page. It's yours whether you stay or go." },
-              { icon: <ImageIcon className="text-orange" size={22} />, title: "Your Images & Brand Assets", desc: "Photos, logos, brand elements — everything you provided for your brand." },
-              { icon: <Lock className="text-orange" size={22} />, title: "No Long-Term Contracts", desc: "Month-to-month on every plan. Cancel with 30 days' notice — no penalties, no hassle." },
-            ].map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="bg-charcoal/60 border border-gunmetal/50 rounded-xl p-6 flex items-start gap-4">
-                <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-orange/10">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="text-offwhite font-display text-lg mb-1">{item.title}</h3>
-                  <p className="text-stone font-sans text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
+            <ScrollReveal delay={0.5} className="max-w-3xl mx-auto text-center mt-4">
+              <p className="text-slate-500 font-sans text-xs leading-relaxed">
+                You own your domain, your written content, and your brand assets — always. The only thing we retain is the underlying code and hosting infrastructure, which is standard for any subscription-based web service. Cancel anytime with 30 days' notice — no cancellation fees.
+              </p>
+            </ScrollReveal>
           </div>
-
-          <ScrollReveal delay={0.5} className="max-w-3xl mx-auto text-center mt-8">
-            <p className="text-stone/50 font-sans text-xs leading-relaxed">
-              You own your domain, your written content, and your brand assets — always. The only thing we retain is the underlying code and hosting infrastructure, which is standard for any subscription-based web service. Cancel anytime with 30 days' notice — no cancellation fees.
-            </p>
-          </ScrollReveal>
         </div>
       </section>
 
