@@ -109,11 +109,11 @@ export function HeroSection() {
         <div className="max-w-2xl">
           <ScrollReveal>
             <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.15] md:leading-[1.1] mb-6">
-              Turn Your Private Practice Website Into{" "}
-              <span className="text-gradient">Your Best Source of New Patients.</span>
+              Turn Your Website Into{" "}
+              <span className="text-gradient">Your Best Source of New Clients.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
-              We build custom patient acquisition websites for private practices. Get a professional site live in 7 days that builds trust, ranks locally, and turns visitors into booked appointments.
+              We build custom client-acquisition websites for private practices, accounting firms, and industrial & construction companies. Live in 7 days, built to rank locally and turn visitors into booked work.
             </p>
 
             {/* Mobile-only sequence: reassurance → CTA → bullets → proof image */}
