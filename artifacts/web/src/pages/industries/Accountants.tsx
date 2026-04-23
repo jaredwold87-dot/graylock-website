@@ -180,7 +180,7 @@ const data: IndustryPageData = {
     headline: "Stop Sending Prospects to a Website That Undersells Your Expertise",
     subtext:
       "Book a free 20-minute call. We'll evaluate your current site and show you a custom demo of what your accounting firm's website could become — before you pay us anything.",
-    button: "Schedule a Free Consultation",
+    button: "Get Your Free Homepage Demo",
   },
   relatedPages: [],
   schema: {

@@ -160,7 +160,7 @@ const data: IndustryPageData = {
     headline: "Patients Are Searching for a Dermatologist in Your Area Right Now",
     subtext:
       "Book a free 20-minute call. We'll show you exactly what your dermatology website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Schedule a Free Consultation",
+    button: "Get Your Free Homepage Demo",
   },
   showPrivacyNote: true,
   relatedPages: [
