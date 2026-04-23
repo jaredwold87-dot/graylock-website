@@ -16,8 +16,11 @@ export function PricingSnapshotSection() {
           <h2 className="text-3xl md:text-4xl font-display text-charcoal mb-5">
             Plans start at $199/mo
           </h2>
-          <p className="text-stone text-lg font-sans leading-relaxed mb-8">
+          <p className="text-stone text-lg font-sans leading-relaxed mb-3">
             Flat monthly rate. No long-term contracts. Hosting, support, and ongoing maintenance included.
+          </p>
+          <p className="text-charcoal/80 font-sans text-sm md:text-base mb-8">
+            Plus our <span className="font-semibold text-charcoal">Stay-Current Guarantee</span> — a free website refresh every 2 years.
           </p>
           <Link
             href="/pricing"

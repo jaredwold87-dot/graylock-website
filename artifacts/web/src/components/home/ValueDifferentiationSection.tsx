@@ -7,6 +7,7 @@ export function ValueDifferentiationSection() {
     { theirs: "Take weeks to pitch and scope", ours: "Move quickly with a clear process" },
     { theirs: "Lock you into long-term contracts", ours: "Month-to-month support, cancel anytime" },
     { theirs: "Deliver generic templates", ours: "Build custom sites around your business and positioning" },
+    { theirs: "Build it once, then forget you", ours: "Refresh your site every 2 years — free, as long as you're subscribed" },
   ];
 
   return (

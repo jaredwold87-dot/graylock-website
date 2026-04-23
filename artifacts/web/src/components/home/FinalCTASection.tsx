@@ -29,6 +29,9 @@ export function FinalCTASection() {
             <p className="text-stone/60 text-sm font-sans mt-2">
               No pressure. No obligation. Just a clearer path forward.
             </p>
+            <p className="text-stone/70 text-xs font-sans mt-1">
+              Every plan includes a free website refresh every 2 years.
+            </p>
           </div>
         </ScrollReveal>
       </div>

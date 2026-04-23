@@ -130,10 +130,10 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
         </div>
 
         <ScrollReveal delay={0.5} className="mt-16 text-center">
-          <p className="text-stone font-sans mb-2">
+          <p className="text-charcoal font-sans font-semibold mb-3">
             Not sure which plan is right? Get a free homepage demo and we'll tell you exactly what your practice needs.
           </p>
-          <p className="text-stone/50 text-sm font-sans max-w-2xl mx-auto">
+          <p className="text-charcoal/70 text-sm font-sans max-w-2xl mx-auto leading-relaxed">
             All plans include hosting, SSL, mobile optimization, dashboard access, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime with 30 days' notice. Client retains domain and all content.
           </p>
         </ScrollReveal>

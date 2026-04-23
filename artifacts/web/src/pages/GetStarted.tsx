@@ -61,6 +61,9 @@ export default function GetStarted() {
           <p className="text-slate-500 font-sans text-sm">
             Takes about 2 minutes · No commitment · We never share your info
           </p>
+          <p className="text-slate-600 font-sans text-sm mt-3">
+            Every plan includes our <span className="font-semibold text-charcoal">Stay-Current Guarantee</span> — a free website refresh every 2 years.
+          </p>
         </div>
       </section>
       <section className="bg-white min-h-[60vh]">

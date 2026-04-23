@@ -4,7 +4,7 @@ import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock, FileCheck, Globe, Image as ImageIcon, Package, ShieldCheck } from "lucide-react";
+import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock, FileCheck, Globe, Image as ImageIcon, Package, ShieldCheck, RefreshCw, Sparkles, Camera, Gauge } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Pricing() {
@@ -24,6 +24,7 @@ export default function Pricing() {
     { name: "Daily Backups", solo: true, group: true, enterprise: true, custom: true },
     { name: "Priority Support", solo: false, group: true, enterprise: true, custom: true },
     { name: "Priority Build Queue", solo: false, group: false, enterprise: true, custom: true },
+    { name: "Free Refresh Every 2 Years (Stay-Current Guarantee)", solo: true, group: true, enterprise: true, custom: true },
   ];
 
   type FeatureRow = { name: string; solo: boolean | string; group: boolean | string; enterprise: boolean | string; custom: boolean | string; footnote?: string };
@@ -52,6 +53,49 @@ export default function Pricing() {
             </p>
             <h1 className="text-4xl md:text-6xl font-display mb-6 leading-tight">Three plans. One flat fee. <span className="text-gradient">No surprises.</span></h1>
             <p className="text-lg md:text-xl font-sans text-stone leading-relaxed">A one-time site development fee, then a flat monthly rate that covers hosting, maintenance, security, and ongoing support. Month-to-month — never locked in.</p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="bg-charcoal pt-16 pb-4 px-6 md:px-12 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange/40 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="max-w-5xl mx-auto relative z-10">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-xs md:text-sm mb-3">Included With Every Plan</p>
+            <div className="inline-flex items-center gap-2 mb-4">
+              <RefreshCw className="text-orange" size={22} />
+              <h2 className="text-3xl md:text-5xl font-display text-offwhite leading-tight">Your Stay-Current Guarantee</h2>
+            </div>
+            <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
+              Every 2 years, we refresh your website — free. Stay subscribed and your site never gets dated.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
+            <div className="bg-navy/70 border border-orange/30 rounded-2xl p-6 md:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                {[
+                  { icon: <Sparkles className="text-orange" size={20} />, title: "Design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
+                  { icon: <Camera className="text-orange" size={20} />, title: "New photos & copy", desc: "Swap in fresh photography and refreshed copy across the pages that matter most." },
+                  { icon: <Gauge className="text-orange" size={20} />, title: "Performance retune", desc: "Mobile speed, Core Web Vitals, services, team, and offers — all brought back to current standards." },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-9 h-9 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-orange/20">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-offwhite font-display text-base mb-1">{item.title}</h3>
+                      <p className="text-stone font-sans text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-stone/80 font-sans text-xs md:text-sm text-center mt-6 leading-relaxed">
+                Out of scope: a brand-new identity/logo or net-new pages beyond your current site structure.{" "}
+                <a href="/faq#pricing-plans" className="text-orange hover:underline">See full scope in the FAQ →</a>
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -200,42 +244,6 @@ export default function Pricing() {
             ))}
           </div>
 
-          <ScrollReveal delay={0.5} className="max-w-3xl mx-auto">
-            <div className="bg-navy/60 border border-gunmetal/50 rounded-2xl p-8 md:p-10">
-              <h3 className="text-xl font-display text-offwhite mb-6 text-center">What This Replaces</h3>
-
-              <div className="flex items-center justify-between py-3 mb-2 border-b border-orange/30">
-                <span className="text-offwhite font-sans text-sm font-semibold">Custom website build (agency or freelancer)</span>
-                <span className="text-orange font-display text-base font-bold">$10,000–$30,000 upfront</span>
-              </div>
-
-              <p className="text-stone/70 font-sans text-xs mb-6 text-center">Plus the following ongoing costs:</p>
-
-              <div className="space-y-3 mb-6">
-                {[
-                  { item: "Premium managed hosting", cost: "$25–50/mo" },
-                  { item: "SSL certificate", cost: "$10–15/mo" },
-                  { item: "Security & malware scanning", cost: "$20–30/mo" },
-                  { item: "Uptime monitoring service", cost: "$10–20/mo" },
-                  { item: "Form & lead capture plugin", cost: "$20–40/mo" },
-                  { item: "Analytics & reporting tools", cost: "$15–30/mo" },
-                  { item: "Web maintenance retainer", cost: "$150–300/mo" },
-                ].map((row, i) => (
-                  <div key={i} className="flex items-center justify-between py-2 border-b border-gunmetal/30 last:border-0">
-                    <span className="text-stone font-sans text-sm">{row.item}</span>
-                    <span className="text-offwhite font-sans text-sm font-semibold">{row.cost}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center justify-between pt-4 border-t border-gunmetal">
-                <span className="text-offwhite font-display text-lg">If purchased separately</span>
-                <span className="text-orange font-display text-xl">$10K+ upfront + $250–485/mo</span>
-              </div>
-              <p className="text-stone/60 font-sans text-sm text-center mt-6">
-                Our Starter plan covers all of this for $199/mo + a $799 setup fee — a fraction of what most agencies charge.
-              </p>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 

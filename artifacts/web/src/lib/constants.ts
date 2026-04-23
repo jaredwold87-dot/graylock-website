@@ -15,7 +15,8 @@ export const PRICING_TIERS = [
       "Business Dashboard Access",
       "Dedicated Account Manager",
       "1 Hour Site Updates / Quarter",
-      "Priority Email Support"
+      "Priority Email Support",
+      "Free Website Refresh Every 2 Years"
     ]
   },
   {
@@ -32,7 +33,8 @@ export const PRICING_TIERS = [
       "Full Local SEO Implementation",
       "Dedicated Account Manager",
       "1 Hour Site Updates / Month",
-      "Priority Support"
+      "Priority Support",
+      "Free Website Refresh Every 2 Years"
     ]
   },
   {
@@ -50,7 +52,8 @@ export const PRICING_TIERS = [
       "Dedicated Account Manager",
       "2 Hours Site Updates / Month",
       "Priority Build Queue",
-      "Custom Reporting Cadence"
+      "Custom Reporting Cadence",
+      "Free Website Refresh Every 2 Years"
     ]
   },
   {
@@ -65,7 +68,8 @@ export const PRICING_TIERS = [
       "Advanced SEO Strategy",
       "Custom Reporting Cadence",
       "Priority Build Queue",
-      "Dedicated Account Manager"
+      "Dedicated Account Manager",
+      "Free Website Refresh Every 2 Years"
     ]
   }
 ];
@@ -102,6 +106,10 @@ export const FAQS = [
     category: "Pricing & Plans",
     id: "pricing-plans",
     questions: [
+      {
+        q: "What is the Stay-Current Guarantee?",
+        a: "Every 2 years, as long as you're an active subscriber, we refresh your website at no extra cost. Websites get dated fast — design trends shift, your services evolve, and Google's standards keep moving. The Stay-Current Guarantee makes sure your site never falls behind.\n\nWhat's included:\n\n\u2022 Full design refresh of your homepage and key pages (modern look, current best practices)\n\u2022 Updated photography (we'll swap in new photos you provide, or restage existing ones)\n\u2022 Refreshed copy on key pages\n\u2022 Updated services, team bios, locations, and offers\n\u2022 Performance and mobile re-tune to current standards\n\u2022 New CTAs and lead-capture updates based on what's actually converting\n\nWhat's not included (so it stays believable): a brand-new identity or logo, or building net-new pages beyond your current site structure. Those are scoped separately if you want them.\n\nIt's included on every plan — Starter, Growth, Scale, and Custom."
+      },
       {
         q: "What\u2019s included in the monthly fee?",
         a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n\u2022 Website hosting on fast, secure servers\n\u2022 SSL certificate (the padlock that makes your site trusted and secure)\n\u2022 Daily backups\n\u2022 Dashboard access and support\n\nStarter plan ($199/mo): Dashboard + dedicated account manager + priority email support\nGrowth plan ($299/mo): Dashboard + dedicated account manager + priority support\nScale plan ($449/mo): Dashboard + dedicated account manager + advanced analytics & reporting\nCustom plan: Tailored to your needs \u2014 contact us for a quote\n\nYou can view all plan details on our Pricing page."
