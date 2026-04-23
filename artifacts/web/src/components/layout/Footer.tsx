@@ -22,7 +22,7 @@ export function Footer() {
             />
           </Link>
           <p className="text-offwhite/85 font-sans mt-4 max-w-xs leading-relaxed">
-            Custom websites for professional practices. Done for you, maintained forever.
+            Custom websites for trust-based businesses. Done for you, maintained forever.
           </p>
           {officeHours && Object.keys(officeHours).length > 0 && (
             <div className="mt-6">
@@ -55,22 +55,31 @@ export function Footer() {
 
         <div className="md:col-span-2">
           <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">WHO WE HELP</h4>
-          <div className="grid grid-cols-2 gap-x-6">
-            <ul className="space-y-4 flex flex-col">
-              <Link href="/websites-for-chiropractors" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Chiropractors</Link>
-              <Link href="/websites-for-dentists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Dentists</Link>
-              <Link href="/websites-for-optometrists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Optometrists</Link>
-              <Link href="/websites-for-physical-therapists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physical Therapists</Link>
-            </ul>
-            <ul className="space-y-4 flex flex-col">
-              <Link href="/websites-for-physicians" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physicians</Link>
-              <Link href="/websites-for-psychologists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Psychologists</Link>
-              <li className="border-t border-gunmetal pt-4 mt-1 space-y-4 flex flex-col">
-                <Link href="/websites-for-accountants" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Accounting Firms</Link>
-                <Link href="/websites-for-industrial-construction" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Industrial & Construction</Link>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <p className="text-orange font-sans font-bold text-[10px] uppercase tracking-widest mb-4">
+                Local Service Businesses
+              </p>
+              <ul className="space-y-3 flex flex-col">
                 <Link href="/websites-for-home-builders" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Home Builders</Link>
-              </li>
-            </ul>
+                <Link href="/websites-for-industrial-construction" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Industrial Construction</Link>
+                <Link href="/websites-for-accountants" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Accounting Firms</Link>
+                <Link href="/other-service-businesses" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Other Local Service Businesses</Link>
+              </ul>
+            </div>
+            <div>
+              <p className="text-orange font-sans font-bold text-[10px] uppercase tracking-widest mb-4">
+                Healthcare Practices
+              </p>
+              <ul className="space-y-3 flex flex-col">
+                <Link href="/websites-for-psychologists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Psychologists</Link>
+                <Link href="/websites-for-optometrists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Optometrists</Link>
+                <Link href="/websites-for-physical-therapists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physical Therapists</Link>
+                <Link href="/websites-for-dentists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Dentists</Link>
+                <Link href="/websites-for-chiropractors" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Chiropractors</Link>
+                <Link href="/websites-for-physicians" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physicians</Link>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -112,7 +121,7 @@ export function Footer() {
         <p className="text-offwhite/65 text-sm font-sans flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           <span>Based in the USA</span>
           <span className="text-offwhite/30">•</span>
-          <span>Built for professional practices</span>
+          <span>Built for trust-based businesses</span>
           <span className="text-offwhite/30">•</span>
           <a
             href="https://graylock-os-ymwca.sevalla.app/portal?site=99c58e46-33ee-4c7c-ab23-eeb7badcc57b"
