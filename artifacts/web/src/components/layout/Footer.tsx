@@ -117,6 +117,13 @@ export function Footer() {
           <span>Built for trust-based businesses</span>
           <span className="text-offwhite/30">•</span>
           <a
+            href="/sitemap.xml"
+            className="text-offwhite/85 hover:text-orange transition-colors"
+          >
+            Sitemap
+          </a>
+          <span className="text-offwhite/30">•</span>
+          <a
             href="https://graylock-os-ymwca.sevalla.app/portal?site=99c58e46-33ee-4c7c-ab23-eeb7badcc57b"
             target="_blank"
             rel="noopener noreferrer"

@@ -20,6 +20,8 @@ import ThankYou from "@/pages/ThankYou";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
+import HomeBuildersPlaybook from "@/pages/HomeBuildersPlaybook";
+import HomeBuildersPlaybookThankYou from "@/pages/HomeBuildersPlaybookThankYou";
 import NotFound from "@/pages/not-found";
 
 const AccountantsIndustry = lazy(() => import("@/pages/industries/Accountants"));
@@ -116,9 +118,15 @@ function App() {
             <ScrollToTop />
             <PageTracker />
             <SiteSettingsProvider>
-              <Layout>
-                <Router />
-              </Layout>
+              <Switch>
+                <Route path="/home-builders-playbook" component={HomeBuildersPlaybook} />
+                <Route path="/home-builders-playbook/thank-you" component={HomeBuildersPlaybookThankYou} />
+                <Route>
+                  <Layout>
+                    <Router />
+                  </Layout>
+                </Route>
+              </Switch>
             </SiteSettingsProvider>
           </WouterRouter>
           <Toaster />

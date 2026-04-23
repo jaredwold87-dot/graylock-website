@@ -1,0 +1,7 @@
+User-agent: *
+  Allow: /
+  Allow: /home-builders-playbook
+  Disallow: /home-builders-playbook/thank-you
+
+  Sitemap: https://graylockdigital.com/sitemap.xml
+  
