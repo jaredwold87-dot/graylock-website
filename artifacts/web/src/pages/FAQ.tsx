@@ -32,7 +32,7 @@ function highlight(text: string, query: string) {
   const parts = text.split(new RegExp(`(${safe})`, "ig"));
   return parts.map((part, i) =>
     part.toLowerCase() === query.toLowerCase()
-      ? <mark key={i} className="bg-orange/30 text-offwhite rounded px-0.5">{part}</mark>
+      ? <mark key={i} className="bg-orange/20 text-charcoal rounded px-0.5">{part}</mark>
       : <span key={i}>{part}</span>
   );
 }
@@ -57,14 +57,14 @@ function AccordionItem({ question, answer, isOpen, onToggle, id, query }: {
   const paragraphs = answer.split("\n\n");
 
   return (
-    <div className="border-b border-[#2A2A2A] last:border-b-0">
+    <div className="border-b border-gray-200 last:border-b-0">
       <button
-        className="w-full p-5 md:p-7 flex items-start justify-between gap-4 text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A1A1A] rounded"
+        className="w-full p-5 md:p-7 flex items-start justify-between gap-4 text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${id}`}
       >
-        <span className="font-sans font-semibold text-white text-base md:text-lg leading-snug group-hover:text-orange transition-colors">
+        <span className="font-sans font-semibold text-charcoal text-base md:text-lg leading-snug group-hover:text-orange transition-colors">
           {highlight(question, query)}
         </span>
         <ChevronDown
@@ -84,7 +84,7 @@ function AccordionItem({ question, answer, isOpen, onToggle, id, query }: {
       >
         <div ref={contentRef} className="px-5 md:px-7 pb-6 md:pb-7">
           {paragraphs.map((para, i) => (
-            <p key={i} className="text-[#BBBBBB] font-sans text-[15px] md:text-base leading-[1.75] mb-4 last:mb-0 whitespace-pre-line">
+            <p key={i} className="text-slate-600 font-sans text-[15px] md:text-base leading-[1.75] mb-4 last:mb-0 whitespace-pre-line">
               {highlight(para, query)}
             </p>
           ))}
@@ -113,7 +113,7 @@ const CATEGORY_CTAS: Record<string, { text: string; href: string; cta: string }>
     cta: "See full pricing breakdown",
   },
   "your-website": {
-    text: "See real practice websites we've built.",
+    text: "See real client websites we've built.",
     href: "/work",
     cta: "View our work",
   },
@@ -123,7 +123,7 @@ const CATEGORY_CTAS: Record<string, { text: string; href: string; cta: string }>
     cta: "Read our strategy",
   },
   "features-explained": {
-    text: "Not sure which plan fits your practice?",
+    text: "Not sure which plan fits your business?",
     href: "/get-started",
     cta: "Talk it through with Tim",
   },
@@ -211,21 +211,23 @@ export default function FAQ() {
     <>
       <Helmet>
         <title>Frequently Asked Questions | Graylock Digital</title>
-        <meta name="description" content="Answers to the questions professional practice owners ask most about Graylock Digital's web design service, pricing, contracts, and process." />
+        <meta name="description" content="Answers to the questions small business owners ask most about Graylock Digital's web design service, pricing, contracts, and process." />
         <script type="application/ld+json">
           {JSON.stringify(generateSchemaMarkup())}
         </script>
       </Helmet>
 
-      <section className="bg-charcoal pt-24 pb-10 md:pt-32 md:pb-14 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative bg-charcoal pt-24 pb-14 md:pt-32 md:pb-20 px-6 md:px-12 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-orange/10 blur-3xl pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-offwhite leading-tight mb-6">
               Everything You Need to Know —{" "}
               <span className="text-orange">Before You Sign Anything</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-8">
-              We answer the questions practice owners ask most. No jargon, no pressure — just straight answers.
+              We answer the questions business owners ask most. No jargon, no pressure — just straight answers.
             </p>
 
             <div className="relative max-w-xl mx-auto">
@@ -260,15 +262,15 @@ export default function FAQ() {
       </section>
 
       {!isSearching && (
-        <section className="bg-charcoal pb-10 px-6 md:px-12">
+        <section className="relative bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1] pt-12 pb-10 px-6 md:px-12">
           <div className="max-w-4xl mx-auto">
             <ScrollReveal>
-              <div className="bg-gradient-to-br from-navy to-charcoal border border-gunmetal rounded-2xl p-6 md:p-8">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-9 h-9 rounded-full bg-orange/15 border border-orange/30 flex items-center justify-center">
                     <MessageCircle size={16} className="text-orange" />
                   </div>
-                  <span className="text-offwhite font-sans font-semibold text-sm uppercase tracking-wider">Most asked</span>
+                  <span className="text-charcoal font-sans font-semibold text-sm uppercase tracking-wider">Most asked</span>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {popularQuestions.map(({ catIdx, qIdx, q }) => (
@@ -282,9 +284,9 @@ export default function FAQ() {
                           scrollToCategory(cat.id);
                         }, 50);
                       }}
-                      className="text-left bg-charcoal/70 hover:bg-charcoal border border-gunmetal hover:border-orange/40 rounded-xl px-4 py-3.5 text-offwhite font-sans text-sm md:text-[15px] leading-snug transition-colors group flex items-start justify-between gap-3"
+                      className="text-left bg-[#f7f8fa] hover:bg-white border border-gray-200 hover:border-orange/40 hover:shadow-sm rounded-xl px-4 py-3.5 text-charcoal font-sans text-sm md:text-[15px] leading-snug transition-all group flex items-start justify-between gap-3"
                     >
-                      <span>{q}</span>
+                      <span className="font-medium">{q}</span>
                       <ArrowRight size={14} className="text-orange flex-shrink-0 mt-1 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
                     </button>
                   ))}
@@ -296,7 +298,7 @@ export default function FAQ() {
       )}
 
       {!isSearching && (
-        <div className="md:hidden sticky top-16 z-30 bg-charcoal/95 backdrop-blur border-b border-gunmetal px-4 py-3">
+        <div className="md:hidden sticky top-16 z-30 bg-white/95 backdrop-blur border-b border-gray-200 px-4 py-3 shadow-sm">
           <div className="flex gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1">
             {FAQS.map(cat => (
               <button
@@ -306,7 +308,7 @@ export default function FAQ() {
                   "flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-sans font-semibold whitespace-nowrap transition-colors border",
                   activeCategory === cat.id
                     ? "bg-orange/15 border-orange/40 text-orange"
-                    : "bg-navy border-gunmetal text-stone hover:text-offwhite"
+                    : "bg-[#f7f8fa] border-gray-200 text-slate-600 hover:text-charcoal"
                 )}
               >
                 {cat.category}
@@ -316,7 +318,7 @@ export default function FAQ() {
         </div>
       )}
 
-      <section className="bg-charcoal pb-24 px-6 md:px-12 pt-4 md:pt-8">
+      <section className="bg-gradient-to-b from-[#edeef1] via-[#f4f5f7] to-[#e8eaed] pb-24 px-6 md:px-12 pt-4 md:pt-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[300px_1fr] gap-8 lg:gap-12">
 
@@ -326,7 +328,7 @@ export default function FAQ() {
                   <div className="w-10 h-10 rounded-full bg-orange/15 border border-orange/30 flex items-center justify-center">
                     <Shield size={18} className="text-orange" />
                   </div>
-                  <span className="text-offwhite font-sans font-semibold text-sm uppercase tracking-wider">Common Questions</span>
+                  <span className="text-charcoal font-sans font-semibold text-sm uppercase tracking-wider">Common Questions</span>
                 </div>
 
                 <div className="w-12 h-0.5 bg-orange rounded-full" />
@@ -339,8 +341,8 @@ export default function FAQ() {
                       className={cn(
                         "block w-full text-left px-3 py-2 rounded-lg text-sm font-sans transition-colors",
                         activeCategory === cat.id
-                          ? "text-orange bg-orange/10"
-                          : "text-stone hover:text-offwhite hover:bg-white/5"
+                          ? "text-orange bg-orange/10 font-semibold"
+                          : "text-slate-600 hover:text-charcoal hover:bg-white"
                       )}
                     >
                       {cat.category}
@@ -348,9 +350,9 @@ export default function FAQ() {
                   ))}
                 </nav>
 
-                <div className="border-t border-gunmetal pt-6">
-                  <p className="text-offwhite font-sans text-sm mb-1 font-semibold">Don't see your question?</p>
-                  <p className="text-stone font-sans text-xs mb-4 leading-relaxed">A 20-minute call with Tim — ask anything.</p>
+                <div className="border-t border-gray-300 pt-6">
+                  <p className="text-charcoal font-sans text-sm mb-1 font-semibold">Don't see your question?</p>
+                  <p className="text-slate-600 font-sans text-xs mb-4 leading-relaxed">A 20-minute call with Tim — ask anything.</p>
                   <CTAButton href="/get-started" className="w-full justify-center text-sm px-4 py-3">
                     Book a Free Q&amp;A Call
                   </CTAButton>
@@ -360,9 +362,9 @@ export default function FAQ() {
 
             <div className="space-y-12">
               {filteredFAQs.length === 0 && (
-                <div className="bg-navy border border-gunmetal rounded-xl p-8 text-center">
-                  <p className="text-offwhite font-sans font-semibold mb-2">No questions match that search.</p>
-                  <p className="text-stone font-sans text-sm mb-5">Try a different word — or just ask Tim directly.</p>
+                <div className="bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
+                  <p className="text-charcoal font-sans font-semibold mb-2">No questions match that search.</p>
+                  <p className="text-slate-600 font-sans text-sm mb-5">Try a different word — or just ask Tim directly.</p>
                   <CTAButton href="/get-started">Book a Free Q&amp;A Call</CTAButton>
                 </div>
               )}
@@ -377,10 +379,11 @@ export default function FAQ() {
                       id={categoryData.id}
                       className="scroll-mt-24"
                     >
-                      <h2 className="text-xl md:text-2xl font-display text-offwhite mb-5 uppercase tracking-wide">
+                      <h2 className="text-xl md:text-2xl font-display text-charcoal mb-5 uppercase tracking-wide flex items-center gap-3">
+                        <span className="w-1 h-7 bg-orange rounded-full" />
                         {categoryData.category}
                       </h2>
-                      <div className="bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] overflow-hidden">
+                      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                         {categoryData.questions.map((faq) => {
                           const originalQIdx = FAQS[catIdx].questions.findIndex(orig => orig.q === faq.q);
                           const id = `${catIdx}-${originalQIdx}`;
@@ -399,8 +402,8 @@ export default function FAQ() {
                       </div>
 
                       {!isSearching && cta && (
-                        <div className="mt-5 bg-navy/60 border border-gunmetal rounded-xl px-5 py-4 md:px-6 md:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                          <p className="text-offwhite font-sans text-sm md:text-[15px]">{cta.text}</p>
+                        <div className="mt-5 bg-white border border-gray-200 rounded-xl px-5 py-4 md:px-6 md:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 shadow-sm">
+                          <p className="text-charcoal font-sans text-sm md:text-[15px]">{cta.text}</p>
                           <Link
                             href={cta.href}
                             className="inline-flex items-center gap-2 text-orange font-sans font-semibold text-sm hover:gap-3 transition-all whitespace-nowrap"
@@ -425,7 +428,7 @@ export default function FAQ() {
               Got a question we didn't cover?
             </h2>
             <p className="text-stone text-lg font-sans mb-8 max-w-xl mx-auto leading-relaxed">
-              Book a free 20-minute call with Tim. Ask anything — pricing, process, what your site would look like, what we'd do for your specific practice. Zero pressure, zero obligation.
+              Book a free 20-minute call with Tim. Ask anything — pricing, process, what your site would look like, what we'd do for your specific business. Zero pressure, zero obligation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <CTAButton href="/get-started" className="px-8 py-4">

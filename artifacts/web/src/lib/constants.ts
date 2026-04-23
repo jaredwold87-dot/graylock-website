@@ -82,19 +82,19 @@ export const FAQS = [
     questions: [
       {
         q: "What exactly is included in the free website review?",
-        a: "Your free review includes three things:\n\n1. A full evaluation of your current website \u2014 we look at design, messaging, mobile responsiveness, page speed, and basic SEO gaps.\n2. A live strategy walkthrough \u2014 we hop on a 20-minute call and walk you through what we found in plain English.\n3. A custom homepage demo \u2014 we design a concept homepage for your practice so you can see exactly how we'd improve it.\n\nOn top of that, you receive a comprehensive written PDF report covering competitive analysis, customer and audience insights, website performance analysis, and strategic opportunity recommendations. It\u2019s a high-value deliverable you keep regardless of whether you choose to work with us.\n\nThere's no cost and no obligation. We do this because we believe you should see the value before you make any decision."
+        a: "Your free review includes three things:\n\n1. A full evaluation of your current website \u2014 we look at design, messaging, mobile responsiveness, page speed, and basic SEO gaps.\n2. A live strategy walkthrough \u2014 we hop on a 20-minute call and walk you through what we found in plain English.\n3. A custom homepage demo \u2014 we design a concept homepage for your business so you can see exactly how we'd improve it.\n\nOn top of that, you receive a comprehensive written PDF report covering competitive analysis, customer and audience insights, website performance analysis, and strategic opportunity recommendations. It\u2019s a high-value deliverable you keep regardless of whether you choose to work with us.\n\nThere's no cost and no obligation. We do this because we believe you should see the value before you make any decision."
       },
       {
         q: "How long does it take to build and launch my website?",
-        a: "Once you give us the green light, we build and launch your website within 3\u20135 business days on average. We move fast because professional practices can\u2019t afford to wait weeks for a website.\n\nBefore we start building, we\u2019ll have a short onboarding call to gather your logo, photos, business info, and anything specific you want included. Much of the timeline depends on how quickly you can provide feedback and materials \u2014 the faster you can get us that information, the faster we launch."
+        a: "Once you give us the green light, we build and launch your website within 3\u20135 business days on average. We move fast because small business owners can\u2019t afford to wait weeks for a new website.\n\nBefore we start building, we\u2019ll have a short onboarding call to gather your logo, photos, business info, and anything specific you want included. Much of the timeline depends on how quickly you can provide feedback and materials \u2014 the faster you can get us that information, the faster we launch."
       },
       {
         q: "Why do you offer the website review for free?",
-        a: "We absorb the upfront cost because our clients stay with us for years. We\u2019d rather prove our value first than ask you to take our word for it.\n\nWe use a high-converting structural framework, then customize it to your brand, services, and local market \u2014 that\u2019s how we deliver quality in 7\u201310 business days. Your homepage demo, evaluation, and written report are built around your actual practice, not pulled from a template library.\n\nEven if you don\u2019t move forward, you walk away with a professional-grade report and a clear picture of what\u2019s holding your website back. No strings attached."
+        a: "We absorb the upfront cost because our clients stay with us for years. We\u2019d rather prove our value first than ask you to take our word for it.\n\nWe use a high-converting structural framework, then customize it to your brand, services, and local market \u2014 that\u2019s how we deliver quality in 7\u201310 business days. Your homepage demo, evaluation, and written report are built around your actual business, not pulled from a template library.\n\nEven if you don\u2019t move forward, you walk away with a professional-grade report and a clear picture of what\u2019s holding your website back. No strings attached."
       },
       {
         q: "How do you build so fast without cutting corners?",
-        a: "We don\u2019t reinvent the wheel for every client. We use a proven, high-converting structural framework \u2014 then we customize the design, copy, and SEO strategy entirely around your practice. That\u2019s how we launch in 7\u201310 business days without cutting corners.\n\nThink of it like a custom-built home using tested construction methods. The foundation and engineering are proven \u2014 but the layout, finishes, and details are designed specifically for you. Not a prefab kit. Not a template. A real website built on a system that works."
+        a: "We don\u2019t reinvent the wheel for every client. We use a proven, high-converting structural framework \u2014 then we customize the design, copy, and SEO strategy entirely around your business. That\u2019s how we launch in 7\u201310 business days without cutting corners.\n\nThink of it like a custom-built home using tested construction methods. The foundation and engineering are proven \u2014 but the layout, finishes, and details are designed specifically for you. Not a prefab kit. Not a template. A real website built on a system that works."
       },
       {
         q: "What information do you need from me to get started?",
@@ -128,11 +128,11 @@ export const FAQS = [
       },
       {
         q: "What is your minimum monthly price?",
-        a: "$199/month plus a one-time site development fee of $799. This is our Starter plan, designed for individual therapists, CPAs, dentists, physicians, and single-provider practices."
+        a: "$199/month plus a one-time site development fee of $799. This is our Starter plan, designed for solo operators and independent small businesses \u2014 anyone who needs a professional online presence without a large team to manage it."
       },
       {
         q: "Why don\u2019t you have a cheaper plan?",
-        a: "We did. We retired it because the professional practice clients we serve \u2014 therapists, CPAs, dentists, physicians, and other providers \u2014 need a site that genuinely represents their expertise and converts prospective clients into booked appointments. A 5-page template site doesn\u2019t do that for a medical practice or an accounting firm. Our Starter plan at $199/month is still dramatically less expensive than the $3,000\u2013$10,000+ that traditional agencies charge for comparable quality, and you get it in 7\u201310 business days."
+        a: "We did. We retired it because the trust-based businesses we serve \u2014 accounting firms, law firms, home builders, contractors, medical and dental practices, therapists, and other professional service providers \u2014 need a site that genuinely represents their expertise and converts prospects into booked consultations or service calls. A 5-page template site doesn\u2019t do that for a business whose entire reputation depends on local trust. Our Starter plan at $199/month is still dramatically less expensive than the $3,000\u2013$10,000+ that traditional agencies charge for comparable quality, and you get it in 7\u201310 business days."
       }
     ]
   },
@@ -146,14 +146,14 @@ export const FAQS = [
       },
       {
         q: "Is my website built on a template or is it custom?",
-        a: "Every website we build is custom to your practice \u2014 not a drag-and-drop template. We design your site around your brand, your services, your local market, and the specific clients you\u2019re trying to attract.\n\nThat said, we work from a proven structural framework that lets us move fast (within 3\u20135 business days) without sacrificing quality. Think of it like a custom-built home using tested construction methods \u2014 not a prefab kit."
+        a: "Every website we build is custom to your business \u2014 not a drag-and-drop template. We design your site around your brand, your services, your local market, and the specific clients you\u2019re trying to attract.\n\nThat said, we work from a proven structural framework that lets us move fast (within 3\u20135 business days) without sacrificing quality. Think of it like a custom-built home using tested construction methods \u2014 not a prefab kit."
       },
       {
         q: "Will my site work on mobile phones?",
         a: "Yes \u2014 every site we build is mobile-first. That means we design for phones and tablets first, then adapt for desktop. Over 60% of your visitors are browsing on their phones, and Google uses mobile performance as a ranking signal.\n\nWe test every site on multiple screen sizes before launch."
       },
       {
-        q: "Can I expand my website later if my practice grows?",
+        q: "Can I expand my website later if my business grows?",
         a: "Absolutely. You can upgrade your plan at any time \u2014 from Starter to Growth, or Growth to Scale \u2014 and we can add new pages, team bios, service areas, or other features as your needs evolve.\n\nFor businesses with unique requirements, our Custom plan offers tailored solutions. Just reach out and let us know what you need. We\u2019ll scope it out and give you a clear quote if it falls outside your current plan\u2019s scope."
       },
       {
@@ -168,7 +168,7 @@ export const FAQS = [
     questions: [
       {
         q: "Will my website show up on Google?",
-        a: "We build every website with a solid SEO foundation \u2014 clean code structure, fast load times, proper page titles and meta descriptions, schema markup, and mobile optimisation. These are the building blocks that help Google understand and rank your site.\n\nGrowth and Scale plans also include full local SEO optimisation and Google Business Profile setup, which is critical for professional practices that rely on local search traffic.\n\nSEO takes time \u2014 typically 3\u20136 months to start seeing meaningful movement. But starting with a properly built site is the difference between slow growth and no growth."
+        a: "We build every website with a solid SEO foundation \u2014 clean code structure, fast load times, proper page titles and meta descriptions, schema markup, and mobile optimisation. These are the building blocks that help Google understand and rank your site.\n\nGrowth and Scale plans also include full local SEO optimisation and Google Business Profile setup, which is critical for any local business that depends on people finding you through search.\n\nSEO takes time \u2014 typically 3\u20136 months to start seeing meaningful movement. But starting with a properly built site is the difference between slow growth and no growth."
       },
       {
         q: "What is the business dashboard, and do all plans include it?",
@@ -186,27 +186,27 @@ export const FAQS = [
       },
       {
         q: "What are SEO funnel pages, and why do they matter?",
-        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \u201cServices\u201d page, each funnel page targets a specific search term your prospective clients are actually typing into Google.\n\nFor example, if you\u2019re a therapist in Denver, you might have individual pages for \u201canxiety therapist Denver,\u201d \u201ccouples counselor Denver,\u201d and \u201cchild psychologist Lakewood.\u201d Each page is written, structured, and optimized to rank for that exact search \u2014 giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Growth plan includes 10 funnel pages, and the Scale plan includes 20 \u2014 enough to cover your core practice areas and surrounding locations."
+        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \u201cServices\u201d page, each funnel page targets a specific search term your prospective clients are actually typing into Google.\n\nFor example, if you\u2019re a therapist in Denver, you might have individual pages for \u201canxiety therapist Denver,\u201d \u201ccouples counselor Denver,\u201d and \u201cchild psychologist Lakewood.\u201d Each page is written, structured, and optimized to rank for that exact search \u2014 giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Growth plan includes 10 funnel pages, and the Scale plan includes 20 \u2014 enough to cover your core service categories and surrounding locations."
       },
       {
         q: "What\u2019s the difference between basic SEO and local SEO optimization?",
-        a: "Basic SEO (included in all plans) covers the fundamentals \u2014 clean code, fast page speed, proper page titles and meta descriptions, mobile optimization, and a sitemap. These are the building blocks every website needs.\n\nLocal SEO optimization (Growth and Scale plans) goes significantly deeper. It includes:\n\n\u2022 Location-specific keyword targeting across your pages\n\u2022 Google Business Profile setup and optimization \u2014 so you show up in the local map pack\n\u2022 NAP consistency (Name, Address, Phone) across your site\n\u2022 Local schema markup that tells Google exactly where you operate and what you do\n\u2022 Geo-targeted content strategy for your service area\n\nFor professional practices that rely on local clients, this is often the difference between showing up on the first page of Google and being invisible. Most of your competitors aren\u2019t doing this \u2014 which is exactly why it works."
+        a: "Basic SEO (included in all plans) covers the fundamentals \u2014 clean code, fast page speed, proper page titles and meta descriptions, mobile optimization, and a sitemap. These are the building blocks every website needs.\n\nLocal SEO optimization (Growth and Scale plans) goes significantly deeper. It includes:\n\n\u2022 Location-specific keyword targeting across your pages\n\u2022 Google Business Profile setup and optimization \u2014 so you show up in the local map pack\n\u2022 NAP consistency (Name, Address, Phone) across your site\n\u2022 Local schema markup that tells Google exactly where you operate and what you do\n\u2022 Geo-targeted content strategy for your service area\n\nFor local businesses that depend on nearby customers, this is often the difference between showing up on the first page of Google and being invisible. Most of your competitors aren\u2019t doing this \u2014 which is exactly why it works."
       },
       {
         q: "Do I get a dedicated account manager?",
-        a: "Yes \u2014 every plan includes a dedicated account manager. You\u2019ll have a real person you can reach out to whenever you need help, have questions, or want to make changes to your site. No support tickets, no chatbots \u2014 just a direct line to someone who knows your practice and your website."
+        a: "Yes \u2014 every plan includes a dedicated account manager. You\u2019ll have a real person you can reach out to whenever you need help, have questions, or want to make changes to your site. No support tickets, no chatbots \u2014 just a direct line to someone who knows your business and your website."
       },
       {
         q: "What\u2019s the difference between the lead capture forms on each plan?",
-        a: "The Starter plan includes a basic lead capture form \u2014 a clean, professional contact form that captures a visitor\u2019s name, email, phone number, and message. It gets the job done for practices that just need a simple way for prospective clients to reach out.\n\nThe Growth plan includes an enhanced lead capture form with additional fields tailored to your practice \u2014 like practice area, preferred appointment time, or referral source. This pre-qualifies your leads so you spend less time on back-and-forth and more time with clients.\n\nThe Scale plan includes an advanced lead generation form \u2014 a multi-step, conversion-optimized form designed to guide visitors through a short series of questions. These forms consistently convert at 2\u20133x the rate of standard contact forms because they feel less intimidating and more interactive."
+        a: "The Starter plan includes a basic lead capture form \u2014 a clean, professional contact form that captures a visitor\u2019s name, email, phone number, and message. It gets the job done for businesses that just need a simple way for prospective clients to reach out.\n\nThe Growth plan includes an enhanced lead capture form with additional fields tailored to your business \u2014 like service type, preferred appointment time, project size, or referral source. This pre-qualifies your leads so you spend less time on back-and-forth and more time with paying customers.\n\nThe Scale plan includes an advanced lead generation form \u2014 a multi-step, conversion-optimized form designed to guide visitors through a short series of questions. These forms consistently convert at 2\u20133x the rate of standard contact forms because they feel less intimidating and more interactive."
       },
       {
-        q: "What is schema markup, and does my practice need it?",
-        a: "Schema markup is code added to your website that helps Google understand exactly what your practice does, where you\u2019re located, what services you offer, your hours, your reviews, and more. It doesn\u2019t change how your site looks to visitors \u2014 but it changes how Google sees and displays your site in search results.\n\nWith proper schema, your practice can show up with rich results \u2014 star ratings, business hours, service lists, and location info displayed right in the search listing. This makes your result stand out and get more clicks than a plain text listing.\n\nAll plans include basic schema. The Scale plan includes advanced schema markup covering multiple practice areas, FAQ schema, and local business schema \u2014 giving you the best possible presence in search results."
+        q: "What is schema markup, and do I need it?",
+        a: "Schema markup is code added to your website that helps Google understand exactly what your business does, where you\u2019re located, what services you offer, your hours, your reviews, and more. It doesn\u2019t change how your site looks to visitors \u2014 but it changes how Google sees and displays your site in search results.\n\nWith proper schema, your business can show up with rich results \u2014 star ratings, business hours, service lists, and location info displayed right in the search listing. This makes your result stand out and get more clicks than a plain text listing.\n\nAll plans include basic schema. The Scale plan includes advanced schema markup covering multiple service categories, FAQ schema, and local business schema \u2014 giving you the best possible presence in search results."
       },
       {
         q: "What kind of reporting do I receive?",
-        a: "Growth and Scale clients receive a monthly SEO performance report covering:\n\n\u2022 Traffic trends \u2014 where your visitors are coming from and which pages perform best\n\u2022 Lead quality \u2014 whether your forms are attracting the right kind of clients\n\u2022 SEO progress \u2014 how your rankings are moving and where the opportunities are\n\u2022 Content recommendations \u2014 what pages or updates would drive the most impact\n\u2022 Competitive insights \u2014 what your competitors are doing online and how to stay ahead\n\nMost practices don\u2019t have anyone looking at this data for them \u2014 and that\u2019s exactly why they plateau."
+        a: "Growth and Scale clients receive a monthly SEO performance report covering:\n\n\u2022 Traffic trends \u2014 where your visitors are coming from and which pages perform best\n\u2022 Lead quality \u2014 whether your forms are attracting the right kind of clients\n\u2022 SEO progress \u2014 how your rankings are moving and where the opportunities are\n\u2022 Content recommendations \u2014 what pages or updates would drive the most impact\n\u2022 Competitive insights \u2014 what your competitors are doing online and how to stay ahead\n\nMost small businesses don\u2019t have anyone looking at this data for them \u2014 and that\u2019s exactly why they plateau."
       }
     ]
   },
@@ -238,19 +238,19 @@ export const FAQS = [
     questions: [
       {
         q: "Who will I be working with?",
-        a: "Every project is handled by our US-based team. Nothing is outsourced. You\u2019ll have a dedicated point of contact from your first call through to launch and ongoing support.\n\nWe specialise in professional practices \u2014 therapists, CPAs, physicians, dentists, and group practices \u2014 so we understand your industry and your clients."
+        a: "Every project is handled by our US-based team. Nothing is outsourced. You\u2019ll have a dedicated point of contact from your first call through to launch and ongoing support.\n\nWe specialize in trust-based local businesses \u2014 accounting firms, law firms, home builders, contractors, medical and dental practices, therapists, consultants, and other professional service providers \u2014 so we understand your industry and your clients."
       },
       {
         q: "What if I don\u2019t like how my site turns out?",
         a: "Before you pay us anything, you\u2019ll see a custom homepage demo showing exactly how we\u2019d design your site. You can give feedback, request changes, and make sure you love the direction before we build a single page.\n\nDuring the build, we send you a preview link before going live. We don\u2019t launch until you\u2019re satisfied."
       },
       {
-        q: "What types of professional practices do you work with?",
-        a: "We specialize in websites for private practices and accounting firms \u2014 therapists, counselors, dentists, physicians, chiropractors, CPAs, and other professional service providers. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments \u2014 not just look nice."
+        q: "What types of businesses do you work with?",
+        a: "We build websites for trust-based, local businesses \u2014 accounting firms, law firms, home builders, contractors, medical and dental practices, therapists, consultants, home service companies, and other professional service providers. If your business depends on building trust quickly and generating qualified local leads, our framework will work for you."
       },
       {
         q: "How is Graylock different from other website platforms?",
-        a: "Most industry-specific website platforms offer templates or self-managed tools at $149\u2013$349/month \u2014 and you don\u2019t own the content. Graylock builds genuinely custom websites designed from the ground up for your specific practice, your specialty, your location, and your ideal clients. We deliver in 7\u201310 business days, you own your domain and all content, and our ongoing support means you never have to touch the technical side. Starting at $199/month with no long-term contracts."
+        a: "Most industry-specific website platforms offer templates or self-managed tools at $149\u2013$349/month \u2014 and you don\u2019t own the content. Graylock builds genuinely custom websites designed from the ground up for your specific business, your industry, your location, and your ideal clients. We deliver in 7\u201310 business days, you own your domain and all content, and our ongoing support means you never have to touch the technical side. Starting at $199/month with no long-term contracts."
       }
     ]
   }
