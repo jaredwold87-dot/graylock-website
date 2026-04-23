@@ -57,15 +57,16 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="bg-charcoal pt-16 pb-4 px-6 md:px-12 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange/40 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
+      <section className="pt-16 pb-4 px-6 md:px-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
+        <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-5xl mx-auto relative z-10">
           <ScrollReveal className="text-center mb-10">
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-xs md:text-sm mb-3">Included With Every Plan</p>
             <div className="inline-flex items-center gap-2 mb-4">
               <RefreshCw className="text-orange" size={22} />
-              <h2 className="text-3xl md:text-5xl font-display text-offwhite leading-tight">Your Stay-Current Guarantee</h2>
+              <h2 className="text-3xl md:text-5xl font-display text-charcoal leading-tight">Your Stay-Current Guarantee</h2>
             </div>
             <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
               Every 2 years, we refresh your website — free. Stay subscribed and your site never gets dated.
@@ -73,7 +74,7 @@ export default function Pricing() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <div className="bg-navy/70 border border-orange/30 rounded-2xl p-6 md:p-8">
+            <div className="bg-white/80 backdrop-blur-sm border border-gray-200/80 rounded-2xl p-6 md:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
                 {[
                   { icon: <Sparkles className="text-orange" size={20} />, title: "Design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
@@ -85,13 +86,13 @@ export default function Pricing() {
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="text-offwhite font-display text-base mb-1">{item.title}</h3>
-                      <p className="text-stone font-sans text-sm leading-relaxed">{item.desc}</p>
+                      <h3 className="text-charcoal font-display text-base mb-1">{item.title}</h3>
+                      <p className="text-slate-600 font-sans text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <p className="text-stone/80 font-sans text-xs md:text-sm text-center mt-6 leading-relaxed">
+              <p className="text-slate-600 font-sans text-xs md:text-sm text-center mt-6 leading-relaxed">
                 Out of scope: a brand-new identity/logo or net-new pages beyond your current site structure.{" "}
                 <a href="/faq#pricing-plans" className="text-orange hover:underline">See full scope in the FAQ →</a>
               </p>
