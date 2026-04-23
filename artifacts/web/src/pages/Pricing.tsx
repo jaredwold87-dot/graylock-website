@@ -57,7 +57,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="pt-16 pb-4 px-6 md:px-12 relative overflow-hidden">
+      <section className="pt-16 pb-16 md:pb-20 px-6 md:px-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
         <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange/10 rounded-full blur-[120px] pointer-events-none" />
