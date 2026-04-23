@@ -1,21 +1,21 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { Clock, Wrench, Zap } from "lucide-react";
+import { Phone, Sparkles, Rocket, Clock, Wrench, Zap } from "lucide-react";
 
 export function HowItWorksSection() {
   const steps = [
     {
-      num: "01",
+      icon: <Phone size={26} />,
       title: "Book a 15-Minute Call",
-      desc: "Quick conversation about your business and what's not working on your current site.",
+      desc: "Quick chat about your business and what's not working on your current site.",
     },
     {
-      num: "02",
+      icon: <Sparkles size={26} />,
       title: "Get a Free Custom Demo",
       desc: "We design a real homepage concept so you can see the strategy before committing.",
     },
     {
-      num: "03",
+      icon: <Rocket size={26} />,
       title: "Decide to Launch",
       desc: "Love it? We build and launch in 7–10 days. Not for you? Walk away with clarity.",
     },
@@ -35,7 +35,7 @@ export function HowItWorksSection() {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <ScrollReveal className="text-center mb-20">
+        <ScrollReveal className="text-center mb-16">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Our Process</p>
           <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
             How It Works
@@ -45,16 +45,21 @@ export function HowItWorksSection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-6 mb-20 relative">
-          <div className="hidden lg:block absolute top-10 left-[16%] right-[16%] h-[2px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 z-0" />
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {steps.map((step, i) => (
-            <ScrollReveal key={i} delay={i * 0.15} className="relative z-10 flex flex-col items-center text-center">
-              <div className="w-[72px] h-[72px] rounded-full bg-charcoal text-orange flex items-center justify-center font-display text-2xl tracking-widest shadow-xl mb-8 border-[5px] border-[#f4f5f7] ring-1 ring-gray-200">
-                {step.num}
+            <ScrollReveal key={i} delay={i * 0.15}>
+              <div className="h-full bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col items-start hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_16px_40px_rgba(0,0,0,0.06)] transition-shadow">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange/15 to-orange/5 border border-orange/20 flex items-center justify-center text-orange">
+                    {step.icon}
+                  </div>
+                  <span className="text-xs font-sans font-bold uppercase tracking-widest text-orange/80">
+                    Step {i + 1}
+                  </span>
+                </div>
+                <h3 className="text-xl font-display text-charcoal mb-2 leading-snug">{step.title}</h3>
+                <p className="text-stone font-sans leading-relaxed text-sm md:text-base">{step.desc}</p>
               </div>
-              <h3 className="text-xl font-display text-charcoal mb-4">{step.title}</h3>
-              <p className="text-stone font-sans leading-relaxed text-sm max-w-xs">{step.desc}</p>
             </ScrollReveal>
           ))}
         </div>
