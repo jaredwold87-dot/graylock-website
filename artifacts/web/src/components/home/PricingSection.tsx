@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, RefreshCw } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { PRICING_TIERS } from "@/lib/constants";
@@ -92,21 +92,47 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
 
               <div className="flex-grow mb-7">
                 <ul className="space-y-3">
-                  {tier.features.map((feature: string, idx: number) => (
-                    <li key={idx}>
-                      <div className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 flex items-center justify-center mt-0.5">
-                          <Check className="text-orange" size={12} />
+                  {tier.features.map((feature: string, idx: number) => {
+                    const isRefresh = /website refresh/i.test(feature);
+                    return (
+                      <li key={idx}>
+                        <div className="flex items-start gap-3">
+                          <div className={cn(
+                            "flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5",
+                            isRefresh ? "bg-orange" : "bg-orange/10"
+                          )}>
+                            {isRefresh ? (
+                              <RefreshCw className="text-white" size={12} strokeWidth={2.5} />
+                            ) : (
+                              <Check className="text-orange" size={12} />
+                            )}
+                          </div>
+                          {isRefresh ? (
+                            <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                              <span className={cn("font-sans text-sm font-semibold", tier.popular ? "text-offwhite" : "text-charcoal")}>
+                                {feature}
+                              </span>
+                              <span className={cn(
+                                "inline-flex items-center font-sans text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full whitespace-nowrap",
+                                tier.popular
+                                  ? "bg-orange/20 text-orange"
+                                  : "bg-orange/10 text-orange"
+                              )}>
+                                Stay-Current Guarantee
+                              </span>
+                            </span>
+                          ) : (
+                            <span className={cn("font-sans text-sm", tier.popular ? "text-offwhite" : "text-charcoal")}>{feature}</span>
+                          )}
                         </div>
-                        <span className={cn("font-sans text-sm", tier.popular ? "text-offwhite" : "text-charcoal")}>{feature}</span>
-                      </div>
-                      {!tier.isCustom && /site updates/i.test(feature) && (
-                        <p className={cn("font-sans text-xs mt-1.5 ml-8 leading-snug", tier.popular ? "text-stone/70" : "text-stone/60")}>
-                          Additional updates billed at $100/hr — quoted and approved before any work begins
-                        </p>
-                      )}
-                    </li>
-                  ))}
+                        {!tier.isCustom && /site updates/i.test(feature) && (
+                          <p className={cn("font-sans text-xs mt-1.5 ml-8 leading-snug", tier.popular ? "text-stone/70" : "text-stone/60")}>
+                            Additional updates billed at $100/hr — quoted and approved before any work begins
+                          </p>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
