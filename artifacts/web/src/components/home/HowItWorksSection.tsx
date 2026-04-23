@@ -7,7 +7,7 @@ export function HowItWorksSection() {
     {
       icon: <Phone size={26} />,
       title: "Book a 15-Minute Call",
-      desc: "Quick chat about your business and what's not working on your current site.",
+      desc: "Quick chat with one of our founders about your business and what's not working on your current site.",
     },
     {
       icon: <Sparkles size={26} />,
