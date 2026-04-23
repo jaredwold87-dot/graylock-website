@@ -43,12 +43,12 @@ const SERVICES = [
 const SERVICE_PATHS = SERVICES.map((s) => s.path).concat(["/our-strategy"]);
 
 const WHO_WE_HELP_PRACTICES = [
-  { name: "Chiropractors", desc: "Adjustments, posture, sports recovery.", icon: Activity, path: "/websites-for-chiropractors" },
-  { name: "Dentists", desc: "Family, cosmetic, implants, ortho.", icon: Smile, path: "/websites-for-dentists" },
+  { name: "Psychologists", desc: "Testing, therapy & evaluations.", icon: Brain, path: "/websites-for-psychologists" },
   { name: "Optometrists", desc: "Exams, contacts, frames, dry eye.", icon: Focus, path: "/websites-for-optometrists" },
   { name: "Physical Therapists", desc: "Rehab, sports, ortho & pain.", icon: Dumbbell, path: "/websites-for-physical-therapists" },
+  { name: "Dentists", desc: "Family, cosmetic, implants, ortho.", icon: Smile, path: "/websites-for-dentists" },
+  { name: "Chiropractors", desc: "Adjustments, posture, sports recovery.", icon: Activity, path: "/websites-for-chiropractors" },
   { name: "Physicians", desc: "Family, internal & specialty practices.", icon: Stethoscope, path: "/websites-for-physicians" },
-  { name: "Psychologists", desc: "Testing, therapy & evaluations.", icon: Brain, path: "/websites-for-psychologists" },
 ];
 
 const WHO_WE_HELP_OTHER = [
