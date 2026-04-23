@@ -46,7 +46,7 @@ export function OfferBreakdownSection() {
         <ScrollReveal delay={0.1} className="max-w-3xl mx-auto mb-12">
           <div className="bg-white border border-orange/30 rounded-2xl px-6 py-5 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
             <p className="text-charcoal font-sans text-base md:text-lg leading-relaxed">
-              This is a <span className="font-bold text-orange">$500 strategic engagement</span> that we do <span className="font-semibold">completely free</span> for qualified practices.
+              This is a <span className="font-bold text-orange">$500 strategic engagement</span> that we do <span className="font-semibold">completely free</span> for qualified businesses.
             </p>
           </div>
         </ScrollReveal>
