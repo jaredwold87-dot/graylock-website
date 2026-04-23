@@ -1,4 +1,6 @@
-import { Check, RefreshCw } from "lucide-react";
+import { Check, RefreshCw, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { PRICING_TIERS } from "@/lib/constants";
@@ -23,6 +25,10 @@ interface PricingSectionProps {
 }
 
 export function PricingSection({ hideHeader = false }: PricingSectionProps = {}) {
+  const popularIndex = Math.max(0, PRICING_TIERS.findIndex((t: any) => t.popular));
+  const [activeIndex, setActiveIndex] = useState<number>(popularIndex);
+  const activeTier: any = PRICING_TIERS[activeIndex];
+
   return (
     <section className={cn("relative px-6 md:px-12 overflow-hidden", hideHeader ? "pt-12 pb-28" : "py-28")}>
       <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
@@ -46,22 +52,24 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 items-stretch">
-          {PRICING_TIERS.map((tier: any, i: number) => (
+          {PRICING_TIERS.map((tier: any, i: number) => {
+            const isActive = i === activeIndex;
+            return (
             <ScrollReveal key={tier.name} delay={i * 0.1} className={cn(
-              "flex flex-col",
+              "flex flex-col group",
               tier.popular && "md:-translate-y-4"
             )}>
-              <div className="px-2 mb-5 md:min-h-[88px]">
-                <p className="text-slate-600 text-sm leading-relaxed font-sans">
-                  {tier.description}
-                </p>
-              </div>
-
-              <div className={cn(
-                "rounded-2xl border flex flex-col p-8 relative transition-all duration-300 flex-1",
+              <div
+                onMouseEnter={() => setActiveIndex(i)}
+                onFocus={() => setActiveIndex(i)}
+                onClick={() => setActiveIndex(i)}
+                className={cn(
+                "rounded-2xl border flex flex-col p-8 relative transition-all duration-300 flex-1 cursor-pointer",
                 tier.popular
                   ? "bg-charcoal border-orange/50 shadow-xl shadow-orange/10"
-                  : "bg-white/80 backdrop-blur-sm border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_16px_40px_rgba(0,0,0,0.06)]"
+                  : "bg-white/80 backdrop-blur-sm border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]",
+                isActive && !tier.popular && "border-orange/60 shadow-[0_4px_16px_rgba(46,123,180,0.12),0_20px_48px_rgba(46,123,180,0.10)] -translate-y-1",
+                isActive && tier.popular && "border-orange shadow-[0_8px_24px_rgba(46,123,180,0.25)]"
               )}>
               {tier.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange to-orange/80 text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-orange/30">
@@ -162,10 +170,83 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
               )}
               </div>
             </ScrollReveal>
-          ))}
+          );
+          })}
         </div>
 
-        <ScrollReveal delay={0.5} className="mt-16 text-center">
+        <ScrollReveal delay={0.3} className="mt-10 md:mt-12">
+          <div className="relative overflow-hidden rounded-2xl border border-charcoal/10 bg-gradient-to-br from-white via-white to-[#f5f7fa] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_24px_56px_rgba(15,30,53,0.08)]">
+            <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-orange via-orange/80 to-orange/40" />
+            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-orange/10 blur-3xl" />
+
+            <div className="relative px-6 md:px-10 py-7 md:py-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+              <div className="flex-shrink-0 flex md:flex-col items-center md:items-start gap-3 md:gap-1 md:min-w-[180px]">
+                <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange">
+                  Best fit for
+                </span>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`label-${activeTier.name}`}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="flex items-baseline gap-2"
+                  >
+                    <h4 className="text-2xl md:text-3xl font-display text-charcoal leading-none">
+                      {activeTier.name}
+                    </h4>
+                    <span className="text-xs font-sans font-semibold text-stone">
+                      {PLAN_FOR_LABELS[activeTier.name]}
+                    </span>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              <div className="hidden md:block w-px self-stretch bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
+
+              <div className="flex-1 min-w-0">
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={`desc-${activeTier.name}`}
+                    initial={{ opacity: 0, x: 8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -8 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="text-charcoal text-base md:text-lg font-sans leading-relaxed"
+                  >
+                    {activeTier.description}
+                  </motion.p>
+                </AnimatePresence>
+              </div>
+
+              <div className="flex md:flex-col items-center gap-2 md:gap-1 md:min-w-[140px] md:items-end">
+                <div className="flex gap-1.5">
+                  {PRICING_TIERS.map((t: any, i: number) => (
+                    <button
+                      key={t.name}
+                      type="button"
+                      onClick={() => setActiveIndex(i)}
+                      onMouseEnter={() => setActiveIndex(i)}
+                      aria-label={`Show ${t.name} description`}
+                      className={cn(
+                        "h-1.5 rounded-full transition-all duration-300",
+                        i === activeIndex
+                          ? "w-8 bg-orange"
+                          : "w-4 bg-charcoal/15 hover:bg-charcoal/30"
+                      )}
+                    />
+                  ))}
+                </div>
+                <span className="hidden md:inline-flex items-center gap-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-stone mt-2">
+                  Hover a plan <ArrowRight size={11} />
+                </span>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.5} className="mt-12 text-center">
           <p className="text-charcoal font-sans font-semibold mb-3">
             Not sure which plan is right? Get a free homepage demo and we'll tell you exactly what your business needs.
           </p>
