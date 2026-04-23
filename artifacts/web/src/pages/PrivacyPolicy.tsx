@@ -1,11 +1,21 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function PrivacyPolicy() {
   return (
     <>
       <SEO title="Privacy Policy | Graylock Digital" description="How Graylock Digital collects, uses, and protects the personal information you share with us through our website, contact forms, and chat widget." path="/privacy-policy" />
       <section className="bg-offwhite pt-28 pb-16 md:pt-32 md:pb-20 px-6 md:px-12 text-charcoal">
+        <div className="max-w-3xl mx-auto mb-8">
+          <Breadcrumbs
+            variant="light"
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Privacy Policy", path: "/privacy-policy" },
+            ]}
+          />
+        </div>
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-4">Legal</p>

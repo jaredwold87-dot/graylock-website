@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
@@ -137,6 +138,14 @@ export default function Work() {
       <SEO title="Our Work | Practice Website Examples | Graylock Digital" description="Real before-and-after website transformations for therapists, dentists, accountants, and other private practices. See the results our clients are getting." path="/work" />
 
       <section className="bg-charcoal pt-24 pb-16 px-6 md:px-12">
+        <div className="max-w-4xl mx-auto mb-8">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Our Work", path: "/work" },
+            ]}
+          />
+        </div>
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display text-offwhite mb-6">Real Transformations</h1>

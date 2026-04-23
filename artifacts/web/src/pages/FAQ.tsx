@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { FAQS } from "@/lib/constants";
@@ -222,6 +223,14 @@ export default function FAQ() {
       </Helmet>
 
       <section className="bg-charcoal pt-24 pb-10 md:pt-32 md:pb-14 px-6 md:px-12">
+        <div className="max-w-4xl mx-auto mb-8">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "FAQ", path: "/faq" },
+            ]}
+          />
+        </div>
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-offwhite leading-tight mb-6">

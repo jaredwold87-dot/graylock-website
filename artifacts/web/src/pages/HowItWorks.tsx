@@ -1,4 +1,5 @@
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { CTAButton } from "@/components/ui/CTAButton";
@@ -46,6 +47,14 @@ export default function HowItWorks() {
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-how-it-works.png`} />
         <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
+        <div className="max-w-4xl mx-auto relative z-10 mb-8">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "How It Works", path: "/how-it-works" },
+            ]}
+          />
+        </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Our Proven Process</h1>

@@ -1,4 +1,5 @@
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { PricingSection } from "@/components/home/PricingSection";
@@ -47,6 +48,14 @@ export default function Pricing() {
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-pricing.png`} />
         <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
+        <div className="max-w-4xl mx-auto relative z-10 mb-8">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Pricing", path: "/pricing" },
+            ]}
+          />
+        </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">

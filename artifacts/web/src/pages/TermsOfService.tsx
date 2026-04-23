@@ -1,11 +1,21 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function TermsOfService() {
   return (
     <>
       <SEO title="Terms of Service | Graylock Digital" description="The terms governing Graylock Digital's website design, hosting, maintenance, and ongoing support services for professional practices." path="/terms-of-service" />
       <section className="bg-offwhite pt-28 pb-16 md:pt-32 md:pb-20 px-6 md:px-12 text-charcoal">
+        <div className="max-w-3xl mx-auto mb-8">
+          <Breadcrumbs
+            variant="light"
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Terms of Service", path: "/terms-of-service" },
+            ]}
+          />
+        </div>
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-4">Legal</p>

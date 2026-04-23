@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -14,6 +15,15 @@ export default function OtherServiceBusinesses() {
 
       <section className="bg-charcoal pt-32 md:pt-40 pb-24 px-6 md:px-12 relative overflow-hidden border-b border-gunmetal">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+
+        <div className="max-w-3xl mx-auto relative z-10 mb-8">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Other Service Businesses", path: "/other-service-businesses" },
+            ]}
+          />
+        </div>
 
         <div className="max-w-3xl mx-auto relative z-10">
           <ScrollReveal>

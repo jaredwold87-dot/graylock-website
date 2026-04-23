@@ -7,7 +7,21 @@ export interface BreadcrumbItem {
   path?: string;
 }
 
-export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+export function Breadcrumbs({
+  items,
+  variant = "dark",
+}: {
+  items: BreadcrumbItem[];
+  variant?: "dark" | "light";
+}) {
+  const linkClass =
+    variant === "light"
+      ? "text-charcoal/70 hover:text-orange transition-colors duration-200"
+      : "text-offwhite/70 hover:text-orange transition-colors duration-200";
+  const currentClass =
+    variant === "light" ? "text-charcoal font-semibold" : "text-offwhite font-semibold";
+  const inactiveClass = variant === "light" ? "text-charcoal/70" : "text-offwhite/70";
+  const separatorClass = variant === "light" ? "text-charcoal/40" : "text-offwhite/40";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -37,15 +51,12 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
             return (
               <li key={`${item.name}-${i}`} className="inline-flex items-center gap-1.5">
                 {item.path && !isLast ? (
-                  <Link
-                    href={item.path}
-                    className="text-offwhite/70 hover:text-orange transition-colors duration-200"
-                  >
+                  <Link href={item.path} className={linkClass}>
                     {item.name}
                   </Link>
                 ) : (
                   <span
-                    className={isLast ? "text-offwhite font-semibold" : "text-offwhite/70"}
+                    className={isLast ? currentClass : inactiveClass}
                     aria-current={isLast ? "page" : undefined}
                   >
                     {item.name}
@@ -54,7 +65,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
                 {!isLast && (
                   <ChevronRight
                     size={14}
-                    className="text-offwhite/40"
+                    className={separatorClass}
                     aria-hidden="true"
                   />
                 )}

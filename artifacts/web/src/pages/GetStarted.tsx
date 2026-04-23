@@ -1,4 +1,5 @@
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { WizardProvider, useWizard } from "@/components/wizard/WizardContext";
 import { WizardShell } from "@/components/wizard/WizardShell";
 import { Step1BasicInfo } from "@/components/wizard/steps/Step1BasicInfo";
@@ -49,8 +50,17 @@ export default function GetStarted() {
   return (
     <>
       <SEO title="Get Your Free Website Evaluation | Graylock Digital" description="Book a free 20-minute call with Tim and get a custom homepage demo for your business — before you spend a dollar. No obligation, no pressure." url="https://graylockdigital.com/get-started" />
-      <section className="bg-white pt-28 md:pt-32 pb-6 px-6 md:px-12 text-center border-b border-slate-200">
-        <div className="max-w-3xl mx-auto">
+      <section className="bg-white pt-28 md:pt-32 pb-6 px-6 md:px-12 border-b border-slate-200">
+        <div className="max-w-3xl mx-auto mb-6">
+          <Breadcrumbs
+            variant="light"
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Get Started", path: "/get-started" },
+            ]}
+          />
+        </div>
+        <div className="max-w-3xl mx-auto text-center">
           <p className="text-orange font-sans font-semibold uppercase tracking-widest text-xs mb-3">Free Demo</p>
           <h1 className="text-3xl md:text-5xl font-display text-charcoal mb-4 leading-tight">
             See Exactly What Your Website Could Become — Before You Spend a Dollar
