@@ -20,7 +20,6 @@ import ThankYou from "@/pages/ThankYou";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
-import OtherServiceBusinesses from "@/pages/OtherServiceBusinesses";
 import NotFound from "@/pages/not-found";
 
 const AccountantsIndustry = lazy(() => import("@/pages/industries/Accountants"));
@@ -35,6 +34,7 @@ const Psychologists = lazy(() => import("@/pages/industries/Psychologists"));
 const Therapists = lazy(() => import("@/pages/industries/Therapists"));
 const Veterinarians = lazy(() => import("@/pages/industries/Veterinarians"));
 const IndustrialConstruction = lazy(() => import("@/pages/industries/IndustrialConstruction"));
+const LocalServiceBusinesses = lazy(() => import("@/pages/industries/LocalServiceBusinesses"));
 
 const OurStrategy = lazy(() => import("@/pages/strategy/OurStrategy"));
 const WebsiteDesign = lazy(() => import("@/pages/strategy/WebsiteDesign"));
@@ -74,7 +74,7 @@ function Router() {
         <Route path="/thank-you" component={ThankYou} />
         <Route path="/accountants" component={AccountantsFunnel} />
         <Route path="/websites-for-accountants" component={AccountantsIndustry} />
-        <Route path="/other-service-businesses" component={OtherServiceBusinesses} />
+        <Route path="/other-service-businesses" component={LocalServiceBusinesses} />
         <Route path="/websites-for-chiropractors" component={Chiropractors} />
         <Route path="/websites-for-dentists" component={Dentists} />
         <Route path="/websites-for-dermatologists" component={Dermatologists} />

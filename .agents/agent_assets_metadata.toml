@@ -36,3 +36,9 @@ id = "usmk6GAIBnGxOor2R0tAb"
 uri = "file://artifacts/web/public/outdated-practice-website.png"
 type = "image"
 title = "old wordpress practice website"
+
+[[generated]]
+id = "2jPfrbYofElqgZe0D3Z_8"
+uri = "file://artifacts/web/public/hero-local-service-businesses.png"
+type = "image"
+title = "service business hero"
