@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import {
   Menu, X, ChevronDown,
   Palette, Search, Sparkles, MousePointerClick, MapPin, Magnet,
-  Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, PawPrint, Calculator, Briefcase, HardHat,
+  Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, Calculator, Briefcase, HardHat,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -55,7 +55,6 @@ const WHO_WE_HELP_PRACTICES = [
   { name: "Physical Therapists", desc: "Rehab, sports, ortho & pain.", icon: Dumbbell, path: "/websites-for-physical-therapists" },
   { name: "Physicians", desc: "Family, internal & specialty practices.", icon: Stethoscope, path: "/websites-for-physicians" },
   { name: "Psychologists", desc: "Testing, therapy & evaluations.", icon: Brain, path: "/websites-for-psychologists" },
-  { name: "Veterinarians", desc: "Small animal, exotic & mobile vets.", icon: PawPrint, path: "/websites-for-veterinarians" },
 ];
 
 const WHO_WE_HELP_OTHER = [
