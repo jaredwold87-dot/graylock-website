@@ -48,7 +48,7 @@ export interface IndustryPageData {
     headline: string;
     steps: { title: string; description: string }[];
   };
-  testimonials: {
+  testimonials?: {
     featured: { name: string; title: string; location: string; quote: string };
     others: { name: string; title: string; location: string; quote: string }[];
   };
@@ -454,66 +454,6 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
               View full pricing details <ArrowRight size={16} />
             </Link>
           </ScrollReveal>
-        </div>
-      </section>
-
-      <section className="bg-charcoal py-20 md:py-28 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-16">
-            <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
-              WHAT OUR CLIENTS SAY
-            </p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite">
-              Real Results From Real Businesses
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid lg:grid-cols-3 gap-6">
-            <ScrollReveal className="lg:col-span-2">
-              <div className="bg-navy border border-gunmetal rounded-xl p-8 h-full flex flex-col justify-between">
-                <div>
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={18} className="text-orange fill-orange" />
-                    ))}
-                  </div>
-                  <p className="text-offwhite font-sans text-lg md:text-xl leading-relaxed mb-6 italic">
-                    &ldquo;{data.testimonials.featured.quote}&rdquo;
-                  </p>
-                </div>
-                <div>
-                  <p className="text-offwhite font-sans font-bold">
-                    {data.testimonials.featured.name}
-                  </p>
-                  <p className="text-stone font-sans text-sm">
-                    {data.testimonials.featured.title} &bull;{" "}
-                    {data.testimonials.featured.location}
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <div className="space-y-6">
-              {data.testimonials.others.map((t, i) => (
-                <ScrollReveal key={i} delay={0.1 + i * 0.1}>
-                  <div className="bg-navy border border-gunmetal rounded-xl p-6">
-                    <div className="flex gap-1 mb-3">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} size={14} className="text-orange fill-orange" />
-                      ))}
-                    </div>
-                    <p className="text-offwhite font-sans text-sm leading-relaxed mb-4 italic">
-                      &ldquo;{t.quote}&rdquo;
-                    </p>
-                    <p className="text-stone font-sans text-xs">
-                      <span className="font-bold text-offwhite">{t.name}</span>{" "}
-                      &bull; {t.title}, {t.location}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

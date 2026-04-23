@@ -102,13 +102,13 @@ function NewSite() {
 
       <div className="px-3 py-2 bg-white/[0.03]">
         <div className="text-center">
-          <div className="text-orange text-[3px] sm:text-[3.5px] font-semibold uppercase tracking-widest mb-0.5">Testimonials</div>
-          <div className="text-white font-bold text-[5px] sm:text-[6px] md:text-[8px] mb-1">What Clients Say</div>
-          <div className="text-gray-400 text-[3px] sm:text-[3.5px] italic">"Best plumber we've ever hired. Fast, fair, and professional."</div>
-          <div className="flex justify-center gap-0.5 mt-1">
-            {[1,2,3,4,5].map(s => (
-              <div key={s} className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-yellow-400 text-[4px] sm:text-[5px] leading-none">&#9733;</div>
-            ))}
+          <div className="text-orange text-[3px] sm:text-[3.5px] font-semibold uppercase tracking-widest mb-0.5">Service Area</div>
+          <div className="text-white font-bold text-[5px] sm:text-[6px] md:text-[8px] mb-1">Serving the Greater Metro</div>
+          <div className="text-gray-400 text-[3px] sm:text-[3.5px]">Same-day service available · 24/7 emergency line</div>
+          <div className="flex justify-center gap-1 mt-1">
+            <div className="bg-orange/20 text-orange px-1.5 py-0.5 rounded-sm text-[3px] sm:text-[3.5px] font-semibold">Licensed</div>
+            <div className="bg-orange/20 text-orange px-1.5 py-0.5 rounded-sm text-[3px] sm:text-[3.5px] font-semibold">Insured</div>
+            <div className="bg-orange/20 text-orange px-1.5 py-0.5 rounded-sm text-[3px] sm:text-[3.5px] font-semibold">Bonded</div>
           </div>
         </div>
       </div>
