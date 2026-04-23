@@ -168,42 +168,6 @@ export default function OurStrategy() {
         </div>
       </section>
 
-      <section className="bg-white py-20 px-6 md:px-12 border-t border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal className="text-center mb-10">
-            <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
-              Proof, Not Promises
-            </p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#1A1A1A] mb-3">
-              When the Three Layers Work Together
-            </h2>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="bg-[#F5F5F5] border border-gray-200 rounded-2xl p-8 md:p-10">
-              <p className="text-[#1A1A1A] font-sans text-lg md:text-xl leading-relaxed italic mb-5">
-                "Within 90 days of launch, our inquiry form submissions roughly tripled compared to the prior site. We're now ranking on Google for searches we never showed up for, and prospective clients are calling us before they call our competitors."
-              </p>
-              <p className="text-[#4A4A4A] font-sans text-sm uppercase tracking-widest font-semibold">— Practice owner, Johnson & Associates CPA</p>
-              <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-gray-200">
-                <div className="text-center">
-                  <p className="text-orange font-display text-3xl md:text-4xl mb-1">3×</p>
-                  <p className="text-[#4A4A4A] font-sans text-xs leading-snug">Inquiry submissions in 90 days</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-orange font-display text-3xl md:text-4xl mb-1">−40%</p>
-                  <p className="text-[#4A4A4A] font-sans text-xs leading-snug">Bounce rate reduction</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-orange font-display text-3xl md:text-4xl mb-1">Page 1</p>
-                  <p className="text-[#4A4A4A] font-sans text-xs leading-snug">Google ranking, priority searches</p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       <section className="bg-orange py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
