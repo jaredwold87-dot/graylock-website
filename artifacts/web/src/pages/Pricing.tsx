@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 export default function Pricing() {
   const featureRows = [
     { name: "Pages Included", solo: "8", group: "15", enterprise: "20+", custom: "Custom" },
-    { name: "Provider Bio Pages", solo: "1", group: "Up to 5", enterprise: "Up to 10", custom: "Unlimited" },
+    { name: "Team / About Pages", solo: "1", group: "Up to 5", enterprise: "Up to 10", custom: "Unlimited" },
     { name: "SEO Funnel Pages", solo: "3", group: "10", enterprise: "20", custom: "Custom" },
     { name: "Mobile-First Design", solo: true, group: true, enterprise: true, custom: true },
     { name: "Hosting & SSL", solo: true, group: true, enterprise: true, custom: true },
@@ -41,7 +41,7 @@ export default function Pricing() {
 
   return (
     <>
-      <SEO title="Pricing | Practice Website Design Plans | Graylock Digital" description="Three flat monthly plans, one upfront setup fee, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
+      <SEO title="Pricing | Small Business Website Design Plans | Graylock Digital" description="Three flat monthly plans, one upfront setup fee, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-pricing.png`} />
@@ -101,27 +101,6 @@ export default function Pricing() {
       </section>
 
       <PricingSection hideHeader />
-
-      <section className="bg-charcoal pt-12 pb-4 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal>
-            <div className="bg-navy/60 border border-orange/30 rounded-2xl p-6 md:p-8 text-center">
-              <h3 className="text-xl md:text-2xl font-display text-offwhite mb-3">
-                Not a medical practice or accounting firm?
-              </h3>
-              <p className="text-stone font-sans leading-relaxed mb-5 max-w-2xl mx-auto">
-                We specialize in healthcare and professional services, but our model works for any service-based business that relies on trust and local visibility. We regularly build high-converting sites for law firms, consultants, home service companies, and B2B agencies.
-              </p>
-              <a
-                href="/get-started"
-                className="inline-flex items-center gap-2 text-orange font-sans font-semibold hover:underline"
-              >
-                Let's talk about your business →
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
       <section className="bg-navy py-16 px-6 border-t border-gunmetal md:hidden">
         <div className="max-w-md mx-auto">
@@ -221,7 +200,7 @@ export default function Pricing() {
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">What You're Actually Paying For</p>
             <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">Your Monthly Fee, Broken Down</h2>
             <p className="text-slate-600 text-lg font-sans max-w-2xl mx-auto leading-relaxed">
-              Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your practice every single day.
+              Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your business every single day.
             </p>
           </ScrollReveal>
 

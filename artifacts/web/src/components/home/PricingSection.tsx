@@ -5,8 +5,8 @@ import { PRICING_TIERS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const PLAN_FOR_LABELS: Record<string, string> = {
-  Starter: "Solo Provider",
-  Growth: "Growing Practice",
+  Starter: "Solo Operators",
+  Growth: "Growing Teams",
   Scale: "Multi-Location",
   Custom: "Beyond Standard",
 };
@@ -40,7 +40,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
               Simple, Transparent Pricing
             </h2>
             <p className="text-stone text-lg font-sans max-w-2xl mx-auto leading-relaxed">
-              A one-time site development fee, then a flat monthly rate. No surprises. No long-term contracts. Not sure which plan fits your practice? Book a free review and we'll recommend the right one.
+              A one-time site development fee, then a flat monthly rate. No surprises. No long-term contracts. Not sure which plan fits your business? Book a free review and we'll recommend the right one.
             </p>
           </ScrollReveal>
         )}
@@ -64,7 +64,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
                   "text-[10px] font-sans font-bold uppercase tracking-widest mb-2",
                   tier.popular ? "text-orange" : "text-orange/80"
                 )}>
-                  For {PLAN_FOR_LABELS[tier.name] || "Your Practice"}
+                  For {PLAN_FOR_LABELS[tier.name] || "Your Business"}
                 </p>
                 <h3 className={cn("text-2xl font-display mb-2", tier.popular ? "text-offwhite" : "text-charcoal")}>{tier.name}</h3>
                 <p className="text-stone text-sm mb-5 min-h-[60px]">{tier.description}</p>
@@ -157,7 +157,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
 
         <ScrollReveal delay={0.5} className="mt-16 text-center">
           <p className="text-charcoal font-sans font-semibold mb-3">
-            Not sure which plan is right? Get a free homepage demo and we'll tell you exactly what your practice needs.
+            Not sure which plan is right? Get a free homepage demo and we'll tell you exactly what your business needs.
           </p>
           <p className="text-charcoal/70 text-sm font-sans max-w-2xl mx-auto leading-relaxed">
             All plans include hosting, SSL, mobile optimization, dashboard access, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime with 30 days' notice. Client retains domain and all content.

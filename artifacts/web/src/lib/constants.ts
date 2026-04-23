@@ -3,7 +3,7 @@ export const PRICING_TIERS = [
     name: "Starter",
     price: "$199",
     setup: "$799 one-time setup",
-    description: "For solo practitioners and independent businesses. Whether you're a single-provider clinic, a solo CPA, or an independent consultant, this is the professional foundation that builds trust and brings in new clients.",
+    description: "For solo operators and independent businesses. The professional foundation that builds trust, ranks locally, and brings in new clients.",
     features: [
       "Custom 8-Page Website",
       "Mobile-First Professional Design",
@@ -24,10 +24,10 @@ export const PRICING_TIERS = [
     price: "$299",
     setup: "$999 one-time setup",
     popular: true,
-    description: "For growing teams and small firms. Perfect for multi-provider practices, accounting firms, and local service businesses that need more visibility, more pages, and a stronger local SEO foundation.",
+    description: "For growing teams and small firms that need more visibility, more pages, and a stronger local SEO foundation.",
     features: [
       "Custom 15-Page Website",
-      "Multiple Provider Bio Pages (up to 5)",
+      "Team / About Pages (up to 5)",
       "10 SEO-Optimized Funnel Pages",
       "Enhanced Lead Capture Form",
       "Full Local SEO Implementation",
@@ -41,10 +41,10 @@ export const PRICING_TIERS = [
     name: "Scale",
     price: "$449",
     setup: "$1,499 one-time setup",
-    description: "For established and multi-location businesses. Built for large practices, regional firms, and organizations that demand maximum visibility, advanced analytics, and dedicated account management.",
+    description: "For established and multi-location businesses that demand maximum visibility, advanced analytics, and dedicated account management.",
     features: [
       "Custom 20+ Page Website",
-      "Up to 10 Provider Bio Pages",
+      "Team / About Pages (up to 10)",
       "20 SEO-Optimized Funnel Pages",
       "Multi-Location SEO Strategy",
       "Advanced Analytics & Reporting",
@@ -58,7 +58,7 @@ export const PRICING_TIERS = [
   },
   {
     name: "Custom",
-    description: "For practices with unique needs that go beyond our standard plans.",
+    description: "For businesses with unique needs that go beyond our standard plans.",
     isCustom: true,
     features: [
       "Everything in Scale",
@@ -98,7 +98,7 @@ export const FAQS = [
       },
       {
         q: "What information do you need from me to get started?",
-        a: "Not much \u2014 we do most of the heavy lifting. We\u2019ll ask for:\n\n\u2022 Your logo (or we can discuss a simple logo refresh)\n\u2022 Any photos of your team, workspace, or office (or we\u2019ll use professional stock imagery)\n\u2022 Your practice name, services, service area, and contact details\n\u2022 Provider bios and headshots (for Growth and Scale plans)\n\u2022 Any existing content you\u2019d like to keep\n\u2022 Domain access credentials (or the ability to point DNS)\n\u2022 Current hosting login, if applicable\n\nWe\u2019ll send you a short intake form after your review call to gather everything we need."
+        a: "Not much \u2014 we do most of the heavy lifting. We\u2019ll ask for:\n\n\u2022 Your logo (or we can discuss a simple logo refresh)\n\u2022 Any photos of your team, workspace, or office (or we\u2019ll use professional stock imagery)\n\u2022 Your business name, services, service area, and contact details\n\u2022 Team bios and headshots (for Growth and Scale plans)\n\u2022 Any existing content you\u2019d like to keep\n\u2022 Domain access credentials (or the ability to point DNS)\n\u2022 Current hosting login, if applicable\n\nWe\u2019ll send you a short intake form after your review call to gather everything we need."
       }
     ]
   },
@@ -154,7 +154,7 @@ export const FAQS = [
       },
       {
         q: "Can I expand my website later if my practice grows?",
-        a: "Absolutely. You can upgrade your plan at any time \u2014 from Starter to Growth, or Growth to Scale \u2014 and we can add new pages, provider bios, service areas, or other features as your needs evolve.\n\nFor practices with unique requirements, our Custom plan offers tailored solutions. Just reach out and let us know what you need. We\u2019ll scope it out and give you a clear quote if it falls outside your current plan\u2019s scope."
+        a: "Absolutely. You can upgrade your plan at any time \u2014 from Starter to Growth, or Growth to Scale \u2014 and we can add new pages, team bios, service areas, or other features as your needs evolve.\n\nFor businesses with unique requirements, our Custom plan offers tailored solutions. Just reach out and let us know what you need. We\u2019ll scope it out and give you a clear quote if it falls outside your current plan\u2019s scope."
       },
       {
         q: "Do you work with medical practices? Are your forms HIPAA compliant?",
