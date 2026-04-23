@@ -189,6 +189,7 @@ const data: IndustryPageData = {
     button: "Get a Free Demo",
   },
   showPrivacyNote: true,
+  showLeadMagnet: true,
   relatedPages: [
     { name: "Optometrists", path: "/websites-for-optometrists" },
     { name: "Physicians", path: "/websites-for-physicians" },

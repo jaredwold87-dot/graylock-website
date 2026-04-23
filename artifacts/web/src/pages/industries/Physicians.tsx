@@ -192,6 +192,7 @@ const data: IndustryPageData = {
     button: "Get a Free Demo",
   },
   showPrivacyNote: true,
+  showLeadMagnet: true,
   relatedPages: [
     { name: "Dentists", path: "/websites-for-dentists" },
     { name: "Dermatologists", path: "/websites-for-dermatologists" },

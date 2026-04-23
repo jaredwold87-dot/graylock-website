@@ -9,7 +9,6 @@ import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiat
 import { CaseStudySection } from "@/components/home/CaseStudySection";
 import { DashboardSection } from "@/components/home/DashboardSection";
 import { PricingSnapshotSection } from "@/components/home/PricingSnapshotSection";
-import { LeadMagnetSection } from "@/components/home/LeadMagnetSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export default function Home() {
@@ -31,7 +30,6 @@ export default function Home() {
       <DashboardSection />
       <PricingSnapshotSection />
       <FinalCTASection />
-      <LeadMagnetSection />
     </>
   );
 }

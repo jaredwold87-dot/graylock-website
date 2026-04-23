@@ -191,6 +191,7 @@ const data: IndustryPageData = {
     button: "Get a Free Demo",
   },
   showPrivacyNote: true,
+  showLeadMagnet: true,
   relatedPages: [
     { name: "Therapists & Counselors", path: "/websites-for-therapists" },
     { name: "Physicians", path: "/websites-for-physicians" },

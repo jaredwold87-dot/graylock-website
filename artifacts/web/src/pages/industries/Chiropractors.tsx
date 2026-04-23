@@ -189,6 +189,7 @@ const data: IndustryPageData = {
     button: "Get a Free Demo",
   },
   showPrivacyNote: true,
+  showLeadMagnet: true,
   relatedPages: [
     { name: "Physical Therapists", path: "/websites-for-physical-therapists" },
     { name: "Physicians", path: "/websites-for-physicians" },

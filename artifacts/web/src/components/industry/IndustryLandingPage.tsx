@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { LeadMagnetSection } from "@/components/home/LeadMagnetSection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
@@ -62,6 +63,7 @@ export interface IndustryPageData {
   };
   pricingHeadline?: string;
   showPrivacyNote?: boolean;
+  showLeadMagnet?: boolean;
   relatedPages: { name: string; path: string }[];
   schema: object;
 }
@@ -494,6 +496,8 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
           </div>
         </div>
       </section>
+
+      {data.showLeadMagnet && <LeadMagnetSection />}
 
       <section className="bg-orange py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-3xl mx-auto text-center">
