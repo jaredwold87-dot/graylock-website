@@ -498,6 +498,24 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-6">
+              <Link
+                href="/"
+                className={cn(
+                  "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative",
+                  location === "/"
+                    ? "text-orange"
+                    : "text-offwhite/90 hover:text-orange"
+                )}
+              >
+                Home
+                <span
+                  className={cn(
+                    "absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300",
+                    location === "/" ? "w-full" : "w-0"
+                  )}
+                />
+              </Link>
+
               <ServicesMegaMenu
                 isActive={isServicesActive}
                 location={location}
@@ -556,6 +574,18 @@ export function Navbar() {
         )}
       >
         <div className="flex flex-col items-center gap-6 text-center pb-12 w-full px-6">
+          <Link
+            href="/"
+            className={cn(
+              "text-2xl font-display uppercase tracking-widest",
+              location === "/"
+                ? "text-orange"
+                : "text-offwhite hover:text-orange transition-colors"
+            )}
+          >
+            Home
+          </Link>
+
           <MobileAccordion
             label="Services"
             items={SERVICES.map((s) => ({ name: s.name, path: s.path }))}
