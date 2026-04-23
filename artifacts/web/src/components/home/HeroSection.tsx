@@ -113,7 +113,7 @@ export function HeroSection() {
               <span className="text-gradient">Your Best Source of New Clients.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
-              We build custom client-acquisition websites for private practices, accounting firms, and industrial & construction companies. Live in 7 days, built to rank locally and turn visitors into booked work.
+              Custom, mobile-first websites for private practices and service businesses. Live in 7–10 days. Built to turn traffic into booked appointments.
             </p>
 
             {/* Mobile-only sequence: reassurance → CTA → bullets → proof image */}

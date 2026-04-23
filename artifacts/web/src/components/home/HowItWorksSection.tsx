@@ -6,23 +6,18 @@ export function HowItWorksSection() {
   const steps = [
     {
       num: "01",
-      title: "Book a Free Call",
-      desc: "We learn about your business, your audience, and your current website.",
+      title: "Book a 15-Minute Call",
+      desc: "Quick conversation about your business and what's not working on your current site.",
     },
     {
       num: "02",
-      title: "Get a Professional Review",
-      desc: "We show you what is working, what is not, and where your site is costing you trust or leads.",
+      title: "Get a Free Custom Demo",
+      desc: "We design a real homepage concept so you can see the strategy before committing.",
     },
     {
       num: "03",
-      title: "See a Custom Homepage Demo",
-      desc: "We create a homepage concept so you can see the strategy before committing.",
-    },
-    {
-      num: "04",
-      title: "Decide if You Want to Move Forward",
-      desc: "If it feels right, we build and launch. If not, you still leave with clarity.",
+      title: "Decide to Launch",
+      desc: "Love it? We build and launch in 7–10 days. Not for you? Walk away with clarity.",
     },
   ];
 
@@ -50,8 +45,8 @@ export function HowItWorksSection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 mb-20 relative">
-          <div className="hidden lg:block absolute top-10 left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 z-0" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-6 mb-20 relative">
+          <div className="hidden lg:block absolute top-10 left-[16%] right-[16%] h-[2px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 z-0" />
 
           {steps.map((step, i) => (
             <ScrollReveal key={i} delay={i * 0.15} className="relative z-10 flex flex-col items-center text-center">
@@ -76,7 +71,7 @@ export function HowItWorksSection() {
         </div>
 
         <ScrollReveal delay={0.6} className="text-center">
-          <CTAButton href="/get-started">Schedule a Free Consultation</CTAButton>
+          <CTAButton href="/get-started">Get Your Free Homepage Demo</CTAButton>
         </ScrollReveal>
       </div>
     </section>

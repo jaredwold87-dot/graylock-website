@@ -8,18 +8,18 @@ export function ProblemSection() {
   const problems = [
     {
       icon: <Award size={20} />,
-      title: "Your website does not reflect your expertise",
-      desc: "If your website looks outdated or generic, potential clients may question the quality of your business before they ever contact you.",
+      title: "It doesn't reflect your expertise",
+      desc: "An outdated or generic site makes prospects question your quality before they ever call.",
     },
     {
       icon: <MessageSquareWarning size={20} />,
       title: "Your message is unclear",
-      desc: "If visitors cannot quickly understand what you do, who you help, and why you are different, they leave and choose someone easier to understand.",
+      desc: "If visitors can't see what you do and who you help in seconds, they leave.",
     },
     {
       icon: <TrendingDown size={20} />,
-      title: "Your site is not converting",
-      desc: "Even if people find your website, weak structure, poor mobile experience, and unclear calls to action can quietly cost you leads every month.",
+      title: "It isn't converting traffic",
+      desc: "Weak structure, poor mobile UX, and unclear CTAs quietly cost you leads every month.",
     },
   ];
 
