@@ -45,7 +45,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">COMPANY</h4>
+          <h4 className="font-display text-white text-lg mb-6 tracking-wide">COMPANY</h4>
           <ul className="space-y-4 flex flex-col">
             <Link href="/how-it-works" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">How It Works</Link>
             <Link href="/pricing" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Pricing</Link>
@@ -53,38 +53,31 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-2">
-          <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">WHO WE HELP</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div>
-              <p className="text-orange font-sans font-bold text-[10px] uppercase tracking-widest mb-4">
-                Local Service Businesses
-              </p>
-              <ul className="space-y-3 flex flex-col">
-                <Link href="/websites-for-home-builders" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Home Builders</Link>
-                <Link href="/websites-for-industrial-construction" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Industrial Construction</Link>
-                <Link href="/websites-for-accountants" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Accounting Firms</Link>
-                <Link href="/other-service-businesses" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Other Local Service Businesses</Link>
-              </ul>
-            </div>
-            <div>
-              <p className="text-orange font-sans font-bold text-[10px] uppercase tracking-widest mb-4">
-                Healthcare Practices
-              </p>
-              <ul className="space-y-3 flex flex-col">
-                <Link href="/websites-for-psychologists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Psychologists</Link>
-                <Link href="/websites-for-optometrists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Optometrists</Link>
-                <Link href="/websites-for-physical-therapists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physical Therapists</Link>
-                <Link href="/websites-for-dentists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Dentists</Link>
-                <Link href="/websites-for-chiropractors" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Chiropractors</Link>
-                <Link href="/websites-for-physicians" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physicians</Link>
-              </ul>
-            </div>
+        <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <h4 className="font-display text-white text-lg mb-6 tracking-wide">LOCAL SERVICE BUSINESSES</h4>
+            <ul className="space-y-4 flex flex-col">
+              <Link href="/websites-for-home-builders" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Home Builders</Link>
+              <Link href="/websites-for-industrial-construction" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Industrial Construction</Link>
+              <Link href="/websites-for-accountants" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Accounting Firms</Link>
+              <Link href="/other-service-businesses" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Other Local Service Businesses</Link>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-display text-white text-lg mb-6 tracking-wide">HEALTHCARE PRACTICES</h4>
+            <ul className="space-y-4 flex flex-col">
+              <Link href="/websites-for-psychologists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Psychologists</Link>
+              <Link href="/websites-for-optometrists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Optometrists</Link>
+              <Link href="/websites-for-physical-therapists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physical Therapists</Link>
+              <Link href="/websites-for-dentists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Dentists</Link>
+              <Link href="/websites-for-chiropractors" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Chiropractors</Link>
+              <Link href="/websites-for-physicians" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physicians</Link>
+            </ul>
           </div>
         </div>
 
         <div>
-          <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">OUR STRATEGY</h4>
+          <h4 className="font-display text-white text-lg mb-6 tracking-wide">OUR STRATEGY</h4>
           <ul className="space-y-4 flex flex-col">
             <Link href="/our-strategy" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Strategy Overview</Link>
             <Link href="/website-design" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Website Design</Link>
@@ -96,7 +89,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display text-offwhite text-lg mb-6 tracking-wide">SUPPORT</h4>
+          <h4 className="font-display text-white text-lg mb-6 tracking-wide">SUPPORT</h4>
           <ul className="space-y-4 flex flex-col">
             <Link href="/faq" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">FAQ</Link>
             <Link href="/get-started" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Contact</Link>
