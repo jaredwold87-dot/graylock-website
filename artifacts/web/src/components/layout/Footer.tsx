@@ -79,7 +79,6 @@ export function Footer() {
             <Link href="/our-strategy" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Strategy Overview</Link>
             <Link href="/website-design" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Website Design</Link>
             <Link href="/seo-for-small-business" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">SEO</Link>
-            <Link href="/geo-generative-engine-optimization" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">GEO</Link>
             <Link href="/funnel-pages" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Funnel Pages</Link>
             <Link href="/google-business-profile" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Google Business Profile</Link>
             <Link href="/lead-generation-for-small-business" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Lead Generation</Link>

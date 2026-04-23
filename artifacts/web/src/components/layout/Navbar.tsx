@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import {
   Menu, X, ChevronDown,
-  Palette, Search, Sparkles, MousePointerClick, MapPin, Magnet,
+  Palette, Search, MousePointerClick, MapPin, Magnet,
   Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, Calculator, Briefcase, HardHat,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -19,12 +19,6 @@ const SERVICES = [
     name: "Local SEO",
     desc: "Rank in your city. Show up on Google Maps.",
     path: "/seo-for-small-business",
-  },
-  {
-    icon: Sparkles,
-    name: "GEO — AI Search",
-    desc: "Get cited by ChatGPT, Perplexity, Gemini.",
-    path: "/geo-generative-engine-optimization",
   },
   {
     icon: MousePointerClick,
@@ -69,7 +63,6 @@ const OUR_STRATEGY = [
   { name: "Strategy Overview", path: "/our-strategy" },
   { name: "Website Design", path: "/website-design" },
   { name: "SEO", path: "/seo-for-small-business" },
-  { name: "GEO", path: "/geo-generative-engine-optimization" },
   { name: "Funnel Pages", path: "/funnel-pages" },
   { name: "Google Business Profiles", path: "/google-business-profile" },
   { name: "Lead Generation", path: "/lead-generation-for-small-business" },

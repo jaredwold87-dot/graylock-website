@@ -39,7 +39,6 @@ const LocalServiceBusinesses = lazy(() => import("@/pages/industries/LocalServic
 const OurStrategy = lazy(() => import("@/pages/strategy/OurStrategy"));
 const WebsiteDesign = lazy(() => import("@/pages/strategy/WebsiteDesign"));
 const SEOPage = lazy(() => import("@/pages/strategy/SEO"));
-const GEOPage = lazy(() => import("@/pages/strategy/GEO"));
 const FunnelPagesPage = lazy(() => import("@/pages/strategy/FunnelPages"));
 const GoogleBusinessProfilePage = lazy(() => import("@/pages/strategy/GoogleBusinessProfile"));
 const LeadGenerationPage = lazy(() => import("@/pages/strategy/LeadGeneration"));
@@ -89,7 +88,6 @@ function Router() {
         <Route path="/our-strategy" component={OurStrategy} />
         <Route path="/website-design" component={WebsiteDesign} />
         <Route path="/seo-for-small-business" component={SEOPage} />
-        <Route path="/geo-generative-engine-optimization" component={GEOPage} />
         <Route path="/funnel-pages" component={FunnelPagesPage} />
         <Route path="/google-business-profile" component={GoogleBusinessProfilePage} />
         <Route path="/lead-generation-for-small-business" component={LeadGenerationPage} />
@@ -98,7 +96,6 @@ function Router() {
 
         <Route path="/our-work">{() => <Redirect to="/work" />}</Route>
         <Route path="/strategy">{() => <Redirect to="/our-strategy" />}</Route>
-        <Route path="/geo">{() => <Redirect to="/geo-generative-engine-optimization" />}</Route>
         <Route path="/terms">{() => <Redirect to="/terms-of-service" />}</Route>
         <Route path="/privacy">{() => <Redirect to="/privacy-policy" />}</Route>
 

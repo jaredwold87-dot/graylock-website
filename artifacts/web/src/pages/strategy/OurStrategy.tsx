@@ -6,7 +6,6 @@ import { Link } from "wouter";
 import {
   Palette,
   Search,
-  Bot,
   Layers,
   MapPin,
   Target,
@@ -60,13 +59,6 @@ const STRATEGY_TIERS: StrategyTier[] = [
         linkText: "How we rank you on Google",
       },
       {
-        name: "GEO",
-        path: "/geo-generative-engine-optimization",
-        description: "The emerging practice of getting your business recommended by ChatGPT, Google AI Overviews, and Perplexity.",
-        icon: Bot,
-        linkText: "How we get you into AI answers",
-      },
-      {
         name: "Funnel Pages",
         path: "/funnel-pages",
         description: "Targeted landing pages that rank for specific services and locations — and convert searchers into leads.",
@@ -104,7 +96,7 @@ export default function OurStrategy() {
     <>
       <SEO
         title="Our Digital Strategy for Professional Practices | Graylock Digital"
-        description="Graylock's complete approach to getting professional practices found online — website design, SEO, GEO, funnel pages, Google Business Profiles, and lead generation."
+        description="Graylock's complete approach to getting professional practices found online — website design, SEO, funnel pages, Google Business Profiles, and lead generation."
         url="https://graylockdigital.com/our-strategy"
       />
 

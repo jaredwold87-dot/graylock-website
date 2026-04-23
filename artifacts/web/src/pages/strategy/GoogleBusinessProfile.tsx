@@ -132,11 +132,6 @@ const data: StrategyPageData = {
         description:
           "Many businesses leave GBP Services, Attributes, and Q&A sections empty — missing major ranking and conversion opportunities. Services lists exactly what you offer (with descriptions). Attributes let you highlight features like 'veteran-owned', 'women-led', or 'LGBTQ+ friendly'. Q&A lets you pre-answer common client questions. All three should be completely filled out.",
       },
-      {
-        title: "GBP and AI Recommendations",
-        description:
-          "Google AI Overviews draw heavily from GBP data when generating local recommendations. A complete, review-rich, recently updated GBP is one of the strongest signals you can send to Google's AI that your business is a trustworthy local authority. This is why GBP optimization is now a GEO strategy, not just an SEO strategy.",
-      },
     ],
   },
   commonMistakes: {
@@ -207,8 +202,8 @@ const data: StrategyPageData = {
   },
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },
-    { name: "GEO", path: "/geo-generative-engine-optimization" },
     { name: "Lead Generation", path: "/lead-generation-for-small-business" },
+    { name: "Funnel Pages", path: "/funnel-pages" },
     { name: "All Strategy", path: "/our-strategy" },
   ],
   schema: {
