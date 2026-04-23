@@ -13,6 +13,7 @@ const data: StrategyPageData = {
       "Conversion-focused website design for professional practices — therapists, dentists, physicians, CPAs. What separates sites that convert from ones that don't.",
     url: "https://graylockdigital.com/website-design",
   },
+  breadcrumbLabel: "Website Design",
   hero: {
     h1: "Your Website Is Either Making You Money or Costing You Business",
     subheadline:

@@ -19,6 +19,7 @@ const data: StrategyPageData = {
       "GEO is SEO for the AI era. Learn how to get your business recommended by ChatGPT, Google AI Overviews, and Perplexity — and why it matters for your leads.",
     url: "https://graylockdigital.com/geo-generative-engine-optimization",
   },
+  breadcrumbLabel: "Generative Engine Optimization",
   hero: {
     h1: "Your Future Clients Are Asking ChatGPT for Recommendations. Are You In the Answer?",
     subheadline:

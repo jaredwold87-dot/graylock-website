@@ -13,6 +13,7 @@ const data: StrategyPageData = {
       "Your Google Business Profile is the most powerful free tool for local visibility. How to optimize it and why Graylock sets it up on Growth and Scale plans.",
     url: "https://graylockdigital.com/google-business-profile",
   },
+  breadcrumbLabel: "Google Business Profile",
   hero: {
     h1: "When Locals Search 'Near Me,' Your Practice Should Be the One They Tap.",
     subheadline:

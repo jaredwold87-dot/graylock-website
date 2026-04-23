@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for physical therapists and PT clinics. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-physical-therapists",
   },
+  breadcrumbLabel: "Physical Therapists",
   hero: {
     badge: "For Physical Therapists",
     badgeIcon: Dumbbell,

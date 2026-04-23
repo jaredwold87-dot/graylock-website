@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for chiropractors and chiropractic clinics. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-chiropractors",
   },
+  breadcrumbLabel: "Chiropractors",
   hero: {
     badge: "For Chiropractors",
     badgeIcon: Bone,

@@ -1,4 +1,5 @@
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
@@ -12,6 +13,7 @@ export interface StrategyPageData {
     description: string;
     url: string;
   };
+  breadcrumbLabel: string;
   hero: {
     h1: string;
     subheadline: string;
@@ -130,6 +132,19 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
         )}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/3 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto relative z-10 mb-8">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Strategy", path: "/our-strategy" },
+              {
+                name: data.breadcrumbLabel,
+                path: data.seo.url.replace("https://graylockdigital.com", ""),
+              },
+            ]}
+          />
+        </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>

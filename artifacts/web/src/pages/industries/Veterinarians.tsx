@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for veterinarians and animal hospitals. Local SEO, appointment request forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-veterinarians",
   },
+  breadcrumbLabel: "Veterinarians",
   hero: {
     badge: "For Veterinarians",
     badgeIcon: PawPrint,

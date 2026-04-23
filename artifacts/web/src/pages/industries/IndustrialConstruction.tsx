@@ -16,6 +16,7 @@ const data: IndustryPageData = {
       "Custom websites for general contractors, industrial services, manufacturing, and trades. Project galleries, RFQ forms, built in 7–10 business days.",
     url: "https://graylockdigital.com/websites-for-industrial-construction",
   },
+  breadcrumbLabel: "Industrial Construction",
   hero: {
     badge: "For Industrial & Construction",
     badgeIcon: HardHat,

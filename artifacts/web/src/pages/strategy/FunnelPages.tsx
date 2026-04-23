@@ -14,6 +14,7 @@ const data: StrategyPageData = {
       "Funnel pages are targeted landing pages that convert searchers into leads. Why they matter for professional practices and how Graylock builds them in.",
     url: "https://graylockdigital.com/funnel-pages",
   },
+  breadcrumbLabel: "Funnel Pages",
   hero: {
     h1: "The Clients Searching for Exactly What You Offer Aren't Finding You.",
     subheadline:

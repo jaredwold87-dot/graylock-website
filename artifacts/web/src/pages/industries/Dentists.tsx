@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for dentists and dental practices. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-dentists",
   },
+  breadcrumbLabel: "Dentists",
   hero: {
     badge: "For Dentists",
     badgeIcon: Smile,

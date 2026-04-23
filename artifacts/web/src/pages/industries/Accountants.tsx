@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for CPAs, accountants, and tax professionals. Local SEO, client inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-accountants",
   },
+  breadcrumbLabel: "Accountants",
   hero: {
     badge: "For CPAs & Accounting Firms",
     badgeIcon: Calculator,

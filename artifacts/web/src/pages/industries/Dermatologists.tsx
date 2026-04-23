@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for dermatologists and dermatology practices. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-dermatologists",
   },
+  breadcrumbLabel: "Dermatologists",
   hero: {
     badge: "For Dermatologists",
     badgeIcon: Sparkles,

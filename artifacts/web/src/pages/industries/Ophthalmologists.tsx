@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for ophthalmologists and eye surgery centers. LASIK and cataract pages, local SEO, patient inquiry forms in 7–10 business days.",
     url: "https://graylockdigital.com/websites-for-ophthalmologists",
   },
+  breadcrumbLabel: "Ophthalmologists",
   hero: {
     badge: "For Ophthalmologists",
     badgeIcon: Eye,

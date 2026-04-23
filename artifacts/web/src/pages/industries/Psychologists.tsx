@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for psychologists and psychology practices. Local SEO, client inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-psychologists",
   },
+  breadcrumbLabel: "Psychologists",
   hero: {
     badge: "For Psychologists",
     badgeIcon: Brain,

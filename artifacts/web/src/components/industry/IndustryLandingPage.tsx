@@ -1,4 +1,5 @@
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
@@ -19,6 +20,7 @@ export interface IndustryPageData {
     description: string;
     url: string;
   };
+  breadcrumbLabel: string;
   hero: {
     badge: string;
     badgeIcon: LucideIcon;
@@ -146,6 +148,19 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
           );
         })()}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange/5 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10 mb-8">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Industries" },
+              {
+                name: data.breadcrumbLabel,
+                path: data.seo.url.replace("https://graylockdigital.com", ""),
+              },
+            ]}
+          />
+        </div>
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
           <ScrollReveal>

@@ -14,6 +14,7 @@ const data: StrategyPageData = {
       "How SEO works for private practices — metadata, backlinks, local search, content, and technical SEO. Graylock builds SEO-ready sites for therapists and CPAs.",
     url: "https://graylockdigital.com/seo-for-small-business",
   },
+  breadcrumbLabel: "SEO for Small Business",
   hero: {
     h1: "Show Up When Your Ideal Clients Are Already Searching for You",
     subheadline:

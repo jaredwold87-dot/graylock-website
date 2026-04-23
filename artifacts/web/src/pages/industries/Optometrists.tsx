@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for optometrists and eye care practices. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-optometrists",
   },
+  breadcrumbLabel: "Optometrists",
   hero: {
     badge: "For Optometrists",
     badgeIcon: Glasses,

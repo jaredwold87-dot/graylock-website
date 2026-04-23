@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for physicians and medical practices. Local SEO, patient inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-physicians",
   },
+  breadcrumbLabel: "Physicians",
   hero: {
     badge: "For Physicians",
     badgeIcon: Stethoscope,

@@ -13,6 +13,7 @@ const data: StrategyPageData = {
       "How professional practices turn website visitors into enquiries, calls, and booked appointments — the lead-gen strategies Graylock uses for clients.",
     url: "https://graylockdigital.com/lead-generation-for-small-business",
   },
+  breadcrumbLabel: "Lead Generation",
   hero: {
     h1: "Getting Traffic but No New Clients? Your Website Is the Bottleneck.",
     subheadline:

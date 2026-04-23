@@ -21,6 +21,7 @@ const data: IndustryPageData = {
       "Custom websites for therapists and counselors. Local SEO, client inquiry forms, built in 7–10 business days. No long-term contracts.",
     url: "https://graylockdigital.com/websites-for-therapists",
   },
+  breadcrumbLabel: "Therapists & Counselors",
   hero: {
     badge: "For Therapists & Counselors",
     badgeIcon: HeartHandshake,
