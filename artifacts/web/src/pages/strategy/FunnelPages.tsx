@@ -80,7 +80,7 @@ const data: StrategyPageData = {
       {
         title: "One page per high-value service or location",
         description:
-          "Starter includes 8 pages, Growth includes 15 pages (plus 10 SEO funnel pages), Scale includes 20+ pages (plus 20 SEO funnel pages).",
+          "Starter includes 8 pages, Growth includes 15 pages (plus 6 SEO funnel pages), Scale includes 20+ pages (plus 9 SEO funnel pages).",
       },
       {
         title: "Optimized page structure",
@@ -141,7 +141,7 @@ const data: StrategyPageData = {
       {
         mistake: "Only having a homepage",
         cost: "Can't rank for any specific service or location searches",
-        fix: "Growth plan includes 10 SEO funnel pages; Scale includes 20",
+        fix: "Growth plan includes 6 SEO funnel pages; Scale includes 9",
       },
       {
         mistake: "Duplicate content across service pages",
@@ -172,7 +172,7 @@ const data: StrategyPageData = {
     },
     {
       q: "How many funnel pages does my business need?",
-      a: "It depends on how many services you offer and how many locations you serve. As a starting point: one page per major service + one page per main service area. Our Growth plan includes 10 SEO funnel pages, Scale includes 20, and Custom plans allow unlimited pages.",
+      a: "It depends on how many services you offer and how many locations you serve. As a starting point: one page per major service + one page per main service area. Our Growth plan includes 6 SEO funnel pages, Scale includes 9, and Custom plans allow unlimited pages.",
     },
     {
       q: "Can my homepage rank for everything without funnel pages?",
@@ -188,7 +188,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does every Graylock plan include funnel pages?",
-      a: "Yes. Starter includes a custom 8-page website. Growth includes a 15-page website plus 10 SEO-optimized funnel pages. Scale includes a 20+ page website plus 20 SEO funnel pages. Custom plans support unlimited pages.",
+      a: "Yes. Starter includes a custom 8-page website. Growth includes a 15-page website plus 6 SEO-optimized funnel pages. Scale includes a 20+ page website plus 9 SEO funnel pages. Custom plans support unlimited pages.",
     },
   ],
   bottomCta: {
@@ -222,7 +222,7 @@ const data: StrategyPageData = {
         name: "How many funnel pages does my business need?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "One page per major service plus one page per main service area. Growth plan includes 10 SEO funnel pages, Scale includes 20.",
+          text: "One page per major service plus one page per main service area. Growth plan includes 6 SEO funnel pages, Scale includes 9.",
         },
       },
       {
@@ -230,7 +230,7 @@ const data: StrategyPageData = {
         name: "Does every Graylock plan include funnel pages?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Starter includes 8 pages. Growth includes 15 pages plus 10 SEO funnel pages. Scale includes 20+ pages plus 20 SEO funnel pages.",
+          text: "Yes. Starter includes 8 pages. Growth includes 15 pages plus 6 SEO funnel pages. Scale includes 20+ pages plus 9 SEO funnel pages.",
         },
       },
     ],

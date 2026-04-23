@@ -28,7 +28,7 @@ export const PRICING_TIERS = [
     features: [
       "Custom 15-Page Website",
       "Team / About Pages (up to 5)",
-      "10 SEO-Optimized Funnel Pages",
+      "6 SEO-Optimized Funnel Pages",
       "Enhanced Lead Capture Form",
       "Full Local SEO Implementation",
       "Dedicated Account Manager",
@@ -45,7 +45,7 @@ export const PRICING_TIERS = [
     features: [
       "Custom 20+ Page Website",
       "Team / About Pages (up to 10)",
-      "20 SEO-Optimized Funnel Pages",
+      "9 SEO-Optimized Funnel Pages",
       "Multi-Location SEO Strategy",
       "Advanced Analytics & Reporting",
       "Custom Integrations (Calendly, scheduling, etc.)",
@@ -182,11 +182,11 @@ export const FAQS = [
     questions: [
       {
         q: "What is a funnel page?",
-        a: "A funnel page is a focused, standalone page on your website designed to attract visitors searching for a specific service in a specific location \u2014 and guide them toward taking action (like calling you or filling out a form).\n\nUnlike a general \u201cServices\u201d page that lists everything, a funnel page zeroes in on one thing \u2014 for example, \u201cAnxiety Therapist in Austin\u201d or \u201cCPA in Phoenix.\u201d It\u2019s written, structured, and optimized to rank for that exact search term.\n\nThe word \u201cfunnel\u201d comes from the idea that these pages funnel the right people \u2014 those already searching for what you offer \u2014 toward becoming a lead. They\u2019re one of the most effective ways to get found on Google without paying for ads.\n\nThe Growth plan includes 10 funnel pages, and the Scale plan includes 20."
+        a: "A funnel page is a focused, standalone page on your website designed to attract visitors searching for a specific service in a specific location \u2014 and guide them toward taking action (like calling you or filling out a form).\n\nUnlike a general \u201cServices\u201d page that lists everything, a funnel page zeroes in on one thing \u2014 for example, \u201cAnxiety Therapist in Austin\u201d or \u201cCPA in Phoenix.\u201d It\u2019s written, structured, and optimized to rank for that exact search term.\n\nThe word \u201cfunnel\u201d comes from the idea that these pages funnel the right people \u2014 those already searching for what you offer \u2014 toward becoming a lead. They\u2019re one of the most effective ways to get found on Google without paying for ads.\n\nThe Growth plan includes 6 funnel pages, and the Scale plan includes 9."
       },
       {
         q: "What are SEO funnel pages, and why do they matter?",
-        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \u201cServices\u201d page, each funnel page targets a specific search term your prospective clients are actually typing into Google.\n\nFor example, if you\u2019re a therapist in Denver, you might have individual pages for \u201canxiety therapist Denver,\u201d \u201ccouples counselor Denver,\u201d and \u201cchild psychologist Lakewood.\u201d Each page is written, structured, and optimized to rank for that exact search \u2014 giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Growth plan includes 10 funnel pages, and the Scale plan includes 20 \u2014 enough to cover your core service categories and surrounding locations."
+        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \u201cServices\u201d page, each funnel page targets a specific search term your prospective clients are actually typing into Google.\n\nFor example, if you\u2019re a therapist in Denver, you might have individual pages for \u201canxiety therapist Denver,\u201d \u201ccouples counselor Denver,\u201d and \u201cchild psychologist Lakewood.\u201d Each page is written, structured, and optimized to rank for that exact search \u2014 giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Growth plan includes 6 funnel pages, and the Scale plan includes 9 \u2014 enough to cover your core service categories and surrounding locations."
       },
       {
         q: "What\u2019s the difference between basic SEO and local SEO optimization?",

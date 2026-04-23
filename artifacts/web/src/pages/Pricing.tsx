@@ -11,7 +11,7 @@ export default function Pricing() {
   const featureRows = [
     { name: "Pages Included", solo: "8", group: "15", enterprise: "20+", custom: "Custom" },
     { name: "Team / About Pages", solo: "1", group: "Up to 5", enterprise: "Up to 10", custom: "Unlimited" },
-    { name: "SEO Funnel Pages", solo: "3", group: "10", enterprise: "20", custom: "Custom" },
+    { name: "SEO Funnel Pages", solo: "3", group: "6", enterprise: "9", custom: "Custom" },
     { name: "Mobile-First Design", solo: true, group: true, enterprise: true, custom: true },
     { name: "Hosting & SSL", solo: true, group: true, enterprise: true, custom: true },
     { name: "Google Business Profile", solo: true, group: true, enterprise: true, custom: true },
