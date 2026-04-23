@@ -68,6 +68,7 @@ export function Footer() {
               <li className="border-t border-gunmetal pt-4 mt-1 space-y-4 flex flex-col">
                 <Link href="/websites-for-accountants" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Accounting Firms</Link>
                 <Link href="/websites-for-industrial-construction" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Industrial & Construction</Link>
+                <Link href="/websites-for-home-builders" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Home Builders</Link>
               </li>
             </ul>
           </div>

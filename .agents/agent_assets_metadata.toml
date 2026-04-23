@@ -42,3 +42,15 @@ id = "2jPfrbYofElqgZe0D3Z_8"
 uri = "file://artifacts/web/public/hero-local-service-businesses.png"
 type = "image"
 title = "service business hero"
+
+[[generated]]
+id = "C_n3H3OlogGrR9xaONKsT"
+uri = "file://artifacts/web/public/hero-home-builders.png"
+type = "image"
+title = "home builders hero"
+
+[[generated]]
+id = "d9CqWSwc0qDRUiy0euCDd"
+uri = "file://artifacts/web/public/hero-home-builders-mobile.png"
+type = "image"
+title = "home builders hero mobile"

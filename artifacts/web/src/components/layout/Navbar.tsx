@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import {
   Menu, X, ChevronDown,
   Palette, Search, MousePointerClick, MapPin, Magnet,
-  Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, Calculator, Briefcase, HardHat,
+  Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, Calculator, Briefcase, HardHat, Home,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -55,6 +55,7 @@ const WHO_WE_HELP_OTHER = [
   { name: "Accounting Firms", desc: "CPAs, bookkeeping, tax & advisory.", icon: Calculator, path: "/websites-for-accountants" },
   { name: "Industrial & Construction", desc: "Contractors, trades, manufacturing.", icon: HardHat, path: "/websites-for-industrial-construction" },
   { name: "Local Service Businesses", desc: "Trust-based pros — law, finance, more.", icon: Briefcase, path: "/other-service-businesses" },
+  { name: "Home Builders", desc: "Custom homes, renovations, design-build.", icon: Home, path: "/websites-for-home-builders" },
 ];
 
 const WHO_WE_HELP_ALL = [...WHO_WE_HELP_PRACTICES, ...WHO_WE_HELP_OTHER];
