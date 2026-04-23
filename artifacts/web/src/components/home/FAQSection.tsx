@@ -30,12 +30,8 @@ const homepageFaqs = [
     a: "You own your domain, your written content, your images, and your brand assets — always. That never changes, whether you stay with us for ten years or ten months. The only thing we retain is the underlying code and hosting infrastructure, which is standard for any subscription-based web service. If you ever cancel, we package up all of your content and data, transfer your domain wherever you choose, and make sure the handoff is clean — all within 30 days, no cancellation fees. We've done it before and we do it without drama."
   },
   {
-    q: "What types of practices do you work with?",
-    a: "We specialize in websites for private practices and accounting firms — therapists, dentists, physicians, chiropractors, CPAs, and other professional service providers. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments."
-  },
-  {
-    q: "Do you only work with medical practices and accountants?",
-    a: "No. While private practices and accounting firms are our core specialties, we regularly partner with law firms, consultants, home service companies, and other local service businesses. If your business relies on building trust and generating local leads, our framework will work for you."
+    q: "What types of businesses do you work with?",
+    a: "We build websites for trust-based, local businesses — accounting firms, law firms, home builders, contractors, medical and dental practices, therapists, consultants, home service companies, and other professional service providers. If your business depends on building trust quickly and generating qualified local leads, our framework will work for you."
   }
 ];
 
