@@ -287,31 +287,6 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="bg-charcoal py-20 px-6 md:px-12 relative">
-        <div className="section-divider absolute top-0 left-0 right-0" />
-        <div className="max-w-3xl mx-auto">
-          <ScrollReveal>
-            <div className="bg-navy/60 border border-gunmetal/50 rounded-2xl p-8 md:p-10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-orange/10">
-                  <ShieldCheck className="text-orange" size={22} />
-                </div>
-                <h3 className="text-xl font-display text-offwhite">Privacy & Compliance</h3>
-              </div>
-              <p className="text-stone font-sans leading-relaxed mb-4">
-                Our inquiry forms collect contact information only — name, phone, email, and a brief message. This is how most private practice websites handle initial contact, and it's intentionally simple.
-              </p>
-              <p className="text-stone font-sans leading-relaxed mb-4">
-                If you use a HIPAA-compliant platform like SimplePractice, TherapyNotes, or Jane App, we link directly to your intake portals from your website. Your marketing site handles the first impression; your clinical tools handle everything after that.
-              </p>
-              <p className="text-stone/60 font-sans text-sm">
-                Have questions? See our <a href="/faq#privacy-compliance" className="text-orange hover:underline">Privacy & Compliance FAQ</a> for more details.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       <FAQSection />
       <FinalCTASection />
     </>
