@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import {
   Menu, X, ChevronDown,
   Palette, Search, Sparkles, MousePointerClick, MapPin, Magnet,
-  Activity, Smile, Sun, Eye, Focus, Dumbbell, Stethoscope, Brain, HeartHandshake, PawPrint, Calculator, Briefcase,
+  Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, PawPrint, Calculator, Briefcase, HardHat,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -51,18 +51,16 @@ const SERVICE_PATHS = SERVICES.map((s) => s.path).concat(["/our-strategy"]);
 const WHO_WE_HELP_PRACTICES = [
   { name: "Chiropractors", desc: "Adjustments, posture, sports recovery.", icon: Activity, path: "/websites-for-chiropractors" },
   { name: "Dentists", desc: "Family, cosmetic, implants, ortho.", icon: Smile, path: "/websites-for-dentists" },
-  { name: "Dermatologists", desc: "Medical, cosmetic & surgical care.", icon: Sun, path: "/websites-for-dermatologists" },
-  { name: "Ophthalmologists", desc: "Surgical & specialty eye care.", icon: Eye, path: "/websites-for-ophthalmologists" },
   { name: "Optometrists", desc: "Exams, contacts, frames, dry eye.", icon: Focus, path: "/websites-for-optometrists" },
   { name: "Physical Therapists", desc: "Rehab, sports, ortho & pain.", icon: Dumbbell, path: "/websites-for-physical-therapists" },
   { name: "Physicians", desc: "Family, internal & specialty practices.", icon: Stethoscope, path: "/websites-for-physicians" },
   { name: "Psychologists", desc: "Testing, therapy & evaluations.", icon: Brain, path: "/websites-for-psychologists" },
-  { name: "Therapists & Counselors", desc: "Mental health & relationship work.", icon: HeartHandshake, path: "/websites-for-therapists" },
   { name: "Veterinarians", desc: "Small animal, exotic & mobile vets.", icon: PawPrint, path: "/websites-for-veterinarians" },
 ];
 
 const WHO_WE_HELP_OTHER = [
   { name: "Accounting Firms", desc: "CPAs, bookkeeping, tax & advisory.", icon: Calculator, path: "/websites-for-accountants" },
+  { name: "Industrial & Construction", desc: "Contractors, trades, manufacturing.", icon: HardHat, path: "/websites-for-industrial-construction" },
   { name: "Other Service Businesses", desc: "Trust-based pros — law, finance, more.", icon: Briefcase, path: "/other-service-businesses" },
 ];
 

@@ -59,19 +59,17 @@ export function Footer() {
             <ul className="space-y-4 flex flex-col">
               <Link href="/websites-for-chiropractors" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Chiropractors</Link>
               <Link href="/websites-for-dentists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Dentists</Link>
-              <Link href="/websites-for-dermatologists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Dermatologists</Link>
-              <Link href="/websites-for-ophthalmologists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Ophthalmologists</Link>
               <Link href="/websites-for-optometrists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Optometrists</Link>
               <Link href="/websites-for-physical-therapists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physical Therapists</Link>
             </ul>
             <ul className="space-y-4 flex flex-col">
               <Link href="/websites-for-physicians" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physicians</Link>
               <Link href="/websites-for-psychologists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Psychologists</Link>
-              <Link href="/websites-for-therapists" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Therapists & Counselors</Link>
               <Link href="/websites-for-veterinarians" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Veterinarians</Link>
               <li className="border-t border-gunmetal pt-4 mt-1">
                 <Link href="/websites-for-accountants" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Accounting Firms</Link>
               </li>
+              <Link href="/websites-for-industrial-construction" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Industrial & Construction</Link>
             </ul>
           </div>
         </div>
