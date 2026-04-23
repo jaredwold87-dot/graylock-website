@@ -21,7 +21,7 @@ export function Footer() {
               className="h-24 w-auto group-hover:opacity-90 transition-opacity"
             />
           </Link>
-          <p className="text-offwhite/70 font-sans mt-4 max-w-xs leading-relaxed">
+          <p className="text-offwhite/85 font-sans mt-4 max-w-xs leading-relaxed">
             Custom websites for professional practices. Done for you, maintained forever.
           </p>
           {officeHours && Object.keys(officeHours).length > 0 && (
@@ -33,7 +33,7 @@ export function Footer() {
                   const h = officeHours[key];
                   if (!h) return null;
                   return (
-                    <li key={day} className="text-offwhite/70 text-xs font-sans flex justify-between gap-3">
+                    <li key={day} className="text-offwhite/85 text-xs font-sans flex justify-between gap-3">
                       <span>{day.slice(0, 3)}</span>
                       <span>{h.open ? `${h.from}–${h.to}` : "Closed"}</span>
                     </li>

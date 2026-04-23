@@ -144,7 +144,7 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
                 {data.hero.ctaButton}
               </CTAButton>
             </div>
-            <p className="text-offwhite/60 font-sans text-sm">{data.hero.ctaSubtext}</p>
+            <p className="text-offwhite/85 font-sans text-sm">{data.hero.ctaSubtext}</p>
           </ScrollReveal>
         </div>
       </section>

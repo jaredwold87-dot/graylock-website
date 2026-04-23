@@ -93,7 +93,7 @@ export function Step1BasicInfo() {
             placeholder="Austin, TX or 78701, 78702"
             className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400"
           />
-          <span className="text-slate-400 text-xs font-sans">City, State or zip code(s) where you serve clients</span>
+          <span className="text-slate-600 text-xs font-sans">City, State or zip code(s) where you serve clients</span>
           {errors.serviceArea && <span className="text-red-600 text-sm font-sans">{errors.serviceArea}</span>}
         </div>
 

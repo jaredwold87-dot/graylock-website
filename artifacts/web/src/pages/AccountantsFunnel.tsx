@@ -231,7 +231,7 @@ export default function AccountantsFunnel() {
                   <div className="w-3 h-3 rounded-full bg-red-500/60" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                   <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                  <span className="ml-3 text-stone/40 text-[10px] font-sans">
+                  <span className="ml-3 text-stone text-[10px] font-sans">
                     peakcpagroup.com
                   </span>
                 </div>
@@ -478,7 +478,7 @@ export default function AccountantsFunnel() {
                     </span>
                     <span className="text-stone font-sans text-sm">/month</span>
                   </div>
-                  <p className="text-stone/60 font-sans text-xs mb-4">
+                  <p className="text-stone font-sans text-xs mb-4">
                     {plan.setup}
                   </p>
                   <p className="text-stone font-sans text-sm mb-6 leading-relaxed">

@@ -127,7 +127,7 @@ export default function Pricing() {
         <div className="max-w-md mx-auto">
           <ScrollReveal className="text-center mb-10">
             <h2 className="text-2xl font-display text-offwhite mb-3">Compare Plan Features</h2>
-            <p className="text-stone/70 font-sans text-sm">Quick side-by-side of what is included on each plan.</p>
+            <p className="text-stone font-sans text-sm">Quick side-by-side of what is included on each plan.</p>
           </ScrollReveal>
 
           {[
@@ -195,7 +195,7 @@ export default function Pricing() {
                     <td className="p-4 font-sans text-stone">
                       {row.name}
                       {row.footnote && (
-                        <span className="block text-xs text-stone/50 mt-1 leading-snug">{row.footnote}</span>
+                        <span className="block text-xs text-stone mt-1 leading-snug">{row.footnote}</span>
                       )}
                     </td>
                     <td className="p-4 text-center">{renderCell(row.solo)}</td>

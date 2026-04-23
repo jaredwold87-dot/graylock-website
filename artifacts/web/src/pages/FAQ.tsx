@@ -438,7 +438,7 @@ export default function FAQ() {
                 See our pricing <ArrowRight size={16} />
               </Link>
             </div>
-            <p className="text-stone/70 font-sans text-sm mt-4">20-minute call · No sales pitch · Just straight answers.</p>
+            <p className="text-stone font-sans text-sm mt-4">20-minute call · No sales pitch · Just straight answers.</p>
           </ScrollReveal>
         </div>
       </section>

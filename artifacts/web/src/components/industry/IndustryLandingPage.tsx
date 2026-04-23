@@ -171,14 +171,14 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
               </CTAButton>
             </div>
             {data.hero.ctaSubtext && (
-              <p className="text-offwhite/60 font-sans text-sm mb-6">{data.hero.ctaSubtext}</p>
+              <p className="text-offwhite/85 font-sans text-sm mb-6">{data.hero.ctaSubtext}</p>
             )}
 
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {data.hero.trustSignals.map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <Check size={14} className="text-orange" />
-                  <span className="text-offwhite/70 font-sans">{item}</span>
+                  <span className="text-offwhite/90 font-sans">{item}</span>
                 </div>
               ))}
             </div>
@@ -201,25 +201,25 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
                   <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
                     7–10
                   </div>
-                  <div className="text-offwhite/70 text-xs font-sans">Business days to launch</div>
+                  <div className="text-offwhite/90 text-xs font-sans">Business days to launch</div>
                 </div>
                 <div>
                   <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
                     $0
                   </div>
-                  <div className="text-offwhite/70 text-xs font-sans">Up front before your demo</div>
+                  <div className="text-offwhite/90 text-xs font-sans">Up front before your demo</div>
                 </div>
                 <div>
                   <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
                     100%
                   </div>
-                  <div className="text-offwhite/70 text-xs font-sans">US-based, fully managed</div>
+                  <div className="text-offwhite/90 text-xs font-sans">US-based, fully managed</div>
                 </div>
                 <div>
                   <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
                     0
                   </div>
-                  <div className="text-offwhite/70 text-xs font-sans">Long-term contracts</div>
+                  <div className="text-offwhite/90 text-xs font-sans">Long-term contracts</div>
                 </div>
               </div>
             </div>

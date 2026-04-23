@@ -128,7 +128,7 @@ export default function HowItWorks() {
             <p className="text-stone text-lg font-sans mb-4 max-w-xl mx-auto leading-relaxed">
               Book a free 20-minute call. We'll review your current site, walk you through what's not working, and build you a custom homepage demo.
             </p>
-            <p className="text-stone/70 text-sm font-sans mb-8 max-w-xl mx-auto">
+            <p className="text-stone text-sm font-sans mb-8 max-w-xl mx-auto">
               You'll also receive a comprehensive written report covering your competitive landscape, SEO gaps, and growth opportunities — yours to keep no matter what.
             </p>
             <CTAButton href="/get-started" className="px-8 py-4">

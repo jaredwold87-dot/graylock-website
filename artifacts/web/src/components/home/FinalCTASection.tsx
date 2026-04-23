@@ -26,10 +26,10 @@ export function FinalCTASection() {
               Get Your Free Homepage Demo
               <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </CTAButton>
-            <p className="text-stone/60 text-sm font-sans mt-2">
+            <p className="text-charcoal/70 text-sm font-sans mt-2">
               No pressure. No obligation. Just a clearer path forward.
             </p>
-            <p className="text-stone/70 text-xs font-sans mt-1">
+            <p className="text-charcoal/60 text-xs font-sans mt-1">
               Every plan includes a free website refresh every 2 years.
             </p>
           </div>

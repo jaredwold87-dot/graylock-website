@@ -126,7 +126,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
                           )}
                         </div>
                         {!tier.isCustom && /site updates/i.test(feature) && (
-                          <p className={cn("font-sans text-xs mt-1.5 ml-8 leading-snug", tier.popular ? "text-stone/70" : "text-stone/60")}>
+                          <p className={cn("font-sans text-xs mt-1.5 ml-8 leading-snug", tier.popular ? "text-stone" : "text-charcoal/70")}>
                             Additional updates billed at $100/hr — quoted and approved before any work begins
                           </p>
                         )}
@@ -146,7 +146,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
               {tier.isCustom && (
                 <p className={cn(
                   "text-xs font-sans text-center mt-3",
-                  tier.popular ? "text-stone/70" : "text-stone/60"
+                  tier.popular ? "text-stone" : "text-charcoal/70"
                 )}>
                   30-min call · Written quote · No obligation
                 </p>

@@ -42,7 +42,7 @@ export function CaseStudySection() {
           <ScrollReveal delay={0.1}>
             <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
               <div className="grid grid-cols-2 text-center text-xs font-sans font-bold uppercase tracking-[0.2em]">
-                <div className="p-4 border-b border-r border-gray-200 text-stone/60">Before</div>
+                <div className="p-4 border-b border-r border-gray-200 text-charcoal/70 font-semibold">Before</div>
                 <div className="p-4 border-b border-gray-200 bg-orange/5 text-orange">After</div>
               </div>
               {transformations.map((row, i) => (

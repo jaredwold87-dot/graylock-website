@@ -115,7 +115,7 @@ export default function OurStrategy() {
             <p className="text-offwhite/80 font-sans text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-6">
               Three connected layers — Foundation, Visibility, and Conversion — that work together to turn your website into a consistent source of new clients.
             </p>
-            <p className="text-offwhite/60 font-sans text-sm">
+            <p className="text-offwhite/85 font-sans text-sm">
               New to all this? Start with <Link href="/website-design" className="text-orange hover:underline font-semibold">Website Design</Link> — it's the foundation everything else builds on.
             </p>
           </ScrollReveal>

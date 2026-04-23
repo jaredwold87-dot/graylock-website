@@ -143,7 +143,7 @@ export default function Work() {
             <p className="text-xl font-sans text-stone mb-3">
               See the dramatic before-and-after results we deliver for professional practices.
             </p>
-            <p className="text-stone/70 font-sans text-sm">
+            <p className="text-stone font-sans text-sm">
               Tap the <span className="text-red-400 font-semibold">Before</span> / <span className="text-green-400 font-semibold">After</span> tabs on each card to compare.
             </p>
           </ScrollReveal>
@@ -174,7 +174,7 @@ export default function Work() {
                 Get Your Free Homepage Demo <ArrowRight size={20} />
               </span>
             </Link>
-            <p className="text-stone/60 text-sm font-sans mt-4">
+            <p className="text-stone text-sm font-sans mt-4">
               No pressure. No obligation. Just a clearer path forward.
             </p>
           </ScrollReveal>

@@ -189,7 +189,7 @@ export default function About() {
               <div key={p.who} className="bg-navy/60 border border-gunmetal rounded-xl p-6 text-center">
                 <p className="text-orange font-display text-4xl md:text-5xl mb-2">{p.stat}</p>
                 <p className="text-offwhite font-sans text-sm leading-snug mb-3">{p.label}</p>
-                <p className="text-stone/70 font-sans text-xs uppercase tracking-widest">{p.who}</p>
+                <p className="text-stone font-sans text-xs uppercase tracking-widest">{p.who}</p>
               </div>
             ))}
           </div>
@@ -207,7 +207,7 @@ export default function About() {
                 Get Your Free Evaluation →
               </span>
             </Link>
-            <p className="text-stone/60 font-sans text-sm mt-3">No commitment. We'll show you a custom homepage demo.</p>
+            <p className="text-stone font-sans text-sm mt-3">No commitment. We'll show you a custom homepage demo.</p>
           </div>
         </div>
       </section>

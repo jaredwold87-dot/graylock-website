@@ -156,7 +156,7 @@ export function HeroSection() {
                   loading="eager"
                   decoding="async"
                 />
-                <p className="text-stone/70 font-sans text-xs text-center mt-1">
+                <p className="text-stone font-sans text-xs text-center mt-1">
                   A real Graylock-built website on every device.
                 </p>
               </div>
