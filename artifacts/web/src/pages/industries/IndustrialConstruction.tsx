@@ -25,7 +25,7 @@ const data: IndustryPageData = {
       "GCs, subs, fabricators, and industrial service companies win bids on credibility — and that starts the moment a project manager opens your site. We build modern, locally-ranked websites that showcase your capabilities, your past projects, and the size of jobs you can handle, so the right RFQs land in your inbox.",
     cta: "Get a Free Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
-    backgroundImage: `${import.meta.env.BASE_URL}hero-accountants.jpg`,
+    backgroundImage: `${import.meta.env.BASE_URL}hero-industrial-construction.jpg`,
     trustSignals: [
       "Built for contractors & trades",
       "Project & capability pages",
