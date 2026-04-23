@@ -45,14 +45,24 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
           </ScrollReveal>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 items-stretch">
           {PRICING_TIERS.map((tier: any, i: number) => (
             <ScrollReveal key={tier.name} delay={i * 0.1} className={cn(
-              "rounded-2xl border flex flex-col p-8 relative transition-all duration-300",
-              tier.popular 
-                ? "bg-charcoal border-orange/50 shadow-xl shadow-orange/10 md:-translate-y-4" 
-                : "bg-white/80 backdrop-blur-sm border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_16px_40px_rgba(0,0,0,0.06)]"
+              "flex flex-col",
+              tier.popular && "md:-translate-y-4"
             )}>
+              <div className="px-2 mb-5 md:min-h-[88px]">
+                <p className="text-slate-600 text-sm leading-relaxed font-sans">
+                  {tier.description}
+                </p>
+              </div>
+
+              <div className={cn(
+                "rounded-2xl border flex flex-col p-8 relative transition-all duration-300 flex-1",
+                tier.popular
+                  ? "bg-charcoal border-orange/50 shadow-xl shadow-orange/10"
+                  : "bg-white/80 backdrop-blur-sm border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_16px_40px_rgba(0,0,0,0.06)]"
+              )}>
               {tier.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange to-orange/80 text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-orange/30">
                   Most Popular
@@ -66,8 +76,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
                 )}>
                   For {PLAN_FOR_LABELS[tier.name] || "Your Business"}
                 </p>
-                <h3 className={cn("text-2xl font-display mb-2", tier.popular ? "text-offwhite" : "text-charcoal")}>{tier.name}</h3>
-                <p className="text-stone text-sm mb-5 min-h-[60px]">{tier.description}</p>
+                <h3 className={cn("text-2xl font-display mb-5", tier.popular ? "text-offwhite" : "text-charcoal")}>{tier.name}</h3>
                 {tier.isCustom ? (
                   <div className="flex items-baseline gap-1">
                     <span className={cn("text-3xl font-display", tier.popular ? "text-gradient" : "text-orange")}> Let's Talk</span>
@@ -151,6 +160,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
                   30-min call · Written quote · No obligation
                 </p>
               )}
+              </div>
             </ScrollReveal>
           ))}
         </div>
