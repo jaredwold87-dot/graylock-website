@@ -140,31 +140,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Dr. Rachel M.",
-      title: "Owner, Lakeside Family Dental",
-      location: "Minneapolis, MN",
-      quote:
-        "We spent two years with a website that embarrassed us. Graylock rebuilt it in 9 days and the difference was immediate — more appointment requests from Google, and patients actually tell us the website is what made them choose us over the other dentist in our building.",
-    },
-    others: [
-      {
-        name: "Dr. Andrew S.",
-        title: "Cosmetic Dentist",
-        location: "Scottsdale, AZ",
-        quote:
-          "I needed a site that showcased my cosmetic work at the level my patients expect. Graylock nailed it. Clean, modern, professional — exactly the impression I want to make.",
-      },
-      {
-        name: "Dr. Lisa T.",
-        title: "Pediatric Dentist",
-        location: "Charlotte, NC",
-        quote:
-          "Parents research everything. My new site gives them everything they need — our approach, our team, what to expect — and they're booking before they even call.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites specifically for dental practices?",

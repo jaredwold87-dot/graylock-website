@@ -140,31 +140,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Dr. Richard P.",
-      title: "Internal Medicine",
-      location: "Las Vegas, NV",
-      quote:
-        "I'd been meaning to replace my website for three years. Graylock made it painless — one call, reviewed a demo, and we were live in 10 days. The site finally reflects the quality of care we actually provide. New patient inquiries from Google have more than doubled.",
-    },
-    others: [
-      {
-        name: "Dr. Susan W.",
-        title: "Family Medicine",
-        location: "Boise, ID",
-        quote:
-          "Patients tell me they chose our practice because the website felt trustworthy and professional. That's exactly the first impression I wanted.",
-      },
-      {
-        name: "Dr. David L.",
-        title: "Concierge Medicine",
-        location: "Scottsdale, AZ",
-        quote:
-          "My concierge practice needed a website that matched the level of care I provide. Graylock built something I'm genuinely proud to send prospective patients to.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites for all types of physicians?",

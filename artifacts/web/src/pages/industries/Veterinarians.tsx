@@ -122,31 +122,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Dr. Ashley M.",
-      title: "Owner, Riverside Animal Hospital",
-      location: "Riverside, CA",
-      quote:
-        "We're a small animal hospital competing with corporate chains that spend thousands on marketing. Graylock built us a website that looks better than theirs and actually shows up when people search for a vet in our area. New client calls from the website have been consistent every week since launch.",
-    },
-    others: [
-      {
-        name: "Dr. Tom W.",
-        title: "Emergency Veterinarian",
-        location: "Columbus, OH",
-        quote:
-          "When someone's pet has an emergency at 2am, they Google it. Our site now shows up for those searches and clearly explains what we do and how to reach us. That visibility saves animals' lives.",
-      },
-      {
-        name: "Dr. Kayla N.",
-        title: "Exotic Animal Vet",
-        location: "Austin, TX",
-        quote:
-          "Finding an exotic animal vet isn't easy — my clients often travel from other cities. My new site makes it easy for reptile, bird, and small mammal owners to find me and understand the specialized care I provide.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites specifically for veterinary practices?",

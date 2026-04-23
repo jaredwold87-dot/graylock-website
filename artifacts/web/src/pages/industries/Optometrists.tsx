@@ -137,31 +137,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Ben L.",
-      title: "Optometrist, Multi-Location Practice",
-      location: "Pacific Northwest",
-      quote:
-        "We had two outdated websites creating confusion for patients. Graylock consolidated everything into one clean site and restructured how new patients contact us. Every inquiry now routes directly to the right person on my team. No more missed calls, no more phone tag.",
-    },
-    others: [
-      {
-        name: "Dr. Amanda J.",
-        title: "Optometrist",
-        location: "Portland, OR",
-        quote:
-          "My old site was from 2016 and looked it. Graylock rebuilt everything in 8 days. Patients now tell me they chose our practice because of how professional the website looked.",
-      },
-      {
-        name: "Dr. Nathan R.",
-        title: "Pediatric Optometrist",
-        location: "Denver, CO",
-        quote:
-          "Parents do extensive research before choosing an eye doctor for their kids. My new site gives them everything — my approach, what to expect, how to prepare. Bookings are up noticeably.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites specifically for optometrists?",

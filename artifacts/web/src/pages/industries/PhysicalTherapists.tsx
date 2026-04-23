@@ -139,31 +139,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Dr. Kevin T.",
-      title: "Owner, Summit Physical Therapy",
-      location: "Salt Lake City, UT",
-      quote:
-        "Adding new providers to our site used to be a nightmare with our old platform. Now I just email the Graylock team and it's updated within a day. The site looks incredible and we're getting more direct-access patients than ever before.",
-    },
-    others: [
-      {
-        name: "Michelle D.",
-        title: "DPT, Pelvic Floor Specialist",
-        location: "Nashville, TN",
-        quote:
-          "I specialize in pelvic floor therapy and needed a site that treated the topic with professionalism and sensitivity. Graylock nailed it. Patients tell me the site is what made them comfortable reaching out.",
-      },
-      {
-        name: "Jason R.",
-        title: "Sports PT",
-        location: "San Diego, CA",
-        quote:
-          "My athletes and their parents research everything. My new site shows them exactly what we do, how we do it, and why they should choose us. Referrals from the site have been consistent since launch.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites specifically for physical therapy practices?",

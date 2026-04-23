@@ -11,7 +11,6 @@ import {
   Search,
   ShieldCheck,
   Users,
-  Star,
   Check,
   ArrowRight,
   ChevronDown,
@@ -565,64 +564,6 @@ export default function AccountantsFunnel() {
                   <p className="text-stone font-sans text-sm leading-relaxed">
                     {item.desc}
                   </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-navy py-20 md:py-28 px-6 md:px-12 border-y border-gunmetal">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-14">
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
-              What Accounting Professionals Are Saying
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                quote:
-                  "I was skeptical about investing in a new website, but within two months I was getting 3-4 new consultation requests per week from Google alone.",
-                name: "Sarah M.",
-                title: "CPA, Solo Practitioner",
-              },
-              {
-                quote:
-                  "Graylock understood our industry right away. They didn't just make us look good — they built a site that actually generates leads during tax season and beyond.",
-                name: "David R.",
-                title: "Partner, Regional CPA Firm",
-              },
-              {
-                quote:
-                  "The best part is I don't have to think about it. They handle everything — updates, SEO, hosting. I just focus on my clients and the leads keep coming.",
-                name: "Michelle K.",
-                title: "Bookkeeping Firm Owner",
-              },
-            ].map((testimonial, i) => (
-              <ScrollReveal key={testimonial.name} delay={i * 0.08}>
-                <div className="bg-charcoal rounded-2xl p-7 border border-gunmetal h-full flex flex-col">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, j) => (
-                      <Star
-                        key={j}
-                        size={16}
-                        className="text-orange fill-orange"
-                      />
-                    ))}
-                  </div>
-                  <p className="text-stone font-sans italic leading-relaxed mb-6 flex-1">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <p className="text-offwhite font-sans font-semibold text-sm">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-stone/60 font-sans text-xs">
-                      {testimonial.title}
-                    </p>
-                  </div>
                 </div>
               </ScrollReveal>
             ))}

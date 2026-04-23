@@ -139,31 +139,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Dr. Laura H.",
-      title: "Clinical Psychologist",
-      location: "Denver, CO",
-      quote:
-        "I do neuropsych testing and needed a site that explained the process clearly for patients and referring providers. Graylock built separate pages for each type of assessment I offer, and referrals from my website have increased significantly. Physicians tell me they send patients to my site before making the referral.",
-    },
-    others: [
-      {
-        name: "Dr. Mark S.",
-        title: "Child Psychologist",
-        location: "Nashville, TN",
-        quote:
-          "Parents are anxious when they're looking for a child psychologist. My new site puts them at ease immediately — it's warm, clear, and explains exactly what to expect. I've gotten more inquiries from my website than from any directory listing.",
-      },
-      {
-        name: "Dr. Rebecca T.",
-        title: "Neuropsychologist",
-        location: "Atlanta, GA",
-        quote:
-          "My niche is very specific and I needed a site that spoke to referring physicians and specialized populations, not just general therapy seekers. Graylock understood the audience and built something that positioned me as the expert I am.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites specifically for psychologists?",

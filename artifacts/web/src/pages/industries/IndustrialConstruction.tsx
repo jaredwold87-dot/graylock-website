@@ -152,31 +152,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Mark D.",
-      title: "Owner, Commercial General Contractor",
-      location: "Columbus, OH",
-      quote:
-        "Our old site was a single page with a phone number. Graylock rebuilt it around the kinds of projects we want — tenant fit-outs, light industrial, ground-up commercial — and within two months we were on bid lists with two GCs we'd never worked with before.",
-    },
-    others: [
-      {
-        name: "Steve R.",
-        title: "President, Steel Fabrication Shop",
-        location: "Greenville, SC",
-        quote:
-          "PMs used to ask if we could 'really handle' larger jobs. After Graylock launched our project gallery and capability pages, that question stopped. The site closes them before the call.",
-      },
-      {
-        name: "Luis M.",
-        title: "Owner, Mechanical Contracting",
-        location: "Phoenix, AZ",
-        quote:
-          "We were invisible for 'commercial HVAC' searches in our market. Now we're on page one and the inquiries coming through the website are actual qualified projects, not tire-kickers.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites for both general contractors and specialty trades?",

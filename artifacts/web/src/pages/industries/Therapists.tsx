@@ -140,31 +140,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Sarah M.",
-      title: "Licensed Therapist",
-      location: "Reno, NV",
-      quote:
-        "My old site looked outdated and unprofessional. Graylock built me a beautiful new site in under a week, and I finally feel confident sending people to it. I've reduced my spending on directory listings because my own site is now bringing in clients directly from Google. Best decision I've made for my practice.",
-    },
-    others: [
-      {
-        name: "Jennifer K.",
-        title: "LMFT, Couples Counselor",
-        location: "Portland, OR",
-        quote:
-          "Couples are nervous enough reaching out for help. My new site puts them at ease immediately. The intake form makes it simple, and I'm getting inquiries from people who feel like they already know me before we ever meet.",
-      },
-      {
-        name: "Carlos R.",
-        title: "LPC, Trauma Specialist",
-        location: "San Antonio, TX",
-        quote:
-          "I work with trauma survivors who need to feel safe before reaching out. The site Graylock built conveys exactly the right tone — warm, professional, and clear about what to expect. Inquiries have been steady since launch.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites specifically for therapists and counselors?",

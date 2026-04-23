@@ -137,31 +137,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Dr. Catherine L.",
-      title: "Board-Certified Dermatologist",
-      location: "San Diego, CA",
-      quote:
-        "I offer both medical and cosmetic dermatology, and my old site didn't differentiate between them at all. Graylock built separate service sections with clear pathways for each type of patient. Cosmetic consultations are up 40% since we launched.",
-    },
-    others: [
-      {
-        name: "Dr. Michael P.",
-        title: "Mohs Surgeon",
-        location: "Tampa, FL",
-        quote:
-          "Referring physicians have told me my new site is what they show patients when making referrals. That's exactly the impression I wanted to make.",
-      },
-      {
-        name: "Dr. Priya S.",
-        title: "Pediatric Dermatologist",
-        location: "Chicago, IL",
-        quote:
-          "Parents do so much research before choosing a specialist for their child. My new site gives them everything they need to feel confident booking with me.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites for both medical and cosmetic dermatology?",

@@ -137,31 +137,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Dr. Marcus W.",
-      title: "Owner, Summit Chiropractic",
-      location: "Denver, CO",
-      quote:
-        "I was relying entirely on referrals and my Google listing had the wrong hours. Graylock built me a site that actually shows up when people search for chiropractors in my area. I've picked up 8 new patients in the first month just from organic search.",
-    },
-    others: [
-      {
-        name: "Dr. Emily R.",
-        title: "Sports Chiropractor",
-        location: "Austin, TX",
-        quote:
-          "My old site was a template that looked like every other chiropractor's page. Now I have something that actually reflects my approach and expertise. Patients tell me the site is what convinced them to book.",
-      },
-      {
-        name: "Dr. James C.",
-        title: "Family Chiropractic",
-        location: "Portland, OR",
-        quote:
-          "The process was painless — 20-minute call, reviewed a demo, and we were live in under two weeks. I didn't have to think about it at all.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites specifically for chiropractors?",

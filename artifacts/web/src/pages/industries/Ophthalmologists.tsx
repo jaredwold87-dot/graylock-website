@@ -137,31 +137,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Dr. Robert K.",
-      title: "LASIK & Cataract Surgeon",
-      location: "Phoenix, AZ",
-      quote:
-        "We perform over 2,000 procedures a year, but our website made us look like a small clinic. Graylock redesigned everything — procedure pages, surgeon bios, technology showcases — and LASIK consultation requests from our website have nearly doubled.",
-    },
-    others: [
-      {
-        name: "Dr. Anita M.",
-        title: "Retina Specialist",
-        location: "Houston, TX",
-        quote:
-          "Referring optometrists now tell me they pull up my website when discussing referrals with patients. That's exactly the credibility I needed online.",
-      },
-      {
-        name: "Dr. Steven H.",
-        title: "Glaucoma Specialist",
-        location: "Seattle, WA",
-        quote:
-          "Simple, clean, professional. Patients tell me the website is what made them feel comfortable choosing us for their surgery.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites specifically for ophthalmology practices?",

@@ -152,31 +152,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "Tony C.",
-      title: "Owner, Plumbing & Drain Service",
-      location: "Tampa, FL",
-      quote:
-        "We used to spend $1,800/month on Google ads and still felt invisible. Graylock rebuilt our site, set up service-area pages for every town we cover, and within 60 days we were ranking page one for 'plumber near me' in three of them. Cut the ad budget in half.",
-    },
-    others: [
-      {
-        name: "Megan L.",
-        title: "Co-Owner, Residential Electric",
-        location: "Boise, ID",
-        quote:
-          "The click-to-call buttons alone changed our business. Emergency calls go straight through, and the booking form pulls in scheduled work overnight while we're sleeping.",
-      },
-      {
-        name: "Dave H.",
-        title: "Owner, HVAC & Refrigeration",
-        location: "Raleigh, NC",
-        quote:
-          "Our old site looked like a one-truck operation when we run six. The new one finally matches the size of jobs we want — and the calls coming in have changed accordingly.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Do you build websites for both emergency-service trades and scheduled-work trades?",

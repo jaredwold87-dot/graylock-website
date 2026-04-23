@@ -153,31 +153,6 @@ const data: IndustryPageData = {
       },
     ],
   },
-  testimonials: {
-    featured: {
-      name: "David K.",
-      title: "CPA & Tax Advisor",
-      location: "Henderson, NV",
-      quote:
-        "I used to spend hours trying to fix my Wix site. Now I just email Tim and it's done the next day. It's like having a full-time web developer on staff for a fraction of the cost. The new site looks amazing.",
-    },
-    others: [
-      {
-        name: "Jennifer P.",
-        title: "Bookkeeper",
-        location: "Boise, ID",
-        quote:
-          "I was invisible on Google and losing clients to the big chains. Now my site shows up for bookkeeping searches in my area, and I've picked up several new monthly clients.",
-      },
-      {
-        name: "Robert H.",
-        title: "Enrolled Agent",
-        location: "Sacramento, CA",
-        quote:
-          "Tax season used to be the only time I got calls. Now my website brings in new clients year-round. Graylock made the whole process painless.",
-      },
-    ],
-  },
   faqs: [
     {
       q: "Can my website include separate pages for different services like tax, bookkeeping, and payroll?",
