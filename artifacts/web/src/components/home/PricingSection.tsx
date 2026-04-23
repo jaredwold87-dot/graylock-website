@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const PLAN_FOR_LABELS: Record<string, string> = {
   Starter: "Solo Operators",
   Growth: "Growing Teams",
-  Scale: "Multi-Location",
+  Scale: "Larger Teams",
   Custom: "Beyond Standard",
 };
 
