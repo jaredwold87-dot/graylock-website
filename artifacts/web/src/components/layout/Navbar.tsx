@@ -52,13 +52,13 @@ const WHO_WE_HELP_PRACTICES = [
 ];
 
 const WHO_WE_HELP_OTHER = [
-  { name: "Accounting Firms", desc: "CPAs, bookkeeping, tax & advisory.", icon: Calculator, path: "/websites-for-accountants" },
-  { name: "Industrial & Construction", desc: "Contractors, trades, manufacturing.", icon: HardHat, path: "/websites-for-industrial-construction" },
-  { name: "Local Service Businesses", desc: "Trust-based pros — law, finance, more.", icon: Briefcase, path: "/other-service-businesses" },
   { name: "Home Builders", desc: "Custom homes, renovations, design-build.", icon: Home, path: "/websites-for-home-builders" },
+  { name: "Accounting Firms", desc: "CPAs, bookkeeping, tax & advisory.", icon: Calculator, path: "/websites-for-accountants" },
+  { name: "Industrial Construction", desc: "Contractors, trades, manufacturing.", icon: HardHat, path: "/websites-for-industrial-construction" },
+  { name: "Other Local Service Businesses", desc: "Trust-based pros — law, finance, more.", icon: Briefcase, path: "/other-service-businesses" },
 ];
 
-const WHO_WE_HELP_ALL = [...WHO_WE_HELP_PRACTICES, ...WHO_WE_HELP_OTHER];
+const WHO_WE_HELP_ALL = [...WHO_WE_HELP_OTHER, ...WHO_WE_HELP_PRACTICES];
 
 const OUR_STRATEGY = [
   { name: "Strategy Overview", path: "/our-strategy" },
@@ -211,9 +211,9 @@ function DesktopMegaMenu({
         )}
       >
         <div className="p-4">
-          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mb-3 px-2">Healthcare Practices</p>
+          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mb-3 px-2">Local Service Businesses</p>
           <div className="grid grid-cols-2 gap-1">
-            {WHO_WE_HELP_PRACTICES.map((item) => {
+            {WHO_WE_HELP_OTHER.map((item) => {
               const Icon = item.icon;
               const active = location === item.path;
               return (
@@ -239,9 +239,9 @@ function DesktopMegaMenu({
             })}
           </div>
 
-          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mt-4 mb-3 px-2">Other Trust-Based Businesses</p>
+          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mt-4 mb-3 px-2">Healthcare Practices</p>
           <div className="grid grid-cols-2 gap-1">
-            {WHO_WE_HELP_OTHER.map((item) => {
+            {WHO_WE_HELP_PRACTICES.map((item) => {
               const Icon = item.icon;
               const active = location === item.path;
               return (
@@ -568,8 +568,8 @@ export function Navbar() {
 
           <MobileAccordion
             label="Industries"
-            items={WHO_WE_HELP_PRACTICES}
-            extraItems={WHO_WE_HELP_OTHER}
+            items={WHO_WE_HELP_OTHER}
+            extraItems={WHO_WE_HELP_PRACTICES}
             isActive={isWhoWeHelpActive}
             location={location}
             open={mobileWhoWeHelpOpen}
