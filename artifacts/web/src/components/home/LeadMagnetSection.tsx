@@ -43,13 +43,13 @@ export function LeadMagnetSection() {
           <ScrollReveal delay={0.1}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange/10 border border-orange/30 mb-5">
               <BookOpen className="text-orange" size={16} />
-              <span className="text-orange text-xs font-sans font-bold uppercase tracking-widest">Free Download</span>
+              <span className="text-orange text-xs font-sans font-bold uppercase tracking-widest">Free Download · For Private Practices</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-5 leading-tight">
-              Is Your Website Losing You Patients?
+              Run a Private Practice? Is Your Website Losing You Patients?
             </h2>
             <p className="text-stone text-lg font-sans leading-relaxed mb-8">
-              Get the free guide private practice owners are using to spot the silent leaks costing them new patients every month — and the plain-English fixes that turn a tired website back into a steady source of bookings.
+              Our free practice-specific playbook — used by private practice owners to spot the silent leaks costing them new patients every month, with the plain-English fixes that turn a tired website back into a steady source of bookings. Construction and accounting editions are on the way; in the meantime, just <a href="/get-started" className="text-orange font-semibold hover:underline">start with a free demo</a>.
             </p>
 
             <button

@@ -10,7 +10,7 @@ const points = [
   {
     icon: Compass,
     title: "Understand the right strategy",
-    body: "No jargon — a plain-English plan built around your practice and your patients.",
+    body: "No jargon — a plain-English plan built around your business and the new clients you want to win.",
   },
   {
     icon: ShieldCheck,

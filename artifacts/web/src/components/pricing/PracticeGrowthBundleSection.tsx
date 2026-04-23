@@ -6,19 +6,19 @@ const bonuses = [
     icon: <Star className="text-orange" size={26} />,
     label: "Bonus #1",
     title: "5-Star Review Script",
-    desc: "A done-for-you message sequence your front desk can send to every happy patient — designed to turn quiet appreciation into public 5-star Google reviews that compound your local search rankings month after month.",
+    desc: "A done-for-you message sequence your team can send to every happy client — designed to turn quiet appreciation into public 5-star Google reviews that compound your local search rankings month after month.",
   },
   {
     icon: <CalendarX className="text-orange" size={26} />,
     label: "Bonus #2",
-    title: "No-Show Reduction Sequence",
-    desc: "An automated reminder + confirmation sequence built to cut no-show and last-minute cancellation rates dramatically — recovering revenue most practices write off as a cost of doing business.",
+    title: "No-Show & Drop-Off Reduction Sequence",
+    desc: "An automated reminder and confirmation sequence built to cut no-show appointments, ghosted estimates, and missed consult calls — recovering revenue most businesses quietly write off as a cost of doing business.",
   },
   {
     icon: <BookOpen className="text-orange" size={26} />,
     label: "Bonus #3",
-    title: "Private Practice Growth System",
-    desc: "Our complete book on building a thriving, owner-led private practice — covering positioning, patient acquisition, retention, referrals, and the operational moves that separate practices that grow from practices that stall.",
+    title: "Industry Growth Playbook",
+    desc: "Our complete book on building a thriving, owner-led business — with a tailored edition for private practices, construction companies, or accounting firms covering positioning, client acquisition, retention, referrals, and the operational moves that separate businesses that grow from businesses that stall.",
   },
 ];
 
@@ -33,10 +33,10 @@ export function PracticeGrowthBundleSection() {
             <span className="text-orange text-xs font-sans font-bold uppercase tracking-widest">Included Free With Every Plan</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-5 leading-tight">
-            The Practice Growth Bundle
+            The Client Growth Bundle
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed">
-            Three high-leverage extras built to help your practice fill the calendar, keep it full, and grow with confidence — included with every Graylock plan, at no additional cost.
+            Three high-leverage extras built to help you fill the calendar, keep it full, and grow with confidence — included with every Graylock plan, at no additional cost, and tailored to your industry.
           </p>
         </ScrollReveal>
 

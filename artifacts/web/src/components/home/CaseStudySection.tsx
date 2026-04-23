@@ -34,7 +34,7 @@ export function CaseStudySection() {
             What This Looks Like in Practice
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed">
-            A recent client came to us with an outdated, confusing website that made it harder for patients to take the next step.
+            A recent client came to us with an outdated, confusing website that made it harder for the people they serve to take the next step.
           </p>
         </ScrollReveal>
 

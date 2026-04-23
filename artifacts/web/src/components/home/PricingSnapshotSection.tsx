@@ -6,10 +6,10 @@ import { Link } from "wouter";
 import { ArrowRight, Check } from "lucide-react";
 
 const SHORT_DESCRIPTIONS: Record<string, string> = {
-  Starter: "For solo practitioners and independent businesses.",
+  Starter: "For solo operators and small teams.",
   Growth: "For growing teams and small firms that need more visibility.",
   Scale: "For established and multi-location businesses.",
-  Custom: "For practices with unique needs beyond our standard plans.",
+  Custom: "For businesses with unique needs beyond our standard plans.",
 };
 
 const HIGHLIGHTS: Record<string, string[]> = {
@@ -17,7 +17,7 @@ const HIGHLIGHTS: Record<string, string[]> = {
     "Custom 8-page conversion website",
     "Mobile-first professional design",
     "Local SEO foundation",
-    "Secure patient intake flow",
+    "Secure client inquiry flow",
   ],
   Growth: [
     "Custom 15-page conversion website",

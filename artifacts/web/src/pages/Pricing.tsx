@@ -12,13 +12,13 @@ import { cn } from "@/lib/utils";
 export default function Pricing() {
   const featureRows = [
     { name: "Pages Included", solo: "8", group: "15", enterprise: "20+", custom: "Custom" },
-    { name: "Provider Bio Pages", solo: "1", group: "Up to 5", enterprise: "Up to 10", custom: "Unlimited" },
+    { name: "Team Bio Pages", solo: "1", group: "Up to 5", enterprise: "Up to 10", custom: "Unlimited" },
     { name: "SEO Funnel Pages", solo: "3", group: "10", enterprise: "20", custom: "Custom" },
     { name: "Mobile-First Design", solo: true, group: true, enterprise: true, custom: true },
     { name: "Hosting & SSL", solo: true, group: true, enterprise: true, custom: true },
     { name: "Google Business Profile", solo: true, group: true, enterprise: true, custom: true },
     { name: "Local SEO", solo: "Foundation", group: "Full", enterprise: "Advanced + Multi-Location", custom: "Custom" },
-    { name: "Patient Intake Flow", solo: "Secure", group: "Advanced", enterprise: "Conversion-Optimized", custom: "Custom" },
+    { name: "Client Inquiry Flow", solo: "Secure", group: "Advanced", enterprise: "Conversion-Optimized", custom: "Custom" },
     { name: "Dashboard Access", solo: true, group: true, enterprise: true, custom: true },
     { name: "Dedicated Account Manager", solo: true, group: true, enterprise: true, custom: true },
     { name: "Site Update Hours", solo: "1 hr/quarter", group: "1 hr/month", enterprise: "2 hrs/month", custom: "Custom", footnote: "Additional updates billed at $100/hr — quoted and approved before any work begins" },
@@ -42,7 +42,7 @@ export default function Pricing() {
 
   return (
     <>
-      <SEO title="Pricing | Practice Website Design Plans | Graylock Digital" description="Three flat monthly plans, one upfront setup fee, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
+      <SEO title="Pricing | Website Plans for Practices, Construction & Accounting | Graylock Digital" description="Flat monthly plans for private practices, construction companies, and accounting firms. One upfront setup fee, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-pricing.png`} />
@@ -53,7 +53,7 @@ export default function Pricing() {
               Pricing
             </p>
             <h1 className="text-4xl md:text-6xl font-display mb-6 leading-tight">Three plans. One flat fee. <span className="text-gradient">No surprises.</span></h1>
-            <p className="text-lg md:text-xl font-sans text-stone leading-relaxed">A one-time site development fee, then a flat monthly rate that covers hosting, maintenance, security, and ongoing support. Month-to-month — never locked in.</p>
+            <p className="text-lg md:text-xl font-sans text-stone leading-relaxed">Built for private practices, construction companies, and accounting firms that want more new clients. A one-time site development fee, then a flat monthly rate covering hosting, maintenance, security, and ongoing support. Month-to-month — never locked in.</p>
           </ScrollReveal>
         </div>
       </section>
@@ -68,10 +68,10 @@ export default function Pricing() {
           <ScrollReveal>
             <div className="bg-navy/60 border border-orange/30 rounded-2xl p-6 md:p-8 text-center">
               <h3 className="text-xl md:text-2xl font-display text-offwhite mb-3">
-                Not a medical practice or accounting firm?
+                Not a private practice, construction company, or accounting firm?
               </h3>
               <p className="text-stone font-sans leading-relaxed mb-5 max-w-2xl mx-auto">
-                We specialize in healthcare and professional services, but our model works for any service-based business that relies on trust and local visibility. We regularly build high-converting sites for law firms, consultants, home service companies, and B2B agencies.
+                Those three industries are our specialty, but our model works for any service-based business that relies on trust and local visibility. We regularly build high-converting sites for law firms, consultants, home service companies, and B2B agencies too.
               </p>
               <a
                 href="/get-started"
@@ -180,7 +180,7 @@ export default function Pricing() {
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">What You're Actually Paying For</p>
             <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">Your Monthly Fee, Broken Down</h2>
             <p className="text-stone text-lg font-sans max-w-2xl mx-auto">
-              Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your practice every single day.
+              Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your business every single day.
             </p>
           </ScrollReveal>
 
@@ -296,10 +296,10 @@ export default function Pricing() {
                 <h3 className="text-xl font-display text-offwhite">Privacy & Compliance</h3>
               </div>
               <p className="text-stone font-sans leading-relaxed mb-4">
-                Our inquiry forms collect contact information only — name, phone, email, and a brief message. This is how most private practice websites handle initial contact, and it's intentionally simple.
+                Our inquiry forms collect contact information only — name, phone, email, and a brief message. That's true whether we're building for a private practice, a construction company, or an accounting firm. It's intentionally simple, and it keeps sensitive data out of your marketing site.
               </p>
               <p className="text-stone font-sans leading-relaxed mb-4">
-                If you use a HIPAA-compliant platform like SimplePractice, TherapyNotes, or Jane App, we link directly to your intake portals from your website. Your marketing site handles the first impression; your clinical tools handle everything after that.
+                If you already use a secure platform for the next step — a HIPAA-compliant tool like SimplePractice, TherapyNotes, or Jane App for medical practices, a project intake portal for contractors, or a client portal like SmartVault or TaxDome for accounting firms — we link directly to it from your website. Your marketing site handles the first impression; your secure tools handle everything after that.
               </p>
               <p className="text-stone/60 font-sans text-sm">
                 Have questions? See our <a href="/faq#privacy-compliance" className="text-orange hover:underline">Privacy & Compliance FAQ</a> for more details.

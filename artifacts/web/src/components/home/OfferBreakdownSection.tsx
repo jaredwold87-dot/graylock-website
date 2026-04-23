@@ -13,13 +13,13 @@ export function OfferBreakdownSection() {
       step: "Step 2",
       icon: <PhoneCall size={26} strokeWidth={2.2} />,
       title: "Discovery Call",
-      desc: "A short call to learn what you love about your current site, what you can't stand, and what your patients or clients actually need from it.",
+      desc: "A short call to learn what you love about your current site, what you can't stand, and what the people you're trying to win over actually need from it.",
     },
     {
       step: "Step 3",
       icon: <LayoutDashboard size={26} strokeWidth={2.2} />,
       title: "Custom Homepage Demo",
-      desc: "We design a real homepage concept tailored to your practice, so you can see and feel the direction before committing.",
+      desc: "We design a real homepage concept tailored to your business, so you can see and feel the direction before committing.",
     },
     {
       step: "Step 4",

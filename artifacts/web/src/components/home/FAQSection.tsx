@@ -30,12 +30,12 @@ const homepageFaqs = [
     a: "You own your domain, your written content, your images, and your brand assets — always. That never changes, whether you stay with us for ten years or ten months. The only thing we retain is the underlying code and hosting infrastructure, which is standard for any subscription-based web service. If you ever cancel, we package up all of your content and data, transfer your domain wherever you choose, and make sure the handoff is clean — all within 30 days, no cancellation fees. We've done it before and we do it without drama."
   },
   {
-    q: "What types of practices do you work with?",
-    a: "We specialize in websites for private practices and accounting firms — therapists, dentists, physicians, chiropractors, CPAs, and other professional service providers. We understand that your website needs to convey expertise, build trust quickly, and convert visitors into consultations or appointments."
+    q: "What types of businesses do you work with?",
+    a: "We specialize in three industries: private practices (therapists, dentists, physicians, chiropractors and other providers), construction companies (general contractors, remodelers, specialty trades), and accounting firms (CPAs, bookkeepers, tax preparers). All three rely on trust, local visibility, and turning website visitors into real client inquiries — which is exactly what we build for."
   },
   {
-    q: "Do you only work with medical practices and accountants?",
-    a: "No. While private practices and accounting firms are our core specialties, we regularly partner with law firms, consultants, home service companies, and other local service businesses. If your business relies on building trust and generating local leads, our framework will work for you."
+    q: "Do you only work with practices, contractors, and accountants?",
+    a: "Those three industries are our core focus, but we regularly partner with law firms, consultants, home service companies, and other local service businesses. If your business relies on building trust and generating local leads, our framework will work for you."
   }
 ];
 
