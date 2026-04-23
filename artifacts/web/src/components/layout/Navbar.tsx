@@ -60,7 +60,7 @@ const WHO_WE_HELP_PRACTICES = [
 const WHO_WE_HELP_OTHER = [
   { name: "Accounting Firms", desc: "CPAs, bookkeeping, tax & advisory.", icon: Calculator, path: "/websites-for-accountants" },
   { name: "Industrial & Construction", desc: "Contractors, trades, manufacturing.", icon: HardHat, path: "/websites-for-industrial-construction" },
-  { name: "Other Service Businesses", desc: "Trust-based pros — law, finance, more.", icon: Briefcase, path: "/other-service-businesses" },
+  { name: "Local Service Businesses", desc: "Trust-based pros — law, finance, more.", icon: Briefcase, path: "/other-service-businesses" },
 ];
 
 const WHO_WE_HELP_ALL = [...WHO_WE_HELP_PRACTICES, ...WHO_WE_HELP_OTHER];

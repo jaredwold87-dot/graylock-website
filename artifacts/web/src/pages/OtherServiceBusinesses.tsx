@@ -7,7 +7,7 @@ export default function OtherServiceBusinesses() {
   return (
     <>
       <SEO
-        title="Websites for Service Businesses — Graylock Digital"
+        title="Websites for Local Service Businesses — Graylock Digital"
         description="The Graylock framework is built for any business where trust, expertise, and local visibility drive revenue. Custom websites for law firms, consultants, home service companies, and other professional services."
         url="https://graylockdigital.com/other-service-businesses"
       />
@@ -18,7 +18,7 @@ export default function OtherServiceBusinesses() {
         <div className="max-w-3xl mx-auto relative z-10">
           <ScrollReveal>
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4 text-center">
-              Other Service Businesses
+              Local Service Businesses
             </p>
             <h1 className="text-4xl md:text-6xl font-display text-offwhite mb-8 text-center leading-tight">
               Built for Any Business Where <span className="text-gradient">Trust</span> Drives Revenue
