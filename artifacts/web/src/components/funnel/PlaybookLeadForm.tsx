@@ -72,9 +72,16 @@ export function PlaybookLeadForm({
 
       try {
         if (typeof window.gtag === "function") {
+          window.gtag("event", "Lead", {
+            event_category: "funnel",
+            event_label: source,
+            transport_type: "beacon",
+            value: 1,
+          });
           window.gtag("event", "generate_lead", {
             event_category: "funnel",
             event_label: source,
+            transport_type: "beacon",
             value: 1,
           });
         }
