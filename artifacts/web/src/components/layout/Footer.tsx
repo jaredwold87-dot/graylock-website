@@ -22,7 +22,7 @@ export function Footer() {
             />
           </Link>
           <p className="text-offwhite/70 font-sans mt-4 max-w-xs leading-relaxed">
-            Custom websites for professional practices. Done for you, maintained forever.
+            Custom websites for private practices, construction companies, and accounting firms. Done for you, maintained forever.
           </p>
           {officeHours && Object.keys(officeHours).length > 0 && (
             <div className="mt-6">
@@ -113,7 +113,7 @@ export function Footer() {
         <p className="text-offwhite/65 text-sm font-sans flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           <span>Based in the USA</span>
           <span className="text-offwhite/30">•</span>
-          <span>Built for professional practices</span>
+          <span>Built for practices, contractors & accounting firms</span>
           <span className="text-offwhite/30">•</span>
           <a
             href="https://graylock-os-ymwca.sevalla.app/portal?site=99c58e46-33ee-4c7c-ab23-eeb7badcc57b"

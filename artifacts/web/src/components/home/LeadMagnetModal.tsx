@@ -191,7 +191,7 @@ export function LeadMagnetModal({ open, onClose }: LeadMagnetModalProps) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-charcoal border border-gunmetal rounded-lg px-4 py-3 text-offwhite font-sans placeholder:text-stone/40 focus:outline-none focus:border-orange/60 focus:ring-2 focus:ring-orange/20 transition-colors"
-                    placeholder="you@yourpractice.com"
+                    placeholder="you@yourbusiness.com"
                     autoComplete="email"
                     data-testid="input-email"
                   />

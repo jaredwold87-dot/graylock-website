@@ -114,7 +114,7 @@ const CATEGORY_CTAS: Record<string, { text: string; href: string; cta: string }>
     cta: "See full pricing breakdown",
   },
   "your-website": {
-    text: "See real practice websites we've built.",
+    text: "See real client websites we've built.",
     href: "/work",
     cta: "View our work",
   },
@@ -124,7 +124,7 @@ const CATEGORY_CTAS: Record<string, { text: string; href: string; cta: string }>
     cta: "Read our strategy",
   },
   "features-explained": {
-    text: "Not sure which plan fits your practice?",
+    text: "Not sure which plan fits your business?",
     href: "/get-started",
     cta: "Talk it through with Tim",
   },
@@ -211,8 +211,8 @@ export default function FAQ() {
   return (
     <>
       <SEO
-        title="FAQ | Practice Website Questions Answered | Graylock Digital"
-        description="Straight answers to the questions practice owners ask most about Graylock Digital's web design service, pricing, contracts, and process."
+        title="FAQ | Website Questions Answered | Graylock Digital"
+        description="Straight answers to the questions private practice owners, construction company leaders, and accounting firm partners ask most about Graylock Digital's web design service, pricing, contracts, and process."
         path="/faq"
       />
       <Helmet>
@@ -229,7 +229,7 @@ export default function FAQ() {
               <span className="text-orange">Before You Sign Anything</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-8">
-              We answer the questions practice owners ask most. No jargon, no pressure — just straight answers.
+              We answer the questions private practice owners, construction leaders, and accounting firm partners ask most. No jargon, no pressure — just straight answers.
             </p>
 
             <div className="relative max-w-xl mx-auto">
@@ -429,7 +429,7 @@ export default function FAQ() {
               Got a question we didn't cover?
             </h2>
             <p className="text-stone text-lg font-sans mb-8 max-w-xl mx-auto leading-relaxed">
-              Book a free 20-minute call with Tim. Ask anything — pricing, process, what your site would look like, what we'd do for your specific practice. Zero pressure, zero obligation.
+              Book a free 20-minute call with Tim. Ask anything — pricing, process, what your site would look like, what we'd do for your specific business. Zero pressure, zero obligation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <CTAButton href="/get-started" className="px-8 py-4">
