@@ -107,7 +107,11 @@ export function Footer() {
 
       </div>
 
-      <div className="max-w-7xl mx-auto pt-8 border-t border-gunmetal flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto pt-8 border-t border-gunmetal">
+        <p className="text-offwhite/65 text-xs font-sans leading-relaxed max-w-4xl mx-auto text-center mb-6">
+          Graylock builds websites that meet WCAG 2.1 AA accessibility standards and are structured for compliance with applicable federal, state, and industry-specific marketing rules. Final compliance with all laws and regulations remains the responsibility of the website owner.
+        </p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-offwhite/65 text-sm font-sans">
           © {new Date().getFullYear()} Graylock Digital. All rights reserved.
         </p>
@@ -132,6 +136,7 @@ export function Footer() {
             Client Dashboard
           </a>
         </p>
+        </div>
       </div>
     </footer>
   );
