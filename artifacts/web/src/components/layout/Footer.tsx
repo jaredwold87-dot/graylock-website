@@ -122,7 +122,7 @@ export function Footer() {
           <span>Built for trust-based businesses</span>
           <span className="text-offwhite/30">•</span>
           <a
-            href="/sitemap.xml"
+            href="/sitemap"
             className="text-offwhite/85 hover:text-orange transition-colors"
           >
             Sitemap
