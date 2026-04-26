@@ -1,5 +1,6 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 export interface ComplianceItem {
   icon: LucideIcon;
@@ -13,6 +14,7 @@ export interface ComplianceSectionProps {
   lead: string;
   items: ComplianceItem[];
   closing?: string;
+  showFullApproachLink?: boolean;
 }
 
 export default function ComplianceSection({
@@ -21,6 +23,7 @@ export default function ComplianceSection({
   lead,
   items,
   closing,
+  showFullApproachLink = false,
 }: ComplianceSectionProps) {
   return (
     <section className="bg-white py-20 md:py-28 px-6 md:px-12 border-y border-gray-200">
@@ -77,6 +80,21 @@ export default function ComplianceSection({
             <p className="text-gray-600 font-sans text-base md:text-lg max-w-3xl mx-auto leading-relaxed italic">
               {closing}
             </p>
+          </ScrollReveal>
+        )}
+
+        {showFullApproachLink && (
+          <ScrollReveal className="text-center mt-6 md:mt-8">
+            <Link
+              href="/compliance"
+              className="inline-flex items-center gap-1.5 text-orange font-sans font-semibold text-sm md:text-base hover:text-orange/80 transition-colors group"
+            >
+              Read our full compliance approach
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-200 group-hover:translate-x-0.5"
+              />
+            </Link>
           </ScrollReveal>
         )}
       </div>

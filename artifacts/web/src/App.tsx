@@ -19,6 +19,7 @@ import ContactRedirect from "@/pages/Contact";
 import ThankYou from "@/pages/ThankYou";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import Compliance from "@/pages/Compliance";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
 import HomeBuildersPlaybook from "@/pages/HomeBuildersPlaybook";
 import HomeBuildersPlaybookThankYou from "@/pages/HomeBuildersPlaybookThankYou";
@@ -89,6 +90,7 @@ function Router() {
         <Route path="/lead-generation-for-small-business" component={LeadGenerationPage} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms-of-service" component={TermsOfService} />
+        <Route path="/compliance" component={Compliance} />
 
         <Route path="/our-work">{() => <Redirect to="/work" />}</Route>
         <Route path="/strategy">{() => <Redirect to="/our-strategy" />}</Route>

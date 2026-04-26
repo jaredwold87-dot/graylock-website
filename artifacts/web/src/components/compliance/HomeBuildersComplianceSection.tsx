@@ -42,6 +42,7 @@ export default function HomeBuildersComplianceSection() {
       lead="Contractor licensing boards in most states explicitly cover websites in their definition of \u201Cadvertising.\u201D That means the same rules that apply to a billboard or a yard sign apply to your homepage \u2014 and a missing license number, an overstated scope of services, or an unsupported claim about your work can trigger a citation. Your reputation took years to build; we make sure your website doesn\u2019t put your license at risk."
       items={items}
       closing="Final compliance with your state contractor board\u2019s rules is your responsibility \u2014 that\u2019s true for any contractor with any website. Our job is to make sure your site is built so that responsibility is easy to meet, not a moving target."
+      showFullApproachLink
     />
   );
 }

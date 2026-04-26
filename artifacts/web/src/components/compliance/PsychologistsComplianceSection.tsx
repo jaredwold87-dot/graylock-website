@@ -32,6 +32,7 @@ export default function PsychologistsComplianceSection() {
       lead="Psychology has stricter advertising rules than almost any other healthcare field. The APA Ethics Code prohibits soliciting testimonials from current therapy clients \u2014 period. Several states ban patient testimonials in psychology advertising entirely, regardless of consent. Telehealth scope, crisis resource availability, and specialty designations are all governed by your state psychology board. A generic web shop won\u2019t know any of this."
       items={items}
       closing="Your relationship with your state psychology board is your responsibility. We make sure your website never gives them a reason to call."
+      showFullApproachLink
     />
   );
 }

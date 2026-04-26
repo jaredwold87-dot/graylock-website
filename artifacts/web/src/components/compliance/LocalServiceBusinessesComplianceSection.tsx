@@ -32,6 +32,7 @@ export default function LocalServiceBusinessesComplianceSection() {
       lead="Attorneys, financial advisors, and other licensed professionals work under some of the strictest advertising rules in the economy \u2014 state bar associations, the SEC\u2019s Marketing Rule, FINRA, and a long list of state-specific requirements. The rules in these professions vary so much by state and credential that no agency should claim to know all of them in advance. What we do bring is a build process that works alongside your compliance reviewer instead of around them."
       items={items}
       closing="Your compliance reviewer is the authority. Our role is to make sure your website is the easiest part of their job \u2014 not the hardest."
+      showFullApproachLink
     />
   );
 }

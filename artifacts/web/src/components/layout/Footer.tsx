@@ -93,6 +93,7 @@ export function Footer() {
           <ul className="space-y-4 flex flex-col">
             <Link href="/faq" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">FAQ</Link>
             <Link href="/get-started" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Contact</Link>
+            <Link href="/compliance" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Compliance</Link>
             <Link href="/privacy-policy" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Terms of Service</Link>
           </ul>

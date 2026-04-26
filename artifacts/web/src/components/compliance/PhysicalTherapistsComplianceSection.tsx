@@ -32,6 +32,7 @@ export default function PhysicalTherapistsComplianceSection() {
       lead="Physical therapy advertising rules vary more by state than most healthcare professions. Direct access \u2014 whether a patient can see a PT without a physician referral \u2014 is state-specific and changes how you can position your services. Scope of practice is state-specific. And outcome guarantees, whether stated or implied, draw scrutiny from both the FTC and your state board."
       items={items}
       closing="Your scope of practice is defined by your state board. Your website should reflect it \u2014 not stretch it."
+      showFullApproachLink
     />
   );
 }

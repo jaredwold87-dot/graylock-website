@@ -37,6 +37,7 @@ export default function DentistsComplianceSection() {
       lead="Dental advertising rules are state-specific but share common themes \u2014 restrictions on \u201Cspecialist\u201D claims to formally recognized specialties, careful handling of before-and-after photos, accurate insurance language, and disclosure of pricing for promotional offers. The American Dental Association\u2019s Code of Ethics provides the backbone; your state board fills in the specifics."
       items={items}
       closing="Your state dental board, the ADA Code of Ethics, and the FTC all have a hand in what your website can say. We work to all three."
+      showFullApproachLink
     />
   );
 }

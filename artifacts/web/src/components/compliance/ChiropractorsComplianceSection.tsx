@@ -37,6 +37,7 @@ export default function ChiropractorsComplianceSection() {
       lead="Chiropractic advertising is among the most heavily regulated in healthcare \u2014 for historical reasons rooted in concerns about overstated claims of cure. State chiropractic boards across the country prohibit specific words and phrases, regulate free-exam offers, govern testimonials in detail, and set rules for telemarketing. A website that ignores those specifics is a state-board complaint waiting to be filed."
       items={items}
       closing="Your state board has been writing chiropractic advertising rules for decades. We\u2019ve read them. Most web shops haven\u2019t."
+      showFullApproachLink
     />
   );
 }

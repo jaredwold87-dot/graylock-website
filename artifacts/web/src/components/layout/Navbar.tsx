@@ -474,6 +474,7 @@ export function Navbar() {
   const navLinksAfter = [
     { name: "Process", path: "/how-it-works" },
     { name: "Pricing", path: "/pricing" },
+    { name: "Compliance", path: "/compliance" },
     { name: "About", path: "/about" },
   ];
 

@@ -37,6 +37,7 @@ export default function PhysiciansComplianceSection() {
       lead="Physician advertising is governed by your state medical board, which typically follows model rules from the Federation of State Medical Boards. The American Medical Association\u2019s Code of Medical Ethics provides ethical guidance. The FTC overlays substantiation requirements. And board-certification claims have their own specific rules tied to ABMS, AOA-BOS, or equivalent certifying bodies. There is more here than a generic web shop sees."
       items={items}
       closing="Your state medical board has the final say on what your advertising can claim. We build your site so that every claim on it has a defensible source \u2014 and so the parts most likely to draw scrutiny draw the least."
+      showFullApproachLink
     />
   );
 }

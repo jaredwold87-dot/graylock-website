@@ -37,6 +37,7 @@ export default function AccountantsComplianceSection() {
       lead="CPAs operate under stricter advertising rules than most professions. The AICPA Code of Professional Conduct prohibits any advertising that is false, misleading, or deceptive \u2014 and several state accountancy boards add specific requirements on top: no \u201Cspecialist\u201D claims, no testimonials without verifiable facts, recordkeeping of advertising materials for up to 36 months. A website that doesn\u2019t account for those rules is a license-defense issue waiting to happen."
       items={items}
       closing="Your professional license is your firm\u2019s most valuable asset. We make sure your website never becomes the reason your state board takes a closer look."
+      showFullApproachLink
     />
   );
 }

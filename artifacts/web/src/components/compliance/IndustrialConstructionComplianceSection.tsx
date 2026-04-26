@@ -37,6 +37,7 @@ export default function IndustrialConstructionComplianceSection() {
       lead="Industrial contractors and trades operate under more layered licensure than almost any other small business. State contractor registration. Trade-specific licenses for electricians, plumbers, mechanical contractors, structural specialists. OSHA recordkeeping that supports any safety claim you make. Specialty certifications like asbestos abatement that come with their own advertising rules. A website that ignores any of those layers is a citation waiting to happen \u2014 your competitors know this, and so do the regulators."
       items={items}
       closing="Your licenses, certifications, and OSHA records are yours to maintain. Our job is to make sure your website tells your story without ever overstating what those credentials authorize."
+      showFullApproachLink
     />
   );
 }

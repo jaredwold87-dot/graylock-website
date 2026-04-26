@@ -43,6 +43,7 @@ export default function HealthcareComplianceSection() {
       lead="Patients judge a healthcare practice by its website before they ever walk in the door. So do regulators. The HHS Office for Civil Rights has been actively enforcing privacy rules around website tracking technologies since 2022 — sending warning letters to over a hundred hospital systems and telehealth providers, and pursuing settlements with practices whose websites quietly leaked patient data to advertising platforms. The bar has moved, and most healthcare sites haven't caught up."
       items={items}
       closing="We're not your privacy officer and we're not your attorney. Our role is to make sure the website itself doesn't create privacy risks your practice has to defend later."
+      showFullApproachLink
     />
   );
 }

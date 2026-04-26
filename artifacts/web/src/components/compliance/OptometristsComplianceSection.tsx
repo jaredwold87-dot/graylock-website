@@ -37,6 +37,7 @@ export default function OptometristsComplianceSection() {
       lead="Optometric advertising sits at the intersection of state optometry board rules and two specific FTC rules \u2014 the Eyeglass Rule and the Contact Lens Rule \u2014 that govern how prescriptions are provided to patients. The website itself can violate these rules without anyone realizing it."
       items={items}
       closing="Your state optometry board\u2019s advertising rules and the FTC\u2019s Eyeglass and Contact Lens Rules form a layered framework. We build for all of it, not just the parts that are obvious."
+      showFullApproachLink
     />
   );
 }
