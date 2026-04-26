@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import {
   Menu, X, ChevronDown,
-  Palette, Search, MousePointerClick, MapPin, Magnet,
+  Palette, Search, MousePointerClick, MapPin, Magnet, ShieldCheck,
   Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, Calculator, Briefcase, HardHat, Home,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -37,6 +37,12 @@ const SERVICES = [
     name: "Lead Generation",
     desc: "Forms, intake flows & lead magnets that work.",
     path: "/lead-generation-for-small-business",
+  },
+  {
+    icon: ShieldCheck,
+    name: "Compliance",
+    desc: "Federal, state & industry rules built in.",
+    path: "/compliance",
   },
 ];
 
@@ -474,7 +480,6 @@ export function Navbar() {
   const navLinksAfter = [
     { name: "Process", path: "/how-it-works" },
     { name: "Pricing", path: "/pricing" },
-    { name: "Compliance", path: "/compliance" },
     { name: "About", path: "/about" },
   ];
 
