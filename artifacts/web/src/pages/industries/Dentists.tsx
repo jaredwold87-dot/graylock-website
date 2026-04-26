@@ -1,5 +1,6 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
 import HealthcareComplianceSection from "@/components/compliance/HealthcareComplianceSection";
+import DentistsComplianceSection from "@/components/compliance/DentistsComplianceSection";
 import {
   Smile,
   Globe,
@@ -192,5 +193,15 @@ const data: IndustryPageData = {
 };
 
 export default function Dentists() {
-  return <IndustryLandingPage data={data} complianceSection={<HealthcareComplianceSection />} />;
+  return (
+    <IndustryLandingPage
+      data={data}
+      complianceSection={
+        <>
+          <HealthcareComplianceSection />
+          <DentistsComplianceSection />
+        </>
+      }
+    />
+  );
 }

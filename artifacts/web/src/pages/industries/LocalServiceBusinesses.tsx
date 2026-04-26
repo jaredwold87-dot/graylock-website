@@ -1,4 +1,5 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import LocalServiceBusinessesComplianceSection from "@/components/compliance/LocalServiceBusinessesComplianceSection";
 import {
   Wrench,
   Search,
@@ -213,5 +214,5 @@ const data: IndustryPageData = {
 };
 
 export default function LocalServiceBusinesses() {
-  return <IndustryLandingPage data={data} />;
+  return <IndustryLandingPage data={data} complianceSection={<LocalServiceBusinessesComplianceSection />} />;
 }

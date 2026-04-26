@@ -1,4 +1,5 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import AccountantsComplianceSection from "@/components/compliance/AccountantsComplianceSection";
 import {
   Calculator,
   Globe,
@@ -202,5 +203,5 @@ const data: IndustryPageData = {
 };
 
 export default function Accountants() {
-  return <IndustryLandingPage data={data} />;
+  return <IndustryLandingPage data={data} complianceSection={<AccountantsComplianceSection />} />;
 }

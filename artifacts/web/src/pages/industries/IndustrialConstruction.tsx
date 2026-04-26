@@ -1,4 +1,5 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import IndustrialConstructionComplianceSection from "@/components/compliance/IndustrialConstructionComplianceSection";
 import {
   HardHat,
   Search,
@@ -213,5 +214,5 @@ const data: IndustryPageData = {
 };
 
 export default function IndustrialConstruction() {
-  return <IndustryLandingPage data={data} />;
+  return <IndustryLandingPage data={data} complianceSection={<IndustrialConstructionComplianceSection />} />;
 }

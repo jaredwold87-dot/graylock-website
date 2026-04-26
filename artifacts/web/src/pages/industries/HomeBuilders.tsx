@@ -1,4 +1,5 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import HomeBuildersComplianceSection from "@/components/compliance/HomeBuildersComplianceSection";
 import {
   Home,
   Search,
@@ -213,5 +214,5 @@ const data: IndustryPageData = {
 };
 
 export default function HomeBuilders() {
-  return <IndustryLandingPage data={data} />;
+  return <IndustryLandingPage data={data} complianceSection={<HomeBuildersComplianceSection />} />;
 }

@@ -1,5 +1,6 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
 import HealthcareComplianceSection from "@/components/compliance/HealthcareComplianceSection";
+import OptometristsComplianceSection from "@/components/compliance/OptometristsComplianceSection";
 import {
   Glasses,
   Globe,
@@ -189,5 +190,15 @@ const data: IndustryPageData = {
 };
 
 export default function Optometrists() {
-  return <IndustryLandingPage data={data} complianceSection={<HealthcareComplianceSection />} />;
+  return (
+    <IndustryLandingPage
+      data={data}
+      complianceSection={
+        <>
+          <HealthcareComplianceSection />
+          <OptometristsComplianceSection />
+        </>
+      }
+    />
+  );
 }
