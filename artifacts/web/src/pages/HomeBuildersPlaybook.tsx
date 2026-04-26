@@ -1,7 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { PlaybookLeadForm } from "@/components/funnel/PlaybookLeadForm";
 import { FunnelMetaPixel, FunnelShell } from "@/components/funnel/FunnelHead";
-import bookCover from "@assets/image_1776955409933.png";
+import bookCover from "@/assets/home-builders-book-cover.png";
 import { Check } from "lucide-react";
 
 const bullets = [
