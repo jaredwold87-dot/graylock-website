@@ -1,6 +1,8 @@
 # Overview
 
-This is a pnpm workspace monorepo utilizing TypeScript for building a comprehensive digital marketing platform. The project aims to provide subscription-based website solutions for private practices and accounting firms through a marketing website and a robust API backend.
+# Overview
+
+This is a pnpm workspace monorepo utilizing TypeScript for building a comprehensive digital marketing platform. The project aims to provide subscription-based website solutions for professional practices and accounting firms through a marketing website and a robust API backend.
 
 **Key Capabilities:**
 
@@ -12,7 +14,14 @@ The project's vision is to streamline website creation and lead generation for p
 
 # User Preferences
 
-I want iterative development and detailed explanations of proposed changes. Ask before making major changes to the project structure or core architectural components. Do not make changes to the `lib/api-spec` or `lib/api-zod` directories unless specifically instructed, as these are generated.
+- The agent should **not** make changes to the existing `artifacts/web` marketing website unless specifically instructed, as it is a critical, carefully curated asset.
+- The agent should prioritize the use of `pnpm` for all package management operations.
+- All new code should be written in TypeScript, adhering to the monorepo's existing TypeScript configuration and practices.
+- When generating or modifying API-related code, the agent should ensure consistency with the OpenAPI specification and leverage `orval` for codegen.
+- For database interactions, `Drizzle ORM` and PostgreSQL should be exclusively used.
+- The agent should explain the reasoning behind significant architectural or design decisions.
+- Before implementing major changes, the agent should ask for confirmation.
+- Do not make changes to the `lib/api-spec` or `lib/api-zod` directories unless specifically instructed, as these are generated.
 
 # System Architecture
 

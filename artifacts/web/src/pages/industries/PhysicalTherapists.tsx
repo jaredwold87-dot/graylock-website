@@ -1,4 +1,5 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import HealthcareComplianceSection from "@/components/compliance/HealthcareComplianceSection";
 import {
   Dumbbell,
   Globe,
@@ -190,5 +191,5 @@ const data: IndustryPageData = {
 };
 
 export default function PhysicalTherapists() {
-  return <IndustryLandingPage data={data} />;
+  return <IndustryLandingPage data={data} complianceSection={<HealthcareComplianceSection />} />;
 }

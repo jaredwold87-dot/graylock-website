@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { PRICING_TIERS } from "@/lib/constants";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { Link } from "wouter";
 import {
   Check,
@@ -95,7 +95,13 @@ const TIER_STAGE_LABELS: Record<string, string> = {
   Scale: "Best for multi-location practices",
 };
 
-export default function IndustryLandingPage({ data }: { data: IndustryPageData }) {
+export default function IndustryLandingPage({
+  data,
+  complianceSection,
+}: {
+  data: IndustryPageData;
+  complianceSection?: ReactNode;
+}) {
   const pricingTiers = PRICING_TIERS.filter((t) => !t.isCustom).slice(0, 3);
 
   return (
@@ -346,6 +352,8 @@ export default function IndustryLandingPage({ data }: { data: IndustryPageData }
           </div>
         </div>
       </section>
+
+      {complianceSection}
 
       <section className="bg-charcoal py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">

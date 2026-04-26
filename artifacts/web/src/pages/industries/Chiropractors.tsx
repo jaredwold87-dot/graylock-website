@@ -1,4 +1,5 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import HealthcareComplianceSection from "@/components/compliance/HealthcareComplianceSection";
 import {
   Bone,
   Globe,
@@ -188,5 +189,5 @@ const data: IndustryPageData = {
 };
 
 export default function Chiropractors() {
-  return <IndustryLandingPage data={data} />;
+  return <IndustryLandingPage data={data} complianceSection={<HealthcareComplianceSection />} />;
 }

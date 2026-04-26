@@ -1,4 +1,5 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import HealthcareComplianceSection from "@/components/compliance/HealthcareComplianceSection";
 import {
   Stethoscope,
   Globe,
@@ -191,5 +192,5 @@ const data: IndustryPageData = {
 };
 
 export default function Physicians() {
-  return <IndustryLandingPage data={data} />;
+  return <IndustryLandingPage data={data} complianceSection={<HealthcareComplianceSection />} />;
 }
