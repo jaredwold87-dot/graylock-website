@@ -1,11 +1,13 @@
 import { SEO } from "@/components/SEO";
 import { HeroSection } from "@/components/home/HeroSection";
+import { ComplianceTrustStrip } from "@/components/home/ComplianceTrustStrip";
 import { TrustBar } from "@/components/home/TrustBar";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { GuideSection } from "@/components/home/GuideSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiationSection";
+import { BuiltForRulesSection } from "@/components/home/BuiltForRulesSection";
 import { CaseStudySection } from "@/components/home/CaseStudySection";
 import { DashboardSection } from "@/components/home/DashboardSection";
 import { PricingSnapshotSection } from "@/components/home/PricingSnapshotSection";
@@ -20,12 +22,14 @@ export default function Home() {
         url="https://graylockdigital.com/"
       />
       <HeroSection />
+      <ComplianceTrustStrip />
       <TrustBar />
       <OfferBreakdownSection />
       <ProblemSection />
       <GuideSection />
       <HowItWorksSection />
       <ValueDifferentiationSection />
+      <BuiltForRulesSection />
       <CaseStudySection />
       <DashboardSection />
       <PricingSnapshotSection />
