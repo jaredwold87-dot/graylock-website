@@ -168,7 +168,7 @@ const data: IndustryPageData = {
   relatedPages: [
     { name: "Chiropractors", path: "/websites-for-chiropractors" },
     { name: "Physicians", path: "/websites-for-physicians" },
-    { name: "Therapists & Counselors", path: "/websites-for-therapists" },
+    { name: "Psychologists", path: "/websites-for-psychologists" },
     { name: "Accounting Firms", path: "/websites-for-accountants" },
   ],
   schema: {

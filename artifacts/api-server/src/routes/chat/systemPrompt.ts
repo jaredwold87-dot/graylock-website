@@ -42,14 +42,10 @@ We serve two core customer categories:
 1. **Private Practices** — We have dedicated pages and expertise for each of these practice types:
    - Chiropractors
    - Dentists
-   - Dermatologists
-   - Ophthalmologists
    - Optometrists
    - Physical Therapists
    - Physicians (internal medicine, family medicine, cardiology, etc.)
    - Psychologists
-   - Therapists & Counselors (LCSWs, LPCs, LMFTs)
-   - Veterinarians
    We also serve any other private practice that sees patients or clients by appointment.
 2. **Accounting Firms** — CPAs, tax preparers, bookkeepers, enrolled agents, and financial advisory practices.
 

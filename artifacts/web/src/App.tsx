@@ -27,14 +27,10 @@ import NotFound from "@/pages/not-found";
 const AccountantsIndustry = lazy(() => import("@/pages/industries/Accountants"));
 const Chiropractors = lazy(() => import("@/pages/industries/Chiropractors"));
 const Dentists = lazy(() => import("@/pages/industries/Dentists"));
-const Dermatologists = lazy(() => import("@/pages/industries/Dermatologists"));
-const Ophthalmologists = lazy(() => import("@/pages/industries/Ophthalmologists"));
 const Optometrists = lazy(() => import("@/pages/industries/Optometrists"));
 const PhysicalTherapists = lazy(() => import("@/pages/industries/PhysicalTherapists"));
 const Physicians = lazy(() => import("@/pages/industries/Physicians"));
 const Psychologists = lazy(() => import("@/pages/industries/Psychologists"));
-const Therapists = lazy(() => import("@/pages/industries/Therapists"));
-const Veterinarians = lazy(() => import("@/pages/industries/Veterinarians"));
 const IndustrialConstruction = lazy(() => import("@/pages/industries/IndustrialConstruction"));
 const LocalServiceBusinesses = lazy(() => import("@/pages/industries/LocalServiceBusinesses"));
 const HomeBuilders = lazy(() => import("@/pages/industries/HomeBuilders"));
@@ -79,14 +75,10 @@ function Router() {
         <Route path="/other-service-businesses" component={LocalServiceBusinesses} />
         <Route path="/websites-for-chiropractors" component={Chiropractors} />
         <Route path="/websites-for-dentists" component={Dentists} />
-        <Route path="/websites-for-dermatologists" component={Dermatologists} />
-        <Route path="/websites-for-ophthalmologists" component={Ophthalmologists} />
         <Route path="/websites-for-optometrists" component={Optometrists} />
         <Route path="/websites-for-physical-therapists" component={PhysicalTherapists} />
         <Route path="/websites-for-physicians" component={Physicians} />
         <Route path="/websites-for-psychologists" component={Psychologists} />
-        <Route path="/websites-for-therapists" component={Therapists} />
-        <Route path="/websites-for-veterinarians" component={Veterinarians} />
         <Route path="/websites-for-industrial-construction" component={IndustrialConstruction} />
         <Route path="/websites-for-home-builders" component={HomeBuilders} />
         <Route path="/our-strategy" component={OurStrategy} />

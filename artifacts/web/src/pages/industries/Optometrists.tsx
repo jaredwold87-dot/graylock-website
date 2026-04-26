@@ -164,9 +164,9 @@ const data: IndustryPageData = {
   },
   showPrivacyNote: true,
   relatedPages: [
-    { name: "Ophthalmologists", path: "/websites-for-ophthalmologists" },
     { name: "Physicians", path: "/websites-for-physicians" },
     { name: "Dentists", path: "/websites-for-dentists" },
+    { name: "Chiropractors", path: "/websites-for-chiropractors" },
     { name: "Accounting Firms", path: "/websites-for-accountants" },
   ],
   schema: {

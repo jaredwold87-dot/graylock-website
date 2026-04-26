@@ -169,7 +169,7 @@ const data: IndustryPageData = {
   relatedPages: [
     { name: "Physicians", path: "/websites-for-physicians" },
     { name: "Optometrists", path: "/websites-for-optometrists" },
-    { name: "Dermatologists", path: "/websites-for-dermatologists" },
+    { name: "Chiropractors", path: "/websites-for-chiropractors" },
     { name: "Accounting Firms", path: "/websites-for-accountants" },
   ],
   schema: {

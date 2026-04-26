@@ -168,7 +168,7 @@ const data: IndustryPageData = {
   showPrivacyNote: true,
   relatedPages: [
     { name: "Dentists", path: "/websites-for-dentists" },
-    { name: "Dermatologists", path: "/websites-for-dermatologists" },
+    { name: "Optometrists", path: "/websites-for-optometrists" },
     { name: "Chiropractors", path: "/websites-for-chiropractors" },
     { name: "Accounting Firms", path: "/websites-for-accountants" },
   ],
