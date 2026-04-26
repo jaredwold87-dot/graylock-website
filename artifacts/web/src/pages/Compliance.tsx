@@ -255,7 +255,7 @@ export default function Compliance() {
         </div>
       </SectionShell>
 
-      <SectionShell eyebrow="What we don't do" heading="What we don\u2019t do.">
+      <SectionShell eyebrow="What we don't do" heading="What we don’t do.">
         <div className="space-y-5">
           <p className="text-stone font-sans text-base md:text-lg leading-relaxed mb-2">
             Some of the most important compliance choices we make are the things we refuse to do.
