@@ -19,6 +19,7 @@ import ContactRedirect from "@/pages/Contact";
 import ThankYou from "@/pages/ThankYou";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import AcceptableUsePolicy from "@/pages/AcceptableUsePolicy";
 import Compliance from "@/pages/Compliance";
 import Sitemap from "@/pages/Sitemap";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
@@ -89,15 +90,17 @@ function Router() {
         <Route path="/funnel-pages" component={FunnelPagesPage} />
         <Route path="/google-business-profile" component={GoogleBusinessProfilePage} />
         <Route path="/lead-generation-for-small-business" component={LeadGenerationPage} />
-        <Route path="/privacy-policy" component={PrivacyPolicy} />
-        <Route path="/terms-of-service" component={TermsOfService} />
+        <Route path="/terms" component={TermsOfService} />
+        <Route path="/privacy" component={PrivacyPolicy} />
+        <Route path="/aup" component={AcceptableUsePolicy} />
         <Route path="/compliance" component={Compliance} />
         <Route path="/sitemap" component={Sitemap} />
 
         <Route path="/our-work">{() => <Redirect to="/work" />}</Route>
         <Route path="/strategy">{() => <Redirect to="/our-strategy" />}</Route>
-        <Route path="/terms">{() => <Redirect to="/terms-of-service" />}</Route>
-        <Route path="/privacy">{() => <Redirect to="/privacy-policy" />}</Route>
+        <Route path="/terms-of-service">{() => <Redirect to="/terms" />}</Route>
+        <Route path="/privacy-policy">{() => <Redirect to="/privacy" />}</Route>
+        <Route path="/acceptable-use-policy">{() => <Redirect to="/aup" />}</Route>
 
         <Route component={NotFound} />
       </Switch>

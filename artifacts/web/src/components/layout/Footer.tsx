@@ -94,8 +94,9 @@ export function Footer() {
             <Link href="/faq" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">FAQ</Link>
             <Link href="/get-started" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Contact</Link>
             <Link href="/compliance" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Compliance</Link>
-            <Link href="/privacy-policy" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Terms of Service</Link>
+            <Link href="/terms" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Terms</Link>
+            <Link href="/privacy" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Privacy</Link>
+            <Link href="/aup" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Acceptable Use</Link>
           </ul>
           {phone && (
             <div className="mt-8">

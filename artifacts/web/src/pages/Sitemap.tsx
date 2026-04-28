@@ -105,8 +105,9 @@ const GROUPS: SitemapGroup[] = [
     intro: "Our terms, privacy practices, and compliance approach.",
     links: [
       { label: "Compliance", path: "/compliance", icon: ShieldCheck, description: "Our full compliance approach, end to end." },
-      { label: "Privacy Policy", path: "/privacy-policy", icon: FileText, description: "How we collect, use, and protect your information." },
-      { label: "Terms of Service", path: "/terms-of-service", icon: ScrollText, description: "The terms that govern use of our services." },
+      { label: "Master Services Agreement", path: "/terms", icon: ScrollText, description: "The binding subscription contract that governs every Graylock Subscription." },
+      { label: "Privacy Policy", path: "/privacy", icon: FileText, description: "How we collect, use, and protect your information." },
+      { label: "Acceptable Use Policy", path: "/aup", icon: FileText, description: "What customers may and may not do with Graylock services." },
     ],
   },
 ];
