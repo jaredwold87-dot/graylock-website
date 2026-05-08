@@ -464,9 +464,14 @@ export default function HomeBuildersFunnel() {
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
               Attention Custom Home Builders
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-white leading-tight mb-6">
-              We Will Build You a Custom Homepage Demo for Free.{" "}
-              <span className="text-[#E85D26]">If You Love It, We&rsquo;ll Build the Entire Site for Just $99.</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display leading-tight mb-6">
+              <span className="block text-white">
+                We Will Build You a Custom Homepage Demo for Free.
+              </span>
+              <span className="block text-[#E85D26] mt-2">
+                If You Love It, We&rsquo;ll Build You the Entire Site for{" "}
+                <span className="funnel-shine-99">just $99.</span>
+              </span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans leading-relaxed mb-6">
               Stop losing high-end bids to competitors with better websites. Book a
