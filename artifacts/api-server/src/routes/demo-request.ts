@@ -80,36 +80,68 @@ Submitted: ${submittedAt}
 ---
 Reply directly to this email to reach the lead, or schedule the meeting and send them a calendar invite.`;
 
-  const recipients: string[] = [];
+  const recipients = ["jared@graylockdigital.com"];
   if (process.env.TEAM_EMAIL_TIM) {
     recipients.push(process.env.TEAM_EMAIL_TIM);
-  } else {
-    recipients.push("jared@graylockdigital.com");
   }
 
-  const resendKey = process.env.RESEND_API_KEY;
-  if (!resendKey) {
-    logger.error("RESEND_API_KEY not set, cannot send demo request notification");
-    return res.status(500).json({ success: false, error: "Email service is not configured. Please contact us directly at hello@graylockdigital.com." });
-  }
+  const emailPromise = (async () => {
+    try {
+      const resendKey = process.env.RESEND_API_KEY;
+      if (!resendKey) {
+        logger.error("RESEND_API_KEY not set, skipping demo request team notification");
+        return;
+      }
+      const resend = new Resend(resendKey);
+      await resend.emails.send({
+        from: "noreply@graylockdigital.com",
+        to: recipients,
+        replyTo: email,
+        subject: teamSubject,
+        text: teamBody,
+      });
+      logger.info({ email, businessName }, "Demo request team email sent");
+    } catch (err) {
+      logger.error({ err }, "Failed to send demo request team email");
+    }
+  })();
 
-  const resend = new Resend(resendKey);
+  const gosPromise = (async () => {
+    try {
+      const gosUrl = process.env.GRAYLOCK_API_URL;
+      if (!gosUrl) {
+        logger.warn("GRAYLOCK_API_URL not set, skipping GOS webhook");
+        return;
+      }
+      const response = await fetch(`${gosUrl}/api/webhook/lead`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          businessName,
+          email,
+          phone,
+          serviceArea: "",
+          hasWebsite: websiteUrl.toLowerCase() !== "none",
+          websiteUrl,
+          primaryGoal: "Free custom homepage demo",
+          idealCustomer: "",
+          brandingNotes: notes,
+          heardAboutUs: "",
+          source,
+          submittedAt,
+        }),
+      });
+      const responseBody = await response.text();
+      logger.info({ status: response.status, body: responseBody }, "GOS demo request webhook response");
+    } catch (err) {
+      logger.error({ err }, "Failed to POST demo request to GOS webhook");
+    }
+  })();
 
-  try {
-    await resend.emails.send({
-      from: "noreply@graylockdigital.com",
-      to: recipients,
-      replyTo: email,
-      subject: teamSubject,
-      text: teamBody,
-    });
-    logger.info({ email, businessName }, "Demo request team email sent");
-  } catch (err) {
-    logger.error({ err }, "Failed to send demo request team email");
-    return res.status(500).json({ success: false, error: "We couldn't send your request right now. Please try again or email us at hello@graylockdigital.com." });
-  }
+  await Promise.allSettled([emailPromise, gosPromise]);
 
-  res.json({ success: true });
+  return res.json({ success: true });
 });
 
 export default demoRequestRouter;
