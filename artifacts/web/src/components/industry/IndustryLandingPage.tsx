@@ -98,9 +98,11 @@ const TIER_STAGE_LABELS: Record<string, string> = {
 export default function IndustryLandingPage({
   data,
   complianceSection,
+  extraSection,
 }: {
   data: IndustryPageData;
   complianceSection?: ReactNode;
+  extraSection?: ReactNode;
 }) {
   const pricingTiers = PRICING_TIERS.filter((t) => !t.isCustom).slice(0, 3);
 
@@ -352,6 +354,8 @@ export default function IndustryLandingPage({
           </div>
         </div>
       </section>
+
+      {extraSection}
 
       {complianceSection}
 

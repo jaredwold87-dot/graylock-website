@@ -1,5 +1,6 @@
 import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
 import IndustrialConstructionComplianceSection from "@/components/compliance/IndustrialConstructionComplianceSection";
+import LAPerksBeforeAfterSection from "@/components/industry/LAPerksBeforeAfterSection";
 import {
   HardHat,
   Search,
@@ -214,5 +215,11 @@ const data: IndustryPageData = {
 };
 
 export default function IndustrialConstruction() {
-  return <IndustryLandingPage data={data} complianceSection={<IndustrialConstructionComplianceSection />} />;
+  return (
+    <IndustryLandingPage
+      data={data}
+      complianceSection={<IndustrialConstructionComplianceSection />}
+      extraSection={<LAPerksBeforeAfterSection />}
+    />
+  );
 }
