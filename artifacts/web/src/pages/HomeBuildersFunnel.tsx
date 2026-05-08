@@ -27,7 +27,7 @@ import {
   Rocket,
 } from "lucide-react";
 
-const URGENCY_COPY = "May Only: Build Fee Cut to Just $99 — Offer Ends May 31.";
+const URGENCY_COPY = "Save $1,400 This Month — May Only: Build Fee Cut to Just $99. Offer Ends May 31.";
 
 const FUNNEL_FAQS: { q: string; a: string }[] = [
   {
