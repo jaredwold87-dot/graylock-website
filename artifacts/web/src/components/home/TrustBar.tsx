@@ -13,7 +13,7 @@ export function TrustBar() {
         <div className="h-5 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent hidden sm:block" />
 
         <span className="text-stone/90 font-sans text-sm tracking-wide">
-          <span className="text-offwhite font-semibold">100%</span> U.S.-Based Team
+          <span className="text-offwhite font-semibold">3×</span> More Inquiries on Average
         </span>
 
         <div className="h-5 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent hidden sm:block" />

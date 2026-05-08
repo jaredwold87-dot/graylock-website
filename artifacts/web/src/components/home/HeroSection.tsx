@@ -113,7 +113,7 @@ export function HeroSection() {
               <span className="text-gradient">Your Best Source of New Clients.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
-              Custom, mobile-first websites for private practices and service businesses. Live in 7–10 days. Built to turn traffic into booked appointments.
+              Your next client is already searching Google. We build custom, high-converting websites for private practices and service businesses — live in 7–10 days, built to get you found and get you booked.
             </p>
 
             {/* Mobile-only sequence: reassurance → CTA → bullets → proof image */}
@@ -128,12 +128,12 @@ export function HeroSection() {
               </div>
 
               <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance mb-4">
-                See what we would improve before you spend a dollar.
+                We'll show you exactly what your new site could look like — before you spend a dollar.
               </p>
               <ul className="flex flex-col gap-2.5 mb-8">
                 {[
-                  "Free custom homepage demo",
-                  "No long-term contracts",
+                  "More calls, inquiries, and booked appointments",
+                  "Show up when clients Google your services",
                 ].map((text, i) => (
                   <li key={i} className="flex items-center gap-2.5 justify-center">
                     <Check
@@ -171,13 +171,13 @@ export function HeroSection() {
               </div>
 
               <p className="text-stone/80 font-sans text-base mb-8">
-                See what we would improve before you spend a dollar.
+                We'll show you exactly what your new site could look like — before you spend a dollar.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
                 {[
-                  "Custom homepage demo before you commit",
-                  "No long-term contracts",
+                  "More calls, inquiries, and booked appointments",
+                  "Show up when clients Google your services",
                 ].map((text, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
