@@ -812,40 +812,6 @@ export default function HomeBuildersFunnel() {
         </div>
       </section>
 
-      {/* Section 5 — Calendar / Booking */}
-      <section id="book-demo" className="bg-white px-6 md:px-12 py-16 md:py-24 scroll-mt-16">
-        <div className="max-w-3xl mx-auto text-center">
-          <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-4 leading-tight">
-              Claim Your Free Custom Homepage Demo
-            </h2>
-            <p className="text-[#4a5568] text-lg font-sans leading-relaxed mb-4">
-              Pick a time below for a brief 15-minute discovery call. We&rsquo;ll learn
-              about your business and start designing your free custom homepage
-              concept.
-            </p>
-            <p className="text-[#E85D26] font-sans font-bold text-base md:text-lg mb-10">
-              Reminder: Book before {OFFER_WINDOW.lastDayLabel} to lock in the $99 build fee.
-            </p>
-          </ScrollReveal>
-
-          <DemoRequestForm />
-
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-[#1a202c] font-sans text-sm md:text-base font-semibold">
-            {[
-              "7–10 Day Delivery",
-              "100% U.S.-Based Team",
-              "No Long-Term Contracts",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <Check className="text-[#E85D26] flex-shrink-0" size={18} />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Section 5b — What Happens After Launch */}
       <section className="bg-white px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
         <div className="max-w-5xl mx-auto">
@@ -939,6 +905,40 @@ export default function HomeBuildersFunnel() {
               Out of scope: a brand-new identity/logo or net-new pages beyond your current site structure.
             </p>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Section 5 — Calendar / Booking */}
+      <section id="book-demo" className="bg-white px-6 md:px-12 py-16 md:py-24 scroll-mt-16 border-t border-gray-100">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-4 leading-tight">
+              Claim Your Free Custom Homepage Demo
+            </h2>
+            <p className="text-[#4a5568] text-lg font-sans leading-relaxed mb-4">
+              Pick a time below for a brief 15-minute discovery call. We&rsquo;ll learn
+              about your business and start designing your free custom homepage
+              concept.
+            </p>
+            <p className="text-[#E85D26] font-sans font-bold text-base md:text-lg mb-10">
+              Reminder: Book before {OFFER_WINDOW.lastDayLabel} to lock in the $99 build fee.
+            </p>
+          </ScrollReveal>
+
+          <DemoRequestForm />
+
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-[#1a202c] font-sans text-sm md:text-base font-semibold">
+            {[
+              "7–10 Day Delivery",
+              "100% U.S.-Based Team",
+              "No Long-Term Contracts",
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-2">
+                <Check className="text-[#E85D26] flex-shrink-0" size={18} />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
