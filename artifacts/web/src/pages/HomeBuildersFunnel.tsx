@@ -468,9 +468,28 @@ export default function HomeBuildersFunnel() {
               <span className="block text-white">
                 We Will Build You a Custom Homepage Demo for Free.
               </span>
-              <span className="block text-[#E85D26] mt-2">
-                If You Love It, We&rsquo;ll Build You the Entire Site for{" "}
-                <span className="funnel-shine-99">just $99.</span>
+              <span className="block mt-2">
+                <span className="text-[#E85D26]">
+                  If You Love It, We&rsquo;ll Build You the Entire Site
+                </span>{" "}
+                <span className="text-white relative inline-block">
+                  <span className="funnel-shine-99">for just $99.</span>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 300 18"
+                    preserveAspectRatio="none"
+                    className="absolute left-0 right-0 -bottom-2 md:-bottom-3 w-full h-3 md:h-4 pointer-events-none"
+                  >
+                    <path
+                      d="M4 14 Q 150 -4 296 14"
+                      fill="none"
+                      stroke="#ffffff"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      className="funnel-arch-underline"
+                    />
+                  </svg>
+                </span>
               </span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans leading-relaxed mb-6">
