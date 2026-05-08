@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { Wrench, MessagesSquare, UserCheck, TrendingUp, Landmark, MapPin, Briefcase } from "lucide-react";
+import { Wrench, MessagesSquare, UserCheck, TrendingUp } from "lucide-react";
 
 export default function HowItWorks() {
   const steps = [
@@ -64,67 +64,6 @@ export default function HowItWorks() {
               </div>
             </ScrollReveal>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-charcoal py-20 md:py-24 px-6 md:px-12 border-y border-gunmetal/60">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="max-w-3xl mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6 leading-tight">
-              Compliance is part of the build, not a checklist we hand back.
-            </h2>
-            <p className="text-stone font-sans text-lg leading-relaxed">
-              Most agencies treat compliance as a final-stage review — a list of disclaimers added to a finished site so the lawyer signs off. We treat it as a design constraint that shapes decisions from the first wireframe forward. By the time we hand off, the rules that govern your industry have already informed how the site is structured, what it says, and what it tracks.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                icon: <Landmark className="text-orange" size={22} />,
-                title: "The federal floor",
-                paragraphs: [
-                  "Every Graylock site is built to a baseline of federal marketing law: FTC truth-in-advertising standards, CAN-SPAM for any commercial email, the Telephone Consumer Protection Act for any phone or text outreach, and the ADA's accessibility expectations under WCAG 2.1 Level AA.",
-                  "These aren't add-ons. The contact forms, the email templates, the testimonial sections, the alt text on images — all of it is structured against this floor before it ever goes live.",
-                ],
-                delay: 0.1,
-              },
-              {
-                icon: <MapPin className="text-orange" size={22} />,
-                title: "The state layer",
-                paragraphs: [
-                  "Twenty-plus states now have comprehensive consumer privacy laws — California, Virginia, Colorado, Texas, Montana, and growing. Most of them require a privacy notice, the ability to honor opt-out signals, and a way for visitors to make data requests.",
-                  "We configure each site for the strictest state law that touches your business, not just the one your office is in. If your customers are in California or your data subjects are in Montana, your site is set up to handle that — automatically, from launch day.",
-                ],
-                delay: 0.2,
-              },
-              {
-                icon: <Briefcase className="text-orange" size={22} />,
-                title: "Your industry's rules",
-                paragraphs: [
-                  "Beyond the federal and state baseline, your profession has its own rules. State contractor boards require license numbers in advertising. State medical and dental boards have specific rules about testimonials, before-and-after photos, and specialty claims. The AICPA and state accountancy boards govern what a CPA firm can say.",
-                  "We've done the homework on the verticals we serve. Your site reflects what your licensing body actually requires — including the parts your competitors usually get wrong.",
-                ],
-                delay: 0.3,
-              },
-            ].map((col) => (
-              <ScrollReveal key={col.title} delay={col.delay} className="bg-navy/60 p-8 rounded-xl border border-gunmetal/60">
-                <div className="w-11 h-11 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center mb-4">
-                  {col.icon}
-                </div>
-                <h3 className="text-xl font-display text-offwhite mb-4">{col.title}</h3>
-                {col.paragraphs.map((p, idx) => (
-                  <p key={idx} className="text-stone font-sans leading-relaxed mb-3 last:mb-0">{p}</p>
-                ))}
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal delay={0.4} className="max-w-3xl">
-            <p className="text-offwhite font-sans text-lg leading-relaxed">
-              When the rules change — and they do — Graylock OS catches it. We update your site as part of the service, not as a change order.
-            </p>
-          </ScrollReveal>
         </div>
       </section>
 
