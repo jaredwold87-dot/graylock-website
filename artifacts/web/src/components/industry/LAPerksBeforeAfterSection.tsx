@@ -1,5 +1,5 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import laPerksBeforeAfter from "@assets/laperks_before_after_cropped.png";
+import laPerksBeforeAfter from "@/assets/laperks_before_after_cropped.png";
 
 export default function LAPerksBeforeAfterSection() {
   return (
