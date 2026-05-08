@@ -2,6 +2,12 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { PRICING_TIERS } from "@/lib/constants";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { useEffect, useState } from "react";
 import heroBgImage from "@/assets/home-builders/funnel-header-bg.png";
 import heroMockupImage from "@/assets/home-builders/funnel-mockup.png";
@@ -19,7 +25,6 @@ import {
   CreditCard,
   Hammer,
   Rocket,
-  ChevronDown,
 } from "lucide-react";
 
 const URGENCY_COPY = "May Only: Build Fee Cut to Just $99 — Offer Ends May 31.";
@@ -345,43 +350,6 @@ function DemoRequestForm() {
         We&rsquo;ll confirm your time by email within 1 business day. No spam — ever.
       </p>
     </form>
-  );
-}
-
-function FunnelFaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div
-      className={`bg-white rounded-xl border-2 transition-all duration-200 overflow-hidden ${
-        open ? "border-[#E85D26]/50 shadow-md" : "border-gray-200 hover:border-gray-300"
-      }`}
-    >
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="w-full flex items-center justify-between gap-4 px-5 md:px-6 py-5 text-left"
-      >
-        <span className="text-[#1a202c] font-sans font-semibold text-base md:text-lg">
-          {question}
-        </span>
-        <ChevronDown
-          size={22}
-          className={`text-[#E85D26] flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-        />
-      </button>
-      <div
-        className={`grid transition-[grid-template-rows] duration-200 ease-out ${
-          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-        }`}
-      >
-        <div className="overflow-hidden">
-          <p className="text-[#4a5568] font-sans text-base leading-relaxed px-5 md:px-6 pb-5">
-            {answer}
-          </p>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -722,9 +690,8 @@ export default function HomeBuildersFunnel() {
 
                     <div className="rounded-lg bg-[#1a202c] text-white px-3.5 py-2.5 mb-5">
                       <p className="font-sans text-xs md:text-sm leading-snug">
-                        <span className="text-[#E85D26] font-bold">May Offer:</span>{" "}
-                        Build Fee Cut to <span className="font-bold">$99</span>{" "}
-                        <span className="text-stone line-through ml-1">{tier.setup.replace(/\s+one-time build fee/i, "")}</span>
+                        <span className="text-[#E85D26] font-bold">$999 Build Fee Waived for May</span>{" "}
+                        — Pay Only <span className="font-bold">$99</span> to Start.
                       </p>
                     </div>
 
@@ -814,13 +781,27 @@ export default function HomeBuildersFunnel() {
             </h2>
           </ScrollReveal>
 
-          <div className="space-y-3">
+          <Accordion
+            type="single"
+            collapsible
+            className="space-y-3"
+          >
             {FUNNEL_FAQS.map((faq, i) => (
               <ScrollReveal key={faq.q} delay={i * 0.06}>
-                <FunnelFaqItem question={faq.q} answer={faq.a} />
+                <AccordionItem
+                  value={`faq-${i}`}
+                  className="bg-white rounded-xl border-2 border-gray-200 hover:border-gray-300 data-[state=open]:border-[#E85D26]/50 data-[state=open]:shadow-md transition-all duration-200 overflow-hidden"
+                >
+                  <AccordionTrigger className="px-5 md:px-6 py-5 text-left text-[#1a202c] font-sans font-semibold text-base md:text-lg hover:no-underline [&>svg]:text-[#E85D26] [&>svg]:h-5 [&>svg]:w-5">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 md:px-6 pb-5 pt-0 text-[#4a5568] font-sans text-base leading-relaxed">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
               </ScrollReveal>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 
