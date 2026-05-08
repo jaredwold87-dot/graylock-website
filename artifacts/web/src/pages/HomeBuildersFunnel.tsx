@@ -527,52 +527,72 @@ export default function HomeBuildersFunnel() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {[
-              {
-                day: "Step 1",
-                title: "Call & Evaluation",
-                desc: "A free 15-minute call to learn about your business, your target buyers, and what your new homepage needs to do.",
-                Icon: PhoneCall,
-              },
-              {
-                day: "Step 2",
-                title: "Custom Homepage Demo",
-                desc: "We design a custom homepage demo for your business — at no cost — and walk you through it together. No pressure, no commitment.",
-                Icon: Monitor,
-              },
-              {
-                day: "Step 3",
-                title: "Approve & Build",
-                desc: "If you love the demo, you pay the build fee and we build out the rest of your site — fast, mobile-first, and conversion-focused.",
-                Icon: Hammer,
-              },
-              {
-                day: "Step 4",
-                title: "Review & Launch",
-                desc: "We walk you through the finished site, make any minor tweaks, then connect your domain and launch. Nothing goes live until you sign off.",
-                Icon: Rocket,
-              },
-            ].map((step, i) => (
-              <ScrollReveal key={step.day} delay={i * 0.08}>
-                <div className="relative h-full bg-[#1a1a1a] border border-white/10 rounded-xl p-6 md:p-7 hover:border-[#E85D26]/40 transition-colors">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#E85D26]/15 border border-[#E85D26]/30 flex items-center justify-center flex-shrink-0">
-                      <step.Icon className="text-[#E85D26]" size={20} />
+          <div className="relative">
+            {/* Connecting flow line — desktop only */}
+            <div
+              aria-hidden="true"
+              className="hidden lg:block absolute left-[12.5%] right-[12.5%] top-[60px] h-px bg-gradient-to-r from-transparent via-[#E85D26]/30 to-transparent"
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-10 lg:gap-6 relative">
+              {[
+                {
+                  day: "Step 1",
+                  title: "Call & Evaluation",
+                  desc: "A free 15-minute call to learn about your business, your target buyers, and what your new homepage needs to do.",
+                  Icon: PhoneCall,
+                },
+                {
+                  day: "Step 2",
+                  title: "Custom Homepage Demo",
+                  desc: "We design a custom homepage demo for your business — at no cost — and walk you through it together. No pressure, no commitment.",
+                  Icon: Monitor,
+                },
+                {
+                  day: "Step 3",
+                  title: "Approve & Build",
+                  desc: "If you love the demo, you pay the build fee and we build out the rest of your site — fast, mobile-first, and conversion-focused.",
+                  Icon: Hammer,
+                },
+                {
+                  day: "Step 4",
+                  title: "Review & Launch",
+                  desc: "We walk you through the finished site, make any minor tweaks, then connect your domain and launch. Nothing goes live until you sign off.",
+                  Icon: Rocket,
+                },
+              ].map((step, i) => (
+                <ScrollReveal key={step.day} delay={i * 0.08}>
+                  <div className="relative flex flex-col items-center text-center px-2">
+                    {/* Icon with radial glow */}
+                    <div className="relative mb-6">
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 -m-6 rounded-full bg-[#E85D26]/20 blur-2xl"
+                      />
+                      <div className="relative w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#E85D26] to-[#c04416] flex items-center justify-center shadow-[0_8px_40px_-8px_rgba(232,93,38,0.6)]">
+                        <step.Icon className="text-white" size={52} strokeWidth={1.5} />
+                      </div>
+                      {/* Step number badge */}
+                      <div className="absolute -top-1 -right-1 w-9 h-9 rounded-full bg-[#0f0f0f] border-2 border-[#E85D26] flex items-center justify-center">
+                        <span className="text-[#E85D26] font-display text-base font-bold leading-none">
+                          {i + 1}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-[#E85D26] font-sans text-xs font-bold uppercase tracking-wider">
+
+                    <p className="text-[#E85D26] font-sans text-xs font-bold uppercase tracking-[0.18em] mb-2">
                       {step.day}
-                    </span>
+                    </p>
+                    <h3 className="text-xl md:text-2xl font-display text-white mb-3 leading-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-stone font-sans text-sm md:text-base leading-relaxed max-w-xs">
+                      {step.desc}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-display text-white mb-2 leading-tight">
-                    {step.title}
-                  </h3>
-                  <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
