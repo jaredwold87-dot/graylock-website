@@ -4,7 +4,7 @@ import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock, FileCheck, Globe, Image as ImageIcon, Package, ShieldCheck, RefreshCw, Sparkles, Camera, Gauge } from "lucide-react";
+import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock, FileCheck, Globe, Image as ImageIcon, RefreshCw, Sparkles, Camera, Gauge } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Pricing() {
@@ -53,50 +53,6 @@ export default function Pricing() {
             </p>
             <h1 className="text-4xl md:text-6xl font-display mb-6 leading-tight">Three plans. One flat fee. <span className="text-gradient">No surprises.</span></h1>
             <p className="text-lg md:text-xl font-sans text-stone leading-relaxed">A one-time site development fee, then a flat monthly rate that covers hosting, maintenance, security, and ongoing support. Month-to-month — never locked in.</p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <section className="pt-16 pb-16 md:pb-20 px-6 md:px-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
-        <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="max-w-5xl mx-auto relative z-10">
-          <ScrollReveal className="text-center mb-10">
-            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-xs md:text-sm mb-3">Included With Every Plan</p>
-            <div className="inline-flex items-center gap-2 mb-4">
-              <RefreshCw className="text-orange" size={22} />
-              <h2 className="text-3xl md:text-5xl font-display text-charcoal leading-tight">Your Stay-Current Guarantee</h2>
-            </div>
-            <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
-              Every 2 years, we refresh your website — free. Stay subscribed and your site never gets dated.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <div className="bg-white/80 backdrop-blur-sm border border-gray-200/80 rounded-2xl p-6 md:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-                {[
-                  { icon: <Sparkles className="text-orange" size={20} />, title: "Design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
-                  { icon: <Camera className="text-orange" size={20} />, title: "New photos & copy", desc: "Swap in fresh photography and refreshed copy across the pages that matter most." },
-                  { icon: <Gauge className="text-orange" size={20} />, title: "Performance retune", desc: "Mobile speed, Core Web Vitals, services, team, and offers — all brought back to current standards." },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-9 h-9 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-orange/20">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-charcoal font-display text-base mb-1">{item.title}</h3>
-                      <p className="text-slate-600 font-sans text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-slate-600 font-sans text-xs md:text-sm text-center mt-6 leading-relaxed">
-                Out of scope: a brand-new identity/logo or net-new pages beyond your current site structure.{" "}
-                <a href="/faq#pricing-plans" className="text-orange hover:underline">See full scope in the FAQ →</a>
-              </p>
-            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -228,9 +184,49 @@ export default function Pricing() {
 
           <div className="max-w-4xl mx-auto">
             <ScrollReveal className="text-center mb-12 pt-8 border-t border-gray-300/60">
-              <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4 mt-8">No Lock-In</p>
-              <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">What You Own</h2>
+              <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4 mt-8">You're Covered</p>
+              <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">Always current. Always yours.</h2>
               <p className="text-slate-600 text-lg font-sans max-w-2xl mx-auto leading-relaxed">
+                Two promises baked into every plan: every 2 years your site gets a free top-to-bottom refresh, and the things that matter — your domain, your content, your brand — belong to you whether you stay or go.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1} className="mb-14">
+              <div className="flex items-center justify-center gap-2 mb-8">
+                <RefreshCw className="text-orange" size={18} />
+                <h3 className="text-orange font-sans font-semibold uppercase tracking-widest text-xs md:text-sm">Stay-Current Guarantee · Free Refresh Every 2 Years</h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+                {[
+                  { icon: <Sparkles className="text-orange" size={24} />, title: "Design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
+                  { icon: <Camera className="text-orange" size={24} />, title: "New photos & copy", desc: "Swap in fresh photography and refreshed copy across the pages that matter most." },
+                  { icon: <Gauge className="text-orange" size={24} />, title: "Performance retune", desc: "Mobile speed, Core Web Vitals, services, team, and offers — all brought back to current standards." },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3">
+                    <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-orange/20">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-charcoal font-display text-lg mb-1">{item.title}</h4>
+                      <p className="text-slate-600 font-sans text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-slate-500 font-sans text-xs md:text-sm text-center mt-6 leading-relaxed max-w-3xl mx-auto">
+                Out of scope: a brand-new identity/logo or net-new pages beyond your current site structure.{" "}
+                <a href="/faq#pricing-plans" className="text-orange hover:underline">See full scope in the FAQ →</a>
+              </p>
+            </ScrollReveal>
+
+            <div className="border-t border-gray-300/60 mb-12" />
+
+            <ScrollReveal delay={0.15} className="text-center mb-10">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Lock className="text-orange" size={18} />
+                <h3 className="text-orange font-sans font-semibold uppercase tracking-widest text-xs md:text-sm">What You Own · No Lock-In</h3>
+              </div>
+              <p className="text-slate-600 font-sans max-w-2xl mx-auto leading-relaxed">
                 You're never locked in. Here's exactly what belongs to you — during your plan and after.
               </p>
             </ScrollReveal>
