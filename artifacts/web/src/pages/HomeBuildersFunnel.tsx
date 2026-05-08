@@ -42,6 +42,22 @@ const FUNNEL_FAQS: { q: string; a: string }[] = [
     q: "Am I locked into a contract?",
     a: "No. There are no long-term contracts. All plans are month-to-month — you can cancel any time with 30 days' notice and we'll hand off your content and domain cleanly, no cancellation fees.",
   },
+  {
+    q: "Do you build websites for both custom-home builders and production builders?",
+    a: "Yes. The site structure changes to match: custom builders get an in-depth design-build process page, gallery storytelling, and consultation-focused forms. Production builders get prominent floor plan filtering, model home pages, available-inventory lists, and quick-tour scheduling. Either way, the site is built around how your prospects actually shop.",
+  },
+  {
+    q: "Can you showcase floor plans and model homes the way prospects expect?",
+    a: "Yes. Every floor plan and model home gets its own dedicated page with high-resolution renderings, square footage, bedroom/bath counts, customization options, available lots, and a clear path to schedule a consultation or tour. Each page is SEO-optimized so it ranks for the floor plan name and style.",
+  },
+  {
+    q: "Will the site help us rank for 'custom home builder' and city-specific searches?",
+    a: "That's a core focus. We build dedicated service-area pages for every city or community you build in, paired with local SEO and a fully optimized Google Business Profile. Within a few months most builder clients are appearing in the local map pack and on page one for their main 'builder + city' and 'custom home builder near me' searches.",
+  },
+  {
+    q: "How do you handle project galleries and photography?",
+    a: "We build a gallery system that lets each completed home become a story — not just a thumbnail. Floor plan, location, square footage, design notes, and the family's testimonial all live together. You email us photos when a home wraps and we update the site for you.",
+  },
 ];
 
 const OFFER_DEADLINE = new Date("2026-06-01T04:59:59Z");
