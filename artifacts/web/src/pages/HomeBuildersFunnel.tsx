@@ -8,10 +8,8 @@ import {
   EyeOff,
   ArrowRight,
   Check,
-  Calendar,
+  Loader2,
 } from "lucide-react";
-
-const CALENDLY_URL = "";
 
 const URGENCY_COPY = "May Only: Setup Fee Cut to Just $99 — Offer Ends May 31.";
 
@@ -80,6 +78,236 @@ function CountdownTimer() {
         </div>
       )}
     </div>
+  );
+}
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
+function getDefaultDate() {
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
+function DemoRequestForm() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [form, setForm] = useState({
+    first_name: "",
+    last_name: "",
+    business_name: "",
+    email: "",
+    phone: "",
+    preferred_date: "",
+    preferred_time: "",
+    notes: "",
+  });
+
+  const minDate = new Date().toISOString().slice(0, 10);
+  const timezone = typeof Intl !== "undefined"
+    ? Intl.DateTimeFormat().resolvedOptions().timeZone
+    : "";
+
+  function update<K extends keyof typeof form>(key: K, value: string) {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL || "/"}api/demo-request`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          timezone,
+          source: "home-builders-funnel",
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data?.success) {
+        setStatus("error");
+        setErrorMsg(data?.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("success");
+    } catch {
+      setStatus("error");
+      setErrorMsg("We couldn't reach our server. Please try again in a moment.");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="rounded-xl border border-[#E85D26]/30 bg-[#fff7f3] px-6 py-10 md:py-14 mb-10 text-left">
+        <div className="w-12 h-12 rounded-full bg-[#E85D26] flex items-center justify-center mb-5 mx-auto">
+          <Check size={24} className="text-white" />
+        </div>
+        <h3 className="text-2xl md:text-3xl font-display text-[#1a202c] mb-3 text-center leading-tight">
+          You&rsquo;re on the list — we&rsquo;ll be in touch shortly.
+        </h3>
+        <p className="text-[#4a5568] font-sans text-base md:text-lg leading-relaxed text-center max-w-xl mx-auto">
+          Tim has received your request and will email you within 1 business day to
+          confirm your preferred time and send a calendar invite for your free
+          15-minute custom homepage demo.
+        </p>
+      </div>
+    );
+  }
+
+  const inputClass =
+    "w-full bg-white border border-gray-300 rounded-md px-3.5 py-2.5 text-[#1a202c] font-sans text-base placeholder:text-gray-400 focus:outline-none focus:border-[#2e7bb4] focus:ring-2 focus:ring-[#2e7bb4]/20 transition-colors disabled:opacity-60";
+  const labelClass =
+    "block text-[#1a202c] font-sans text-sm font-semibold mb-1.5 text-left";
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-xl border border-gray-200 bg-white shadow-lg px-6 py-7 md:px-8 md:py-9 mb-10 text-left"
+      noValidate
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        <div>
+          <label className={labelClass} htmlFor="dr_first_name">First name *</label>
+          <input
+            id="dr_first_name"
+            type="text"
+            required
+            autoComplete="given-name"
+            value={form.first_name}
+            onChange={(e) => update("first_name", e.target.value)}
+            className={inputClass}
+            disabled={status === "submitting"}
+          />
+        </div>
+        <div>
+          <label className={labelClass} htmlFor="dr_last_name">Last name</label>
+          <input
+            id="dr_last_name"
+            type="text"
+            autoComplete="family-name"
+            value={form.last_name}
+            onChange={(e) => update("last_name", e.target.value)}
+            className={inputClass}
+            disabled={status === "submitting"}
+          />
+        </div>
+        <div className="md:col-span-2">
+          <label className={labelClass} htmlFor="dr_business_name">Business name *</label>
+          <input
+            id="dr_business_name"
+            type="text"
+            required
+            autoComplete="organization"
+            value={form.business_name}
+            onChange={(e) => update("business_name", e.target.value)}
+            className={inputClass}
+            disabled={status === "submitting"}
+          />
+        </div>
+        <div>
+          <label className={labelClass} htmlFor="dr_email">Email *</label>
+          <input
+            id="dr_email"
+            type="email"
+            required
+            autoComplete="email"
+            value={form.email}
+            onChange={(e) => update("email", e.target.value)}
+            className={inputClass}
+            disabled={status === "submitting"}
+          />
+        </div>
+        <div>
+          <label className={labelClass} htmlFor="dr_phone">Phone *</label>
+          <input
+            id="dr_phone"
+            type="tel"
+            required
+            autoComplete="tel"
+            value={form.phone}
+            onChange={(e) => update("phone", e.target.value)}
+            className={inputClass}
+            disabled={status === "submitting"}
+          />
+        </div>
+        <div>
+          <label className={labelClass} htmlFor="dr_date">Preferred meeting date *</label>
+          <input
+            id="dr_date"
+            type="date"
+            required
+            min={minDate}
+            value={form.preferred_date}
+            onChange={(e) => update("preferred_date", e.target.value)}
+            placeholder={getDefaultDate()}
+            className={inputClass}
+            disabled={status === "submitting"}
+          />
+        </div>
+        <div>
+          <label className={labelClass} htmlFor="dr_time">Preferred meeting time *</label>
+          <input
+            id="dr_time"
+            type="time"
+            required
+            value={form.preferred_time}
+            onChange={(e) => update("preferred_time", e.target.value)}
+            className={inputClass}
+            disabled={status === "submitting"}
+          />
+          {timezone && (
+            <p className="text-[#6b7280] font-sans text-xs mt-1">Times in your local time zone ({timezone}).</p>
+          )}
+        </div>
+        <div className="md:col-span-2">
+          <label className={labelClass} htmlFor="dr_notes">Anything we should know? (optional)</label>
+          <textarea
+            id="dr_notes"
+            rows={3}
+            value={form.notes}
+            onChange={(e) => update("notes", e.target.value)}
+            className={inputClass + " resize-y min-h-[88px]"}
+            disabled={status === "submitting"}
+            placeholder="Tell us a bit about your business or what you'd like to cover."
+          />
+        </div>
+      </div>
+
+      {status === "error" && errorMsg && (
+        <p className="mt-4 text-sm font-sans text-red-600 text-left" role="alert">
+          {errorMsg}
+        </p>
+      )}
+
+      <button
+        type="submit"
+        disabled={status === "submitting"}
+        className="mt-6 w-full inline-flex items-center justify-center bg-[#2e7bb4] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#246290] transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
+      >
+        {status === "submitting" ? (
+          <>
+            <Loader2 size={20} className="mr-2 animate-spin" />
+            Sending your request...
+          </>
+        ) : (
+          <>
+            Request My Free Custom Demo
+            <ArrowRight size={20} className="ml-2" />
+          </>
+        )}
+      </button>
+
+      <p className="text-[#6b7280] font-sans text-xs mt-3 text-center">
+        We&rsquo;ll confirm your time by email within 1 business day. No spam — ever.
+      </p>
+    </form>
   );
 }
 
@@ -255,29 +483,7 @@ export default function HomeBuildersFunnel() {
             </p>
           </ScrollReveal>
 
-          {CALENDLY_URL ? (
-            <div className="rounded-xl overflow-hidden border border-gray-200 shadow-lg mb-10 bg-white">
-              <iframe
-                src={CALENDLY_URL}
-                width="100%"
-                height="700"
-                frameBorder="0"
-                title="Book your free custom homepage demo"
-                className="w-full block"
-              />
-            </div>
-          ) : (
-            <div className="rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 px-6 py-10 md:py-14 mb-10">
-              <Calendar size={36} className="text-[#2e7bb4] mx-auto mb-4" />
-              <p className="text-[#1a202c] font-sans font-semibold text-lg mb-2">
-                Calendar embed will appear here.
-              </p>
-              <p className="text-[#4a5568] font-sans text-sm max-w-md mx-auto">
-                Add your Calendly or Cal.com URL to the <code className="bg-gray-200 px-1.5 py-0.5 rounded text-xs">CALENDLY_URL</code> constant in
-                <code className="bg-gray-200 px-1.5 py-0.5 rounded text-xs ml-1">HomeBuildersFunnel.tsx</code> to enable booking.
-              </p>
-            </div>
-          )}
+          <DemoRequestForm />
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-[#1a202c] font-sans text-sm md:text-base font-semibold">
             {[
