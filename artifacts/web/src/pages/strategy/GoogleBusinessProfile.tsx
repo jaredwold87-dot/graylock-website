@@ -18,7 +18,7 @@ const data: StrategyPageData = {
     subheadline:
       "Most prospective clients decide who to call before they ever visit your website — based on what they see in Google Maps and the local results pack. We make sure that first impression sells your practice instead of sending them to a competitor.",
     ctaButton: "Get a Free Local Visibility Review",
-    ctaSubtext: "20-minute review · See where you rank vs. your local competitors · No obligation.",
+    ctaSubtext: "15-minute discovery call · See where you rank vs. your local competitors · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-gbp.png`,
   },
   definition: {

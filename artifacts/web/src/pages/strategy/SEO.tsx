@@ -19,7 +19,7 @@ const data: StrategyPageData = {
     subheadline:
       "Right now, prospective clients are searching Google for what you offer — and choosing a competitor. SEO is what gets you onto that first page so you stop losing them.",
     ctaButton: "Get a Free SEO Evaluation",
-    ctaSubtext: "20-minute review · We'll show you what's holding your rankings back · No obligation.",
+    ctaSubtext: "15-minute discovery call · We'll show you what's holding your rankings back · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-seo.png`,
   },
   definition: {
@@ -209,7 +209,7 @@ const data: StrategyPageData = {
   bottomCta: {
     headline: "Find Out How Your Website Is Performing in Search — Free",
     subtext:
-      "Book a free 20-minute call. We'll run a full SEO evaluation, show you where you're invisible on Google, and give you a clear picture of what's fixable — at no cost.",
+      "Book a free 15-minute discovery call. We'll run a full SEO evaluation, show you where you're invisible on Google, and give you a clear picture of what's fixable — at no cost.",
     button: "Get My Free SEO Action Plan",
   },
   relatedStrategy: [

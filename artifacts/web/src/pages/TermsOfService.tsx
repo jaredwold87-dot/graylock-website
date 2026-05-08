@@ -55,8 +55,8 @@ export default function TermsOfService() {
           <ScrollReveal>
             <h2 className={H2}>1. Definitions</h2>
             <div className="space-y-4">
-              <p className={P}><span className="text-offwhite">&ldquo;Build Phase&rdquo;</span> means the period beginning when you pay your initial setup fee and ending when your Subscription begins.</p>
-              <p className={P}><span className="text-offwhite">&ldquo;Build Agreement&rdquo;</span> means a separate agreement governing the Build Phase, presented and accepted at the time of setup-fee payment.</p>
+              <p className={P}><span className="text-offwhite">&ldquo;Build Phase&rdquo;</span> means the period beginning when you pay your initial build fee and ending when your Subscription begins.</p>
+              <p className={P}><span className="text-offwhite">&ldquo;Build Agreement&rdquo;</span> means a separate agreement governing the Build Phase, presented and accepted at the time of build-fee payment.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Content&rdquo;</span> means all text, copy, images, photographs, video, audio, logos, brand assets, testimonials, and other materials displayed on or made available through your Website.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Customer Content&rdquo;</span> means Content you provide to us, including any Content you direct us to use.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Graylock OS&rdquo;</span> means the proprietary software platform, codebase, AI workflows, prompts, components, design systems, client portal, dashboards, and other tools that we use to build, host, deploy, maintain, and operate Websites, together with all updates, modifications, and derivative works.</p>
@@ -119,7 +119,7 @@ export default function TermsOfService() {
 
             <h3 className={H3}>3.1 Separate Build Agreement</h3>
             <p className={P}>
-              Before your Subscription begins, you and Graylock will enter into a separate Build Agreement that governs the Build Phase, including the scope of the initial Website build, the setup fee, milestones, and your participation in the build process. This Master Services Agreement does not govern the Build Phase.
+              Before your Subscription begins, you and Graylock will enter into a separate Build Agreement that governs the Build Phase, including the scope of the initial Website build, the build fee, milestones, and your participation in the build process. This Master Services Agreement does not govern the Build Phase.
             </p>
 
             <h3 className={`${H3} mt-8`}>3.2 Acceptance of Built Website</h3>
@@ -165,9 +165,9 @@ export default function TermsOfService() {
               <li><span className="text-offwhite font-semibold">Day 91 and after the failure:</span> Your Website code will be permanently deleted. Your Account will be closed. After this point, restoration is not possible. You may still request a copy of your Content under Section 6.4 within 60 days of Account closure.</li>
             </ul>
 
-            <h3 className={`${H3} mt-8`}>4.7 Setup Fees</h3>
+            <h3 className={`${H3} mt-8`}>4.7 Build Fees</h3>
             <p className={P}>
-              Setup fees, if any, are paid under your Build Agreement before this Master Services Agreement takes effect. Setup fees are non-refundable except as expressly stated in your Build Agreement. Setup fees are not credited against Subscription fees, but do reduce the Buyout Price under Section 7.
+              Build fees, if any, are paid under your Build Agreement before this Master Services Agreement takes effect. Build fees are non-refundable except as expressly stated in your Build Agreement. Build fees are not credited against Subscription fees, but do reduce the Buyout Price under Section 7.
             </p>
           </ScrollReveal>
 
@@ -264,13 +264,13 @@ export default function TermsOfService() {
             <h3 className={`${H3} mt-8`}>7.2 Buyout Price</h3>
             <p className={`${P} mb-4`}>The Buyout Price is calculated as follows:</p>
             <p className={`${P} mb-4 font-mono text-offwhite`}>
-              Buyout Price = (Monthly Subscription Fee &times; Build Hours) &minus; Setup Fees Actually Paid
+              Buyout Price = (Monthly Subscription Fee &times; Build Hours) &minus; Build Fees Actually Paid
             </p>
             <p className={`${P} mb-4`}>
               Where Build Hours are: 40 hours for Starter, 50 hours for Growth, 60 hours for Scale, and as specified in the Statement of Work for Custom Tier customers.
             </p>
             <p className={`${P} mb-4`}>
-              By way of example: a Starter customer who paid an $799 setup fee would have a Buyout Price of ($199 &times; 40) &minus; $799 = $7,161. A Growth customer who paid a $999 setup fee would have a Buyout Price of ($299 &times; 50) &minus; $999 = $13,951.
+              By way of example: a Starter customer who paid an $799 build fee would have a Buyout Price of ($199 &times; 40) &minus; $799 = $7,161. A Growth customer who paid a $999 build fee would have a Buyout Price of ($299 &times; 50) &minus; $999 = $13,951.
             </p>
             <p className={P}>
               Subscription fees you have paid do not reduce the Buyout Price. The Buyout Price reflects the value of the Website&rsquo;s underlying code and assets, separate from the ongoing Services covered by your Subscription fees.

@@ -175,7 +175,7 @@ export default function OurStrategy() {
               See How It All Comes Together — For Your Business
             </h2>
             <p className="text-white/90 font-sans text-lg md:text-xl mb-8 leading-relaxed">
-              Book a free 20-minute call. We'll evaluate your current online presence and show you exactly which parts of our strategy would have the biggest impact on your business.
+              Book a free 15-minute discovery call. We'll evaluate your current online presence and show you exactly which parts of our strategy would have the biggest impact on your business.
             </p>
             <CTAButton href="/get-started" variant="dark" className="px-10 py-5 text-lg">
               Get Your Free Homepage Demo

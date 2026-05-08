@@ -31,7 +31,7 @@ const data: IndustryPageData = {
     subheadline:
       "Patients in pain Google their symptoms first — and book with the PT clinic that shows up and clearly explains the fix. We build SEO-optimized PT sites that turn those pain-driven searches into booked evaluations. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Practice Website Review",
-    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
+    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "More booked evaluations every week",
@@ -122,7 +122,7 @@ const data: IndustryPageData = {
       {
         title: "Tell Us About Your Practice",
         description:
-          "A 20-minute call about your specialties, ideal patients, and what sets your clinic apart.",
+          "A 15-minute call about your specialties, ideal patients, and what sets your clinic apart.",
       },
       {
         title: "We Build Your Demo",
@@ -152,7 +152,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How long does it take to build a physical therapy website?",
-      a: "7–10 business days on average from when you approve the plan and pay the setup fee. The process requires minimal time from you.",
+      a: "7–10 business days on average from when you approve your free custom homepage demo and pay the build fee. The process requires minimal time from you.",
     },
     {
       q: "Will my site help with physician referrals?",
@@ -163,7 +163,7 @@ const data: IndustryPageData = {
   bottomCta: {
     headline: "Patients Are Searching for Physical Therapy in Your Area Right Now",
     subtext:
-      "Book a free 20-minute call. We'll show you exactly what your PT website could look like — and build you a custom homepage demo before you commit to anything.",
+      "Book a free 15-minute discovery call. We'll show you exactly what your PT website could look like — and build you a custom homepage demo before you commit to anything.",
     button: "Get Your Free Homepage Demo",
   },
   showPrivacyNote: true,

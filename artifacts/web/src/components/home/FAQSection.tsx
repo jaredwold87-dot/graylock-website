@@ -7,7 +7,7 @@ import { Link } from "wouter";
 const homepageFaqs = [
   {
     q: "Is the website review really free?",
-    a: "Yes, 100%. We evaluate your current website, walk you through what's working and what isn't, and give you clear recommendations — all at no cost. You also receive a comprehensive written PDF report covering competitive analysis, website performance, SEO gaps, and market opportunities. You receive the full report and the custom homepage demo regardless of whether you choose to work with us. There's no hidden fee and no obligation."
+    a: "Yes, 100%. We hop on a 15-minute discovery call to hear about your business and your current site, then design a free custom homepage demo so you can see exactly what your new site could look like. There's no payment required to see the demo, and no obligation to move forward after you do. You only pay the build fee if you approve the demo and want us to build out the rest of the site."
   },
   {
     q: "Is the homepage demo actually custom to my business?",
@@ -15,7 +15,7 @@ const homepageFaqs = [
   },
   {
     q: "Am I obligated to move forward after the call?",
-    a: "Not at all. The review, report, and demo are genuinely free. If you love what you see and want to move forward, great. If not, you keep the evaluation insights, the full written report, and the demo concept. We'd rather earn your trust than push a sale."
+    a: "Not at all. The discovery call and the custom homepage demo are genuinely free. If you love the direction and want to move forward, you pay the build fee at that point and we get started on the full site. If not, you walk away with the demo concept and zero cost. We'd rather earn your trust than push a sale."
   },
   {
     q: "What is the business dashboard?",

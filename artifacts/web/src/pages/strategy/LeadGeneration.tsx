@@ -18,7 +18,7 @@ const data: StrategyPageData = {
     subheadline:
       "Most practice websites get visitors. Far fewer turn those visitors into calls and bookings. We build the forms, CTAs, tracking, and follow-up paths that close the gap — so the traffic you already have starts paying off.",
     ctaButton: "Get a Free Lead-Gen Evaluation",
-    ctaSubtext: "20-minute review · Specific fixes you can act on · No obligation.",
+    ctaSubtext: "15-minute discovery call · Specific fixes you can act on · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-lead-gen.png`,
   },
   definition: {
@@ -197,7 +197,7 @@ const data: StrategyPageData = {
   bottomCta: {
     headline: "Is Your Website Generating Leads Every Day — or Just Sitting There?",
     subtext:
-      "Book a free 20-minute review. We'll evaluate your current conversion setup, show you exactly what's stopping visitors from becoming leads, and give you a clear plan to fix it — at no cost.",
+      "Book a free 15-minute discovery call. We'll evaluate your current conversion setup, show you exactly what's stopping visitors from becoming leads, and give you a clear plan to fix it — at no cost.",
     button: "Get My Free Lead-Gen Action Plan",
   },
   relatedStrategy: [

@@ -19,7 +19,7 @@ const data: StrategyPageData = {
     subheadline:
       "Right now, someone in your service area is typing the exact service you sell into Google — and landing on a competitor's page instead. Funnel pages put a focused, ranking page in front of every one of those searches.",
     ctaButton: "Get a Free Funnel-Page Plan",
-    ctaSubtext: "20-minute review · We'll map the exact pages your practice is missing · No obligation.",
+    ctaSubtext: "15-minute discovery call · We'll map the exact pages your practice is missing · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-funnel-pages.png`,
   },
   definition: {

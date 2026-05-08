@@ -2,7 +2,7 @@ export const PRICING_TIERS = [
   {
     name: "Starter",
     price: "$199",
-    setup: "$799 one-time setup",
+    setup: "$799 one-time build fee",
     description: "For solo operators and independent businesses. The professional foundation that builds trust, ranks locally, and brings in new clients.",
     features: [
       "Custom 8-Page Website",
@@ -22,7 +22,7 @@ export const PRICING_TIERS = [
   {
     name: "Growth",
     price: "$299",
-    setup: "$999 one-time setup",
+    setup: "$999 one-time build fee",
     popular: true,
     description: "For growing teams and small firms that need more visibility, more pages, and a stronger local SEO foundation.",
     features: [
@@ -40,7 +40,7 @@ export const PRICING_TIERS = [
   {
     name: "Scale",
     price: "$449",
-    setup: "$1,499 one-time setup",
+    setup: "$1,499 one-time build fee",
     description: "For established and multi-location businesses that demand maximum visibility, advanced analytics, and dedicated account management.",
     features: [
       "Custom 20+ Page Website",
@@ -82,7 +82,7 @@ export const FAQS = [
     questions: [
       {
         q: "What exactly is included in the free website review?",
-        a: "Your free review includes three things:\n\n1. A full evaluation of your current website — we look at design, messaging, mobile responsiveness, page speed, and basic SEO gaps.\n2. A live strategy walkthrough — we hop on a 20-minute call and walk you through what we found in plain English.\n3. A custom homepage demo — we design a concept homepage for your business so you can see exactly how we'd improve it.\n\nOn top of that, you receive a comprehensive written PDF report covering competitive analysis, customer and audience insights, website performance analysis, and strategic opportunity recommendations. It’s a high-value deliverable you keep regardless of whether you choose to work with us.\n\nThere's no cost and no obligation. We do this because we believe you should see the value before you make any decision."
+        a: "Your free review is a simple, two-part process:\n\n1. A 15-minute discovery call — we hear what you like and dislike about your current site, who your ideal clients are, and what you want a new homepage to do for your business.\n2. A free custom homepage demo — we turn that input into a real, custom homepage concept for your business so you can see exactly how we'd improve it.\n\nThere's no payment required to see the demo, and no obligation to move forward after you do. We do this because we believe you should see the direction before you make any decision."
       },
       {
         q: "How long does it take to build and launch my website?",
@@ -90,7 +90,7 @@ export const FAQS = [
       },
       {
         q: "Why do you offer the website review for free?",
-        a: "We absorb the upfront cost because our clients stay with us for years. We’d rather prove our value first than ask you to take our word for it.\n\nWe use a high-converting structural framework, then customize it to your brand, services, and local market — that’s how we deliver quality in 7–10 business days. Your homepage demo, evaluation, and written report are built around your actual business, not pulled from a template library.\n\nEven if you don’t move forward, you walk away with a professional-grade report and a clear picture of what’s holding your website back. No strings attached."
+        a: "We absorb the upfront cost because our clients stay with us for years. We’d rather prove our value first than ask you to take our word for it.\n\nWe use a high-converting structural framework, then customize it to your brand, services, and local market — that’s how we deliver quality in 7–10 business days. Your homepage demo is built around your actual business, not pulled from a template library.\n\nEven if you don’t move forward, you walk away with a clear picture of what your website could look like and what’s holding the current one back. No strings attached."
       },
       {
         q: "How do you build so fast without cutting corners?",
@@ -115,12 +115,12 @@ export const FAQS = [
         a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Daily backups\n• Dashboard access and support\n\nStarter plan ($199/mo): Dashboard + dedicated account manager + priority email support\nGrowth plan ($299/mo): Dashboard + dedicated account manager + priority support\nScale plan ($449/mo): Dashboard + dedicated account manager + advanced analytics & reporting\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
       },
       {
-        q: "Is there a setup fee, and what does it cover?",
-        a: "Yes — there’s a one-time setup fee that covers the cost of designing and building your custom website:\n\n• Starter: $799 setup\n• Growth: $999 setup\n• Scale: $1,499 setup\n• Custom: Custom quote\n\nThis is the cost of the actual design and development work. Most agencies charge $5,000–$15,000 for this upfront. Our setup fee lets you get a professionally built website for a fraction of that, with the ongoing maintenance and support spread into your monthly rate."
+        q: "Is there a build fee, and what does it cover?",
+        a: "Yes — there’s a one-time build fee that covers the cost of designing and building your custom website:\n\n• Starter: $799 build fee\n• Growth: $999 build fee\n• Scale: $1,499 build fee\n• Custom: Custom quote\n\nYou don’t pay it upfront. You pay it only after you’ve seen and approved your free custom homepage demo. This is the cost of the actual design and development work. Most agencies charge $5,000–$15,000 for this upfront. Our build fee lets you get a professionally built website for a fraction of that, with the ongoing maintenance and support spread into your monthly rate."
       },
       {
         q: "Are there any hidden fees or extra charges?",
-        a: "No. The setup fee and monthly rate are all you pay. There are no surprise invoices for hosting renewals, plugin licences, or security certificates — those are all included.\n\nEvery plan includes dedicated site update hours: Starter includes 1 hour per quarter, Growth includes 1 hour per month, and Scale includes 2 hours per month. If you need additional time beyond your plan’s allocation, it’s $100/hour — quoted and approved before any work begins. You’ll never be surprised by a charge."
+        a: "No. The build fee and monthly rate are all you pay. There are no surprise invoices for hosting renewals, plugin licences, or security certificates — those are all included.\n\nEvery plan includes dedicated site update hours: Starter includes 1 hour per quarter, Growth includes 1 hour per month, and Scale includes 2 hours per month. If you need additional time beyond your plan’s allocation, it’s $100/hour — quoted and approved before any work begins. You’ll never be surprised by a charge."
       },
       {
         q: "Can I cancel at any time?",
@@ -128,7 +128,7 @@ export const FAQS = [
       },
       {
         q: "What is your minimum monthly price?",
-        a: "$199/month plus a one-time site development fee of $799. This is our Starter plan, designed for solo operators and independent small businesses — anyone who needs a professional online presence without a large team to manage it."
+        a: "$199/month plus a one-time build fee of $799, paid only after you approve your free custom homepage demo. This is our Starter plan, designed for solo operators and independent small businesses — anyone who needs a professional online presence without a large team to manage it."
       },
       {
         q: "Why don’t you have a cheaper plan?",

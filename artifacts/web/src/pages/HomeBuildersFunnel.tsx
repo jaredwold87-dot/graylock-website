@@ -14,11 +14,13 @@ import {
   Check,
   Loader2,
   PhoneCall,
+  Sparkles,
+  CreditCard,
   Hammer,
   Rocket,
 } from "lucide-react";
 
-const URGENCY_COPY = "May Only: Setup Fee Cut to Just $99 — Offer Ends May 31.";
+const URGENCY_COPY = "May Only: Build Fee Cut to Just $99 — Offer Ends May 31.";
 
 const OFFER_DEADLINE = new Date("2026-06-01T04:59:59Z");
 
@@ -379,7 +381,7 @@ export default function HomeBuildersFunnel() {
             <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
               <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug">
                 <span className="text-[#E85D26] font-bold">Limited May Offer:</span>{" "}
-                Setup Fee Cut to Just $99 — On Any Subscription Level. Offer ends May 31.
+                Build Fee Cut to Just $99 — On Any Subscription Level. Offer ends May 31.
               </p>
             </div>
             <a
@@ -519,10 +521,10 @@ export default function HomeBuildersFunnel() {
               Our Process
             </p>
             <h2 className="text-3xl md:text-4xl font-display text-white text-center mb-4 leading-tight">
-              From Approved Homepage Demo to Live Site in 7–10 Business Days
+              From Discovery Call to Live Site — No Payment Until You Approve the Demo
             </h2>
             <p className="text-stone text-base md:text-lg font-sans text-center max-w-2xl mx-auto mb-12 md:mb-16 leading-relaxed">
-              A clear, four-step process designed around busy custom home builders.
+              A clear, five-step process designed around busy custom home builders.
               You stay in control — we handle the heavy lifting.
             </p>
           </ScrollReveal>
@@ -531,33 +533,39 @@ export default function HomeBuildersFunnel() {
             {/* Connecting flow line — desktop only */}
             <div
               aria-hidden="true"
-              className="hidden lg:block absolute left-[12.5%] right-[12.5%] top-[60px] h-px bg-gradient-to-r from-transparent via-[#E85D26]/30 to-transparent"
+              className="hidden lg:block absolute left-[10%] right-[10%] top-[60px] h-px bg-gradient-to-r from-transparent via-[#E85D26]/30 to-transparent"
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-10 lg:gap-6 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-10 lg:gap-6 relative">
               {[
                 {
                   day: "Step 1",
-                  title: "Call & Evaluation",
-                  desc: "A free 15-minute call to learn about your business, your target buyers, and what your new homepage needs to do.",
+                  title: "15-Minute Discovery Call",
+                  desc: "A quick call to review your current site, your target buyers, and what your homepage needs to win more bids.",
                   Icon: PhoneCall,
                 },
                 {
                   day: "Step 2",
-                  title: "Custom Homepage Demo",
-                  desc: "We design a custom homepage demo for your business — at no cost — and walk you through it together. No pressure, no commitment.",
-                  Icon: Monitor,
+                  title: "Free Custom Homepage Demo",
+                  desc: "We turn what we heard into a real, custom demo of your new homepage — no payment required to see it.",
+                  Icon: Sparkles,
                 },
                 {
                   day: "Step 3",
-                  title: "Approve & Build",
-                  desc: "If you love the demo, you pay the build fee and we build out the rest of your site — fast, mobile-first, and conversion-focused.",
-                  Icon: Hammer,
+                  title: "Approve & Pay the Build Fee",
+                  desc: "If you like the direction, you pay the build fee at this point — after the demo, not before — and we kick off the full build.",
+                  Icon: CreditCard,
                 },
                 {
                   day: "Step 4",
-                  title: "Review & Launch",
-                  desc: "We walk you through the finished site, make any minor tweaks, then connect your domain and launch. Nothing goes live until you sign off.",
+                  title: "Build (7–10 Business Days)",
+                  desc: "We craft custom copy, source imagery that matches your work, and build a fast, mobile-first site — with regular check-ins along the way.",
+                  Icon: Hammer,
+                },
+                {
+                  day: "Step 5",
+                  title: "Review & Launch on Your Domain",
+                  desc: "We walk you through the finished site, make any final adjustments, then connect your domain and launch it live.",
                   Icon: Rocket,
                 },
               ].map((step, i) => (
@@ -610,7 +618,7 @@ export default function HomeBuildersFunnel() {
               concept.
             </p>
             <p className="text-[#E85D26] font-sans font-bold text-base md:text-lg mb-10">
-              Reminder: Book before May 31 to lock in the $99 setup fee.
+              Reminder: Book before May 31 to lock in the $99 build fee.
             </p>
           </ScrollReveal>
 
@@ -637,7 +645,7 @@ export default function HomeBuildersFunnel() {
             Limited May Offer
           </p>
           <h3 className="text-3xl md:text-4xl font-display text-white mb-3 leading-tight">
-            $99 Setup Fee Ends In
+            $99 Build Fee Ends In
           </h3>
           <p className="text-stone font-sans text-base md:text-lg mb-8">
             Lock in your savings before the timer runs out.

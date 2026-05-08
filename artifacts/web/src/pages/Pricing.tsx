@@ -41,7 +41,7 @@ export default function Pricing() {
 
   return (
     <>
-      <SEO title="Pricing | Small Business Website Design Plans | Graylock Digital" description="Three flat monthly plans, one upfront setup fee, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
+      <SEO title="Pricing | Small Business Website Design Plans | Graylock Digital" description="Three flat monthly plans, one one-time build fee paid only after you approve your free demo, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-pricing.png`} />
@@ -52,7 +52,7 @@ export default function Pricing() {
               Pricing
             </p>
             <h1 className="text-4xl md:text-6xl font-display mb-6 leading-tight">Three plans. One flat fee. <span className="text-gradient">No surprises.</span></h1>
-            <p className="text-lg md:text-xl font-sans text-stone leading-relaxed">A one-time site development fee, then a flat monthly rate that covers hosting, maintenance, security, and ongoing support. Month-to-month — never locked in.</p>
+            <p className="text-lg md:text-xl font-sans text-stone leading-relaxed">A one-time build fee — paid only after you approve your free custom homepage demo — then a flat monthly rate that covers hosting, maintenance, security, and ongoing support. Month-to-month — never locked in.</p>
           </ScrollReveal>
         </div>
       </section>
@@ -67,9 +67,9 @@ export default function Pricing() {
           </ScrollReveal>
 
           {[
-            { key: "solo", name: "Starter", price: "$199/mo + $799 setup" },
-            { key: "group", name: "Growth", price: "$299/mo + $999 setup", popular: true },
-            { key: "enterprise", name: "Scale", price: "$449/mo + $1,499 setup" },
+            { key: "solo", name: "Starter", price: "$199/mo + $799 build fee" },
+            { key: "group", name: "Growth", price: "$299/mo + $999 build fee", popular: true },
+            { key: "enterprise", name: "Scale", price: "$449/mo + $1,499 build fee" },
             { key: "custom", name: "Custom", price: "Custom quote" },
           ].map((plan) => (
             <ScrollReveal key={plan.key} className={cn(

@@ -21,7 +21,7 @@ const WHILE_YOU_WAIT = [
   {
     icon: Tag,
     title: "Review the pricing",
-    description: "Three flat monthly plans, one upfront setup fee, no long-term contracts. See exactly what's included on every plan.",
+    description: "Three flat monthly plans, one build fee paid only after you approve your free demo, no long-term contracts. See exactly what's included on every plan.",
     href: "/pricing",
     cta: "See pricing",
   },
@@ -82,7 +82,7 @@ export default function ThankYou() {
               <li className="flex gap-4">
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange text-charcoal font-bold flex items-center justify-center text-sm">3</span>
                 <div>
-                  <p className="text-offwhite font-sans font-semibold mb-1">Hop on the 20-minute call</p>
+                  <p className="text-offwhite font-sans font-semibold mb-1">Hop on the 15-minute discovery call</p>
                   <p className="text-stone font-sans text-sm leading-relaxed">Walk away with a clear, no-pressure plan for your practice.</p>
                 </div>
               </li>

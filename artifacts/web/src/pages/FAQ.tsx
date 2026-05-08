@@ -352,7 +352,7 @@ export default function FAQ() {
 
                 <div className="border-t border-gray-300 pt-6">
                   <p className="text-charcoal font-sans text-sm mb-1 font-semibold">Don't see your question?</p>
-                  <p className="text-slate-600 font-sans text-xs mb-4 leading-relaxed">A 20-minute call with Tim — ask anything.</p>
+                  <p className="text-slate-600 font-sans text-xs mb-4 leading-relaxed">A 15-minute call with Tim — ask anything.</p>
                   <CTAButton href="/get-started" className="w-full justify-center text-sm px-4 py-3">
                     Book a Free Q&amp;A Call
                   </CTAButton>
@@ -428,7 +428,7 @@ export default function FAQ() {
               Got a question we didn't cover?
             </h2>
             <p className="text-stone text-lg font-sans mb-8 max-w-xl mx-auto leading-relaxed">
-              Book a free 20-minute call with Tim. Ask anything — pricing, process, what your site would look like, what we'd do for your specific business. Zero pressure, zero obligation.
+              Book a free 15-minute call with Tim. Ask anything — pricing, process, what your site would look like, what we'd do for your specific business. Zero pressure, zero obligation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <CTAButton href="/get-started" className="px-8 py-4">
@@ -441,7 +441,7 @@ export default function FAQ() {
                 See our pricing <ArrowRight size={16} />
               </Link>
             </div>
-            <p className="text-stone font-sans text-sm mt-4">20-minute call · No sales pitch · Just straight answers.</p>
+            <p className="text-stone font-sans text-sm mt-4">15-minute call · No sales pitch · Just straight answers.</p>
           </ScrollReveal>
         </div>
       </section>

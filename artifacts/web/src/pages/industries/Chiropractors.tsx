@@ -31,7 +31,7 @@ const data: IndustryPageData = {
     subheadline:
       'When someone’s back goes out, they search "chiropractor near me" — not your name. We build SEO-optimized chiropractic sites that put you at the top of that search and turn clicks into booked appointments. Fully managed. Live in 7–10 days.',
     cta: "Get a Free Practice Website Review",
-    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
+    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "More new patient appointments every week",
@@ -120,7 +120,7 @@ const data: IndustryPageData = {
       {
         title: "Tell Us About Your Practice",
         description:
-          "A 20-minute call about your techniques, ideal patients, and what sets your clinic apart.",
+          "A 15-minute call about your techniques, ideal patients, and what sets your clinic apart.",
       },
       {
         title: "We Build Your Demo",
@@ -150,7 +150,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How long does it take to build a chiropractic website?",
-      a: "7–10 business days on average from when you approve the plan and pay the setup fee. Most chiropractors are surprised how fast and easy the process is.",
+      a: "7–10 business days on average from when you approve your free custom homepage demo and pay the build fee. Most chiropractors are surprised how fast and easy the process is.",
     },
     {
       q: "Will my site show up when people search 'chiropractor near me'?",
@@ -161,7 +161,7 @@ const data: IndustryPageData = {
   bottomCta: {
     headline: "New Patients Are Searching for a Chiropractor in Your Area Right Now",
     subtext:
-      "Book a free 20-minute call. We'll show you exactly what your chiropractic website could look like — and build you a custom homepage demo before you commit to anything.",
+      "Book a free 15-minute discovery call. We'll show you exactly what your chiropractic website could look like — and build you a custom homepage demo before you commit to anything.",
     button: "Get Your Free Homepage Demo",
   },
   showPrivacyNote: true,

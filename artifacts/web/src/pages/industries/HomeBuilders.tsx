@@ -25,7 +25,7 @@ const data: IndustryPageData = {
     subheadline:
       "Buyers researching a custom build or major renovation spend weeks online before they call anyone. We build modern, locally-ranked websites that showcase your craftsmanship and turn serious buyers into consultation requests — before they reach your competitor's quote form. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Website Review",
-    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
+    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-home-builders.jpg`,
     trustSignals: [
       "More qualified consultation requests from serious buyers",
@@ -134,7 +134,7 @@ const data: IndustryPageData = {
       {
         title: "Tell Us About Your Builds",
         description:
-          "A 20-minute call about the homes you build, your service area, your typical client, and the kinds of projects you want more of.",
+          "A 15-minute call about the homes you build, your service area, your typical client, and the kinds of projects you want more of.",
       },
       {
         title: "We Build Your Demo",
@@ -179,7 +179,7 @@ const data: IndustryPageData = {
   bottomCta: {
     headline: "A Family Is Researching Their Next Builder Right Now",
     subtext:
-      "Book a free 20-minute call. We'll show you exactly what your home builder website could look like — and build a custom homepage demo before you commit to anything.",
+      "Book a free 15-minute discovery call. We'll show you exactly what your home builder website could look like — and build a custom homepage demo before you commit to anything.",
     button: "Get a Free Demo",
   },
   relatedPages: [

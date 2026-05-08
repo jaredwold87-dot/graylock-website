@@ -30,7 +30,7 @@ const data: IndustryPageData = {
     subheadline:
       "Your reputation gets you referrals. Your website gets you everyone else. We build custom, locally-ranked sites for CPAs and accounting firms that turn Google searches into new client inquiries — fully managed, live in 7–10 days.",
     cta: "Get a Free Firm Website Review",
-    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
+    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-accountants.jpg`,
     trustSignals: [
       "More new client inquiries every month",
@@ -135,7 +135,7 @@ const data: IndustryPageData = {
       {
         title: "Tell Us About Your Firm",
         description:
-          "A 20-minute call about your specializations, ideal clients, and what you want your website to convey.",
+          "A 15-minute call about your specializations, ideal clients, and what you want your website to convey.",
       },
       {
         title: "We Build Your Demo",
@@ -165,7 +165,7 @@ const data: IndustryPageData = {
     },
     {
       q: "I'm too busy during tax season to work on a website. Can we start now?",
-      a: "We built our process to be fast and low-effort on your end. Most of the information we need can be gathered in a 20-minute call. You review and approve, we do the rest. 7–10 business days from approval to live on average.",
+      a: "We built our process to be fast and low-effort on your end. Most of the information we need can be gathered in a 15-minute call. You review and approve, we do the rest. 7–10 business days from approval to live on average.",
     },
     {
       q: "Can we add team member bios and photos?",
@@ -180,7 +180,7 @@ const data: IndustryPageData = {
   bottomCta: {
     headline: "Stop Sending Prospects to a Website That Undersells Your Expertise",
     subtext:
-      "Book a free 20-minute call. We'll evaluate your current site and show you a custom demo of what your accounting firm's website could become — before you pay us anything.",
+      "Book a free 15-minute discovery call. We'll evaluate your current site and show you a custom demo of what your accounting firm's website could become — before you pay us anything.",
     button: "Get Your Free Homepage Demo",
   },
   relatedPages: [],

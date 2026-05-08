@@ -1,27 +1,27 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { SearchCheck, Presentation, FileBarChart2, LayoutDashboard } from "lucide-react";
+import { Phone, LayoutDashboard, CreditCard, Rocket } from "lucide-react";
 
 export function OfferBreakdownSection() {
   const offers = [
     {
-      icon: <SearchCheck size={26} strokeWidth={2.2} />,
-      title: "Website Review",
-      desc: "We identify the biggest issues hurting trust, clarity, and lead generation.",
-    },
-    {
-      icon: <Presentation size={26} strokeWidth={2.2} />,
-      title: "Strategy Walkthrough",
-      desc: "We explain what we would change and why, in plain English.",
-    },
-    {
-      icon: <FileBarChart2 size={26} strokeWidth={2.2} />,
-      title: "Written Report",
-      desc: "You receive a professional summary of findings and recommendations.",
+      icon: <Phone size={26} strokeWidth={2.2} />,
+      title: "15-Minute Discovery Call",
+      desc: "A quick call to hear what you like and dislike about your current site, and what you want from a new one.",
     },
     {
       icon: <LayoutDashboard size={26} strokeWidth={2.2} />,
-      title: "Custom Homepage Demo",
-      desc: "You see a homepage concept tailored to your business before moving forward.",
+      title: "Free Custom Homepage Demo",
+      desc: "We turn that input into a real, custom homepage concept for your business — no payment required to see it.",
+    },
+    {
+      icon: <CreditCard size={26} strokeWidth={2.2} />,
+      title: "You Approve, Then You Pay",
+      desc: "If you like the direction, you pay the build fee at that point — after the demo, not before.",
+    },
+    {
+      icon: <Rocket size={26} strokeWidth={2.2} />,
+      title: "Built & Launched on Your Domain",
+      desc: "We build out the full site in 7–10 business days, then launch it live on your own domain.",
     },
   ];
 

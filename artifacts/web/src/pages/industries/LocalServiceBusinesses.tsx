@@ -25,7 +25,7 @@ const data: IndustryPageData = {
     subheadline:
       "Local service calls go to whoever shows up first on Google. We build modern, locally-ranked websites that put you at the top of those searches and turn panicked scrollers into booked jobs — before your competitor even loads. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Website Review",
-    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
+    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-local-service-businesses.jpg`,
     trustSignals: [
       "More service calls and job bookings every week",
@@ -134,7 +134,7 @@ const data: IndustryPageData = {
       {
         title: "Tell Us About Your Business",
         description:
-          "A 20-minute call about your trade, service area, the jobs you want more of, and the kinds of customers you want fewer of.",
+          "A 15-minute call about your trade, service area, the jobs you want more of, and the kinds of customers you want fewer of.",
       },
       {
         title: "We Build Your Demo",
@@ -179,7 +179,7 @@ const data: IndustryPageData = {
   bottomCta: {
     headline: "Someone in Your Service Area Is Searching for You Right Now",
     subtext:
-      "Book a free 20-minute call. We'll show you exactly what your trade or home-service website could look like — and build a custom homepage demo before you commit to anything.",
+      "Book a free 15-minute discovery call. We'll show you exactly what your trade or home-service website could look like — and build a custom homepage demo before you commit to anything.",
     button: "Get a Free Demo",
   },
   relatedPages: [

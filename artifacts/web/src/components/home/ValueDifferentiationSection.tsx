@@ -56,7 +56,7 @@ export function ValueDifferentiationSection() {
                 <Check className="text-orange flex-shrink-0 mt-0.5" size={18} />
                 <div>
                   <p className="text-orange font-sans text-[11px] uppercase tracking-widest font-semibold mb-1">Upfront Cost & Risk</p>
-                  <p className="text-offwhite font-sans text-sm leading-relaxed font-semibold">$799 upfront. 30-Day 100% Money-Back Guarantee.</p>
+                  <p className="text-offwhite font-sans text-sm leading-relaxed font-semibold">$0 to see your custom demo. Build fee paid only after you approve it.</p>
                 </div>
               </div>
             </div>

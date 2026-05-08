@@ -18,7 +18,7 @@ const data: StrategyPageData = {
     subheadline:
       "Most practice websites are digital brochures collecting dust. We design websites built around one goal: turning visitors into calls, bookings, and revenue.",
     ctaButton: "Get a Free Homepage Demo",
-    ctaSubtext: "20-minute review · See what your homepage could look like · No obligation.",
+    ctaSubtext: "15-minute discovery call · See what your homepage could look like · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-strategy-website-design.png`,
   },
   definition: {
@@ -166,11 +166,11 @@ const data: StrategyPageData = {
   faqs: [
     {
       q: "How much does professional website design cost?",
-      a: "Graylock Digital starts at $199/month with a $799 one-time setup fee for the Starter plan. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance. Most agencies charge $5,000–$15,000 upfront for comparable quality. Our monthly model means no huge upfront risk.",
+      a: "Graylock Digital starts at $199/month with a $799 one-time build fee for the Starter plan, paid only after you approve your free custom homepage demo. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance. Most agencies charge $5,000–$15,000 upfront for comparable quality. Our model means no upfront risk — you see the demo before you pay anything.",
     },
     {
       q: "How long does it take to build a website?",
-      a: "Most websites are built and launched within 7–10 business days on average after receiving your approval and setup fee. Larger or more complex builds may take longer. The initial call and onboarding form take less than 30 minutes of your time. The exact timeline depends on how quickly you can provide feedback and materials.",
+      a: "Most websites are built and launched within 7–10 business days on average after you approve your free custom homepage demo and the build kicks off. Larger or more complex builds may take longer. The initial call and onboarding form take less than 30 minutes of your time. The exact timeline depends on how quickly you can provide feedback and materials.",
     },
     {
       q: "What makes a website 'good' for a professional practice?",
@@ -192,7 +192,7 @@ const data: StrategyPageData = {
   bottomCta: {
     headline: "See What Your Website Could Look Like — Before You Pay",
     subtext:
-      "Book a free 20-minute call. We'll evaluate your current site, show you what's holding it back, and build a custom homepage demo — all before you commit to anything.",
+      "Book a free 15-minute discovery call. We'll evaluate your current site, show you what's holding it back, and build a custom homepage demo — all before you commit to anything.",
     button: "Get My Free Homepage Demo",
   },
   relatedStrategy: [
@@ -212,7 +212,7 @@ const data: StrategyPageData = {
         name: "How much does professional website design cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Graylock Digital starts at $199/month with a $799 one-time setup fee for the Starter plan. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance.",
+          text: "Graylock Digital starts at $199/month with a $799 one-time build fee for the Starter plan, paid only after you approve your free custom homepage demo. This includes a fully custom-designed website, hosting, SSL, and monthly maintenance.",
         },
       },
       {
@@ -220,7 +220,7 @@ const data: StrategyPageData = {
         name: "How long does it take to build a website?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Most websites are built and launched within 7–10 business days on average after receiving your approval and setup fee.",
+          text: "Most websites are built and launched within 7–10 business days on average after you approve your free custom homepage demo and the build kicks off.",
         },
       },
       {

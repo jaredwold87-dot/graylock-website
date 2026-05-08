@@ -31,7 +31,7 @@ const data: IndustryPageData = {
     subheadline:
       "Patients vet their doctor online before they ever call your office. If your site looks generic or doesn't show up in local search, they move to the next result. We build custom, SEO-optimized medical sites that fill your appointment calendar. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Practice Website Review",
-    ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
+    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
       "More new patient appointment requests every month",
@@ -123,7 +123,7 @@ const data: IndustryPageData = {
       {
         title: "Tell Us About Your Practice",
         description:
-          "A 20-minute call about your specialties, ideal patients, and what sets your practice apart.",
+          "A 15-minute call about your specialties, ideal patients, and what sets your practice apart.",
       },
       {
         title: "We Build Your Demo",
@@ -153,7 +153,7 @@ const data: IndustryPageData = {
     },
     {
       q: "How long does it take to build a medical practice website?",
-      a: "7–10 business days on average from when you approve the plan and pay the setup fee. The process requires minimal time from you or your staff.",
+      a: "7–10 business days on average from when you approve your free custom homepage demo and pay the build fee. The process requires minimal time from you or your staff.",
     },
     {
       q: "Are your forms HIPAA compliant?",
@@ -164,7 +164,7 @@ const data: IndustryPageData = {
   bottomCta: {
     headline: "New Patients Are Searching for a Doctor in Your Area Right Now",
     subtext:
-      "Book a free 20-minute call. We'll show you exactly what your medical practice website could look like — and build you a custom homepage demo before you commit to anything.",
+      "Book a free 15-minute discovery call. We'll show you exactly what your medical practice website could look like — and build you a custom homepage demo before you commit to anything.",
     button: "Get Your Free Homepage Demo",
   },
   showPrivacyNote: true,
