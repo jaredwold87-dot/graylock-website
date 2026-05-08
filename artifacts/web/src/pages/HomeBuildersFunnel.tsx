@@ -211,7 +211,7 @@ function DemoRequestForm() {
   }
 
   const inputClass =
-    "w-full bg-white border border-gray-300 rounded-md px-3.5 py-2.5 text-[#1a202c] font-sans text-base placeholder:text-gray-400 focus:outline-none focus:border-[#2e7bb4] focus:ring-2 focus:ring-[#2e7bb4]/20 transition-colors disabled:opacity-60";
+    "w-full bg-white border border-gray-300 rounded-md px-3.5 py-2.5 text-[#1a202c] font-sans text-base placeholder:text-gray-400 focus:outline-none focus:border-[#E85D26] focus:ring-2 focus:ring-[#E85D26]/20 transition-colors disabled:opacity-60";
   const labelClass =
     "block text-[#1a202c] font-sans text-sm font-semibold mb-1.5 text-left";
 
@@ -339,7 +339,7 @@ function DemoRequestForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-6 w-full inline-flex items-center justify-center bg-[#2e7bb4] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#246290] transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
+        className="mt-6 w-full inline-flex items-center justify-center bg-[#1a202c] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-black transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {status === "submitting" ? (
           <>
@@ -412,7 +412,7 @@ export default function HomeBuildersFunnel() {
             <a
               href="#book-demo"
               onClick={scrollToBooking}
-              className="inline-flex items-center justify-center bg-[#2e7bb4] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#246290] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto text-center"
             >
               Book Your Free Custom Demo
               <ArrowRight size={20} className="ml-2" />
