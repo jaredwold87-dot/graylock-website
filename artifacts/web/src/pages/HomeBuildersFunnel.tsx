@@ -15,7 +15,6 @@ import {
   Loader2,
   PhoneCall,
   Hammer,
-  Eye,
   Rocket,
 } from "lucide-react";
 
@@ -533,25 +532,25 @@ export default function HomeBuildersFunnel() {
               {
                 day: "Step 1",
                 title: "Call & Evaluation",
-                desc: "A free 20-minute call to review your current site, your target buyers, and what your homepage needs to win more bids.",
+                desc: "A free 15-minute call to learn about your business, your target buyers, and what your new homepage needs to do.",
                 Icon: PhoneCall,
               },
               {
                 day: "Step 2",
-                title: "The Build",
-                desc: "We craft custom copy, source imagery that matches your work, and build a fast, mobile-first site — with full project transparency.",
-                Icon: Hammer,
+                title: "Custom Homepage Demo",
+                desc: "We design a custom homepage demo for your business — at no cost — and walk you through it together. No pressure, no commitment.",
+                Icon: Monitor,
               },
               {
                 day: "Step 3",
-                title: "Your Review",
-                desc: "We walk you through the finished site page-by-page and make any final adjustments. Nothing goes live until you sign off.",
-                Icon: Eye,
+                title: "Approve & Build",
+                desc: "If you love the demo, you pay the build fee and we build out the rest of your site — fast, mobile-first, and conversion-focused.",
+                Icon: Hammer,
               },
               {
                 day: "Step 4",
-                title: "Launch",
-                desc: "Domain connected, SSL configured, SEO live. Your new site starts working for you — turning visitors into qualified leads.",
+                title: "Review & Launch",
+                desc: "We walk you through the finished site, make any minor tweaks, then connect your domain and launch. Nothing goes live until you sign off.",
                 Icon: Rocket,
               },
             ].map((step, i) => (
