@@ -26,63 +26,6 @@ function getTimeLeft(deadline: Date) {
   return { diff, days, hours, minutes, seconds };
 }
 
-function CountdownTimer() {
-  const [time, setTime] = useState(() => getTimeLeft(OFFER_DEADLINE));
-
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setTime(getTimeLeft(OFFER_DEADLINE));
-    }, 1000);
-    return () => window.clearInterval(id);
-  }, []);
-
-  const expired = time.diff <= 0;
-  const units: Array<{ label: string; value: number }> = [
-    { label: "Days", value: time.days },
-    { label: "Hours", value: time.hours },
-    { label: "Minutes", value: time.minutes },
-    { label: "Seconds", value: time.seconds },
-  ];
-
-  return (
-    <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
-      <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug mb-3">
-        <span className="text-[#E85D26] font-bold">Limited May Offer:</span>{" "}
-        Setup Fee Cut to Just $99 — On Any Subscription Level.
-      </p>
-      {expired ? (
-        <p className="text-stone font-sans text-sm md:text-base">
-          This offer has ended. Book a demo to hear about our current promotion.
-        </p>
-      ) : (
-        <div
-          className="flex items-stretch gap-2 sm:gap-3"
-          aria-live="polite"
-          aria-label={`Offer ends in ${time.days} days, ${time.hours} hours, ${time.minutes} minutes, ${time.seconds} seconds`}
-        >
-          {units.map((u, i) => (
-            <div key={u.label} className="flex items-stretch gap-2 sm:gap-3">
-              <div className="bg-black/40 border border-[#E85D26]/40 rounded-md px-2.5 sm:px-3.5 py-2 min-w-[56px] sm:min-w-[68px] text-center">
-                <div className="text-white font-display text-xl sm:text-2xl md:text-3xl font-bold leading-none tabular-nums">
-                  {String(u.value).padStart(2, "0")}
-                </div>
-                <div className="text-stone text-[10px] sm:text-xs font-sans uppercase tracking-wider mt-1">
-                  {u.label}
-                </div>
-              </div>
-              {i < units.length - 1 && (
-                <div className="flex items-center text-[#E85D26] font-display text-xl sm:text-2xl font-bold">
-                  :
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 function CompactCountdown() {
   const [time, setTime] = useState(() => getTimeLeft(OFFER_DEADLINE));
 
@@ -409,7 +352,12 @@ export default function HomeBuildersFunnel() {
               15-minute demo and we&rsquo;ll show you exactly what a conversion-focused
               website should look like for your business.
             </p>
-            <CountdownTimer />
+            <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
+              <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug">
+                <span className="text-[#E85D26] font-bold">Limited May Offer:</span>{" "}
+                Setup Fee Cut to Just $99 — On Any Subscription Level. Offer ends May 31.
+              </p>
+            </div>
             <a
               href="#book-demo"
               onClick={scrollToBooking}
