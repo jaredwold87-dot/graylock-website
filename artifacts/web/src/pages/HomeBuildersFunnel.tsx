@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
+import { PRICING_TIERS } from "@/lib/constants";
 import { useEffect, useState } from "react";
 import heroBgImage from "@/assets/home-builders/funnel-header-bg.png";
 import heroMockupImage from "@/assets/home-builders/funnel-mockup.png";
@@ -18,9 +19,25 @@ import {
   CreditCard,
   Hammer,
   Rocket,
+  ChevronDown,
 } from "lucide-react";
 
 const URGENCY_COPY = "May Only: Build Fee Cut to Just $99 — Offer Ends May 31.";
+
+const FUNNEL_FAQS: { q: string; a: string }[] = [
+  {
+    q: "Do I own the website?",
+    a: "Yes. You own your domain, your written content, your photos, and your brand assets — always. The only thing we maintain is the underlying code and hosting infrastructure (standard for any subscription-based web service). If you ever leave Graylock, we hand off your content and transfer your domain to wherever you choose.",
+  },
+  {
+    q: "What happens if I don't like the demo?",
+    a: "Nothing. The 15-minute discovery call and the custom homepage demo are completely free, with no obligation to move forward. You only pay the $99 Build Fee if you approve the demo and want us to build the full site. If the demo isn't right for you, you walk away with zero cost.",
+  },
+  {
+    q: "Am I locked into a contract?",
+    a: "No. There are no long-term contracts. All plans are month-to-month — you can cancel any time with 30 days' notice and we'll hand off your content and domain cleanly, no cancellation fees.",
+  },
+];
 
 const OFFER_DEADLINE = new Date("2026-06-01T04:59:59Z");
 
@@ -331,6 +348,43 @@ function DemoRequestForm() {
   );
 }
 
+function FunnelFaqItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className={`bg-white rounded-xl border-2 transition-all duration-200 overflow-hidden ${
+        open ? "border-[#E85D26]/50 shadow-md" : "border-gray-200 hover:border-gray-300"
+      }`}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between gap-4 px-5 md:px-6 py-5 text-left"
+      >
+        <span className="text-[#1a202c] font-sans font-semibold text-base md:text-lg">
+          {question}
+        </span>
+        <ChevronDown
+          size={22}
+          className={`text-[#E85D26] flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      <div
+        className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="text-[#4a5568] font-sans text-base leading-relaxed px-5 md:px-6 pb-5">
+            {answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function scrollToBooking(e: React.MouseEvent<HTMLAnchorElement>) {
   e.preventDefault();
   const el = document.getElementById("book-demo");
@@ -344,6 +398,24 @@ export default function HomeBuildersFunnel() {
         title="Custom Websites for Home Builders | Graylock Digital"
         description="Stop losing bids to bad design. Get a free custom homepage demo for your home building business. No commitment required."
         url="https://graylockdigital.com/home-builders"
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FUNNEL_FAQS.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a.replace(/\s+/g, " ").trim(),
+              },
+            })),
+          }),
+        }}
       />
 
       {/* Section 1 — Sticky Urgency Banner */}
@@ -425,7 +497,7 @@ export default function HomeBuildersFunnel() {
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] text-center mb-12 md:mb-16 leading-tight">
-              Why Their Current Website Is Costing Them Jobs
+              Why Your Current Website Is Costing You Jobs
             </h2>
           </ScrollReveal>
 
@@ -434,17 +506,17 @@ export default function HomeBuildersFunnel() {
               {
                 icon: Monitor,
                 title: "It Looks Like 2012",
-                copy: "They build million-dollar homes, but their website makes them look like a budget contractor. High-end clients judge their quality by their digital presence.",
+                copy: "You build million-dollar homes, but your website makes you look like a budget contractor. High-end clients judge your quality by your digital presence.",
               },
               {
                 icon: TrendingDown,
                 title: "It Doesn't Convert",
-                copy: "Traffic doesn't matter if visitors leave without contacting them. Their site is a digital brochure, not a lead-generation machine.",
+                copy: "Traffic doesn't matter if visitors leave without contacting you. Your site is a digital brochure, not a lead-generation machine.",
               },
               {
                 icon: EyeOff,
                 title: "It's Invisible on Google",
-                copy: "When someone searches for \u201Ccustom home builders near me,\u201D their competitors show up first. They are relying entirely on referrals.",
+                copy: "When someone searches for \u201Ccustom home builders near me,\u201D your competitors show up first. You're relying entirely on referrals.",
               },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -605,6 +677,97 @@ export default function HomeBuildersFunnel() {
         </div>
       </section>
 
+      {/* Section 4c — Pricing */}
+      <section className="bg-white px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal className="text-center mb-12 md:mb-14">
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+              Simple Monthly Subscription
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight mb-4">
+              Pick the Plan That Fits — Then Pay Just $99 to Start
+            </h2>
+            <p className="text-[#4a5568] font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Every plan includes hosting, SSL, daily backups, a dedicated account
+              manager, and a custom-built site. Month-to-month, no long-term contracts.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7 max-w-5xl mx-auto">
+            {PRICING_TIERS.filter((t) => !("isCustom" in t && t.isCustom)).slice(0, 3).map((tier, i) => {
+              const isPopular = "popular" in tier && tier.popular;
+              return (
+                <ScrollReveal key={tier.name} delay={i * 0.08}>
+                  <div
+                    className={`relative h-full flex flex-col rounded-2xl p-6 md:p-7 border-2 transition-all duration-200 ${
+                      isPopular
+                        ? "border-[#E85D26] bg-[#fff7f3] shadow-xl md:-translate-y-2"
+                        : "border-gray-200 bg-white shadow-md hover:shadow-lg"
+                    }`}
+                  >
+                    {isPopular && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E85D26] text-white font-sans text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md whitespace-nowrap">
+                        Most Popular
+                      </div>
+                    )}
+                    <h3 className="font-display text-2xl md:text-3xl text-[#1a202c] mb-1">
+                      {tier.name}
+                    </h3>
+                    <div className="flex items-baseline gap-1 mb-3">
+                      <span className="text-4xl md:text-5xl font-display font-bold text-[#1a202c] tabular-nums">
+                        {tier.price}
+                      </span>
+                      <span className="text-[#4a5568] font-sans text-base">/mo</span>
+                    </div>
+
+                    <div className="rounded-lg bg-[#1a202c] text-white px-3.5 py-2.5 mb-5">
+                      <p className="font-sans text-xs md:text-sm leading-snug">
+                        <span className="text-[#E85D26] font-bold">May Offer:</span>{" "}
+                        Build Fee Cut to <span className="font-bold">$99</span>{" "}
+                        <span className="text-stone line-through ml-1">{tier.setup.replace(/\s+one-time build fee/i, "")}</span>
+                      </p>
+                    </div>
+
+                    <p className="text-[#4a5568] font-sans text-sm leading-relaxed mb-5">
+                      {tier.description}
+                    </p>
+
+                    <ul className="space-y-2 mb-6 flex-1">
+                      {tier.features.slice(0, 5).map((f) => (
+                        <li key={f} className="flex items-start gap-2">
+                          <Check size={15} className="text-[#E85D26] flex-shrink-0 mt-0.5" />
+                          <span className="text-[#4a5568] font-sans text-sm leading-snug">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href="#book-demo"
+                      onClick={scrollToBooking}
+                      className={`block w-full text-center font-sans font-bold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-200 ${
+                        isPopular
+                          ? "bg-[#E85D26] text-white hover:bg-[#d14d1a] shadow-md hover:shadow-lg"
+                          : "bg-[#1a202c] text-white hover:bg-black"
+                      }`}
+                    >
+                      Book My Free Demo
+                    </a>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+
+          <ScrollReveal className="text-center mt-10">
+            <p className="text-[#4a5568] font-sans text-sm md:text-base">
+              No payment required to see your custom homepage demo. The $99 build fee
+              is only paid <span className="font-semibold text-[#1a202c]">after</span>{" "}
+              you approve the design — book your free demo below.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Section 5 — Calendar / Booking */}
       <section id="book-demo" className="bg-white px-6 md:px-12 py-16 md:py-24 scroll-mt-16">
         <div className="max-w-3xl mx-auto text-center">
@@ -634,6 +797,28 @@ export default function HomeBuildersFunnel() {
                 <Check className="text-[#E85D26] flex-shrink-0" size={18} />
                 <span>{item}</span>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6 — Objection-handling FAQ */}
+      <section className="bg-[#f5f5f4] px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+              Still Have Questions?
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight">
+              The Most Common Things Builders Ask
+            </h2>
+          </ScrollReveal>
+
+          <div className="space-y-3">
+            {FUNNEL_FAQS.map((faq, i) => (
+              <ScrollReveal key={faq.q} delay={i * 0.06}>
+                <FunnelFaqItem question={faq.q} answer={faq.a} />
+              </ScrollReveal>
             ))}
           </div>
         </div>
