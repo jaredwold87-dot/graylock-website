@@ -25,6 +25,7 @@ import Sitemap from "@/pages/Sitemap";
 import AccountantsFunnel from "@/pages/AccountantsFunnel";
 import HomeBuildersPlaybook from "@/pages/HomeBuildersPlaybook";
 import HomeBuildersPlaybookThankYou from "@/pages/HomeBuildersPlaybookThankYou";
+import HomeBuildersFunnel from "@/pages/HomeBuildersFunnel";
 import NotFound from "@/pages/not-found";
 
 const AccountantsIndustry = lazy(() => import("@/pages/industries/Accountants"));
@@ -120,6 +121,7 @@ function App() {
               <Switch>
                 <Route path="/home-builders-playbook" component={HomeBuildersPlaybook} />
                 <Route path="/home-builders-playbook/thank-you" component={HomeBuildersPlaybookThankYou} />
+                <Route path="/home-builders" component={HomeBuildersFunnel} />
                 <Route>
                   <Layout>
                     <Router />
