@@ -46,7 +46,7 @@ function computeOfferWindow(now: Date = new Date()) {
 }
 
 const OFFER_WINDOW = computeOfferWindow();
-const URGENCY_COPY = `Save $1,400 This Month — ${OFFER_WINDOW.monthName} Only: Build Fee Cut to Just $99. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
+const URGENCY_COPY = `Save $1,400 This Month Only — Build Fee Cut to Only $99. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
 
 const FUNNEL_FAQS: { q: string; a: string }[] = [
   {
