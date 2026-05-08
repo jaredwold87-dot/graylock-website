@@ -426,6 +426,18 @@ export default function HomeBuildersFunnel() {
         {URGENCY_COPY}
       </div>
 
+      {/* Top Logo Bar — non-clickable */}
+      <div className="bg-[#1a1a1a] px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
+        <div className="max-w-6xl mx-auto flex justify-center md:justify-start">
+          <img
+            src={`${import.meta.env.BASE_URL}logo-horizontal.png`}
+            alt="Graylock Digital"
+            className="h-8 md:h-10 w-auto select-none"
+            draggable={false}
+          />
+        </div>
+      </div>
+
       {/* Section 2 — Hero */}
       <section
         className="relative bg-[#1a1a1a] bg-cover bg-center bg-no-repeat px-6 md:px-12 py-14 md:py-24"
