@@ -12,6 +12,7 @@ interface DemoRequestPayload {
   email?: string;
   phone?: string;
   business_name?: string;
+  website_url?: string;
   preferred_date?: string;
   preferred_time?: string;
   timezone?: string;
@@ -27,6 +28,7 @@ demoRequestRouter.post("/demo-request", async (req: Request, res: Response) => {
   const email = (payload.email || "").toString().trim();
   const phone = (payload.phone || "").toString().trim();
   const businessName = (payload.business_name || "").toString().trim();
+  const websiteUrl = (payload.website_url || "").toString().trim();
   const preferredDate = (payload.preferred_date || "").toString().trim();
   const preferredTime = (payload.preferred_time || "").toString().trim();
   const timezone = (payload.timezone || "").toString().trim();
@@ -45,6 +47,9 @@ demoRequestRouter.post("/demo-request", async (req: Request, res: Response) => {
   if (!businessName) {
     return res.status(400).json({ success: false, error: "Business name is required." });
   }
+  if (!websiteUrl) {
+    return res.status(400).json({ success: false, error: "Current website URL is required (enter \"none\" if you don't have one yet)." });
+  }
   if (!preferredDate) {
     return res.status(400).json({ success: false, error: "Preferred date is required." });
   }
@@ -60,6 +65,7 @@ demoRequestRouter.post("/demo-request", async (req: Request, res: Response) => {
 
 Name: ${fullName}
 Business: ${businessName}
+Current Website: ${websiteUrl}
 Email: ${email}
 Phone: ${phone}
 

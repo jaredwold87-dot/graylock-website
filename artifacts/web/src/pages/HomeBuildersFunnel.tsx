@@ -95,6 +95,7 @@ function DemoRequestForm() {
     first_name: "",
     last_name: "",
     business_name: "",
+    website_url: "",
     email: "",
     phone: "",
     preferred_date: "",
@@ -209,6 +210,24 @@ function DemoRequestForm() {
             className={inputClass}
             disabled={status === "submitting"}
           />
+        </div>
+        <div className="md:col-span-2">
+          <label className={labelClass} htmlFor="dr_website_url">Current website URL *</label>
+          <input
+            id="dr_website_url"
+            type="url"
+            required
+            inputMode="url"
+            autoComplete="url"
+            value={form.website_url}
+            onChange={(e) => update("website_url", e.target.value)}
+            className={inputClass}
+            disabled={status === "submitting"}
+            placeholder="https://yourbusiness.com"
+          />
+          <p className="text-[#6b7280] font-sans text-xs mt-1">
+            So we can review your current site before the call. If you don&rsquo;t have one yet, enter &ldquo;none&rdquo;.
+          </p>
         </div>
         <div>
           <label className={labelClass} htmlFor="dr_email">Email *</label>
