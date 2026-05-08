@@ -1,5 +1,5 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import laPerksBeforeAfter from "@assets/Untitled_design_(11)_1778206423024.png";
+import laPerksBeforeAfter from "@assets/laperks_before_after_cropped.png";
 
 export default function LAPerksBeforeAfterSection() {
   return (
@@ -18,13 +18,21 @@ export default function LAPerksBeforeAfterSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
-          <div className="rounded-2xl overflow-hidden border border-gunmetal bg-navy/40 p-4 md:p-8">
-            <img
-              src={laPerksBeforeAfter}
-              alt="Before and after redesign of L.A. Perks Petroleum Specialists website by Graylock Digital"
-              className="w-full h-auto rounded-lg"
-              loading="lazy"
-            />
+          <div className="rounded-2xl overflow-hidden border border-gunmetal bg-navy/40 p-4 md:p-6">
+            <div className="relative">
+              <img
+                src={laPerksBeforeAfter}
+                alt="Before and after redesign of L.A. Perks Petroleum Specialists website by Graylock Digital"
+                className="w-full h-auto rounded-lg block"
+                loading="lazy"
+              />
+              <span className="absolute top-3 left-3 md:top-4 md:left-4 bg-stone/90 text-charcoal font-sans font-bold uppercase tracking-widest text-[10px] md:text-xs px-3 py-1.5 rounded-md shadow-lg">
+                Before
+              </span>
+              <span className="absolute top-3 right-3 md:top-4 md:right-4 bg-orange text-white font-sans font-bold uppercase tracking-widest text-[10px] md:text-xs px-3 py-1.5 rounded-md shadow-lg">
+                After · Built by Graylock
+              </span>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mt-6 md:mt-8 px-2 md:px-4">
               <div>
                 <p className="text-stone text-xs font-sans font-bold uppercase tracking-widest mb-2">Before</p>
