@@ -31,28 +31,6 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-navy py-20 px-6 md:px-12 border-t border-gunmetal">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal className="text-center mb-10">
-            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Why We Built Graylock Digital</p>
-            <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-6">The Middle Ground That Did Not Exist</h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <div className="bg-charcoal rounded-2xl border border-gunmetal p-8 md:p-10">
-              <p className="text-stone font-sans text-lg leading-relaxed mb-5">
-                We kept meeting practice owners with great reputations and embarrassing websites — therapists with full waiting lists, CPAs with loyal books, dentists with five-star reviews — all losing prospective clients online before they ever had a chance to help them.
-              </p>
-              <p className="text-stone font-sans text-lg leading-relaxed mb-5">
-                Their options were brutal: pay an agency $10,000–$20,000 upfront and wait three months for a result they could not predict, or fight with Squarespace on weekends between client sessions.
-              </p>
-              <p className="text-offwhite font-sans text-lg leading-relaxed">
-                There was no affordable, done-for-you middle ground for professional practices. So we built it.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       <section className="bg-charcoal py-24 px-6 md:px-12 border-t border-gunmetal">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal className="text-center mb-14">
