@@ -70,18 +70,6 @@ export default function About() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={0.4} className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-charcoal/60 border border-gunmetal rounded-xl p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <p className="text-offwhite font-sans text-base md:text-lg leading-snug">
-                Curious what this looks like in practice?
-              </p>
-              <Link href="/work">
-                <span className="inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-sans font-bold px-6 py-3 rounded-lg whitespace-nowrap cursor-pointer transition-colors">
-                  See Real Transformations →
-                </span>
-              </Link>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
