@@ -426,8 +426,8 @@ export default function HomeBuildersFunnel() {
         {URGENCY_COPY}
       </div>
 
-      {/* Top Logo Bar — non-clickable */}
-      <div className="bg-[#1a1a1a] px-6 md:px-12 py-4 md:py-5 border-b border-white/5">
+      {/* Top Logo Bar — non-clickable, transparent (overlays hero) */}
+      <div className="absolute top-[40px] md:top-[44px] left-0 right-0 z-40 px-6 md:px-12 py-4 md:py-5 pointer-events-none">
         <div className="max-w-6xl mx-auto flex justify-center md:justify-start">
           <img
             src={`${import.meta.env.BASE_URL}logo-horizontal.png`}
