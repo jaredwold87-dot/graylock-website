@@ -128,7 +128,19 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(data.schema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            ...data.schema,
+            mainEntity: data.faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a.replace(/\n+/g, " ").trim(),
+              },
+            })),
+          }),
+        }}
       />
 
       <section className="relative bg-charcoal pt-24 pb-20 md:pt-32 md:pb-28 px-6 md:px-12 overflow-hidden">
