@@ -884,26 +884,21 @@ export default function HomeBuildersFunnel() {
                 Stay-Current Guarantee · Free Refresh Every 2 Years
               </h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {[
-                { icon: <Sparkles className="text-[#E85D26]" size={24} />, title: "Design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
-                { icon: <Camera className="text-[#E85D26]" size={24} />, title: "New photos & copy", desc: "Swap in fresh photography and refreshed copy across the pages that matter most." },
-                { icon: <Gauge className="text-[#E85D26]" size={24} />, title: "Performance retune", desc: "Mobile speed, Core Web Vitals, services, and offers — all brought back to current standards." },
+                { icon: <Sparkles className="text-[#E85D26]" size={32} />, title: "Design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
+                { icon: <Camera className="text-[#E85D26]" size={32} />, title: "New photos & copy", desc: "Swap in fresh photography and refreshed copy across the pages that matter most." },
+                { icon: <Gauge className="text-[#E85D26]" size={32} />, title: "Performance retune", desc: "Mobile speed, Core Web Vitals, services, and offers — all brought back to current standards." },
               ].map((item) => (
-                <div key={item.title} className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3">
-                  <div className="w-12 h-12 bg-[#E85D26]/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-[#E85D26]/20">
+                <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-7 md:p-8 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
+                  <div className="w-16 h-16 bg-[#E85D26]/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-[#E85D26]/20 mx-auto mb-5">
                     {item.icon}
                   </div>
-                  <div>
-                    <h4 className="text-[#1a202c] font-display text-lg mb-1">{item.title}</h4>
-                    <p className="text-[#4a5568] font-sans text-sm leading-relaxed">{item.desc}</p>
-                  </div>
+                  <h4 className="text-[#1a202c] font-display text-xl md:text-2xl mb-3">{item.title}</h4>
+                  <p className="text-[#4a5568] font-sans text-base leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
-            <p className="text-[#6b7280] font-sans text-xs md:text-sm text-center mt-8 leading-relaxed max-w-3xl mx-auto">
-              Out of scope: a brand-new identity/logo or net-new pages beyond your current site structure.
-            </p>
           </ScrollReveal>
         </div>
       </section>
