@@ -3,6 +3,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { useEffect, useState } from "react";
 import heroBgImage from "@assets/homebuilder-funnel-header-bg-v1_1778261475996.png";
+import heroMockupImage from "@assets/homebuilder-funnel-mockup-v1.png";
 import {
   Monitor,
   TrendingDown,
@@ -424,13 +425,12 @@ export default function HomeBuildersFunnel() {
 
           <div className="order-first lg:order-last">
             <ScrollReveal>
-              <div className="rounded-xl overflow-hidden shadow-2xl border border-gunmetal/40 bg-charcoal">
-                <ResponsiveImage
-                  src={`${import.meta.env.BASE_URL}mockup-laptop-after.png`}
-                  alt="Modern home builder website displayed on a desktop and mobile device"
-                  className="w-full h-auto"
-                />
-              </div>
+              <img
+                src={heroMockupImage}
+                alt="Northline Custom Homes website shown on a desktop monitor and an iPhone — example of a Graylock-built site for a custom home builder"
+                className="w-full h-auto drop-shadow-2xl"
+                loading="eager"
+              />
             </ScrollReveal>
           </div>
         </div>
