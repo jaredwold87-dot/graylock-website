@@ -12,7 +12,7 @@ import {
 
 const CALENDLY_URL = "";
 
-const URGENCY_COPY = "May Only: $999 Setup Fee Waived — Offer Ends May 31.";
+const URGENCY_COPY = "May Only: Setup Fee Cut to Just $99 — Offer Ends May 31.";
 
 function scrollToBooking(e: React.MouseEvent<HTMLAnchorElement>) {
   e.preventDefault();
@@ -53,7 +53,7 @@ export default function HomeBuildersFunnel() {
             <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
               <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug">
                 <span className="text-[#E85D26] font-bold">Limited May Offer:</span>{" "}
-                $999 Setup Fee Waived — Pay Only $299/Month When Your Build Starts.
+                Setup Fee Cut to Just $99 — On Any Subscription Level.
               </p>
             </div>
             <a
@@ -187,7 +187,7 @@ export default function HomeBuildersFunnel() {
               concept.
             </p>
             <p className="text-[#E85D26] font-sans font-bold text-base md:text-lg mb-10">
-              Reminder: Book before May 31 to lock in the $0 setup fee.
+              Reminder: Book before May 31 to lock in the $99 setup fee.
             </p>
           </ScrollReveal>
 
