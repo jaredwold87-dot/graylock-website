@@ -6,6 +6,16 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { ChevronDown, ArrowRight, Check, LucideIcon } from "lucide-react";
 
+// Picks a grid layout that avoids leaving an orphan single card on the last row.
+// 3 → 1×3, 4 → 2×2 (centered), 5 → 3+2, 6 → 2×3, 8 → 2×4, otherwise → 2×3.
+function gridClassForCount(n: number): string {
+  if (n <= 2) return "grid-cols-1 md:grid-cols-2";
+  if (n === 3) return "grid-cols-1 md:grid-cols-3";
+  if (n === 4) return "grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto";
+  if (n === 8) return "grid-cols-1 md:grid-cols-2 lg:grid-cols-4";
+  return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+}
+
 export interface StrategyPageData {
   seo: {
     title: string;
@@ -265,7 +275,7 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
             </h2>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className={`grid ${gridClassForCount(data.whyItMatters.cards.length)} gap-6`}>
             {data.whyItMatters.cards.map((card, i) => (
               <ScrollReveal key={i} delay={i * 0.05}>
                 <div className="bg-[#242424] border border-[#333] rounded-xl p-6 hover:border-orange/30 transition-all duration-300 h-full">
@@ -333,7 +343,7 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
               </p>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className={`grid ${gridClassForCount(data.deliverables.items.length)} gap-6`}>
               {data.deliverables.items.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 0.05}>
                   <div className="bg-[#242424] border border-[#333] rounded-xl p-6 hover:border-orange/30 transition-all duration-300 h-full">
