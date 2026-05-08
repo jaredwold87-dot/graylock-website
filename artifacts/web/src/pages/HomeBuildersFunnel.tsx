@@ -25,6 +25,7 @@ import {
   CreditCard,
   Hammer,
   Rocket,
+  ShieldCheck,
   Wrench,
   MessagesSquare,
   UserCheck,
@@ -53,7 +54,7 @@ function computeOfferWindow(now: Date = new Date()) {
 }
 
 const OFFER_WINDOW = computeOfferWindow();
-const URGENCY_COPY = `Save $1,400 This Month Only — Build Fee Cut to Only $99. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
+const URGENCY_COPY = `${OFFER_WINDOW.monthName} Only: Get a Free Custom Homepage Demo. Love it? Pay just $99 for the full build. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
 
 const FUNNEL_FAQS: { q: string; a: string }[] = [
   {
@@ -464,13 +465,15 @@ export default function HomeBuildersFunnel() {
               Attention Custom Home Builders
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-white leading-tight mb-6">
-              We&rsquo;ll Design a Custom Homepage for Your Home Building Business —{" "}
-              <span className="text-[#E85D26]">Free, Before You Spend a Dollar.</span>
+              We Will Build You a Custom Homepage Demo for Free.{" "}
+              <span className="text-[#E85D26]">If You Love It, We&rsquo;ll Build the Entire Site for Just $99.</span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans leading-relaxed mb-6">
               Stop losing high-end bids to competitors with better websites. Book a
-              15-minute demo and we&rsquo;ll show you exactly what a conversion-focused
-              website should look like for your business.
+              15-minute call, and we will design a custom homepage concept for your
+              business — 100% free, before you spend a dollar. If you want to move
+              forward, the full build is just $99 (normally $1,499) for the month of{" "}
+              {OFFER_WINDOW.monthName}.
             </p>
             <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
               <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug">
@@ -483,11 +486,11 @@ export default function HomeBuildersFunnel() {
               onClick={scrollToBooking}
               className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto text-center"
             >
-              Book Your Free Custom Demo
+              Book My Free Custom Demo
               <ArrowRight size={20} className="ml-2" />
             </a>
             <p className="text-stone text-sm font-sans mt-4">
-              15-minute call &middot; Custom homepage demo &middot; No obligation.
+              15-minute call &middot; Free custom demo &middot; 30-day money-back guarantee.
             </p>
           </div>
 
@@ -615,11 +618,11 @@ export default function HomeBuildersFunnel() {
               Our Process
             </p>
             <h2 className="text-3xl md:text-4xl font-display text-white text-center mb-4 leading-tight">
-              From Discovery Call to Live Site — No Payment Until You Approve the Demo
+              Zero Risk. Zero Upfront Cost.
             </h2>
             <p className="text-stone text-base md:text-lg font-sans text-center max-w-2xl mx-auto mb-12 md:mb-16 leading-relaxed">
-              A clear, five-step process designed around busy custom home builders.
-              You stay in control — we handle the heavy lifting.
+              We don&rsquo;t ask for a credit card until you&rsquo;ve seen our work
+              and approved the direction.
             </p>
           </ScrollReveal>
 
@@ -634,33 +637,33 @@ export default function HomeBuildersFunnel() {
               {[
                 {
                   day: "Step 1",
-                  title: "15-Minute Discovery Call",
-                  desc: "A quick call to review your current site, your target buyers, and what your homepage needs to win more bids.",
+                  title: "15-Minute Discovery Call (Free)",
+                  desc: "A quick call to review your current site, your target buyers, and what your new site needs to win more bids.",
                   Icon: PhoneCall,
                 },
                 {
                   day: "Step 2",
-                  title: "Free Custom Homepage Demo",
-                  desc: "We turn what we heard into a real, custom demo of your new homepage — no payment required to see it.",
+                  title: "Custom Homepage Demo (Free)",
+                  desc: "We turn what we heard into a real, custom demo of your new homepage. No payment required to see it.",
                   Icon: Sparkles,
                 },
                 {
                   day: "Step 3",
-                  title: "Approve & Pay the Build Fee",
-                  desc: "If you like the direction, you pay the build fee at this point — after the demo, not before — and we kick off the full build.",
+                  title: "Approve & Pay the $99 Build Fee",
+                  desc: `If you love the demo, you pay just $99 (our ${OFFER_WINDOW.monthName} special, normally $1,499). We then kick off the full 7–10 day build.`,
                   Icon: CreditCard,
                 },
                 {
                   day: "Step 4",
-                  title: "Build (7–10 Business Days)",
-                  desc: "We craft custom copy, source imagery that matches your work, and build a fast, mobile-first site — with regular check-ins along the way.",
-                  Icon: Hammer,
+                  title: "Review & Launch",
+                  desc: "We walk you through the finished site, make any final adjustments, and launch it live on your domain.",
+                  Icon: Rocket,
                 },
                 {
                   day: "Step 5",
-                  title: "Review & Launch on Your Domain",
-                  desc: "We walk you through the finished site, make any final adjustments, then connect your domain and launch it live.",
-                  Icon: Rocket,
+                  title: "The 30-Day Guarantee Begins",
+                  desc: "Your monthly subscription begins. If you aren't thrilled with the performance within the first 30 days, we'll refund your money.",
+                  Icon: ShieldCheck,
                 },
               ].map((step, i) => (
                 <ScrollReveal key={step.day} delay={i * 0.08}>
@@ -809,6 +812,28 @@ export default function HomeBuildersFunnel() {
               you approve the design — book your free demo below.
             </p>
           </ScrollReveal>
+
+          {/* 30-Day Site-Live Guarantee — placed immediately below pricing cards */}
+          <ScrollReveal delay={0.15} className="mt-12 md:mt-14">
+            <div className="bg-gradient-to-br from-[#E85D26]/10 via-[#E85D26]/5 to-transparent border-2 border-[#E85D26]/30 rounded-2xl p-7 md:p-10 max-w-4xl mx-auto">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-5 md:gap-7 text-center md:text-left">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#E85D26] flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <ShieldCheck className="text-white" size={40} strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-display text-[#1a202c] mb-3 leading-tight">
+                    Backed by Our 30-Day &ldquo;Site-Live&rdquo; Guarantee
+                  </h3>
+                  <p className="text-[#4a5568] font-sans text-base md:text-lg leading-relaxed">
+                    We take all the risk. You pay nothing to see the demo. You pay just
+                    $99 to build the site. And if you aren&rsquo;t completely satisfied
+                    within 30 days of your site going live, we will refund your money
+                    and part as friends.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -911,9 +936,9 @@ export default function HomeBuildersFunnel() {
               Claim Your Free Custom Homepage Demo
             </h2>
             <p className="text-[#4a5568] text-lg font-sans leading-relaxed mb-4">
-              Pick a time below for a brief 15-minute discovery call. We&rsquo;ll learn
-              about your business and start designing your free custom homepage
-              concept.
+              Tell us a bit about your business below and we&rsquo;ll reach out to
+              schedule your brief 15-minute discovery call — then start designing your
+              free custom homepage concept.
             </p>
             <p className="text-[#E85D26] font-sans font-bold text-base md:text-lg mb-10">
               Reminder: Book before {OFFER_WINDOW.lastDayLabel} to lock in the $99 build fee.
