@@ -128,7 +128,7 @@ Reply directly to this email to reach the lead, or schedule the meeting and send
           idealCustomer: "",
           brandingNotes: notes,
           heardAboutUs: "",
-          source,
+          source: "home-builders-funnel",
           submittedAt,
         }),
       });
