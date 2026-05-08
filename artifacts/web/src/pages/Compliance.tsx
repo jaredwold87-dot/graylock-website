@@ -48,25 +48,25 @@ const INDUSTRY_GROUPS: { title: string; body: string; links: { name: string; pat
 
 const WHAT_WE_DONT_DO = [
   {
-    title: "We don\u2019t sell accessibility overlay widgets.",
+    title: "We don’t sell accessibility overlay widgets.",
     body:
-      "The bolt-on bottom-right-corner buttons that promise \u201Cone-line ADA compliance\u201D don\u2019t fix the underlying code issues that cause accessibility failures. The FTC took enforcement action against an overlay vendor in 2025 for false compliance claims, and courts consistently treat overlays as inadequate. We build accessibility into the site itself.",
+      "The bolt-on bottom-right-corner buttons that promise “one-line ADA compliance” don’t fix the underlying code issues that cause accessibility failures. The FTC took enforcement action against an overlay vendor in 2025 for false compliance claims, and courts consistently treat overlays as inadequate. We build accessibility into the site itself.",
   },
   {
-    title: "We don\u2019t put advertising pixels on healthcare condition pages.",
+    title: "We don’t put advertising pixels on healthcare condition pages.",
     body:
-      "Meta Pixel, TikTok Pixel, and similar advertising trackers transmit data that \u2014 when combined with a page describing a specific medical condition \u2014 has been found to constitute Protected Health Information. The HHS Office for Civil Rights has been enforcing this since 2022. Our healthcare clients don\u2019t carry that risk on their sites.",
+      "Meta Pixel, TikTok Pixel, and similar advertising trackers transmit data that — when combined with a page describing a specific medical condition — has been found to constitute Protected Health Information. The HHS Office for Civil Rights has been enforcing this since 2022. Our healthcare clients don’t carry that risk on their sites.",
   },
   {
     title:
-      "We don\u2019t write \u201Cwe accept all insurance,\u201D \u201Cwe guarantee results,\u201D or other language we know your state board will treat as misleading \u2014 even when a client asks for it.",
+      "We don’t write “we accept all insurance,” “we guarantee results,” or other language we know your state board will treat as misleading — even when a client asks for it.",
     body:
       "Instead, we explain why and propose language that says what they actually mean.",
   },
   {
-    title: "We don\u2019t promise our clients that their websites are legally compliant.",
+    title: "We don’t promise our clients that their websites are legally compliant.",
     body:
-      "Compliance is a property of the entire business, not a property of the website. What we promise is that the website is built so the rules that apply to the client\u2019s industry shape it from the start.",
+      "Compliance is a property of the entire business, not a property of the website. What we promise is that the website is built so the rules that apply to the client’s industry shape it from the start.",
   },
 ];
 
@@ -187,10 +187,10 @@ export default function Compliance() {
           </p>
           <ul className="space-y-4 pl-0">
             {[
-              "A privacy notice that discloses what data the site collects, why, who it\u2019s shared with, and how a visitor can make a request about their data.",
+              "A privacy notice that discloses what data the site collects, why, who it’s shared with, and how a visitor can make a request about their data.",
               "A way for visitors to access, correct, delete, or port their personal information (a Data Subject Access Request workflow).",
-              "Honoring of browser-level signals like Global Privacy Control \u2014 required by California, Colorado, Connecticut, Texas, Oregon, Montana, and others.",
-              "Special handling of sensitive data \u2014 health information, biometric data, racial or religious data, sexual orientation, citizenship status. Most state laws require opt-in consent for these categories, not opt-out.",
+              "Honoring of browser-level signals like Global Privacy Control — required by California, Colorado, Connecticut, Texas, Oregon, Montana, and others.",
+              "Special handling of sensitive data — health information, biometric data, racial or religious data, sexual orientation, citizenship status. Most state laws require opt-in consent for these categories, not opt-out.",
             ].map((item, i) => (
               <li key={i} className="flex gap-3">
                 <MapPin

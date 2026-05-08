@@ -13,7 +13,7 @@ export default function TermsOfService() {
     <>
       <SEO
         title="Master Services Agreement | Graylock Digital"
-        description="The Graylock Digital Master Services Agreement \u2014 the binding subscription contract that governs every Graylock Subscription, including pricing, cancellation, ownership, and dispute resolution."
+        description="The Graylock Digital Master Services Agreement — the binding subscription contract that governs every Graylock Subscription, including pricing, cancellation, ownership, and dispute resolution."
         url="https://graylockdigital.com/terms"
       />
 

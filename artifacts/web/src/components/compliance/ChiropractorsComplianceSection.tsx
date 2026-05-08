@@ -4,13 +4,13 @@ import ComplianceSection, { ComplianceItem } from "./ComplianceSection";
 const items: ComplianceItem[] = [
   {
     icon: Ban,
-    subheading: "\u201CCure\u201D claims and similar language, avoided by design",
-    body: "Most state chiropractic boards prohibit or heavily restrict claims that chiropractic care \u201Ccures\u201D any condition. We use language that describes what the practice does \u2014 manage, treat, relieve, support \u2014 instead of language that implies guaranteed outcomes. Every condition page is reviewed against your state\u2019s specific rule before publication.",
+    subheading: "“Cure” claims and similar language, avoided by design",
+    body: "Most state chiropractic boards prohibit or heavily restrict claims that chiropractic care “cures” any condition. We use language that describes what the practice does — manage, treat, relieve, support — instead of language that implies guaranteed outcomes. Every condition page is reviewed against your state’s specific rule before publication.",
   },
   {
     icon: Tag,
     subheading: "Free-exam and discount offers handled correctly",
-    body: "Free spinal exam, free consultation, $XX special \u2014 these offers are tightly regulated in many states. Your state may require disclosure of any additional charges that could result, or specific language about insurance billing. We write these offers to your state\u2019s rule, not a generic template that might trigger a citation.",
+    body: "Free spinal exam, free consultation, $XX special — these offers are tightly regulated in many states. Your state may require disclosure of any additional charges that could result, or specific language about insurance billing. We write these offers to your state’s rule, not a generic template that might trigger a citation.",
   },
   {
     icon: MessageSquare,
@@ -20,12 +20,12 @@ const items: ComplianceItem[] = [
   {
     icon: Type,
     subheading: "Required terminology where states mandate it",
-    body: "Some state codes require the words \u201Cchiropractic,\u201D \u201Cchiropractor,\u201D \u201Cdoctor of chiropractic,\u201D or \u201Cchiropractic physician\u201D to appear in advertising in a specific font size. We know which states require this and we build it in \u2014 not as small print, but as a design element that does the job correctly.",
+    body: "Some state codes require the words “chiropractic,” “chiropractor,” “doctor of chiropractic,” or “chiropractic physician” to appear in advertising in a specific font size. We know which states require this and we build it in — not as small print, but as a design element that does the job correctly.",
   },
   {
     icon: Wallet,
     subheading: "Insurance and copay language handled by rule",
-    body: "Many states prohibit advertising that you\u2019ll waive a deductible or copayment. We don\u2019t write that copy, even when a practice asks for it \u2014 and we explain why so the practice understands the boundary.",
+    body: "Many states prohibit advertising that you’ll waive a deductible or copayment. We don’t write that copy, even when a practice asks for it — and we explain why so the practice understands the boundary.",
   },
 ];
 
@@ -34,9 +34,9 @@ export default function ChiropractorsComplianceSection() {
     <ComplianceSection
       eyebrow="CHIROPRACTIC-SPECIFIC"
       heading="And the rules specific to chiropractic advertising."
-      lead="Chiropractic advertising is among the most heavily regulated in healthcare \u2014 for historical reasons rooted in concerns about overstated claims of cure. State chiropractic boards across the country prohibit specific words and phrases, regulate free-exam offers, govern testimonials in detail, and set rules for telemarketing. A website that ignores those specifics is a state-board complaint waiting to be filed."
+      lead="Chiropractic advertising is among the most heavily regulated in healthcare — for historical reasons rooted in concerns about overstated claims of cure. State chiropractic boards across the country prohibit specific words and phrases, regulate free-exam offers, govern testimonials in detail, and set rules for telemarketing. A website that ignores those specifics is a state-board complaint waiting to be filed."
       items={items}
-      closing="Your state board has been writing chiropractic advertising rules for decades. We\u2019ve read them. Most web shops haven\u2019t."
+      closing="Your state board has been writing chiropractic advertising rules for decades. We’ve read them. Most web shops haven’t."
       showFullApproachLink
     />
   );

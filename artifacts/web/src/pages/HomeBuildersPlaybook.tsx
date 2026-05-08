@@ -5,11 +5,11 @@ import bookCover from "@/assets/home-builders-book-cover.png";
 import { Check } from "lucide-react";
 
 const bullets = [
-  "The #1 \u201Ctrust signal\u201D missing from most builder websites that makes clients choose the bigger corporate builder before you even get a chance to bid.",
-  "Why your project gallery is probably repelling the exact high-end clients you want most \u2014 and the simple structural fix that changes everything.",
-  "The \u201CContact Us\u201D mistake that 73% of construction websites make \u2014 and how to turn your site into an automated, 24/7 lead qualifier.",
+  "The #1 “trust signal” missing from most builder websites that makes clients choose the bigger corporate builder before you even get a chance to bid.",
+  "Why your project gallery is probably repelling the exact high-end clients you want most — and the simple structural fix that changes everything.",
+  "The “Contact Us” mistake that 73% of construction websites make — and how to turn your site into an automated, 24/7 lead qualifier.",
   "Why relying on third-party lead platforms is a race to the bottom, and how to build an asset you actually own.",
-  "The two-sentence \u201Ccredibility formula\u201D that top-performing builders use to convert skeptical visitors into booked estimates.",
+  "The two-sentence “credibility formula” that top-performing builders use to convert skeptical visitors into booked estimates.",
 ];
 
 export default function HomeBuildersPlaybook() {
