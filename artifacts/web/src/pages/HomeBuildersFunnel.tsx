@@ -2,6 +2,7 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { useEffect, useState } from "react";
+import heroBgImage from "@assets/homebuilder-funnel-header-bg-v1_1778261475996.png";
 import {
   Monitor,
   TrendingDown,
@@ -332,8 +333,19 @@ export default function HomeBuildersFunnel() {
       </div>
 
       {/* Section 2 — Hero */}
-      <section className="bg-navy px-6 md:px-12 py-14 md:py-24">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section
+        className="relative bg-navy bg-cover bg-center bg-no-repeat px-6 md:px-12 py-14 md:py-24"
+        style={{ backgroundImage: `url(${heroBgImage})` }}
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-[#0f1e35]/95 via-[#0f1e35]/80 to-[#0f1e35]/40"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-[#0f1e35]/40 via-transparent to-[#0f1e35]/70"
+        />
+        <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
               Attention Custom Home Builders
