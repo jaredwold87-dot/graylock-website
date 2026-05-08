@@ -13,6 +13,10 @@ import {
   ArrowRight,
   Check,
   Loader2,
+  PhoneCall,
+  Hammer,
+  Eye,
+  Rocket,
 } from "lucide-react";
 
 const URGENCY_COPY = "May Only: Setup Fee Cut to Just $99 — Offer Ends May 31.";
@@ -485,6 +489,72 @@ export default function HomeBuildersFunnel() {
                 </p>
               </div>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4b — Condensed Process */}
+      <section className="bg-[#0f0f0f] px-6 md:px-12 py-16 md:py-24 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal>
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-center mb-3">
+              Our Process
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-white text-center mb-4 leading-tight">
+              From Demo to Live Site in 7–10 Days
+            </h2>
+            <p className="text-stone text-base md:text-lg font-sans text-center max-w-2xl mx-auto mb-12 md:mb-16 leading-relaxed">
+              A clear, four-step process designed around busy custom home builders.
+              You stay in control — we handle the heavy lifting.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+            {[
+              {
+                day: "Day 1",
+                title: "Call & Evaluation",
+                desc: "A free 20-minute call to review your current site, your target buyers, and what your homepage needs to win more bids.",
+                Icon: PhoneCall,
+              },
+              {
+                day: "Days 2–7",
+                title: "The Build",
+                desc: "We craft custom copy, source imagery that matches your work, and build a fast, mobile-first site — with full project transparency.",
+                Icon: Hammer,
+              },
+              {
+                day: "Days 8–9",
+                title: "Your Review",
+                desc: "We walk you through the finished site page-by-page and make any final adjustments. Nothing goes live until you sign off.",
+                Icon: Eye,
+              },
+              {
+                day: "Day 10",
+                title: "Launch",
+                desc: "Domain connected, SSL configured, SEO live. Your new site starts working for you — turning visitors into qualified leads.",
+                Icon: Rocket,
+              },
+            ].map((step, i) => (
+              <ScrollReveal key={step.day} delay={i * 0.08}>
+                <div className="relative h-full bg-[#1a1a1a] border border-white/10 rounded-xl p-6 md:p-7 hover:border-[#E85D26]/40 transition-colors">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#E85D26]/15 border border-[#E85D26]/30 flex items-center justify-center flex-shrink-0">
+                      <step.Icon className="text-[#E85D26]" size={20} />
+                    </div>
+                    <span className="text-[#E85D26] font-sans text-xs font-bold uppercase tracking-wider">
+                      {step.day}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-display text-white mb-2 leading-tight">
+                    {step.title}
+                  </h3>
+                  <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
