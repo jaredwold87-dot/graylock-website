@@ -4,6 +4,8 @@ import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { useEffect, useState } from "react";
 import heroBgImage from "@assets/homebuilder-funnel-header-bg-v1_1778261475996.png";
 import heroMockupImage from "@assets/homebuilder-funnel-mockup-v1.png";
+import differenceBeforeImage from "@assets/graylock-difference-before-v1.png";
+import differenceAfterImage from "@assets/graylock-difference-after-v1.png";
 import {
   Monitor,
   TrendingDown,
@@ -455,10 +457,11 @@ export default function HomeBuildersFunnel() {
             <ScrollReveal>
               <div className="space-y-3">
                 <div className="rounded-xl overflow-hidden border border-gunmetal/60 bg-charcoal shadow-lg">
-                  <ResponsiveImage
-                    src={`${import.meta.env.BASE_URL}portfolio-before-1.png`}
-                    alt="Outdated and generic home builder website"
-                    className="w-full h-auto"
+                  <img
+                    src={differenceBeforeImage}
+                    alt="Outdated and generic home builder website — before Graylock redesign"
+                    className="w-full h-auto block"
+                    loading="lazy"
                   />
                 </div>
                 <p className="text-stone font-sans text-center text-sm md:text-base font-semibold uppercase tracking-wider">
@@ -467,13 +470,14 @@ export default function HomeBuildersFunnel() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={150}>
+            <ScrollReveal delay={0.15}>
               <div className="space-y-3">
                 <div className="rounded-xl overflow-hidden border-2 border-[#E85D26]/60 bg-charcoal shadow-2xl">
-                  <ResponsiveImage
-                    src={`${import.meta.env.BASE_URL}portfolio-after-1.png`}
-                    alt="Custom and conversion-focused Graylock-built website"
-                    className="w-full h-auto"
+                  <img
+                    src={differenceAfterImage}
+                    alt="Custom and conversion-focused Graylock-built home builder website — after redesign"
+                    className="w-full h-auto block"
+                    loading="eager"
                   />
                 </div>
                 <p className="text-[#E85D26] font-sans text-center text-sm md:text-base font-bold uppercase tracking-wider">
