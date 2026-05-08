@@ -160,7 +160,7 @@ const data: IndustryPageData = {
     },
     {
       q: "Can you showcase floor plans and model homes the way prospects expect?",
-      a: "Yes. Every floor plan and model home gets its own dedicated page with high-resolution renderings, square footage, bedroom/bath counts, customization options, available lots, and a clear path to schedule a consultation or tour. Each page is SEO-optimized so it ranks for the floor plan name and style.",
+      a: "Yes — and it's simpler than most builders expect. Each floor plan or model home becomes its own dedicated page on your site (it just counts as one of the pages in your plan), with high-resolution renderings, square footage, bedroom/bath counts, customization options, available lots, and a clear path to schedule a consultation or tour. Every page is SEO-optimized so it ranks for that floor plan name and style. Beyond the basics, we can build just about anything you can picture — interactive plan filters, virtual tours, lot maps, side-by-side comparisons. The exact scope just depends on your monthly budget and how complex you want to go. We'll talk it through on your demo call and tailor it to fit.",
     },
     {
       q: "Will the site help us rank for 'custom home builder' and city-specific searches?",
