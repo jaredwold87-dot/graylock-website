@@ -520,7 +520,7 @@ export default function HomeBuildersFunnel() {
               Our Process
             </p>
             <h2 className="text-3xl md:text-4xl font-display text-white text-center mb-4 leading-tight">
-              From Demo to Live Site in 7–10 Days
+              From Approved Homepage Demo to Live Site in 7–10 Business Days
             </h2>
             <p className="text-stone text-base md:text-lg font-sans text-center max-w-2xl mx-auto mb-12 md:mb-16 leading-relaxed">
               A clear, four-step process designed around busy custom home builders.
@@ -531,25 +531,25 @@ export default function HomeBuildersFunnel() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {[
               {
-                day: "Day 1",
+                day: "Step 1",
                 title: "Call & Evaluation",
                 desc: "A free 20-minute call to review your current site, your target buyers, and what your homepage needs to win more bids.",
                 Icon: PhoneCall,
               },
               {
-                day: "Days 2–7",
+                day: "Step 2",
                 title: "The Build",
                 desc: "We craft custom copy, source imagery that matches your work, and build a fast, mobile-first site — with full project transparency.",
                 Icon: Hammer,
               },
               {
-                day: "Days 8–9",
+                day: "Step 3",
                 title: "Your Review",
                 desc: "We walk you through the finished site page-by-page and make any final adjustments. Nothing goes live until you sign off.",
                 Icon: Eye,
               },
               {
-                day: "Day 10",
+                day: "Step 4",
                 title: "Launch",
                 desc: "Domain connected, SSL configured, SEO live. Your new site starts working for you — turning visitors into qualified leads.",
                 Icon: Rocket,
