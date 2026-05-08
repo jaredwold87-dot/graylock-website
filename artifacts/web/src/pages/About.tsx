@@ -35,16 +35,16 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <ScrollReveal className="text-center mb-14">
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Our Philosophy</p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">We Only Work With Practices We Genuinely Want to See Win</h2>
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">We Only Work With Practices and Businesses We Genuinely Want to See Win</h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <div className="bg-navy rounded-2xl border border-gunmetal p-8 md:p-12 mb-10">
               <p className="text-offwhite font-sans text-lg md:text-xl leading-relaxed mb-6">
-                We don't take on every practice that comes our way. We look for therapists, physicians, dentists, and CPAs where we know — not hope, <em className="text-orange not-italic font-semibold">know</em> — that a better website will directly impact their ability to serve more clients.
+                We don't take on every practice or business that comes our way. We look for therapists, physicians, dentists, CPAs, home builders, and construction companies where we know — not hope, <em className="text-orange not-italic font-semibold">know</em> — that a better website will directly impact their ability to serve more clients.
               </p>
               <p className="text-stone font-sans text-lg leading-relaxed mb-6">
-                When a therapist loses a prospective client because their site looked outdated, or a group practice can't fill an open clinician's caseload because they don't show up on Google — those are the moments we're solving for.
+                When a therapist loses a prospective client because their site looked outdated, a group practice can't fill an open clinician's caseload because they don't show up on Google, or a home builder loses a six-figure project to a competitor with a better online presence — those are the moments we're solving for.
               </p>
               <p className="text-stone font-sans text-lg leading-relaxed">
                 Your growth is our portfolio.
