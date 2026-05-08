@@ -27,7 +27,26 @@ import {
   Rocket,
 } from "lucide-react";
 
-const URGENCY_COPY = "Save $1,400 This Month — May Only: Build Fee Cut to Just $99. Offer Ends May 31.";
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+function computeOfferWindow(now: Date = new Date()) {
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const lastDay = new Date(year, month + 1, 0).getDate();
+  const monthName = MONTH_NAMES[month];
+  const deadline = new Date(year, month + 1, 0, 23, 59, 59, 999);
+  return {
+    deadline,
+    monthName,
+    lastDayLabel: `${monthName} ${lastDay}`,
+  };
+}
+
+const OFFER_WINDOW = computeOfferWindow();
+const URGENCY_COPY = `Save $1,400 This Month — ${OFFER_WINDOW.monthName} Only: Build Fee Cut to Just $99. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
 
 const FUNNEL_FAQS: { q: string; a: string }[] = [
   {
@@ -60,7 +79,7 @@ const FUNNEL_FAQS: { q: string; a: string }[] = [
   },
 ];
 
-const OFFER_DEADLINE = new Date("2026-06-01T04:59:59Z");
+const OFFER_DEADLINE = OFFER_WINDOW.deadline;
 
 function getTimeLeft(deadline: Date) {
   const diff = Math.max(0, deadline.getTime() - Date.now());
@@ -436,8 +455,8 @@ export default function HomeBuildersFunnel() {
             </p>
             <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
               <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug">
-                <span className="text-[#E85D26] font-bold">Limited May Offer:</span>{" "}
-                Build Fee Cut to Just $99 — On Any Subscription Level. Offer ends May 31.
+                <span className="text-[#E85D26] font-bold">Limited {OFFER_WINDOW.monthName} Offer:</span>{" "}
+                Build Fee Cut to Just $99 — On Any Subscription Level. Offer ends {OFFER_WINDOW.lastDayLabel}.
               </p>
             </div>
             <a
@@ -728,7 +747,7 @@ export default function HomeBuildersFunnel() {
                       <div className="rounded-lg bg-[#fff7f3] border border-[#E85D26]/30 px-3.5 py-2.5 mb-5">
                         <p className="font-sans text-xs md:text-sm leading-snug text-[#1a202c]">
                           <Sparkles size={14} className="inline-block -mt-0.5 mr-1 text-[#E85D26]" />
-                          <span className="font-bold text-[#E85D26]">{buildFee} Build Fee Waived for May</span>{" "}
+                          <span className="font-bold text-[#E85D26]">{buildFee} Build Fee Waived for {OFFER_WINDOW.monthName}</span>{" "}
                           — Pay Only <span className="font-bold">$99</span> to Start.
                         </p>
                       </div>
@@ -787,7 +806,7 @@ export default function HomeBuildersFunnel() {
               concept.
             </p>
             <p className="text-[#E85D26] font-sans font-bold text-base md:text-lg mb-10">
-              Reminder: Book before May 31 to lock in the $99 build fee.
+              Reminder: Book before {OFFER_WINDOW.lastDayLabel} to lock in the $99 build fee.
             </p>
           </ScrollReveal>
 
@@ -847,7 +866,7 @@ export default function HomeBuildersFunnel() {
       <section className="bg-[#1a1a1a] px-6 md:px-12 py-14 md:py-20 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
-            Limited May Offer
+            Limited {OFFER_WINDOW.monthName} Offer
           </p>
           <h3 className="text-3xl md:text-4xl font-display text-white mb-3 leading-tight">
             $99 Build Fee Ends In
