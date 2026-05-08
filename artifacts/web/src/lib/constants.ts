@@ -27,7 +27,6 @@ export const PRICING_TIERS = [
     description: "For growing teams and small firms that need more visibility, more pages, and a stronger local SEO foundation.",
     features: [
       "Custom 15-Page Website",
-      "Team / About Pages (up to 5)",
       "6 SEO-Optimized Funnel Pages",
       "Enhanced Lead Capture Form",
       "Full Local SEO Implementation",
@@ -44,7 +43,6 @@ export const PRICING_TIERS = [
     description: "For established and multi-location businesses that demand maximum visibility, advanced analytics, and dedicated account management.",
     features: [
       "Custom 20+ Page Website",
-      "Team / About Pages (up to 10)",
       "9 SEO-Optimized Funnel Pages",
       "Multi-Location SEO Strategy",
       "Advanced Analytics & Reporting",
