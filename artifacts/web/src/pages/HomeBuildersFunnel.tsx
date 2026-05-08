@@ -498,7 +498,7 @@ export default function HomeBuildersFunnel() {
                 <img
                   src={heroMockupImage}
                   alt="Northline Custom Homes website shown on a desktop monitor and an iPhone — example of a Graylock-built site for a custom home builder"
-                  className="relative w-full h-auto drop-shadow-2xl lg:scale-110 lg:origin-right"
+                  className="relative w-full h-auto drop-shadow-2xl lg:scale-[1.32] lg:origin-bottom-left"
                   loading="eager"
                 />
               </div>
