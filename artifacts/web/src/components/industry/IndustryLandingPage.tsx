@@ -193,14 +193,14 @@ export default function IndustryLandingPage({
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <div className="relative w-full max-w-md mx-auto bg-navy/70 border border-gunmetal rounded-2xl p-8">
-              <div className="flex items-center gap-2 mb-5 pb-5 border-b border-gunmetal">
+            <div className="relative w-full max-w-md mx-auto bg-white border border-white/40 rounded-2xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
+              <div className="flex items-center gap-2 mb-5 pb-5 border-b border-gray-200">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={14} className="text-orange fill-orange" />
                   ))}
                 </div>
-                <span className="text-offwhite/80 font-sans text-xs uppercase tracking-wider">
+                <span className="text-charcoal/70 font-sans text-xs uppercase tracking-wider font-semibold">
                   Trusted by US practices
                 </span>
               </div>
@@ -209,25 +209,25 @@ export default function IndustryLandingPage({
                   <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
                     7–10
                   </div>
-                  <div className="text-offwhite/90 text-xs font-sans">Business days to launch</div>
+                  <div className="text-charcoal/80 text-xs font-sans">Business days to launch</div>
                 </div>
                 <div>
                   <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
                     $0
                   </div>
-                  <div className="text-offwhite/90 text-xs font-sans">Up front before your demo</div>
+                  <div className="text-charcoal/80 text-xs font-sans">Up front before your demo</div>
                 </div>
                 <div>
                   <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
                     100%
                   </div>
-                  <div className="text-offwhite/90 text-xs font-sans">US-based, fully managed</div>
+                  <div className="text-charcoal/80 text-xs font-sans">US-based, fully managed</div>
                 </div>
                 <div>
                   <div className="text-2xl font-display text-orange font-bold leading-none mb-1">
                     0
                   </div>
-                  <div className="text-offwhite/90 text-xs font-sans">Long-term contracts</div>
+                  <div className="text-charcoal/80 text-xs font-sans">Long-term contracts</div>
                 </div>
               </div>
             </div>
