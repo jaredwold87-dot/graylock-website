@@ -1,0 +1,301 @@
+⬇️ Fetching source code from github...
+
+Cloning into '.'...
+HEAD is now at 669d87a Sync FAQPage JSON-LD with visible FAQ copy on industry & strategy pages
+
+✅ Source code fetched successfully
+
+📦 Building and pushing docker image using Dockerfile...
+
+#1 [internal] booting buildkit
+#1 pulling image moby/buildkit:buildx-stable-1
+#1 pulling image moby/buildkit:buildx-stable-1 4.5s done
+#1 creating container buildx_buildkit_container0
+#1 creating container buildx_buildkit_container0 0.6s done
+#1 DONE 5.1s
+container
+#0 building with "container" instance using docker-container driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 801B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:20-slim
+#2 ...
+
+#3 [auth] library/node:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:20-slim
+#2 DONE 0.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 198B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [ 1/14] FROM docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+#6 resolve docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0 done
+#6 DONE 0.0s
+
+#7 importing cache manifest from us-west1-docker.pkg.dev/kinsta-app-hosting/kc-apps/3a5fe7fe-0739-4263-906b-b00e1721bcc9/graylock-digital-lmuwc:cache
+#7 ...
+
+#8 [auth] kinsta-app-hosting/kc-apps/3a5fe7fe-0739-4263-906b-b00e1721bcc9/graylock-digital-lmuwc:pull token for us-west1-docker.pkg.dev
+#8 DONE 0.0s
+
+#7 importing cache manifest from us-west1-docker.pkg.dev/kinsta-app-hosting/kc-apps/3a5fe7fe-0739-4263-906b-b00e1721bcc9/graylock-digital-lmuwc:cache
+#7 inferred cache manifest type: application/vnd.oci.image.index.v1+json done
+#7 DONE 0.5s
+
+#6 [ 1/14] FROM docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+#6 sha256:3c02fd806613748139b8b8a14a69ae3518a1b0e863c57c35aada3b92ed87fb31 447B / 447B 0.1s done
+#6 sha256:804d4d68057cbb26cbcde9a735148ebc6589911bad32cf9dbddb5b0ba878bf1f 0B / 41.42MB 0.2s
+#6 sha256:64cfb949317c9824fd081d55c59a7225bfe1f650c6395ba42d7ed0ccf51993d2 0B / 1.71MB 0.2s
+#6 sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 0B / 3.31kB 0.2s
+#6 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 0B / 28.24MB 0.2s
+#6 sha256:804d4d68057cbb26cbcde9a735148ebc6589911bad32cf9dbddb5b0ba878bf1f 4.19MB / 41.42MB 0.3s
+#6 sha256:64cfb949317c9824fd081d55c59a7225bfe1f650c6395ba42d7ed0ccf51993d2 1.71MB / 1.71MB 0.3s done
+#6 sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 3.31kB / 3.31kB 0.3s done
+#6 ...
+
+#5 [internal] load build context
+#5 transferring context: 56.84MB 0.5s done
+#5 DONE 0.5s
+
+#6 [ 1/14] FROM docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+#6 sha256:804d4d68057cbb26cbcde9a735148ebc6589911bad32cf9dbddb5b0ba878bf1f 19.92MB / 41.42MB 0.5s
+#6 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 7.34MB / 28.24MB 0.5s
+#6 sha256:804d4d68057cbb26cbcde9a735148ebc6589911bad32cf9dbddb5b0ba878bf1f 41.42MB / 41.42MB 0.6s done
+#6 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 22.02MB / 28.24MB 0.6s
+#6 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 28.24MB / 28.24MB 0.7s done
+#6 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4
+#6 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 0.6s done
+#6 DONE 1.5s
+
+#6 [ 1/14] FROM docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+#6 extracting sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582
+#6 extracting sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 0.4s done
+#6 DONE 1.9s
+
+#6 [ 1/14] FROM docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+#6 extracting sha256:804d4d68057cbb26cbcde9a735148ebc6589911bad32cf9dbddb5b0ba878bf1f
+#6 extracting sha256:804d4d68057cbb26cbcde9a735148ebc6589911bad32cf9dbddb5b0ba878bf1f 1.2s done
+#6 extracting sha256:64cfb949317c9824fd081d55c59a7225bfe1f650c6395ba42d7ed0ccf51993d2
+#6 extracting sha256:64cfb949317c9824fd081d55c59a7225bfe1f650c6395ba42d7ed0ccf51993d2 0.1s done
+#6 extracting sha256:3c02fd806613748139b8b8a14a69ae3518a1b0e863c57c35aada3b92ed87fb31 0.1s done
+#6 DONE 3.2s
+
+#9 [ 2/14] WORKDIR /app
+#9 DONE 0.0s
+
+#10 [ 3/14] RUN npm install -g pnpm@10
+#10 1.252
+#10 1.252 added 1 package in 1s
+#10 1.252
+#10 1.252 1 package is looking for funding
+#10 1.252   run `npm fund` for details
+#10 1.254 npm notice
+#10 1.254 npm notice New major version of npm available! 10.8.2 -> 11.14.1
+#10 1.254 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.14.1
+#10 1.254 npm notice To update run: npm install -g npm@11.14.1
+#10 1.254 npm notice
+#10 DONE 1.4s
+
+#11 [ 4/14] COPY package.json pnpm-workspace.production.yaml ./
+#11 DONE 0.1s
+
+#12 [ 5/14] COPY artifacts/api-server/package.json artifacts/api-server/
+#12 DONE 0.0s
+
+#13 [ 6/14] COPY artifacts/web/package.json artifacts/web/
+#13 DONE 0.0s
+
+#14 [ 7/14] COPY lib/api-client-react/package.json lib/api-client-react/
+#14 DONE 0.0s
+
+#15 [ 8/14] COPY lib/api-zod/package.json lib/api-zod/
+#15 DONE 0.1s
+
+#16 [ 9/14] COPY lib/db/package.json lib/db/
+#16 DONE 0.1s
+
+#17 [10/14] RUN mv pnpm-workspace.production.yaml pnpm-workspace.yaml
+#17 DONE 0.3s
+
+#18 [11/14] RUN pnpm install --no-lockfile
+#18 0.613 Scope: all 6 workspace projects
+#18 0.914 Progress: resolved 1, reused 0, downloaded 0, added 0
+#18 1.053
+#18 1.053    ╭─────────────────────────────────────────╮
+#18 1.053    │                                         │
+#18 1.053    │   Update available! 10.33.4 → 11.0.8.   │
+#18 1.053    │   Changelog: https://pnpm.io/v/11.0.8   │
+#18 1.053    │    To update, run: pnpm add -g pnpm     │
+#18 1.053    │                                         │
+#18 1.053    ╰─────────────────────────────────────────╯
+#18 1.053
+#18 1.928 Progress: resolved 76, reused 0, downloaded 70, added 0
+#18 2.930 Progress: resolved 100, reused 0, downloaded 85, added 0
+#18 3.938 Progress: resolved 244, reused 0, downloaded 188, added 0
+#18 4.942 Progress: resolved 433, reused 0, downloaded 335, added 0
+#18 5.955 Progress: resolved 545, reused 0, downloaded 407, added 0
+#18 6.448  WARN  2 deprecated subdependencies found: @esbuild-kit/core-utils@3.3.2, @esbuild-kit/esm-loader@2.6.5
+#18 6.462 Packages: +414
+#18 6.462 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#18 6.902 Progress: resolved 554, reused 0, downloaded 415, added 414, done
+#18 7.072 .../sharp@0.34.5/node_modules/sharp install$ node install/check.js || npm run build
+#18 7.168 .../sharp@0.34.5/node_modules/sharp install: Done
+#18 7.357 . preinstall$ sh -c 'rm -f package-lock.json yarn.lock; case "$npm_config_user_agent" in pnpm/*) ;; *) echo "Use pnpm instead" >&2; exit 1 ;; esac'
+#18 7.417 . preinstall: Done
+#18 7.456  WARN  Issues with peer dependencies found
+#18 7.456 artifacts/api-server
+#18 7.456 └─┬ esbuild-plugin-pino 2.3.3
+#18 7.456   └── ✕ unmet peer esbuild@">=0.25.0 <=0.25.8": found 0.27.7
+#18 7.456
+#18 7.456 dependencies:
+#18 7.456 + @replit/connectors-sdk 0.3.0 (0.4.0 is available)
+#18 7.456
+#18 7.456 devDependencies:
+#18 7.456 + prettier 3.8.3
+#18 7.456 + typescript 5.9.3 (6.0.3 is available)
+#18 7.456
+#18 7.459 ╭ Warning ─────────────────────────────────────────────────────────────────────╮
+#18 7.459 │                                                                              │
+#18 7.459 │   Ignored build scripts: esbuild@0.18.20, esbuild@0.25.12, esbuild@0.27.7.   │
+#18 7.459 │   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+#18 7.459 │   to run scripts.                                                            │
+#18 7.459 │                                                                              │
+#18 7.459 ╰──────────────────────────────────────────────────────────────────────────────╯
+#18 7.528 Done in 7.3s using pnpm v10.33.4
+#18 DONE 8.2s
+
+#19 [12/14] COPY . .
+#19 DONE 0.7s
+
+#20 [13/14] RUN mv pnpm-workspace.production.yaml pnpm-workspace.yaml
+#20 DONE 0.2s
+
+#21 [14/14] RUN pnpm --filter './lib/**' -r build || true &&     pnpm --filter @workspace/api-server build &&     BASE_PATH=/ pnpm --filter @workspace/web build
+#21 0.603 Scope: 3 of 6 workspace projects
+#21 0.620  ERR_PNPM_RECURSIVE_RUN_NO_SCRIPT  None of the selected packages has a "build" script
+#21 1.072
+#21 1.072 > @workspace/api-server@0.0.0 build /app/artifacts/api-server
+#21 1.072 > node ./build.mjs
+#21 1.072
+#21 1.498
+#21 1.498   dist/index.mjs                       2.9mb ⚠️
+#21 1.498   dist/pino-worker.mjs               153.4kb
+#21 1.498   dist/pino-file.mjs                 142.0kb
+#21 1.498   dist/pino-pretty.mjs               114.6kb
+#21 1.498   dist/thread-stream-worker.mjs        7.3kb
+#21 1.498   dist/index.mjs.map                   6.4mb
+#21 1.498   dist/pino-worker.mjs.map           256.9kb
+#21 1.498   dist/pino-file.mjs.map             229.0kb
+#21 1.498   dist/pino-pretty.mjs.map           204.0kb
+#21 1.498   dist/thread-stream-worker.mjs.map   12.0kb
+#21 1.498
+#21 1.498 ⚡ Done in 347ms
+#21 1.928
+#21 1.928 > @workspace/web@0.0.0 prebuild /app/artifacts/web
+#21 1.928 > node scripts/generate-image-variants.mjs
+#21 1.928
+#21 4.594 [image-variants] Generated 52 variant(s) from 26 source(s):
+#21 4.594   + case-study-eye-institute-mobile.webp
+#21 4.594   + case-study-eye-institute-mobile.jpg
+#21 4.594   + hero-about-mobile.webp
+#21 4.594   + hero-about-mobile.jpg
+#21 4.594   + hero-accountants-mobile.webp
+#21 4.594   + hero-accountants-mobile.jpg
+#21 4.594   + hero-bg-devices-mobile.webp
+#21 4.594   + hero-bg-devices-mobile.jpg
+#21 4.595   + hero-how-it-works-mobile.webp
+#21 4.595   + hero-how-it-works-mobile.jpg
+#21 4.595   + hero-local-service-businesses-mobile.webp
+#21 4.595   + hero-local-service-businesses-mobile.jpg
+#21 4.595   + hero-mobile-device-v2-mobile.webp
+#21 4.595   + hero-mobile-device-v2-mobile.jpg
+#21 4.595   + hero-mobile-eye-institute-mobile.webp
+#21 4.595   + hero-mobile-eye-institute-mobile.jpg
+#21 4.595   + hero-pricing-mobile.webp
+#21 4.595   + hero-pricing-mobile.jpg
+#21 4.595   + hero-strategy-funnel-pages-mobile.webp
+#21 4.595   + hero-strategy-funnel-pages-mobile.jpg
+#21 4.595   + hero-strategy-gbp-mobile.webp
+#21 4.595   + hero-strategy-gbp-mobile.jpg
+#21 4.595   + hero-strategy-lead-gen-mobile.webp
+#21 4.595   + hero-strategy-lead-gen-mobile.jpg
+#21 4.595   + hero-strategy-overview-mobile.webp
+#21 4.595   + hero-strategy-overview-mobile.jpg
+#21 4.595   + hero-strategy-seo-mobile.webp
+#21 4.595   + hero-strategy-seo-mobile.jpg
+#21 4.595   + hero-strategy-website-design-mobile.webp
+#21 4.595   + hero-strategy-website-design-mobile.jpg
+#21 4.595   + mockup-laptop-after-mobile.webp
+#21 4.596   + mockup-laptop-after-mobile.jpg
+#21 4.596   + niche-accountant-1-mobile.webp
+#21 4.596   + niche-accountant-1-mobile.jpg
+#21 4.596   + niche-accountant-2-mobile.webp
+#21 4.596   + niche-accountant-2-mobile.jpg
+#21 4.596   + niche-accountant-3-mobile.webp
+#21 4.596   + niche-accountant-3-mobile.jpg
+#21 4.596   + outdated-practice-website-mobile.webp
+#21 4.596   + outdated-practice-website-mobile.jpg
+#21 4.596   + portfolio-after-1-mobile.webp
+#21 4.596   + portfolio-after-1-mobile.jpg
+#21 4.596   + portfolio-after-2-mobile.webp
+#21 4.596   + portfolio-after-2-mobile.jpg
+#21 4.596   + portfolio-after-3-mobile.webp
+#21 4.596   + portfolio-after-3-mobile.jpg
+#21 4.596   + portfolio-before-1-mobile.webp
+#21 4.596   + portfolio-before-1-mobile.jpg
+#21 4.596   + portfolio-before-2-mobile.webp
+#21 4.596   + portfolio-before-2-mobile.jpg
+#21 4.596   + portfolio-before-3-mobile.webp
+#21 4.596   + portfolio-before-3-mobile.jpg
+#21 4.608
+#21 4.608 > @workspace/web@0.0.0 build /app/artifacts/web
+#21 4.608 > vite build --config vite.config.ts
+#21 4.608
+#21 4.938 vite v7.3.3 building client environment for production...
+#21 5.017 transforming...
+#21 5.589 src/components/ui/tooltip.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+#21 6.784 ✓ 1178 modules transformed.
+#21 6.789 ✗ Build failed in 1.81s
+#21 6.789 error during build:
+#21 6.789 [vite:asset] Could not load /app/attached_assets/homebuilder-funnel-header-bg-v1_1778261475996.png (imported by src/pages/HomeBuildersFunnel.tsx): ENOENT: no such file or directory, open '/app/attached_assets/homebuilder-funnel-header-bg-v1_1778261475996.png'
+#21 6.789     at async open (node:internal/fs/promises:637:25)
+#21 6.789     at async Object.readFile (node:internal/fs/promises:1249:14)
+#21 6.789     at async fileToBuiltUrl (file:///app/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0/node_modules/vite/dist/node/chunks/config.js:8793:18)
+#21 6.789     at async Object.handler (file:///app/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0/node_modules/vite/dist/node/chunks/config.js:8687:17)
+#21 6.789     at async PluginDriver.hookFirstAndGetPlugin (file:///app/node_modules/.pnpm/rollup@4.60.3/node_modules/rollup/dist/es/shared/node-entry.js:22869:28)
+#21 6.789     at async file:///app/node_modules/.pnpm/rollup@4.60.3/node_modules/rollup/dist/es/shared/node-entry.js:21853:33
+#21 6.789     at async Queue.work (file:///app/node_modules/.pnpm/rollup@4.60.3/node_modules/rollup/dist/es/shared/node-entry.js:23097:32)
+#21 6.831 /app/artifacts/web:
+#21 6.831  ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/web@0.0.0 build: `vite build --config vite.config.ts`
+#21 6.831 Exit status 1
+#21 ERROR: process "/bin/sh -c pnpm --filter './lib/**' -r build || true &&     pnpm --filter @workspace/api-server build &&     BASE_PATH=/ pnpm --filter @workspace/web build" did not complete successfully: exit code: 1
+------
+ > [14/14] RUN pnpm --filter './lib/**' -r build || true &&     pnpm --filter @workspace/api-server build &&     BASE_PATH=/ pnpm --filter @workspace/web build:
+6.789     at async open (node:internal/fs/promises:637:25)
+6.789     at async Object.readFile (node:internal/fs/promises:1249:14)
+6.789     at async fileToBuiltUrl (file:///app/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0/node_modules/vite/dist/node/chunks/config.js:8793:18)
+6.789     at async Object.handler (file:///app/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0/node_modules/vite/dist/node/chunks/config.js:8687:17)
+6.789     at async PluginDriver.hookFirstAndGetPlugin (file:///app/node_modules/.pnpm/rollup@4.60.3/node_modules/rollup/dist/es/shared/node-entry.js:22869:28)
+6.789     at async file:///app/node_modules/.pnpm/rollup@4.60.3/node_modules/rollup/dist/es/shared/node-entry.js:21853:33
+6.789     at async Queue.work (file:///app/node_modules/.pnpm/rollup@4.60.3/node_modules/rollup/dist/es/shared/node-entry.js:23097:32)
+6.831 /app/artifacts/web:
+6.831  ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/web@0.0.0 build: `vite build --config vite.config.ts`
+6.831 Exit status 1
+------
+Dockerfile:22
+--------------------
+  21 |
+  22 | >>> RUN pnpm --filter './lib/**' -r build || true && \
+  23 | >>>     pnpm --filter @workspace/api-server build && \
+  24 | >>>     BASE_PATH=/ pnpm --filter @workspace/web build
+  25 |
+--------------------
+ERROR: failed to solve: process "/bin/sh -c pnpm --filter './lib/**' -r build || true &&     pnpm --filter @workspace/api-server build &&     BASE_PATH=/ pnpm --filter @workspace/web build" did not complete successfully: exit code: 1

@@ -2,10 +2,10 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { useEffect, useState } from "react";
-import heroBgImage from "@assets/homebuilder-funnel-header-bg-v1_1778261475996.png";
-import heroMockupImage from "@assets/homebuilder-funnel-mockup-v1.png";
-import differenceBeforeImage from "@assets/graylock-difference-before-v1.png";
-import differenceAfterImage from "@assets/graylock-difference-after-v1.png";
+import heroBgImage from "@/assets/home-builders/funnel-header-bg.png";
+import heroMockupImage from "@/assets/home-builders/funnel-mockup.png";
+import differenceBeforeImage from "@/assets/home-builders/difference-before.png";
+import differenceAfterImage from "@/assets/home-builders/difference-after.png";
 import {
   Monitor,
   TrendingDown,
