@@ -82,6 +82,54 @@ function CountdownTimer() {
   );
 }
 
+function CompactCountdown() {
+  const [time, setTime] = useState(() => getTimeLeft(OFFER_DEADLINE));
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setTime(getTimeLeft(OFFER_DEADLINE));
+    }, 1000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  if (time.diff <= 0) {
+    return (
+      <p className="text-stone font-sans text-base md:text-lg">
+        This offer has ended. Book a demo to hear about our current promotion.
+      </p>
+    );
+  }
+
+  const units: Array<{ label: string; value: number }> = [
+    { label: "Days", value: time.days },
+    { label: "Hours", value: time.hours },
+    { label: "Minutes", value: time.minutes },
+    { label: "Seconds", value: time.seconds },
+  ];
+
+  return (
+    <div
+      className="flex justify-center items-stretch gap-3 sm:gap-5"
+      aria-live="polite"
+      aria-label={`Offer ends in ${time.days} days, ${time.hours} hours, ${time.minutes} minutes, ${time.seconds} seconds`}
+    >
+      {units.map((u) => (
+        <div
+          key={u.label}
+          className="flex flex-col items-center justify-center bg-white/5 border border-white/10 rounded-xl px-3 sm:px-5 py-3 sm:py-4 min-w-[68px] sm:min-w-[88px] backdrop-blur-sm"
+        >
+          <div className="text-white font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-none tabular-nums">
+            {String(u.value).padStart(2, "0")}
+          </div>
+          <div className="text-stone text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] mt-2">
+            {u.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 function getDefaultDate() {
@@ -513,23 +561,24 @@ export default function HomeBuildersFunnel() {
         </div>
       </section>
 
-      <section className="bg-[#0f1e35] px-6 md:px-12 py-12 md:py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-widest mb-4">
-            Don&rsquo;t Miss Out
+      <section className="bg-[#0f1e35] px-6 md:px-12 py-14 md:py-20 border-t border-white/5">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
+            Limited May Offer
           </p>
-          <h3 className="text-2xl md:text-3xl font-display text-white mb-6 leading-tight">
-            This Offer Ends Soon
+          <h3 className="text-3xl md:text-4xl font-display text-white mb-3 leading-tight">
+            $99 Setup Fee Ends In
           </h3>
-          <div className="flex justify-center">
-            <div className="inline-block text-left">
-              <CountdownTimer />
-            </div>
-          </div>
+          <p className="text-stone font-sans text-base md:text-lg mb-8">
+            Lock in your savings before the timer runs out.
+          </p>
+
+          <CompactCountdown />
+
           <a
             href="#book-demo"
             onClick={scrollToBooking}
-            className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl mt-2"
+            className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl mt-10"
           >
             Request My Free Custom Demo
             <ArrowRight size={20} className="ml-2" />
