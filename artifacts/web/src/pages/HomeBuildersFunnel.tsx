@@ -499,6 +499,30 @@ export default function HomeBuildersFunnel() {
           </div>
         </div>
       </section>
+
+      <section className="bg-[#0f1e35] px-6 md:px-12 py-12 md:py-16">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-widest mb-4">
+            Don&rsquo;t Miss Out
+          </p>
+          <h3 className="text-2xl md:text-3xl font-display text-white mb-6 leading-tight">
+            This Offer Ends Soon
+          </h3>
+          <div className="flex justify-center">
+            <div className="inline-block text-left">
+              <CountdownTimer />
+            </div>
+          </div>
+          <a
+            href="#book-demo"
+            onClick={scrollToBooking}
+            className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl mt-2"
+          >
+            Request My Free Custom Demo
+            <ArrowRight size={20} className="ml-2" />
+          </a>
+        </div>
+      </section>
     </>
   );
 }
