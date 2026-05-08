@@ -371,14 +371,24 @@ export default function HomeBuildersFunnel() {
             </p>
           </div>
 
-          <div className="order-first lg:order-last">
+          <div className="order-first lg:order-last relative">
             <ScrollReveal>
-              <img
-                src={heroMockupImage}
-                alt="Northline Custom Homes website shown on a desktop monitor and an iPhone — example of a Graylock-built site for a custom home builder"
-                className="w-full h-auto drop-shadow-2xl"
-                loading="eager"
-              />
+              <div className="relative">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -m-8 sm:-m-12 lg:-m-16 rounded-full blur-3xl opacity-70"
+                  style={{
+                    background:
+                      "radial-gradient(closest-side, rgba(232,93,38,0.45) 0%, rgba(232,93,38,0.18) 40%, rgba(232,93,38,0) 75%)",
+                  }}
+                />
+                <img
+                  src={heroMockupImage}
+                  alt="Northline Custom Homes website shown on a desktop monitor and an iPhone — example of a Graylock-built site for a custom home builder"
+                  className="relative w-full h-auto drop-shadow-2xl lg:scale-110 lg:origin-right"
+                  loading="eager"
+                />
+              </div>
             </ScrollReveal>
           </div>
         </div>
