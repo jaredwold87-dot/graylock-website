@@ -182,17 +182,72 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
             ))}
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
-              <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-4">
-                {data.definition.calloutTitle}
-              </p>
-              <div className="space-y-4">
-                {data.definition.calloutBullets.map((bullet, i) => (
-                  <div key={i} className="flex gap-3 items-start">
-                    <span className="w-8 h-8 bg-orange/10 rounded-full flex items-center justify-center flex-shrink-0 text-orange font-display font-bold text-sm">{i + 1}</span>
-                    <p className="text-[#4A4A4A] font-sans text-sm">{bullet}</p>
-                  </div>
-                ))}
+            <div className="relative rounded-2xl bg-gradient-to-b from-white to-slate-50/80 border border-slate-200/80 shadow-[0_10px_40px_-12px_rgba(15,42,75,0.18)] ring-1 ring-slate-900/[0.03] overflow-hidden">
+              {/* Top accent bar */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1"
+                style={{
+                  background:
+                    "linear-gradient(to right, #2E7BB4 0%, #5BA3D6 50%, #2E7BB4 100%)",
+                }}
+              />
+              {/* Subtle corner glow */}
+              <div
+                aria-hidden="true"
+                className="absolute -top-16 -right-16 w-48 h-48 rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(46,123,180,0.10) 0%, transparent 70%)",
+                }}
+              />
+
+              <div className="relative p-8 md:p-10">
+                {/* Eyebrow with side accent */}
+                <div className="flex items-center gap-3 mb-8">
+                  <span
+                    aria-hidden="true"
+                    className="block h-px w-8"
+                    style={{
+                      background:
+                        "linear-gradient(to right, transparent, #2E7BB4)",
+                    }}
+                  />
+                  <p className="text-orange text-[11px] font-sans font-bold uppercase tracking-[0.18em]">
+                    {data.definition.calloutTitle}
+                  </p>
+                </div>
+
+                {/* Numbered rail */}
+                <ol className="relative">
+                  {data.definition.calloutBullets.map((bullet, i) => {
+                    const isLast = i === data.definition.calloutBullets.length - 1;
+                    return (
+                      <li key={i} className="relative flex gap-5 items-start pb-6 last:pb-0">
+                        {/* Connector line behind subsequent numbers */}
+                        {!isLast && (
+                          <span
+                            aria-hidden="true"
+                            className="absolute left-[19px] top-10 bottom-0 w-px bg-gradient-to-b from-slate-300 to-slate-200"
+                          />
+                        )}
+                        {/* Number badge */}
+                        <span
+                          className="relative flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-base shadow-[0_4px_12px_-2px_rgba(46,123,180,0.45)] ring-4 ring-white"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, #2E7BB4 0%, #1F5A87 100%)",
+                          }}
+                        >
+                          {i + 1}
+                        </span>
+                        <p className="text-[#2A3A4F] font-sans text-base leading-relaxed pt-1.5">
+                          {bullet}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ol>
               </div>
             </div>
           </ScrollReveal>
