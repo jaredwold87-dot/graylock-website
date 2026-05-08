@@ -1,23 +1,33 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { Phone, Sparkles, Rocket, Clock, Wrench, Zap } from "lucide-react";
+import { Phone, Sparkles, CreditCard, Hammer, Rocket, Clock, Wrench, Zap } from "lucide-react";
 
 export function HowItWorksSection() {
   const steps = [
     {
       icon: <Phone size={26} />,
-      title: "Book a 15-Minute Call",
-      desc: "Quick chat with one of our founders about your business and what's not working on your current site.",
+      title: "15-Minute Discovery Call",
+      desc: "A quick call to hear what you like and dislike about your current site, and what you want from the new one.",
     },
     {
       icon: <Sparkles size={26} />,
-      title: "Get a Free Custom Demo",
-      desc: "We design a real homepage concept so you can see the strategy before committing.",
+      title: "Free Custom Homepage Demo",
+      desc: "We turn that input into a real demo of what your new homepage could look like — no payment required to see it.",
+    },
+    {
+      icon: <CreditCard size={26} />,
+      title: "Approve the Demo & Pay the Build Fee",
+      desc: "Like the direction? You pay the build fee at this point — after the demo, not before — and we get started on the full site.",
+    },
+    {
+      icon: <Hammer size={26} />,
+      title: "Build (7–10 Business Days)",
+      desc: "We build out the full site. Most builds finish in 7–10 business days, with regular check-ins along the way.",
     },
     {
       icon: <Rocket size={26} />,
-      title: "Decide to Launch",
-      desc: "Love it? We build and launch in 7–10 days. Not for you? Walk away with clarity.",
+      title: "Review & Launch on Your Domain",
+      desc: "We walk you through the finished site, make any final adjustments, then launch it live on your domain.",
     },
   ];
 
@@ -45,7 +55,7 @@ export function HowItWorksSection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
           {steps.map((step, i) => (
             <ScrollReveal key={i} delay={i * 0.15}>
               <div className="h-full bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col items-start hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_16px_40px_rgba(0,0,0,0.06)] transition-shadow">

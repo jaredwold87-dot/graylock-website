@@ -8,38 +8,43 @@ import { Wrench, MessagesSquare, UserCheck, TrendingUp } from "lucide-react";
 export default function HowItWorks() {
   const steps = [
     {
-      day: "Day 1",
-      title: "Call + Evaluation",
-      desc: "We start with a free 20-minute consultation. We review your current online presence, discuss your target clients, and determine exactly what features your practice needs to succeed. After the call, you receive a comprehensive written report covering website analysis, SEO gaps, competitive landscape, and growth opportunities. You keep the full report regardless of whether you move forward — it's yours as a premium standalone deliverable."
+      day: "Step 1",
+      title: "15-Minute Discovery Call",
+      desc: "We start with a quick 15-minute call. We hear what you like and dislike about your current site, who your target clients are, and what you want your new homepage to do for your business. No pitch deck, no pressure — just enough information for us to come back with something real to show you."
     },
     {
-      day: "Days 2–7",
-      title: "The Build",
-      desc: "Once you approve the plan and pay the setup fee, our team gets to work. We craft custom copy, source high-quality imagery, and build a blazing-fast site. Throughout the build, you have full transparency: a dedicated project portal where you can upload assets, communicate directly with our team, and track progress in real time."
+      day: "Step 2",
+      title: "Free Custom Homepage Demo",
+      desc: "We turn what we heard on the call into a real, custom demo of what your new homepage could look like. You see actual layout, copy direction, and visual style applied to your business — not a template or a slide. There's no payment required to see the demo, and no obligation to move forward after you do."
     },
     {
-      day: "Days 8–9",
-      title: "Client Review",
-      desc: "We send you a private link to review your new website and schedule a review call to walk you through the completed site together. This is a structured opportunity for feedback — we go page by page, answer your questions, and make any adjustments to ensure it's exactly what you envisioned. We don't launch until you sign off."
+      day: "Step 3",
+      title: "Approve the Demo & Pay the Build Fee",
+      desc: "If you like the direction, this is the point where you pay the build fee — after the demo, not before. Approving the demo locks in your spot on the build calendar and tells us to start on the rest of the site. If the demo isn't right for you, you walk away with no cost and no commitment."
     },
     {
-      day: "Day 10",
-      title: "Launch",
-      desc: "We connect your domain, set up SSL security, configure your SEO, and push the site live to the world. Your site is live and working for you — every visitor is now a potential client. Google indexing begins, leads start flowing, and your monthly subscription kicks in."
+      day: "Step 4",
+      title: "Build (7–10 Business Days)",
+      desc: "Our team builds out the full site from the approved homepage direction. We craft the remaining pages, write custom copy, source high-quality imagery, and tune everything for speed and SEO. Most builds finish in 7–10 business days, and you have a direct line to us throughout for assets, questions, and progress updates."
+    },
+    {
+      day: "Step 5",
+      title: "Review & Launch on Your Domain",
+      desc: "We walk you through the finished site page by page on a review call, gather your feedback, and make final adjustments. Once you sign off, we connect your domain, set up SSL, configure SEO, and launch the site live on your domain. From there, your monthly support kicks in and we keep the site healthy and improving."
     }
   ];
 
   return (
     <>
-      <SEO title="How It Works | Practice Website Process | Graylock Digital" description="From free website evaluation to a live, lead-generating site in 7–10 business days. See our proven process for therapists, dentists, physicians, and CPAs." url="https://graylockdigital.com/how-it-works" />
+      <SEO title="How It Works | Our 5-Step Website Process | Graylock Digital" description="See our 5-step process: a 15-minute call, a free custom homepage demo, then a full build in 7–10 business days launched on your domain. No payment until after you approve the demo." url="https://graylockdigital.com/how-it-works" />
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-how-it-works.png`} />
         <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <h1 className="text-4xl md:text-6xl font-display mb-6">Our Proven Process</h1>
-            <p className="text-xl font-sans text-stone">From an outdated liability to a lead-generating asset — within 7–10 business days on average.</p>
+            <h1 className="text-4xl md:text-6xl font-display mb-6">Our 5-Step Process</h1>
+            <p className="text-xl font-sans text-stone">From a 15-minute call to a free custom demo to a fully built site launched on your domain — most builds finish in 7–10 business days, and you don't pay anything until after you've seen and approved the demo.</p>
           </ScrollReveal>
         </div>
       </section>
@@ -152,10 +157,10 @@ export default function HowItWorks() {
               Ready to See What Your Website Could Become?
             </h2>
             <p className="text-stone text-lg font-sans mb-4 max-w-xl mx-auto leading-relaxed">
-              Book a free 20-minute call. We'll review your current site, walk you through what's not working, and build you a custom homepage demo.
+              Book a free 15-minute call. We'll hear what you want from your new site, then turn it into a real custom homepage demo for you to review.
             </p>
             <p className="text-stone text-sm font-sans mb-8 max-w-xl mx-auto">
-              You'll also receive a comprehensive written report covering your competitive landscape, SEO gaps, and growth opportunities — yours to keep no matter what.
+              No payment until you've seen the demo and decided you want to move forward.
             </p>
             <CTAButton href="/get-started" className="px-8 py-4">
               Get Your Free Homepage Demo
