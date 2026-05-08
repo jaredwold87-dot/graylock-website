@@ -424,7 +424,7 @@ export default function HomeBuildersFunnel() {
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] text-center mb-12 md:mb-16 leading-tight">
-              Why Your Current Website is Costing You Jobs
+              Why Their Current Website Is Costing Them Jobs
             </h2>
           </ScrollReveal>
 
@@ -433,22 +433,22 @@ export default function HomeBuildersFunnel() {
               {
                 icon: Monitor,
                 title: "It Looks Like 2012",
-                copy: "You build million-dollar homes, but your website makes you look like a budget contractor. High-end clients judge your quality by your digital presence.",
+                copy: "They build million-dollar homes, but their website makes them look like a budget contractor. High-end clients judge their quality by their digital presence.",
               },
               {
                 icon: TrendingDown,
                 title: "It Doesn't Convert",
-                copy: "Traffic doesn't matter if visitors leave without contacting you. Your site is a digital brochure, not a lead-generation machine.",
+                copy: "Traffic doesn't matter if visitors leave without contacting them. Their site is a digital brochure, not a lead-generation machine.",
               },
               {
                 icon: EyeOff,
                 title: "It's Invisible on Google",
-                copy: "When someone searches for \u201Ccustom home builders near me,\u201D your competitors show up first. You are relying entirely on referrals.",
+                copy: "When someone searches for \u201Ccustom home builders near me,\u201D their competitors show up first. They are relying entirely on referrals.",
               },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
-                <ScrollReveal key={item.title} delay={i * 100}>
+                <ScrollReveal key={item.title} delay={i * 0.1}>
                   <div className="bg-white rounded-xl p-7 md:p-8 shadow-md hover:shadow-lg transition-shadow border border-gray-100 h-full">
                     <div className="w-12 h-12 rounded-lg bg-[#E85D26]/10 border border-[#E85D26]/20 flex items-center justify-center mb-5">
                       <Icon size={24} className="text-[#E85D26]" />
