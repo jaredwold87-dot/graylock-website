@@ -61,7 +61,7 @@ function CountdownTimer() {
         >
           {units.map((u, i) => (
             <div key={u.label} className="flex items-stretch gap-2 sm:gap-3">
-              <div className="bg-navy/60 border border-[#E85D26]/40 rounded-md px-2.5 sm:px-3.5 py-2 min-w-[56px] sm:min-w-[68px] text-center">
+              <div className="bg-black/40 border border-[#E85D26]/40 rounded-md px-2.5 sm:px-3.5 py-2 min-w-[56px] sm:min-w-[68px] text-center">
                 <div className="text-white font-display text-xl sm:text-2xl md:text-3xl font-bold leading-none tabular-nums">
                   {String(u.value).padStart(2, "0")}
                 </div>
@@ -383,16 +383,16 @@ export default function HomeBuildersFunnel() {
 
       {/* Section 2 — Hero */}
       <section
-        className="relative bg-navy bg-cover bg-center bg-no-repeat px-6 md:px-12 py-14 md:py-24"
+        className="relative bg-[#1a1a1a] bg-cover bg-center bg-no-repeat px-6 md:px-12 py-14 md:py-24"
         style={{ backgroundImage: `url(${heroBgImage})` }}
       >
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-[#0f1e35]/95 via-[#0f1e35]/80 to-[#0f1e35]/40"
+          className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/80 to-[#0a0a0a]/40"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-[#0f1e35]/40 via-transparent to-[#0f1e35]/70"
+          className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a]/70"
         />
         <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
@@ -437,7 +437,7 @@ export default function HomeBuildersFunnel() {
       </section>
 
       {/* Section 3 — Problem / Agitation */}
-      <section className="bg-[#f7fafc] px-6 md:px-12 py-16 md:py-24">
+      <section className="bg-[#f5f5f4] px-6 md:px-12 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] text-center mb-12 md:mb-16 leading-tight">
@@ -485,7 +485,7 @@ export default function HomeBuildersFunnel() {
       </section>
 
       {/* Section 4 — Proof / Before & After */}
-      <section className="bg-navy px-6 md:px-12 py-16 md:py-24">
+      <section className="bg-[#1a1a1a] px-6 md:px-12 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-display text-white text-center mb-12 md:mb-16 leading-tight">
@@ -561,7 +561,7 @@ export default function HomeBuildersFunnel() {
         </div>
       </section>
 
-      <section className="bg-[#0f1e35] px-6 md:px-12 py-14 md:py-20 border-t border-white/5">
+      <section className="bg-[#1a1a1a] px-6 md:px-12 py-14 md:py-20 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
             Limited May Offer
