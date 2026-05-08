@@ -452,7 +452,7 @@ export default function HomeBuildersFunnel() {
           className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a]/70"
         />
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6">
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
               Attention Custom Home Builders
             </p>
