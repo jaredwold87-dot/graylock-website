@@ -258,6 +258,7 @@ function DemoRequestForm() {
             id="dr_time"
             type="time"
             required
+            step={900}
             value={form.preferred_time}
             onChange={(e) => update("preferred_time", e.target.value)}
             className={inputClass}
