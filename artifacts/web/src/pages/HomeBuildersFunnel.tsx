@@ -677,11 +677,15 @@ export default function HomeBuildersFunnel() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7 max-w-5xl mx-auto">
-            {PRICING_TIERS.filter((t) => !("isCustom" in t && t.isCustom)).slice(0, 3).map((tier, i) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-6 max-w-6xl mx-auto items-stretch">
+            {PRICING_TIERS.map((tier, i) => {
               const isPopular = "popular" in tier && tier.popular;
+              const isCustom = "isCustom" in tier && tier.isCustom;
+              const buildFee = !isCustom && "setup" in tier
+                ? (tier.setup.match(/\$[\d,]+/) ?? ["$999"])[0]
+                : null;
               return (
-                <ScrollReveal key={tier.name} delay={i * 0.08}>
+                <ScrollReveal key={tier.name} delay={i * 0.06}>
                   <div
                     className={`relative h-full flex flex-col rounded-2xl p-6 md:p-7 border-2 transition-all duration-200 ${
                       isPopular
@@ -697,19 +701,38 @@ export default function HomeBuildersFunnel() {
                     <h3 className="font-display text-2xl md:text-3xl text-[#1a202c] mb-1">
                       {tier.name}
                     </h3>
-                    <div className="flex items-baseline gap-1 mb-3">
-                      <span className="text-4xl md:text-5xl font-display font-bold text-[#1a202c] tabular-nums">
-                        {tier.price}
-                      </span>
-                      <span className="text-[#4a5568] font-sans text-base">/mo</span>
+                    <div className="flex items-baseline gap-1 mb-3 min-h-[3.5rem]">
+                      {isCustom ? (
+                        <span className="text-3xl md:text-4xl font-display font-bold text-[#1a202c]">
+                          Let&rsquo;s Talk
+                        </span>
+                      ) : (
+                        <>
+                          <span className="text-4xl md:text-5xl font-display font-bold text-[#1a202c] tabular-nums">
+                            {tier.price}
+                          </span>
+                          <span className="text-[#4a5568] font-sans text-base">/mo</span>
+                        </>
+                      )}
                     </div>
 
-                    <div className="rounded-lg bg-[#1a202c] text-white px-3.5 py-2.5 mb-5">
-                      <p className="font-sans text-xs md:text-sm leading-snug">
-                        <span className="text-[#E85D26] font-bold">$999 Build Fee Waived for May</span>{" "}
-                        — Pay Only <span className="font-bold">$99</span> to Start.
-                      </p>
-                    </div>
+                    {isCustom ? (
+                      <div className="rounded-lg bg-[#fff7f3] border border-[#E85D26]/30 px-3.5 py-2.5 mb-5">
+                        <p className="font-sans text-xs md:text-sm leading-snug text-[#1a202c]">
+                          <Sparkles size={14} className="inline-block -mt-0.5 mr-1 text-[#E85D26]" />
+                          <span className="font-bold text-[#E85D26]">Custom Quote</span>{" "}
+                          — scoped to your project on a free call.
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="rounded-lg bg-[#fff7f3] border border-[#E85D26]/30 px-3.5 py-2.5 mb-5">
+                        <p className="font-sans text-xs md:text-sm leading-snug text-[#1a202c]">
+                          <Sparkles size={14} className="inline-block -mt-0.5 mr-1 text-[#E85D26]" />
+                          <span className="font-bold text-[#E85D26]">{buildFee} Build Fee Waived for May</span>{" "}
+                          — Pay Only <span className="font-bold">$99</span> to Start.
+                        </p>
+                      </div>
+                    )}
 
                     <p className="text-[#4a5568] font-sans text-sm leading-relaxed mb-5">
                       {tier.description}
@@ -733,7 +756,7 @@ export default function HomeBuildersFunnel() {
                           : "bg-[#1a202c] text-white hover:bg-black"
                       }`}
                     >
-                      Book My Free Demo
+                      {isCustom ? "Schedule a Scoping Call" : "Book My Free Demo"}
                     </a>
                   </div>
                 </ScrollReveal>
