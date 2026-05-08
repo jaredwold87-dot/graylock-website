@@ -26,18 +26,18 @@ const data: IndustryPageData = {
   hero: {
     badge: "For Chiropractors",
     badgeIcon: Bone,
-    h1: "Patients Don't Pick the Best Chiropractor.",
-    h1Highlight: "They Pick the One They Find First.",
+    h1: "Fill Your Adjustment Schedule",
+    h1Highlight: "With Patients Who Found You on Google.",
     subheadline:
-      "When someone's back goes out at 9pm, they Google 'chiropractor near me' — not your name. If your site doesn't show up (or doesn't look credible), that new patient walks into someone else's office. We build SEO-optimized chiropractic sites that turn searches into booked appointments — fully managed, so you can focus on patient care.",
+      'When someone’s back goes out, they search "chiropractor near me" — not your name. We build SEO-optimized chiropractic sites that put you at the top of that search and turn clicks into booked appointments. Fully managed. Live in 7–10 days.',
     cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
-      "Built for chiropractic practices",
-      "Online appointment requests",
-      "Local SEO included",
-      "Fully managed for you",
+      "More new patient appointments every week",
+      "Show up first when locals search for a chiropractor",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you focus on patient care",
     ],
   },
   specialties: {

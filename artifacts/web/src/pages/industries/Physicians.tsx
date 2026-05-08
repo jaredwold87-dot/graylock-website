@@ -24,20 +24,20 @@ const data: IndustryPageData = {
     url: "https://graylockdigital.com/websites-for-physicians",
   },
   hero: {
-    badge: "For Physicians",
+    badge: "For Physicians & Medical Practices",
     badgeIcon: Stethoscope,
-    h1: "Your Patients' First Impression Isn't in Your Office.",
-    h1Highlight: "It's on Your Website.",
+    h1: "Build a Practice Patients Find, Trust, and Book —",
+    h1Highlight: "Without the Wait.",
     subheadline:
-      "Patients vet you online before they ever call. An outdated or generic site sends them to the next physician in the search results. We build SEO-optimized medical practice sites that convert searches into appointments — fully managed, so you stay focused on patient care.",
+      "Patients vet their doctor online before they ever call your office. If your site looks generic or doesn't show up in local search, they move to the next result. We build custom, SEO-optimized medical sites that fill your appointment calendar. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
-      "Built for medical practices",
-      "Patient inquiry forms",
-      "Local SEO included",
-      "Fully managed for you",
+      "More new patient appointment requests every month",
+      "Rank on Google when patients search for your specialty",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you stay focused on patient care",
     ],
   },
   specialties: {

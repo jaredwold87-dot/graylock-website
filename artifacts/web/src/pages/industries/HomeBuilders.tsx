@@ -18,20 +18,20 @@ const data: IndustryPageData = {
     url: "https://graylockdigital.com/websites-for-home-builders",
   },
   hero: {
-    badge: "For Home Builders",
+    badge: "For Home Builders & Renovators",
     badgeIcon: Home,
-    h1: "When a Family Is About to Build Their Dream Home,",
-    h1Highlight: "Your Website Is the First Walkthrough.",
+    h1: "Win More Custom Home Contracts",
+    h1Highlight: "With a Website That Shows What You're Worth.",
     subheadline:
-      "Custom-home buyers and renovation clients spend weeks researching builders before they ever pick up the phone. We build modern, locally-ranked websites that showcase your craftsmanship, communicate your process, and turn quiet site visitors into qualified consultation requests — long before they reach a competitor's quote form.",
+      "Buyers researching a custom build or major renovation spend weeks online before they call anyone. We build modern, locally-ranked websites that showcase your craftsmanship and turn serious buyers into consultation requests — before they reach your competitor's quote form. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-home-builders.jpg`,
     trustSignals: [
-      "Built for residential builders",
-      "Project galleries & floor plans",
-      "Lead-capture & consultation forms",
-      "Fully managed for you",
+      "More qualified consultation requests from serious buyers",
+      "Show up when families search for builders in your area",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you focus on the build",
     ],
   },
   specialties: {

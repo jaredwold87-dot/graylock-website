@@ -19,20 +19,20 @@ const data: IndustryPageData = {
     url: "https://graylockdigital.com/websites-for-industrial-construction",
   },
   hero: {
-    badge: "For Industrial & Construction",
+    badge: "For Contractors, Trades & Industrial Firms",
     badgeIcon: HardHat,
     h1: "You Build Serious Work.",
-    h1Highlight: "Your Website Should Prove It.",
+    h1Highlight: "Your Website Should Win You More of It.",
     subheadline:
-      "GCs, subs, fabricators, and industrial service companies win bids on credibility — and that starts the moment a project manager opens your site. We build modern, locally-ranked websites that showcase your capabilities, your past projects, and the size of jobs you can handle, so the right RFQs land in your inbox.",
+      "Project managers and procurement teams vet contractors online before they send an RFQ. We build modern, locally-ranked websites that showcase your capabilities, your past projects, and the scale of jobs you handle — so the right work finds you. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-industrial-construction.jpg`,
     trustSignals: [
-      "Built for contractors & trades",
-      "Project & capability pages",
-      "Local SEO included",
-      "Fully managed for you",
+      "More RFQs and project inquiries in your inbox",
+      "Get found by project managers searching for your trade",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you stay on the job site",
     ],
   },
   specialties: {

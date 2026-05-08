@@ -25,18 +25,18 @@ const data: IndustryPageData = {
   hero: {
     badge: "For CPAs & Accounting Firms",
     badgeIcon: Calculator,
-    h1: "Your Clients Trust You With Their Finances.",
-    h1Highlight: "Does Your Website Earn That Same Trust?",
+    h1: "Win More Clients From Google —",
+    h1Highlight: "Without Chasing Referrals.",
     subheadline:
-      "For most accounting firms, the website is the weakest link in the new-client pipeline. We build sharp, locally-ranked sites for CPAs that showcase your expertise and make it easy for prospects to reach out — and we run the whole thing for you, end to end. You stay focused on clients.",
+      "Your reputation gets you referrals. Your website gets you everyone else. We build custom, locally-ranked sites for CPAs and accounting firms that turn Google searches into new client inquiries — fully managed, live in 7–10 days.",
     cta: "Get a Free Firm Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-accountants.jpg`,
     trustSignals: [
-      "Services pages for every offering",
-      "Local SEO included",
-      "Free demo first",
-      "7–10 day build",
+      "More new client inquiries every month",
+      "Rank on Google for your specialty + city",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you focus on clients",
     ],
   },
   specialties: {

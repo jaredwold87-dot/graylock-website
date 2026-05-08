@@ -26,18 +26,18 @@ const data: IndustryPageData = {
   hero: {
     badge: "For Dentists",
     badgeIcon: Smile,
-    h1: "Patients Choose Their Dentist Online.",
-    h1Highlight: "What Does Your Website Say About You?",
+    h1: "Get More New Patients Calling",
+    h1Highlight: "Your Practice Every Month.",
     subheadline:
-      "New patients in your area Google a dentist before they call one. An outdated, slow, or invisible site sends them to the practice down the street. We build SEO-optimized dental sites that turn searches into scheduled appointments — fully managed, so you can focus on your patients.",
+      "New patients in your area Google a dentist before they call one — and they book with the practice whose site looks current and shows up first. We build SEO-optimized dental sites that turn those searches into scheduled appointments. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
-      "Built for dental practices",
-      "Online appointment requests",
-      "Local SEO included",
-      "Fully managed for you",
+      "More new patient calls and appointment requests",
+      "Rank on Google when locals search for a dentist",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you stay focused on patients",
     ],
   },
   specialties: {

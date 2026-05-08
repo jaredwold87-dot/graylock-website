@@ -18,20 +18,20 @@ const data: IndustryPageData = {
     url: "https://graylockdigital.com/other-service-businesses",
   },
   hero: {
-    badge: "For Local Service Businesses",
+    badge: "For Plumbers, Electricians, HVAC & Local Trades",
     badgeIcon: Wrench,
-    h1: "When Your Pipes Burst at 2 AM,",
-    h1Highlight: "Your Website Is the First Thing They Find.",
+    h1: "When Something Breaks,",
+    h1Highlight: "You Need to Be the First Number They Call.",
     subheadline:
-      "Plumbers, electricians, HVAC techs, and carpenters live and die by the searches that happen the moment something breaks. We build modern, locally-ranked websites that put you at the top of those searches and turn a panicked phone scroll into a booked job — before your competitor's site even loads.",
+      "Local service calls go to whoever shows up first on Google. We build modern, locally-ranked websites that put you at the top of those searches and turn panicked scrollers into booked jobs — before your competitor even loads. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-local-service-businesses.jpg`,
     trustSignals: [
-      "Built for trades & home services",
-      "Service-area & emergency pages",
-      "Click-to-call + online booking",
-      "Fully managed for you",
+      "More service calls and job bookings every week",
+      "Show up first in local searches for your trade",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you stay on the job",
     ],
   },
   specialties: {

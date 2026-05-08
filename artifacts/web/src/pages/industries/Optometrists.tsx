@@ -26,18 +26,18 @@ const data: IndustryPageData = {
   hero: {
     badge: "For Optometrists",
     badgeIcon: Glasses,
-    h1: "Patients Pick Their Eye Doctor Online.",
-    h1Highlight: "Are They Picking You?",
+    h1: "Get More New Patients Booked for Exams —",
+    h1Highlight: "Month After Month.",
     subheadline:
-      "New patients find their eye doctor through Google. If your site doesn't show up — or doesn't look current when they land on it — they book with the practice whose site does. We build modern, SEO-optimized optometry sites and fully manage them, so you stay focused on patient care.",
+      "New patients Google an eye doctor before they ever call. If your site isn't showing up — or doesn't build trust on the first click — they book with the practice that does. We build modern, SEO-optimized optometry sites that fill your exam schedule. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
-      "Built for optometry practices",
-      "Online appointment requests",
-      "Local SEO included",
-      "Fully managed for you",
+      "More new patient exam bookings every month",
+      "Rank on Google when locals search for an eye doctor",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you focus on patient care",
     ],
   },
   specialties: {

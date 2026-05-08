@@ -26,18 +26,18 @@ const data: IndustryPageData = {
   hero: {
     badge: "For Physical Therapists",
     badgeIcon: Dumbbell,
-    h1: "Patients Don't Know They Need PT.",
-    h1Highlight: "Until They Google Their Pain.",
+    h1: 'Turn "My Back Is Killing Me"',
+    h1Highlight: "Into a Booked Evaluation at Your Clinic.",
     subheadline:
-      "Patients in pain Google symptoms, not specialties — and book with the PT clinic that shows up first and clearly explains the fix. We build SEO-optimized PT sites that turn those pain-driven searches into booked evaluations, and we run the site for you so you stay focused on outcomes. Every engagement starts with a free demo of your homepage — before you pay a cent.",
+      "Patients in pain Google their symptoms first — and book with the PT clinic that shows up and clearly explains the fix. We build SEO-optimized PT sites that turn those pain-driven searches into booked evaluations. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
-      "Built for PT practices",
-      "Patient inquiry forms",
-      "Local SEO included",
-      "Fully managed for you",
+      "More booked evaluations every week",
+      "Show up when patients search for PT in your area",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you stay focused on patient outcomes",
     ],
   },
   specialties: {

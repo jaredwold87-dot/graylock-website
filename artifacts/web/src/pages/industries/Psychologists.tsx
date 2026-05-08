@@ -26,18 +26,18 @@ const data: IndustryPageData = {
   hero: {
     badge: "For Psychologists",
     badgeIcon: Brain,
-    h1: "Finding a Psychologist Is Hard Enough.",
-    h1Highlight: "Your Website Shouldn't Make It Harder.",
+    h1: "Help More People Find You —",
+    h1Highlight: "And Feel Safe Enough to Reach Out.",
     subheadline:
-      "Clients need to feel safe before they pick up the phone. A cold or confusing site costs you the inquiry. We build warm, SEO-optimized psychology sites — fully managed — that make it easy for the right clients to find you and reach out.",
+      "Clients searching for a psychologist need to feel trust before they ever contact you. A cold, cluttered, or invisible site costs you that inquiry. We build warm, professionally designed psychology sites that build trust fast and make it easy for the right clients to find you and reach out. Fully managed. Live in 7–10 days.",
     cta: "Get a Free Practice Website Review",
     ctaSubtext: "20-minute call · Custom homepage demo · No obligation.",
     backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
     trustSignals: [
-      "Built for psychology practices",
-      "Client inquiry forms",
-      "Local SEO included",
-      "Fully managed for you",
+      "More inquiries from clients who are the right fit",
+      "Rank on Google for your specialty and location",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you focus on your clients",
     ],
   },
   specialties: {
