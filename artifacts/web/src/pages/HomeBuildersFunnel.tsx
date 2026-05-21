@@ -518,7 +518,7 @@ export default function HomeBuildersFunnel() {
             </p>
           </div>
 
-          <div className="order-first lg:order-last lg:col-span-6 lg:col-start-7 relative lg:pl-16 xl:pl-24">
+          <div className="order-first lg:order-last lg:col-span-6 lg:col-start-7 relative lg:-ml-8 xl:-ml-4 lg:pl-0 xl:pl-0">
             <ScrollReveal>
               <div className="relative">
                 <div
@@ -532,7 +532,7 @@ export default function HomeBuildersFunnel() {
                 <img
                   src={heroMockupImage}
                   alt="Northline Custom Homes website shown on a desktop monitor and an iPhone — example of a Graylock-built site for a custom home builder"
-                  className="relative w-full h-auto drop-shadow-2xl lg:scale-[1.32] lg:origin-left"
+                  className="relative w-full h-auto drop-shadow-2xl lg:scale-110 xl:scale-[1.15] lg:origin-center"
                   loading="eager"
                 />
               </div>
