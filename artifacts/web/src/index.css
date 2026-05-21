@@ -264,3 +264,9 @@
   90% { stroke-dashoffset: 0; opacity: 1; }
   100% { stroke-dashoffset: 0; opacity: 0.7; }
 }
+
+/* Home Builders Funnel — responsive hero background */
+.hb-hero { background-image: var(--hb-hero-bg-mobile); }
+@media (min-width: 768px) {
+  .hb-hero { background-image: var(--hb-hero-bg); }
+}

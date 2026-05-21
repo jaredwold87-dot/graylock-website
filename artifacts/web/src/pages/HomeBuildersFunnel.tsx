@@ -9,10 +9,12 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { useEffect, useState } from "react";
-import heroBgImage from "@/assets/home-builders/funnel-header-bg.png";
-import heroMockupImage from "@/assets/home-builders/funnel-mockup.png";
-import differenceBeforeImage from "@/assets/home-builders/difference-before.png";
-import differenceAfterImage from "@/assets/home-builders/difference-after.png";
+import heroBgImage from "@/assets/home-builders/funnel-header-bg.webp";
+import heroBgImageMobile from "@/assets/home-builders/funnel-header-bg-mobile.webp";
+import heroMockupImage from "@/assets/home-builders/funnel-mockup.webp";
+import heroMockupImageMobile from "@/assets/home-builders/funnel-mockup-mobile.webp";
+import differenceBeforeImage from "@/assets/home-builders/difference-before.webp";
+import differenceAfterImage from "@/assets/home-builders/difference-after.webp";
 import {
   Monitor,
   TrendingDown,
@@ -448,8 +450,13 @@ export default function HomeBuildersFunnel() {
 
       {/* Section 2 — Hero */}
       <section
-        className="relative bg-[#1a1a1a] bg-cover bg-center bg-no-repeat px-6 md:px-12 py-14 md:py-24"
-        style={{ backgroundImage: `url(${heroBgImage})` }}
+        className="hb-hero relative bg-[#1a1a1a] bg-cover bg-center bg-no-repeat px-6 md:px-12 py-14 md:py-24"
+        style={
+          {
+            ["--hb-hero-bg" as string]: `url(${heroBgImage})`,
+            ["--hb-hero-bg-mobile" as string]: `url(${heroBgImageMobile})`,
+          } as React.CSSProperties
+        }
       >
         <div
           aria-hidden="true"
@@ -529,12 +536,20 @@ export default function HomeBuildersFunnel() {
                       "radial-gradient(closest-side, rgba(232,93,38,0.45) 0%, rgba(232,93,38,0.18) 40%, rgba(232,93,38,0) 75%)",
                   }}
                 />
-                <img
-                  src={heroMockupImage}
-                  alt="Northline Custom Homes website shown on a desktop monitor and an iPhone — example of a Graylock-built site for a custom home builder"
-                  className="relative w-full h-auto drop-shadow-2xl lg:scale-110 xl:scale-[1.15] lg:origin-center"
-                  loading="eager"
-                />
+                <picture>
+                  <source media="(max-width: 767px)" srcSet={heroMockupImageMobile} type="image/webp" />
+                  <source srcSet={heroMockupImage} type="image/webp" />
+                  <img
+                    src={heroMockupImage}
+                    alt="Northline Custom Homes website shown on a desktop monitor and an iPhone — example of a Graylock-built site for a custom home builder"
+                    className="relative w-full h-auto drop-shadow-2xl lg:scale-110 xl:scale-[1.15] lg:origin-center"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                    width={1600}
+                    height={1200}
+                  />
+                </picture>
               </div>
             </ScrollReveal>
           </div>
@@ -607,6 +622,7 @@ export default function HomeBuildersFunnel() {
                     alt="Outdated and generic home builder website — before Graylock redesign"
                     className="w-full h-auto block"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <p className="text-stone font-sans text-center text-sm md:text-base font-semibold uppercase tracking-wider">
@@ -622,7 +638,8 @@ export default function HomeBuildersFunnel() {
                     src={differenceAfterImage}
                     alt="Custom and conversion-focused Graylock-built home builder website — after redesign"
                     className="w-full h-auto block"
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <p className="text-[#E85D26] font-sans text-center text-sm md:text-base font-bold uppercase tracking-wider">
