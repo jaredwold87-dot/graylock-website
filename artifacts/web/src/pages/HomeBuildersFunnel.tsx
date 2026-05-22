@@ -205,6 +205,16 @@ function DemoRequestForm() {
       }
 
       setStatus("success");
+
+      const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void })
+        .gtag;
+      if (typeof gtag === "function") {
+        gtag("event", "generate_lead", {
+          event_category: "form",
+          event_label: "home_builder_demo_request",
+          page_location: window.location.href,
+        });
+      }
     } catch {
       setStatus("error");
       setErrorMsg("We couldn't reach our server. Please try again in a moment.");
