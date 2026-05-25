@@ -865,22 +865,93 @@ export default function ContractorsFunnel() {
           </ScrollReveal>
 
           {/* 30-Day Site-Live Guarantee — placed immediately below pricing cards */}
-          <ScrollReveal delay={0.15} className="mt-12 md:mt-14">
-            <div className="bg-gradient-to-br from-[#E85D26]/10 via-[#E85D26]/5 to-transparent border-2 border-[#E85D26]/30 rounded-2xl p-7 md:p-10 max-w-4xl mx-auto">
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-5 md:gap-7 text-center md:text-left">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#E85D26] flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <ShieldCheck className="text-white" size={40} strokeWidth={2} />
+          <ScrollReveal delay={0.15} className="mt-14 md:mt-16">
+            <div className="relative max-w-5xl mx-auto">
+              {/* Glow */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 -m-4 md:-m-8 rounded-[2rem] blur-2xl opacity-60 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(closest-side, rgba(232,93,38,0.55) 0%, rgba(232,93,38,0.15) 60%, rgba(232,93,38,0) 100%)",
+                }}
+              />
+              <div className="relative bg-gradient-to-br from-[#E85D26] via-[#E85D26] to-[#c94a18] rounded-2xl md:rounded-3xl shadow-2xl border-4 border-white/10 overflow-hidden">
+                {/* Top ribbon */}
+                <div className="bg-[#1a1a1a] text-center py-2 px-4">
+                  <span className="inline-flex items-center gap-2 text-white font-sans text-xs md:text-sm font-bold uppercase tracking-[0.25em]">
+                    <span className="inline-block w-2 h-2 rounded-full bg-[#E85D26] animate-pulse" />
+                    Iron-Clad Guarantee
+                    <span className="inline-block w-2 h-2 rounded-full bg-[#E85D26] animate-pulse" />
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-display text-[#1a202c] mb-3 leading-tight">
-                    Backed by Our 30-Day &ldquo;Site-Live&rdquo; Guarantee
-                  </h3>
-                  <p className="text-[#4a5568] font-sans text-base md:text-lg leading-relaxed">
-                    We take all the risk. You pay nothing to see the demo. You pay just
-                    $99 to build the site. And if you aren&rsquo;t completely satisfied
-                    within 30 days of your site going live, we will refund your money
-                    and part as friends.
-                  </p>
+
+                <div className="px-6 md:px-12 py-10 md:py-14">
+                  <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    {/* Big circular badge */}
+                    <div className="relative flex-shrink-0">
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 rounded-full bg-white/20 animate-ping"
+                        style={{ animationDuration: "2.5s" }}
+                      />
+                      <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full bg-white flex flex-col items-center justify-center shadow-2xl border-4 border-white/40">
+                        <ShieldCheck
+                          className="text-[#E85D26] absolute opacity-10"
+                          size={140}
+                          strokeWidth={1.5}
+                        />
+                        <span className="relative text-5xl md:text-6xl font-display text-[#E85D26] leading-none">
+                          30
+                        </span>
+                        <span className="relative text-[10px] md:text-xs font-sans font-black uppercase tracking-[0.2em] text-[#1a1a1a] mt-1">
+                          Day
+                        </span>
+                        <span className="relative text-[10px] md:text-xs font-sans font-black uppercase tracking-[0.2em] text-[#1a1a1a]">
+                          Guarantee
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Headline + bullets */}
+                    <div className="flex-1 text-center md:text-left">
+                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-display text-white leading-tight mb-3">
+                        100% Money-Back.{" "}
+                        <span className="block md:inline">Zero Risk to You.</span>
+                      </h3>
+                      <p className="text-white/90 font-sans text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
+                        We take all the risk. If you aren&rsquo;t completely thrilled
+                        within 30 days of your site going live, we refund every dollar
+                        and part as friends.
+                      </p>
+                      <ul className="grid sm:grid-cols-3 gap-3 md:gap-4 text-left">
+                        {[
+                          { big: "$0", small: "to see your demo" },
+                          { big: "$99", small: "to build the site" },
+                          { big: "100%", small: "refund if not thrilled" },
+                        ].map((item) => (
+                          <li
+                            key={item.big}
+                            className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl px-4 py-3 flex items-center gap-3"
+                          >
+                            <Check
+                              className="text-white flex-shrink-0"
+                              size={20}
+                              strokeWidth={3}
+                            />
+                            <div className="leading-tight">
+                              <div className="text-white font-display text-xl md:text-2xl">
+                                {item.big}
+                              </div>
+                              <div className="text-white/85 font-sans text-xs md:text-sm">
+                                {item.small}
+                              </div>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
