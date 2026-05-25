@@ -1011,29 +1011,86 @@ export default function ContractorsFunnel() {
 
       {/* Section 5c — Stay-Current Guarantee */}
       <section className="bg-[#f5f5f4] px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal className="text-center mb-10">
-            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
-              You're Covered
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal className="text-center mb-12">
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.25em] mb-4">
+              Included in Every Plan · No Extra Cost
             </p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-4 leading-tight">
-              Always Current. Always Yours.
+            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-5 leading-[1.1]">
+              Every 2 Years, You Get a{" "}
+              <span className="text-[#E85D26]">Brand-New Website</span>
+              <span className="block">— On the House.</span>
             </h2>
-            <p className="text-[#4a5568] text-lg font-sans max-w-2xl mx-auto leading-relaxed">
-              Two promises baked into every plan: every 2 years your site gets a free top-to-bottom refresh, and the things that matter — your domain, your content, your brand — belong to you whether you stay or go.
+            <p className="text-[#4a5568] text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
+              Your monthly plan doesn&rsquo;t just keep your site live — it keeps it{" "}
+              <span className="font-bold text-[#1a202c]">brand-new</span>. Every 24
+              months we rebuild your site top-to-bottom with the latest design,
+              performance, and SEO standards. Same plan. Same price.{" "}
+              <span className="font-bold text-[#1a202c]">$0 extra.</span>
             </p>
           </ScrollReveal>
 
+          {/* Visual timeline */}
           <ScrollReveal delay={0.1}>
-            <div className="flex items-center justify-center gap-2 mb-8">
+            <div className="relative max-w-4xl mx-auto mb-14 mt-4">
+              {/* Connecting line — desktop */}
+              <div
+                aria-hidden="true"
+                className="hidden md:block absolute top-10 left-[8%] right-[8%] h-1 bg-gradient-to-r from-[#E85D26]/30 via-[#E85D26] to-[#E85D26]/30 rounded-full"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative">
+                {[
+                  { label: "Year 0", title: "Launch", desc: "Your custom site goes live." },
+                  { label: "Year 2", title: "Free Refresh", desc: "Full rebuild — new design, new speed.", highlight: true },
+                  { label: "Year 4", title: "Free Refresh", desc: "Another full rebuild — and again every 2 years.", highlight: true },
+                ].map((stop) => (
+                  <div key={stop.label} className="flex flex-col items-center text-center">
+                    <div
+                      className={`relative w-20 h-20 rounded-full flex items-center justify-center font-display text-base mb-4 shadow-lg ${
+                        stop.highlight
+                          ? "bg-[#E85D26] text-white border-4 border-white ring-4 ring-[#E85D26]/20"
+                          : "bg-white text-[#1a202c] border-4 border-[#E85D26]/30"
+                      }`}
+                    >
+                      {stop.highlight && (
+                        <span className="absolute -top-2 -right-2 bg-[#1a1a1a] text-white text-[9px] font-sans font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-md">
+                          Free
+                        </span>
+                      )}
+                      <span className="leading-none text-center">
+                        {stop.label.split(" ")[0]}
+                        <span className="block text-xs font-sans font-bold uppercase tracking-wider mt-1 opacity-90">
+                          {stop.label.split(" ")[1]}
+                        </span>
+                      </span>
+                    </div>
+                    <h4
+                      className={`font-display text-lg md:text-xl mb-1 ${
+                        stop.highlight ? "text-[#E85D26]" : "text-[#1a202c]"
+                      }`}
+                    >
+                      {stop.title}
+                    </h4>
+                    <p className="text-[#4a5568] font-sans text-sm md:text-base leading-snug max-w-[18rem]">
+                      {stop.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* What the refresh includes */}
+          <ScrollReveal delay={0.15}>
+            <div className="flex items-center justify-center gap-2 mb-6">
               <RefreshCw className="text-[#E85D26]" size={18} />
-              <h3 className="text-[#E85D26] font-sans font-semibold uppercase tracking-widest text-xs md:text-sm text-center">
-                Stay-Current Guarantee · Free Refresh Every 2 Years
+              <h3 className="text-[#E85D26] font-sans font-bold uppercase tracking-widest text-xs md:text-sm text-center">
+                What&rsquo;s Included in Every 2-Year Refresh
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {[
-                { icon: <Sparkles className="text-[#E85D26]" size={32} />, title: "Design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
+                { icon: <Sparkles className="text-[#E85D26]" size={32} />, title: "Full design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
                 { icon: <Camera className="text-[#E85D26]" size={32} />, title: "New photos & copy", desc: "Swap in fresh photography and refreshed copy across the pages that matter most." },
                 { icon: <Gauge className="text-[#E85D26]" size={32} />, title: "Performance retune", desc: "Mobile speed, Core Web Vitals, services, and offers — all brought back to current standards." },
               ].map((item) => (
@@ -1045,6 +1102,17 @@ export default function ContractorsFunnel() {
                   <p className="text-[#4a5568] font-sans text-base leading-relaxed">{item.desc}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Reinforcement banner */}
+            <div className="mt-10 bg-[#1a1a1a] rounded-2xl px-6 py-5 md:py-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 text-center sm:text-left">
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#E85D26] flex-shrink-0">
+                <Check className="text-white" size={22} strokeWidth={3} />
+              </span>
+              <p className="text-white font-sans text-base md:text-lg">
+                <span className="font-bold">No upgrade fees. No surprise invoices.</span>{" "}
+                <span className="text-white/80">The 2-year refresh is built into every monthly plan.</span>
+              </p>
             </div>
           </ScrollReveal>
         </div>
