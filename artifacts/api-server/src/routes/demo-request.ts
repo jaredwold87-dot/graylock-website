@@ -50,12 +50,6 @@ demoRequestRouter.post("/demo-request", async (req: Request, res: Response) => {
   if (!websiteUrl) {
     return res.status(400).json({ success: false, error: "Current website URL is required (enter \"none\" if you don't have one yet)." });
   }
-  if (!preferredDate) {
-    return res.status(400).json({ success: false, error: "Preferred date is required." });
-  }
-  if (!preferredTime) {
-    return res.status(400).json({ success: false, error: "Preferred time is required." });
-  }
 
   const submittedAt = new Date().toISOString();
   const fullName = lastName ? `${firstName} ${lastName}` : firstName;
@@ -69,8 +63,8 @@ Current Website: ${websiteUrl}
 Email: ${email}
 Phone: ${phone}
 
-Preferred Meeting Date: ${preferredDate}
-Preferred Meeting Time: ${preferredTime}${timezone ? ` (${timezone})` : ""}
+${preferredDate || preferredTime ? `Preferred Meeting Date: ${preferredDate || "—"}
+Preferred Meeting Time: ${preferredTime || "—"}${timezone ? ` (${timezone})` : ""}` : `Time Zone: ${timezone || "—"}`}
 
 Notes: ${notes || "None"}
 

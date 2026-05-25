@@ -150,28 +150,18 @@ function CompactCountdown() {
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-function getDefaultDate() {
-  const d = new Date();
-  d.setDate(d.getDate() + 1);
-  return d.toISOString().slice(0, 10);
-}
-
 function DemoRequestForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [form, setForm] = useState({
-    first_name: "",
-    last_name: "",
+    name: "",
     business_name: "",
     website_url: "",
     email: "",
     phone: "",
-    preferred_date: "",
-    preferred_time: "",
     notes: "",
   });
 
-  const minDate = new Date().toISOString().slice(0, 10);
   const timezone = typeof Intl !== "undefined"
     ? Intl.DateTimeFormat().resolvedOptions().timeZone
     : "";
@@ -185,12 +175,22 @@ function DemoRequestForm() {
     setStatus("submitting");
     setErrorMsg("");
 
+    const nameParts = form.name.trim().split(/\s+/);
+    const firstName = nameParts[0] || "";
+    const lastName = nameParts.slice(1).join(" ");
+
     try {
       const res = await fetch(`${import.meta.env.BASE_URL || "/"}api/demo-request`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...form,
+          first_name: firstName,
+          last_name: lastName,
+          business_name: form.business_name,
+          website_url: form.website_url,
+          email: form.email,
+          phone: form.phone,
+          notes: form.notes,
           timezone,
           source: "contractors-funnel",
         }),
@@ -251,32 +251,20 @@ function DemoRequestForm() {
       noValidate
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-        <div>
-          <label className={labelClass} htmlFor="dr_first_name">First name *</label>
+        <div className="md:col-span-2">
+          <label className={labelClass} htmlFor="dr_name">Name *</label>
           <input
-            id="dr_first_name"
+            id="dr_name"
             type="text"
             required
-            autoComplete="given-name"
-            value={form.first_name}
-            onChange={(e) => update("first_name", e.target.value)}
+            autoComplete="name"
+            value={form.name}
+            onChange={(e) => update("name", e.target.value)}
             className={inputClass}
             disabled={status === "submitting"}
           />
         </div>
         <div>
-          <label className={labelClass} htmlFor="dr_last_name">Last name</label>
-          <input
-            id="dr_last_name"
-            type="text"
-            autoComplete="family-name"
-            value={form.last_name}
-            onChange={(e) => update("last_name", e.target.value)}
-            className={inputClass}
-            disabled={status === "submitting"}
-          />
-        </div>
-        <div className="md:col-span-2">
           <label className={labelClass} htmlFor="dr_business_name">Business name *</label>
           <input
             id="dr_business_name"
@@ -289,7 +277,7 @@ function DemoRequestForm() {
             disabled={status === "submitting"}
           />
         </div>
-        <div className="md:col-span-2">
+        <div>
           <label className={labelClass} htmlFor="dr_website_url">Current website URL *</label>
           <input
             id="dr_website_url"
@@ -303,9 +291,6 @@ function DemoRequestForm() {
             disabled={status === "submitting"}
             placeholder="https://yourbusiness.com"
           />
-          <p className="text-[#6b7280] font-sans text-xs mt-1">
-            So we can review your current site before the call. If you don&rsquo;t have one yet, enter &ldquo;none&rdquo;.
-          </p>
         </div>
         <div>
           <label className={labelClass} htmlFor="dr_email">Email *</label>
@@ -333,38 +318,8 @@ function DemoRequestForm() {
             disabled={status === "submitting"}
           />
         </div>
-        <div>
-          <label className={labelClass} htmlFor="dr_date">Preferred meeting date *</label>
-          <input
-            id="dr_date"
-            type="date"
-            required
-            min={minDate}
-            value={form.preferred_date}
-            onChange={(e) => update("preferred_date", e.target.value)}
-            placeholder={getDefaultDate()}
-            className={inputClass}
-            disabled={status === "submitting"}
-          />
-        </div>
-        <div>
-          <label className={labelClass} htmlFor="dr_time">Preferred meeting time *</label>
-          <input
-            id="dr_time"
-            type="time"
-            required
-            step={900}
-            value={form.preferred_time}
-            onChange={(e) => update("preferred_time", e.target.value)}
-            className={inputClass}
-            disabled={status === "submitting"}
-          />
-          {timezone && (
-            <p className="text-[#6b7280] font-sans text-xs mt-1">Times in your local time zone ({timezone}).</p>
-          )}
-        </div>
         <div className="md:col-span-2">
-          <label className={labelClass} htmlFor="dr_notes">Anything we should know? (optional)</label>
+          <label className={labelClass} htmlFor="dr_notes">Anything else we should know? (optional)</label>
           <textarea
             id="dr_notes"
             rows={3}
@@ -372,7 +327,7 @@ function DemoRequestForm() {
             onChange={(e) => update("notes", e.target.value)}
             className={inputClass + " resize-y min-h-[88px]"}
             disabled={status === "submitting"}
-            placeholder="Tell us a bit about your business or what you'd like to cover."
+            placeholder="Optional — tell us anything you'd like us to know before the call."
           />
         </div>
       </div>
