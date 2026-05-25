@@ -98,6 +98,7 @@ const GROUPS: SitemapGroup[] = [
     links: [
       { label: "Home Builders Playbook", path: "/home-builders-playbook", icon: BookOpen, description: "Free guide for custom home builders." },
       { label: "Home Builders Demo", path: "/home-builders", icon: HomeIcon, description: "Free custom homepage demo for home builders." },
+      { label: "Contractors Demo", path: "/contractors", icon: HardHat, description: "Free custom homepage demo for contractors and trades." },
       { label: "Accountants Funnel", path: "/accountants", icon: Calculator, description: "Targeted landing page for accounting firms." },
     ],
   },
