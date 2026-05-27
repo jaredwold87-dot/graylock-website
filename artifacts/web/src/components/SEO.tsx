@@ -11,8 +11,8 @@ interface SEOProps {
 const DEFAULT_IMAGE = "https://graylockdigital.com/og-image.jpg";
 
 export function SEO({
-  title = "Graylock Digital — Custom Websites for Private Practices",
-  description = "Custom websites for private practices, accounting firms, and trust-based local businesses. Delivered in 7–10 business days. No long-term contracts.",
+  title = "Graylock Digital — Custom Websites for Trust-Based Businesses",
+  description = "Custom websites for trust-based local businesses. Delivered in 7–10 business days. No long-term contracts.",
   url = "https://graylockdigital.com",
   image = DEFAULT_IMAGE,
   noindex = false,

@@ -374,7 +374,7 @@ export default function ContractorsFunnel() {
     <>
       <SEO
         title="Custom Websites for Contractors | Graylock Digital"
-        description="Stop losing bids to bad design. Get a free custom homepage demo for your home building business. No commitment required."
+        description="Stop losing bids to bad design. Get a free custom homepage demo for your contracting business. No commitment required."
         url="https://graylockdigital.com/contractors"
       />
 
