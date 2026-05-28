@@ -4,8 +4,9 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Quote, Star } from "lucide-react";
 import { Link } from "wouter";
+import spiTransformation from "@assets/image_1780012089935.png";
 
 const portfolioItems = [
   {
@@ -153,8 +154,85 @@ export default function Work() {
         </div>
       </section>
 
-      <section className="bg-navy py-16 px-6 md:px-12 border-t border-gunmetal">
-        <div className="max-w-7xl mx-auto">
+      {/* Featured Transformation — Shooting Performance Institute */}
+      <section className="bg-navy py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
+            <span className="text-orange text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
+              Featured Transformation
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-3">
+              Shooting Performance Institute
+            </h2>
+            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto">
+              An outdated firearms-training site rebuilt into a bold, modern presence that
+              matches the caliber of their work.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="rounded-2xl overflow-hidden border border-gunmetal shadow-2xl mb-8 md:mb-10 bg-charcoal">
+              <img
+                src={spiTransformation}
+                alt="Shooting Performance Institute website before and after redesign by Graylock Digital"
+                className="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
+            <figure className="relative bg-charcoal rounded-2xl border border-gunmetal p-8 md:p-12 max-w-4xl mx-auto">
+              <Quote
+                className="absolute -top-5 left-8 text-orange bg-navy rounded-full p-2"
+                size={48}
+                aria-hidden="true"
+              />
+              <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={20} className="text-orange fill-orange" />
+                ))}
+              </div>
+              <blockquote className="text-offwhite font-sans text-lg md:text-xl leading-relaxed space-y-4">
+                <p>
+                  &ldquo;Graylock Digital reached out to ask if I was in the market for a
+                  website upgrade. I wasn&rsquo;t happy with what I had &mdash; it felt
+                  outdated. Tim and his team had a rough-draft site to me in a matter of days
+                  that far exceeded what I had before.&rdquo;
+                </p>
+                <p>
+                  &ldquo;They delivered at every point of the process: they explained why they
+                  were doing things a certain way, showed me how to manage it on the back end,
+                  and answered every text and random phone call with nothing but
+                  professionalism and kindness. I now have a site that portrays exactly what we
+                  do as a company and is easy to navigate.&rdquo;
+                </p>
+                <p>
+                  &ldquo;10 out of 10, hands down. I actually enjoyed the process and the
+                  conversations &mdash; and in the end I have an incredible website. If
+                  you&rsquo;re even remotely considering a new website, do yourself a favor and
+                  use Graylock Digital!&rdquo;
+                </p>
+              </blockquote>
+              <figcaption className="mt-7 pt-6 border-t border-gunmetal">
+                <p className="text-offwhite font-display text-xl">Jim Erwin</p>
+                <p className="text-stone font-sans text-sm">
+                  CEO &amp; Founder, Shooting Performance Institute
+                </p>
+              </figcaption>
+            </figure>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="bg-navy pb-16 px-6 md:px-12 border-t border-gunmetal">
+        <div className="max-w-7xl mx-auto pt-16">
+          <ScrollReveal className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-display text-offwhite">
+              More Transformations
+            </h2>
+          </ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, i) => (
               <BeforeAfterCard key={item.name} item={item} index={i} />
