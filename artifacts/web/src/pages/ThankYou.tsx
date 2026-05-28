@@ -15,7 +15,7 @@ const WHILE_YOU_WAIT = [
     icon: Eye,
     title: "See recent work",
     description: "Real practice websites we've built and the results they're delivering for the owners who trusted us.",
-    href: "/work",
+    href: "/featured-projects",
     cta: "View our work",
   },
   {
@@ -29,7 +29,7 @@ const WHILE_YOU_WAIT = [
 
 const SECONDARY_LINKS = [
   { icon: Home, label: "Back to homepage", href: "/" },
-  { icon: Eye, label: "Browse our work", href: "/work" },
+  { icon: Eye, label: "Browse our work", href: "/featured-projects" },
   { icon: Compass, label: "Our strategy", href: "/our-strategy" },
   { icon: Tag, label: "Service overview", href: "/how-it-works" },
 ];

@@ -114,7 +114,7 @@ const CATEGORY_CTAS: Record<string, { text: string; href: string; cta: string }>
   },
   "your-website": {
     text: "See real client websites we've built.",
-    href: "/work",
+    href: "/featured-projects",
     cta: "View our work",
   },
   "seo": {

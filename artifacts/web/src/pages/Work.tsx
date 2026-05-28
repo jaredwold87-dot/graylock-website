@@ -134,14 +134,17 @@ function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; inde
 export default function Work() {
   return (
     <>
-      <SEO title="Our Work | Real Practice Website Transformations | Graylock Digital" description="Real before-and-after website transformations we've delivered for therapists, dentists, accountants, and other private practices. See the results our clients are getting." url="https://graylockdigital.com/work" />
+      <SEO title="Featured Projects | Real Website Transformations | Graylock Digital" description="Featured projects and real before-and-after website transformations we've delivered for trust-based local businesses. See the results our clients are getting." url="https://graylockdigital.com/featured-projects" />
 
       <section className="bg-charcoal pt-24 pb-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
+            <span className="text-orange text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4 block">
+              Featured Projects
+            </span>
             <h1 className="text-4xl md:text-6xl font-display text-offwhite mb-6">Real Transformations</h1>
             <p className="text-xl font-sans text-stone mb-3">
-              See the dramatic before-and-after results we deliver for professional practices.
+              See the dramatic before-and-after results we deliver for trust-based local businesses.
             </p>
             <p className="text-stone font-sans text-sm">
               Tap the <span className="text-red-400 font-semibold">Before</span> / <span className="text-green-400 font-semibold">After</span> tabs on each card to compare.

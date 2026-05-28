@@ -51,7 +51,7 @@ const GROUPS: SitemapGroup[] = [
       { label: "Home", path: "/", icon: HomeIcon, description: "Subscription websites for trust-based businesses." },
       { label: "How It Works", path: "/how-it-works", icon: Workflow, description: "Our 7–10 day build process, step by step." },
       { label: "Pricing", path: "/pricing", icon: DollarSign, description: "Flat monthly subscription. No long-term contracts." },
-      { label: "Our Work", path: "/work", icon: Briefcase, description: "Case studies and recent client builds." },
+      { label: "Featured Projects", path: "/featured-projects", icon: Briefcase, description: "Case studies and recent client builds." },
       { label: "About", path: "/about", icon: Users, description: "Who we are and why we built Graylock." },
       { label: "FAQ", path: "/faq", icon: HelpCircle, description: "Common questions about subscriptions, ownership, and timelines." },
       { label: "Get Started", path: "/get-started", icon: Mail, description: "Request your free homepage demo." },

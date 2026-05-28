@@ -69,7 +69,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/how-it-works" component={HowItWorks} />
         <Route path="/pricing" component={Pricing} />
-        <Route path="/work" component={Work} />
+        <Route path="/featured-projects" component={Work} />
         <Route path="/about" component={About} />
         <Route path="/faq" component={FAQ} />
         <Route path="/get-started" component={GetStarted} />
@@ -98,7 +98,8 @@ function Router() {
         <Route path="/compliance" component={Compliance} />
         <Route path="/sitemap" component={Sitemap} />
 
-        <Route path="/our-work">{() => <Redirect to="/work" />}</Route>
+        <Route path="/work">{() => <Redirect to="/featured-projects" />}</Route>
+        <Route path="/our-work">{() => <Redirect to="/featured-projects" />}</Route>
         <Route path="/strategy">{() => <Redirect to="/our-strategy" />}</Route>
         <Route path="/terms-of-service">{() => <Redirect to="/terms" />}</Route>
         <Route path="/privacy-policy">{() => <Redirect to="/privacy" />}</Route>
