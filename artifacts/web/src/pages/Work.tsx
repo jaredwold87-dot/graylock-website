@@ -241,6 +241,51 @@ export default function Work() {
         </div>
       </section>
 
+      {/* What Clients Say */}
+      <section className="bg-charcoal py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal className="text-center mb-10">
+            <span className="text-orange text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
+              What Clients Say
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display text-offwhite">
+              In Their Own Words
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <figure className="relative bg-navy rounded-2xl border border-gunmetal p-8 md:p-12">
+              <Quote
+                className="absolute -top-5 left-8 text-orange bg-charcoal rounded-full p-2"
+                size={48}
+                aria-hidden="true"
+              />
+              <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={20} className="text-orange fill-orange" />
+                ))}
+              </div>
+              <blockquote className="text-offwhite font-sans text-lg md:text-xl leading-relaxed">
+                &ldquo;Working with Tim Monahan and the team at Graylock Digital was an
+                outstanding experience from start to finish. The amount of time and effort they
+                invested in researching our industry and truly understanding our vision for the
+                new website was beyond impressive. Their attention to detail, communication, and
+                dedication to delivering a product that reflected our goals exceeded all
+                expectations. They consistently went above and beyond throughout the entire
+                process. We highly recommend Tim and the Graylock Digital team to anyone looking
+                for a professional, creative, and results-driven website partner.&rdquo;
+              </blockquote>
+              <figcaption className="mt-7 pt-6 border-t border-gunmetal">
+                <p className="text-offwhite font-display text-xl">Kylen &amp; Keith Perks</p>
+                <p className="text-stone font-sans text-sm">
+                  L.A. Perks Petroleum Specialists
+                </p>
+              </figcaption>
+            </figure>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <section className="bg-charcoal py-20 px-6 md:px-12 border-t border-gunmetal">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
