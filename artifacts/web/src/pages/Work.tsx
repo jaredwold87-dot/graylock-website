@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, Quote, Star } from "lucide-react";
 import { Link } from "wouter";
 import spiTransformation from "@assets/image_1780012282187.png";
+import perksTransformation from "@assets/image_1780012312407.png";
 
 const portfolioItems = [
   {
@@ -241,20 +242,36 @@ export default function Work() {
         </div>
       </section>
 
-      {/* What Clients Say */}
+      {/* Featured Transformation — L.A. Perks Petroleum Specialists */}
       <section className="bg-charcoal py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal className="text-center mb-10">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
             <span className="text-orange text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
-              What Clients Say
+              Featured Transformation
             </span>
-            <h2 className="text-3xl md:text-4xl font-display text-offwhite">
-              In Their Own Words
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-3">
+              L.A. Perks Petroleum Specialists
             </h2>
+            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto">
+              A bold, credible site for a third-generation fueling company &mdash; built to
+              reflect the scale and trust behind their work across the West.
+            </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <figure className="relative bg-navy rounded-2xl border border-gunmetal p-8 md:p-12">
+            <div className="rounded-2xl overflow-hidden border border-gunmetal shadow-2xl mb-8 md:mb-10 bg-navy">
+              <img
+                src={perksTransformation}
+                alt="New L.A. Perks Petroleum Specialists website homepage designed by Graylock Digital"
+                className="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
+            <figure className="relative bg-navy rounded-2xl border border-gunmetal p-8 md:p-12 max-w-4xl mx-auto">
               <Quote
                 className="absolute -top-5 left-8 text-orange bg-charcoal rounded-full p-2"
                 size={48}
