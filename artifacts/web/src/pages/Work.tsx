@@ -6,7 +6,7 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Quote, Star } from "lucide-react";
 import { Link } from "wouter";
-import spiTransformation from "@assets/image_1780012089935.png";
+import spiTransformation from "@assets/image_1780012282187.png";
 
 const portfolioItems = [
   {
@@ -174,7 +174,7 @@ export default function Work() {
             <div className="rounded-2xl overflow-hidden border border-gunmetal shadow-2xl mb-8 md:mb-10 bg-charcoal">
               <img
                 src={spiTransformation}
-                alt="Shooting Performance Institute website before and after redesign by Graylock Digital"
+                alt="New Shooting Performance Institute website homepage designed by Graylock Digital"
                 className="w-full h-auto block"
                 loading="lazy"
                 decoding="async"
