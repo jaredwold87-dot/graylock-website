@@ -66,6 +66,11 @@ const WHO_WE_HELP_OTHER = [
 
 const WHO_WE_HELP_ALL = [...WHO_WE_HELP_OTHER, ...WHO_WE_HELP_PRACTICES];
 
+const ABOUT_MENU = [
+  { name: "About Us", path: "/about" },
+  { name: "Featured Projects", path: "/featured-projects" },
+];
+
 const OUR_STRATEGY = [
   { name: "Strategy Overview", path: "/our-strategy" },
   { name: "Website Design", path: "/website-design" },
@@ -458,6 +463,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileWhoWeHelpOpen, setMobileWhoWeHelpOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -472,6 +478,7 @@ export function Navbar() {
     setMobileMenuOpen(false);
     setMobileWhoWeHelpOpen(false);
     setMobileServicesOpen(false);
+    setMobileAboutOpen(false);
   }, [location]);
 
   const isWhoWeHelpActive = WHO_WE_HELP_ALL.some((item) => location === item.path);
@@ -480,8 +487,9 @@ export function Navbar() {
   const navLinksAfter = [
     { name: "Process", path: "/how-it-works" },
     { name: "Pricing", path: "/pricing" },
-    { name: "About", path: "/about" },
   ];
+
+  const isAboutActive = ABOUT_MENU.some((item) => location === item.path);
 
   return (
     <>
@@ -552,6 +560,13 @@ export function Navbar() {
                   />
                 </Link>
               ))}
+
+              <DesktopDropdown
+                label="About"
+                items={ABOUT_MENU}
+                isActive={isAboutActive}
+                location={location}
+              />
             </div>
             <Link
               href="/get-started"
@@ -626,6 +641,15 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
+
+          <MobileAccordion
+            label="About"
+            items={ABOUT_MENU}
+            isActive={isAboutActive}
+            location={location}
+            open={mobileAboutOpen}
+            onToggle={() => setMobileAboutOpen(!mobileAboutOpen)}
+          />
 
           <Link
             href="/get-started"
