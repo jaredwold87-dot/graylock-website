@@ -1,0 +1,1 @@
+- [Graylock color tokens](graylock-color-tokens.md) — `orange` Tailwind token is actually steel-blue; real brand orange is literal `#E85D26`. Whole theme is dark-blue.

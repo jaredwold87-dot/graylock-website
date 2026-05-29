@@ -44,7 +44,7 @@ function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; inde
 
   return (
     <ScrollReveal delay={index * 0.15}>
-      <div className="bg-charcoal rounded-2xl border border-gunmetal overflow-hidden hover:border-orange/40 transition-colors duration-500">
+      <div className="bg-charcoal rounded-2xl border border-gunmetal overflow-hidden hover:border-[#E85D26]/40 transition-colors duration-500">
         <div className="relative">
           <div className="flex border-b border-gunmetal">
             <button
@@ -109,14 +109,14 @@ function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; inde
         </div>
 
         <div className="p-6 md:p-8">
-          <span className="text-orange text-xs font-bold uppercase tracking-widest mb-2 block">
+          <span className="text-[#E85D26] text-xs font-bold uppercase tracking-widest mb-2 block">
             {item.type}
           </span>
           <h3 className="text-2xl font-display text-offwhite mb-3">{item.name}</h3>
           <p className="text-stone font-sans text-sm mb-4 leading-relaxed">{item.goal}</p>
 
-          <div className="bg-orange/5 border border-orange/20 rounded-lg px-4 py-3 mb-5">
-            <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange mb-1">Outcome</p>
+          <div className="bg-[#E85D26]/5 border border-[#E85D26]/20 rounded-lg px-4 py-3 mb-5">
+            <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#E85D26] mb-1">Outcome</p>
             <p className="text-offwhite font-sans text-sm leading-snug">{item.outcome}</p>
           </div>
 
@@ -141,7 +141,7 @@ export default function Work() {
       <section className="bg-charcoal pt-24 pb-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <span className="text-orange text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4 block">
+            <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4 block">
               Featured Projects
             </span>
             <h1 className="text-4xl md:text-6xl font-display text-offwhite mb-6">Real Transformations</h1>
@@ -156,23 +156,23 @@ export default function Work() {
       </section>
 
       {/* Featured Transformation — Shooting Performance Institute */}
-      <section className="bg-navy py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
+      <section className="bg-[#F4F1EC] py-16 md:py-20 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-12">
-            <span className="text-orange text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
+            <span className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
               Featured Transformation
             </span>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-3">
+            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-3">
               Shooting Performance Institute
             </h2>
-            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto">
+            <p className="text-charcoal/75 font-sans text-base md:text-lg max-w-2xl mx-auto">
               An outdated firearms-training site rebuilt into a bold, modern presence that
               matches the caliber of their work.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-gunmetal shadow-2xl mb-8 md:mb-10 bg-charcoal">
+            <div className="rounded-2xl overflow-hidden border border-black/10 shadow-2xl mb-8 md:mb-10 bg-white">
               <img
                 src={spiTransformation}
                 alt="New Shooting Performance Institute website homepage designed by Graylock Digital"
@@ -184,18 +184,18 @@ export default function Work() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <figure className="relative bg-charcoal rounded-2xl border border-gunmetal p-8 md:p-12 max-w-4xl mx-auto">
+            <figure className="relative bg-white rounded-2xl border border-black/10 shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
               <Quote
-                className="absolute -top-5 left-8 text-orange bg-navy rounded-full p-2"
+                className="absolute -top-5 left-8 text-white bg-[#E85D26] rounded-full p-2"
                 size={48}
                 aria-hidden="true"
               />
               <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={20} className="text-orange fill-orange" />
+                  <Star key={i} size={20} className="text-[#E85D26] fill-[#E85D26]" />
                 ))}
               </div>
-              <blockquote className="text-offwhite font-sans text-lg md:text-xl leading-relaxed space-y-4">
+              <blockquote className="text-charcoal font-sans text-lg md:text-xl leading-relaxed space-y-4">
                 <p>
                   &ldquo;Graylock Digital reached out to ask if I was in the market for a
                   website upgrade. I wasn&rsquo;t happy with what I had &mdash; it felt
@@ -216,9 +216,9 @@ export default function Work() {
                   use Graylock Digital!&rdquo;
                 </p>
               </blockquote>
-              <figcaption className="mt-7 pt-6 border-t border-gunmetal">
-                <p className="text-offwhite font-display text-xl">Jim Erwin</p>
-                <p className="text-stone font-sans text-sm">
+              <figcaption className="mt-7 pt-6 border-t border-black/10">
+                <p className="text-charcoal font-display text-xl">Jim Erwin</p>
+                <p className="text-charcoal/70 font-sans text-sm">
                   CEO &amp; Founder, Shooting Performance Institute
                 </p>
               </figcaption>
@@ -243,23 +243,23 @@ export default function Work() {
       </section>
 
       {/* Featured Transformation — L.A. Perks Petroleum Specialists */}
-      <section className="bg-charcoal py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
+      <section className="bg-[#F4F1EC] py-16 md:py-20 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-10 md:mb-12">
-            <span className="text-orange text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
+            <span className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
               Featured Transformation
             </span>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-3">
+            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-3">
               L.A. Perks Petroleum Specialists
             </h2>
-            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto">
+            <p className="text-charcoal/75 font-sans text-base md:text-lg max-w-2xl mx-auto">
               A bold, credible site for a third-generation fueling company &mdash; built to
               reflect the scale and trust behind their work across the West.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-gunmetal shadow-2xl mb-8 md:mb-10 bg-navy">
+            <div className="rounded-2xl overflow-hidden border border-black/10 shadow-2xl mb-8 md:mb-10 bg-white">
               <img
                 src={perksTransformation}
                 alt="New L.A. Perks Petroleum Specialists website homepage designed by Graylock Digital"
@@ -271,18 +271,18 @@ export default function Work() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <figure className="relative bg-navy rounded-2xl border border-gunmetal p-8 md:p-12 max-w-4xl mx-auto">
+            <figure className="relative bg-white rounded-2xl border border-black/10 shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
               <Quote
-                className="absolute -top-5 left-8 text-orange bg-charcoal rounded-full p-2"
+                className="absolute -top-5 left-8 text-white bg-[#E85D26] rounded-full p-2"
                 size={48}
                 aria-hidden="true"
               />
               <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={20} className="text-orange fill-orange" />
+                  <Star key={i} size={20} className="text-[#E85D26] fill-[#E85D26]" />
                 ))}
               </div>
-              <blockquote className="text-offwhite font-sans text-lg md:text-xl leading-relaxed">
+              <blockquote className="text-charcoal font-sans text-lg md:text-xl leading-relaxed">
                 &ldquo;Working with Tim Monahan and the team at Graylock Digital was an
                 outstanding experience from start to finish. The amount of time and effort they
                 invested in researching our industry and truly understanding our vision for the
@@ -292,9 +292,9 @@ export default function Work() {
                 process. We highly recommend Tim and the Graylock Digital team to anyone looking
                 for a professional, creative, and results-driven website partner.&rdquo;
               </blockquote>
-              <figcaption className="mt-7 pt-6 border-t border-gunmetal">
-                <p className="text-offwhite font-display text-xl">Kylen &amp; Keith Perks</p>
-                <p className="text-stone font-sans text-sm">
+              <figcaption className="mt-7 pt-6 border-t border-black/10">
+                <p className="text-charcoal font-display text-xl">Kylen &amp; Keith Perks</p>
+                <p className="text-charcoal/70 font-sans text-sm">
                   L.A. Perks Petroleum Specialists
                 </p>
               </figcaption>
@@ -313,7 +313,7 @@ export default function Work() {
               Book a free 15-minute discovery call and we will show you a custom homepage demo for your practice before you commit to anything.
             </p>
             <Link href="/get-started">
-              <span className="inline-flex items-center gap-2 bg-orange hover:bg-orange/90 text-white font-sans font-bold text-lg px-10 py-4 rounded-lg shadow-lg shadow-orange/20 transition-all duration-300 cursor-pointer">
+              <span className="inline-flex items-center gap-2 bg-[#E85D26] hover:bg-[#E85D26]/90 text-white font-sans font-bold text-lg px-10 py-4 rounded-lg shadow-lg shadow-[#E85D26]/20 transition-all duration-300 cursor-pointer">
                 Get Your Free Homepage Demo <ArrowRight size={20} />
               </span>
             </Link>
