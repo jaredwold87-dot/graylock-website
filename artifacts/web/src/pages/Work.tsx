@@ -64,7 +64,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A dark, editorial storefront for a luxury gifting concierge \u2014 built so every curated detail feels as intentional as the gifts themselves.",
     image: emboxedTransformation,
-    theme: "dark",
+    theme: "light",
     delivered: [
       "Editorial luxury design",
       "Occasion-based browsing",
@@ -104,7 +104,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A warm, compassionate site for a child and teen therapy practice \u2014 built to put anxious families at ease and route them straight to a free consultation.",
     image: montanaTransformation,
-    theme: "dark",
+    theme: "light",
     delivered: [
       "Free consultation booking",
       "Warm, trust-building design",
@@ -144,7 +144,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "An outdated firearms-training site rebuilt into a bold, modern presence that matches the caliber of their work.",
     image: spiTransformation,
-    theme: "dark",
+    theme: "light",
     delivered: [
       "Custom homepage design",
       "Online shop integration",

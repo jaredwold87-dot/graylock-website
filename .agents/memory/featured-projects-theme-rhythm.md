@@ -1,23 +1,20 @@
 ---
-name: Featured Projects page theme rhythm
-description: How the dark/light section alternation works on the Featured Projects page and why section count matters
+name: Featured Projects page background
+description: The Featured Projects page intentionally uses a single solid tan background for all project sections (no dark/light alternation)
 ---
 
-The Featured Projects page (artifacts/web/src/pages/Work.tsx) is one long scroll of
-full-height sections that must alternate dark/light cleanly: a DARK hero at the top
-and a LIGHT "more work" grid at the bottom bracket the list of featured project
-sections.
+The Featured Projects page (artifacts/web/src/pages/Work.tsx) lists project sections
+("FeaturedProjectSection") between a dark hero and a dark closing CTA.
 
-**Rule:** the featured-project sections in between must be an EVEN count for the
-alternation to close cleanly — first section LIGHT (contrasts the dark hero), last
-section DARK (contrasts the light grid). With LDLD…D this works only when the count
-is even; an odd count forces one adjacent same-theme seam somewhere.
+**Current decision (user-directed):** every featured project section uses the LIGHT
+theme — a single solid tan background (`#F4F1EC`) running the full length of the
+project listing. Do NOT re-introduce dark/light alternation between sections.
 
-**Why:** each project's `theme` ("light"/"dark") only controls the SECTION background
-and text colors, independent of the screenshot's own colors — so you're free to set a
-project's theme purely to preserve the rhythm (e.g. a light/airy screenshot can sit in
-a dark section). SPI is intentionally pinned LAST and DARK.
+**Why:** the user explicitly asked to drop the alternating dark-blue/tan "rotating"
+backgrounds and keep one solid tan for the whole builds area. An earlier version
+alternated themes for rhythm; that was replaced.
 
-**How to apply:** when adding or removing a featured project, re-check the whole
-sequence and flip `theme` values so it stays LDLD…D ending dark before the light grid.
-Adding projects in pairs keeps it clean; adding one means you must re-balance.
+**How to apply:** when adding a new featured project, set `theme: "light"`. Each
+project's `theme` controls only the section background/text — the screenshot still
+sits inside a dark browser-chrome frame (SiteMockup), so dark-looking screenshots
+still read fine on the tan background.
