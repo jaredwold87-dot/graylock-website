@@ -9,7 +9,6 @@ import spiTransformation from "@assets/image_1780012282187.png";
 import perksTransformation from "@assets/image_1780012312407.png";
 import emboxedTransformation from "@assets/image_1780012520417.png";
 import kingsburyTransformation from "@assets/image_1780012557969.png";
-import montanaCounseling from "@assets/image_1780013785575.png";
 import heroBackground from "@assets/generated_images/featured-hero-bg.png";
 
 type Theme = "light" | "dark";
@@ -299,7 +298,7 @@ const portfolioItems = [
   {
     name: "Montana Counseling Solutions",
     type: "Therapists",
-    after: montanaCounseling,
+    after: `${import.meta.env.BASE_URL}portfolio-after-2.png`,
     goal: "A warm, inviting presence that builds trust quickly and routes prospective families straight to scheduling.",
     outcome: "Bounce rate down ~40%, with new client inquiries now arriving directly through the site each week.",
     results: ["Free consultation booking", "Warm, trust-building design", "Clearer service messaging"],

@@ -1,1 +1,2 @@
-- [Graylock color tokens](graylock-color-tokens.md) — `orange` Tailwind token is actually steel-blue; real brand orange is literal `#E85D26`. Whole theme is dark-blue.
+- [ResponsiveImage variants](responsive-image-variants.md) — grid images need sibling webp/mobile files in public/; @assets imports 404 the picture source and vanish.
+- [Graylock color tokens](graylock-color-tokens.md) — the `orange` Tailwind token is steel-blue; use literal #E85D26 (or #B23E16 on light bg).
