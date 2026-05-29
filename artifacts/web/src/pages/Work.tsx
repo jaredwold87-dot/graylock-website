@@ -9,6 +9,7 @@ import spiTransformation from "@assets/image_1780012282187.png";
 import perksTransformation from "@assets/image_1780012312407.png";
 import emboxedTransformation from "@assets/image_1780012520417.png";
 import kingsburyTransformation from "@assets/image_1780012557969.png";
+import heroBackground from "@assets/generated_images/featured-hero-bg.png";
 
 type Theme = "light" | "dark";
 
@@ -381,9 +382,19 @@ export default function Work() {
     <>
       <SEO title="Featured Projects | Custom Websites We've Built | Graylock Digital" description="A closer look at real, custom websites we've designed and built for trust-based local businesses — and the results they're getting." url="https://graylockdigital.com/featured-projects" />
 
-      <section className="relative overflow-hidden bg-charcoal pt-28 md:pt-36 pb-20 md:pb-28 px-6 md:px-12">
+      <section className="relative overflow-hidden bg-charcoal pt-28 md:pt-40 pb-24 md:pb-32 px-6 md:px-12">
+        <img
+          src={heroBackground}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 w-full h-full object-cover object-center"
+        />
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(232,93,38,0.16),transparent_70%)]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/60 to-charcoal"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,transparent,rgba(15,23,42,0.5))]"
           aria-hidden="true"
         />
         <div

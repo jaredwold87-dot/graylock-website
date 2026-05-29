@@ -54,3 +54,9 @@ id = "d9CqWSwc0qDRUiy0euCDd"
 uri = "file://artifacts/web/public/hero-home-builders-mobile.png"
 type = "image"
 title = "home builders hero mobile"
+
+[[generated]]
+id = "2ofQZalpFWTbyrmIqjMpn"
+uri = "file://attached_assets/generated_images/featured-hero-bg.png"
+type = "image"
+title = "featured hero background"
