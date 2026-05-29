@@ -10,7 +10,7 @@ import emboxedTransformation from "@assets/image_1780012520417.png";
 import kingsburyTransformation from "@assets/image_1780012557969.png";
 import montanaTransformation from "@assets/image_1780014732080.png";
 import wceTransformation from "@assets/image_1780015392879.png";
-import heroBackground from "@assets/generated_images/featured-hero-bg.png";
+import heroBackground from "@assets/generated_images/featured-hero-bg-v2.png";
 
 type Theme = "light" | "dark";
 
@@ -391,24 +391,6 @@ export default function Work() {
               >
                 See Pricing
               </Link>
-            </div>
-            <div className="mt-10 pt-7 border-t border-white/10 max-w-2xl mx-auto">
-              <p className="text-stone/60 text-[11px] font-sans font-bold uppercase tracking-[0.22em] mb-3">
-                Recently built for
-              </p>
-              <div className="flex flex-wrap justify-center gap-x-3 gap-y-1.5 text-offwhite/75 font-display text-sm">
-                <span>Shooting Performance Institute</span>
-                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                <span>L.A. Perks</span>
-                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                <span>Emboxed</span>
-                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                <span>Kingsbury Chiropractic</span>
-                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                <span>Montana Counseling</span>
-                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                <span>West Coast Eye Institute</span>
-              </div>
             </div>
           </ScrollReveal>
         </div>

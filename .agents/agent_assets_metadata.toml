@@ -60,3 +60,9 @@ id = "2ofQZalpFWTbyrmIqjMpn"
 uri = "file://attached_assets/generated_images/featured-hero-bg.png"
 type = "image"
 title = "featured hero background"
+
+[[generated]]
+id = "YranSVdDn7zLXfUsfWgwg"
+uri = "file://attached_assets/generated_images/featured-hero-bg-v2.png"
+type = "image"
+title = "featured hero background v2"
