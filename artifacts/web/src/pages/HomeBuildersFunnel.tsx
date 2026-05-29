@@ -35,6 +35,8 @@ import {
   Camera,
   Gauge,
   RefreshCw,
+  Star,
+  X,
 } from "lucide-react";
 
 const MONTH_NAMES = [
@@ -156,10 +158,8 @@ function DemoRequestForm() {
   const [form, setForm] = useState({
     name: "",
     business_name: "",
-    website_url: "",
     email: "",
     phone: "",
-    notes: "",
   });
 
   const timezone = typeof Intl !== "undefined"
@@ -185,10 +185,10 @@ function DemoRequestForm() {
             first_name: nameParts[0] || "",
             last_name: nameParts.slice(1).join(" "),
             business_name: form.business_name,
-            website_url: form.website_url,
+            website_url: "none",
             email: form.email,
             phone: form.phone,
-            notes: form.notes,
+            notes: "",
             timezone,
             source: "home-builders-funnel",
           });
@@ -251,7 +251,7 @@ function DemoRequestForm() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
         <div className="md:col-span-2">
-          <label className={labelClass} htmlFor="dr_name">Name *</label>
+          <label className={labelClass} htmlFor="dr_name">First &amp; Last Name *</label>
           <input
             id="dr_name"
             type="text"
@@ -264,7 +264,7 @@ function DemoRequestForm() {
           />
         </div>
         <div>
-          <label className={labelClass} htmlFor="dr_business_name">Business name *</label>
+          <label className={labelClass} htmlFor="dr_business_name">Company Name *</label>
           <input
             id="dr_business_name"
             type="text"
@@ -277,22 +277,7 @@ function DemoRequestForm() {
           />
         </div>
         <div>
-          <label className={labelClass} htmlFor="dr_website_url">Current website URL *</label>
-          <input
-            id="dr_website_url"
-            type="url"
-            required
-            inputMode="url"
-            autoComplete="url"
-            value={form.website_url}
-            onChange={(e) => update("website_url", e.target.value)}
-            className={inputClass}
-            disabled={status === "submitting"}
-            placeholder="https://yourbusiness.com"
-          />
-        </div>
-        <div>
-          <label className={labelClass} htmlFor="dr_email">Email *</label>
+          <label className={labelClass} htmlFor="dr_email">Email Address *</label>
           <input
             id="dr_email"
             type="email"
@@ -304,8 +289,8 @@ function DemoRequestForm() {
             disabled={status === "submitting"}
           />
         </div>
-        <div>
-          <label className={labelClass} htmlFor="dr_phone">Phone *</label>
+        <div className="md:col-span-2">
+          <label className={labelClass} htmlFor="dr_phone">Phone Number *</label>
           <input
             id="dr_phone"
             type="tel"
@@ -315,18 +300,6 @@ function DemoRequestForm() {
             onChange={(e) => update("phone", e.target.value)}
             className={inputClass}
             disabled={status === "submitting"}
-          />
-        </div>
-        <div className="md:col-span-2">
-          <label className={labelClass} htmlFor="dr_notes">Anything else we should know? (optional)</label>
-          <textarea
-            id="dr_notes"
-            rows={3}
-            value={form.notes}
-            onChange={(e) => update("notes", e.target.value)}
-            className={inputClass + " resize-y min-h-[88px]"}
-            disabled={status === "submitting"}
-            placeholder="Optional — tell us anything you'd like us to know before the call."
           />
         </div>
       </div>
@@ -340,7 +313,7 @@ function DemoRequestForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-6 w-full inline-flex items-center justify-center bg-[#1a202c] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-black transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
+        className="mt-6 w-full inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {status === "submitting" ? (
           <>
@@ -349,7 +322,7 @@ function DemoRequestForm() {
           </>
         ) : (
           <>
-            Request My Free Custom Demo
+            Get Started Now
             <ArrowRight size={20} className="ml-2" />
           </>
         )}
@@ -372,8 +345,8 @@ export default function HomeBuildersFunnel() {
   return (
     <>
       <SEO
-        title="Custom Websites for Home Builders | Graylock Digital"
-        description="Stop losing bids to bad design. Get a free custom homepage demo for your home building business. No commitment required."
+        title="High-Converting Home Builder Websites | Graylock Digital"
+        description="Stop losing high-end bids to competitors with better websites. Get a custom, lead-generating website for your custom home building business. Book a free strategy call today."
         url="https://graylockdigital.com/home-builders"
       />
 
@@ -433,18 +406,13 @@ export default function HomeBuildersFunnel() {
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
-              Attention Custom Home Builders
+              We Specialize in Home Builder Web Design
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display leading-tight mb-6">
               <span className="block text-white">
-                We Will Build You a Custom Homepage Demo for Free.
-              </span>
-              <span className="block mt-2">
-                <span className="text-[#E85D26]">
-                  If You Love It, We&rsquo;ll Build You the Entire Site
-                </span>{" "}
-                <span className="text-white relative inline-block">
-                  <span className="funnel-shine-99">for just $99.</span>
+                Website Design for Custom Home{" "}
+                <span className="text-[#E85D26] relative inline-block">
+                  <span className="funnel-shine-99">Builders.</span>
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 300 18"
@@ -454,7 +422,7 @@ export default function HomeBuildersFunnel() {
                     <path
                       d="M4 14 Q 150 -4 296 14"
                       fill="none"
-                      stroke="#ffffff"
+                      stroke="#E85D26"
                       strokeWidth="3"
                       strokeLinecap="round"
                       className="funnel-arch-underline"
@@ -464,11 +432,10 @@ export default function HomeBuildersFunnel() {
               </span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans leading-relaxed mb-6">
-              Stop losing high-end bids to competitors with better websites. Book a
-              15-minute call, and we will design a custom homepage concept for your
-              business — 100% free, before you spend a dollar. If you want to move
-              forward, the full build is just $99 (normally $1,499) for the month of{" "}
-              {OFFER_WINDOW.monthName}.
+              Showcase your work and attract higher-budget clients. We build custom,
+              lead-generating websites that make your phone ring. Book a 15-minute
+              call, and we will design a custom homepage concept for your business —
+              100% free, before you spend a dollar.
             </p>
             <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
               <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug">
@@ -481,12 +448,33 @@ export default function HomeBuildersFunnel() {
               onClick={scrollToBooking}
               className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto text-center"
             >
-              Book My Free Custom Demo
+              Get Your Free Website Strategy
               <ArrowRight size={20} className="ml-2" />
             </a>
-            <p className="text-stone text-sm font-sans mt-4">
-              15-minute call &middot; Free custom demo &middot; 30-day money-back guarantee.
-            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-stone font-sans text-sm">
+              <span className="inline-flex items-center gap-1.5">
+                <Check size={16} className="text-[#E85D26] flex-shrink-0" strokeWidth={3} />
+                100% U.S.-Based Team
+              </span>
+              <span aria-hidden="true" className="hidden sm:inline text-white/20">
+                &middot;
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck size={16} className="text-[#E85D26] flex-shrink-0" />
+                30-Day Money-Back Guarantee
+              </span>
+              <span aria-hidden="true" className="hidden sm:inline text-white/20">
+                &middot;
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="flex items-center gap-0.5" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((s) => (
+                    <Star key={s} size={14} className="text-[#E85D26]" fill="#E85D26" />
+                  ))}
+                </span>
+                5-Star Rated
+              </span>
+            </div>
           </div>
 
           <div className="order-first lg:order-last lg:col-span-6 lg:col-start-7 relative lg:-ml-8 xl:-ml-4 lg:pl-0 xl:pl-0">
@@ -533,18 +521,18 @@ export default function HomeBuildersFunnel() {
             {[
               {
                 icon: Monitor,
-                title: "It Looks Like 2012",
+                title: "It Looks Unprofessional",
                 copy: "You build million-dollar homes, but your website makes you look like a budget contractor. High-end clients judge your quality by your digital presence.",
               },
               {
                 icon: TrendingDown,
-                title: "It Doesn't Convert",
-                copy: "Traffic doesn't matter if visitors leave without contacting you. Your site is a digital brochure, not a lead-generation machine.",
+                title: "It Doesn't Generate Leads",
+                copy: "Traffic doesn't matter if visitors leave without contacting you. Your site should be your best 24/7 salesperson, not just a digital brochure.",
               },
               {
                 icon: EyeOff,
-                title: "It's Invisible on Google",
-                copy: "When someone searches for \u201Ccustom home builders near me,\u201D your competitors show up first. You're relying entirely on referrals.",
+                title: "Your Competitors Rank Higher",
+                copy: "When someone searches for \u201Ccustom home builders near me,\u201D your competitors show up first. Stop relying entirely on word-of-mouth and start capturing local search traffic.",
               },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -564,6 +552,85 @@ export default function HomeBuildersFunnel() {
                 </ScrollReveal>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3b — DIY vs Done-For-You */}
+      <section className="bg-white px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal className="text-center mb-12 md:mb-14">
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+              DIY vs. Done-For-You
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight max-w-3xl mx-auto">
+              Why a $20/Month DIY Website Costs You Thousands
+            </h2>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+            {/* Column A — The DIY Trap */}
+            <ScrollReveal>
+              <div className="h-full flex flex-col rounded-2xl border border-gray-200 bg-[#f9f9f8] p-7 md:p-8">
+                <div className="flex items-center gap-2.5 mb-6">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-gray-200">
+                    <X size={20} className="text-gray-500" strokeWidth={2.5} />
+                  </span>
+                  <h3 className="font-display text-xl md:text-2xl text-[#1a202c]">
+                    The DIY Trap
+                  </h3>
+                </div>
+                <ul className="space-y-3.5">
+                  {[
+                    "Cheap Templates",
+                    "You write the copy",
+                    "You figure out SEO",
+                    "Looks like everyone else",
+                    "Breaks on mobile",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <X size={18} className="text-gray-400 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                      <span className="text-[#4a5568] font-sans text-base leading-snug">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+
+            {/* Column B — The Graylock Solution */}
+            <ScrollReveal delay={0.12}>
+              <div className="relative h-full flex flex-col rounded-2xl border-2 border-[#E85D26] bg-[#fff7f3] p-7 md:p-8 shadow-xl">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E85D26] text-white font-sans text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md whitespace-nowrap">
+                  Done-For-You
+                </div>
+                <div className="flex items-center gap-2.5 mb-6">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#E85D26]/15 border border-[#E85D26]/25">
+                    <Check size={20} className="text-[#E85D26]" strokeWidth={3} />
+                  </span>
+                  <h3 className="font-display text-xl md:text-2xl text-[#1a202c]">
+                    The Graylock Solution
+                  </h3>
+                </div>
+                <ul className="space-y-3.5">
+                  {[
+                    "Custom Design for Builders",
+                    "Professional Copywriting",
+                    "Built to Rank on Google",
+                    "Stands out from competitors",
+                    "Flawless mobile experience",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <Check size={18} className="text-[#E85D26] flex-shrink-0 mt-0.5" strokeWidth={3} />
+                      <span className="text-[#1a202c] font-sans text-base font-medium leading-snug">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
