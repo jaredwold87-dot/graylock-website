@@ -116,7 +116,7 @@ const featuredProjects: FeaturedProject[] = [
         "Before working with Graylock, I struggled to put into words exactly what I do and who I help. Tim and his team built a site that explains my practice clearly and speaks straight to the parents and families I want to serve \u2014 so by the time someone reaches out, they already understand how I can help them.",
         "It has made a real difference. I\u2019m getting more of the right inquiries, and new clients regularly tell me they booked because the website made them feel comfortable and confident before we ever spoke. I couldn\u2019t be happier with how it represents my work.",
       ],
-      name: "Bobby Wold",
+      name: "Bobbie Wold",
       role: "Owner, Montana Counseling Solutions",
     },
   },
