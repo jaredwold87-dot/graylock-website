@@ -9,6 +9,7 @@ import spiTransformation from "@assets/image_1780012282187.png";
 import perksTransformation from "@assets/image_1780012312407.png";
 import emboxedTransformation from "@assets/image_1780012520417.png";
 import kingsburyTransformation from "@assets/image_1780012557969.png";
+import montanaTransformation from "@assets/image_1780014732080.png";
 import heroBackground from "@assets/generated_images/featured-hero-bg.png";
 
 type Theme = "light" | "dark";
@@ -93,6 +94,26 @@ const featuredProjects: FeaturedProject[] = [
     placeholder: {
       name: "Kingsbury Chiropractic",
       role: "Stateline, Nevada",
+      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Montana Counseling Solutions",
+    category: "Counseling & Therapy",
+    location: "Kalispell, MT",
+    description:
+      "A warm, compassionate site for a child and teen therapy practice \u2014 built to put anxious families at ease and route them straight to a free consultation.",
+    image: montanaTransformation,
+    theme: "light",
+    delivered: [
+      "Free consultation booking",
+      "Warm, trust-building design",
+      "Clear service navigation",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Montana Counseling Solutions",
+      role: "Kalispell, MT",
       note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
@@ -316,14 +337,6 @@ const portfolioItems = [
     goal: "Their dated site was sending prospective business clients to competitors before the firm had a chance to compete.",
     outcome: "Inquiry form submissions roughly 3× higher in the first 90 days vs. the prior site.",
     results: ["Mobile-friendly design", "Modern brand presence", "Local SEO foundation"],
-  },
-  {
-    name: "Montana Counseling Solutions",
-    type: "Therapists",
-    after: `${import.meta.env.BASE_URL}portfolio-after-2.png`,
-    goal: "A warm, inviting presence that builds trust quickly and routes prospective families straight to scheduling.",
-    outcome: "Bounce rate down ~40%, with new client inquiries now arriving directly through the site each week.",
-    results: ["Free consultation booking", "Warm, trust-building design", "Clearer service messaging"],
   },
   {
     name: "Westlake Family Law",
