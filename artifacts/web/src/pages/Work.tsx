@@ -1,21 +1,314 @@
-import { useState } from "react";
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Quote, Star } from "lucide-react";
+import { ArrowRight, Quote, Star, Check, Lock, MapPin } from "lucide-react";
 import { Link } from "wouter";
 import spiTransformation from "@assets/image_1780012282187.png";
 import perksTransformation from "@assets/image_1780012312407.png";
 import emboxedTransformation from "@assets/image_1780012520417.png";
 import kingsburyTransformation from "@assets/image_1780012557969.png";
 
+type Theme = "light" | "dark";
+
+type FeaturedProject = {
+  name: string;
+  category: string;
+  location?: string;
+  description: string;
+  image: string;
+  theme: Theme;
+  delivered: string[];
+  testimonial?: {
+    quote: string[];
+    name: string;
+    role: string;
+  };
+  placeholder?: {
+    name: string;
+    role: string;
+    note: string;
+  };
+};
+
+const featuredProjects: FeaturedProject[] = [
+  {
+    name: "Shooting Performance Institute",
+    category: "Firearms Training & Retail",
+    location: "Minden, Nevada",
+    description:
+      "An outdated firearms-training site rebuilt into a bold, modern presence that matches the caliber of their work.",
+    image: spiTransformation,
+    theme: "light",
+    delivered: [
+      "Custom homepage design",
+      "Online shop integration",
+      "Mobile-responsive build",
+      "Back-end they can manage",
+    ],
+    testimonial: {
+      quote: [
+        "Graylock Digital reached out to ask if I was in the market for a website upgrade. I wasn\u2019t happy with what I had \u2014 it felt outdated. Tim and his team had a rough-draft site to me in a matter of days that far exceeded what I had before.",
+        "They delivered at every point of the process: they explained why they were doing things a certain way, showed me how to manage it on the back end, and answered every text and random phone call with nothing but professionalism and kindness. I now have a site that portrays exactly what we do as a company and is easy to navigate.",
+        "10 out of 10, hands down. I actually enjoyed the process and the conversations \u2014 and in the end I have an incredible website. If you\u2019re even remotely considering a new website, do yourself a favor and use Graylock Digital!",
+      ],
+      name: "Jim Erwin",
+      role: "CEO & Founder, Shooting Performance Institute",
+    },
+  },
+  {
+    name: "L.A. Perks Petroleum Specialists",
+    category: "Petroleum & Fueling Services",
+    location: "Serving the West",
+    description:
+      "A bold, credible site for a third-generation fueling company \u2014 built to reflect the scale and trust behind their work across the West.",
+    image: perksTransformation,
+    theme: "dark",
+    delivered: [
+      "Industry-researched design",
+      "Quote & service-call flows",
+      "Mobile-responsive build",
+      "Brand-aligned visuals",
+    ],
+    testimonial: {
+      quote: [
+        "Working with Tim and the team at Graylock Digital was an outstanding experience from start to finish. The amount of time and effort they invested in researching our industry and truly understanding our vision for the new website was beyond impressive. Their attention to detail, communication, and dedication to delivering a product that reflected our goals exceeded all expectations. They consistently went above and beyond throughout the entire process. We highly recommend Tim and the Graylock Digital team to anyone looking for a professional, creative, and results-driven website partner.",
+      ],
+      name: "Kylen & Keith Perks",
+      role: "L.A. Perks Petroleum Specialists",
+    },
+  },
+  {
+    name: "Emboxed",
+    category: "Luxury Gifting Concierge",
+    location: "Curated by Emily",
+    description:
+      "A dark, editorial storefront for a luxury gifting concierge \u2014 built so every curated detail feels as intentional as the gifts themselves.",
+    image: emboxedTransformation,
+    theme: "light",
+    delivered: [
+      "Editorial luxury design",
+      "Occasion-based browsing",
+      "Concierge inquiry flow",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Emily",
+      role: "Founder, Emboxed",
+      note: "We\u2019re gathering Emily\u2019s words on the project \u2014 check back shortly to hear about her experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Kingsbury Chiropractic",
+    category: "Chiropractic Care",
+    location: "Stateline, Nevada",
+    description:
+      "A clear, credible site for a Lake Tahoe chiropractor \u2014 built to turn answers, not guesswork, into booked appointments.",
+    image: kingsburyTransformation,
+    theme: "dark",
+    delivered: [
+      "Online appointment booking",
+      "Service & method pages",
+      "Local SEO foundation",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Kingsbury Chiropractic",
+      role: "Stateline, Nevada",
+      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+];
+
+const themes: Record<Theme, Record<string, string>> = {
+  light: {
+    section: "bg-[#F4F1EC]",
+    eyebrow: "text-[#B23E16]",
+    heading: "text-charcoal",
+    body: "text-charcoal/75",
+    pill: "bg-white text-charcoal/70 border-black/10",
+    card: "bg-white border-black/10",
+    cardDashed: "bg-white border-dashed border-black/15",
+    deliver: "bg-white border-black/10 text-charcoal/80",
+    check: "text-[#B23E16]",
+    quote: "text-charcoal",
+    divider: "border-black/10",
+    capName: "text-charcoal",
+    capRole: "text-charcoal/70",
+  },
+  dark: {
+    section: "bg-charcoal border-t border-gunmetal",
+    eyebrow: "text-[#E85D26]",
+    heading: "text-offwhite",
+    body: "text-stone",
+    pill: "bg-navy text-stone border-gunmetal",
+    card: "bg-navy border-gunmetal",
+    cardDashed: "bg-navy border-dashed border-gunmetal",
+    deliver: "bg-navy border-gunmetal text-offwhite/90",
+    check: "text-[#E85D26]",
+    quote: "text-offwhite",
+    divider: "border-gunmetal",
+    capName: "text-offwhite",
+    capRole: "text-stone",
+  },
+};
+
+function SiteMockup({ src, alt, delay = 0 }: { src: string; alt: string; delay?: number }) {
+  return (
+    <ScrollReveal delay={delay}>
+      <div className="max-w-5xl mx-auto">
+        <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-black/10 bg-[#15151a] ring-1 ring-black/5">
+          <div className="flex items-center gap-2 px-4 py-2.5 md:py-3 bg-[#1f1f26] border-b border-white/5">
+            <span className="flex gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+              <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+              <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+            </span>
+            <div className="flex-1 flex justify-center">
+              <div className="flex items-center gap-2 w-full max-w-xs px-3 py-1.5 rounded-md bg-[#15151a] border border-white/5">
+                <Lock size={11} className="text-stone/60 shrink-0" aria-hidden="true" />
+                <span className="h-1.5 flex-1 rounded-full bg-white/10" />
+              </div>
+            </div>
+          </div>
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-auto block"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="flex flex-col items-center" aria-hidden="true">
+          <div className="w-24 md:w-28 h-5 bg-gradient-to-b from-[#c4c8d0] to-[#8d919b] [clip-path:polygon(32%_0,68%_0,80%_100%,20%_100%)]" />
+          <div className="w-40 md:w-48 h-2.5 rounded-full bg-[#aeb2bb] shadow-md" />
+        </div>
+      </div>
+    </ScrollReveal>
+  );
+}
+
+function FeaturedProjectSection({ project }: { project: FeaturedProject }) {
+  const t = themes[project.theme];
+
+  return (
+    <section className={cn("py-16 md:py-24 px-6 md:px-12", t.section)}>
+      <div className="max-w-6xl mx-auto">
+        <ScrollReveal className="text-center mb-10 md:mb-14">
+          <span
+            className={cn(
+              "text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4 block",
+              t.eyebrow
+            )}
+          >
+            {project.category}
+          </span>
+          <h2 className={cn("text-3xl md:text-5xl font-display mb-4", t.heading)}>
+            {project.name}
+          </h2>
+          {project.location && (
+            <div
+              className={cn(
+                "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-sans font-medium mb-5",
+                t.pill
+              )}
+            >
+              <MapPin size={13} aria-hidden="true" />
+              {project.location}
+            </div>
+          )}
+          <p className={cn("font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed", t.body)}>
+            {project.description}
+          </p>
+        </ScrollReveal>
+
+        <SiteMockup
+          src={project.image}
+          alt={`${project.name} website homepage designed by Graylock Digital`}
+          delay={0.1}
+        />
+
+        <ScrollReveal delay={0.15} className="mt-12 md:mt-16 max-w-4xl mx-auto">
+          <p
+            className={cn(
+              "text-center text-[11px] font-sans font-bold uppercase tracking-[0.2em] mb-5",
+              t.eyebrow
+            )}
+          >
+            What we delivered
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            {project.delivered.map(d => (
+              <div
+                key={d}
+                className={cn("flex items-center gap-2.5 rounded-xl border px-4 py-3.5", t.deliver)}
+              >
+                <Check size={16} className={cn("shrink-0", t.check)} aria-hidden="true" />
+                <span className="font-sans text-sm leading-snug">{d}</span>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.2} className="mt-10 md:mt-12">
+          {project.testimonial ? (
+            <figure
+              className={cn(
+                "relative rounded-2xl border shadow-xl p-8 md:p-12 max-w-4xl mx-auto",
+                t.card
+              )}
+            >
+              <Quote
+                className="absolute -top-5 left-8 text-white bg-[#E85D26] rounded-full p-2"
+                size={48}
+                aria-hidden="true"
+              />
+              <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={20} className="text-[#E85D26] fill-[#E85D26]" />
+                ))}
+              </div>
+              <blockquote className={cn("font-sans text-lg md:text-xl leading-relaxed space-y-4", t.quote)}>
+                {project.testimonial.quote.map((p, i) => (
+                  <p key={i}>&ldquo;{p}&rdquo;</p>
+                ))}
+              </blockquote>
+              <figcaption className={cn("mt-7 pt-6 border-t", t.divider)}>
+                <p className={cn("font-display text-xl", t.capName)}>{project.testimonial.name}</p>
+                <p className={cn("font-sans text-sm", t.capRole)}>{project.testimonial.role}</p>
+              </figcaption>
+            </figure>
+          ) : project.placeholder ? (
+            <figure
+              className={cn(
+                "relative rounded-2xl border shadow-xl p-8 md:p-12 max-w-4xl mx-auto text-center",
+                t.cardDashed
+              )}
+            >
+              <Quote className="mx-auto mb-5 text-[#E85D26]/50" size={40} aria-hidden="true" />
+              <p className={cn("font-display text-xl md:text-2xl mb-2", t.capName)}>
+                Client testimonial coming soon
+              </p>
+              <p className={cn("font-sans text-sm md:text-base max-w-md mx-auto", t.capRole)}>
+                {project.placeholder.note}
+              </p>
+              <figcaption className={cn("mt-7 pt-6 border-t", t.divider)}>
+                <p className={cn("font-display text-xl", t.capName)}>{project.placeholder.name}</p>
+                <p className={cn("font-sans text-sm", t.capRole)}>{project.placeholder.role}</p>
+              </figcaption>
+            </figure>
+          ) : null}
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
 const portfolioItems = [
   {
     name: "Johnson & Associates CPA",
     type: "Accountants",
-    before: `${import.meta.env.BASE_URL}portfolio-before-1.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-1.png`,
     goal: "Their dated site was sending prospective business clients to competitors before the firm had a chance to compete.",
     outcome: "Inquiry form submissions roughly 3× higher in the first 90 days vs. the prior site.",
@@ -24,7 +317,6 @@ const portfolioItems = [
   {
     name: "Peaceful Minds Counseling",
     type: "Therapists",
-    before: `${import.meta.env.BASE_URL}portfolio-before-2.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-2.png`,
     goal: "A warm, inviting presence that builds trust quickly and routes prospective clients straight to scheduling.",
     outcome: "Bounce rate down ~40%, with new client inquiries now arriving directly through the site each week.",
@@ -33,7 +325,6 @@ const portfolioItems = [
   {
     name: "Westlake Family Law",
     type: "Professional Services",
-    before: `${import.meta.env.BASE_URL}portfolio-before-3.png`,
     after: `${import.meta.env.BASE_URL}portfolio-after-3.png`,
     goal: "Replace a generic template with a credible, custom practice website that ranks for the right local searches.",
     outcome: "Now ranking on the first page of Google for two priority service-area searches.",
@@ -41,90 +332,40 @@ const portfolioItems = [
   },
 ];
 
-function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; index: number }) {
-  const [showAfter, setShowAfter] = useState(true);
-
+function ProjectCard({ item, index }: { item: typeof portfolioItems[0]; index: number }) {
   return (
-    <ScrollReveal delay={index * 0.15}>
-      <div className="bg-charcoal rounded-2xl border border-gunmetal overflow-hidden hover:border-[#E85D26]/40 transition-colors duration-500">
-        <div className="relative">
-          <div className="flex border-b border-gunmetal">
-            <button
-              onClick={() => setShowAfter(false)}
-              aria-pressed={!showAfter}
-              className={cn(
-                "flex-1 py-3 text-sm font-sans font-semibold uppercase tracking-widest transition-all duration-300",
-                !showAfter
-                  ? "bg-red-600/20 text-red-400 border-b-2 border-red-500"
-                  : "text-stone hover:text-offwhite"
-              )}
-            >
-              Before
-            </button>
-            <button
-              onClick={() => setShowAfter(true)}
-              aria-pressed={showAfter}
-              className={cn(
-                "flex-1 py-3 text-sm font-sans font-semibold uppercase tracking-widest transition-all duration-300",
-                showAfter
-                  ? "bg-green-600/20 text-green-400 border-b-2 border-green-500"
-                  : "text-stone hover:text-offwhite"
-              )}
-            >
-              After
-            </button>
-          </div>
-
-          <div className="relative aspect-[4/3] overflow-hidden bg-navy">
-            <ResponsiveImage
-              src={item.before}
-              alt={`${item.name} - before redesign`}
-              aria-hidden={showAfter}
-              loading="lazy"
-              decoding="async"
-              className={cn(
-                "absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500",
-                showAfter ? "opacity-0 pointer-events-none" : "opacity-100"
-              )}
-            />
-            <ResponsiveImage
-              src={item.after}
-              alt={`${item.name} - after redesign by Graylock Digital`}
-              aria-hidden={!showAfter}
-              loading="lazy"
-              decoding="async"
-              className={cn(
-                "absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500",
-                showAfter ? "opacity-100" : "opacity-0 pointer-events-none"
-              )}
-            />
-
-            <div className={cn(
-              "absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg transition-all duration-300",
-              showAfter
-                ? "bg-green-500 text-white"
-                : "bg-red-500 text-white"
-            )}>
-              {showAfter ? "After" : "Before"}
-            </div>
-          </div>
+    <ScrollReveal delay={index * 0.12}>
+      <div className="bg-white rounded-2xl border border-black/10 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 h-full flex flex-col">
+        <div className="aspect-[4/3] overflow-hidden bg-[#F4F1EC]">
+          <ResponsiveImage
+            src={item.after}
+            alt={`${item.name} website designed by Graylock Digital`}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover object-top"
+          />
         </div>
 
-        <div className="p-6 md:p-8">
-          <span className="text-[#E85D26] text-xs font-bold uppercase tracking-widest mb-2 block">
+        <div className="p-6 md:p-7 flex flex-col flex-1">
+          <span className="text-[#B23E16] text-xs font-bold uppercase tracking-widest mb-2 block">
             {item.type}
           </span>
-          <h3 className="text-2xl font-display text-offwhite mb-3">{item.name}</h3>
-          <p className="text-stone font-sans text-sm mb-4 leading-relaxed">{item.goal}</p>
+          <h3 className="text-xl font-display text-charcoal mb-3">{item.name}</h3>
+          <p className="text-charcoal/70 font-sans text-sm mb-5 leading-relaxed">{item.goal}</p>
 
-          <div className="bg-[#E85D26]/5 border border-[#E85D26]/20 rounded-lg px-4 py-3 mb-5">
-            <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#E85D26] mb-1">Outcome</p>
-            <p className="text-offwhite font-sans text-sm leading-snug">{item.outcome}</p>
+          <div className="bg-[#E85D26]/[0.06] border border-[#E85D26]/20 rounded-lg px-4 py-3 mb-5 mt-auto">
+            <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#B23E16] mb-1">
+              Outcome
+            </p>
+            <p className="text-charcoal font-sans text-sm leading-snug">{item.outcome}</p>
           </div>
 
           <div className="flex flex-wrap gap-2">
             {item.results.map(r => (
-              <span key={r} className="text-xs font-sans bg-navy text-stone px-3 py-1.5 rounded-full border border-gunmetal">
+              <span
+                key={r}
+                className="text-xs font-sans bg-[#F4F1EC] text-charcoal/70 px-3 py-1.5 rounded-full border border-black/10"
+              >
                 {r}
               </span>
             ))}
@@ -138,272 +379,59 @@ function BeforeAfterCard({ item, index }: { item: typeof portfolioItems[0]; inde
 export default function Work() {
   return (
     <>
-      <SEO title="Featured Projects | Real Website Transformations | Graylock Digital" description="Featured projects and real before-and-after website transformations we've delivered for trust-based local businesses. See the results our clients are getting." url="https://graylockdigital.com/featured-projects" />
+      <SEO title="Featured Projects | Custom Websites We've Built | Graylock Digital" description="A closer look at real, custom websites we've designed and built for trust-based local businesses — and the results they're getting." url="https://graylockdigital.com/featured-projects" />
 
-      <section className="bg-charcoal pt-24 pb-16 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative overflow-hidden bg-charcoal pt-28 md:pt-36 pb-20 md:pb-28 px-6 md:px-12">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(232,93,38,0.16),transparent_70%)]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gunmetal to-transparent"
+          aria-hidden="true"
+        />
+        <div className="relative max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4 block">
-              Featured Projects
-            </span>
-            <h1 className="text-4xl md:text-6xl font-display text-offwhite mb-6">Real Transformations</h1>
-            <p className="text-xl font-sans text-stone mb-3">
-              See the dramatic before-and-after results we deliver for trust-based local businesses.
-            </p>
-            <p className="text-stone font-sans text-sm">
-              Tap the <span className="text-red-400 font-semibold">Before</span> / <span className="text-green-400 font-semibold">After</span> tabs on each card to compare.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Featured Transformation — Shooting Performance Institute */}
-      <section className="bg-[#F4F1EC] py-16 md:py-20 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-10 md:mb-12">
-            <span className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
-              Featured Transformation
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-3">
-              Shooting Performance Institute
-            </h2>
-            <p className="text-charcoal/75 font-sans text-base md:text-lg max-w-2xl mx-auto">
-              An outdated firearms-training site rebuilt into a bold, modern presence that
-              matches the caliber of their work.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-black/10 shadow-2xl mb-8 md:mb-10 bg-white">
-              <img
-                src={spiTransformation}
-                alt="New Shooting Performance Institute website homepage designed by Graylock Digital"
-                className="w-full h-auto block"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-[#E85D26]/60" aria-hidden="true" />
+              <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.25em]">
+                Selected Work
+              </span>
+              <span className="h-px w-8 bg-[#E85D26]/60" aria-hidden="true" />
             </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <figure className="relative bg-white rounded-2xl border border-black/10 shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
-              <Quote
-                className="absolute -top-5 left-8 text-white bg-[#E85D26] rounded-full p-2"
-                size={48}
-                aria-hidden="true"
-              />
-              <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={20} className="text-[#E85D26] fill-[#E85D26]" />
-                ))}
-              </div>
-              <blockquote className="text-charcoal font-sans text-lg md:text-xl leading-relaxed space-y-4">
-                <p>
-                  &ldquo;Graylock Digital reached out to ask if I was in the market for a
-                  website upgrade. I wasn&rsquo;t happy with what I had &mdash; it felt
-                  outdated. Tim and his team had a rough-draft site to me in a matter of days
-                  that far exceeded what I had before.&rdquo;
-                </p>
-                <p>
-                  &ldquo;They delivered at every point of the process: they explained why they
-                  were doing things a certain way, showed me how to manage it on the back end,
-                  and answered every text and random phone call with nothing but
-                  professionalism and kindness. I now have a site that portrays exactly what we
-                  do as a company and is easy to navigate.&rdquo;
-                </p>
-                <p>
-                  &ldquo;10 out of 10, hands down. I actually enjoyed the process and the
-                  conversations &mdash; and in the end I have an incredible website. If
-                  you&rsquo;re even remotely considering a new website, do yourself a favor and
-                  use Graylock Digital!&rdquo;
-                </p>
-              </blockquote>
-              <figcaption className="mt-7 pt-6 border-t border-black/10">
-                <p className="text-charcoal font-display text-xl">Jim Erwin</p>
-                <p className="text-charcoal/70 font-sans text-sm">
-                  CEO &amp; Founder, Shooting Performance Institute
-                </p>
-              </figcaption>
-            </figure>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-offwhite mb-6 leading-[1.05]">
+              Custom Websites,
+              <br />
+              <span className="text-[#E85D26]">Built to Earn Trust</span>
+            </h1>
+            <p className="text-lg md:text-xl font-sans text-stone max-w-2xl mx-auto leading-relaxed">
+              A closer look at real websites we&rsquo;ve designed and built for trust-based local
+              businesses &mdash; each one crafted to make a strong first impression and turn
+              visitors into clients.
+            </p>
           </ScrollReveal>
         </div>
       </section>
 
-      <section className="bg-navy pb-16 px-6 md:px-12 border-t border-gunmetal">
-        <div className="max-w-7xl mx-auto pt-16">
-          <ScrollReveal className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-display text-offwhite">
-              More Transformations
+      {featuredProjects.map(project => (
+        <FeaturedProjectSection key={project.name} project={project} />
+      ))}
+
+      <section className="bg-[#F4F1EC] py-16 md:py-24 px-6 md:px-12 border-t border-black/5">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-14">
+            <span className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
+              More Recent Work
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display text-charcoal">
+              A Few More Sites We&rsquo;re Proud Of
             </h2>
           </ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, i) => (
-              <BeforeAfterCard key={item.name} item={item} index={i} />
+              <ProjectCard key={item.name} item={item} index={i} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Featured Transformation — L.A. Perks Petroleum Specialists */}
-      <section className="bg-[#F4F1EC] py-16 md:py-20 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-10 md:mb-12">
-            <span className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
-              Featured Transformation
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-3">
-              L.A. Perks Petroleum Specialists
-            </h2>
-            <p className="text-charcoal/75 font-sans text-base md:text-lg max-w-2xl mx-auto">
-              A bold, credible site for a third-generation fueling company &mdash; built to
-              reflect the scale and trust behind their work across the West.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-black/10 shadow-2xl mb-8 md:mb-10 bg-white">
-              <img
-                src={perksTransformation}
-                alt="New L.A. Perks Petroleum Specialists website homepage designed by Graylock Digital"
-                className="w-full h-auto block"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <figure className="relative bg-white rounded-2xl border border-black/10 shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
-              <Quote
-                className="absolute -top-5 left-8 text-white bg-[#E85D26] rounded-full p-2"
-                size={48}
-                aria-hidden="true"
-              />
-              <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={20} className="text-[#E85D26] fill-[#E85D26]" />
-                ))}
-              </div>
-              <blockquote className="text-charcoal font-sans text-lg md:text-xl leading-relaxed">
-                &ldquo;Working with Tim and the team at Graylock Digital was an
-                outstanding experience from start to finish. The amount of time and effort they
-                invested in researching our industry and truly understanding our vision for the
-                new website was beyond impressive. Their attention to detail, communication, and
-                dedication to delivering a product that reflected our goals exceeded all
-                expectations. They consistently went above and beyond throughout the entire
-                process. We highly recommend Tim and the Graylock Digital team to anyone looking
-                for a professional, creative, and results-driven website partner.&rdquo;
-              </blockquote>
-              <figcaption className="mt-7 pt-6 border-t border-black/10">
-                <p className="text-charcoal font-display text-xl">Kylen &amp; Keith Perks</p>
-                <p className="text-charcoal/70 font-sans text-sm">
-                  L.A. Perks Petroleum Specialists
-                </p>
-              </figcaption>
-            </figure>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Featured Transformation — Emboxed */}
-      <section className="bg-charcoal py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-10 md:mb-12">
-            <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
-              Featured Transformation
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-3">
-              Emboxed
-            </h2>
-            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto">
-              A dark, editorial storefront for a luxury gifting concierge &mdash; built so every
-              curated detail feels as intentional as the gifts themselves.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-gunmetal shadow-2xl mb-8 md:mb-10 bg-navy">
-              <img
-                src={emboxedTransformation}
-                alt="New Emboxed luxury gifting website homepage designed by Graylock Digital"
-                className="w-full h-auto block"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <figure className="relative bg-navy rounded-2xl border border-dashed border-gunmetal p-8 md:p-12 max-w-4xl mx-auto text-center">
-              <Quote
-                className="mx-auto mb-5 text-[#E85D26]/50"
-                size={40}
-                aria-hidden="true"
-              />
-              <p className="text-offwhite font-display text-xl md:text-2xl mb-2">
-                Client testimonial coming soon
-              </p>
-              <p className="text-stone font-sans text-sm md:text-base max-w-md mx-auto">
-                We&rsquo;re gathering Emily&rsquo;s words on the project &mdash; check back shortly
-                to hear about her experience working with Graylock Digital.
-              </p>
-              <figcaption className="mt-7 pt-6 border-t border-gunmetal">
-                <p className="text-offwhite font-display text-xl">Emily</p>
-                <p className="text-stone font-sans text-sm">Founder, Emboxed</p>
-              </figcaption>
-            </figure>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Featured Transformation — Kingsbury Chiropractic */}
-      <section className="bg-[#F4F1EC] py-16 md:py-20 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-10 md:mb-12">
-            <span className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
-              Featured Transformation
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-3">
-              Kingsbury Chiropractic
-            </h2>
-            <p className="text-charcoal/75 font-sans text-base md:text-lg max-w-2xl mx-auto">
-              A clear, credible site for a Lake Tahoe chiropractor &mdash; built to turn answers,
-              not guesswork, into booked appointments.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-black/10 shadow-2xl mb-8 md:mb-10 bg-white">
-              <img
-                src={kingsburyTransformation}
-                alt="New Kingsbury Chiropractic website homepage designed by Graylock Digital"
-                className="w-full h-auto block"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <figure className="relative bg-white rounded-2xl border border-dashed border-black/15 shadow-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
-              <Quote
-                className="mx-auto mb-5 text-[#E85D26]/50"
-                size={40}
-                aria-hidden="true"
-              />
-              <p className="text-charcoal font-display text-xl md:text-2xl mb-2">
-                Client testimonial coming soon
-              </p>
-              <p className="text-charcoal/70 font-sans text-sm md:text-base max-w-md mx-auto">
-                We&rsquo;re gathering the team&rsquo;s words on the project &mdash; check back
-                shortly to hear about their experience working with Graylock Digital.
-              </p>
-              <figcaption className="mt-7 pt-6 border-t border-black/10">
-                <p className="text-charcoal font-display text-xl">Kingsbury Chiropractic</p>
-                <p className="text-charcoal/70 font-sans text-sm">Stateline, Nevada</p>
-              </figcaption>
-            </figure>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -414,7 +442,7 @@ export default function Work() {
               See What Your Site Could Look Like — On Us
             </h2>
             <p className="text-stone text-lg font-sans mb-8 max-w-2xl mx-auto">
-              Book a free 15-minute discovery call and we will show you a custom homepage demo for your practice before you commit to anything.
+              Book a free 15-minute discovery call and we will show you a custom homepage demo for your business before you commit to anything.
             </p>
             <Link href="/get-started">
               <span className="inline-flex items-center gap-2 bg-[#E85D26] hover:bg-[#E85D26]/90 text-white font-sans font-bold text-lg px-10 py-4 rounded-lg shadow-lg shadow-[#E85D26]/20 transition-all duration-300 cursor-pointer">
