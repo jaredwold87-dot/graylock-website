@@ -1,3 +1,4 @@
 - [ResponsiveImage variants](responsive-image-variants.md) — grid images need sibling webp/mobile files in public/; @assets imports 404 the picture source and vanish.
 - [Graylock color tokens](graylock-color-tokens.md) — the `orange` Tailwind token is steel-blue; use literal #E85D26 (or #B23E16 on light bg).
 - [Featured Projects background](featured-projects-theme-rhythm.md) — all project sections use one solid tan (#F4F1EC) light theme; do NOT re-add dark/light alternation.
+- [Image optimization](image-optimization.md) — @assets imports & public PNGs ship full-size; convert to webp (magick, not sharp) before referencing or pages bloat to MBs.

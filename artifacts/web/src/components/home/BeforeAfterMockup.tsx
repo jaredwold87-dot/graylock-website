@@ -10,7 +10,7 @@ const pairs = [
   },
   {
     before: `${import.meta.env.BASE_URL}portfolio-before-2.png`,
-    after: `${import.meta.env.BASE_URL}portfolio-after-2.png`,
+    after: `${import.meta.env.BASE_URL}portfolio-after-2.webp`,
     label: "Therapist",
   },
   {
