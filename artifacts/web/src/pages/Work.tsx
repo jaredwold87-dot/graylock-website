@@ -8,6 +8,7 @@ import { ArrowRight, Quote, Star } from "lucide-react";
 import { Link } from "wouter";
 import spiTransformation from "@assets/image_1780012282187.png";
 import perksTransformation from "@assets/image_1780012312407.png";
+import emboxedTransformation from "@assets/image_1780012520417.png";
 
 const portfolioItems = [
   {
@@ -297,6 +298,57 @@ export default function Work() {
                 <p className="text-charcoal/70 font-sans text-sm">
                   L.A. Perks Petroleum Specialists
                 </p>
+              </figcaption>
+            </figure>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Featured Transformation — Emboxed */}
+      <section className="bg-charcoal py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
+            <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
+              Featured Transformation
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-3">
+              Emboxed
+            </h2>
+            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto">
+              A dark, editorial storefront for a luxury gifting concierge &mdash; built so every
+              curated detail feels as intentional as the gifts themselves.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="rounded-2xl overflow-hidden border border-gunmetal shadow-2xl mb-8 md:mb-10 bg-navy">
+              <img
+                src={emboxedTransformation}
+                alt="New Emboxed luxury gifting website homepage designed by Graylock Digital"
+                className="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
+            <figure className="relative bg-navy rounded-2xl border border-dashed border-gunmetal p-8 md:p-12 max-w-4xl mx-auto text-center">
+              <Quote
+                className="mx-auto mb-5 text-[#E85D26]/50"
+                size={40}
+                aria-hidden="true"
+              />
+              <p className="text-offwhite font-display text-xl md:text-2xl mb-2">
+                Client testimonial coming soon
+              </p>
+              <p className="text-stone font-sans text-sm md:text-base max-w-md mx-auto">
+                We&rsquo;re gathering Emily&rsquo;s words on the project &mdash; check back shortly
+                to hear about her experience working with Graylock Digital.
+              </p>
+              <figcaption className="mt-7 pt-6 border-t border-gunmetal">
+                <p className="text-offwhite font-display text-xl">Emily</p>
+                <p className="text-stone font-sans text-sm">Founder, Emboxed</p>
               </figcaption>
             </figure>
           </ScrollReveal>
