@@ -50,9 +50,8 @@ const featuredProjects: FeaturedProject[] = [
     ],
     testimonial: {
       quote: [
-        "Graylock Digital reached out to ask if I was in the market for a website upgrade. I wasn\u2019t happy with what I had \u2014 it felt outdated. Tim and his team had a rough-draft site to me in a matter of days that far exceeded what I had before.",
-        "They delivered at every point of the process: they explained why they were doing things a certain way, showed me how to manage it on the back end, and answered every text and random phone call with nothing but professionalism and kindness. I now have a site that portrays exactly what we do as a company and is easy to navigate.",
-        "10 out of 10, hands down. I actually enjoyed the process and the conversations \u2014 and in the end I have an incredible website. If you\u2019re even remotely considering a new website, do yourself a favor and use Graylock Digital!",
+        "Tim and his team had a rough-draft site to me in a matter of days that far exceeded what I had before. They delivered at every point of the process and answered every text and random phone call with nothing but professionalism and kindness.",
+        "10 out of 10, hands down. If you\u2019re even remotely considering a new website, do yourself a favor and use Graylock Digital!",
       ],
       name: "Jim Erwin",
       role: "CEO & Founder, Shooting Performance Institute",
@@ -155,11 +154,10 @@ const themes: Record<Theme, Record<string, string>> = {
   },
 };
 
-function SiteMockup({ src, alt, delay = 0 }: { src: string; alt: string; delay?: number }) {
+function SiteMockup({ src, alt }: { src: string; alt: string }) {
   return (
-    <ScrollReveal delay={delay}>
-      <div className="max-w-5xl mx-auto">
-        <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-black/10 bg-[#15151a] ring-1 ring-black/5">
+    <div className="max-w-5xl mx-auto">
+      <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-black/10 bg-[#15151a] ring-1 ring-black/5">
           <div className="flex items-center gap-2 px-4 py-2.5 md:py-3 bg-[#1f1f26] border-b border-white/5">
             <span className="flex gap-1.5">
               <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
@@ -185,122 +183,104 @@ function SiteMockup({ src, alt, delay = 0 }: { src: string; alt: string; delay?:
           <div className="w-24 md:w-28 h-5 bg-gradient-to-b from-[#c4c8d0] to-[#8d919b] [clip-path:polygon(32%_0,68%_0,80%_100%,20%_100%)]" />
           <div className="w-40 md:w-48 h-2.5 rounded-full bg-[#aeb2bb] shadow-md" />
         </div>
-      </div>
-    </ScrollReveal>
+    </div>
   );
 }
 
-function FeaturedProjectSection({ project }: { project: FeaturedProject }) {
+function FeaturedProjectSection({ project, index }: { project: FeaturedProject; index: number }) {
   const t = themes[project.theme];
+  const imageRight = index % 2 === 1;
 
   return (
-    <section className={cn("py-16 md:py-24 px-6 md:px-12", t.section)}>
-      <div className="max-w-6xl mx-auto">
-        <ScrollReveal className="text-center mb-10 md:mb-14">
-          <span
-            className={cn(
-              "text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4 block",
-              t.eyebrow
-            )}
-          >
-            {project.category}
-          </span>
-          <h2 className={cn("text-3xl md:text-5xl font-display mb-4", t.heading)}>
-            {project.name}
-          </h2>
-          {project.location && (
-            <div
+    <section
+      className={cn(
+        "md:min-h-screen flex items-center py-16 md:py-20 px-6 md:px-12",
+        t.section
+      )}
+    >
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <ScrollReveal className={cn(imageRight && "md:order-2")} delay={0.1}>
+            <SiteMockup
+              src={project.image}
+              alt={`${project.name} website homepage designed by Graylock Digital`}
+            />
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15} className={cn(imageRight && "md:order-1")}>
+            <span
               className={cn(
-                "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-sans font-medium mb-5",
-                t.pill
+                "text-xs font-sans font-bold uppercase tracking-[0.2em] mb-3 block",
+                t.eyebrow
               )}
             >
-              <MapPin size={13} aria-hidden="true" />
-              {project.location}
-            </div>
-          )}
-          <p className={cn("font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed", t.body)}>
-            {project.description}
-          </p>
-        </ScrollReveal>
-
-        <SiteMockup
-          src={project.image}
-          alt={`${project.name} website homepage designed by Graylock Digital`}
-          delay={0.1}
-        />
-
-        <ScrollReveal delay={0.15} className="mt-12 md:mt-16 max-w-4xl mx-auto">
-          <p
-            className={cn(
-              "text-center text-[11px] font-sans font-bold uppercase tracking-[0.2em] mb-5",
-              t.eyebrow
-            )}
-          >
-            What we delivered
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-            {project.delivered.map(d => (
+              {project.category}
+            </span>
+            <h2 className={cn("text-2xl md:text-3xl lg:text-4xl font-display mb-3", t.heading)}>
+              {project.name}
+            </h2>
+            {project.location && (
               <div
-                key={d}
-                className={cn("flex items-center gap-2.5 rounded-xl border px-4 py-3.5", t.deliver)}
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-sans font-medium mb-4",
+                  t.pill
+                )}
               >
-                <Check size={16} className={cn("shrink-0", t.check)} aria-hidden="true" />
-                <span className="font-sans text-sm leading-snug">{d}</span>
+                <MapPin size={12} aria-hidden="true" />
+                {project.location}
               </div>
-            ))}
-          </div>
-        </ScrollReveal>
+            )}
+            <p className={cn("font-sans text-sm md:text-base leading-relaxed mb-5", t.body)}>
+              {project.description}
+            </p>
 
-        <ScrollReveal delay={0.2} className="mt-10 md:mt-12">
-          {project.testimonial ? (
-            <figure
-              className={cn(
-                "relative rounded-2xl border shadow-xl p-8 md:p-12 max-w-4xl mx-auto",
-                t.card
-              )}
-            >
-              <Quote
-                className="absolute -top-5 left-8 text-white bg-[#E85D26] rounded-full p-2"
-                size={48}
-                aria-hidden="true"
-              />
-              <div className="flex gap-1 mb-5" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={20} className="text-[#E85D26] fill-[#E85D26]" />
-                ))}
-              </div>
-              <blockquote className={cn("font-sans text-lg md:text-xl leading-relaxed space-y-4", t.quote)}>
-                {project.testimonial.quote.map((p, i) => (
-                  <p key={i}>&ldquo;{p}&rdquo;</p>
-                ))}
-              </blockquote>
-              <figcaption className={cn("mt-7 pt-6 border-t", t.divider)}>
-                <p className={cn("font-display text-xl", t.capName)}>{project.testimonial.name}</p>
-                <p className={cn("font-sans text-sm", t.capRole)}>{project.testimonial.role}</p>
-              </figcaption>
-            </figure>
-          ) : project.placeholder ? (
-            <figure
-              className={cn(
-                "relative rounded-2xl border shadow-xl p-8 md:p-12 max-w-4xl mx-auto text-center",
-                t.cardDashed
-              )}
-            >
-              <Quote className="mx-auto mb-5 text-[#E85D26]/50" size={40} aria-hidden="true" />
-              <p className={cn("font-display text-xl md:text-2xl mb-2", t.capName)}>
-                Client testimonial coming soon
-              </p>
-              <p className={cn("font-sans text-sm md:text-base max-w-md mx-auto", t.capRole)}>
-                {project.placeholder.note}
-              </p>
-              <figcaption className={cn("mt-7 pt-6 border-t", t.divider)}>
-                <p className={cn("font-display text-xl", t.capName)}>{project.placeholder.name}</p>
-                <p className={cn("font-sans text-sm", t.capRole)}>{project.placeholder.role}</p>
-              </figcaption>
-            </figure>
-          ) : null}
-        </ScrollReveal>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.delivered.map(d => (
+                <span
+                  key={d}
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-sans",
+                    t.deliver
+                  )}
+                >
+                  <Check size={12} className={cn("shrink-0", t.check)} aria-hidden="true" />
+                  {d}
+                </span>
+              ))}
+            </div>
+
+            {project.testimonial ? (
+              <figure className={cn("border-l-2 border-[#E85D26] pl-5", t.quote)}>
+                <div className="flex gap-1 mb-3" aria-label="5 out of 5 stars">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={15} className="text-[#E85D26] fill-[#E85D26]" />
+                  ))}
+                </div>
+                <blockquote className="font-sans text-sm md:text-base leading-relaxed space-y-3">
+                  {project.testimonial.quote.map((p, i) => (
+                    <p key={i}>&ldquo;{p}&rdquo;</p>
+                  ))}
+                </blockquote>
+                <figcaption className="mt-4">
+                  <p className={cn("font-display text-base", t.capName)}>{project.testimonial.name}</p>
+                  <p className={cn("font-sans text-xs", t.capRole)}>{project.testimonial.role}</p>
+                </figcaption>
+              </figure>
+            ) : project.placeholder ? (
+              <figure className={cn("rounded-xl border shadow-sm p-6", t.cardDashed)}>
+                <Quote className="mb-3 text-[#E85D26]/50" size={28} aria-hidden="true" />
+                <p className={cn("font-display text-lg mb-1.5", t.capName)}>
+                  Client testimonial coming soon
+                </p>
+                <p className={cn("font-sans text-sm", t.capRole)}>{project.placeholder.note}</p>
+                <figcaption className={cn("mt-4 pt-4 border-t", t.divider)}>
+                  <p className={cn("font-display text-base", t.capName)}>{project.placeholder.name}</p>
+                  <p className={cn("font-sans text-xs", t.capRole)}>{project.placeholder.role}</p>
+                </figcaption>
+              </figure>
+            ) : null}
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
@@ -424,8 +404,8 @@ export default function Work() {
         </div>
       </section>
 
-      {featuredProjects.map(project => (
-        <FeaturedProjectSection key={project.name} project={project} />
+      {featuredProjects.map((project, i) => (
+        <FeaturedProjectSection key={project.name} project={project} index={i} />
       ))}
 
       <section className="bg-[#F4F1EC] py-16 md:py-24 px-6 md:px-12 border-t border-black/5">
