@@ -208,28 +208,6 @@ function SiteMockup({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function BrowserFrame({ src, alt, className }: { src: string; alt: string; className?: string }) {
-  return (
-    <div
-      className={cn(
-        "rounded-lg md:rounded-xl overflow-hidden border border-white/10 bg-[#15151a] ring-1 ring-black/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)]",
-        className,
-      )}
-    >
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-[#1f1f26] border-b border-white/5">
-        <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-        <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
-        <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-        <span className="ml-2 hidden sm:flex items-center gap-1.5 flex-1 max-w-[140px] px-2 py-1 rounded bg-[#15151a] border border-white/5">
-          <Lock size={9} className="text-stone/50 shrink-0" aria-hidden="true" />
-          <span className="h-1 flex-1 rounded-full bg-white/10" />
-        </span>
-      </div>
-      <img src={src} alt={alt} className="w-full h-auto block" loading="eager" decoding="async" />
-    </div>
-  );
-}
-
 function FeaturedProjectSection({ project, index }: { project: FeaturedProject; index: number }) {
   const t = themes[project.theme];
   const imageRight = index % 2 === 1;
@@ -420,73 +398,57 @@ export default function Work() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gunmetal to-transparent"
           aria-hidden="true"
         />
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center">
-            <ScrollReveal className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-3 mb-6">
-                <span className="h-px w-8 bg-[#E85D26]" aria-hidden="true" />
-                <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.25em]">
-                  Selected Work
-                </span>
-              </div>
-              <h1 className="text-4xl md:text-6xl lg:text-[4.25rem] font-display text-offwhite mb-6 leading-[1.02]">
-                The Proof Is
-                <br />
-                <span className="text-[#E85D26]">In the Pixels.</span>
-              </h1>
-              <p className="text-lg md:text-xl font-sans text-stone max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Real, custom websites we&rsquo;ve designed and built for trust-based local
-                businesses &mdash; each one crafted to make a strong first impression and turn
-                visitors into clients.
+        <div className="relative max-w-3xl mx-auto text-center">
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-[#E85D26]" aria-hidden="true" />
+              <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.25em]">
+                Selected Work
+              </span>
+              <span className="h-px w-8 bg-[#E85D26]" aria-hidden="true" />
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-offwhite mb-6 leading-[1.02]">
+              The Proof Is
+              <br />
+              <span className="text-[#E85D26]">In the Pixels.</span>
+            </h1>
+            <p className="text-lg md:text-xl font-sans text-stone max-w-2xl mx-auto leading-relaxed">
+              Real, custom websites we&rsquo;ve designed and built for trust-based local
+              businesses &mdash; each one crafted to make a strong first impression and turn
+              visitors into clients.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/get-started"
+                className="group inline-flex items-center justify-center gap-2 bg-[#E85D26] text-white font-sans font-bold text-sm md:text-base px-7 py-3.5 rounded-lg shadow-[0_8px_24px_rgba(232,93,38,0.35)] hover:bg-[#d4521f] hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Get Your Free Homepage Demo
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/pricing"
+                className="inline-flex items-center justify-center gap-2 border border-white/20 text-offwhite font-sans font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300"
+              >
+                See Pricing
+              </Link>
+            </div>
+            <div className="mt-10 pt-7 border-t border-white/10 max-w-2xl mx-auto">
+              <p className="text-stone/60 text-[11px] font-sans font-bold uppercase tracking-[0.22em] mb-3">
+                Recently built for
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link
-                  href="/get-started"
-                  className="group inline-flex items-center justify-center gap-2 bg-[#E85D26] text-white font-sans font-bold text-sm md:text-base px-7 py-3.5 rounded-lg shadow-[0_8px_24px_rgba(232,93,38,0.35)] hover:bg-[#d4521f] hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  Get Your Free Homepage Demo
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="inline-flex items-center justify-center gap-2 border border-white/20 text-offwhite font-sans font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300"
-                >
-                  See Pricing
-                </Link>
+              <div className="flex flex-wrap justify-center gap-x-3 gap-y-1.5 text-offwhite/75 font-display text-sm">
+                <span>Shooting Performance Institute</span>
+                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
+                <span>L.A. Perks</span>
+                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
+                <span>Emboxed</span>
+                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
+                <span>Kingsbury Chiropractic</span>
+                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
+                <span>Montana Counseling</span>
               </div>
-              <div className="mt-10 pt-7 border-t border-white/10">
-                <p className="text-stone/60 text-[11px] font-sans font-bold uppercase tracking-[0.22em] mb-3">
-                  Recently built for
-                </p>
-                <div className="flex flex-wrap justify-center lg:justify-start gap-x-3 gap-y-1.5 text-offwhite/75 font-display text-sm">
-                  <span>Shooting Performance Institute</span>
-                  <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                  <span>L.A. Perks</span>
-                  <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                  <span>Emboxed</span>
-                  <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                  <span>Kingsbury Chiropractic</span>
-                  <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
-                  <span>Montana Counseling</span>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.15} className="hidden md:block">
-              <div className="relative mx-auto w-full max-w-lg aspect-[5/4]">
-                <BrowserFrame
-                  src={perksTransformation}
-                  alt="L.A. Perks Petroleum Specialists website built by Graylock Digital"
-                  className="absolute top-0 right-0 w-[72%] rotate-[3deg]"
-                />
-                <BrowserFrame
-                  src={spiTransformation}
-                  alt="Shooting Performance Institute website built by Graylock Digital"
-                  className="absolute bottom-0 left-0 w-[72%] -rotate-[3deg] z-10"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
