@@ -9,6 +9,7 @@ import { Link } from "wouter";
 import spiTransformation from "@assets/image_1780012282187.png";
 import perksTransformation from "@assets/image_1780012312407.png";
 import emboxedTransformation from "@assets/image_1780012520417.png";
+import kingsburyTransformation from "@assets/image_1780012557969.png";
 
 const portfolioItems = [
   {
@@ -349,6 +350,57 @@ export default function Work() {
               <figcaption className="mt-7 pt-6 border-t border-gunmetal">
                 <p className="text-offwhite font-display text-xl">Emily</p>
                 <p className="text-stone font-sans text-sm">Founder, Emboxed</p>
+              </figcaption>
+            </figure>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Featured Transformation — Kingsbury Chiropractic */}
+      <section className="bg-[#F4F1EC] py-16 md:py-20 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
+            <span className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
+              Featured Transformation
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-3">
+              Kingsbury Chiropractic
+            </h2>
+            <p className="text-charcoal/75 font-sans text-base md:text-lg max-w-2xl mx-auto">
+              A clear, credible site for a Lake Tahoe chiropractor &mdash; built to turn answers,
+              not guesswork, into booked appointments.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="rounded-2xl overflow-hidden border border-black/10 shadow-2xl mb-8 md:mb-10 bg-white">
+              <img
+                src={kingsburyTransformation}
+                alt="New Kingsbury Chiropractic website homepage designed by Graylock Digital"
+                className="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
+            <figure className="relative bg-white rounded-2xl border border-dashed border-black/15 shadow-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
+              <Quote
+                className="mx-auto mb-5 text-[#E85D26]/50"
+                size={40}
+                aria-hidden="true"
+              />
+              <p className="text-charcoal font-display text-xl md:text-2xl mb-2">
+                Client testimonial coming soon
+              </p>
+              <p className="text-charcoal/70 font-sans text-sm md:text-base max-w-md mx-auto">
+                We&rsquo;re gathering the team&rsquo;s words on the project &mdash; check back
+                shortly to hear about their experience working with Graylock Digital.
+              </p>
+              <figcaption className="mt-7 pt-6 border-t border-black/10">
+                <p className="text-charcoal font-display text-xl">Kingsbury Chiropractic</p>
+                <p className="text-charcoal/70 font-sans text-sm">Stateline, Nevada</p>
               </figcaption>
             </figure>
           </ScrollReveal>
