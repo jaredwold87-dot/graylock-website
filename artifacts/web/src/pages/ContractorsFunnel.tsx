@@ -58,7 +58,7 @@ function computeOfferWindow(now: Date = new Date()) {
 }
 
 const OFFER_WINDOW = computeOfferWindow();
-const URGENCY_COPY = `${OFFER_WINDOW.monthName} Only: Get a Free Custom Homepage Demo. Love it? Pay just $99 for the full build. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
+const URGENCY_COPY = `${OFFER_WINDOW.monthName} Only: Get a Free Custom Homepage Demo. Love it? Get the full build with a $0 build fee. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
 
 const FUNNEL_FAQS: { q: string; a: string }[] = [
   {
@@ -67,7 +67,7 @@ const FUNNEL_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What happens if I don't like the demo?",
-    a: "Nothing. The 15-minute discovery call and the custom homepage demo are completely free, with no obligation to move forward. You only pay the $99 Build Fee if you approve the demo and want us to build the full site. If the demo isn't right for you, you walk away with zero cost.",
+    a: "Nothing. The 15-minute discovery call and the custom homepage demo are completely free, with no obligation to move forward. Right now your Build Fee is $0 if you approve the demo and want us to build the full site. If the demo isn't right for you, you walk away with zero cost.",
   },
   {
     q: "Am I locked into a contract?",
@@ -441,7 +441,7 @@ export default function ContractorsFunnel() {
             <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
               <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug">
                 <span className="text-[#E85D26] font-bold">Limited {OFFER_WINDOW.monthName} Offer:</span>{" "}
-                Build Fee Cut to Just $99 — On Any Subscription Level. Offer ends {OFFER_WINDOW.lastDayLabel}.
+                Build Fee Cut to $0 — On Any Subscription Level. Offer ends {OFFER_WINDOW.lastDayLabel}.
               </p>
             </div>
             <a
@@ -722,8 +722,8 @@ export default function ContractorsFunnel() {
                 },
                 {
                   day: "Step 3",
-                  title: "Approve & Pay the $99 Build Fee",
-                  desc: `If you love the demo, you pay just $99 (our ${OFFER_WINDOW.monthName} special, normally $1,499). We then kick off the full 7–10 day build.`,
+                  title: "Approve Your Demo — $0 Build Fee",
+                  desc: `If you love the demo, your build fee is $0 (our ${OFFER_WINDOW.monthName} special, normally $1,499). We then kick off the full 7–10 day build.`,
                   Icon: CreditCard,
                 },
                 {
@@ -783,7 +783,7 @@ export default function ContractorsFunnel() {
               Simple Monthly Subscription
             </p>
             <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight mb-4">
-              Pick the Plan That Fits — Then Pay Just $99 to Start
+              Pick the Plan That Fits — Then Start With a $0 Build Fee
             </h2>
             <p className="text-[#4a5568] font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               Every plan includes hosting, SSL, daily backups, a dedicated account
@@ -843,7 +843,7 @@ export default function ContractorsFunnel() {
                         <p className="font-sans text-xs md:text-sm leading-snug text-[#1a202c]">
                           <Sparkles size={14} className="inline-block -mt-0.5 mr-1 text-[#E85D26]" />
                           <span className="font-bold text-[#E85D26]">{buildFee} Build Fee Waived for {OFFER_WINDOW.monthName}</span>{" "}
-                          — Pay Only <span className="font-bold">$99</span> to Start.
+                          — Pay <span className="font-bold">$0</span> to Start.
                         </p>
                       </div>
                     )}
@@ -880,9 +880,9 @@ export default function ContractorsFunnel() {
 
           <ScrollReveal className="text-center mt-10">
             <p className="text-[#4a5568] font-sans text-sm md:text-base">
-              No payment required to see your custom homepage demo. The $99 build fee
-              is only paid <span className="font-semibold text-[#1a202c]">after</span>{" "}
-              you approve the design — book your free demo below.
+              No payment required to see your custom homepage demo. Your build fee is{" "}
+              <span className="font-semibold text-[#1a202c]">$0</span> this month when you
+              approve the design — book your free demo below.
             </p>
           </ScrollReveal>
 
@@ -949,11 +949,11 @@ export default function ContractorsFunnel() {
                       <ul className="grid sm:grid-cols-3 gap-3 md:gap-4 text-left">
                         {[
                           { big: "$0", small: "to see your demo" },
-                          { big: "$99", small: "to build the site" },
+                          { big: "$0", small: "build fee" },
                           { big: "100%", small: "refund if not thrilled" },
                         ].map((item) => (
                           <li
-                            key={item.big}
+                            key={item.small}
                             className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl px-4 py-3 flex items-center gap-3"
                           >
                             <Check
@@ -1145,7 +1145,7 @@ export default function ContractorsFunnel() {
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-4 leading-tight">
-              Get Your Website Built for Just $99 — Before {OFFER_WINDOW.lastDayLabel}
+              Get Your Website Built for a $0 Build Fee — Before {OFFER_WINDOW.lastDayLabel}
             </h2>
             <p className="text-[#4a5568] text-lg font-sans leading-relaxed mb-4">
               Tell us a bit about your business below and we&rsquo;ll reach out to
@@ -1153,7 +1153,7 @@ export default function ContractorsFunnel() {
               free custom homepage concept.
             </p>
             <p className="text-[#E85D26] font-sans font-bold text-base md:text-lg mb-10">
-              Reminder: Book before {OFFER_WINDOW.lastDayLabel} to lock in the $99 build fee.
+              Reminder: Book before {OFFER_WINDOW.lastDayLabel} to lock in the $0 build fee.
             </p>
           </ScrollReveal>
 
@@ -1216,7 +1216,7 @@ export default function ContractorsFunnel() {
             Limited {OFFER_WINDOW.monthName} Offer
           </p>
           <h3 className="text-3xl md:text-4xl font-display text-white mb-3 leading-tight">
-            $99 Build Fee Ends In
+            $0 Build Fee Ends In
           </h3>
           <p className="text-stone font-sans text-base md:text-lg mb-8">
             Lock in your savings before the timer runs out.
