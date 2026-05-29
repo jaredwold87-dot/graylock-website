@@ -35,36 +35,13 @@ type FeaturedProject = {
 
 const featuredProjects: FeaturedProject[] = [
   {
-    name: "Shooting Performance Institute",
-    category: "Firearms Training & Retail",
-    location: "Minden, Nevada",
-    description:
-      "An outdated firearms-training site rebuilt into a bold, modern presence that matches the caliber of their work.",
-    image: spiTransformation,
-    theme: "light",
-    delivered: [
-      "Custom homepage design",
-      "Online shop integration",
-      "Mobile-responsive build",
-      "Back-end they can manage",
-    ],
-    testimonial: {
-      quote: [
-        "Tim and his team had a rough-draft site to me in a matter of days that far exceeded what I had before. They delivered at every point of the process and answered every text and random phone call with nothing but professionalism and kindness.",
-        "10 out of 10, hands down. If you\u2019re even remotely considering a new website, do yourself a favor and use Graylock Digital!",
-      ],
-      name: "Jim Erwin",
-      role: "CEO & Founder, Shooting Performance Institute",
-    },
-  },
-  {
     name: "L.A. Perks Petroleum Specialists",
     category: "Petroleum & Fueling Services",
     location: "Serving the West",
     description:
       "A bold, credible site for a third-generation fueling company \u2014 built to reflect the scale and trust behind their work across the West.",
     image: perksTransformation,
-    theme: "dark",
+    theme: "light",
     delivered: [
       "Industry-researched design",
       "Quote & service-call flows",
@@ -86,7 +63,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A dark, editorial storefront for a luxury gifting concierge \u2014 built so every curated detail feels as intentional as the gifts themselves.",
     image: emboxedTransformation,
-    theme: "light",
+    theme: "dark",
     delivered: [
       "Editorial luxury design",
       "Occasion-based browsing",
@@ -106,7 +83,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A clear, credible site for a Lake Tahoe chiropractor \u2014 built to turn answers, not guesswork, into booked appointments.",
     image: kingsburyTransformation,
-    theme: "dark",
+    theme: "light",
     delivered: [
       "Online appointment booking",
       "Service & method pages",
@@ -117,6 +94,29 @@ const featuredProjects: FeaturedProject[] = [
       name: "Kingsbury Chiropractic",
       role: "Stateline, Nevada",
       note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Shooting Performance Institute",
+    category: "Firearms Training & Retail",
+    location: "Minden, Nevada",
+    description:
+      "An outdated firearms-training site rebuilt into a bold, modern presence that matches the caliber of their work.",
+    image: spiTransformation,
+    theme: "dark",
+    delivered: [
+      "Custom homepage design",
+      "Online shop integration",
+      "Mobile-responsive build",
+      "Back-end they can manage",
+    ],
+    testimonial: {
+      quote: [
+        "Tim and his team had a rough-draft site to me in a matter of days that far exceeded what I had before. They delivered at every point of the process and answered every text and random phone call with nothing but professionalism and kindness.",
+        "10 out of 10, hands down. If you\u2019re even remotely considering a new website, do yourself a favor and use Graylock Digital!",
+      ],
+      name: "Jim Erwin",
+      role: "CEO & Founder, Shooting Performance Institute",
     },
   },
 ];
