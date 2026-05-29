@@ -407,7 +407,7 @@ export default function ContractorsFunnel() {
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
-              We Specialize in Contractor Web Design
+              We Specialize in Contractor &amp; Construction Company Web Design
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display leading-tight mb-6">
               <span className="block text-white">
