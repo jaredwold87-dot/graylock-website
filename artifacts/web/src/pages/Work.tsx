@@ -283,7 +283,7 @@ export default function Work() {
                 ))}
               </div>
               <blockquote className="text-charcoal font-sans text-lg md:text-xl leading-relaxed">
-                &ldquo;Working with Tim Monahan and the team at Graylock Digital was an
+                &ldquo;Working with Tim and the team at Graylock Digital was an
                 outstanding experience from start to finish. The amount of time and effort they
                 invested in researching our industry and truly understanding our vision for the
                 new website was beyond impressive. Their attention to detail, communication, and
