@@ -1,6 +1,5 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Quote, Star, Check, Lock, MapPin } from "lucide-react";
@@ -328,69 +327,6 @@ function FeaturedProjectSection({ project, index }: { project: FeaturedProject; 
   );
 }
 
-const portfolioItems = [
-  {
-    name: "Johnson & Associates CPA",
-    type: "Accountants",
-    after: `${import.meta.env.BASE_URL}portfolio-after-1.png`,
-    goal: "Their dated site was sending prospective business clients to competitors before the firm had a chance to compete.",
-    outcome: "Inquiry form submissions roughly 3× higher in the first 90 days vs. the prior site.",
-    results: ["Mobile-friendly design", "Modern brand presence", "Local SEO foundation"],
-  },
-  {
-    name: "Westlake Family Law",
-    type: "Professional Services",
-    after: `${import.meta.env.BASE_URL}portfolio-after-3.png`,
-    goal: "Replace a generic template with a credible, custom practice website that ranks for the right local searches.",
-    outcome: "Now ranking on the first page of Google for two priority service-area searches.",
-    results: ["Service area pages", "24/7 intake form", "Local SEO optimization"],
-  },
-];
-
-function ProjectCard({ item, index }: { item: typeof portfolioItems[0]; index: number }) {
-  return (
-    <ScrollReveal delay={index * 0.12}>
-      <div className="bg-white rounded-2xl border border-black/10 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 h-full flex flex-col">
-        <div className="aspect-[4/3] overflow-hidden bg-[#F4F1EC]">
-          <ResponsiveImage
-            src={item.after}
-            alt={`${item.name} website designed by Graylock Digital`}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover object-top"
-          />
-        </div>
-
-        <div className="p-6 md:p-7 flex flex-col flex-1">
-          <span className="text-[#B23E16] text-xs font-bold uppercase tracking-widest mb-2 block">
-            {item.type}
-          </span>
-          <h3 className="text-xl font-display text-charcoal mb-3">{item.name}</h3>
-          <p className="text-charcoal/70 font-sans text-sm mb-5 leading-relaxed">{item.goal}</p>
-
-          <div className="bg-[#E85D26]/[0.06] border border-[#E85D26]/20 rounded-lg px-4 py-3 mb-5 mt-auto">
-            <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#B23E16] mb-1">
-              Outcome
-            </p>
-            <p className="text-charcoal font-sans text-sm leading-snug">{item.outcome}</p>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {item.results.map(r => (
-              <span
-                key={r}
-                className="text-xs font-sans bg-[#F4F1EC] text-charcoal/70 px-3 py-1.5 rounded-full border border-black/10"
-              >
-                {r}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </ScrollReveal>
-  );
-}
-
 export default function Work() {
   return (
     <>
@@ -478,24 +414,6 @@ export default function Work() {
       {featuredProjects.map((project, i) => (
         <FeaturedProjectSection key={project.name} project={project} index={i} />
       ))}
-
-      <section className="bg-[#F4F1EC] py-16 md:py-24 px-6 md:px-12 border-t border-black/5">
-        <div className="max-w-7xl mx-auto">
-          <ScrollReveal className="text-center mb-10 md:mb-14">
-            <span className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-3 block">
-              More Recent Work
-            </span>
-            <h2 className="text-3xl md:text-4xl font-display text-charcoal">
-              A Few More Sites We&rsquo;re Proud Of
-            </h2>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item, i) => (
-              <ProjectCard key={item.name} item={item} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="bg-charcoal py-20 px-6 md:px-12 border-t border-gunmetal">
         <div className="max-w-4xl mx-auto text-center">
