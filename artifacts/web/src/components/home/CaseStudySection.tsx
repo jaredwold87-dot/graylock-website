@@ -58,9 +58,12 @@ export function CaseStudySection() {
               ))}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <CTAButton href="/get-started">
                 Get Your Free Homepage Demo
+              </CTAButton>
+              <CTAButton href="/featured-projects" variant="outline">
+                View Our Other Projects
               </CTAButton>
             </div>
           </ScrollReveal>
