@@ -4,13 +4,13 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Quote, Star, Check, Lock, MapPin } from "lucide-react";
 import { Link } from "wouter";
-import spiTransformation from "@assets/generated_images/spi-transformation.webp";
-import perksTransformation from "@assets/generated_images/perks-transformation.webp";
-import emboxedTransformation from "@assets/generated_images/emboxed-transformation.webp";
-import kingsburyTransformation from "@assets/generated_images/kingsbury-transformation.webp";
-import montanaTransformation from "@assets/generated_images/montana-transformation.webp";
-import wceTransformation from "@assets/generated_images/wce-transformation.webp";
-import heroBackground from "@assets/generated_images/featured-hero-bg-v2.webp";
+import spiTransformation from "@/assets/work/spi-transformation.webp";
+import perksTransformation from "@/assets/work/perks-transformation.webp";
+import emboxedTransformation from "@/assets/work/emboxed-transformation.webp";
+import kingsburyTransformation from "@/assets/work/kingsbury-transformation.webp";
+import montanaTransformation from "@/assets/work/montana-transformation.webp";
+import wceTransformation from "@/assets/work/wce-transformation.webp";
+import heroBackground from "@/assets/work/featured-hero-bg-v2.webp";
 
 type Theme = "light" | "dark";
 
