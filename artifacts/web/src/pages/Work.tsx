@@ -340,14 +340,14 @@ export default function Work() {
           src={heroBackground}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 w-full h-full object-cover object-center opacity-90"
+          className="pointer-events-none absolute inset-0 w-full h-full object-cover object-[72%_center] md:object-right opacity-90"
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/85 to-charcoal/40"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/95 to-charcoal/30"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/60"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/50"
           aria-hidden="true"
         />
         <div
@@ -358,39 +358,49 @@ export default function Work() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gunmetal to-transparent"
           aria-hidden="true"
         />
-        <div className="relative max-w-3xl mx-auto text-center">
+        <div className="relative max-w-7xl mx-auto w-full">
           <ScrollReveal>
-            <div className="inline-flex items-center gap-3 mb-6">
-              <span className="h-px w-8 bg-[#E85D26]" aria-hidden="true" />
-              <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.25em]">
-                Selected Work
-              </span>
-              <span className="h-px w-8 bg-[#E85D26]" aria-hidden="true" />
-            </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-offwhite mb-6 leading-[1.02]">
-              The Proof Is
-              <br />
-              <span className="text-[#E85D26]">In the Pixels.</span>
-            </h1>
-            <p className="text-lg md:text-xl font-sans text-stone max-w-2xl mx-auto leading-relaxed">
-              Real, custom websites we&rsquo;ve designed and built for trust-based local
-              businesses &mdash; each one crafted to make a strong first impression and turn
-              visitors into clients.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/get-started"
-                className="group inline-flex items-center justify-center gap-2 bg-[#E85D26] text-white font-sans font-bold text-sm md:text-base px-7 py-3.5 rounded-lg shadow-[0_8px_24px_rgba(232,93,38,0.35)] hover:bg-[#d4521f] hover:-translate-y-0.5 transition-all duration-300"
-              >
-                Get Your Free Homepage Demo
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center justify-center gap-2 border border-white/20 text-offwhite font-sans font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300"
-              >
-                See Pricing
-              </Link>
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-7">
+                <span className="h-px w-10 bg-[#E85D26]" aria-hidden="true" />
+                <span className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.32em]">
+                  The Portfolio
+                </span>
+              </div>
+              <h1 className="text-5xl md:text-7xl lg:text-[5.25rem] font-display text-offwhite mb-7 leading-[0.98] tracking-[-0.01em]">
+                Websites Worthy
+                <br />
+                of the Work
+                <br />
+                <span className="text-[#E85D26]">Behind Them.</span>
+              </h1>
+              <p className="text-lg md:text-xl font-sans text-stone max-w-xl leading-relaxed">
+                Custom-built digital storefronts for trust-based local businesses &mdash;
+                engineered to command attention, signal credibility, and turn quiet
+                visitors into committed clients.
+              </p>
+              <div className="mt-9 flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/get-started"
+                  className="group inline-flex items-center justify-center gap-2 bg-[#E85D26] text-white font-sans font-bold text-sm md:text-base px-7 py-3.5 rounded-lg shadow-[0_8px_24px_rgba(232,93,38,0.35)] hover:bg-[#d4521f] hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  Get Your Free Homepage Demo
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="inline-flex items-center justify-center gap-2 border border-white/20 text-offwhite font-sans font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300"
+                >
+                  See Pricing
+                </Link>
+              </div>
+              <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-stone/70 font-sans text-[13px] font-semibold uppercase tracking-[0.18em]">
+                <span>100% Custom</span>
+                <span className="text-[#E85D26]/50" aria-hidden="true">&middot;</span>
+                <span>No Templates</span>
+                <span className="text-[#E85D26]/50" aria-hidden="true">&middot;</span>
+                <span>Built to Convert</span>
+              </div>
             </div>
           </ScrollReveal>
         </div>
