@@ -68,6 +68,7 @@ const WHO_WE_HELP_ALL = [...WHO_WE_HELP_OTHER, ...WHO_WE_HELP_PRACTICES];
 
 const ABOUT_MENU = [
   { name: "About Us", path: "/about" },
+  { name: "Process", path: "/how-it-works" },
   { name: "Featured Projects", path: "/featured-projects" },
 ];
 
@@ -485,7 +486,6 @@ export function Navbar() {
   const isServicesActive = SERVICE_PATHS.some((p) => location === p);
 
   const navLinksAfter = [
-    { name: "Process", path: "/how-it-works" },
     { name: "Pricing", path: "/pricing" },
   ];
 
