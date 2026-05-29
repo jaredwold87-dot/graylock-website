@@ -10,6 +10,7 @@ import perksTransformation from "@assets/image_1780012312407.png";
 import emboxedTransformation from "@assets/image_1780012520417.png";
 import kingsburyTransformation from "@assets/image_1780012557969.png";
 import montanaTransformation from "@assets/image_1780014732080.png";
+import wceTransformation from "@assets/image_1780015392879.png";
 import heroBackground from "@assets/generated_images/featured-hero-bg.png";
 
 type Theme = "light" | "dark";
@@ -104,7 +105,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A warm, compassionate site for a child and teen therapy practice \u2014 built to put anxious families at ease and route them straight to a free consultation.",
     image: montanaTransformation,
-    theme: "light",
+    theme: "dark",
     delivered: [
       "Free consultation booking",
       "Warm, trust-building design",
@@ -114,6 +115,26 @@ const featuredProjects: FeaturedProject[] = [
     placeholder: {
       name: "Montana Counseling Solutions",
       role: "Kalispell, MT",
+      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "West Coast Eye Institute",
+    category: "Ophthalmology & Eye Care",
+    location: "Citrus County, FL",
+    description:
+      "A polished, reassuring site for a five-specialist ophthalmology practice \u2014 built to make world-class eye care feel close to home and easy to book across two locations.",
+    image: wceTransformation,
+    theme: "light",
+    delivered: [
+      "Appointment request flow",
+      "Services & conditions library",
+      "Multi-location presentation",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "West Coast Eye Institute",
+      role: "Citrus County, FL",
       note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
@@ -446,6 +467,8 @@ export default function Work() {
                 <span>Kingsbury Chiropractic</span>
                 <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
                 <span>Montana Counseling</span>
+                <span className="text-[#E85D26]/60" aria-hidden="true">&middot;</span>
+                <span>West Coast Eye Institute</span>
               </div>
             </div>
           </ScrollReveal>
