@@ -759,6 +759,59 @@ export default function HomeBuildersFunnel() {
         </div>
       </section>
 
+      {/* Section 4b — Testimonials */}
+      <section className="bg-[#f5f5f4] px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal className="text-center mb-12 md:mb-16">
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+              Don&rsquo;t Just Take Our Word For It
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight">
+              Real Results From Real Business Owners
+            </h2>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
+            {[
+              {
+                quote:
+                  "Working with Tim and the team at Graylock Digital was an outstanding experience from start to finish. Their attention to detail, communication, and dedication to delivering a product that reflected our goals exceeded all expectations.",
+                name: "Kylen & Keith Perks",
+                role: "L.A. Perks Petroleum Specialists",
+              },
+              {
+                quote:
+                  "Tim and his team built a site that explains my business clearly and speaks straight to the people I want to serve. New clients regularly tell me they reached out because the website made them feel confident before we ever spoke.",
+                name: "Bobbie Wold",
+                role: "Owner, Montana Counseling Solutions",
+              },
+              {
+                quote:
+                  "Tim and his team had a rough-draft site to me in a matter of days that far exceeded what I had before. They delivered at every point and answered every text and call with professionalism and kindness. 10 out of 10, hands down.",
+                name: "Jim Erwin",
+                role: "CEO & Founder, Shooting Performance Institute",
+              },
+            ].map((t, i) => (
+              <ScrollReveal key={t.name} delay={0.1 + i * 0.1} className="h-full">
+                <figure className="h-full flex flex-col bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-7">
+                  <div className="flex gap-1 mb-4 text-[#E85D26]">
+                    {[0, 1, 2, 3, 4].map((s) => (
+                      <Star key={s} size={16} className="fill-current" />
+                    ))}
+                  </div>
+                  <blockquote className="flex-1 text-[#4a5568] font-sans text-sm md:text-base leading-relaxed mb-5">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="border-t border-gray-100 pt-4">
+                    <p className="font-display text-base text-[#1a202c]">{t.name}</p>
+                    <p className="font-sans text-xs text-[#4a5568] mt-0.5">{t.role}</p>
+                  </figcaption>
+                </figure>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Section 4c — Pricing */}
       <section className="bg-white px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
         <div className="max-w-6xl mx-auto">
@@ -980,6 +1033,67 @@ export default function HomeBuildersFunnel() {
                   <p className="text-[#4a5568] font-sans text-base leading-relaxed">{item.desc}</p>
                 </div>
               ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Section 4d — Message From the Founder */}
+      <section className="bg-[#1a1a1a] px-6 md:px-12 py-16 md:py-24 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+              A Message From Our Co-Founder
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-white leading-tight">
+              You&rsquo;ll Work Directly With Tim — Start to Finish
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center bg-[#202020] border border-white/10 rounded-2xl md:rounded-3xl p-7 md:p-12">
+              {/* Founder photo — placeholder until Tim's photo is added */}
+              <div className="flex justify-center">
+                <div className="relative">
+                  <div
+                    aria-hidden="true"
+                    className="absolute -inset-3 rounded-3xl bg-[#E85D26]/20 blur-2xl"
+                  />
+                  <div className="relative w-44 h-52 md:w-52 md:h-64 rounded-2xl overflow-hidden bg-gradient-to-br from-[#2a2a2a] to-[#161616] border border-white/10 shadow-2xl flex flex-col items-center justify-center">
+                    <span className="font-display text-7xl md:text-8xl text-[#E85D26] leading-none">
+                      T
+                    </span>
+                    <span className="mt-3 text-[10px] font-sans uppercase tracking-[0.25em] text-white/40">
+                      Tim · Co-Founder
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="text-center md:text-left">
+                <p className="text-white/85 font-sans text-base md:text-lg leading-relaxed mb-4">
+                  When you reach out to Graylock, you don&rsquo;t get a sales rep, a
+                  call center, or a ticket number — you get me. I personally meet with
+                  every home builder who&rsquo;s interested in a website, and I stay
+                  involved from our first conversation through design, build, and launch.
+                </p>
+                <p className="text-white/85 font-sans text-base md:text-lg leading-relaxed mb-6">
+                  I take the time to understand your business, the homes you&rsquo;re
+                  proud of, and the buyers you want more of — then my team and I build
+                  a site that earns trust the moment someone lands on it. You&rsquo;ll
+                  always have a real person to call, and that person is me.
+                </p>
+                <div className="flex items-center gap-3 justify-center md:justify-start">
+                  <div className="h-px w-10 bg-[#E85D26]" />
+                  <div>
+                    <p className="font-display text-xl text-white leading-none">Tim</p>
+                    <p className="font-sans text-xs text-white/50 mt-1">
+                      Co-Founder, Graylock Digital
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
