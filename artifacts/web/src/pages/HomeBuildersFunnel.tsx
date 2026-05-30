@@ -15,6 +15,7 @@ import heroMockupImage from "@/assets/home-builders/funnel-mockup.webp";
 import heroMockupImageMobile from "@/assets/home-builders/funnel-mockup-mobile.webp";
 import differenceBeforeImage from "@/assets/home-builders/difference-before.webp";
 import differenceAfterImage from "@/assets/home-builders/difference-after.webp";
+import timFounderPhoto from "@/assets/tim-founder.webp";
 import {
   Monitor,
   TrendingDown,
@@ -1052,21 +1053,18 @@ export default function HomeBuildersFunnel() {
 
           <ScrollReveal delay={0.1}>
             <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center bg-[#202020] border border-white/10 rounded-2xl md:rounded-3xl p-7 md:p-12">
-              {/* Founder photo — placeholder until Tim's photo is added */}
+              {/* Founder photo */}
               <div className="flex justify-center">
                 <div className="relative">
                   <div
                     aria-hidden="true"
                     className="absolute -inset-3 rounded-3xl bg-[#E85D26]/20 blur-2xl"
                   />
-                  <div className="relative w-44 h-52 md:w-52 md:h-64 rounded-2xl overflow-hidden bg-gradient-to-br from-[#2a2a2a] to-[#161616] border border-white/10 shadow-2xl flex flex-col items-center justify-center">
-                    <span className="font-display text-7xl md:text-8xl text-[#E85D26] leading-none">
-                      T
-                    </span>
-                    <span className="mt-3 text-[10px] font-sans uppercase tracking-[0.25em] text-white/40">
-                      Tim · Co-Founder
-                    </span>
-                  </div>
+                  <img
+                    src={timFounderPhoto}
+                    alt="Tim, Co-Founder of Graylock Digital"
+                    className="relative w-44 h-52 md:w-52 md:h-64 rounded-2xl object-cover object-top border border-white/10 shadow-2xl"
+                  />
                 </div>
               </div>
 
