@@ -41,9 +41,6 @@ demoRequestRouter.post("/demo-request", async (req: Request, res: Response) => {
   if (!EMAIL_RE.test(email.toLowerCase())) {
     return res.status(400).json({ success: false, error: "Please enter a valid email address." });
   }
-  if (!phone) {
-    return res.status(400).json({ success: false, error: "Phone number is required." });
-  }
   if (!businessName) {
     return res.status(400).json({ success: false, error: "Business name is required." });
   }
@@ -61,7 +58,7 @@ Name: ${fullName}
 Business: ${businessName}
 Current Website: ${websiteUrl}
 Email: ${email}
-Phone: ${phone}
+Phone: ${phone || "—"}
 
 ${preferredDate || preferredTime ? `Preferred Meeting Date: ${preferredDate || "—"}
 Preferred Meeting Time: ${preferredTime || "—"}${timezone ? ` (${timezone})` : ""}` : `Time Zone: ${timezone || "—"}`}

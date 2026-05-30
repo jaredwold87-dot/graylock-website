@@ -159,7 +159,6 @@ function DemoRequestForm() {
     name: "",
     business_name: "",
     email: "",
-    phone: "",
   });
 
   const timezone = typeof Intl !== "undefined"
@@ -187,7 +186,6 @@ function DemoRequestForm() {
             business_name: form.business_name,
             website_url: "none",
             email: form.email,
-            phone: form.phone,
             notes: "",
             timezone,
             source: "home-builders-funnel",
@@ -285,19 +283,6 @@ function DemoRequestForm() {
             autoComplete="email"
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
-            className={inputClass}
-            disabled={status === "submitting"}
-          />
-        </div>
-        <div className="md:col-span-2">
-          <label className={labelClass} htmlFor="dr_phone">Phone Number *</label>
-          <input
-            id="dr_phone"
-            type="tel"
-            required
-            autoComplete="tel"
-            value={form.phone}
-            onChange={(e) => update("phone", e.target.value)}
             className={inputClass}
             disabled={status === "submitting"}
           />
