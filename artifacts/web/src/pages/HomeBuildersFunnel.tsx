@@ -1,7 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ResponsiveImage } from "@/components/ui/ResponsiveImage";
-import { PRICING_TIERS } from "@/lib/constants";
 import {
   Accordion,
   AccordionItem,
@@ -153,7 +152,13 @@ function CompactCountdown() {
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-function DemoRequestForm() {
+function DemoRequestForm({
+  submitLabel = "Get Started Now",
+  variant = "page",
+}: {
+  submitLabel?: string;
+  variant?: "page" | "modal";
+}) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [form, setForm] = useState({
@@ -161,6 +166,12 @@ function DemoRequestForm() {
     business_name: "",
     email: "",
   });
+
+  const idp = variant === "modal" ? "drm" : "dr";
+  const formClass =
+    variant === "modal"
+      ? "text-left"
+      : "rounded-xl border border-gray-200 bg-white shadow-lg px-6 py-7 md:px-8 md:py-9 mb-10 text-left";
 
   const timezone = typeof Intl !== "undefined"
     ? Intl.DateTimeFormat().resolvedOptions().timeZone
@@ -245,14 +256,14 @@ function DemoRequestForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-xl border border-gray-200 bg-white shadow-lg px-6 py-7 md:px-8 md:py-9 mb-10 text-left"
+      className={formClass}
       noValidate
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
         <div className="md:col-span-2">
-          <label className={labelClass} htmlFor="dr_name">First &amp; Last Name *</label>
+          <label className={labelClass} htmlFor={`${idp}_name`}>First &amp; Last Name *</label>
           <input
-            id="dr_name"
+            id={`${idp}_name`}
             type="text"
             required
             autoComplete="name"
@@ -263,9 +274,9 @@ function DemoRequestForm() {
           />
         </div>
         <div>
-          <label className={labelClass} htmlFor="dr_business_name">Company Name *</label>
+          <label className={labelClass} htmlFor={`${idp}_business_name`}>Company Name *</label>
           <input
-            id="dr_business_name"
+            id={`${idp}_business_name`}
             type="text"
             required
             autoComplete="organization"
@@ -276,9 +287,9 @@ function DemoRequestForm() {
           />
         </div>
         <div>
-          <label className={labelClass} htmlFor="dr_email">Email Address *</label>
+          <label className={labelClass} htmlFor={`${idp}_email`}>Email Address *</label>
           <input
-            id="dr_email"
+            id={`${idp}_email`}
             type="email"
             required
             autoComplete="email"
@@ -308,7 +319,7 @@ function DemoRequestForm() {
           </>
         ) : (
           <>
-            Get Started Now
+            {submitLabel}
             <ArrowRight size={20} className="ml-2" />
           </>
         )}
@@ -321,13 +332,65 @@ function DemoRequestForm() {
   );
 }
 
-function scrollToBooking(e: React.MouseEvent<HTMLAnchorElement>) {
-  e.preventDefault();
-  const el = document.getElementById("book-demo");
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-4 overflow-y-auto">
+      <div
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="demo-modal-title"
+        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl my-8"
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-3.5 right-3.5 w-9 h-9 inline-flex items-center justify-center rounded-full text-[#4a5568] hover:bg-gray-100 hover:text-[#1a202c] transition-colors"
+        >
+          <X size={20} />
+        </button>
+        <div className="px-6 py-8 md:px-8 md:py-9">
+          <h3
+            id="demo-modal-title"
+            className="text-2xl md:text-3xl font-display text-[#1a202c] mb-2 text-center pr-6 leading-tight"
+          >
+            Get Your Free Custom Homepage Demo
+          </h3>
+          <p className="text-[#4a5568] font-sans text-sm md:text-base text-center mb-6 leading-relaxed">
+            Tell us a bit about your business and we&rsquo;ll reach out within 1
+            business day to schedule your free 15-minute discovery call.
+          </p>
+          <DemoRequestForm submitLabel="Get My Free Demo" variant="modal" />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default function HomeBuildersFunnel() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => setModalOpen(true);
   return (
     <>
       <SEO
@@ -396,9 +459,9 @@ export default function HomeBuildersFunnel() {
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display leading-tight mb-6">
               <span className="block text-white">
-                Website Design for Custom Home{" "}
+                Stop Losing High-Budget Builds Because Your Website{" "}
                 <span className="text-[#E85D26] relative inline-block">
-                  <span className="funnel-shine-99">Builders.</span>
+                  <span className="funnel-shine-99">Looks Cheap.</span>
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 300 18"
@@ -418,10 +481,9 @@ export default function HomeBuildersFunnel() {
               </span>
             </h1>
             <p className="text-stone text-lg md:text-xl font-sans leading-relaxed mb-6">
-              Showcase your work and attract higher-budget clients. We build custom,
-              lead-generating websites that make your phone ring. Book a 15-minute
-              call, and we will design a custom homepage concept for your business —
-              100% free, before you spend a dollar.
+              We build custom websites for home builders that rank on Google,
+              showcase your portfolio, and turn visitors into booked estimates.
+              Live in 7 days. $0 upfront build fee this month.
             </p>
             <div className="bg-[#E85D26]/10 border border-[#E85D26]/30 rounded-lg px-5 py-4 mb-8">
               <p className="text-white font-sans text-base md:text-lg font-semibold leading-snug">
@@ -429,14 +491,14 @@ export default function HomeBuildersFunnel() {
                 Build Fee Cut to $0 — On Any Subscription Level. Offer ends {OFFER_WINDOW.lastDayLabel}.
               </p>
             </div>
-            <a
-              href="#book-demo"
-              onClick={scrollToBooking}
+            <button
+              type="button"
+              onClick={openModal}
               className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto text-center"
             >
-              Get Your Free Website Strategy
+              Get Your Free Homepage Demo
               <ArrowRight size={20} className="ml-2" />
-            </a>
+            </button>
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-stone font-sans text-sm">
               <span className="inline-flex items-center gap-1.5">
                 <Check size={16} className="text-[#E85D26] flex-shrink-0" strokeWidth={3} />
@@ -774,18 +836,24 @@ export default function HomeBuildersFunnel() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
             {[
               {
+                pull:
+                  "Their attention to detail and dedication to delivering a product that reflected our goals exceeded all expectations.",
                 quote:
                   "Working with Tim and the team at Graylock Digital was an outstanding experience from start to finish. Their attention to detail, communication, and dedication to delivering a product that reflected our goals exceeded all expectations.",
                 name: "Kylen & Keith Perks",
                 role: "L.A. Perks Petroleum Specialists",
               },
               {
+                pull:
+                  "New clients regularly tell me they reached out because the website made them feel confident before we ever spoke.",
                 quote:
                   "Tim and his team built a site that explains my business clearly and speaks straight to the people I want to serve. New clients regularly tell me they reached out because the website made them feel confident before we ever spoke.",
                 name: "Bobbie Wold",
                 role: "Owner, Montana Counseling Solutions",
               },
               {
+                pull:
+                  "They had a rough-draft site to me in a matter of days that far exceeded what I had before. 10 out of 10, hands down.",
                 quote:
                   "Tim and his team had a rough-draft site to me in a matter of days that far exceeded what I had before. They delivered at every point and answered every text and call with professionalism and kindness. 10 out of 10, hands down.",
                 name: "Jim Erwin",
@@ -799,6 +867,9 @@ export default function HomeBuildersFunnel() {
                       <Star key={s} size={16} className="fill-current" />
                     ))}
                   </div>
+                  <p className="text-[#E85D26] font-display text-lg md:text-xl font-bold leading-snug mb-4">
+                    &ldquo;{t.pull}&rdquo;
+                  </p>
                   <blockquote className="flex-1 text-[#4a5568] font-sans text-sm md:text-base leading-relaxed mb-5">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
@@ -816,115 +887,58 @@ export default function HomeBuildersFunnel() {
       {/* Section 4c — Pricing */}
       <section className="bg-white px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
         <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-12 md:mb-14">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
             <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
-              Simple Monthly Subscription
+              Simple, Transparent Pricing
             </p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight mb-4">
-              Pick the Plan That Fits — Then Start With a $0 Build Fee
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-[#1a202c] leading-tight mb-5 max-w-3xl mx-auto">
+              Professional Web Design Shouldn&rsquo;t Cost $10,000 Upfront.
             </h2>
             <p className="text-[#4a5568] font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Every plan includes hosting, SSL, daily backups, a dedicated account
-              manager, and a custom-built site. Month-to-month, no long-term contracts.
+              Traditional agencies charge $5,000 to $15,000 to build a custom site —
+              and then disappear. We do it differently. You get a fully custom
+              website with no large upfront cost, no long-term contract, and a team
+              that stays with you after launch.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-6 max-w-6xl mx-auto items-stretch">
-            {PRICING_TIERS.map((tier, i) => {
-              const isPopular = "popular" in tier && tier.popular;
-              const isCustom = "isCustom" in tier && tier.isCustom;
-              const buildFee = !isCustom && "setup" in tier
-                ? (tier.setup.match(/\$[\d,]+/) ?? ["$999"])[0]
-                : null;
-              return (
-                <ScrollReveal key={tier.name} delay={i * 0.06}>
-                  <div
-                    className={`relative h-full flex flex-col rounded-2xl p-6 md:p-7 border-2 transition-all duration-200 ${
-                      isPopular
-                        ? "border-[#E85D26] bg-[#fff7f3] shadow-xl md:-translate-y-2"
-                        : "border-gray-200 bg-white shadow-md hover:shadow-lg"
-                    }`}
-                  >
-                    {isPopular && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E85D26] text-white font-sans text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md whitespace-nowrap">
-                        Most Popular
-                      </div>
-                    )}
-                    <h3 className="font-display text-2xl md:text-3xl text-[#1a202c] mb-1">
-                      {tier.name}
-                    </h3>
-                    <div className="flex items-baseline gap-1 mb-3 min-h-[3.5rem]">
-                      {isCustom ? (
-                        <span className="text-3xl md:text-4xl font-display font-bold text-[#1a202c]">
-                          Let&rsquo;s Talk
-                        </span>
-                      ) : (
-                        <>
-                          <span className="text-4xl md:text-5xl font-display font-bold text-[#1a202c] tabular-nums">
-                            {tier.price}
-                          </span>
-                          <span className="text-[#4a5568] font-sans text-base">/mo</span>
-                        </>
-                      )}
-                    </div>
+          <ScrollReveal delay={0.1} className="max-w-2xl mx-auto">
+            <ul className="space-y-4 mb-8">
+              {[
+                "$0 Build Fee — this month only (normally up to $1,499)",
+                "Starting at $199/month — includes hosting, maintenance, and updates",
+                "7–10 business day delivery",
+                "30-Day Money-Back Guarantee",
+                "Month-to-month — cancel anytime",
+              ].map((bullet) => (
+                <li key={bullet} className="flex items-start gap-3.5">
+                  <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#E85D26] flex-shrink-0 mt-0.5 shadow-sm">
+                    <Check size={16} className="text-white" strokeWidth={3} />
+                  </span>
+                  <span className="text-[#1a202c] font-sans text-base md:text-lg font-medium leading-snug">
+                    {bullet}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-                    {isCustom ? (
-                      <div className="rounded-lg bg-[#fff7f3] border border-[#E85D26]/30 px-3.5 py-2.5 mb-5">
-                        <p className="font-sans text-xs md:text-sm leading-snug text-[#1a202c]">
-                          <Sparkles size={14} className="inline-block -mt-0.5 mr-1 text-[#E85D26]" />
-                          <span className="font-bold text-[#E85D26]">Custom Quote</span>{" "}
-                          — scoped to your project on a free call.
-                        </p>
-                      </div>
-                    ) : (
-                      <div className="rounded-lg bg-[#fff7f3] border border-[#E85D26]/30 px-3.5 py-2.5 mb-5">
-                        <p className="font-sans text-xs md:text-sm leading-snug text-[#1a202c]">
-                          <Sparkles size={14} className="inline-block -mt-0.5 mr-1 text-[#E85D26]" />
-                          <span className="font-bold text-[#E85D26]">{buildFee} Build Fee Waived for {OFFER_WINDOW.monthName}</span>{" "}
-                          — Pay <span className="font-bold">$0</span> to Start.
-                        </p>
-                      </div>
-                    )}
-
-                    <p className="text-[#4a5568] font-sans text-sm leading-relaxed mb-5">
-                      {tier.description}
-                    </p>
-
-                    <ul className="space-y-2 mb-6 flex-1">
-                      {tier.features.slice(0, 5).map((f) => (
-                        <li key={f} className="flex items-start gap-2">
-                          <Check size={15} className="text-[#E85D26] flex-shrink-0 mt-0.5" />
-                          <span className="text-[#4a5568] font-sans text-sm leading-snug">{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <a
-                      href="#book-demo"
-                      onClick={scrollToBooking}
-                      className={`block w-full text-center font-sans font-bold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-200 ${
-                        isPopular
-                          ? "bg-[#E85D26] text-white hover:bg-[#d14d1a] shadow-md hover:shadow-lg"
-                          : "bg-[#1a202c] text-white hover:bg-black"
-                      }`}
-                    >
-                      {isCustom ? "Schedule a Scoping Call" : "Book My Free Demo"}
-                    </a>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
-
-          <ScrollReveal className="text-center mt-10">
-            <p className="text-[#4a5568] font-sans text-sm md:text-base">
-              No payment required to see your custom homepage demo. Your build fee is{" "}
-              <span className="font-semibold text-[#1a202c]">$0</span> this month when you
-              approve the design — book your free demo below.
-            </p>
+            <div className="text-center">
+              <button
+                type="button"
+                onClick={openModal}
+                className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto"
+              >
+                Get Your Free Homepage Demo
+                <ArrowRight size={20} className="ml-2" />
+              </button>
+              <p className="text-[#6b7280] font-sans text-sm md:text-base mt-5 max-w-xl mx-auto leading-relaxed">
+                Want to see the full plan breakdown? We&rsquo;ll walk you through all
+                the options on your free 15-minute call.
+              </p>
+            </div>
           </ScrollReveal>
 
-          {/* 30-Day Site-Live Guarantee — placed immediately below pricing cards */}
+          {/* 30-Day Site-Live Guarantee — placed immediately below pricing */}
           <ScrollReveal delay={0.15} className="mt-12 md:mt-14">
             <div className="bg-gradient-to-br from-[#E85D26]/10 via-[#E85D26]/5 to-transparent border-2 border-[#E85D26]/30 rounded-2xl p-7 md:p-10 max-w-4xl mx-auto">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-5 md:gap-7 text-center md:text-left">
@@ -1181,16 +1195,35 @@ export default function HomeBuildersFunnel() {
 
           <CompactCountdown />
 
-          <a
-            href="#book-demo"
-            onClick={scrollToBooking}
+          <button
+            type="button"
+            onClick={openModal}
             className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl mt-10"
           >
-            Request My Free Custom Demo
+            Get Your Free Homepage Demo
             <ArrowRight size={20} className="ml-2" />
-          </a>
+          </button>
         </div>
       </section>
+
+      {/* Spacer so the mobile sticky CTA bar doesn't cover content */}
+      <div aria-hidden="true" className="md:hidden h-24" />
+
+      {/* Mobile-only sticky CTA bar (< 768px) */}
+      <div
+        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#1a1a1a] border-t border-white/10 px-4 py-3"
+        style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
+      >
+        <button
+          type="button"
+          onClick={openModal}
+          className="w-full inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base px-6 py-3.5 rounded-lg hover:bg-[#d14d1a] transition-colors shadow-lg"
+        >
+          Get Your Free Homepage Demo →
+        </button>
+      </div>
+
+      <DemoModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
