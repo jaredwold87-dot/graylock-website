@@ -31,9 +31,6 @@ import {
   MessagesSquare,
   UserCheck,
   TrendingUp,
-  Camera,
-  Gauge,
-  RefreshCw,
   Star,
   X,
 } from "lucide-react";
@@ -57,7 +54,6 @@ function computeOfferWindow(now: Date = new Date()) {
 }
 
 const OFFER_WINDOW = computeOfferWindow();
-const URGENCY_COPY = `${OFFER_WINDOW.monthName} Only: Get a Free Custom Homepage Demo. Love it? Get the full build with a $0 build fee. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
 
 const FUNNEL_FAQS: { q: string; a: string }[] = [
   {
@@ -418,11 +414,6 @@ export default function ContractorsFunnel() {
         }}
       />
 
-      {/* Section 1 — Sticky Urgency Banner */}
-      <div className="sticky top-0 z-50 bg-[#E85D26] text-white text-center text-sm md:text-base font-sans font-semibold px-4 py-2.5 shadow-md">
-        {URGENCY_COPY}
-      </div>
-
       {/* Top Logo Bar — non-clickable, transparent (overlays hero) */}
       <div className="absolute top-[80px] sm:top-[60px] md:top-[44px] left-0 right-0 z-40 px-6 md:px-12 py-4 md:py-5 pointer-events-none">
         <div className="max-w-6xl mx-auto flex justify-center md:justify-start">
@@ -437,7 +428,7 @@ export default function ContractorsFunnel() {
 
       {/* Section 2 — Hero */}
       <section
-        className="hb-hero relative bg-[#1a1a1a] bg-cover bg-center bg-no-repeat px-6 md:px-12 py-14 md:py-24"
+        className="hb-hero relative bg-[#1a1a1a] bg-cover bg-center bg-no-repeat px-6 md:px-12 pt-28 md:pt-32 pb-14 md:pb-24"
         style={
           {
             ["--hb-hero-bg" as string]: `url(${heroBgImage})`,
@@ -1043,9 +1034,6 @@ export default function ContractorsFunnel() {
             <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-4 leading-tight">
               What Happens After Launch?
             </h2>
-            <p className="text-[#4a5568] text-lg font-sans max-w-2xl mx-auto">
-              Our relationship doesn't end when the site goes live. In fact, that's just the beginning.
-            </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -1053,22 +1041,22 @@ export default function ContractorsFunnel() {
               {
                 icon: <Wrench className="text-[#E85D26]" size={22} />,
                 title: "Total Maintenance",
-                desc: "We handle all the invisible technical work — software updates, plugin management, security scans, and uptime monitoring. You never have to log into a complicated dashboard or worry about your site getting hacked.",
+                desc: "We handle all updates, security, and hosting. You never have to log into a dashboard.",
               },
               {
                 icon: <MessagesSquare className="text-[#E85D26]" size={22} />,
                 title: "Easy Change Requests",
-                desc: "Need to update a model home page or change your office hours? Just email us. We treat your requests like an internal IT team would — most content updates are completed within 3 business days.",
+                desc: "Need to update a photo or change text? Just email us. Done in 3 days.",
               },
               {
                 icon: <UserCheck className="text-[#E85D26]" size={22} />,
-                title: "Dedicated Account Manager",
-                desc: "Every plan includes a real person who knows your business and your website. Need to discuss performance, request changes, or ask a question? You have a direct line — no support tickets, no chatbots.",
+                title: "Dedicated Manager",
+                desc: "You get a direct line to a real person who knows your business. No support tickets.",
               },
               {
                 icon: <TrendingUp className="text-[#E85D26]" size={22} />,
-                title: "Ongoing SEO & Performance Monitoring",
-                desc: "Your account manager monitors your site's SEO and keeps you competitive in local search. We also do a long-term refresh and strategy review at the 2-year mark — because great websites evolve with your business.",
+                title: "Ongoing SEO",
+                desc: "We monitor your performance to keep you competitive in local search.",
               },
             ].map((card, i) => (
               <ScrollReveal key={card.title} delay={i * 0.08} className="bg-[#f5f5f4] p-6 md:p-8 rounded-xl border border-gray-200">
@@ -1080,115 +1068,6 @@ export default function ContractorsFunnel() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Section 5c — Stay-Current Guarantee */}
-      <section className="bg-[#f5f5f4] px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal className="text-center mb-12">
-            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.25em] mb-4">
-              Included in Every Plan · No Extra Cost
-            </p>
-            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-5 leading-[1.1]">
-              Every 2 Years, You Get a{" "}
-              <span className="text-[#E85D26]">Brand-New Website</span>
-              <span className="block">— On the House.</span>
-            </h2>
-            <p className="text-[#4a5568] text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed">
-              Your monthly plan doesn&rsquo;t just keep your site live — it keeps it{" "}
-              <span className="font-bold text-[#1a202c]">brand-new</span>. Every 24
-              months we rebuild your site top-to-bottom with the latest design,
-              performance, and SEO standards. Same plan. Same price.{" "}
-              <span className="font-bold text-[#1a202c]">$0 extra.</span>
-            </p>
-          </ScrollReveal>
-
-          {/* Visual timeline */}
-          <ScrollReveal delay={0.1}>
-            <div className="relative max-w-4xl mx-auto mb-14 mt-4">
-              {/* Connecting line — desktop */}
-              <div
-                aria-hidden="true"
-                className="hidden md:block absolute top-10 left-[8%] right-[8%] h-1 bg-gradient-to-r from-[#E85D26]/30 via-[#E85D26] to-[#E85D26]/30 rounded-full"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative">
-                {[
-                  { label: "Year 0", title: "Launch", desc: "Your custom site goes live." },
-                  { label: "Year 2", title: "Free Refresh", desc: "Full rebuild — new design, new speed.", highlight: true },
-                  { label: "Year 4", title: "Free Refresh", desc: "Another full rebuild — and again every 2 years.", highlight: true },
-                ].map((stop) => (
-                  <div key={stop.label} className="flex flex-col items-center text-center">
-                    <div
-                      className={`relative w-20 h-20 rounded-full flex items-center justify-center font-display text-base mb-4 shadow-lg ${
-                        stop.highlight
-                          ? "bg-[#E85D26] text-white border-4 border-white ring-4 ring-[#E85D26]/20"
-                          : "bg-white text-[#1a202c] border-4 border-[#E85D26]/30"
-                      }`}
-                    >
-                      {stop.highlight && (
-                        <span className="absolute -top-2 -right-2 bg-[#1a1a1a] text-white text-[9px] font-sans font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-md">
-                          Free
-                        </span>
-                      )}
-                      <span className="leading-none text-center">
-                        {stop.label.split(" ")[0]}
-                        <span className="block text-xs font-sans font-bold uppercase tracking-wider mt-1 opacity-90">
-                          {stop.label.split(" ")[1]}
-                        </span>
-                      </span>
-                    </div>
-                    <h4
-                      className={`font-display text-lg md:text-xl mb-1 ${
-                        stop.highlight ? "text-[#E85D26]" : "text-[#1a202c]"
-                      }`}
-                    >
-                      {stop.title}
-                    </h4>
-                    <p className="text-[#4a5568] font-sans text-sm md:text-base leading-snug max-w-[18rem]">
-                      {stop.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* What the refresh includes */}
-          <ScrollReveal delay={0.15}>
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <RefreshCw className="text-[#E85D26]" size={18} />
-              <h3 className="text-[#E85D26] font-sans font-bold uppercase tracking-widest text-xs md:text-sm text-center">
-                What&rsquo;s Included in Every 2-Year Refresh
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              {[
-                { icon: <Sparkles className="text-[#E85D26]" size={32} />, title: "Full design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
-                { icon: <Camera className="text-[#E85D26]" size={32} />, title: "New photos & copy", desc: "Swap in fresh photography and refreshed copy across the pages that matter most." },
-                { icon: <Gauge className="text-[#E85D26]" size={32} />, title: "Performance retune", desc: "Mobile speed, Core Web Vitals, services, and offers — all brought back to current standards." },
-              ].map((item) => (
-                <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-7 md:p-8 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
-                  <div className="w-16 h-16 bg-[#E85D26]/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-[#E85D26]/20 mx-auto mb-5">
-                    {item.icon}
-                  </div>
-                  <h4 className="text-[#1a202c] font-display text-xl md:text-2xl mb-3">{item.title}</h4>
-                  <p className="text-[#4a5568] font-sans text-base leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Reinforcement banner */}
-            <div className="mt-10 bg-[#1a1a1a] rounded-2xl px-6 py-5 md:py-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 text-center sm:text-left">
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#E85D26] flex-shrink-0">
-                <Check className="text-white" size={22} strokeWidth={3} />
-              </span>
-              <p className="text-white font-sans text-base md:text-lg">
-                <span className="font-bold">No upgrade fees. No surprise invoices.</span>{" "}
-                <span className="text-white/80">The 2-year refresh is built into every monthly plan.</span>
-              </p>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 

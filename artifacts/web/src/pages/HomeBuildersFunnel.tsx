@@ -32,9 +32,6 @@ import {
   MessagesSquare,
   UserCheck,
   TrendingUp,
-  Camera,
-  Gauge,
-  RefreshCw,
   Star,
   X,
 } from "lucide-react";
@@ -58,7 +55,6 @@ function computeOfferWindow(now: Date = new Date()) {
 }
 
 const OFFER_WINDOW = computeOfferWindow();
-const URGENCY_COPY = `${OFFER_WINDOW.monthName} Only: Get a Free Custom Homepage Demo. Love it? Get the full build with a $0 build fee. Offer Ends ${OFFER_WINDOW.lastDayLabel}.`;
 
 const FUNNEL_FAQS: { q: string; a: string }[] = [
   {
@@ -417,11 +413,6 @@ export default function HomeBuildersFunnel() {
         }}
       />
 
-      {/* Section 1 — Sticky Urgency Banner */}
-      <div className="sticky top-0 z-50 bg-[#E85D26] text-white text-center text-sm md:text-base font-sans font-semibold px-4 py-2.5 shadow-md">
-        {URGENCY_COPY}
-      </div>
-
       {/* Top Logo Bar — non-clickable, transparent (overlays hero) */}
       <div className="absolute top-[80px] sm:top-[60px] md:top-[44px] left-0 right-0 z-40 px-6 md:px-12 py-4 md:py-5 pointer-events-none">
         <div className="max-w-6xl mx-auto flex justify-center md:justify-start">
@@ -436,7 +427,7 @@ export default function HomeBuildersFunnel() {
 
       {/* Section 2 — Hero */}
       <section
-        className="hb-hero relative bg-[#1a1a1a] bg-cover bg-center bg-no-repeat px-6 md:px-12 py-14 md:py-24"
+        className="hb-hero relative bg-[#1a1a1a] bg-cover bg-center bg-no-repeat px-6 md:px-12 pt-28 md:pt-32 pb-14 md:pb-24"
         style={
           {
             ["--hb-hero-bg" as string]: `url(${heroBgImage})`,
@@ -972,9 +963,6 @@ export default function HomeBuildersFunnel() {
             <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-4 leading-tight">
               What Happens After Launch?
             </h2>
-            <p className="text-[#4a5568] text-lg font-sans max-w-2xl mx-auto">
-              Our relationship doesn't end when the site goes live. In fact, that's just the beginning.
-            </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -982,22 +970,22 @@ export default function HomeBuildersFunnel() {
               {
                 icon: <Wrench className="text-[#E85D26]" size={22} />,
                 title: "Total Maintenance",
-                desc: "We handle all the invisible technical work — software updates, plugin management, security scans, and uptime monitoring. You never have to log into a complicated dashboard or worry about your site getting hacked.",
+                desc: "We handle all updates, security, and hosting. You never have to log into a dashboard.",
               },
               {
                 icon: <MessagesSquare className="text-[#E85D26]" size={22} />,
                 title: "Easy Change Requests",
-                desc: "Need to update a model home page or change your office hours? Just email us. We treat your requests like an internal IT team would — most content updates are completed within 3 business days.",
+                desc: "Need to update a photo or change text? Just email us. Done in 3 days.",
               },
               {
                 icon: <UserCheck className="text-[#E85D26]" size={22} />,
-                title: "Dedicated Account Manager",
-                desc: "Every plan includes a real person who knows your business and your website. Need to discuss performance, request changes, or ask a question? You have a direct line — no support tickets, no chatbots.",
+                title: "Dedicated Manager",
+                desc: "You get a direct line to a real person who knows your business. No support tickets.",
               },
               {
                 icon: <TrendingUp className="text-[#E85D26]" size={22} />,
-                title: "Ongoing SEO & Performance Monitoring",
-                desc: "Your account manager monitors your site's SEO and keeps you competitive in local search. We also do a long-term refresh and strategy review at the 2-year mark — because great websites evolve with your business.",
+                title: "Ongoing SEO",
+                desc: "We monitor your performance to keep you competitive in local search.",
               },
             ].map((card, i) => (
               <ScrollReveal key={card.title} delay={i * 0.08} className="bg-[#f5f5f4] p-6 md:p-8 rounded-xl border border-gray-200">
@@ -1009,47 +997,6 @@ export default function HomeBuildersFunnel() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Section 5c — Stay-Current Guarantee */}
-      <section className="bg-[#f5f5f4] px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal className="text-center mb-10">
-            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
-              You're Covered
-            </p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-4 leading-tight">
-              Always Current. Always Yours.
-            </h2>
-            <p className="text-[#4a5568] text-lg font-sans max-w-2xl mx-auto leading-relaxed">
-              Two promises baked into every plan: every 2 years your site gets a free top-to-bottom refresh, and the things that matter — your domain, your content, your brand — belong to you whether you stay or go.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="flex items-center justify-center gap-2 mb-8">
-              <RefreshCw className="text-[#E85D26]" size={18} />
-              <h3 className="text-[#E85D26] font-sans font-semibold uppercase tracking-widest text-xs md:text-sm text-center">
-                Stay-Current Guarantee · Free Refresh Every 2 Years
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              {[
-                { icon: <Sparkles className="text-[#E85D26]" size={32} />, title: "Design refresh", desc: "Modern redesign of your homepage and key pages — current best practices, current style." },
-                { icon: <Camera className="text-[#E85D26]" size={32} />, title: "New photos & copy", desc: "Swap in fresh photography and refreshed copy across the pages that matter most." },
-                { icon: <Gauge className="text-[#E85D26]" size={32} />, title: "Performance retune", desc: "Mobile speed, Core Web Vitals, services, and offers — all brought back to current standards." },
-              ].map((item) => (
-                <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-7 md:p-8 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
-                  <div className="w-16 h-16 bg-[#E85D26]/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-[#E85D26]/20 mx-auto mb-5">
-                    {item.icon}
-                  </div>
-                  <h4 className="text-[#1a202c] font-display text-xl md:text-2xl mb-3">{item.title}</h4>
-                  <p className="text-[#4a5568] font-sans text-base leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
