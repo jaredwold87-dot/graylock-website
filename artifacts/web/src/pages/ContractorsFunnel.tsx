@@ -1146,7 +1146,7 @@ export default function ContractorsFunnel() {
             </p>
           </ScrollReveal>
 
-          <DemoRequestForm />
+          <DemoRequestForm submitLabel="Get My Free Demo" />
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-[#1a202c] font-sans text-sm md:text-base font-semibold">
             {[
