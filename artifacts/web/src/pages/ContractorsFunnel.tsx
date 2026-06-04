@@ -150,9 +150,11 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 function DemoRequestForm({
   submitLabel = "Get Started Now",
   variant = "page",
+  idPrefix,
 }: {
   submitLabel?: string;
   variant?: "page" | "modal";
+  idPrefix?: string;
 }) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -162,7 +164,7 @@ function DemoRequestForm({
     email: "",
   });
 
-  const idp = variant === "modal" ? "drm" : "dr";
+  const idp = idPrefix ?? (variant === "modal" ? "drm" : "dr");
   const formClass =
     variant === "modal"
       ? "text-left"
@@ -868,6 +870,32 @@ export default function ContractorsFunnel() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Section 4b3 — Mid-page Lead Capture */}
+      <section className="bg-[#1a1a1a] px-6 md:px-12 py-16 md:py-24 border-t border-white/5">
+        <div className="max-w-2xl mx-auto text-center">
+          <ScrollReveal>
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+              No Pressure · No Cost
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-white mb-4 leading-tight">
+              See Your Free Homepage Demo First
+            </h2>
+            <p className="text-white/75 text-lg font-sans leading-relaxed mb-8">
+              We&rsquo;ll design a custom homepage concept for your business — before you
+              pay a cent. It takes 30 seconds to request.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <DemoRequestForm submitLabel="Get My Free Demo" idPrefix="drmid" />
+          </ScrollReveal>
+
+          <p className="text-white/55 font-sans text-sm">
+            $0 upfront build fee this {OFFER_WINDOW.monthName} · 100% U.S.-based team
+          </p>
         </div>
       </section>
 
