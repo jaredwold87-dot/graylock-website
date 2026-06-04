@@ -1162,7 +1162,7 @@ export default function ContractorsFunnel() {
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-4 leading-tight">
-              Get Your Website Built for a $0 Build Fee — Before {OFFER_WINDOW.lastDayLabel}
+              See Your Free Custom Homepage Demo — No Credit Card, No Commitment
             </h2>
             <p className="text-[#4a5568] text-lg font-sans leading-relaxed mb-4">
               Tell us a bit about your business below and we&rsquo;ll reach out to
