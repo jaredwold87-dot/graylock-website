@@ -221,6 +221,9 @@ function DemoRequestForm({
           event_label: "contractor_demo_request",
           page_location: window.location.href,
         });
+        gtag("event", "conversion_event_submit_lead_form", {
+          page_location: window.location.href,
+        });
       }
     } catch {
       setStatus("error");
