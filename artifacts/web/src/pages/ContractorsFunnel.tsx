@@ -830,50 +830,62 @@ export default function ContractorsFunnel() {
               Real Results From Real Business Owners
             </h2>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
-            {[
-              {
-                pull: "Their attention to detail and dedication to delivering a product that reflected our goals exceeded all expectations.",
-                quote:
-                  "Working with Tim and the team at Graylock Digital was an outstanding experience from start to finish. Their attention to detail, communication, and dedication to delivering a product that reflected our goals exceeded all expectations.",
-                name: "Kylen & Keith Perks",
-                role: "L.A. Perks Petroleum Specialists",
-              },
-              {
-                pull: "New clients regularly tell me they reached out because the website made them feel confident before we ever spoke.",
-                quote:
-                  "Tim and his team built a site that explains my business clearly and speaks straight to the people I want to serve. New clients regularly tell me they reached out because the website made them feel confident before we ever spoke.",
-                name: "Bobbie Wold",
-                role: "Owner, Montana Counseling Solutions",
-              },
-              {
-                pull: "They had a rough-draft site to me in a matter of days that far exceeded what I had before. 10 out of 10, hands down.",
-                quote:
-                  "Tim and his team had a rough-draft site to me in a matter of days that far exceeded what I had before. They delivered at every point and answered every text and call with professionalism and kindness. 10 out of 10, hands down.",
-                name: "Jim Erwin",
-                role: "CEO & Founder, Shooting Performance Institute",
-              },
-            ].map((t, i) => (
-              <ScrollReveal key={t.name} delay={0.1 + i * 0.1} className="h-full">
-                <figure className="h-full flex flex-col bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-7">
-                  <div className="flex gap-1 mb-4 text-[#E85D26]">
-                    {[0, 1, 2, 3, 4].map((s) => (
-                      <Star key={s} size={16} className="fill-current" />
-                    ))}
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <ScrollReveal delay={0.1}>
+              <div className="max-w-xl mx-auto">
+                <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-black/10 bg-[#15151a] ring-1 ring-black/5">
+                  <div className="flex items-center gap-2 px-4 py-2.5 md:py-3 bg-[#1f1f26] border-b border-white/5">
+                    <span className="flex gap-1.5">
+                      <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                      <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                      <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+                    </span>
+                    <div className="flex-1 flex justify-center">
+                      <div className="flex items-center gap-2 w-full max-w-xs px-3 py-1.5 rounded-md bg-[#15151a] border border-white/5">
+                        <Lock size={11} className="text-stone/60 shrink-0" aria-hidden="true" />
+                        <span className="h-1.5 flex-1 rounded-full bg-white/10" />
+                      </div>
+                    </div>
                   </div>
-                  <p className="font-display text-lg md:text-xl text-[#1a202c] leading-snug mb-4">
-                    &ldquo;{t.pull}&rdquo;
+                  <img
+                    src={perksTransformation}
+                    alt="L.A. Perks Petroleum Specialists website homepage designed by Graylock Digital"
+                    className="w-full h-auto block"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.15}>
+              <figure>
+                <div className="flex gap-1 mb-5 text-[#E85D26]">
+                  {[0, 1, 2, 3, 4].map((s) => (
+                    <Star key={s} size={18} className="fill-current" />
+                  ))}
+                </div>
+                <blockquote className="font-display text-xl md:text-2xl text-[#1a202c] leading-snug mb-6">
+                  &ldquo;Working with Tim and the team at Graylock Digital was an
+                  outstanding experience from start to finish. The amount of time and
+                  effort they invested in researching our industry and truly
+                  understanding our vision for the new website was beyond impressive.
+                  Their attention to detail, communication, and dedication to delivering
+                  a product that reflected our goals exceeded all expectations. They
+                  consistently went above and beyond throughout the entire process. We
+                  highly recommend Tim and the Graylock Digital team to anyone looking
+                  for a professional, creative, and results-driven website partner.&rdquo;
+                </blockquote>
+                <figcaption className="border-t border-gray-200 pt-5">
+                  <p className="font-display text-lg text-[#1a202c]">
+                    Kylen &amp; Keith Perks
                   </p>
-                  <blockquote className="flex-1 text-[#4a5568] font-sans text-sm md:text-base leading-relaxed mb-5">
-                    {t.quote}
-                  </blockquote>
-                  <figcaption className="border-t border-gray-100 pt-4">
-                    <p className="font-display text-base text-[#1a202c]">{t.name}</p>
-                    <p className="font-sans text-xs text-[#4a5568] mt-0.5">{t.role}</p>
-                  </figcaption>
-                </figure>
-              </ScrollReveal>
-            ))}
+                  <p className="font-sans text-sm text-[#4a5568] mt-0.5">
+                    L.A. Perks Petroleum Specialists
+                  </p>
+                </figcaption>
+              </figure>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -1159,78 +1171,6 @@ export default function ContractorsFunnel() {
               </div>
             </div>
           </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Section 4e — Client website showcase */}
-      <section className="bg-white px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal className="text-center mb-12 md:mb-16">
-            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
-              Recently Launched
-            </p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight">
-              A Website Built to Match the Work
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
-            <ScrollReveal delay={0.1}>
-              <div className="max-w-xl mx-auto">
-                <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-black/10 bg-[#15151a] ring-1 ring-black/5">
-                  <div className="flex items-center gap-2 px-4 py-2.5 md:py-3 bg-[#1f1f26] border-b border-white/5">
-                    <span className="flex gap-1.5">
-                      <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                      <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                      <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-                    </span>
-                    <div className="flex-1 flex justify-center">
-                      <div className="flex items-center gap-2 w-full max-w-xs px-3 py-1.5 rounded-md bg-[#15151a] border border-white/5">
-                        <Lock size={11} className="text-stone/60 shrink-0" aria-hidden="true" />
-                        <span className="h-1.5 flex-1 rounded-full bg-white/10" />
-                      </div>
-                    </div>
-                  </div>
-                  <img
-                    src={perksTransformation}
-                    alt="L.A. Perks Petroleum Specialists website homepage designed by Graylock Digital"
-                    className="w-full h-auto block"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.15}>
-              <figure>
-                <div className="flex gap-1 mb-5 text-[#E85D26]">
-                  {[0, 1, 2, 3, 4].map((s) => (
-                    <Star key={s} size={18} className="fill-current" />
-                  ))}
-                </div>
-                <blockquote className="font-display text-xl md:text-2xl text-[#1a202c] leading-snug mb-6">
-                  &ldquo;Working with Tim and the team at Graylock Digital was an
-                  outstanding experience from start to finish. The amount of time and
-                  effort they invested in researching our industry and truly
-                  understanding our vision for the new website was beyond impressive.
-                  Their attention to detail, communication, and dedication to delivering
-                  a product that reflected our goals exceeded all expectations. They
-                  consistently went above and beyond throughout the entire process. We
-                  highly recommend Tim and the Graylock Digital team to anyone looking
-                  for a professional, creative, and results-driven website partner.&rdquo;
-                </blockquote>
-                <figcaption className="border-t border-gray-100 pt-5">
-                  <p className="font-display text-lg text-[#1a202c]">
-                    Kylen &amp; Keith Perks
-                  </p>
-                  <p className="font-sans text-sm text-[#4a5568] mt-0.5">
-                    L.A. Perks Petroleum Specialists
-                  </p>
-                </figcaption>
-              </figure>
-            </ScrollReveal>
-          </div>
         </div>
       </section>
 
