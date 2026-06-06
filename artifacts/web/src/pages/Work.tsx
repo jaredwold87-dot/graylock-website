@@ -47,7 +47,7 @@ const featuredProjects: FeaturedProject[] = [
     delivered: [
       "Industry-researched design",
       "Strategy call booking flow",
-      "Client portal integration",
+      "Service & pricing pages",
       "Mobile-responsive build",
     ],
     placeholder: {
