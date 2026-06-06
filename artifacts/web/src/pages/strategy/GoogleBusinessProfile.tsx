@@ -187,7 +187,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does Graylock set up my Google Business Profile?",
-      a: "Yes — GBP setup and optimization is included in our Growth and Scale plans. Starter plans include basic Google Business Profile setup. We claim, verify, and optimize your profile as part of the onboarding process.",
+      a: "Yes — GBP setup and optimization is included in our Growth and Scale plans ($299/mo and up). We claim, verify, and optimize your profile as part of the onboarding process.",
     },
     {
       q: "Can my Google Business Profile help me show up in ChatGPT?",
@@ -225,7 +225,7 @@ const data: StrategyPageData = {
         name: "Does Graylock set up my Google Business Profile?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — GBP setup and optimization is included in our Growth and Scale plans. Starter plans include basic setup.",
+          text: "Yes — GBP setup and optimization is included in our Growth and Scale plans ($299/mo and up).",
         },
       },
       {

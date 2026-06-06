@@ -91,7 +91,7 @@ const features = [
     icon: BarChart3,
     title: "Dashboard & Analytics",
     description:
-      "See exactly how many people visit your site, where they come from, and which pages drive the most leads. Data-driven decisions, not guesswork.",
+      "On Growth and Scale plans, see exactly how many people visit your site, where they come from, and which pages drive the most leads. Data-driven decisions, not guesswork.",
   },
   {
     icon: ShieldCheck,
@@ -122,7 +122,7 @@ const faqs = [
   },
   {
     q: "Can I update the website myself?",
-    a: "You can request unlimited content updates through your dashboard, and we'll handle them within 1–2 business days. No need to learn any software.",
+    a: "You can request unlimited content updates through your dedicated account manager, and we'll handle them within 1–2 business days. No need to learn any software.",
   },
   {
     q: "Is there a long-term contract?",

@@ -149,7 +149,7 @@ const data: StrategyPageData = {
       {
         mistake: "No way to track what's working",
         cost: "No idea what's working — can't improve what you can't measure",
-        fix: "Dashboard access on every plan so you can see traffic and enquiries",
+        fix: "Dashboard access on Growth and Scale plans so you can see traffic and enquiries",
       },
       {
         mistake: "Phone number not clickable on mobile",
@@ -183,7 +183,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Can I see how my website is performing?",
-      a: "Yes. Every plan includes dashboard access where you can view your website traffic, see enquiries that come in, and track key metrics. Your dedicated account manager is also available to walk you through performance and suggest improvements.",
+      a: "The Growth and Scale plans ($299/mo and up) include dashboard access where you can view your website traffic, see enquiries that come in, and track key metrics. Your dedicated account manager — included on every plan — is also available to walk you through performance and suggest improvements.",
     },
     {
       q: "How is lead generation different from advertising?",
@@ -191,7 +191,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Which Graylock plan is best for lead generation?",
-      a: "All plans include lead capture forms, click-to-call, dashboard access, and a dedicated account manager. For active lead generation with more funnel pages and enhanced forms, the Growth plan ($299/mo) is ideal. The Scale plan ($449/mo) adds advanced analytics and more site update hours.",
+      a: "All plans include lead capture forms, click-to-call, and a dedicated account manager. For active lead generation with more funnel pages, enhanced forms, and dashboard access, the Growth plan ($299/mo) is ideal. The Scale plan ($449/mo) adds advanced analytics and more site update hours.",
     },
   ],
   bottomCta: {
@@ -225,7 +225,7 @@ const data: StrategyPageData = {
         name: "Can I see how my website is performing?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Every plan includes dashboard access to view website traffic, enquiries, and key metrics.",
+          text: "Yes. The Growth and Scale plans ($299/mo and up) include dashboard access to view website traffic, enquiries, and key metrics.",
         },
       },
       {

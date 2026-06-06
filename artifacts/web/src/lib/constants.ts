@@ -109,7 +109,7 @@ export const FAQS = [
       },
       {
         q: "What’s included in the monthly fee?",
-        a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Daily backups\n• Dashboard access and support\n\nStarter plan ($199/mo): Dedicated account manager + priority email support\nGrowth plan ($299/mo): Dashboard + dedicated account manager + priority support\nScale plan ($449/mo): Dashboard + dedicated account manager + advanced analytics & reporting\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
+        a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Daily backups\n• Ongoing support\n\nStarter plan ($199/mo): Dedicated account manager + priority email support\nGrowth plan ($299/mo): Dashboard + dedicated account manager + priority support\nScale plan ($449/mo): Dashboard + dedicated account manager + advanced analytics & reporting\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
       },
       {
         q: "Is there a build fee, and what does it cover?",
@@ -168,8 +168,8 @@ export const FAQS = [
         a: "We build every website with a solid SEO foundation — clean code structure, fast load times, proper page titles and meta descriptions, schema markup, and mobile optimisation. These are the building blocks that help Google understand and rank your site.\n\nGrowth and Scale plans also include full local SEO optimisation and Google Business Profile setup, which is critical for any local business that depends on people finding you through search.\n\nSEO takes time — typically 3–6 months to start seeing meaningful movement. But starting with a properly built site is the difference between slow growth and no growth."
       },
       {
-        q: "What is the business dashboard, and do all plans include it?",
-        a: "Yes — all plans include the same dashboard access. Every client gets a private, easy-to-use portal where you can view your website traffic analytics, track inquiry activity, add and edit your website announcement bar, and submit support requests.\n\nAll plans also include a dedicated account manager, so you always have a real person to reach out to for content updates and anything else.\n\nCustom plan: Custom dashboard configuration tailored to your specific needs."
+        q: "What is the business dashboard, and which plans include it?",
+        a: "The business dashboard is a private, easy-to-use portal where you can view your website traffic analytics, track inquiry activity, add and edit your website announcement bar, and submit support requests. It's included on the Growth and Scale plans ($299/mo and up).\n\nEvery plan — including Starter — comes with a dedicated account manager, so you always have a real person to reach out to for content updates and anything else.\n\nCustom plan: Custom dashboard configuration tailored to your specific needs."
       }
     ]
   },

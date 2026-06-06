@@ -19,7 +19,7 @@ export function DashboardSection() {
             Easy Updates Without the Usual Back-and-Forth
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed mb-10 max-w-2xl mx-auto">
-            Every Graylock site includes a simple dashboard for managing the essentials, while we still handle the heavier updates and ongoing support behind the scenes.
+            The Growth and Scale plans ($299/mo and up) include a simple dashboard for managing the essentials, while we still handle the heavier updates and ongoing support behind the scenes.
           </p>
         </ScrollReveal>
 

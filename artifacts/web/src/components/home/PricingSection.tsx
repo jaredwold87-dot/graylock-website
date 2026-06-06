@@ -251,7 +251,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
             Not sure which plan is right? Get a free homepage demo and we'll tell you exactly what your business needs.
           </p>
           <p className="text-charcoal/70 text-sm font-sans max-w-2xl mx-auto leading-relaxed">
-            All plans include hosting, SSL, mobile optimization, dashboard access, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime with 30 days' notice. Client retains domain and all content.
+            All plans include hosting, SSL, mobile optimization, monthly reporting, and ongoing maintenance. No long-term contracts. Cancel anytime with 30 days' notice. Client retains domain and all content.
           </p>
         </ScrollReveal>
       </div>
