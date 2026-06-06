@@ -92,10 +92,12 @@ const featuredProjects: FeaturedProject[] = [
       "Concierge inquiry flow",
       "Mobile-responsive build",
     ],
-    placeholder: {
-      name: "Emily",
+    testimonial: {
+      quote: [
+        "After working with two other designers before finding Graylock Digital, I can confidently say the difference was night and day. Graylock Digital built the website for Emboxed and made the entire process seamless. They were fast, responsive, and incredibly thorough, delivering a beautiful website that perfectly captured my vision and brand. I highly recommend them to anyone looking for a professional, reliable, and talented web design team.",
+      ],
+      name: "Emily Berg",
       role: "Founder, Emboxed",
-      note: "We\u2019re gathering Emily\u2019s words on the project \u2014 check back shortly to hear about her experience working with Graylock Digital.",
     },
   },
   {
