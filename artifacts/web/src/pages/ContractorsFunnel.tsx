@@ -1196,42 +1196,6 @@ export default function ContractorsFunnel() {
         </div>
       </section>
 
-      {/* Section 6 — Objection-handling FAQ */}
-      <section className="bg-[#f5f5f4] px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
-        <div className="max-w-3xl mx-auto">
-          <ScrollReveal className="text-center mb-10 md:mb-12">
-            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
-              Still Have Questions?
-            </p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight">
-              The Most Common Things Contractors Ask
-            </h2>
-          </ScrollReveal>
-
-          <Accordion
-            type="single"
-            collapsible
-            className="space-y-3"
-          >
-            {FUNNEL_FAQS.map((faq, i) => (
-              <ScrollReveal key={faq.q} delay={i * 0.06}>
-                <AccordionItem
-                  value={`faq-${i}`}
-                  className="bg-white rounded-xl border-2 border-gray-200 hover:border-gray-300 data-[state=open]:border-[#E85D26]/50 data-[state=open]:shadow-md transition-all duration-200 overflow-hidden"
-                >
-                  <AccordionTrigger className="px-5 md:px-6 py-5 text-left text-[#1a202c] font-sans font-semibold text-base md:text-lg hover:no-underline [&>svg]:text-[#E85D26] [&>svg]:h-5 [&>svg]:w-5">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="px-5 md:px-6 pb-5 pt-0 text-[#4a5568] font-sans text-base leading-relaxed">
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              </ScrollReveal>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
       {/* Section 6b — Client website showcase */}
       <section className="bg-white px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
         <div className="max-w-6xl mx-auto">
@@ -1301,6 +1265,42 @@ export default function ContractorsFunnel() {
               </figure>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      {/* Section 6 — Objection-handling FAQ */}
+      <section className="bg-[#f5f5f4] px-6 md:px-12 py-16 md:py-24 border-t border-gray-100">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
+            <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+              Still Have Questions?
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight">
+              The Most Common Things Contractors Ask
+            </h2>
+          </ScrollReveal>
+
+          <Accordion
+            type="single"
+            collapsible
+            className="space-y-3"
+          >
+            {FUNNEL_FAQS.map((faq, i) => (
+              <ScrollReveal key={faq.q} delay={i * 0.06}>
+                <AccordionItem
+                  value={`faq-${i}`}
+                  className="bg-white rounded-xl border-2 border-gray-200 hover:border-gray-300 data-[state=open]:border-[#E85D26]/50 data-[state=open]:shadow-md transition-all duration-200 overflow-hidden"
+                >
+                  <AccordionTrigger className="px-5 md:px-6 py-5 text-left text-[#1a202c] font-sans font-semibold text-base md:text-lg hover:no-underline [&>svg]:text-[#E85D26] [&>svg]:h-5 [&>svg]:w-5">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 md:px-6 pb-5 pt-0 text-[#4a5568] font-sans text-base leading-relaxed">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              </ScrollReveal>
+            ))}
+          </Accordion>
         </div>
       </section>
 
