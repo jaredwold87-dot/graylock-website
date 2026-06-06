@@ -8,11 +8,8 @@ export const PRICING_TIERS = [
       "Custom 8-Page Website",
       "Mobile-First Professional Design",
       "Local SEO Foundation",
-      "Google Business Profile Setup",
       "Lead Capture Form",
       "Hosting, SSL & Daily Backups",
-      "3 SEO-Optimized Funnel Pages",
-      "Business Dashboard Access",
       "Dedicated Account Manager",
       "1 Hour Site Updates / Quarter",
       "Priority Email Support",
@@ -30,6 +27,7 @@ export const PRICING_TIERS = [
       "6 SEO-Optimized Funnel Pages",
       "Enhanced Lead Capture Form",
       "Full Local SEO Implementation",
+      "Business Dashboard Access",
       "Dedicated Account Manager",
       "1 Hour Site Updates / Month",
       "Priority Support",
@@ -47,6 +45,7 @@ export const PRICING_TIERS = [
       "Multi-Location SEO Strategy",
       "Advanced Analytics & Reporting",
       "Custom Integrations (Calendly, scheduling, etc.)",
+      "Business Dashboard Access",
       "Dedicated Account Manager",
       "2 Hours Site Updates / Month",
       "Priority Build Queue",
@@ -110,7 +109,7 @@ export const FAQS = [
       },
       {
         q: "What’s included in the monthly fee?",
-        a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Daily backups\n• Dashboard access and support\n\nStarter plan ($199/mo): Dashboard + dedicated account manager + priority email support\nGrowth plan ($299/mo): Dashboard + dedicated account manager + priority support\nScale plan ($449/mo): Dashboard + dedicated account manager + advanced analytics & reporting\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
+        a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Daily backups\n• Dashboard access and support\n\nStarter plan ($199/mo): Dedicated account manager + priority email support\nGrowth plan ($299/mo): Dashboard + dedicated account manager + priority support\nScale plan ($449/mo): Dashboard + dedicated account manager + advanced analytics & reporting\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
       },
       {
         q: "Is there a build fee, and what does it cover?",
