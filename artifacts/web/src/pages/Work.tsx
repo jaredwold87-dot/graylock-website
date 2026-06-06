@@ -10,6 +10,7 @@ import emboxedTransformation from "@/assets/work/emboxed-transformation.webp";
 import kingsburyTransformation from "@/assets/work/kingsbury-transformation.webp";
 import montanaTransformation from "@/assets/work/montana-transformation.webp";
 import wceTransformation from "@/assets/work/wce-transformation.webp";
+import smartTaxCrnaTransformation from "@/assets/work/smart-tax-crna-transformation.webp";
 import heroBackground from "@/assets/work/featured-hero-bg-v2.webp";
 
 type Theme = "light" | "dark";
@@ -35,6 +36,26 @@ type FeaturedProject = {
 };
 
 const featuredProjects: FeaturedProject[] = [
+  {
+    name: "Smart Tax CRNA",
+    category: "Tax Strategy for CRNAs",
+    location: "Serving CRNAs in All 50 States",
+    description:
+      "A credible, trust-first site for a CRNA-owned tax firm \u2014 built to speak directly to nurse anesthetists and turn specialized expertise into booked strategy calls.",
+    image: smartTaxCrnaTransformation,
+    theme: "light",
+    delivered: [
+      "Industry-researched design",
+      "Strategy call booking flow",
+      "Client portal integration",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Rosi",
+      role: "Founder, Smart Tax CRNA",
+      note: "We\u2019re gathering Rosi\u2019s words on the project \u2014 check back shortly to hear about her experience working with Graylock Digital.",
+    },
+  },
   {
     name: "L.A. Perks Petroleum Specialists",
     category: "Petroleum & Fueling Services",
