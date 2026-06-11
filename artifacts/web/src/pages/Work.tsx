@@ -50,10 +50,12 @@ const featuredProjects: FeaturedProject[] = [
       "Service & pricing pages",
       "Mobile-responsive build",
     ],
-    placeholder: {
+    testimonial: {
+      quote: [
+        "I can\u2019t say enough great things about Tim and Graylock Digital! From start to finish, the entire process was seamless. Tim took the time to truly understand my vision for the website and went above and beyond to make sure every detail was exactly right. His communication, professionalism, and dedication made the experience stress-free and enjoyable. The final result exceeded every expectation I had. If you\u2019re looking for a team that genuinely cares about your success and delivers exceptional results, I highly recommend them!",
+      ],
       name: "Rosi",
       role: "Founder, Smart Tax CRNA",
-      note: "We\u2019re gathering Rosi\u2019s words on the project \u2014 check back shortly to hear about her experience working with Graylock Digital.",
     },
   },
   {
