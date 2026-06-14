@@ -166,14 +166,22 @@ export default function PrivacyPolicy() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <h2 className={H2}>10. Changes to This Policy</h2>
+            <h2 className={H2}>10. Client Responsibility for Compliance</h2>
+            <h3 className={H3}>Privacy Compliance Disclaimer</h3>
+            <p className={P}>
+              The Agency provides technical tools (such as cookie banners and consent management) to assist with privacy compliance. However, the Client is solely responsible for ensuring their website&rsquo;s data collection, storage, and privacy practices comply with applicable laws (including GDPR, CCPA, and others). The Agency is not responsible for the legal sufficiency of the Client&rsquo;s privacy policies or the handling of user data by third-party integrations (e.g., Stripe, Google Analytics) installed at the Client&rsquo;s request.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <h2 className={H2}>11. Changes to This Policy</h2>
             <p className={P}>
               We may update this Privacy Policy from time to time. We will post the updated Policy on graylockdigital.com with the new effective date. For material changes, we will provide additional notice (such as by email).
             </p>
           </ScrollReveal>
 
           <ScrollReveal>
-            <h2 className={H2}>11. Contact</h2>
+            <h2 className={H2}>12. Contact</h2>
             <p className={`${P} mb-4`}>
               If you have questions about this Privacy Policy or our privacy practices, contact us at:
             </p>

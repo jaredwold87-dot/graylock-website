@@ -382,6 +382,11 @@ export default function TermsOfService() {
             <p className={P}>
               These limitations apply to the maximum extent permitted by law. The limitations apply even if a remedy fails of its essential purpose.
             </p>
+
+            <h3 className={`${H3} mt-8`}>11.4 Website Accessibility &amp; ADA Compliance</h3>
+            <p className={P}>
+              While the Agency employs industry-standard best practices for web accessibility (WCAG 2.1 AA), the Client acknowledges that legal compliance is an ongoing responsibility of the website owner. The Agency shall not be held liable for any legal claims, demand letters, or lawsuits arising from the website&rsquo;s accessibility status. The Client agrees to indemnify and hold the Agency harmless from any costs or damages related to third-party ADA claims.
+            </p>
           </ScrollReveal>
 
           {/* 12. Indemnification */}
