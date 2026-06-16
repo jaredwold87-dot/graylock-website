@@ -2,7 +2,7 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Quote, Star, Check, Lock, MapPin } from "lucide-react";
+import { ArrowRight, Quote, Star, Check, Lock, MapPin, HardHat, Activity, Stethoscope, Home, Droplets, Truck, Calculator } from "lucide-react";
 import { Link } from "wouter";
 import spiTransformation from "@/assets/work/spi-transformation.webp";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
@@ -188,6 +188,16 @@ const featuredProjects: FeaturedProject[] = [
       role: "CEO & Founder, Shooting Performance Institute",
     },
   },
+];
+
+const customerTypes = [
+  { label: "Contractors", icon: HardHat },
+  { label: "Chiropractors", icon: Activity },
+  { label: "Health Clinics", icon: Stethoscope },
+  { label: "Home Builders", icon: Home },
+  { label: "Well Drillers", icon: Droplets },
+  { label: "Excavation Companies", icon: Truck },
+  { label: "Accountants", icon: Calculator },
 ];
 
 const themes: Record<Theme, Record<string, string>> = {
@@ -427,6 +437,56 @@ export default function Work() {
                 <span>Built to Convert</span>
               </div>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="bg-charcoal py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <span className="h-px w-8 bg-[#E85D26]" aria-hidden="true" />
+                <span className="text-[#E85D26] text-xs font-sans font-bold uppercase tracking-[0.28em]">
+                  Who We Work With
+                </span>
+                <span className="h-px w-8 bg-[#E85D26]" aria-hidden="true" />
+              </div>
+              <h2 className="text-2xl md:text-4xl font-display text-offwhite mb-3">
+                Trusted Across the Trades &amp; Beyond
+              </h2>
+              <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
+                From the field to the front office, we build for trust-based local
+                businesses of every kind &mdash; these are just a few of the industries
+                we serve.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+              {customerTypes.map(({ label, icon: Icon }) => (
+                <div
+                  key={label}
+                  className="group flex items-center gap-3 rounded-xl border border-gunmetal bg-navy px-4 py-3.5 md:px-5 md:py-4 transition-all duration-300 hover:border-[#E85D26]/50 hover:-translate-y-0.5"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#E85D26]/10 border border-[#E85D26]/20 transition-colors group-hover:bg-[#E85D26]/15">
+                    <Icon size={18} className="text-[#E85D26]" aria-hidden="true" />
+                  </span>
+                  <span className="font-sans text-sm md:text-[15px] font-semibold text-offwhite/90">
+                    {label}
+                  </span>
+                </div>
+              ))}
+              <div className="flex items-center justify-center rounded-xl border border-dashed border-[#E85D26]/40 bg-[#E85D26]/5 px-4 py-3.5 md:px-5 md:py-4 text-center">
+                <span className="font-sans text-sm md:text-[15px] font-semibold text-[#E85D26]">
+                  &amp; just about anyone else
+                </span>
+              </div>
+            </div>
+
+            <p className="text-center text-stone/70 font-sans text-sm mt-8 max-w-xl mx-auto">
+              Don&rsquo;t see your industry? If your business runs on trust and
+              reputation, we can build for you too.
+            </p>
           </ScrollReveal>
         </div>
       </section>
