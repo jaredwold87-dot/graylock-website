@@ -85,7 +85,7 @@ export function HeroSection() {
       {/* Desktop/tablet background image — unchanged behavior */}
       <div className="hidden md:block">
         <HeroBackgroundImage
-          src={`${BASE}hero-bg-lodge-v1.webp`}
+          src={`${BASE}hero-bg-lodge-v2.webp`}
           objectPosition="right center"
         />
       </div>
@@ -111,7 +111,7 @@ export function HeroSection() {
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
               Custom Websites for Trust-Based Businesses
             </p>
-            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6">
+            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
               Turn Your Website Into{" "}
               <span className="text-[#E85D26]">Your Best Source of New Clients.</span>
             </h1>

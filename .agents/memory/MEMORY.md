@@ -3,3 +3,4 @@
 - [Featured Projects background](featured-projects-theme-rhythm.md) — all project sections use one solid tan (#F4F1EC) light theme; do NOT re-add dark/light alternation.
 - [Deploy-safe image imports](deploy-asset-imports.md) — shipped web images must import via `@/assets` (src), NOT `@assets` (attached_assets is .dockerignored → ENOENT at deploy build).
 - [Image optimization](image-optimization.md) — @assets imports & public PNGs ship full-size; convert to webp (magick, not sharp) before referencing or pages bloat to MBs.
+- [Hero device positioning](hero-fullbleed-positioning.md) — can't move devices in a full-bleed object-cover hero via CSS; recompose the image (extend canvas) + cap headline width.
