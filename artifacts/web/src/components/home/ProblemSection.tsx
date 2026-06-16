@@ -1,20 +1,26 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Award, MessageSquareWarning, TrendingDown } from "lucide-react";
+import expertiseImg from "@/assets/pain-expertise.webp";
+import unclearImg from "@/assets/pain-unclear.webp";
+import conversionImg from "@/assets/pain-conversion.webp";
 
 export function ProblemSection() {
   const problems = [
     {
       icon: <Award size={22} />,
+      image: expertiseImg,
       title: "It doesn't reflect your expertise",
       desc: "An outdated, generic site makes prospects question your quality before they ever call.",
     },
     {
       icon: <MessageSquareWarning size={22} />,
+      image: unclearImg,
       title: "Your message is unclear",
       desc: "If visitors can't tell what you do in seconds, they leave for someone easier to understand.",
     },
     {
       icon: <TrendingDown size={22} />,
+      image: conversionImg,
       title: "It isn't converting traffic",
       desc: "Weak structure, poor mobile UX, and unclear CTAs quietly cost you leads every month.",
     },
@@ -37,16 +43,26 @@ export function ProblemSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {problems.map((prob, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="h-full bg-white/[0.03] border border-white/10 rounded-2xl p-7 flex flex-col items-start hover:border-[#E85D26]/40 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-[#E85D26]/10 border border-[#E85D26]/20 flex items-center justify-center text-[#E85D26] mb-5">
-                  {prob.icon}
+              <div className="h-full bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden flex flex-col hover:border-[#E85D26]/40 transition-colors">
+                <div className="aspect-[4/3] overflow-hidden border-b border-white/10">
+                  <img
+                    src={prob.image}
+                    alt={prob.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-white font-sans font-semibold text-lg mb-2 leading-snug">
-                  {prob.title}
-                </h3>
-                <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
-                  {prob.desc}
-                </p>
+                <div className="p-7 flex flex-col items-start">
+                  <div className="w-12 h-12 rounded-xl bg-[#E85D26]/10 border border-[#E85D26]/20 flex items-center justify-center text-[#E85D26] mb-5">
+                    {prob.icon}
+                  </div>
+                  <h3 className="text-white font-sans font-semibold text-lg mb-2 leading-snug">
+                    {prob.title}
+                  </h3>
+                  <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
+                    {prob.desc}
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
           ))}
