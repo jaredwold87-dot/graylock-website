@@ -202,33 +202,33 @@ const customerTypes = [
 
 const themes: Record<Theme, Record<string, string>> = {
   light: {
-    section: "bg-[#F4F1EC]",
+    section: "bg-[#f5f5f4]",
     eyebrow: "text-[#B23E16]",
-    heading: "text-charcoal",
-    body: "text-charcoal/75",
-    pill: "bg-white text-charcoal/70 border-black/10",
+    heading: "text-[#1a202c]",
+    body: "text-[#4a5568]",
+    pill: "bg-white text-[#4a5568] border-black/10",
     card: "bg-white border-black/10",
     cardDashed: "bg-white border-dashed border-black/15",
-    deliver: "bg-white border-black/10 text-charcoal/80",
+    deliver: "bg-white border-black/10 text-[#4a5568]",
     check: "text-[#B23E16]",
-    quote: "text-charcoal",
+    quote: "text-[#1a202c]",
     divider: "border-black/10",
-    capName: "text-charcoal",
-    capRole: "text-charcoal/70",
+    capName: "text-[#1a202c]",
+    capRole: "text-[#4a5568]",
   },
   dark: {
-    section: "bg-charcoal border-t border-gunmetal",
+    section: "bg-[#0f0f0f] border-t border-white/5",
     eyebrow: "text-[#E85D26]",
-    heading: "text-offwhite",
+    heading: "text-white",
     body: "text-stone",
-    pill: "bg-navy text-stone border-gunmetal",
-    card: "bg-navy border-gunmetal",
-    cardDashed: "bg-navy border-dashed border-gunmetal",
-    deliver: "bg-navy border-gunmetal text-offwhite/90",
+    pill: "bg-white/[0.03] text-stone border-white/10",
+    card: "bg-white/[0.03] border-white/10",
+    cardDashed: "bg-white/[0.03] border-dashed border-white/15",
+    deliver: "bg-white/[0.03] border-white/10 text-white/90",
     check: "text-[#E85D26]",
-    quote: "text-offwhite",
-    divider: "border-gunmetal",
-    capName: "text-offwhite",
+    quote: "text-white",
+    divider: "border-white/10",
+    capName: "text-white",
     capRole: "text-stone",
   },
 };
@@ -370,7 +370,7 @@ export default function Work() {
     <>
       <SEO title="Featured Projects | Custom Websites We've Built | Graylock Digital" description="A closer look at real, custom websites we've designed and built for trust-based local businesses — and the results they're getting." url="https://graylockdigital.com/featured-projects" />
 
-      <section className="relative overflow-hidden bg-charcoal pt-28 md:pt-36 pb-20 md:pb-28 px-6 md:px-12">
+      <section className="relative overflow-hidden bg-[#0f0f0f] pt-28 md:pt-36 pb-20 md:pb-28 px-6 md:px-12">
         <img
           src={heroBackground}
           alt=""
@@ -378,11 +378,11 @@ export default function Work() {
           className="pointer-events-none absolute inset-0 w-full h-full object-cover object-[72%_center] md:object-right opacity-90"
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/95 to-charcoal/30"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0f0f0f] via-[#0f0f0f]/95 to-[#0f0f0f]/30"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/50"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-[#0f0f0f]/50"
           aria-hidden="true"
         />
         <div
@@ -390,7 +390,7 @@ export default function Work() {
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gunmetal to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
           aria-hidden="true"
         />
         <div className="relative max-w-7xl mx-auto w-full">
@@ -402,7 +402,7 @@ export default function Work() {
                   The Portfolio
                 </span>
               </div>
-              <h1 className="text-5xl md:text-7xl lg:text-[5.25rem] font-display text-offwhite mb-7 leading-[0.98] tracking-[-0.01em]">
+              <h1 className="text-5xl md:text-7xl lg:text-[5.25rem] font-display text-white mb-7 leading-[0.98] tracking-[-0.01em]">
                 Websites Worthy
                 <br />
                 of the Work
@@ -441,7 +441,7 @@ export default function Work() {
         </div>
       </section>
 
-      <section className="bg-charcoal py-16 md:py-20 px-6 md:px-12 border-t border-gunmetal">
+      <section className="bg-[#0f0f0f] py-16 md:py-20 px-6 md:px-12 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
@@ -452,7 +452,7 @@ export default function Work() {
                 </span>
                 <span className="h-px w-8 bg-[#E85D26]" aria-hidden="true" />
               </div>
-              <h2 className="text-2xl md:text-4xl font-display text-offwhite mb-3">
+              <h2 className="text-2xl md:text-4xl font-display text-white mb-3">
                 Trusted Across the Trades &amp; Beyond
               </h2>
               <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
@@ -466,12 +466,12 @@ export default function Work() {
               {customerTypes.map(({ label, icon: Icon }) => (
                 <div
                   key={label}
-                  className="group flex items-center gap-3 rounded-xl border border-gunmetal bg-navy px-4 py-3.5 md:px-5 md:py-4 transition-all duration-300 hover:border-[#E85D26]/50 hover:-translate-y-0.5"
+                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 md:px-5 md:py-4 transition-all duration-300 hover:border-[#E85D26]/50 hover:-translate-y-0.5"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#E85D26]/10 border border-[#E85D26]/20 transition-colors group-hover:bg-[#E85D26]/15">
                     <Icon size={18} className="text-[#E85D26]" aria-hidden="true" />
                   </span>
-                  <span className="font-sans text-sm md:text-[15px] font-semibold text-offwhite/90">
+                  <span className="font-sans text-sm md:text-[15px] font-semibold text-white/90">
                     {label}
                   </span>
                 </div>
@@ -495,10 +495,10 @@ export default function Work() {
         <FeaturedProjectSection key={project.name} project={project} index={i} />
       ))}
 
-      <section className="bg-charcoal py-20 px-6 md:px-12 border-t border-gunmetal">
+      <section className="bg-[#0f0f0f] py-20 px-6 md:px-12 border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
+            <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
               See What Your Site Could Look Like — On Us
             </h2>
             <p className="text-stone text-lg font-sans mb-8 max-w-2xl mx-auto">
