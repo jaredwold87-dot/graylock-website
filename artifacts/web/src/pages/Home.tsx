@@ -6,7 +6,6 @@ import { ProblemSection } from "@/components/home/ProblemSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiationSection";
 import { TestimonialSection } from "@/components/home/TestimonialSection";
-import { DashboardSection } from "@/components/home/DashboardSection";
 import { PricingSnapshotSection } from "@/components/home/PricingSnapshotSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
@@ -25,7 +24,6 @@ export default function Home() {
       <HowItWorksSection />
       <TestimonialSection />
       <ValueDifferentiationSection />
-      <DashboardSection />
       <PricingSnapshotSection />
       <FinalCTASection />
     </>
