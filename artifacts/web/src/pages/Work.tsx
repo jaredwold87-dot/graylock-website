@@ -495,27 +495,6 @@ export default function Work() {
         <FeaturedProjectSection key={project.name} project={project} index={i} />
       ))}
 
-      <section className="bg-[#0f0f0f] py-20 px-6 md:px-12 border-t border-white/5">
-        <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal>
-            <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
-              See What Your Site Could Look Like — On Us
-            </h2>
-            <p className="text-stone text-lg font-sans mb-8 max-w-2xl mx-auto">
-              Book a free 15-minute discovery call and we will show you a custom homepage demo for your business before you commit to anything.
-            </p>
-            <Link href="/get-started">
-              <span className="inline-flex items-center gap-2 bg-[#E85D26] hover:bg-[#E85D26]/90 text-white font-sans font-bold text-lg px-10 py-4 rounded-lg shadow-lg shadow-[#E85D26]/20 transition-all duration-300 cursor-pointer">
-                Book a Discovery Call <ArrowRight size={20} />
-              </span>
-            </Link>
-            <p className="text-stone text-sm font-sans mt-4">
-              No pressure. No obligation. Just a clearer path forward.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
       <FinalCTASection />
     </>
   );
