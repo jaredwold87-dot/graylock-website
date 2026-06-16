@@ -59,7 +59,7 @@ const data: StrategyPageData = {
         icon: BarChart3,
         title: "Tracking leads shows you what's working",
         description:
-          "Without lead tracking, you're guessing. With the Graylock dashboard, you can see how many enquiries came in, from which pages, and when — giving you the data to make smarter marketing decisions.",
+          "Without lead tracking, you're guessing. With Graylock's lead tracking, you can see how many enquiries came in, from which pages, and when — giving you the data to make smarter marketing decisions.",
       },
     ],
   },
@@ -125,7 +125,7 @@ const data: StrategyPageData = {
       {
         title: "Lead Tracking and Attribution",
         description:
-          "Lead tracking means knowing which visitors came in, which page they came from, what they searched for, and what action they took. Without tracking, you have no idea what's working. The Graylock dashboard (Growth and Scale plans) gives you a real-time view of enquiry activity so you can identify your best-performing pages and optimize accordingly.",
+          "Lead tracking means knowing which visitors came in, which page they came from, what they searched for, and what action they took. Without tracking, you have no idea what's working. Graylock's lead tracking (Growth and Scale plans) gives you a real-time view of enquiry activity so you can identify your best-performing pages and optimize accordingly.",
       },
       {
         title: "Conversion Rate Optimization (CRO) for Lead Gen",
@@ -149,7 +149,7 @@ const data: StrategyPageData = {
       {
         mistake: "No way to track what's working",
         cost: "No idea what's working — can't improve what you can't measure",
-        fix: "Dashboard access on Growth and Scale plans so you can see traffic and enquiries",
+        fix: "Lead tracking on Growth and Scale plans so you can see traffic and enquiries",
       },
       {
         mistake: "Phone number not clickable on mobile",
@@ -164,7 +164,7 @@ const data: StrategyPageData = {
       {
         mistake: "No follow-up system",
         cost: "Leads come in but go cold before being contacted",
-        fix: "Dashboard notifications + monthly lead activity reports ensure no lead is missed",
+        fix: "Lead notifications + monthly lead activity reports ensure no lead is missed",
       },
     ],
   },
@@ -183,7 +183,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Can I see how my website is performing?",
-      a: "The Growth and Scale plans ($299/mo and up) include dashboard access where you can view your website traffic, see enquiries that come in, and track key metrics. Your dedicated account manager — included on every plan — is also available to walk you through performance and suggest improvements.",
+      a: "The Growth and Scale plans ($299/mo and up) include lead tracking where you can view your website traffic, see enquiries that come in, and track key metrics. Your dedicated account manager — included on every plan — is also available to walk you through performance and suggest improvements.",
     },
     {
       q: "How is lead generation different from advertising?",
@@ -191,7 +191,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Which Graylock plan is best for lead generation?",
-      a: "All plans include lead capture forms, click-to-call, and a dedicated account manager. For active lead generation with more funnel pages, enhanced forms, and dashboard access, the Growth plan ($299/mo) is ideal. The Scale plan ($449/mo) adds advanced analytics and more site update hours.",
+      a: "All plans include lead capture forms, click-to-call, and a dedicated account manager. For active lead generation with more funnel pages, enhanced forms, and lead tracking, the Growth plan ($299/mo) is ideal. The Scale plan ($449/mo) adds advanced analytics and more site update hours.",
     },
   ],
   bottomCta: {
@@ -225,7 +225,7 @@ const data: StrategyPageData = {
         name: "Can I see how my website is performing?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. The Growth and Scale plans ($299/mo and up) include dashboard access to view website traffic, enquiries, and key metrics.",
+          text: "Yes. The Growth and Scale plans ($299/mo and up) include lead tracking to view website traffic, enquiries, and key metrics.",
         },
       },
       {

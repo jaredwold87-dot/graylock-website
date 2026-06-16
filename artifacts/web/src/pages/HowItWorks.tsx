@@ -110,7 +110,7 @@ export default function HowItWorks() {
               {
                 icon: <Wrench className="text-orange" size={22} />,
                 title: "Total Maintenance",
-                desc: "We handle all the invisible technical work. Software updates, plugin management, security scans, and uptime monitoring. You never have to log into a complicated dashboard or worry about your site getting hacked.",
+                desc: "We handle all the invisible technical work. Software updates, plugin management, security scans, and uptime monitoring. You never have to worry about your site getting hacked or going down.",
                 delay: 0.1,
               },
               {

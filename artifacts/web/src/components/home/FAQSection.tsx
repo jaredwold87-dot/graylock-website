@@ -18,14 +18,6 @@ const homepageFaqs = [
     a: "Not at all. The discovery call and the custom homepage demo are genuinely free. If you love the direction and want to move forward, you pay the build fee at that point and we get started on the full site. If not, you walk away with the demo concept and zero cost. We'd rather earn your trust than push a sale."
   },
   {
-    q: "What is the business dashboard?",
-    a: "It's a simple, private dashboard included with the Growth and Scale plans ($299/mo and up). You can view your website traffic analytics, track inquiry activity, add and edit your website announcement bar, and submit support requests. Every plan also includes a dedicated account manager who handles content updates for you."
-  },
-  {
-    q: "Which plans include dashboard access?",
-    a: "Dashboard access is included on the Growth and Scale plans ($299/mo and up). Those clients get a private portal to view traffic analytics, track inquiry activity, manage their website announcement bar, and submit support requests. Every plan — including Starter — also includes a dedicated account manager who handles content updates for you."
-  },
-  {
     q: "What do I own, and what happens if I cancel?",
     a: "You own your domain, your written content, your images, and your brand assets — always. That never changes, whether you stay with us for ten years or ten months. The only thing we retain is the underlying code and hosting infrastructure, which is standard for any subscription-based web service. If you ever cancel, we package up all of your content and data, transfer your domain wherever you choose, and make sure the handoff is clean — all within 30 days, no cancellation fees. We've done it before and we do it without drama."
   },

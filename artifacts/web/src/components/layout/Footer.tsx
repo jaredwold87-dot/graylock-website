@@ -128,15 +128,6 @@ export function Footer() {
           >
             Sitemap
           </a>
-          <span className="text-offwhite/30">•</span>
-          <a
-            href="https://graylock-os-ymwca.sevalla.app/portal?site=99c58e46-33ee-4c7c-ab23-eeb7badcc57b"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-offwhite/85 hover:text-orange transition-colors"
-          >
-            Client Dashboard
-          </a>
         </p>
         </div>
       </div>

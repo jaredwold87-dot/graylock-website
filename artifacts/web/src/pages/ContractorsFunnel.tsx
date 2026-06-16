@@ -1086,7 +1086,7 @@ export default function ContractorsFunnel() {
               {
                 icon: <Wrench className="text-[#E85D26]" size={22} />,
                 title: "Total Maintenance",
-                desc: "We handle all updates, security, and hosting. You never have to log into a dashboard.",
+                desc: "We handle all updates, security, and hosting — so you never have to lift a finger.",
               },
               {
                 icon: <MessagesSquare className="text-[#E85D26]" size={22} />,

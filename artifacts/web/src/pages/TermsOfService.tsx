@@ -59,7 +59,7 @@ export default function TermsOfService() {
               <p className={P}><span className="text-offwhite">&ldquo;Build Agreement&rdquo;</span> means a separate agreement governing the Build Phase, presented and accepted at the time of build-fee payment.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Content&rdquo;</span> means all text, copy, images, photographs, video, audio, logos, brand assets, testimonials, and other materials displayed on or made available through your Website.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Customer Content&rdquo;</span> means Content you provide to us, including any Content you direct us to use.</p>
-              <p className={P}><span className="text-offwhite">&ldquo;Graylock OS&rdquo;</span> means the proprietary software platform, codebase, AI workflows, prompts, components, design systems, client portal, dashboards, and other tools that we use to build, host, deploy, maintain, and operate Websites, together with all updates, modifications, and derivative works.</p>
+              <p className={P}><span className="text-offwhite">&ldquo;Graylock OS&rdquo;</span> means the proprietary software platform, codebase, AI workflows, prompts, components, design systems, client portal, and other tools that we use to build, host, deploy, maintain, and operate Websites, together with all updates, modifications, and derivative works.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Initial Term&rdquo;</span> has the meaning given in Section 4.2.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Services&rdquo;</span> means all services we provide under this Agreement, including the design, development, hosting, maintenance, support, and ongoing operation of your Website.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Subscription&rdquo;</span> means your recurring monthly subscription to the Services at the Tier you selected at checkout.</p>
@@ -212,7 +212,7 @@ export default function TermsOfService() {
 
             <h3 className={H3}>6.1 Graylock Property</h3>
             <p className={`${P} mb-4`}>
-              Graylock OS, the underlying source code of your Website, the Graylock-built design components and templates, the prompts and AI workflows used to build your Website, the client portal and associated dashboards, and all other software, methodologies, and tools we use to deliver the Services are the exclusive property of Graylock. Nothing in this Agreement transfers ownership of any of the foregoing to you.
+              Graylock OS, the underlying source code of your Website, the Graylock-built design components and templates, the prompts and AI workflows used to build your Website, the client portal and all other software, methodologies, and tools we use to deliver the Services are the exclusive property of Graylock. Nothing in this Agreement transfers ownership of any of the foregoing to you.
             </p>
             <p className={P}>
               During your active Subscription, we grant you a limited, non-exclusive, non-transferable license to access and use the Website we operate for you. This license terminates when your Subscription ends or under Section 7.
@@ -288,10 +288,10 @@ export default function TermsOfService() {
             <h3 className={`${H3} mt-8`}>7.4 What the Buyout Does Not Include</h3>
             <p className={`${P} mb-4`}>The following are not included in a Buyout:</p>
             <ul className={UL}>
-              <li>Graylock OS, the client portal, the customer dashboards, and any other Graylock proprietary software platform components, including any components that are accessed by your Website but are not embedded in your Website&rsquo;s source code;</li>
+              <li>Graylock OS, the client portal, and any other Graylock proprietary software platform components, including any components that are accessed by your Website but are not embedded in your Website&rsquo;s source code;</li>
               <li>Third-party software licenses, plugin licenses, font licenses, stock photography licenses, and any other third-party rights that do not transfer with the source code; you are responsible for separately licensing any third-party assets needed for your Website to operate;</li>
               <li>Hosting, deployment, ongoing maintenance, support, security updates, accessibility monitoring, or any other services we previously provided under your Subscription;</li>
-              <li>Any Graylock-OS-generated dashboards, analytics, monitoring, or business intelligence outputs.</li>
+              <li>Any Graylock-OS-generated analytics, monitoring, or business intelligence outputs.</li>
             </ul>
 
             <h3 className={`${H3} mt-8`}>7.5 Post-Buyout Status</h3>

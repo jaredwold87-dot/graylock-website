@@ -89,7 +89,7 @@ const features = [
   },
   {
     icon: BarChart3,
-    title: "Dashboard & Analytics",
+    title: "Traffic & Analytics",
     description:
       "On Growth and Scale plans, see exactly how many people visit your site, where they come from, and which pages drive the most leads. Data-driven decisions, not guesswork.",
   },
