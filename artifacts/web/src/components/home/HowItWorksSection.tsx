@@ -1,6 +1,6 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { Phone, Sparkles, CreditCard, Hammer, Rocket, Clock, Wrench, Zap } from "lucide-react";
+import { Phone, Sparkles, CheckCircle, Hammer, Rocket, Clock, Wrench, Zap } from "lucide-react";
 
 export function HowItWorksSection() {
   const steps = [
@@ -15,9 +15,9 @@ export function HowItWorksSection() {
       desc: "We turn that input into a real demo of what your new homepage could look like — no payment required to see it.",
     },
     {
-      Icon: CreditCard,
-      title: "Approve the Demo & Pay the Build Fee",
-      desc: "Like the direction? You pay the build fee at this point — after the demo, not before — and we get started on the full site.",
+      Icon: CheckCircle,
+      title: "Approve the Demo",
+      desc: "Like the direction? You give it the green light and we get started on building out the full site.",
     },
     {
       Icon: Hammer,
