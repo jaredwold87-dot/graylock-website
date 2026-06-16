@@ -31,12 +31,12 @@ export function ProblemSection() {
       <div className="max-w-6xl mx-auto">
 
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">The Cost of an Underperforming Website</p>
+          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">The Problem With Most Service Business Websites</p>
           <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
-            If Your Website Is Underperforming, It Is Costing You.
+            You Run a Professional Business. Your Website Should Look Like It.
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed">
-            Most owners know their site needs work — they just don't know what to fix first.
+            Potential clients judge the quality of your service by the quality of your site before they ever speak to you. If the two don't match, they don't reach out.
           </p>
         </ScrollReveal>
 
