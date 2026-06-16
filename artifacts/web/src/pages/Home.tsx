@@ -6,7 +6,6 @@ import { ProblemSection } from "@/components/home/ProblemSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiationSection";
 import { TestimonialSection } from "@/components/home/TestimonialSection";
-import { PricingSnapshotSection } from "@/components/home/PricingSnapshotSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export default function Home() {
@@ -24,7 +23,6 @@ export default function Home() {
       <HowItWorksSection />
       <TestimonialSection />
       <ValueDifferentiationSection />
-      <PricingSnapshotSection />
       <FinalCTASection />
     </>
   );
