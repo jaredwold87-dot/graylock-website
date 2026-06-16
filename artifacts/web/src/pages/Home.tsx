@@ -24,10 +24,10 @@ export default function Home() {
       <OfferBreakdownSection />
       <ProblemSection />
       <HowItWorksSection />
+      <TestimonialSection />
       <ValueDifferentiationSection />
       <CaseStudySection />
       <DashboardSection />
-      <TestimonialSection />
       <PricingSnapshotSection />
       <FinalCTASection />
     </>
