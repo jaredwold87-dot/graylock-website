@@ -1,5 +1,5 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Phone, LayoutDashboard, CreditCard, Rocket } from "lucide-react";
+import { Phone, LayoutDashboard, CheckCircle, Rocket } from "lucide-react";
 import discoveryCallImg from "@/assets/process-discovery-call.webp";
 import homepageDemoImg from "@/assets/process-homepage-demo.webp";
 import approvePayImg from "@/assets/process-approve-pay.webp";
@@ -20,10 +20,10 @@ export function OfferBreakdownSection() {
       desc: "We turn that input into a real, custom homepage concept for your business — no payment required to see it.",
     },
     {
-      icon: <CreditCard size={24} strokeWidth={2.2} />,
+      icon: <CheckCircle size={24} strokeWidth={2.2} />,
       image: approvePayImg,
-      title: "You Approve, Then You Pay",
-      desc: "If you like the direction, you pay the build fee at that point — after the demo, not before.",
+      title: "You Approve the Design & Direction",
+      desc: "If you like what you see, you give the design and direction the green light and we move ahead with the full build.",
     },
     {
       icon: <Rocket size={24} strokeWidth={2.2} />,
