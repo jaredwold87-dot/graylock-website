@@ -109,14 +109,14 @@ export function HeroSection() {
         <div className="max-w-2xl">
           <ScrollReveal>
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
-              Custom Websites for Trust-Based Businesses
+              Custom Websites for Local Service Businesses
             </p>
             <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
               Turn Your Website Into{" "}
               <span className="text-[#E85D26]">Your Best Source of New Clients.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
-              Your next client is already searching Google. We build custom, high-converting websites for private practices and service businesses — live in 7–10 days, built to get you found and get you booked.
+              We build custom, high-converting websites for service businesses — built to rank on Google, built to generate calls and booking requests, and live in 7–10 days.
             </p>
 
             {/* Mobile-only sequence: CTA → reassurance → bullets → proof image */}
@@ -136,8 +136,9 @@ export function HeroSection() {
               </p>
               <ul className="flex flex-col gap-2.5 mb-8">
                 {[
-                  "More calls, inquiries, and booked appointments",
-                  "Show up when clients Google your services",
+                  "Show up when clients search for you",
+                  "Turn visitors into calls and estimate requests",
+                  "Live in 7–10 days",
                 ].map((text, i) => (
                   <li key={i} className="flex items-center gap-2.5 justify-center">
                     <Check
@@ -178,10 +179,11 @@ export function HeroSection() {
                 We'll show you exactly what your new site could look like — before you spend a dollar.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-x-8 sm:gap-y-3">
                 {[
-                  "More calls, inquiries, and booked appointments",
-                  "Show up when clients Google your services",
+                  "Show up when clients search for you",
+                  "Turn visitors into calls and estimate requests",
+                  "Live in 7–10 days",
                 ].map((text, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#E85D26]/10 border border-[#E85D26]/30 flex items-center justify-center">
