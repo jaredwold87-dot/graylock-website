@@ -3,7 +3,6 @@ import { Link, useLocation } from "wouter";
 import {
   Menu, X, ChevronDown,
   Palette, Search, MousePointerClick, MapPin, Magnet, ShieldCheck,
-  Activity, Smile, Focus, Dumbbell, Stethoscope, Brain, Calculator, Briefcase, HardHat, Home,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -48,28 +47,9 @@ const SERVICES = [
 
 const SERVICE_PATHS = SERVICES.map((s) => s.path).concat(["/our-strategy"]);
 
-const WHO_WE_HELP_PRACTICES = [
-  { name: "Psychologists", desc: "Testing, therapy & evaluations.", icon: Brain, path: "/websites-for-psychologists" },
-  { name: "Optometrists", desc: "Exams, contacts, frames, dry eye.", icon: Focus, path: "/websites-for-optometrists" },
-  { name: "Physical Therapists", desc: "Rehab, sports, ortho & pain.", icon: Dumbbell, path: "/websites-for-physical-therapists" },
-  { name: "Dentists", desc: "Family, cosmetic, implants, ortho.", icon: Smile, path: "/websites-for-dentists" },
-  { name: "Chiropractors", desc: "Adjustments, posture, sports recovery.", icon: Activity, path: "/websites-for-chiropractors" },
-  { name: "Physicians", desc: "Family, internal & specialty practices.", icon: Stethoscope, path: "/websites-for-physicians" },
-];
-
-const WHO_WE_HELP_OTHER = [
-  { name: "Home Builders", desc: "Custom homes, renovations, design-build.", icon: Home, path: "/websites-for-home-builders" },
-  { name: "Accounting Firms", desc: "CPAs, bookkeeping, tax & advisory.", icon: Calculator, path: "/websites-for-accountants" },
-  { name: "Industrial Construction", desc: "Contractors, trades, manufacturing.", icon: HardHat, path: "/websites-for-industrial-construction" },
-  { name: "Other Local Service Businesses", desc: "Trust-based pros — law, finance, more.", icon: Briefcase, path: "/other-service-businesses" },
-];
-
-const WHO_WE_HELP_ALL = [...WHO_WE_HELP_OTHER, ...WHO_WE_HELP_PRACTICES];
-
 const ABOUT_MENU = [
   { name: "About Us", path: "/about" },
   { name: "Process", path: "/how-it-works" },
-  { name: "Featured Projects", path: "/featured-projects" },
 ];
 
 const OUR_STRATEGY = [
@@ -155,134 +135,6 @@ function ServicesMegaMenu({
             <span className="text-xs text-stone">See how it all works together</span>
             <Link href="/our-strategy" className="text-xs font-sans font-semibold text-orange hover:text-orange/80 transition-colors">
               Our full strategy →
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function DesktopMegaMenu({
-  isActive,
-  location,
-}: {
-  isActive: boolean;
-  location: string;
-}) {
-  const [open, setOpen] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setOpen(false), 150);
-  };
-
-  useEffect(() => {
-    setOpen(false);
-  }, [location]);
-
-  return (
-    <div
-      ref={ref}
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <button
-        className={cn(
-          "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative flex items-center gap-1",
-          isActive ? "text-orange" : "text-offwhite/90 hover:text-orange"
-        )}
-        onClick={() => setOpen(!open)}
-      >
-        Industries
-        <ChevronDown
-          size={14}
-          className={cn("transition-transform duration-200", open ? "rotate-180" : "")}
-        />
-        <span
-          className={cn(
-            "absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300",
-            isActive ? "w-full" : "w-0"
-          )}
-        />
-      </button>
-
-      <div
-        className={cn(
-          "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[760px] rounded-xl border border-gunmetal/60 bg-charcoal/95 backdrop-blur-xl shadow-2xl shadow-black/40 transition-all duration-200 overflow-hidden",
-          open
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-2 pointer-events-none"
-        )}
-      >
-        <div className="p-4">
-          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mb-3 px-2">Local Service Businesses</p>
-          <div className="grid grid-cols-2 gap-1">
-            {WHO_WE_HELP_OTHER.map((item) => {
-              const Icon = item.icon;
-              const active = location === item.path;
-              return (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={cn(
-                    "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group/item",
-                    active ? "bg-orange/10" : "hover:bg-white/5"
-                  )}
-                >
-                  <div className="w-9 h-9 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange/15 transition-colors">
-                    <Icon size={16} className="text-orange" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className={cn("text-sm font-sans font-semibold leading-tight", active ? "text-orange" : "text-offwhite")}>
-                      {item.name}
-                    </div>
-                    <div className="text-[11.5px] text-stone leading-snug mt-0.5">{item.desc}</div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-
-          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mt-4 mb-3 px-2">Healthcare Practices</p>
-          <div className="grid grid-cols-2 gap-1">
-            {WHO_WE_HELP_PRACTICES.map((item) => {
-              const Icon = item.icon;
-              const active = location === item.path;
-              return (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={cn(
-                    "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group/item",
-                    active ? "bg-orange/10" : "hover:bg-white/5"
-                  )}
-                >
-                  <div className="w-9 h-9 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange/15 transition-colors">
-                    <Icon size={16} className="text-orange" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className={cn("text-sm font-sans font-semibold leading-tight", active ? "text-orange" : "text-offwhite")}>
-                      {item.name}
-                    </div>
-                    <div className="text-[11.5px] text-stone leading-snug mt-0.5">{item.desc}</div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="border-t border-gunmetal/40 mt-3 pt-3 px-2 flex items-center justify-between">
-            <span className="text-xs text-stone">Don't see your industry?</span>
-            <Link href="/get-started" className="text-xs font-sans font-semibold text-orange hover:text-orange/80 transition-colors">
-              Talk to us →
             </Link>
           </div>
         </div>
@@ -462,7 +314,6 @@ function MobileAccordion({
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileWhoWeHelpOpen, setMobileWhoWeHelpOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [location] = useLocation();
@@ -477,12 +328,10 @@ export function Navbar() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setMobileWhoWeHelpOpen(false);
     setMobileServicesOpen(false);
     setMobileAboutOpen(false);
   }, [location]);
 
-  const isWhoWeHelpActive = WHO_WE_HELP_ALL.some((item) => location === item.path);
   const isServicesActive = SERVICE_PATHS.some((p) => location === p);
 
   const navLinksAfter = [
@@ -535,10 +384,23 @@ export function Navbar() {
                 location={location}
               />
 
-              <DesktopMegaMenu
-                isActive={isWhoWeHelpActive}
-                location={location}
-              />
+              <Link
+                href="/featured-projects"
+                className={cn(
+                  "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative",
+                  location === "/featured-projects"
+                    ? "text-orange"
+                    : "text-offwhite/90 hover:text-orange"
+                )}
+              >
+                Our Customers
+                <span
+                  className={cn(
+                    "absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300",
+                    location === "/featured-projects" ? "w-full" : "w-0"
+                  )}
+                />
+              </Link>
 
               {navLinksAfter.map((link) => (
                 <Link
@@ -617,15 +479,17 @@ export function Navbar() {
             onToggle={() => setMobileServicesOpen(!mobileServicesOpen)}
           />
 
-          <MobileAccordion
-            label="Industries"
-            items={WHO_WE_HELP_OTHER}
-            extraItems={WHO_WE_HELP_PRACTICES}
-            isActive={isWhoWeHelpActive}
-            location={location}
-            open={mobileWhoWeHelpOpen}
-            onToggle={() => setMobileWhoWeHelpOpen(!mobileWhoWeHelpOpen)}
-          />
+          <Link
+            href="/featured-projects"
+            className={cn(
+              "text-2xl font-display uppercase tracking-widest",
+              location === "/featured-projects"
+                ? "text-orange"
+                : "text-offwhite hover:text-orange transition-colors"
+            )}
+          >
+            Our Customers
+          </Link>
 
           {navLinksAfter.map((link) => (
             <Link
