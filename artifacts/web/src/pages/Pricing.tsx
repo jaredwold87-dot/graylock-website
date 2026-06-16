@@ -10,14 +10,11 @@ import { cn } from "@/lib/utils";
 export default function Pricing() {
   const featureRows = [
     { name: "Pages Included", solo: "8", group: "15", enterprise: "20+", custom: "Custom" },
-    { name: "Team / About Pages", solo: "1", group: "Up to 5", enterprise: "Up to 10", custom: "Unlimited" },
     { name: "SEO Funnel Pages", solo: false, group: "6", enterprise: "9", custom: "Custom" },
     { name: "Mobile-First Design", solo: true, group: true, enterprise: true, custom: true },
     { name: "Hosting & SSL", solo: true, group: true, enterprise: true, custom: true },
-    { name: "Google Business Profile", solo: false, group: true, enterprise: true, custom: true },
     { name: "Local SEO", solo: "Foundation", group: "Full", enterprise: "Advanced + Multi-Location", custom: "Custom" },
     { name: "Lead Capture Form", solo: "Basic", group: "Enhanced", enterprise: "Advanced", custom: "Custom" },
-    { name: "Dashboard Access", solo: false, group: true, enterprise: true, custom: true },
     { name: "Dedicated Account Manager", solo: true, group: true, enterprise: true, custom: true },
     { name: "Site Update Hours", solo: "1 hr/quarter", group: "1 hr/month", enterprise: "2 hrs/month", custom: "Custom", footnote: "Additional updates billed at $100/hr — quoted and approved before any work begins" },
     { name: "Custom Integrations", solo: false, group: false, enterprise: true, custom: true },
@@ -33,22 +30,23 @@ export default function Pricing() {
   const renderCell = (val: CellValue, highlight?: boolean) => {
     if (typeof val === 'boolean') {
       return val 
-        ? <Check className={`mx-auto ${highlight ? 'text-orange' : 'text-offwhite'}`} size={20}/> 
-        : <Minus className="mx-auto text-gunmetal" size={20}/>;
+        ? <Check className={`mx-auto ${highlight ? 'text-[#E85D26]' : 'text-white'}`} size={20}/> 
+        : <Minus className="mx-auto text-white/30" size={20}/>;
     }
-    return <span className={`${highlight ? 'text-orange font-semibold' : 'text-offwhite'} font-sans text-sm`}>{val}</span>;
+    return <span className={`${highlight ? 'text-[#E85D26] font-semibold' : 'text-white'} font-sans text-sm`}>{val}</span>;
   };
 
   return (
     <>
       <SEO title="Pricing | Small Business Website Design Plans | Graylock Digital" description="Three flat monthly plans, one one-time build fee paid only after you approve your free demo, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
       
-      <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
+      <section className="relative py-32 md:py-40 px-6 md:px-12 text-white overflow-hidden bg-[#0f0f0f]">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-pricing.png`} />
-        <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f]/95 via-[#0f0f0f]/90 to-[#0f0f0f]" />
+        <div className="pointer-events-none absolute -top-1/4 right-0 w-[60%] h-[120%] bg-[radial-gradient(ellipse_at_center,rgba(232,93,38,0.15),transparent_60%)]" aria-hidden="true" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">
+            <p className="text-[#E85D26] font-sans font-semibold uppercase tracking-widest text-sm mb-4">
               Pricing
             </p>
             <h1 className="text-4xl md:text-6xl font-display mb-6 leading-tight">Three plans. One flat fee. <span className="text-gradient">No surprises.</span></h1>
@@ -59,10 +57,10 @@ export default function Pricing() {
 
       <PricingSection hideHeader />
 
-      <section className="bg-navy py-16 px-6 border-t border-gunmetal md:hidden">
+      <section className="bg-[#0f0f0f] py-16 px-6 border-t border-white/5 md:hidden">
         <div className="max-w-md mx-auto">
           <ScrollReveal className="text-center mb-10">
-            <h2 className="text-2xl font-display text-offwhite mb-3">Compare Plan Features</h2>
+            <h2 className="text-2xl font-display text-white mb-3">Compare Plan Features</h2>
             <p className="text-stone font-sans text-sm">Quick side-by-side of what is included on each plan.</p>
           </ScrollReveal>
 
@@ -74,19 +72,19 @@ export default function Pricing() {
           ].map((plan) => (
             <ScrollReveal key={plan.key} className={cn(
               "rounded-2xl border mb-6 overflow-hidden",
-              plan.popular ? "border-orange/50 bg-charcoal" : "border-gunmetal bg-charcoal/40"
+              plan.popular ? "border-[#E85D26]/40 bg-white/[0.04]" : "border-white/10 bg-white/[0.03]"
             )}>
               <div className={cn(
                 "px-5 py-4 border-b",
-                plan.popular ? "bg-orange/10 border-orange/30" : "bg-navy/60 border-gunmetal"
+                plan.popular ? "bg-[#E85D26]/10 border-[#E85D26]/30" : "bg-white/[0.03] border-white/10"
               )}>
                 <div className="flex items-baseline justify-between gap-3">
-                  <h3 className={cn("font-display text-xl", plan.popular ? "text-orange" : "text-offwhite")}>{plan.name}</h3>
-                  {plan.popular && <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange">Most Popular</span>}
+                  <h3 className={cn("font-display text-xl", plan.popular ? "text-[#E85D26]" : "text-white")}>{plan.name}</h3>
+                  {plan.popular && <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#E85D26]">Most Popular</span>}
                 </div>
                 <p className="text-stone text-sm font-sans mt-1">{plan.price}</p>
               </div>
-              <ul className="divide-y divide-gunmetal/40">
+              <ul className="divide-y divide-white/10">
                 {featureRows.map((row, i) => {
                   const val = row[plan.key as keyof typeof row] as boolean | string;
                   return (
@@ -94,9 +92,9 @@ export default function Pricing() {
                       <span className="text-stone font-sans text-sm flex-1 leading-snug">{row.name}</span>
                       <span className="flex-shrink-0 text-right">
                         {typeof val === "boolean" ? (
-                          val ? <Check className="text-orange ml-auto" size={18} /> : <Minus className="text-gunmetal ml-auto" size={18} />
+                          val ? <Check className="text-[#E85D26] ml-auto" size={18} /> : <Minus className="text-white/30 ml-auto" size={18} />
                         ) : (
-                          <span className="text-offwhite font-sans text-sm font-semibold">{val}</span>
+                          <span className="text-white font-sans text-sm font-semibold">{val}</span>
                         )}
                       </span>
                     </li>
@@ -108,26 +106,26 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="bg-navy py-24 px-6 md:px-12 border-t border-gunmetal hidden md:block">
+      <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 border-t border-white/5 hidden md:block">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">Compare Plan Features</h2>
+            <h2 className="text-3xl md:text-5xl font-display text-white mb-6">Compare Plan Features</h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2} className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-stone w-1/5">Features</th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Starter<br/><span className="text-sm text-stone font-sans">$199/mo</span></th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-orange w-1/5 text-center">Growth<br/><span className="text-sm text-stone font-sans">$299/mo</span></th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Scale<br/><span className="text-sm text-stone font-sans">$449/mo</span></th>
-                  <th className="p-4 border-b border-gunmetal font-display text-xl text-offwhite w-1/5 text-center">Custom<br/><span className="text-sm text-stone font-sans">Contact Us</span></th>
+                  <th className="p-4 border-b border-white/10 font-display text-xl text-stone w-1/5">Features</th>
+                  <th className="p-4 border-b border-white/10 font-display text-xl text-white w-1/5 text-center">Starter<br/><span className="text-sm text-stone font-sans">$199/mo</span></th>
+                  <th className="p-4 border-b border-white/10 font-display text-xl text-[#E85D26] w-1/5 text-center">Growth<br/><span className="text-sm text-stone font-sans">$299/mo</span></th>
+                  <th className="p-4 border-b border-white/10 font-display text-xl text-white w-1/5 text-center">Scale<br/><span className="text-sm text-stone font-sans">$449/mo</span></th>
+                  <th className="p-4 border-b border-white/10 font-display text-xl text-white w-1/5 text-center">Custom<br/><span className="text-sm text-stone font-sans">Contact Us</span></th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gunmetal">
+              <tbody className="divide-y divide-white/10">
                 {featureRows.map((row: FeatureRow, i: number) => (
-                  <tr key={i} className="hover:bg-charcoal/50 transition-colors">
+                  <tr key={i} className="hover:bg-white/[0.03] transition-colors">
                     <td className="p-4 font-sans text-stone">
                       {row.name}
                       {row.footnote && (
@@ -135,7 +133,7 @@ export default function Pricing() {
                       )}
                     </td>
                     <td className="p-4 text-center">{renderCell(row.solo)}</td>
-                    <td className="p-4 text-center bg-charcoal/20">{renderCell(row.group, true)}</td>
+                    <td className="p-4 text-center bg-white/[0.03]">{renderCell(row.group, true)}</td>
                     <td className="p-4 text-center">{renderCell(row.enterprise)}</td>
                     <td className="p-4 text-center">{renderCell(row.custom)}</td>
                   </tr>
@@ -147,16 +145,16 @@ export default function Pricing() {
       </section>
 
       <section className="relative py-24 px-6 md:px-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f0f1f3] via-[#f4f5f7] to-[#edeef1]" />
+        <div className="absolute inset-0 bg-[#f5f5f4]" />
         <div className="absolute inset-0 opacity-[0.35]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300/60 to-transparent" />
 
         <div className="max-w-5xl mx-auto relative z-10">
           <ScrollReveal className="text-center mb-16">
-            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">What You're Actually Paying For</p>
-            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">Your Monthly Fee, Broken Down</h2>
-            <p className="text-slate-600 text-lg font-sans max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#B23E16] font-sans font-semibold uppercase tracking-widest text-sm mb-4">What You're Actually Paying For</p>
+            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">Your Monthly Fee, Broken Down</h2>
+            <p className="text-[#4a5568] text-lg font-sans max-w-2xl mx-auto leading-relaxed">
               Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your business every single day.
             </p>
           </ScrollReveal>
@@ -175,8 +173,8 @@ export default function Pricing() {
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-charcoal font-display text-lg mb-1">{item.title}</h3>
-                  <p className="text-slate-600 font-sans text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="text-[#1a202c] font-display text-lg mb-1">{item.title}</h3>
+                  <p className="text-[#4a5568] font-sans text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -184,9 +182,9 @@ export default function Pricing() {
 
           <div className="max-w-4xl mx-auto">
             <ScrollReveal className="text-center mb-12 pt-8 border-t border-gray-300/60">
-              <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4 mt-8">You're Covered</p>
-              <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">Always current. Always yours.</h2>
-              <p className="text-slate-600 text-lg font-sans max-w-2xl mx-auto leading-relaxed">
+              <p className="text-[#B23E16] font-sans font-semibold uppercase tracking-widest text-sm mb-4 mt-8">You're Covered</p>
+              <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">Always current. Always yours.</h2>
+              <p className="text-[#4a5568] text-lg font-sans max-w-2xl mx-auto leading-relaxed">
                 Two promises baked into every plan: every 2 years your site gets a free top-to-bottom refresh, and the things that matter — your domain, your content, your brand — belong to you whether you stay or go.
               </p>
             </ScrollReveal>
@@ -194,7 +192,7 @@ export default function Pricing() {
             <ScrollReveal delay={0.1} className="mb-14">
               <div className="flex items-center justify-center gap-2 mb-8">
                 <RefreshCw className="text-orange" size={18} />
-                <h3 className="text-orange font-sans font-semibold uppercase tracking-widest text-xs md:text-sm">Stay-Current Guarantee · Free Refresh Every 2 Years</h3>
+                <h3 className="text-[#B23E16] font-sans font-semibold uppercase tracking-widest text-xs md:text-sm">Stay-Current Guarantee · Free Refresh Every 2 Years</h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
                 {[
@@ -207,15 +205,15 @@ export default function Pricing() {
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="text-charcoal font-display text-lg mb-1">{item.title}</h4>
-                      <p className="text-slate-600 font-sans text-sm leading-relaxed">{item.desc}</p>
+                      <h4 className="text-[#1a202c] font-display text-lg mb-1">{item.title}</h4>
+                      <p className="text-[#4a5568] font-sans text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
               <p className="text-slate-500 font-sans text-xs md:text-sm text-center mt-6 leading-relaxed max-w-3xl mx-auto">
                 Out of scope: a brand-new identity/logo or net-new pages beyond your current site structure.{" "}
-                <a href="/faq#pricing-plans" className="text-orange hover:underline">See full scope in the FAQ →</a>
+                <a href="/faq#pricing-plans" className="text-[#B23E16] hover:underline">See full scope in the FAQ →</a>
               </p>
             </ScrollReveal>
 
@@ -224,9 +222,9 @@ export default function Pricing() {
             <ScrollReveal delay={0.15} className="text-center mb-10">
               <div className="flex items-center justify-center gap-2 mb-3">
                 <Lock className="text-orange" size={18} />
-                <h3 className="text-orange font-sans font-semibold uppercase tracking-widest text-xs md:text-sm">What You Own · No Lock-In</h3>
+                <h3 className="text-[#B23E16] font-sans font-semibold uppercase tracking-widest text-xs md:text-sm">What You Own · No Lock-In</h3>
               </div>
-              <p className="text-slate-600 font-sans max-w-2xl mx-auto leading-relaxed">
+              <p className="text-[#4a5568] font-sans max-w-2xl mx-auto leading-relaxed">
                 You're never locked in. Here's exactly what belongs to you — during your plan and after.
               </p>
             </ScrollReveal>
@@ -243,8 +241,8 @@ export default function Pricing() {
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-charcoal font-display text-lg mb-1">{item.title}</h3>
-                    <p className="text-slate-600 font-sans text-sm leading-relaxed">{item.desc}</p>
+                    <h3 className="text-[#1a202c] font-display text-lg mb-1">{item.title}</h3>
+                    <p className="text-[#4a5568] font-sans text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </ScrollReveal>
               ))}
