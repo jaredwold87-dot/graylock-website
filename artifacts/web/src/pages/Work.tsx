@@ -11,7 +11,7 @@ import kingsburyTransformation from "@/assets/work/kingsbury-transformation.webp
 import montanaTransformation from "@/assets/work/montana-transformation.webp";
 import wceTransformation from "@/assets/work/wce-transformation.webp";
 import smartTaxCrnaTransformation from "@/assets/work/smart-tax-crna-transformation.webp";
-import heroBackground from "@/assets/work/featured-hero-bg-v2.webp";
+import heroBackground from "@/assets/work/portfolio-hero-black-v1.webp";
 
 type Theme = "light" | "dark";
 
