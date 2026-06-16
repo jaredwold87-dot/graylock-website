@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <section
       className="-mt-16 md:-mt-20 pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
-      style={{ backgroundColor: "#0a121e" }}
+      style={{ backgroundColor: "#0f0f0f" }}
     >
       {/* Mobile only: layered stylized background */}
       {/* Layer 1: faint dot grid covering entire hero */}
@@ -18,11 +18,11 @@ export function HeroSection() {
         aria-hidden="true"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.07) 1px, transparent 0)",
+            "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.06) 1px, transparent 0)",
           backgroundSize: "22px 22px",
         }}
       />
-      {/* Layer 2: large soft steel-blue aurora blob upper-left */}
+      {/* Layer 2: large soft orange aurora blob upper-left */}
       <div
         className="absolute md:hidden pointer-events-none rounded-full"
         aria-hidden="true"
@@ -32,7 +32,7 @@ export function HeroSection() {
           width: "420px",
           height: "420px",
           background:
-            "radial-gradient(circle, rgba(46,123,180,0.45) 0%, rgba(46,123,180,0.12) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(232,93,38,0.30) 0%, rgba(232,93,38,0.10) 45%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
@@ -46,11 +46,11 @@ export function HeroSection() {
           width: "320px",
           height: "320px",
           background:
-            "radial-gradient(circle, rgba(244,127,54,0.22) 0%, rgba(244,127,54,0.08) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(232,93,38,0.22) 0%, rgba(232,93,38,0.08) 45%, transparent 70%)",
           filter: "blur(50px)",
         }}
       />
-      {/* Layer 4: deeper steel-blue blob lower-right for depth */}
+      {/* Layer 4: deeper orange glow lower-right for depth */}
       <div
         className="absolute md:hidden pointer-events-none rounded-full"
         aria-hidden="true"
@@ -60,7 +60,7 @@ export function HeroSection() {
           width: "380px",
           height: "380px",
           background:
-            "radial-gradient(circle, rgba(46,123,180,0.30) 0%, rgba(46,123,180,0.10) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(232,93,38,0.16) 0%, rgba(232,93,38,0.06) 45%, transparent 70%)",
           filter: "blur(50px)",
         }}
       />
@@ -79,7 +79,7 @@ export function HeroSection() {
         aria-hidden="true"
         style={{
           background:
-            "linear-gradient(to right, transparent 0%, rgba(46,123,180,0.5) 50%, transparent 100%)",
+            "linear-gradient(to right, transparent 0%, rgba(232,93,38,0.5) 50%, transparent 100%)",
         }}
       />
       {/* Desktop/tablet background image — unchanged behavior */}
@@ -89,12 +89,12 @@ export function HeroSection() {
           objectPosition="right center"
         />
       </div>
-      {/* Tablet only (768–1023px): preserve original heavy overlay over the desktop image */}
+      {/* Tablet only (768–1023px): heavy near-black overlay over the desktop image */}
       <div
         className="absolute inset-0 hidden md:block lg:hidden pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,18,30,0.92) 0%, rgba(10,18,30,0.85) 55%, rgba(10,18,30,0.78) 100%)",
+            "linear-gradient(to bottom, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.85) 55%, rgba(10,10,10,0.78) 100%)",
         }}
       />
       {/* Desktop: side gradient that lets the laptop show through on the right */}
@@ -102,26 +102,30 @@ export function HeroSection() {
         className="absolute inset-0 hidden lg:block pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, #0a121e 0%, rgba(10,18,30,0.95) 35%, rgba(10,18,30,0.4) 55%, transparent 70%)",
+            "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.95) 35%, rgba(10,10,10,0.4) 55%, transparent 70%)",
         }}
       />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
-            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-offwhite leading-[1.15] md:leading-[1.1] mb-6">
+            <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
+              Custom Websites for Trust-Based Businesses
+            </p>
+            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6">
               Turn Your Website Into{" "}
-              <span className="text-gradient">Your Best Source of New Clients.</span>
+              <span className="text-[#E85D26]">Your Best Source of New Clients.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
               Your next client is already searching Google. We build custom, high-converting websites for private practices and service businesses — live in 7–10 days, built to get you found and get you booked.
             </p>
 
-            {/* Mobile-only sequence: reassurance → CTA → bullets → proof image */}
+            {/* Mobile-only sequence: CTA → reassurance → bullets → proof image */}
             <div className="md:hidden">
               <div className="flex justify-center mb-6">
                 <CTAButton
                   href="/get-started"
-                  className="bg-transparent text-white border border-white/80 hover:bg-white hover:text-navy px-7 py-3 text-base shadow-none hover:shadow-none hover:-translate-y-0 hover:border-white"
+                  variant="funnel"
+                  className="w-full"
                 >
                   Get Your Free Homepage Demo
                 </CTAButton>
@@ -139,7 +143,7 @@ export function HeroSection() {
                     <Check
                       size={16}
                       strokeWidth={2.5}
-                      className="text-orange flex-shrink-0"
+                      className="text-[#E85D26] flex-shrink-0"
                     />
                     <span className="text-stone font-sans text-sm leading-snug whitespace-nowrap">
                       {text}
@@ -162,10 +166,10 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Tablet/desktop sequence: unchanged */}
+            {/* Tablet/desktop sequence */}
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
-                <CTAButton href="/get-started">
+                <CTAButton href="/get-started" variant="funnel">
                   Get Your Free Homepage Demo
                 </CTAButton>
               </div>
@@ -180,8 +184,8 @@ export function HeroSection() {
                   "Show up when clients Google your services",
                 ].map((text, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-orange/10 border border-orange/30 flex items-center justify-center">
-                      <Check size={12} className="text-orange" />
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#E85D26]/10 border border-[#E85D26]/30 flex items-center justify-center">
+                      <Check size={12} className="text-[#E85D26]" />
                     </div>
                     <span className="text-stone font-sans text-base">{text}</span>
                   </div>

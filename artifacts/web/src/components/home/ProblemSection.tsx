@@ -21,12 +21,12 @@ export function ProblemSection() {
   ];
 
   return (
-    <section className="bg-charcoal py-24 px-6 md:px-12 relative overflow-hidden border-t border-gunmetal">
+    <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 relative overflow-hidden border-t border-white/5">
       <div className="max-w-6xl mx-auto">
 
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">The Cost of an Underperforming Website</p>
-          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">
+          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">The Cost of an Underperforming Website</p>
+          <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
             If Your Website Is Underperforming, It Is Costing You.
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed">
@@ -37,11 +37,11 @@ export function ProblemSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {problems.map((prob, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="h-full bg-gunmetal/30 border border-gunmetal/60 rounded-2xl p-7 flex flex-col items-start hover:border-orange/40 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-orange/10 border border-orange/20 flex items-center justify-center text-orange mb-5">
+              <div className="h-full bg-white/[0.03] border border-white/10 rounded-2xl p-7 flex flex-col items-start hover:border-[#E85D26]/40 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-[#E85D26]/10 border border-[#E85D26]/20 flex items-center justify-center text-[#E85D26] mb-5">
                   {prob.icon}
                 </div>
-                <h3 className="text-offwhite font-sans font-semibold text-lg mb-2 leading-snug">
+                <h3 className="text-white font-sans font-semibold text-lg mb-2 leading-snug">
                   {prob.title}
                 </h3>
                 <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
