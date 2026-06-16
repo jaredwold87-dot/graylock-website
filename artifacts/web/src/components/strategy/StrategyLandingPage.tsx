@@ -211,7 +211,7 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
                 className="absolute inset-x-0 top-0 h-1"
                 style={{
                   background:
-                    "linear-gradient(to right, #2E7BB4 0%, #5BA3D6 50%, #2E7BB4 100%)",
+                    "linear-gradient(to right, #E85D26 0%, #F2A07A 50%, #E85D26 100%)",
                 }}
               />
               {/* Subtle corner glow */}
@@ -220,7 +220,7 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
                 className="absolute -top-16 -right-16 w-48 h-48 rounded-full pointer-events-none"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(46,123,180,0.10) 0%, transparent 70%)",
+                    "radial-gradient(circle, rgba(232,93,38,0.10) 0%, transparent 70%)",
                 }}
               />
 
@@ -232,7 +232,7 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
                     className="block h-px w-8"
                     style={{
                       background:
-                        "linear-gradient(to right, transparent, #2E7BB4)",
+                        "linear-gradient(to right, transparent, #E85D26)",
                     }}
                   />
                   <p className="text-orange text-[11px] font-sans font-bold uppercase tracking-[0.18em]">
@@ -255,10 +255,10 @@ export default function StrategyLandingPage({ data }: { data: StrategyPageData }
                         )}
                         {/* Number badge */}
                         <span
-                          className="relative flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-base shadow-[0_4px_12px_-2px_rgba(46,123,180,0.45)] ring-4 ring-white"
+                          className="relative flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-base shadow-[0_4px_12px_-2px_rgba(232,93,38,0.45)] ring-4 ring-white"
                           style={{
                             background:
-                              "linear-gradient(135deg, #2E7BB4 0%, #1F5A87 100%)",
+                              "linear-gradient(135deg, #E85D26 0%, #B23E16 100%)",
                           }}
                         >
                           {i + 1}

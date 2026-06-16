@@ -136,7 +136,7 @@ export function PlaybookLeadForm({
         <button
           type="submit"
           disabled={submitting}
-          className="cta-shimmer w-full bg-orange text-white font-sans font-semibold tracking-wide px-6 py-4 rounded-md transition-all duration-300 hover:bg-orange/90 hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(46,123,180,0.25)] hover:shadow-[0_6px_24px_rgba(46,123,180,0.4)] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+          className="cta-shimmer w-full bg-orange text-white font-sans font-semibold tracking-wide px-6 py-4 rounded-md transition-all duration-300 hover:bg-orange/90 hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(232,93,38,0.25)] hover:shadow-[0_6px_24px_rgba(232,93,38,0.4)] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
         >
           {submitting ? "Sending..." : buttonLabel}
         </button>

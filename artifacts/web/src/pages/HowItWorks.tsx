@@ -56,7 +56,7 @@ export default function HowItWorks() {
           {steps.slice(0, 2).map((step, i) => (
             <ScrollReveal key={i} delay={i * 0.15} className={`relative flex flex-col md:flex-row items-center justify-between mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
               
-              <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-orange rounded-full -translate-x-1/2 border-4 border-navy z-10 shadow-[0_0_10px_rgba(46,123,180,0.8)]"></div>
+              <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-orange rounded-full -translate-x-1/2 border-4 border-navy z-10 shadow-[0_0_10px_rgba(232,93,38,0.8)]"></div>
 
               <div className="hidden md:block md:w-[45%]"></div>
 
@@ -81,7 +81,7 @@ export default function HowItWorks() {
             return (
               <ScrollReveal key={originalIndex} delay={i * 0.15} className={`relative flex flex-col md:flex-row items-center justify-between mb-16 last:mb-0 ${originalIndex % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
 
-                <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-orange rounded-full -translate-x-1/2 border-4 border-navy z-10 shadow-[0_0_10px_rgba(46,123,180,0.8)]"></div>
+                <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-orange rounded-full -translate-x-1/2 border-4 border-navy z-10 shadow-[0_0_10px_rgba(232,93,38,0.8)]"></div>
 
                 <div className="hidden md:block md:w-[45%]"></div>
 

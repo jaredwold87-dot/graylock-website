@@ -20,7 +20,7 @@ export function AnnouncementBar() {
   return (
     <div
       className="w-full py-2.5 px-4 text-center text-sm font-sans text-white relative z-[60]"
-      style={{ backgroundColor: background_color || "#2E7BB4" }}
+      style={{ backgroundColor: background_color || "#E85D26" }}
     >
       <span>{message}</span>
       {showLink && (

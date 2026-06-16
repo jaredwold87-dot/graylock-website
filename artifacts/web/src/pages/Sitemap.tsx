@@ -205,7 +205,7 @@ export default function Sitemap() {
             </p>
             <Link
               href="/get-started"
-              className="inline-block bg-orange text-white text-sm font-bold px-6 py-3 rounded hover:bg-orange/90 transition-all duration-300 shadow-[0_2px_12px_rgba(46,123,180,0.25)] hover:shadow-[0_4px_20px_rgba(46,123,180,0.4)] hover:-translate-y-0.5"
+              className="inline-block bg-orange text-white text-sm font-bold px-6 py-3 rounded hover:bg-orange/90 transition-all duration-300 shadow-[0_2px_12px_rgba(232,93,38,0.25)] hover:shadow-[0_4px_20px_rgba(232,93,38,0.4)] hover:-translate-y-0.5"
             >
               Get in touch
             </Link>

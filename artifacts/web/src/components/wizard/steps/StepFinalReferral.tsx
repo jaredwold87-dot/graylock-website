@@ -104,7 +104,7 @@ export function StepFinalReferral() {
         <button
           onClick={handleSubmit}
           disabled={isSubmitting}
-          className="mt-2 bg-orange text-white font-sans font-semibold text-lg px-8 py-5 rounded-lg hover:bg-orange/90 transition-all shadow-[0_4px_14px_rgba(46,123,180,0.25)] hover:shadow-[0_6px_20px_rgba(46,123,180,0.35)] hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+          className="mt-2 bg-orange text-white font-sans font-semibold text-lg px-8 py-5 rounded-lg hover:bg-orange/90 transition-all shadow-[0_4px_14px_rgba(232,93,38,0.25)] hover:shadow-[0_6px_20px_rgba(232,93,38,0.35)] hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
         >
           {isSubmitting ? (
             <>

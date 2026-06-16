@@ -68,8 +68,8 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
                 tier.popular
                   ? "bg-charcoal border-orange/50 shadow-xl shadow-orange/10"
                   : "bg-white/80 backdrop-blur-sm border-gray-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]",
-                isActive && !tier.popular && "border-orange/60 shadow-[0_4px_16px_rgba(46,123,180,0.12),0_20px_48px_rgba(46,123,180,0.10)] -translate-y-1",
-                isActive && tier.popular && "border-orange shadow-[0_8px_24px_rgba(46,123,180,0.25)]"
+                isActive && !tier.popular && "border-orange/60 shadow-[0_4px_16px_rgba(232,93,38,0.12),0_20px_48px_rgba(232,93,38,0.10)] -translate-y-1",
+                isActive && tier.popular && "border-orange shadow-[0_8px_24px_rgba(232,93,38,0.25)]"
               )}>
               {tier.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange to-orange/80 text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-orange/30">
