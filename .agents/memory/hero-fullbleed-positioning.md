@@ -16,3 +16,5 @@ When a hero uses a full-bleed background image (`absolute inset-0 w-full h-full 
 **Why:** device size in the height-scaled regime is proportional to hero height, so taller headlines push devices bigger/leftward — capping text width decouples the two. Bumping the image filename (v1→v2) on regen avoids dev-server/browser webp cache showing stale frames.
 
 **How to apply:** Graylock homepage `artifacts/web/src/components/home/HeroSection.tsx` desktop hero (`hidden md:block` block). Mobile uses a separate layered bg + device image — never touch it for desktop hero work.
+
+**Recompose pitfall — never UPSCALE or change ASPECT of the hero source.** Resizing the source above its native pixel dimensions (e.g. 2752x1536 → 4128x2231) blurs it, and a non-proportional `-resize`/`-extent` that changes the aspect ratio skews/stretches the bottom desk area. To resize devices, CROP the native source instead (`magick SRC -crop WxH+X+Y +repage`) — never enlarge. Tighter crop toward the right (where devices sit) makes devices bigger; wider crop makes them smaller. Keep crop aspect near the hero container's (~1.7) so object-cover barely crops and devices aren't clipped vertically.
