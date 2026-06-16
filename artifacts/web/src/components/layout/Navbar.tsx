@@ -572,7 +572,7 @@ export function Navbar() {
               href="/get-started"
               className="cta-shimmer bg-orange text-white text-sm font-bold px-5 py-2.5 rounded hover:bg-orange/90 transition-all duration-300 shadow-[0_2px_12px_rgba(232,93,38,0.25)] hover:shadow-[0_4px_20px_rgba(232,93,38,0.4)] hover:-translate-y-0.5"
             >
-              Get Your Free Homepage Demo
+              Book a Discovery Call
             </Link>
           </div>
 
@@ -655,7 +655,7 @@ export function Navbar() {
             href="/get-started"
             className="mt-6 cta-shimmer bg-orange text-white font-sans font-bold px-8 py-4 rounded shadow-xl shadow-orange/20"
           >
-            Get Your Free Homepage Demo
+            Book a Discovery Call
           </Link>
         </div>
       </div>

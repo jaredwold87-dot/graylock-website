@@ -55,7 +55,7 @@ export function CaseStudySection() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <CTAButton href="/get-started" variant="funnel" className="px-5 py-3 text-sm whitespace-nowrap">
-                Get Your Free Homepage Demo
+                Book a Discovery Call
               </CTAButton>
               <CTAButton href="/featured-projects" variant="funnelOutline" className="px-5 py-3 text-sm whitespace-nowrap">
                 View Our Other Projects

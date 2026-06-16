@@ -409,7 +409,7 @@ export default function Work() {
                   href="/get-started"
                   className="group inline-flex items-center justify-center gap-2 bg-[#E85D26] text-white font-sans font-bold text-sm md:text-base px-7 py-3.5 rounded-lg shadow-[0_8px_24px_rgba(232,93,38,0.35)] hover:bg-[#d4521f] hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  Get Your Free Homepage Demo
+                  Book a Discovery Call
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
@@ -446,7 +446,7 @@ export default function Work() {
             </p>
             <Link href="/get-started">
               <span className="inline-flex items-center gap-2 bg-[#E85D26] hover:bg-[#E85D26]/90 text-white font-sans font-bold text-lg px-10 py-4 rounded-lg shadow-lg shadow-[#E85D26]/20 transition-all duration-300 cursor-pointer">
-                Get Your Free Homepage Demo <ArrowRight size={20} />
+                Book a Discovery Call <ArrowRight size={20} />
               </span>
             </Link>
             <p className="text-stone text-sm font-sans mt-4">

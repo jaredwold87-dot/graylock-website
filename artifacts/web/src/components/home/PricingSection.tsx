@@ -158,7 +158,7 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
                 variant={tier.popular ? 'primary' : 'outline'}
                 className="w-full"
               >
-                {PLAN_CTA_LABELS[tier.name] || 'Get Your Free Homepage Demo'}
+                {PLAN_CTA_LABELS[tier.name] || 'Book a Discovery Call'}
               </CTAButton>
               {tier.isCustom && (
                 <p className={cn(

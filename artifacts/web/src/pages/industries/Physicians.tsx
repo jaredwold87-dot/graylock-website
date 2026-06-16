@@ -165,7 +165,7 @@ const data: IndustryPageData = {
     headline: "New Patients Are Searching for a Doctor in Your Area Right Now",
     subtext:
       "Book a free 15-minute discovery call. We'll show you exactly what your medical practice website could look like — and build you a custom homepage demo before you commit to anything.",
-    button: "Get Your Free Homepage Demo",
+    button: "Book a Discovery Call",
   },
   showPrivacyNote: true,
   relatedPages: [

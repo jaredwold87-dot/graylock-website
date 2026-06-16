@@ -163,7 +163,7 @@ export default function HowItWorks() {
               No payment until you've seen the demo and decided you want to move forward.
             </p>
             <CTAButton href="/get-started" className="px-8 py-4">
-              Get Your Free Homepage Demo
+              Book a Discovery Call
             </CTAButton>
           </ScrollReveal>
         </div>

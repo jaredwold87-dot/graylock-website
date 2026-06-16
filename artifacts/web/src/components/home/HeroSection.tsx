@@ -127,7 +127,7 @@ export function HeroSection() {
                   variant="funnel"
                   className="w-full"
                 >
-                  Get Your Free Homepage Demo
+                  Book a Discovery Call
                 </CTAButton>
               </div>
 
@@ -170,7 +170,7 @@ export function HeroSection() {
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
                 <CTAButton href="/get-started" variant="funnel">
-                  Get Your Free Homepage Demo
+                  Book a Discovery Call
                 </CTAButton>
               </div>
 

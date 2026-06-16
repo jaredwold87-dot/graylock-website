@@ -489,7 +489,7 @@ export default function HomeBuildersFunnel() {
               onClick={openModal}
               className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto text-center"
             >
-              Get Your Free Homepage Demo
+              Book a Discovery Call
               <ArrowRight size={20} className="ml-2" />
             </button>
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-stone font-sans text-sm">
@@ -947,7 +947,7 @@ export default function HomeBuildersFunnel() {
                 onClick={openModal}
                 className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto"
               >
-                Get Your Free Homepage Demo
+                Book a Discovery Call
                 <ArrowRight size={20} className="ml-2" />
               </button>
               <p className="text-[#6b7280] font-sans text-sm md:text-base mt-5 max-w-xl mx-auto leading-relaxed">
@@ -1175,7 +1175,7 @@ export default function HomeBuildersFunnel() {
             onClick={openModal}
             className="inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:bg-[#d14d1a] transition-all duration-200 shadow-lg hover:shadow-xl mt-10"
           >
-            Get Your Free Homepage Demo
+            Book a Discovery Call
             <ArrowRight size={20} className="ml-2" />
           </button>
         </div>
@@ -1194,7 +1194,7 @@ export default function HomeBuildersFunnel() {
           onClick={openModal}
           className="w-full inline-flex items-center justify-center bg-[#E85D26] text-white font-sans font-bold text-base px-6 py-3.5 rounded-lg hover:bg-[#d14d1a] transition-colors shadow-lg"
         >
-          Get Your Free Homepage Demo →
+          Book a Discovery Call →
         </button>
       </div>
 
