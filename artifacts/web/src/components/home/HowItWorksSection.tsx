@@ -95,7 +95,7 @@ export function HowItWorksSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-16 mb-14 max-w-4xl mx-auto">
           {highlights.map((h, i) => (
-            <ScrollReveal key={i} delay={0.4 + i * 0.1} className="bg-white/[0.03] border border-white/10 p-6 rounded-2xl flex gap-4 items-center justify-center text-center">
+            <ScrollReveal key={i} delay={0.4 + i * 0.1} className="flex gap-4 items-center justify-center text-center">
               <div className="w-11 h-11 bg-[#E85D26]/10 border border-[#E85D26]/20 rounded-xl flex items-center justify-center flex-shrink-0 text-[#E85D26]">
                 <h.Icon size={22} />
               </div>
