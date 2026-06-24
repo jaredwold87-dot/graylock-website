@@ -27,15 +27,15 @@ export function ProblemSection() {
   ];
 
   return (
-    <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 relative overflow-hidden border-t border-white/5">
+    <section className="bg-[#242323] py-24 px-6 md:px-12 relative overflow-hidden border-t border-[#AEA7A3]/10">
       <div className="max-w-6xl mx-auto">
 
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">The Problem With Most Service Business Websites</p>
-          <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
+          <p className="text-[#B0784E] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">The Problem With Most Service Business Websites</p>
+          <h2 className="text-3xl md:text-5xl font-display text-[#ECE8E4] mb-6">
             You Run a Professional Business. Your Website Should Look Like It.
           </h2>
-          <p className="text-stone text-lg font-sans leading-relaxed">
+          <p className="text-[#AEA7A3] text-lg font-sans leading-relaxed">
             Potential clients judge the quality of your service by the quality of your site before they ever speak to you. If the two don't match, they don't reach out.
           </p>
         </ScrollReveal>
@@ -43,8 +43,8 @@ export function ProblemSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {problems.map((prob, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="h-full bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden flex flex-col hover:border-[#E85D26]/40 transition-colors">
-                <div className="aspect-[4/3] overflow-hidden border-b border-white/10">
+              <div className="h-full bg-[#363636] border border-[#AEA7A3]/10 rounded-2xl overflow-hidden flex flex-col hover:border-[#B0784E]/40 transition-colors shadow-lg">
+                <div className="aspect-[4/3] overflow-hidden border-b border-[#AEA7A3]/10">
                   <img
                     src={prob.image}
                     alt={prob.title}
@@ -53,13 +53,13 @@ export function ProblemSection() {
                   />
                 </div>
                 <div className="p-7 flex flex-col items-start">
-                  <div className="w-12 h-12 rounded-xl bg-[#E85D26]/10 border border-[#E85D26]/20 flex items-center justify-center text-[#E85D26] mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-[#795238]/20 border border-[#795238]/30 flex items-center justify-center text-[#B0784E] mb-5">
                     {prob.icon}
                   </div>
-                  <h3 className="text-white font-sans font-semibold text-lg mb-2 leading-snug">
+                  <h3 className="text-[#ECE8E4] font-sans font-semibold text-lg mb-2 leading-snug">
                     {prob.title}
                   </h3>
-                  <p className="text-stone font-sans text-sm md:text-base leading-relaxed">
+                  <p className="text-[#AEA7A3] font-sans text-sm md:text-base leading-relaxed">
                     {prob.desc}
                   </p>
                 </div>

@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <section
       className="-mt-16 md:-mt-20 pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
-      style={{ backgroundColor: "#0f0f0f" }}
+      style={{ backgroundColor: "#1C1B1A" }}
     >
       {/* Mobile only: layered stylized background */}
       {/* Layer 1: faint dot grid covering entire hero */}
@@ -18,7 +18,7 @@ export function HeroSection() {
         aria-hidden="true"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.06) 1px, transparent 0)",
+            "radial-gradient(circle at 1px 1px, rgba(236,232,228,0.06) 1px, transparent 0)",
           backgroundSize: "22px 22px",
         }}
       />
@@ -32,7 +32,7 @@ export function HeroSection() {
           width: "420px",
           height: "420px",
           background:
-            "radial-gradient(circle, rgba(232,93,38,0.30) 0%, rgba(232,93,38,0.10) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(176,120,78,0.30) 0%, rgba(176,120,78,0.10) 45%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
@@ -46,7 +46,7 @@ export function HeroSection() {
           width: "320px",
           height: "320px",
           background:
-            "radial-gradient(circle, rgba(232,93,38,0.22) 0%, rgba(232,93,38,0.08) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(176,120,78,0.22) 0%, rgba(176,120,78,0.08) 45%, transparent 70%)",
           filter: "blur(50px)",
         }}
       />
@@ -60,7 +60,7 @@ export function HeroSection() {
           width: "380px",
           height: "380px",
           background:
-            "radial-gradient(circle, rgba(232,93,38,0.16) 0%, rgba(232,93,38,0.06) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(176,120,78,0.16) 0%, rgba(176,120,78,0.06) 45%, transparent 70%)",
           filter: "blur(50px)",
         }}
       />
@@ -70,7 +70,7 @@ export function HeroSection() {
         aria-hidden="true"
         style={{
           background:
-            "linear-gradient(115deg, transparent 0%, transparent 45%, rgba(242,243,245,0.04) 50%, transparent 55%, transparent 100%)",
+            "linear-gradient(115deg, transparent 0%, transparent 45%, rgba(236,232,228,0.04) 50%, transparent 55%, transparent 100%)",
         }}
       />
       {/* Layer 6: hairline divider at bottom of hero */}
@@ -79,7 +79,7 @@ export function HeroSection() {
         aria-hidden="true"
         style={{
           background:
-            "linear-gradient(to right, transparent 0%, rgba(232,93,38,0.5) 50%, transparent 100%)",
+            "linear-gradient(to right, transparent 0%, rgba(121,82,56,0.5) 50%, transparent 100%)",
         }}
       />
       {/* Desktop/tablet background image — unchanged behavior */}
@@ -94,7 +94,7 @@ export function HeroSection() {
         className="absolute inset-0 hidden md:block lg:hidden pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.85) 55%, rgba(10,10,10,0.78) 100%)",
+            "linear-gradient(to bottom, rgba(28,27,26,0.92) 0%, rgba(28,27,26,0.85) 55%, rgba(28,27,26,0.78) 100%)",
         }}
       />
       {/* Desktop: side gradient that lets the laptop show through on the right */}
@@ -102,20 +102,20 @@ export function HeroSection() {
         className="absolute inset-0 hidden lg:block pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.95) 35%, rgba(10,10,10,0.4) 55%, transparent 70%)",
+            "linear-gradient(to right, #1C1B1A 0%, rgba(28,27,26,0.95) 35%, rgba(28,27,26,0.4) 55%, transparent 70%)",
         }}
       />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
-            <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
+            <p className="text-[#B0784E] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
               Custom Websites for Local Service Businesses
             </p>
-            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
+            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-[#ECE8E4] leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
               Turn Your Website Into{" "}
-              <span className="text-[#E85D26]">Your Best Source of New Clients.</span>
+              <span className="text-[#B0784E]">Your Best Source of New Clients.</span>
             </h1>
-            <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
+            <p className="text-[#AEA7A3] text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
               We build custom, high-converting websites for service businesses — built to rank on Google, built to generate calls and booking requests, and live in 7–10 days.
             </p>
 
@@ -125,13 +125,13 @@ export function HeroSection() {
                 <CTAButton
                   href="/get-started"
                   variant="funnel"
-                  className="w-full"
+                  className="w-full !bg-[#795238] hover:!bg-[#B0784E] !text-[#F4F0EC]"
                 >
                   Book a Discovery Call
                 </CTAButton>
               </div>
 
-              <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance mb-4">
+              <p className="text-[#ECE8E4] font-sans text-sm text-center leading-snug text-balance mb-4">
                 We'll show you exactly what your new site could look like — before you spend a dollar.
               </p>
               <ul className="flex flex-col gap-2.5 mb-8">
@@ -144,9 +144,9 @@ export function HeroSection() {
                     <Check
                       size={16}
                       strokeWidth={2.5}
-                      className="text-[#E85D26] flex-shrink-0"
+                      className="text-[#B0784E] flex-shrink-0"
                     />
-                    <span className="text-stone font-sans text-sm leading-snug whitespace-nowrap">
+                    <span className="text-[#AEA7A3] font-sans text-sm leading-snug whitespace-nowrap">
                       {text}
                     </span>
                   </li>
@@ -161,7 +161,7 @@ export function HeroSection() {
                   loading="eager"
                   decoding="async"
                 />
-                <p className="text-stone font-sans text-xs text-center mt-1">
+                <p className="text-[#AEA7A3] font-sans text-xs text-center mt-1">
                   A real Graylock-built website on every device.
                 </p>
               </div>
@@ -170,12 +170,12 @@ export function HeroSection() {
             {/* Tablet/desktop sequence */}
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
-                <CTAButton href="/get-started" variant="funnel">
+                <CTAButton href="/get-started" variant="funnel" className="!bg-[#795238] hover:!bg-[#B0784E] !text-[#F4F0EC]">
                   Book a Discovery Call
                 </CTAButton>
               </div>
 
-              <p className="text-stone/80 font-sans text-base mb-8">
+              <p className="text-[#AEA7A3]/80 font-sans text-base mb-8">
                 We'll show you exactly what your new site could look like — before you spend a dollar.
               </p>
 
@@ -186,10 +186,10 @@ export function HeroSection() {
                   "Live in 7–10 days",
                 ].map((text, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#E85D26]/10 border border-[#E85D26]/30 flex items-center justify-center">
-                      <Check size={12} className="text-[#E85D26]" />
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#B0784E]/10 border border-[#B0784E]/30 flex items-center justify-center">
+                      <Check size={12} className="text-[#B0784E]" />
                     </div>
-                    <span className="text-stone font-sans text-base">{text}</span>
+                    <span className="text-[#AEA7A3] font-sans text-base">{text}</span>
                   </div>
                 ))}
               </div>
