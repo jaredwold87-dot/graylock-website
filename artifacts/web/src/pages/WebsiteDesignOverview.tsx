@@ -39,7 +39,6 @@ const STATS = [
   { value: "94%", label: "of first impressions are design-related, not content-related" },
   { value: "5–15%", label: "lead conversion for a well-built site vs 1–3% average" },
   { value: "75%", label: "of users never scroll past the first page of Google" },
-  { value: "WCAG 2.1 AA", label: "accessibility built into every site by default" },
 ];
 
 interface Feature {
@@ -318,11 +317,11 @@ export default function WebsiteDesignOverview() {
 
       {/* Stats strip */}
       <section className="bg-navy py-8 border-y border-gunmetal">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
           {STATS.map((stat, i) => (
             <ScrollReveal key={stat.label} delay={i * 0.05}>
               <div className="text-center py-4">
-                <div className="text-orange font-display text-2xl md:text-4xl font-bold mb-2">
+                <div className="text-white font-display text-5xl md:text-6xl font-bold mb-3">
                   {stat.value}
                 </div>
                 <div className="text-stone font-sans text-xs md:text-sm leading-snug">
