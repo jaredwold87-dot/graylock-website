@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className="bg-black pt-20 pb-10 px-6 md:px-12 relative">
       <div className="section-divider absolute top-0 left-0 right-0" />
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-12 mb-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
         
         <div className="md:col-span-1">
           <Link href="/" className="block mb-4 group">
@@ -74,17 +74,6 @@ export function Footer() {
               <Link href="/websites-for-physicians" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Physicians</Link>
             </ul>
           </div>
-        </div>
-
-        <div>
-          <h4 className="font-display text-white text-lg mb-6 tracking-wide">OUR STRATEGY</h4>
-          <ul className="space-y-4 flex flex-col">
-            <Link href="/our-strategy" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Strategy Overview</Link>
-            <Link href="/website-design" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Website Design</Link>
-            <Link href="/seo-for-small-business" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">SEO</Link>
-            <Link href="/google-business-profile" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Google Business Profile</Link>
-            <Link href="/lead-generation-for-small-business" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Lead Generation</Link>
-          </ul>
         </div>
 
         <div>
