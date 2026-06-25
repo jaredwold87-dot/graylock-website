@@ -2,7 +2,7 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Quote, Star, Check, Lock, MapPin, HardHat, Activity, Stethoscope, Home, Droplets, Truck, Calculator } from "lucide-react";
+import { ArrowRight, Quote, Star, Check, Lock, MapPin, HardHat, Activity, Stethoscope, Home, Droplets, Truck, Calculator, Wrench, Zap, Wind, Trees, Building2, Smile, Eye, Dumbbell, Scale } from "lucide-react";
 import { Link } from "wouter";
 import spiTransformation from "@/assets/work/spi-transformation.webp";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
@@ -192,11 +192,20 @@ const featuredProjects: FeaturedProject[] = [
 
 const customerTypes = [
   { label: "Contractors", icon: HardHat },
+  { label: "Home Builders", icon: Home },
+  { label: "Excavation Companies", icon: Truck },
+  { label: "Well Drillers", icon: Droplets },
+  { label: "Plumbers", icon: Wrench },
+  { label: "Electricians", icon: Zap },
+  { label: "HVAC Companies", icon: Wind },
+  { label: "Landscapers", icon: Trees },
+  { label: "Real Estate Agents", icon: Building2 },
   { label: "Chiropractors", icon: Activity },
   { label: "Health Clinics", icon: Stethoscope },
-  { label: "Home Builders", icon: Home },
-  { label: "Well Drillers", icon: Droplets },
-  { label: "Excavation Companies", icon: Truck },
+  { label: "Dentists", icon: Smile },
+  { label: "Optometrists", icon: Eye },
+  { label: "Physical Therapists", icon: Dumbbell },
+  { label: "Law Firms", icon: Scale },
   { label: "Accountants", icon: Calculator },
 ];
 
@@ -462,25 +471,15 @@ export default function Work() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-6 md:gap-y-7">
               {customerTypes.map(({ label, icon: Icon }) => (
-                <div
-                  key={label}
-                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 md:px-5 md:py-4 transition-all duration-300 hover:border-[#E85D26]/50 hover:-translate-y-0.5"
-                >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#E85D26]/10 border border-[#E85D26]/20 transition-colors group-hover:bg-[#E85D26]/15">
-                    <Icon size={18} className="text-[#E85D26]" aria-hidden="true" />
-                  </span>
+                <div key={label} className="flex items-center gap-3">
+                  <Icon size={22} className="shrink-0 text-[#E85D26]" aria-hidden="true" />
                   <span className="font-sans text-sm md:text-[15px] font-semibold text-white/90">
                     {label}
                   </span>
                 </div>
               ))}
-              <div className="flex items-center justify-center rounded-xl border border-dashed border-[#E85D26]/40 bg-[#E85D26]/5 px-4 py-3.5 md:px-5 md:py-4 text-center">
-                <span className="font-sans text-sm md:text-[15px] font-semibold text-[#E85D26]">
-                  &amp; just about anyone else
-                </span>
-              </div>
             </div>
 
             <p className="text-center text-stone/70 font-sans text-sm mt-8 max-w-xl mx-auto">
