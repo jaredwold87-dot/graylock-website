@@ -214,5 +214,9 @@ const data: IndustryPageData = {
 };
 
 export default function HomeBuilders() {
-  return <IndustryLandingPage data={data} complianceSection={<HomeBuildersComplianceSection />} />;
+  return (
+    <div className="theme-black">
+      <IndustryLandingPage data={data} complianceSection={<HomeBuildersComplianceSection />} />
+    </div>
+  );
 }

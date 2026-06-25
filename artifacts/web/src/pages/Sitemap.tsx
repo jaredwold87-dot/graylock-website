@@ -105,7 +105,7 @@ export default function Sitemap() {
   const totalPages = new Set(GROUPS.flatMap((g) => g.links.map((l) => l.path))).size;
 
   return (
-    <>
+    <div className="theme-black">
       <SEO
         title="Sitemap | Graylock Digital"
         description="A complete map of Graylock Digital — every page on our site, organized by section. Find services, industries, resources, and legal pages all in one place."
@@ -200,6 +200,6 @@ export default function Sitemap() {
           </ScrollReveal>
         </div>
       </section>
-    </>
+    </div>
   );
 }

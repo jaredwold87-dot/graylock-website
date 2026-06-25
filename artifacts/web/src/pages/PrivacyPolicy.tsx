@@ -9,7 +9,7 @@ const EMAIL = "text-orange font-semibold hover:underline";
 
 export default function PrivacyPolicy() {
   return (
-    <>
+    <div className="theme-black">
       <SEO
         title="Privacy Policy | Graylock Digital"
         description="How Graylock Digital, LLC collects, uses, shares, and protects information about visitors and customers of graylockdigital.com."
@@ -200,6 +200,6 @@ export default function PrivacyPolicy() {
 
         </div>
       </section>
-    </>
+    </div>
   );
 }

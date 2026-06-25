@@ -216,10 +216,12 @@ const data: IndustryPageData = {
 
 export default function IndustrialConstruction() {
   return (
-    <IndustryLandingPage
-      data={data}
-      complianceSection={<IndustrialConstructionComplianceSection />}
-      extraSection={<LAPerksBeforeAfterSection />}
-    />
+    <div className="theme-black">
+      <IndustryLandingPage
+        data={data}
+        complianceSection={<IndustrialConstructionComplianceSection />}
+        extraSection={<LAPerksBeforeAfterSection />}
+      />
+    </div>
   );
 }

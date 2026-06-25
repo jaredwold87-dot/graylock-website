@@ -10,7 +10,7 @@ const EMAIL = "text-orange font-semibold hover:underline";
 
 export default function TermsOfService() {
   return (
-    <>
+    <div className="theme-black">
       <SEO
         title="Master Services Agreement | Graylock Digital"
         description="The Graylock Digital Master Services Agreement — the binding subscription contract that governs every Graylock Subscription, including pricing, cancellation, ownership, and dispute resolution."
@@ -593,6 +593,6 @@ export default function TermsOfService() {
 
         </div>
       </section>
-    </>
+    </div>
   );
 }

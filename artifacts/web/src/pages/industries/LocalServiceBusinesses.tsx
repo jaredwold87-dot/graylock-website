@@ -214,5 +214,9 @@ const data: IndustryPageData = {
 };
 
 export default function LocalServiceBusinesses() {
-  return <IndustryLandingPage data={data} complianceSection={<LocalServiceBusinessesComplianceSection />} />;
+  return (
+    <div className="theme-black">
+      <IndustryLandingPage data={data} complianceSection={<LocalServiceBusinessesComplianceSection />} />
+    </div>
+  );
 }

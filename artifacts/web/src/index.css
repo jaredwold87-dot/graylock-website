@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap');
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --color-charcoal: #0F1E35;
   --color-navy: #152847;
   --color-gunmetal: #1E3554;
@@ -11,6 +11,16 @@
 
   --font-display: 'Barlow Condensed', sans-serif;
   --font-sans: 'Barlow', sans-serif;
+}
+
+/* Black theme: remaps the steel-blue surface tokens to neutral black shades.
+   Applied by wrapping a page in <div className="theme-black"> so all
+   charcoal/navy/gunmetal utilities (incl. opacity variants) resolve to black.
+   Healthcare practice pages are intentionally left unwrapped to keep the blue. */
+.theme-black {
+  --color-charcoal: #0F0F0F;
+  --color-navy: #1A1A1A;
+  --color-gunmetal: #2A2A2A;
 }
 
 @layer base {

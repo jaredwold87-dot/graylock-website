@@ -9,7 +9,7 @@ const EMAIL = "text-orange font-semibold hover:underline";
 
 export default function AcceptableUsePolicy() {
   return (
-    <>
+    <div className="theme-black">
       <SEO
         title="Acceptable Use Policy | Graylock Digital"
         description="The Graylock Digital Acceptable Use Policy describes how Customers may and may not use Graylock services, including the Websites we build and host."
@@ -128,6 +128,6 @@ export default function AcceptableUsePolicy() {
 
         </div>
       </section>
-    </>
+    </div>
   );
 }

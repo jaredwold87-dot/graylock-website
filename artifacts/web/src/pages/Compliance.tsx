@@ -102,7 +102,7 @@ function SectionShell({
 
 export default function Compliance() {
   return (
-    <>
+    <div className="theme-black">
       <SEO
         title="Compliance, Built Into the Website | Graylock Digital"
         description="How Graylock builds for federal, state, and industry-specific rules from day one — FTC, ADA/WCAG 2.1 AA, 20+ state privacy laws, and the licensing-board rules that govern your profession."
@@ -324,6 +324,6 @@ export default function Compliance() {
           </ScrollReveal>
         </div>
       </section>
-    </>
+    </div>
   );
 }

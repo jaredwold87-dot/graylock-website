@@ -203,5 +203,9 @@ const data: IndustryPageData = {
 };
 
 export default function Accountants() {
-  return <IndustryLandingPage data={data} complianceSection={<AccountantsComplianceSection />} />;
+  return (
+    <div className="theme-black">
+      <IndustryLandingPage data={data} complianceSection={<AccountantsComplianceSection />} />
+    </div>
+  );
 }

@@ -208,7 +208,7 @@ export default function FAQ() {
   const isSearching = query.trim().length > 0;
 
   return (
-    <>
+    <div className="theme-black">
       <Helmet>
         <title>Frequently Asked Questions | Graylock Digital</title>
         <meta name="description" content="Answers to the questions small business owners ask most about Graylock Digital's web design service, pricing, contracts, and process." />
@@ -445,6 +445,6 @@ export default function FAQ() {
           </ScrollReveal>
         </div>
       </section>
-    </>
+    </div>
   );
 }
