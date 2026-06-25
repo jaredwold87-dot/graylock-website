@@ -85,7 +85,7 @@ export function HeroSection() {
       {/* Desktop/tablet background image — unchanged behavior */}
       <div className="hidden md:block">
         <HeroBackgroundImage
-          src={`${BASE}hero-bg-lodge-v2.webp`}
+          src={`${BASE}hero-bg-lodge-v3.webp`}
           objectPosition="right center"
           className="absolute inset-0 w-full h-full object-cover"
         />
