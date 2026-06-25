@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { HeroSection } from "@/components/home/HeroSection";
+import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
 import { TrustBar } from "@/components/home/TrustBar";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
@@ -17,6 +18,7 @@ export default function Home() {
         url="https://graylockdigital.com/"
       />
       <HeroSection />
+      <WhatWeDeliverSection />
       <TrustBar />
       <OfferBreakdownSection />
       <ProblemSection />
