@@ -378,6 +378,24 @@ export function Navbar() {
               />
 
               <Link
+                href="/services"
+                className={cn(
+                  "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative",
+                  location === "/services"
+                    ? "text-orange"
+                    : "text-offwhite/90 hover:text-orange"
+                )}
+              >
+                Website Design
+                <span
+                  className={cn(
+                    "absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300",
+                    location === "/services" ? "w-full" : "w-0"
+                  )}
+                />
+              </Link>
+
+              <Link
                 href="/featured-projects"
                 className={cn(
                   "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative",
@@ -471,6 +489,18 @@ export function Navbar() {
             open={mobileServicesOpen}
             onToggle={() => setMobileServicesOpen(!mobileServicesOpen)}
           />
+
+          <Link
+            href="/services"
+            className={cn(
+              "text-2xl font-display uppercase tracking-widest",
+              location === "/services"
+                ? "text-orange"
+                : "text-offwhite hover:text-orange transition-colors"
+            )}
+          >
+            Website Design
+          </Link>
 
           <Link
             href="/featured-projects"

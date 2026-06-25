@@ -35,6 +35,7 @@ const IndustrialConstruction = lazy(() => import("@/pages/industries/IndustrialC
 const LocalServiceBusinesses = lazy(() => import("@/pages/industries/LocalServiceBusinesses"));
 const HomeBuilders = lazy(() => import("@/pages/industries/HomeBuilders"));
 
+const WebsiteDesignOverview = lazy(() => import("@/pages/WebsiteDesignOverview"));
 const OurStrategy = lazy(() => import("@/pages/strategy/OurStrategy"));
 const WebsiteDesign = lazy(() => import("@/pages/strategy/WebsiteDesign"));
 const SEOPage = lazy(() => import("@/pages/strategy/SEO"));
@@ -79,6 +80,7 @@ function Router() {
         <Route path="/websites-for-psychologists" component={Psychologists} />
         <Route path="/websites-for-industrial-construction" component={IndustrialConstruction} />
         <Route path="/websites-for-home-builders" component={HomeBuilders} />
+        <Route path="/services" component={WebsiteDesignOverview} />
         <Route path="/our-strategy" component={OurStrategy} />
         <Route path="/website-design" component={WebsiteDesign} />
         <Route path="/seo-for-small-business" component={SEOPage} />
