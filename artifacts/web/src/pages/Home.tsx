@@ -23,7 +23,7 @@ export default function Home() {
       <HowItWorksSection />
       <TestimonialSection />
       <ValueDifferentiationSection />
-      <FinalCTASection variant="warmGraphite" />
+      <FinalCTASection />
     </>
   );
 }

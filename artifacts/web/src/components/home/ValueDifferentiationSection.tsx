@@ -11,52 +11,52 @@ export function ValueDifferentiationSection() {
   ];
 
   return (
-    <section className="bg-[#242323] py-24 px-6 md:px-12 border-t border-[#AEA7A3]/10">
+    <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 border-t border-white/5">
       <div className="max-w-5xl mx-auto">
 
         <ScrollReveal className="text-center mb-12">
-          <p className="text-[#B0784E] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">Why Graylock</p>
-          <h2 className="text-3xl md:text-5xl font-display text-[#ECE8E4] mb-4">
+          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">Why Graylock</p>
+          <h2 className="text-3xl md:text-5xl font-display text-white mb-4">
             A Lower-Risk Way to Build a Better Website
           </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
-          <div className="bg-[#363636] rounded-2xl border border-[#AEA7A3]/14 overflow-hidden shadow-lg">
+          <div className="bg-white/[0.03] rounded-2xl border border-white/10 overflow-hidden">
             <div className="grid grid-cols-2 text-center">
-              <div className="p-4 md:p-6 border-b border-r border-[#AEA7A3]/14">
-                <h3 className="font-display text-[#AEA7A3] text-lg md:text-xl">Traditional Agencies</h3>
+              <div className="p-4 md:p-6 border-b border-r border-white/10">
+                <h3 className="font-display text-stone text-lg md:text-xl">Traditional Agencies</h3>
               </div>
-              <div className="p-4 md:p-6 border-b border-[#AEA7A3]/14 bg-[#795238]/10">
-                <h3 className="font-display text-[#B0784E] text-lg md:text-xl">Graylock Digital</h3>
+              <div className="p-4 md:p-6 border-b border-white/10 bg-[#E85D26]/5">
+                <h3 className="font-display text-[#E85D26] text-lg md:text-xl">Graylock Digital</h3>
               </div>
             </div>
             {comparisons.map((row, i) => (
               <div key={i} className="grid grid-cols-2">
-                <div className="p-4 md:p-6 border-b border-r border-[#AEA7A3]/14 flex items-start gap-3">
-                  <X className="text-[#959595] flex-shrink-0 mt-0.5" size={18} />
-                  <span className="text-[#AEA7A3] font-sans text-sm leading-relaxed">{row.theirs}</span>
+                <div className="p-4 md:p-6 border-b border-r border-white/10 flex items-start gap-3">
+                  <X className="text-red-400/60 flex-shrink-0 mt-0.5" size={18} />
+                  <span className="text-stone font-sans text-sm leading-relaxed">{row.theirs}</span>
                 </div>
-                <div className="p-4 md:p-6 border-b border-[#AEA7A3]/14 bg-[#795238]/5 flex items-start gap-3">
-                  <Check className="text-[#B0784E] flex-shrink-0 mt-0.5" size={18} />
-                  <span className="text-[#ECE8E4] font-sans text-sm leading-relaxed">{row.ours}</span>
+                <div className="p-4 md:p-6 border-b border-white/10 bg-[#E85D26]/5 flex items-start gap-3">
+                  <Check className="text-[#E85D26] flex-shrink-0 mt-0.5" size={18} />
+                  <span className="text-white font-sans text-sm leading-relaxed">{row.ours}</span>
                 </div>
               </div>
             ))}
             {/* Emphasized price-anchor row */}
             <div className="grid grid-cols-2">
-              <div className="p-4 md:p-6 border-r border-[#AEA7A3]/14 bg-[#2E2D2C] flex items-start gap-3">
-                <X className="text-[#959595] flex-shrink-0 mt-0.5" size={18} />
+              <div className="p-4 md:p-6 border-r border-white/10 bg-white/[0.02] flex items-start gap-3">
+                <X className="text-red-400/70 flex-shrink-0 mt-0.5" size={18} />
                 <div>
-                  <p className="text-[#AEA7A3] font-sans text-[11px] uppercase tracking-widest font-semibold mb-1">Upfront Cost &amp; Risk</p>
-                  <p className="text-[#959595] font-sans text-sm leading-relaxed">$10,000–$20,000 upfront. No refunds if you hate it.</p>
+                  <p className="text-stone font-sans text-[11px] uppercase tracking-widest font-semibold mb-1">Upfront Cost &amp; Risk</p>
+                  <p className="text-white/90 font-sans text-sm leading-relaxed">$10,000–$20,000 upfront. No refunds if you hate it.</p>
                 </div>
               </div>
-              <div className="p-4 md:p-6 bg-[#795238]/15 flex items-start gap-3">
-                <Check className="text-[#B0784E] flex-shrink-0 mt-0.5" size={18} />
+              <div className="p-4 md:p-6 bg-[#E85D26]/10 flex items-start gap-3">
+                <Check className="text-[#E85D26] flex-shrink-0 mt-0.5" size={18} />
                 <div>
-                  <p className="text-[#B0784E] font-sans text-[11px] uppercase tracking-widest font-semibold mb-1">Upfront Cost &amp; Risk</p>
-                  <p className="text-[#ECE8E4] font-sans text-sm leading-relaxed font-semibold">$0 to see your custom demo. Build fee paid only after you approve it.</p>
+                  <p className="text-[#E85D26] font-sans text-[11px] uppercase tracking-widest font-semibold mb-1">Upfront Cost &amp; Risk</p>
+                  <p className="text-white font-sans text-sm leading-relaxed font-semibold">$0 to see your custom demo. Build fee paid only after you approve it.</p>
                 </div>
               </div>
             </div>
