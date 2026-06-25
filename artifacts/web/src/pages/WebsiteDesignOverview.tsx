@@ -11,10 +11,8 @@ import {
   MousePointerClick,
   LayoutGrid,
   BadgeCheck,
-  Filter,
   FileText,
   Phone,
-  BarChart3,
   Sparkles,
   Search,
   Code2,
@@ -114,18 +112,6 @@ const LEADGEN_FEATURES: Feature[] = [
     title: "One-tap click-to-call",
     description:
       "Every page has a prominent, tappable phone number so mobile visitors who prefer to call can do it in a single tap.",
-  },
-  {
-    icon: Filter,
-    title: "Funnels designed for all three stages",
-    description:
-      "Most sites only handle awareness. We design for consideration and decision too — guiding strangers all the way to a booked appointment.",
-  },
-  {
-    icon: BarChart3,
-    title: "Lead tracking and attribution",
-    description:
-      "See how many enquiries came in, from which pages, and when. Real data so you know exactly what's working (Growth and Scale plans).",
   },
 ];
 
