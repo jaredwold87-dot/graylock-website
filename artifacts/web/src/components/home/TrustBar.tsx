@@ -9,7 +9,7 @@ export function TrustBar() {
         <div className="h-5 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent hidden sm:block" />
 
         <span className="text-stone font-sans text-sm tracking-wide">
-          <span className="text-white font-semibold">3×</span> More Inquiries on Average
+          <span className="text-white font-semibold">Free</span> Website Refresh Every Two Years
         </span>
 
         <div className="h-5 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent hidden sm:block" />
