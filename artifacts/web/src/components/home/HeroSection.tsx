@@ -87,7 +87,7 @@ export function HeroSection() {
         <HeroBackgroundImage
           src={`${BASE}hero-bg-lodge-v2.webp`}
           objectPosition="right center"
-          className="absolute inset-0 w-full h-full object-cover origin-bottom-right scale-[0.88] translate-x-[4%]"
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
       {/* Tablet only (768–1023px): heavy near-black overlay over the desktop image */}
