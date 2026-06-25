@@ -4,7 +4,6 @@ import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
 import { TrustBar } from "@/components/home/TrustBar";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
-import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiationSection";
 import { TestimonialSection } from "@/components/home/TestimonialSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
@@ -22,7 +21,6 @@ export default function Home() {
       <WhatWeDeliverSection />
       <ProblemSection />
       <OfferBreakdownSection />
-      <HowItWorksSection />
       <TestimonialSection />
       <ValueDifferentiationSection />
       <FinalCTASection />
