@@ -12,11 +12,8 @@ export function FinalCTASection() {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight">
             See What Your New Homepage Could Look Like
           </h2>
-          <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-4">
+          <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-10">
             Flat monthly rate, no long-term contracts — hosting, support, and ongoing maintenance included. Get a free, custom homepage demo built for your business before you spend a dollar.
-          </p>
-          <p className="text-stone font-sans text-sm md:text-base max-w-2xl mx-auto mb-10">
-            Plus our <span className="font-semibold text-white">Stay-Current Guarantee</span> — a free website refresh every 2 years.
           </p>
         </ScrollReveal>
 
