@@ -18,8 +18,8 @@ export default function Home() {
         url="https://graylockdigital.com/"
       />
       <HeroSection />
-      <WhatWeDeliverSection />
       <TrustBar />
+      <WhatWeDeliverSection />
       <OfferBreakdownSection />
       <ProblemSection />
       <HowItWorksSection />
