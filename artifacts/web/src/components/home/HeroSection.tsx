@@ -140,6 +140,7 @@ export function HeroSection() {
                   "Show up when clients search for you",
                   "Turn visitors into calls and estimate requests",
                   "Live in 7–10 days",
+                  "Free website refresh every two years",
                 ].map((text, i) => (
                   <li key={i} className="flex items-center gap-2.5 justify-center">
                     <Check
@@ -185,6 +186,7 @@ export function HeroSection() {
                   "Show up when clients search for you",
                   "Turn visitors into calls and estimate requests",
                   "Live in 7–10 days",
+                  "Free website refresh every two years",
                 ].map((text, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#E85D26]/10 border border-[#E85D26]/30 flex items-center justify-center">
