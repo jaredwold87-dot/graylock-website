@@ -26,20 +26,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const SECTION_NAV = [
-  { id: "design", label: "Website Design" },
-  { id: "conversion", label: "Conversion-Focused Builds" },
-  { id: "lead-gen", label: "Lead Generation" },
-  { id: "seo", label: "SEO Optimization" },
-  { id: "compliance", label: "Industry Compliance" },
-];
-
-const STATS = [
-  { value: "94%", label: "of first impressions are design-related, not content-related" },
-  { value: "5–15%", label: "lead conversion for a well-built site vs 1–3% average" },
-  { value: "75%", label: "of users never scroll past the first page of Google" },
-];
-
 interface Feature {
   icon: LucideIcon;
   title: string;
@@ -400,39 +386,6 @@ export default function WebsiteDesignOverview() {
 
       {/* What we deliver */}
       <WhatWeDeliverSection />
-
-      {/* Stats strip */}
-      <section className="bg-[#0f0f0f] py-8 border-y border-white/10">
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
-          {STATS.map((stat, i) => (
-            <ScrollReveal key={stat.label} delay={i * 0.05}>
-              <div className="text-center py-4">
-                <div className="text-white font-display text-5xl md:text-6xl font-bold mb-3">
-                  {stat.value}
-                </div>
-                <div className="text-stone font-sans text-xs md:text-sm leading-snug">
-                  {stat.label}
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Jump nav */}
-      <section className="bg-[#1a1a1a] border-b border-white/10 py-5 px-6">
-        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-3">
-          {SECTION_NAV.map((s) => (
-            <a
-              key={s.id}
-              href={`#${s.id}`}
-              className="text-xs md:text-sm font-sans font-semibold text-stone hover:text-orange border border-white/10 hover:border-orange/40 rounded-full px-4 py-2 transition-all duration-200"
-            >
-              {s.label}
-            </a>
-          ))}
-        </div>
-      </section>
 
       <TopicSection
         id="design"
