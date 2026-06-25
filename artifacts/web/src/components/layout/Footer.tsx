@@ -9,7 +9,7 @@ export function Footer() {
   const officeHours = settings?.office_hours;
 
   return (
-    <footer className="bg-charcoal pt-20 pb-10 px-6 md:px-12 relative">
+    <footer className="bg-black pt-20 pb-10 px-6 md:px-12 relative">
       <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-12 mb-16">
         
