@@ -85,33 +85,33 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 border-t border-white/5">
+      <section className="bg-white py-24 px-6 md:px-12 border-t border-gray-200">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="text-center mb-14">
-            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">The Team Behind Your Website</p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">U.S.-Based Team — Founder-Led on Every Project</h2>
-            <p className="text-stone font-sans text-lg max-w-3xl mx-auto leading-relaxed">
-              Graylock Digital was founded by <span className="text-offwhite font-semibold">Tim and Jared</span>, who personally lead every engagement alongside a small, vetted team of U.S.-based strategists, designers, and developers. You will never be handed off to a junior account manager or routed through an offshore queue — the people who scope your project are the people who build it.
+            <p className="text-[#B23E16] font-sans font-semibold uppercase tracking-widest text-sm mb-4">The Team Behind Your Website</p>
+            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">U.S.-Based Team — Founder-Led on Every Project</h2>
+            <p className="text-gray-600 font-sans text-lg max-w-3xl mx-auto leading-relaxed">
+              Graylock Digital was founded by <span className="text-[#1a202c] font-semibold">Tim and Jared</span>, who personally lead every engagement alongside a small, vetted team of U.S.-based strategists, designers, and developers. You will never be handed off to a junior account manager or routed through an offshore queue — the people who scope your project are the people who build it.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="bg-white/[0.03] rounded-2xl border border-white/10 p-8 md:p-10 mb-12">
+            <div className="bg-[#f5f5f4] rounded-2xl border border-gray-200 p-8 md:p-10 mb-12">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                   <p className="text-orange font-display text-4xl md:text-5xl mb-2">100%</p>
-                  <p className="text-offwhite font-sans font-semibold mb-1">U.S.-based team</p>
-                  <p className="text-stone/80 font-sans text-sm leading-relaxed">Strategy, design, copy, and development — all in-house, all in the United States.</p>
+                  <p className="text-[#1a202c] font-sans font-semibold mb-1">U.S.-based team</p>
+                  <p className="text-gray-600 font-sans text-sm leading-relaxed">Strategy, design, copy, and development — all in-house, all in the United States.</p>
                 </div>
                 <div>
                   <p className="text-orange font-display text-4xl md:text-5xl mb-2">7–10</p>
-                  <p className="text-offwhite font-sans font-semibold mb-1">Business-day delivery</p>
-                  <p className="text-stone/80 font-sans text-sm leading-relaxed">A repeatable build framework, refined project after project, that ships fast without cutting corners.</p>
+                  <p className="text-[#1a202c] font-sans font-semibold mb-1">Business-day delivery</p>
+                  <p className="text-gray-600 font-sans text-sm leading-relaxed">A repeatable build framework, refined project after project, that ships fast without cutting corners.</p>
                 </div>
                 <div>
                   <p className="text-orange font-display text-4xl md:text-5xl mb-2">1</p>
-                  <p className="text-offwhite font-sans font-semibold mb-1">Named point of contact</p>
-                  <p className="text-stone/80 font-sans text-sm leading-relaxed">A single, accountable owner from kickoff through launch and beyond. No tickets. No phone trees.</p>
+                  <p className="text-[#1a202c] font-sans font-semibold mb-1">Named point of contact</p>
+                  <p className="text-gray-600 font-sans text-sm leading-relaxed">A single, accountable owner from kickoff through launch and beyond. No tickets. No phone trees.</p>
                 </div>
               </div>
             </div>
