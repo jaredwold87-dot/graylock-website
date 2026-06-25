@@ -44,7 +44,7 @@ export function WhatWeDeliverSection() {
             What We Deliver
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-display text-[#1A1A1A] mb-4 leading-[1.12]">
-            Everything your practice needs to win clients online
+            Everything your business needs to win clients online
           </h2>
           <p className="font-display italic text-lg md:text-xl text-[#4A4A4A] mb-8 leading-relaxed">
             One site — engineered to be found, trusted, and acted on.
