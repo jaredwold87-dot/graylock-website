@@ -492,7 +492,8 @@ export default function Work() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-6 md:gap-y-7">
+            <div className="flex justify-center">
+              <div className="grid grid-cols-[repeat(2,auto)] sm:grid-cols-[repeat(3,auto)] lg:grid-cols-[repeat(4,auto)] gap-x-10 sm:gap-x-12 lg:gap-x-16 gap-y-6 md:gap-y-7">
               {customerTypes.map(({ label, icon: Icon }) => (
                 <div key={label} className="flex items-center gap-3">
                   <Icon size={22} className="shrink-0 text-[#E85D26]" aria-hidden="true" />
@@ -501,6 +502,7 @@ export default function Work() {
                   </span>
                 </div>
               ))}
+              </div>
             </div>
 
             <p className="text-center text-stone/70 font-sans text-sm mt-8 max-w-xl mx-auto">
