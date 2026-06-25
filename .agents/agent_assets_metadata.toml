@@ -66,3 +66,9 @@ id = "YranSVdDn7zLXfUsfWgwg"
 uri = "file://attached_assets/generated_images/featured-hero-bg-v2.png"
 type = "image"
 title = "featured hero background v2"
+
+[[generated]]
+id = "deeUD3amb6MgrRJYJ0AYj"
+uri = "file://attached_assets/generated_images/usa-flag-bw.png"
+type = "image"
+title = "black white usa flag"

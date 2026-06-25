@@ -2,7 +2,9 @@ import { SEO } from "@/components/SEO";
 import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { CheckCircle2, Heart, Handshake, Search, Shield, MapPin, Flag, Compass, PenTool, Code2, Rocket, LifeBuoy } from "lucide-react";
+import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
+import { CheckCircle2, Heart, Handshake, Search, MapPin, Flag } from "lucide-react";
+import usaFlagBw from "@/assets/usa-flag-bw.webp";
 import { Link } from "wouter";
 
 export default function About() {
@@ -31,45 +33,55 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 border-t border-white/10">
+      <section className="bg-white py-24 px-6 md:px-12 border-t border-gray-200">
         <div className="max-w-4xl mx-auto">
-          <ScrollReveal className="text-center mb-14">
-            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Our Philosophy</p>
-            <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-6">We Only Work With Practices and Businesses We Genuinely Want to See Win</h2>
+          <ScrollReveal className="text-center mb-12">
+            <p className="text-[#B23E16] font-sans font-semibold uppercase tracking-widest text-sm mb-4">Our Philosophy</p>
+            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">We Only Work With Businesses We Genuinely Want to See Win</h2>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <div className="bg-white/[0.03] rounded-2xl border border-white/10 p-8 md:p-12 mb-10">
-              <p className="text-offwhite font-sans text-lg md:text-xl leading-relaxed mb-6">
-                We don't take on every practice or business that comes our way. We look for therapists, physicians, dentists, CPAs, home builders, and construction companies where we know — not hope, <em className="text-orange not-italic font-semibold">know</em> — that a better website will directly impact their ability to serve more clients.
-              </p>
-              <p className="text-stone font-sans text-lg leading-relaxed mb-6">
-                When a therapist loses a prospective client because their site looked outdated, a group practice can't fill an open clinician's caseload because they don't show up on Google, or a home builder loses a six-figure project to a competitor with a better online presence — those are the moments we're solving for.
-              </p>
-              <p className="text-stone font-sans text-lg leading-relaxed">
-                Your growth is our portfolio.
-              </p>
-            </div>
+          <ScrollReveal delay={0.1} className="max-w-3xl mx-auto text-center mb-16">
+            <p className="text-[#1a202c] font-sans text-lg md:text-xl leading-relaxed mb-6">
+              We don't take on every business that comes our way. We look for small and local businesses — service companies, contractors, home builders, healthcare practices, and professional firms — where we know, not hope, <em className="text-[#B23E16] not-italic font-semibold">know</em>, that a better website will directly impact their ability to win more clients.
+            </p>
+            <p className="text-gray-600 font-sans text-lg leading-relaxed mb-6">
+              When a contractor loses a job because their site looked outdated, a service business can't get found on Google, or a healthcare practice can't fill its schedule because prospective clients never make it past the homepage — those are the moments we're solving for.
+            </p>
+            <p className="text-gray-600 font-sans text-lg leading-relaxed">
+              Your growth is our portfolio.
+            </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <ScrollReveal delay={0.15} className="bg-white/[0.03] rounded-xl border border-white/10 p-6 text-center">
-              <Search className="text-orange mx-auto mb-4" size={28} />
-              <h3 className="text-lg font-display text-offwhite mb-2">We Seek You Out</h3>
-              <p className="text-stone font-sans text-sm leading-relaxed">We actively look for practices where a new site will make a measurable difference — not just anyone willing to pay.</p>
+            <ScrollReveal delay={0.15} className="bg-[#f5f5f4] rounded-xl border border-gray-200 p-6 text-center">
+              <Search className="text-[#B23E16] mx-auto mb-4" size={28} />
+              <h3 className="text-lg font-display text-[#1a202c] mb-2">We Seek You Out</h3>
+              <p className="text-gray-600 font-sans text-sm leading-relaxed">We actively look for businesses where a new site will make a measurable difference — not just anyone willing to pay.</p>
             </ScrollReveal>
-            <ScrollReveal delay={0.25} className="bg-white/[0.03] rounded-xl border border-white/10 p-6 text-center">
-              <Heart className="text-orange mx-auto mb-4" size={28} />
-              <h3 className="text-lg font-display text-offwhite mb-2">Your Success Is Personal</h3>
-              <p className="text-stone font-sans text-sm leading-relaxed">We don't disappear after launch. We stay invested because watching our clients grow is genuinely the best part of this work.</p>
+            <ScrollReveal delay={0.25} className="bg-[#f5f5f4] rounded-xl border border-gray-200 p-6 text-center">
+              <Heart className="text-[#B23E16] mx-auto mb-4" size={28} />
+              <h3 className="text-lg font-display text-[#1a202c] mb-2">Your Success Is Personal</h3>
+              <p className="text-gray-600 font-sans text-sm leading-relaxed">We don't disappear after launch. We stay invested because watching our clients grow is genuinely the best part of this work.</p>
             </ScrollReveal>
-            <ScrollReveal delay={0.35} className="bg-white/[0.03] rounded-xl border border-white/10 p-6 text-center">
-              <Handshake className="text-orange mx-auto mb-4" size={28} />
-              <h3 className="text-lg font-display text-offwhite mb-2">Partners, Not Vendors</h3>
-              <p className="text-stone font-sans text-sm leading-relaxed">We think of ourselves as part of your team. When you win, we win. It's that simple.</p>
+            <ScrollReveal delay={0.35} className="bg-[#f5f5f4] rounded-xl border border-gray-200 p-6 text-center">
+              <Handshake className="text-[#B23E16] mx-auto mb-4" size={28} />
+              <h3 className="text-lg font-display text-[#1a202c] mb-2">Partners, Not Vendors</h3>
+              <p className="text-gray-600 font-sans text-sm leading-relaxed">We think of ourselves as part of your team. When you win, we win. It's that simple.</p>
             </ScrollReveal>
           </div>
 
+        </div>
+      </section>
+
+      <section className="bg-[#0f0f0f] py-24 md:py-32 px-6 md:px-12 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto text-center">
+          <ScrollReveal>
+            <span aria-hidden="true" className="block font-display text-7xl md:text-8xl leading-none text-[#E85D26] mb-2">&ldquo;</span>
+            <blockquote className="text-white font-display text-3xl md:text-4xl lg:text-5xl leading-[1.2] mb-8">
+              We started Graylock because we saw too many hardworking business owners getting left behind online. These are the people who show up early, stay late, and take care of their clients. They deserve a website that works as hard as they do — and a team that actually gives a damn.
+            </blockquote>
+            <p className="text-[#E85D26] font-sans font-semibold text-sm uppercase tracking-widest">&mdash; The Graylock Team</p>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -105,38 +117,10 @@ export default function About() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-display text-offwhite mb-3">How We Actually Build Your Website</h3>
-            <p className="text-stone font-sans text-base max-w-2xl mx-auto">A documented, five-step process every Graylock site moves through — so quality is the default, not an accident.</p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
-            {[
-              { icon: Compass, title: "Discovery", desc: "We learn your practice, ideal client, and the inquiries you actually want more of." },
-              { icon: PenTool, title: "Strategy & Design", desc: "Messaging, structure, and visual direction tailored to how your prospects decide." },
-              { icon: Code2, title: "Build", desc: "Custom-coded, fast, mobile-first, and tuned for search from day one." },
-              { icon: Rocket, title: "Launch", desc: "We handle migration, redirects, analytics, and a calm, controlled go-live." },
-              { icon: LifeBuoy, title: "Ongoing Care", desc: "Hosting, security, edits, and a real human to call whenever something needs to change." },
-            ].map(({ icon: Icon, title, desc }, i) => (
-              <ScrollReveal key={title} delay={0.1 + i * 0.08} className="bg-white/[0.03] rounded-xl border border-white/10 p-6 flex flex-col">
-                <div className="w-11 h-11 rounded-lg bg-white/5 flex items-center justify-center text-orange mb-4 border border-white/10">
-                  <Icon size={22} />
-                </div>
-                <h4 className="text-lg font-display text-offwhite mb-2">{title}</h4>
-                <p className="text-stone/80 font-sans text-sm leading-relaxed">{desc}</p>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal delay={0.4} className="mt-10">
-            <div className="bg-white/[0.03] rounded-xl border border-white/10 p-6 text-center max-w-3xl mx-auto">
-              <p className="text-stone font-sans leading-relaxed">
-                For specialized work, we collaborate with a vetted network of U.S.-based professionals who meet our standards on quality, communication, and client outcomes.
-              </p>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
+
+      <OfferBreakdownSection />
 
       <section className="relative overflow-hidden bg-[#f5f5f4] py-24 px-6 md:px-12 border-t border-gray-200">
         <div className="max-w-5xl mx-auto">
@@ -162,8 +146,8 @@ export default function About() {
               <p className="text-gray-600 font-sans text-sm leading-relaxed">Every website is designed, developed, and maintained by our team right here in the United States. No exceptions.</p>
             </ScrollReveal>
             <ScrollReveal delay={0.2} className="text-center">
-              <div className="w-16 h-16 bg-[#0f0f0f] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Shield className="text-orange" size={28} />
+              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 shadow-lg ring-1 ring-black/10">
+                <img src={usaFlagBw} alt="Black and white American flag" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-display text-[#1a202c] mb-2">Nothing Outsourced</h3>
               <p className="text-gray-600 font-sans text-sm leading-relaxed">We don't cut corners by sending your work overseas. When we say done-for-you, we mean done by us — personally.</p>
@@ -177,14 +161,6 @@ export default function About() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={0.35}>
-            <div className="bg-[#0f0f0f] rounded-2xl p-8 md:p-10 text-center shadow-xl border border-white/10">
-              <p className="text-white font-sans text-lg md:text-xl leading-relaxed italic">
-                "We started Graylock because we saw too many hardworking practice owners getting left behind online. These are the people who show up early, stay late, and take care of their clients. They deserve a website that works as hard as they do — and a team that actually gives a damn."
-              </p>
-              <p className="text-orange font-sans font-semibold mt-4 text-sm uppercase tracking-widest">— The Graylock Team</p>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
