@@ -2,44 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import {
   Menu, X, ChevronDown,
-  Palette, Search, MapPin, Magnet, ShieldCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const SERVICES = [
-  {
-    icon: Palette,
-    name: "Custom Website Design",
-    desc: "Conversion-built sites, mobile-first.",
-    path: "/website-design",
-  },
-  {
-    icon: Search,
-    name: "Local SEO",
-    desc: "Rank in your city. Show up on Google Maps.",
-    path: "/seo-for-small-business",
-  },
-  {
-    icon: MapPin,
-    name: "Google Business Profile",
-    desc: "Optimized profile, reviews, posts, photos.",
-    path: "/google-business-profile",
-  },
-  {
-    icon: Magnet,
-    name: "Lead Generation",
-    desc: "Forms, intake flows & lead magnets that work.",
-    path: "/lead-generation-for-small-business",
-  },
-  {
-    icon: ShieldCheck,
-    name: "Compliance",
-    desc: "Federal, state & industry rules built in.",
-    path: "/compliance",
-  },
-];
-
-const SERVICE_PATHS = SERVICES.map((s) => s.path).concat(["/our-strategy"]);
 
 const ABOUT_MENU = [
   { name: "About Us", path: "/about" },
@@ -53,88 +17,6 @@ const OUR_STRATEGY = [
   { name: "Google Business Profiles", path: "/google-business-profile" },
   { name: "Lead Generation", path: "/lead-generation-for-small-business" },
 ];
-
-function ServicesMegaMenu({
-  isActive,
-  location,
-}: {
-  isActive: boolean;
-  location: string;
-}) {
-  const [open, setOpen] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setOpen(true);
-  };
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setOpen(false), 150);
-  };
-
-  useEffect(() => {
-    setOpen(false);
-  }, [location]);
-
-  return (
-    <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <button
-        className={cn(
-          "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative flex items-center gap-1",
-          isActive ? "text-orange" : "text-offwhite/90 hover:text-orange"
-        )}
-        onClick={() => setOpen(!open)}
-      >
-        Services
-        <ChevronDown size={14} className={cn("transition-transform duration-200", open ? "rotate-180" : "")} />
-        <span className={cn("absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300", isActive ? "w-full" : "w-0")} />
-      </button>
-
-      <div
-        className={cn(
-          "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[640px] rounded-xl border border-gunmetal/60 bg-charcoal/95 backdrop-blur-xl shadow-2xl shadow-black/40 transition-all duration-200 overflow-hidden",
-          open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
-        )}
-      >
-        <div className="p-4">
-          <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange/80 mb-3 px-2">What We Do</p>
-          <div className="grid grid-cols-2 gap-1">
-            {SERVICES.map((s) => {
-              const Icon = s.icon;
-              const active = location === s.path;
-              return (
-                <Link
-                  key={s.path}
-                  href={s.path}
-                  className={cn(
-                    "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group/item",
-                    active ? "bg-orange/10" : "hover:bg-white/5"
-                  )}
-                >
-                  <div className="w-9 h-9 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange/15 transition-colors">
-                    <Icon size={16} className="text-orange" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className={cn("text-sm font-sans font-semibold leading-tight", active ? "text-orange" : "text-offwhite")}>
-                      {s.name}
-                    </div>
-                    <div className="text-[11.5px] text-stone leading-snug mt-0.5">{s.desc}</div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-          <div className="border-t border-gunmetal/40 mt-3 pt-3 px-2 flex items-center justify-between">
-            <span className="text-xs text-stone">See how it all works together</span>
-            <Link href="/our-strategy" className="text-xs font-sans font-semibold text-orange hover:text-orange/80 transition-colors">
-              Our full strategy →
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function DesktopDropdown({
   label,
@@ -307,7 +189,6 @@ function MobileAccordion({
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [location] = useLocation();
 
@@ -321,11 +202,8 @@ export function Navbar() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setMobileServicesOpen(false);
     setMobileAboutOpen(false);
   }, [location]);
-
-  const isServicesActive = SERVICE_PATHS.some((p) => location === p);
 
   const navLinksAfter = [
     { name: "Pricing", path: "/pricing" },
@@ -371,11 +249,6 @@ export function Navbar() {
                   )}
                 />
               </Link>
-
-              <ServicesMegaMenu
-                isActive={isServicesActive}
-                location={location}
-              />
 
               <Link
                 href="/services"
@@ -479,16 +352,6 @@ export function Navbar() {
           >
             Home
           </Link>
-
-          <MobileAccordion
-            label="Services"
-            items={SERVICES.map((s) => ({ name: s.name, path: s.path }))}
-            extraItems={[{ name: "Our Full Strategy", path: "/our-strategy" }]}
-            isActive={isServicesActive}
-            location={location}
-            open={mobileServicesOpen}
-            onToggle={() => setMobileServicesOpen(!mobileServicesOpen)}
-          />
 
           <Link
             href="/services"
