@@ -110,14 +110,14 @@ export function HeroSection() {
         <div className="max-w-2xl">
           <ScrollReveal>
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
-              Custom Websites for Local Service Businesses
+              Custom Websites for Service Businesses
             </p>
             <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
-              Turn Your Website Into{" "}
-              <span className="text-[#E85D26]">Your Best Source of New Clients.</span>
+              Every Day Your Website Underperforms,{" "}
+              <span className="text-[#E85D26]">a Client Chooses Your Competitor.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
-              We build custom, high-converting websites for service businesses — built to rank on Google, built to generate calls and booking requests, and live in 7–10 days.
+              We build custom, conversion-focused websites that show up on Google, earn trust in seconds, and turn visitors into booked appointments — live in 7–10 days.
             </p>
 
             {/* Mobile-only sequence: CTA → reassurance → bullets → proof image */}
@@ -128,7 +128,7 @@ export function HeroSection() {
                   variant="funnel"
                   className="w-full"
                 >
-                  Book a Discovery Call
+                  See What Your New Site Could Look Like — Free
                 </CTAButton>
               </div>
 
@@ -173,7 +173,7 @@ export function HeroSection() {
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
                 <CTAButton href="/get-started" variant="funnel">
-                  Book a Discovery Call
+                  See What Your New Site Could Look Like — Free
                 </CTAButton>
               </div>
 
