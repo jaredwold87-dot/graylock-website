@@ -24,6 +24,7 @@ import {
   ShieldCheck,
   ShieldOff,
   Scale,
+  ChevronDown,
   type LucideIcon,
 } from "lucide-react";
 
@@ -226,6 +227,7 @@ function TopicSection({
   features,
   dark,
   bgClass,
+  children,
 }: {
   id: string;
   index: string;
@@ -235,6 +237,7 @@ function TopicSection({
   features: Feature[];
   dark: boolean;
   bgClass: string;
+  children?: React.ReactNode;
 }) {
   return (
     <section id={id} className={`${bgClass} py-20 md:py-28 px-6 md:px-12 scroll-mt-24`}>
@@ -266,8 +269,94 @@ function TopicSection({
             </ScrollReveal>
           ))}
         </div>
+
+        {children && <div className="mt-14 md:mt-20">{children}</div>}
       </div>
     </section>
+  );
+}
+
+function SampleLeadForm() {
+  const inputClass =
+    "w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3.5 text-offwhite placeholder:text-stone/50 font-sans text-sm focus:outline-none focus:border-orange/60 focus:ring-1 focus:ring-orange/40 transition-colors";
+  const labelClass = "block text-offwhite font-sans font-medium text-sm mb-2";
+
+  return (
+    <ScrollReveal>
+      <div className="max-w-2xl mx-auto">
+        <p className="text-center text-stone/70 font-sans text-xs uppercase tracking-widest mb-4">
+          A sample of the forms we build
+        </p>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="relative bg-[#161616] border border-white/10 rounded-2xl p-7 md:p-10 shadow-2xl"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-4 py-1.5 mb-5">
+            <ShieldCheck size={15} className="text-orange" />
+            <span className="text-orange font-sans text-xs font-bold uppercase tracking-wider">
+              Get Started
+            </span>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-display text-offwhite mb-2">
+            Request a Consultation
+          </h3>
+          <p className="text-stone font-sans text-sm md:text-base leading-relaxed mb-8">
+            Share a few details about your business and we'll be in touch to design the right partnership.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+            <div>
+              <label className={labelClass}>Business Name</label>
+              <input className={inputClass} placeholder="e.g. Summit Dental Group" readOnly />
+            </div>
+            <div>
+              <label className={labelClass}>Full Name</label>
+              <input className={inputClass} placeholder="Dr. Jane Doe" readOnly />
+            </div>
+            <div>
+              <label className={labelClass}>Email Address</label>
+              <input className={inputClass} placeholder="you@business.com" readOnly />
+            </div>
+            <div>
+              <label className={labelClass}>Phone Number</label>
+              <input className={inputClass} placeholder="(555) 123-4567" readOnly />
+            </div>
+            <div>
+              <label className={labelClass}>Service Needed</label>
+              <div className={`${inputClass} flex items-center justify-between text-stone/50`}>
+                <span>Select a service</span>
+                <ChevronDown size={16} className="text-stone/50" />
+              </div>
+            </div>
+            <div>
+              <label className={labelClass}>
+                Estimated Budget <span className="text-stone/50 font-normal">(optional)</span>
+              </label>
+              <div className={`${inputClass} flex items-center justify-between text-stone/50`}>
+                <span>Select a range</span>
+                <ChevronDown size={16} className="text-stone/50" />
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-7">
+            <label className={labelClass}>Message Details</label>
+            <textarea
+              className={`${inputClass} min-h-[120px] resize-none`}
+              placeholder="Tell us about your business and what you're looking for…"
+              readOnly
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-orange hover:bg-orange/90 text-white font-sans font-bold text-base md:text-lg py-4 rounded-xl transition-colors"
+          >
+            Submit Inquiry
+          </button>
+        </form>
+      </div>
+    </ScrollReveal>
   );
 }
 
@@ -379,7 +468,9 @@ export default function WebsiteDesignOverview() {
         features={LEADGEN_FEATURES}
         dark={false}
         bgClass="bg-[#F5F5F5]"
-      />
+      >
+        <SampleLeadForm />
+      </TopicSection>
 
       <TopicSection
         id="seo"
