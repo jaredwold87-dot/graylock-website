@@ -31,7 +31,7 @@ export function WhatWeDeliverSection() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <ScrollReveal className="order-2 lg:order-1">
           <img
-            src={`${import.meta.env.BASE_URL}hero-mobile-device-v2.webp`}
+            src={`${import.meta.env.BASE_URL}west-coast-device-straight.webp`}
             alt="A Graylock-built website shown on a laptop and a phone"
             loading="lazy"
             decoding="async"
