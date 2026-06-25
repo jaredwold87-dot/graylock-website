@@ -1,4 +1,5 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { CTAButton } from "@/components/ui/CTAButton";
 import { X, Check } from "lucide-react";
 
 export function ValueDifferentiationSection() {
@@ -81,6 +82,26 @@ export function ValueDifferentiationSection() {
               </div>
             </div>
 
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.2}>
+          <div className="mt-12 md:mt-14 rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 text-center">
+            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-4">
+              Pricing That Sets Us Apart
+            </p>
+            <p className="font-display text-2xl md:text-3xl text-white leading-snug mb-3">
+              Fully custom websites from{" "}
+              <span className="text-[#E85D26]">$199/month</span>.
+            </p>
+            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+              No templates. No thrown-together drag-and-drop. Every site is designed
+              and built from scratch around your business — a real custom website,
+              not a recycled theme.
+            </p>
+            <CTAButton href="/pricing" variant="funnel">
+              See Our Pricing
+            </CTAButton>
           </div>
         </ScrollReveal>
 
