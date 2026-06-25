@@ -1,6 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CTAButton } from "@/components/ui/CTAButton";
 
 const DELIVER_ITEMS = [
   {
@@ -69,10 +68,6 @@ export function WhatWeDeliverSection() {
               </li>
             ))}
           </ul>
-
-          <CTAButton href="/get-started" className="px-8 py-4 text-base">
-            Get Started
-          </CTAButton>
         </ScrollReveal>
       </div>
     </section>
