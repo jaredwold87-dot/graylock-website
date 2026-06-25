@@ -31,11 +31,13 @@ const STATS = [
 
 export function TrustBar() {
   return (
-    <section className="relative bg-[#0f0f0f] py-14 md:py-20 px-6 md:px-12 border-t border-b border-white/[0.06] overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#E85D26]/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative bg-[#0f0f0f] py-16 md:py-24 px-6 md:px-12 border-t border-b border-white/[0.06] overflow-hidden">
+      {/* ambient glows */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#E85D26]/[0.07] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[420px] h-[420px] bg-[#E85D26]/[0.05] rounded-full blur-[130px] pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <ScrollReveal className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+        <ScrollReveal className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <p className="text-[#E85D26] text-xs font-sans font-bold uppercase tracking-widest mb-3">
             Why Design Decides Everything
           </p>
@@ -44,29 +46,57 @@ export function TrustBar() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7">
           {STATS.map((stat, i) => {
             const Icon = stat.icon;
             return (
-              <ScrollReveal key={stat.figure} delay={i * 0.08}>
-                <div className="h-full bg-white/[0.03] border border-white/10 rounded-2xl p-7 md:p-8 hover:border-[#E85D26]/30 transition-colors duration-300 flex flex-col">
-                  <div className="flex items-center gap-4 mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-[#E85D26]/10 border border-[#E85D26]/25 flex items-center justify-center flex-shrink-0">
+              <ScrollReveal key={stat.figure} delay={i * 0.1}>
+                <div className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.01] p-8 md:p-9 transition-all duration-500 hover:border-[#E85D26]/40 hover:-translate-y-1 hover:shadow-[0_24px_60px_-20px_rgba(232,93,38,0.35)]">
+                  {/* hover glow */}
+                  <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-[#E85D26]/15 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                  {/* oversized watermark figure */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -top-8 right-1 select-none font-display font-bold text-[7.5rem] leading-none text-white/[0.03] group-hover:text-[#E85D26]/[0.07] transition-colors duration-500"
+                  >
+                    {stat.figure}
+                  </span>
+
+                  <div className="relative">
+                    {/* icon badge */}
+                    <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E85D26]/10 ring-1 ring-inset ring-[#E85D26]/30">
                       <Icon size={22} className="text-[#E85D26]" aria-hidden="true" />
                     </div>
-                    <span className="text-4xl md:text-5xl font-display font-bold text-white leading-none">
+
+                    {/* giant gradient figure — primary focal point */}
+                    <div
+                      className="mb-3 bg-gradient-to-br from-white via-[#F4A57E] to-[#E85D26] bg-clip-text font-display text-6xl md:text-7xl font-bold leading-none text-transparent"
+                      style={{
+                        filter: "drop-shadow(0 0 28px rgba(232,93,38,0.30))",
+                      }}
+                    >
                       {stat.figure}
-                    </span>
+                    </div>
+
+                    {/* orange headline — secondary focal point */}
+                    <p className="mb-4 font-sans text-sm font-bold uppercase tracking-wider text-[#E85D26]">
+                      {stat.headline}
+                    </p>
+
+                    {/* accent divider */}
+                    <div className="mb-4 h-px w-12 bg-gradient-to-r from-[#E85D26] to-transparent" />
+
+                    {/* statement */}
+                    <p className="mb-6 font-sans text-[15px] leading-relaxed text-stone">
+                      {stat.statement}
+                    </p>
+
+                    {/* source */}
+                    <p className="font-sans text-xs leading-snug text-stone/45">
+                      {stat.source}
+                    </p>
                   </div>
-                  <p className="text-[#E85D26] font-sans font-semibold text-sm uppercase tracking-wide mb-3">
-                    {stat.headline}
-                  </p>
-                  <p className="text-stone font-sans text-[15px] leading-relaxed mb-5 flex-grow">
-                    {stat.statement}
-                  </p>
-                  <p className="text-stone/50 font-sans text-xs leading-snug border-t border-white/[0.06] pt-4">
-                    {stat.source}
-                  </p>
                 </div>
               </ScrollReveal>
             );
