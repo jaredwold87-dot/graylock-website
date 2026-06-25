@@ -86,7 +86,7 @@ export function ValueDifferentiationSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div className="mt-12 md:mt-14 rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 text-center">
+          <div className="relative mt-12 md:mt-14 rounded-2xl border border-[#E85D26]/40 bg-gradient-to-b from-[#E85D26]/[0.10] to-[#E85D26]/[0.02] shadow-[0_0_50px_-12px_rgba(232,93,38,0.45)] p-8 md:p-10 text-center">
             <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-4">
               Pricing That Sets Us Apart
             </p>
@@ -94,10 +94,13 @@ export function ValueDifferentiationSection() {
               Fully custom websites from{" "}
               <span className="text-[#E85D26]">$199/month</span>.
             </p>
-            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-6">
               No templates. No thrown-together drag-and-drop. Every site is designed
               and built from scratch around your business — a real custom website,
               not a recycled theme.
+            </p>
+            <p className="text-white font-sans text-base md:text-lg font-semibold max-w-2xl mx-auto leading-relaxed mb-8">
+              Built by a <span className="text-[#E85D26]">100% US-based team</span>.
             </p>
             <CTAButton href="/pricing" variant="funnel">
               See Our Pricing
