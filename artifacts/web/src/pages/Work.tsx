@@ -11,6 +11,7 @@ import kingsburyTransformation from "@/assets/work/kingsbury-transformation.webp
 import montanaTransformation from "@/assets/work/montana-transformation.webp";
 import wceTransformation from "@/assets/work/wce-transformation.webp";
 import smartTaxCrnaTransformation from "@/assets/work/smart-tax-crna-transformation.webp";
+import oliveCreekTransformation from "@/assets/work/olive-creek-transformation.webp";
 import heroBackground from "@/assets/work/portfolio-hero-black-v1.webp";
 
 type Theme = "light" | "dark";
@@ -162,6 +163,26 @@ const featuredProjects: FeaturedProject[] = [
     placeholder: {
       name: "West Coast Eye Institute",
       role: "Citrus County, FL",
+      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Olive Creek Nursery",
+    category: "Fruit Trees & Native Plants",
+    location: "Marshall County, Kentucky",
+    description:
+      "A warm, naturally grown site for a family-run, home-based nursery \u2014 built to help homesteaders, homeowners, and landowners grow resilient, food-producing landscapes.",
+    image: oliveCreekTransformation,
+    theme: "light",
+    delivered: [
+      "Browsable plant inventory",
+      "Visit scheduling flow",
+      "Growing guides & resources",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Olive Creek Nursery",
+      role: "Marshall County, Kentucky",
       note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
