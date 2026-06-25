@@ -21,8 +21,8 @@ export default function Home() {
       <WhatWeDeliverSection />
       <ProblemSection />
       <OfferBreakdownSection />
-      <TestimonialSection />
       <ValueDifferentiationSection />
+      <TestimonialSection />
       <FinalCTASection />
     </>
   );
