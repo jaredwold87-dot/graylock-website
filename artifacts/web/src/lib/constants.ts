@@ -24,7 +24,6 @@ export const PRICING_TIERS = [
     description: "For growing teams and small firms that need more visibility, more pages, and a stronger local SEO foundation.",
     features: [
       "Custom 15-Page Website",
-      "6 SEO-Optimized Funnel Pages",
       "Enhanced Lead Capture Form",
       "Full Local SEO Implementation",
       "Dedicated Account Manager",
@@ -40,7 +39,6 @@ export const PRICING_TIERS = [
     description: "For established and multi-location businesses that demand maximum visibility, advanced analytics, and dedicated account management.",
     features: [
       "Custom 20+ Page Website",
-      "9 SEO-Optimized Funnel Pages",
       "Multi-Location SEO Strategy",
       "Advanced Analytics & Reporting",
       "Custom Integrations (Calendly, scheduling, etc.)",
@@ -171,14 +169,6 @@ export const FAQS = [
     category: "Features & What They Mean",
     id: "features-explained",
     questions: [
-      {
-        q: "What is a funnel page?",
-        a: "A funnel page is a focused, standalone page on your website designed to attract visitors searching for a specific service in a specific location — and guide them toward taking action (like calling you or filling out a form).\n\nUnlike a general \u201cServices\u201d page that lists everything, a funnel page zeroes in on one thing — for example, \u201cAnxiety Therapist in Austin\u201d or \u201cCPA in Phoenix.\u201d It’s written, structured, and optimized to rank for that exact search term.\n\nThe word \u201cfunnel\u201d comes from the idea that these pages funnel the right people — those already searching for what you offer — toward becoming a lead. They’re one of the most effective ways to get found on Google without paying for ads.\n\nThe Growth plan includes 6 funnel pages, and the Scale plan includes 9."
-      },
-      {
-        q: "What are SEO funnel pages, and why do they matter?",
-        a: "SEO funnel pages are dedicated, search-optimized pages built around the specific services you offer and the locations you serve. Instead of listing everything on one generic \u201cServices\u201d page, each funnel page targets a specific search term your prospective clients are actually typing into Google.\n\nFor example, if you’re a therapist in Denver, you might have individual pages for \u201canxiety therapist Denver,\u201d \u201ccouples counselor Denver,\u201d and \u201cchild psychologist Lakewood.\u201d Each page is written, structured, and optimized to rank for that exact search — giving you multiple entry points into Google instead of just one.\n\nThis is one of the most effective ways to generate organic leads without paying for ads. The Growth plan includes 6 funnel pages, and the Scale plan includes 9 — enough to cover your core service categories and surrounding locations."
-      },
       {
         q: "What’s the difference between basic SEO and local SEO optimization?",
         a: "Basic SEO (included in all plans) covers the fundamentals — clean code, fast page speed, proper page titles and meta descriptions, mobile optimization, and a sitemap. These are the building blocks every website needs.\n\nLocal SEO optimization (Growth and Scale plans) goes significantly deeper. It includes:\n\n• Location-specific keyword targeting across your pages\n• Google Business Profile setup and optimization — so you show up in the local map pack\n• NAP consistency (Name, Address, Phone) across your site\n• Local schema markup that tells Google exactly where you operate and what you do\n• Geo-targeted content strategy for your service area\n\nFor local businesses that depend on nearby customers, this is often the difference between showing up on the first page of Google and being invisible. Most of your competitors aren’t doing this — which is exactly why it works."

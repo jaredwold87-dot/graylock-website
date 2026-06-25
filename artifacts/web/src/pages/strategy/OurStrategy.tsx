@@ -59,13 +59,6 @@ const STRATEGY_TIERS: StrategyTier[] = [
         linkText: "How we rank you on Google",
       },
       {
-        name: "Funnel Pages",
-        path: "/funnel-pages",
-        description: "Targeted landing pages that rank for specific services and locations — and convert searchers into leads.",
-        icon: Layers,
-        linkText: "How we capture every search",
-      },
-      {
         name: "Google Business Profile",
         path: "/google-business-profile",
         description: "The single most powerful free tool for local visibility — and how to optimize it for maximum impact.",
@@ -96,7 +89,7 @@ export default function OurStrategy() {
     <>
       <SEO
         title="Our Digital Strategy for Professional Practices | Graylock Digital"
-        description="Graylock's complete approach to getting professional practices found online — website design, SEO, funnel pages, Google Business Profiles, and lead generation."
+        description="Graylock's complete approach to getting professional practices found online — website design, SEO, Google Business Profiles, and lead generation."
         url="https://graylockdigital.com/our-strategy"
       />
 

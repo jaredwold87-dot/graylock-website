@@ -203,7 +203,6 @@ const data: StrategyPageData = {
   relatedStrategy: [
     { name: "SEO", path: "/seo-for-small-business" },
     { name: "Lead Generation", path: "/lead-generation-for-small-business" },
-    { name: "Funnel Pages", path: "/funnel-pages" },
     { name: "All Strategy", path: "/our-strategy" },
   ],
   schema: {

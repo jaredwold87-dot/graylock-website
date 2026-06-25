@@ -11,7 +11,6 @@ import {
   Mail,
   Palette,
   Search,
-  MousePointerClick,
   MapPin,
   Magnet,
   ShieldCheck,
@@ -27,7 +26,6 @@ import {
   Activity,
   FileText,
   ScrollText,
-  BookOpen,
 } from "lucide-react";
 
 type SitemapLink = {
@@ -63,11 +61,10 @@ const GROUPS: SitemapGroup[] = [
     links: [
       { label: "Custom Website Design", path: "/website-design", icon: Palette, description: "Conversion-built, mobile-first websites." },
       { label: "Local SEO", path: "/seo-for-small-business", icon: Search, description: "Rank in your city and on Google Maps." },
-      { label: "Funnel Pages", path: "/funnel-pages", icon: MousePointerClick, description: "High-intent landing pages that convert." },
       { label: "Google Business Profile", path: "/google-business-profile", icon: MapPin, description: "Optimized profile, reviews, posts, photos." },
       { label: "Lead Generation", path: "/lead-generation-for-small-business", icon: Magnet, description: "Forms, intake flows, and lead magnets." },
       { label: "Compliance", path: "/compliance", icon: ShieldCheck, description: "Federal, state, and industry rules built into every site." },
-      { label: "Our Full Strategy", path: "/our-strategy", icon: Layers, description: "How design, SEO, GBP, funnels, and lead gen work together." },
+      { label: "Our Full Strategy", path: "/our-strategy", icon: Layers, description: "How design, SEO, GBP, and lead gen work together." },
     ],
   },
   {
@@ -90,16 +87,6 @@ const GROUPS: SitemapGroup[] = [
       { label: "Optometrists", path: "/websites-for-optometrists", icon: Focus, description: "Exams, contacts, frames, dry eye." },
       { label: "Physical Therapists", path: "/websites-for-physical-therapists", icon: Dumbbell, description: "Rehab, sports, ortho, and pain." },
       { label: "Chiropractors", path: "/websites-for-chiropractors", icon: Activity, description: "Adjustments, posture, sports recovery." },
-    ],
-  },
-  {
-    title: "Resources & Funnels",
-    intro: "Free guides and industry-specific funnels.",
-    links: [
-      { label: "Home Builders Playbook", path: "/home-builders-playbook", icon: BookOpen, description: "Free guide for custom home builders." },
-      { label: "Home Builders Demo", path: "/home-builders", icon: HomeIcon, description: "Free custom homepage demo for home builders." },
-      { label: "Contractors Demo", path: "/contractors", icon: HardHat, description: "Free custom homepage demo for contractors and trades." },
-      { label: "Accountants Funnel", path: "/accountants", icon: Calculator, description: "Targeted landing page for accounting firms." },
     ],
   },
   {

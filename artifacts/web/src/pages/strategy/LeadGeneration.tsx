@@ -26,7 +26,7 @@ const data: StrategyPageData = {
     paragraphs: [
       "Lead generation is the process of attracting potential clients to your practice and converting them into enquiries, calls, or booked appointments.",
       "For a professional practice, online lead generation means: your ideal client searches Google, finds your practice, visits your website, and takes an action — submitting a form, clicking to call, or booking a consultation.",
-      "Everything Graylock builds — your website design, SEO, funnel pages, GBP, and content — is ultimately in service of one goal: generating more qualified leads for your practice.",
+      "Everything Graylock builds — your website design, SEO, GBP, and content — is ultimately in service of one goal: generating more qualified leads for your practice.",
     ],
     calloutTitle: "GOOD LEAD GENERATION DOES 3 THINGS",
     calloutBullets: [
@@ -191,7 +191,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Which Graylock plan is best for lead generation?",
-      a: "All plans include lead capture forms, click-to-call, and a dedicated account manager. For active lead generation with more funnel pages, enhanced forms, and lead tracking, the Growth plan ($299/mo) is ideal. The Scale plan ($449/mo) adds advanced analytics and more site update hours.",
+      a: "All plans include lead capture forms, click-to-call, and a dedicated account manager. For active lead generation with enhanced forms and lead tracking, the Growth plan ($299/mo) is ideal. The Scale plan ($449/mo) adds advanced analytics and more site update hours.",
     },
   ],
   bottomCta: {
@@ -202,7 +202,6 @@ const data: StrategyPageData = {
   },
   relatedStrategy: [
     { name: "Website Design", path: "/website-design" },
-    { name: "Funnel Pages", path: "/funnel-pages" },
     { name: "Google Business Profiles", path: "/google-business-profile" },
     { name: "All Strategy", path: "/our-strategy" },
   ],

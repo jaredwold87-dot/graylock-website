@@ -22,11 +22,6 @@ import TermsOfService from "@/pages/TermsOfService";
 import AcceptableUsePolicy from "@/pages/AcceptableUsePolicy";
 import Compliance from "@/pages/Compliance";
 import Sitemap from "@/pages/Sitemap";
-import AccountantsFunnel from "@/pages/AccountantsFunnel";
-import HomeBuildersPlaybook from "@/pages/HomeBuildersPlaybook";
-import HomeBuildersPlaybookThankYou from "@/pages/HomeBuildersPlaybookThankYou";
-import HomeBuildersFunnel from "@/pages/HomeBuildersFunnel";
-import ContractorsFunnel from "@/pages/ContractorsFunnel";
 import NotFound from "@/pages/not-found";
 
 const AccountantsIndustry = lazy(() => import("@/pages/industries/Accountants"));
@@ -43,7 +38,6 @@ const HomeBuilders = lazy(() => import("@/pages/industries/HomeBuilders"));
 const OurStrategy = lazy(() => import("@/pages/strategy/OurStrategy"));
 const WebsiteDesign = lazy(() => import("@/pages/strategy/WebsiteDesign"));
 const SEOPage = lazy(() => import("@/pages/strategy/SEO"));
-const FunnelPagesPage = lazy(() => import("@/pages/strategy/FunnelPages"));
 const GoogleBusinessProfilePage = lazy(() => import("@/pages/strategy/GoogleBusinessProfile"));
 const LeadGenerationPage = lazy(() => import("@/pages/strategy/LeadGeneration"));
 
@@ -75,7 +69,6 @@ function Router() {
         <Route path="/get-started" component={GetStarted} />
         <Route path="/contact" component={ContactRedirect} />
         <Route path="/thank-you" component={ThankYou} />
-        <Route path="/accountants" component={AccountantsFunnel} />
         <Route path="/websites-for-accountants" component={AccountantsIndustry} />
         <Route path="/other-service-businesses" component={LocalServiceBusinesses} />
         <Route path="/websites-for-chiropractors" component={Chiropractors} />
@@ -89,7 +82,6 @@ function Router() {
         <Route path="/our-strategy" component={OurStrategy} />
         <Route path="/website-design" component={WebsiteDesign} />
         <Route path="/seo-for-small-business" component={SEOPage} />
-        <Route path="/funnel-pages" component={FunnelPagesPage} />
         <Route path="/google-business-profile" component={GoogleBusinessProfilePage} />
         <Route path="/lead-generation-for-small-business" component={LeadGenerationPage} />
         <Route path="/terms" component={TermsOfService} />
@@ -104,6 +96,13 @@ function Router() {
         <Route path="/terms-of-service">{() => <Redirect to="/terms" />}</Route>
         <Route path="/privacy-policy">{() => <Redirect to="/privacy" />}</Route>
         <Route path="/acceptable-use-policy">{() => <Redirect to="/aup" />}</Route>
+
+        <Route path="/home-builders">{() => <Redirect to="/websites-for-home-builders" />}</Route>
+        <Route path="/contractors">{() => <Redirect to="/websites-for-industrial-construction" />}</Route>
+        <Route path="/accountants">{() => <Redirect to="/websites-for-accountants" />}</Route>
+        <Route path="/funnel-pages">{() => <Redirect to="/our-strategy" />}</Route>
+        <Route path="/home-builders-playbook/thank-you">{() => <Redirect to="/" />}</Route>
+        <Route path="/home-builders-playbook">{() => <Redirect to="/" />}</Route>
 
         <Route component={NotFound} />
       </Switch>
@@ -120,17 +119,9 @@ function App() {
             <ScrollToTop />
             <PageTracker />
             <SiteSettingsProvider>
-              <Switch>
-                <Route path="/home-builders-playbook" component={HomeBuildersPlaybook} />
-                <Route path="/home-builders-playbook/thank-you" component={HomeBuildersPlaybookThankYou} />
-                <Route path="/home-builders" component={HomeBuildersFunnel} />
-                <Route path="/contractors" component={ContractorsFunnel} />
-                <Route>
-                  <Layout>
-                    <Router />
-                  </Layout>
-                </Route>
-              </Switch>
+              <Layout>
+                <Router />
+              </Layout>
             </SiteSettingsProvider>
           </WouterRouter>
           <Toaster />

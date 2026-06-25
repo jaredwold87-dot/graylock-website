@@ -215,7 +215,6 @@ const data: StrategyPageData = {
   relatedStrategy: [
     { name: "Website Design", path: "/website-design" },
     { name: "Google Business Profiles", path: "/google-business-profile" },
-    { name: "Funnel Pages", path: "/funnel-pages" },
     { name: "All Strategy", path: "/our-strategy" },
   ],
   schema: {

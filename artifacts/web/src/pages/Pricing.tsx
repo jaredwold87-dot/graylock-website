@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 export default function Pricing() {
   const featureRows = [
     { name: "Pages Included", solo: "8", group: "15", enterprise: "20+", custom: "Custom" },
-    { name: "SEO Funnel Pages", solo: false, group: "6", enterprise: "9", custom: "Custom" },
     { name: "Mobile-First Design", solo: true, group: true, enterprise: true, custom: true },
     { name: "Hosting & SSL", solo: true, group: true, enterprise: true, custom: true },
     { name: "Local SEO", solo: "Foundation", group: "Full", enterprise: "Advanced + Multi-Location", custom: "Custom" },
