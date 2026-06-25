@@ -31,7 +31,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-charcoal py-28 px-6 md:px-12 relative overflow-hidden border-t border-gunmetal">
+    <section className="bg-[#0f0f0f] py-28 px-6 md:px-12 relative overflow-hidden border-t border-white/5">
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
       <div className="max-w-3xl mx-auto relative z-10">
@@ -46,8 +46,8 @@ export function FAQSection() {
             <ScrollReveal key={i} delay={i * 0.08}>
               <div 
                 className={cn(
-                  "glass-card rounded-xl overflow-hidden cursor-pointer",
-                  openIndex === i && "!border-orange/30"
+                  "relative rounded-xl overflow-hidden cursor-pointer border bg-white/[0.03] transition-colors duration-300",
+                  openIndex === i ? "border-orange/30 bg-white/[0.05]" : "border-white/10 hover:border-white/20"
                 )}
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
