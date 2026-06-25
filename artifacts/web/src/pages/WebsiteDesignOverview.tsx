@@ -367,9 +367,9 @@ export default function WebsiteDesignOverview() {
       />
 
       {/* Hero */}
-      <section className="relative bg-charcoal pt-32 pb-20 md:pt-40 md:pb-28 px-6 md:px-12 overflow-hidden">
+      <section className="relative bg-[#0f0f0f] pt-32 pb-20 md:pt-40 md:pb-28 px-6 md:px-12 overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-strategy-website-design.png`} />
-        <div className="absolute inset-0 bg-charcoal/85" />
+        <div className="absolute inset-0 bg-[#0f0f0f]/85" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
@@ -402,7 +402,7 @@ export default function WebsiteDesignOverview() {
       <WhatWeDeliverSection />
 
       {/* Stats strip */}
-      <section className="bg-navy py-8 border-y border-gunmetal">
+      <section className="bg-[#0f0f0f] py-8 border-y border-white/10">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
           {STATS.map((stat, i) => (
             <ScrollReveal key={stat.label} delay={i * 0.05}>
@@ -420,13 +420,13 @@ export default function WebsiteDesignOverview() {
       </section>
 
       {/* Jump nav */}
-      <section className="bg-[#1A1A1A] border-b border-gunmetal/60 py-5 px-6">
+      <section className="bg-[#1a1a1a] border-b border-white/10 py-5 px-6">
         <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-3">
           {SECTION_NAV.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="text-xs md:text-sm font-sans font-semibold text-stone hover:text-orange border border-gunmetal hover:border-orange/40 rounded-full px-4 py-2 transition-all duration-200"
+              className="text-xs md:text-sm font-sans font-semibold text-stone hover:text-orange border border-white/10 hover:border-orange/40 rounded-full px-4 py-2 transition-all duration-200"
             >
               {s.label}
             </a>
@@ -478,7 +478,7 @@ export default function WebsiteDesignOverview() {
         intro="Right now, prospective clients are searching Google for what you offer — and choosing a competitor. Every site we build is engineered for search from the ground up, so you stop losing them."
         features={SEO_FEATURES}
         dark={true}
-        bgClass="bg-charcoal"
+        bgClass="bg-[#0f0f0f]"
       />
 
       <TopicSection
@@ -493,7 +493,7 @@ export default function WebsiteDesignOverview() {
       />
 
       {/* Bottom CTA */}
-      <section className="bg-charcoal py-24 md:py-28 px-6 md:px-12 border-t border-gunmetal">
+      <section className="bg-[#0f0f0f] py-24 md:py-28 px-6 md:px-12 border-t border-white/10">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-xs md:text-sm mb-4">

@@ -40,7 +40,7 @@ export default function HowItWorks() {
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-how-it-works.png`} />
-        <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
+        <div className="absolute inset-0 bg-[#0f0f0f]/90 md:bg-[#0f0f0f]/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-display mb-6">Our 5-Step Process</h1>
@@ -49,21 +49,21 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      <section className="bg-navy pt-24 pb-12 px-6 md:px-12 relative overflow-hidden">
+      <section className="bg-[#0f0f0f] pt-24 pb-12 px-6 md:px-12 relative overflow-hidden">
         <div className="max-w-5xl mx-auto relative">
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gunmetal -translate-x-1/2 rounded-full"></div>
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-white/10 -translate-x-1/2 rounded-full"></div>
 
           {steps.slice(0, 2).map((step, i) => (
             <ScrollReveal key={i} delay={i * 0.15} className={`relative flex flex-col md:flex-row items-center justify-between mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
               
-              <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-orange rounded-full -translate-x-1/2 border-4 border-navy z-10 shadow-[0_0_10px_rgba(232,93,38,0.8)]"></div>
+              <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-orange rounded-full -translate-x-1/2 border-4 border-[#0f0f0f] z-10 shadow-[0_0_10px_rgba(232,93,38,0.8)]"></div>
 
               <div className="hidden md:block md:w-[45%]"></div>
 
               <div className="w-full md:w-[45%] pl-16 md:pl-0">
-                <div className="bg-charcoal p-8 rounded-xl border border-gunmetal hover:border-orange/50 transition-colors shadow-lg">
+                <div className="bg-white/[0.03] p-8 rounded-xl border border-white/10 hover:border-orange/50 transition-colors shadow-lg">
                   <span className="text-orange font-display tracking-widest uppercase text-sm mb-2 block">{step.day}</span>
-                  <h3 className="text-2xl font-display text-offwhite mb-4">{step.title}</h3>
+                  <h3 className="text-2xl font-display text-white mb-4">{step.title}</h3>
                   <p className="text-stone font-sans leading-relaxed">{step.desc}</p>
                 </div>
               </div>
@@ -72,23 +72,23 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      <section className="bg-navy pt-12 pb-24 px-6 md:px-12 relative overflow-hidden">
+      <section className="bg-[#0f0f0f] pt-12 pb-24 px-6 md:px-12 relative overflow-hidden">
         <div className="max-w-5xl mx-auto relative">
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gunmetal -translate-x-1/2 rounded-full"></div>
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-white/10 -translate-x-1/2 rounded-full"></div>
 
           {steps.slice(2).map((step, i) => {
             const originalIndex = i + 2;
             return (
               <ScrollReveal key={originalIndex} delay={i * 0.15} className={`relative flex flex-col md:flex-row items-center justify-between mb-16 last:mb-0 ${originalIndex % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
 
-                <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-orange rounded-full -translate-x-1/2 border-4 border-navy z-10 shadow-[0_0_10px_rgba(232,93,38,0.8)]"></div>
+                <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-orange rounded-full -translate-x-1/2 border-4 border-[#0f0f0f] z-10 shadow-[0_0_10px_rgba(232,93,38,0.8)]"></div>
 
                 <div className="hidden md:block md:w-[45%]"></div>
 
                 <div className="w-full md:w-[45%] pl-16 md:pl-0">
-                  <div className="bg-charcoal p-8 rounded-xl border border-gunmetal hover:border-orange/50 transition-colors shadow-lg">
+                  <div className="bg-white/[0.03] p-8 rounded-xl border border-white/10 hover:border-orange/50 transition-colors shadow-lg">
                     <span className="text-orange font-display tracking-widest uppercase text-sm mb-2 block">{step.day}</span>
-                    <h3 className="text-2xl font-display text-offwhite mb-4">{step.title}</h3>
+                    <h3 className="text-2xl font-display text-white mb-4">{step.title}</h3>
                     <p className="text-stone font-sans leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
@@ -98,10 +98,10 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      <section className="bg-offwhite py-24 px-6 md:px-12">
+      <section className="bg-[#f5f5f4] py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">What Happens After Launch?</h2>
+            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">What Happens After Launch?</h2>
             <p className="text-gray-600 text-lg font-sans">Our relationship doesn't end when the site goes live. In fact, that's just the beginning.</p>
           </ScrollReveal>
 
@@ -136,38 +136,21 @@ export default function HowItWorks() {
                 <div className="w-11 h-11 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center mb-4">
                   {card.icon}
                 </div>
-                <h3 className="text-2xl font-display text-charcoal mb-4">{card.title}</h3>
+                <h3 className="text-2xl font-display text-[#1a202c] mb-4">{card.title}</h3>
                 <p className="text-gray-600 font-sans leading-relaxed">{card.desc}</p>
               </ScrollReveal>
             ))}
           </div>
 
           <ScrollReveal delay={0.5} className="bg-orange/5 border border-orange/20 rounded-xl p-8 text-center">
-            <p className="text-charcoal font-sans text-lg leading-relaxed">
+            <p className="text-[#1a202c] font-sans text-lg leading-relaxed">
               We're not a launch-and-leave service. We're your long-term website partner — maintaining, improving, and growing your online presence month after month.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      <section className="bg-charcoal py-20 px-6 md:px-12 text-center">
-        <div className="max-w-3xl mx-auto">
-          <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-display text-offwhite mb-4">
-              Ready to See What Your Website Could Become?
-            </h2>
-            <p className="text-stone text-lg font-sans mb-4 max-w-xl mx-auto leading-relaxed">
-              Book a free 15-minute call. We'll hear what you want from your new site, then turn it into a real custom homepage demo for you to review.
-            </p>
-            <p className="text-stone text-sm font-sans mb-8 max-w-xl mx-auto">
-              No payment until you've seen the demo and decided you want to move forward.
-            </p>
-            <CTAButton href="/get-started" className="px-8 py-4">
-              Book a Discovery Call
-            </CTAButton>
-          </ScrollReveal>
-        </div>
-      </section>
+      <FinalCTASection />
     </>
   );
 }

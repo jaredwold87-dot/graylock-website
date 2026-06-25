@@ -19,7 +19,7 @@ export default function About() {
       
       <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
         <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-about.png`} />
-        <div className="absolute inset-0 bg-charcoal/90 md:bg-charcoal/75" />
+        <div className="absolute inset-0 bg-[#0f0f0f]/90 md:bg-[#0f0f0f]/75" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Built For Practice Owners</p>
@@ -31,7 +31,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-charcoal py-24 px-6 md:px-12 border-t border-gunmetal">
+      <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal className="text-center mb-14">
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">Our Philosophy</p>
@@ -39,7 +39,7 @@ export default function About() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="bg-navy rounded-2xl border border-gunmetal p-8 md:p-12 mb-10">
+            <div className="bg-white/[0.03] rounded-2xl border border-white/10 p-8 md:p-12 mb-10">
               <p className="text-offwhite font-sans text-lg md:text-xl leading-relaxed mb-6">
                 We don't take on every practice or business that comes our way. We look for therapists, physicians, dentists, CPAs, home builders, and construction companies where we know — not hope, <em className="text-orange not-italic font-semibold">know</em> — that a better website will directly impact their ability to serve more clients.
               </p>
@@ -53,17 +53,17 @@ export default function About() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <ScrollReveal delay={0.15} className="bg-navy/50 rounded-xl border border-gunmetal p-6 text-center">
+            <ScrollReveal delay={0.15} className="bg-white/[0.03] rounded-xl border border-white/10 p-6 text-center">
               <Search className="text-orange mx-auto mb-4" size={28} />
               <h3 className="text-lg font-display text-offwhite mb-2">We Seek You Out</h3>
               <p className="text-stone font-sans text-sm leading-relaxed">We actively look for practices where a new site will make a measurable difference — not just anyone willing to pay.</p>
             </ScrollReveal>
-            <ScrollReveal delay={0.25} className="bg-navy/50 rounded-xl border border-gunmetal p-6 text-center">
+            <ScrollReveal delay={0.25} className="bg-white/[0.03] rounded-xl border border-white/10 p-6 text-center">
               <Heart className="text-orange mx-auto mb-4" size={28} />
               <h3 className="text-lg font-display text-offwhite mb-2">Your Success Is Personal</h3>
               <p className="text-stone font-sans text-sm leading-relaxed">We don't disappear after launch. We stay invested because watching our clients grow is genuinely the best part of this work.</p>
             </ScrollReveal>
-            <ScrollReveal delay={0.35} className="bg-navy/50 rounded-xl border border-gunmetal p-6 text-center">
+            <ScrollReveal delay={0.35} className="bg-white/[0.03] rounded-xl border border-white/10 p-6 text-center">
               <Handshake className="text-orange mx-auto mb-4" size={28} />
               <h3 className="text-lg font-display text-offwhite mb-2">Partners, Not Vendors</h3>
               <p className="text-stone font-sans text-sm leading-relaxed">We think of ourselves as part of your team. When you win, we win. It's that simple.</p>
@@ -73,7 +73,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-navy py-24 px-6 md:px-12">
+      <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 border-t border-white/5">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="text-center mb-14">
             <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">The Team Behind Your Website</p>
@@ -84,7 +84,7 @@ export default function About() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="bg-charcoal rounded-2xl border border-gunmetal p-8 md:p-10 mb-12">
+            <div className="bg-white/[0.03] rounded-2xl border border-white/10 p-8 md:p-10 mb-12">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                   <p className="text-orange font-display text-4xl md:text-5xl mb-2">100%</p>
@@ -118,8 +118,8 @@ export default function About() {
               { icon: Rocket, title: "Launch", desc: "We handle migration, redirects, analytics, and a calm, controlled go-live." },
               { icon: LifeBuoy, title: "Ongoing Care", desc: "Hosting, security, edits, and a real human to call whenever something needs to change." },
             ].map(({ icon: Icon, title, desc }, i) => (
-              <ScrollReveal key={title} delay={0.1 + i * 0.08} className="bg-charcoal/80 rounded-xl border border-gunmetal p-6 flex flex-col">
-                <div className="w-11 h-11 rounded-lg bg-navy flex items-center justify-center text-orange mb-4 border border-gunmetal">
+              <ScrollReveal key={title} delay={0.1 + i * 0.08} className="bg-white/[0.03] rounded-xl border border-white/10 p-6 flex flex-col">
+                <div className="w-11 h-11 rounded-lg bg-white/5 flex items-center justify-center text-orange mb-4 border border-white/10">
                   <Icon size={22} />
                 </div>
                 <h4 className="text-lg font-display text-offwhite mb-2">{title}</h4>
@@ -129,7 +129,7 @@ export default function About() {
           </div>
 
           <ScrollReveal delay={0.4} className="mt-10">
-            <div className="bg-charcoal/50 rounded-xl border border-gunmetal p-6 text-center max-w-3xl mx-auto">
+            <div className="bg-white/[0.03] rounded-xl border border-white/10 p-6 text-center max-w-3xl mx-auto">
               <p className="text-stone font-sans leading-relaxed">
                 For specialized work, we collaborate with a vetted network of U.S.-based professionals who meet our standards on quality, communication, and client outcomes.
               </p>
@@ -138,14 +138,14 @@ export default function About() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-offwhite py-24 px-6 md:px-12 border-t border-gray-200">
+      <section className="relative overflow-hidden bg-[#f5f5f4] py-24 px-6 md:px-12 border-t border-gray-200">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="text-center mb-14">
-            <div className="inline-flex items-center gap-3 bg-blue-900/10 text-blue-800 px-5 py-2 rounded-full font-sans font-semibold text-sm uppercase tracking-widest mb-6 border border-blue-200">
+            <div className="inline-flex items-center gap-3 bg-orange/10 text-[#B23E16] px-5 py-2 rounded-full font-sans font-semibold text-sm uppercase tracking-widest mb-6 border border-orange/20">
               <Flag size={16} />
               Proudly American
             </div>
-            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">
+            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">
               100% U.S.-Based. Zero Outsourcing.
             </h2>
             <p className="text-gray-600 font-sans text-lg max-w-3xl mx-auto leading-relaxed">
@@ -155,43 +155,43 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
             <ScrollReveal delay={0.1} className="text-center">
-              <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <MapPin className="text-white" size={28} />
               </div>
-              <h3 className="text-xl font-display text-charcoal mb-2">Built in America</h3>
+              <h3 className="text-xl font-display text-[#1a202c] mb-2">Built in America</h3>
               <p className="text-gray-600 font-sans text-sm leading-relaxed">Every website is designed, developed, and maintained by our team right here in the United States. No exceptions.</p>
             </ScrollReveal>
             <ScrollReveal delay={0.2} className="text-center">
-              <div className="w-16 h-16 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Shield className="text-white" size={28} />
+              <div className="w-16 h-16 bg-[#0f0f0f] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Shield className="text-orange" size={28} />
               </div>
-              <h3 className="text-xl font-display text-charcoal mb-2">Nothing Outsourced</h3>
+              <h3 className="text-xl font-display text-[#1a202c] mb-2">Nothing Outsourced</h3>
               <p className="text-gray-600 font-sans text-sm leading-relaxed">We don't cut corners by sending your work overseas. When we say done-for-you, we mean done by us — personally.</p>
             </ScrollReveal>
             <ScrollReveal delay={0.3} className="text-center">
-              <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Heart className="text-white" size={28} />
               </div>
-              <h3 className="text-xl font-display text-charcoal mb-2">Americans Helping Americans</h3>
+              <h3 className="text-xl font-display text-[#1a202c] mb-2">Americans Helping Americans</h3>
               <p className="text-gray-600 font-sans text-sm leading-relaxed">We're proud to be a small American business supporting other small American businesses. Your success strengthens our communities.</p>
             </ScrollReveal>
           </div>
 
           <ScrollReveal delay={0.35}>
-            <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 rounded-2xl p-8 md:p-10 text-center shadow-xl">
+            <div className="bg-[#0f0f0f] rounded-2xl p-8 md:p-10 text-center shadow-xl border border-white/10">
               <p className="text-white font-sans text-lg md:text-xl leading-relaxed italic">
                 "We started Graylock because we saw too many hardworking practice owners getting left behind online. These are the people who show up early, stay late, and take care of their clients. They deserve a website that works as hard as they do — and a team that actually gives a damn."
               </p>
-              <p className="text-blue-200 font-sans font-semibold mt-4 text-sm uppercase tracking-widest">— The Graylock Team</p>
+              <p className="text-orange font-sans font-semibold mt-4 text-sm uppercase tracking-widest">— The Graylock Team</p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <section className="bg-offwhite py-24 px-6 md:px-12">
+      <section className="bg-[#f5f5f4] py-24 px-6 md:px-12 border-t border-gray-200">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display text-charcoal mb-6">Our Core Values</h2>
+            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">Our Core Values</h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -199,7 +199,7 @@ export default function About() {
               <ScrollReveal key={i} delay={i * 0.1} className="flex gap-4 items-start">
                 <CheckCircle2 className="text-orange flex-shrink-0 mt-1" size={28} />
                 <div>
-                  <h3 className="text-2xl font-display text-charcoal mb-2">{val.title}</h3>
+                  <h3 className="text-2xl font-display text-[#1a202c] mb-2">{val.title}</h3>
                   <p className="text-gray-600 font-sans leading-relaxed">{val.desc}</p>
                 </div>
               </ScrollReveal>
