@@ -34,7 +34,7 @@ export function WhatWeDeliverSection() {
             alt="A Graylock-built website shown on a laptop and a phone"
             loading="lazy"
             decoding="async"
-            className="w-full h-auto drop-shadow-2xl lg:scale-[1.08] lg:origin-left"
+            className="w-full h-auto drop-shadow-2xl"
           />
         </ScrollReveal>
 
