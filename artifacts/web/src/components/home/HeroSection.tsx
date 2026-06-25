@@ -8,7 +8,7 @@ const BASE = import.meta.env.BASE_URL;
 export function HeroSection() {
   return (
     <section
-      className="-mt-16 md:-mt-20 pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
+      className="pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
       style={{ backgroundColor: "#0f0f0f" }}
     >
       {/* Mobile only: layered stylized background */}

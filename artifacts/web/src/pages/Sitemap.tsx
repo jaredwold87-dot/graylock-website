@@ -112,6 +112,7 @@ export default function Sitemap() {
         url="https://graylockdigital.com/sitemap"
       />
 
+      <div className="h-16 md:h-20 bg-charcoal" aria-hidden="true" />
       <section className="bg-offwhite pt-28 pb-14 md:pt-32 md:pb-16 px-6 md:px-12 text-charcoal">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
