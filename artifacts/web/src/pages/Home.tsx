@@ -18,8 +18,8 @@ export default function Home() {
       />
       <HeroSection />
       <TrustBar />
-      <WhatWeDeliverSection />
       <ProblemSection />
+      <WhatWeDeliverSection />
       <OfferBreakdownSection />
       <ValueDifferentiationSection />
       <TestimonialSection />
