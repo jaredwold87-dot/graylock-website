@@ -12,6 +12,7 @@ import montanaTransformation from "@/assets/work/montana-transformation.webp";
 import wceTransformation from "@/assets/work/wce-transformation.webp";
 import smartTaxCrnaTransformation from "@/assets/work/smart-tax-crna-transformation.webp";
 import oliveCreekTransformation from "@/assets/work/olive-creek-transformation.webp";
+import advantageTransformation from "@/assets/work/advantage-transformation.webp";
 import heroBackground from "@/assets/work/portfolio-hero-black-v1.webp";
 
 type Theme = "light" | "dark";
@@ -212,6 +213,26 @@ const featuredProjects: FeaturedProject[] = [
       ],
       name: "Jim Erwin",
       role: "CEO & Founder, Shooting Performance Institute",
+    },
+  },
+  {
+    name: "Advantage Home Improvement",
+    category: "Replacement Windows & Doors",
+    location: "Las Vegas \u2013 Henderson \u2013 Greater Valley",
+    description:
+      "A clean, trust-first site for a local windows and doors installer \u2014 built around honest, low-pressure pricing that turns visitors into free in-home estimates.",
+    image: advantageTransformation,
+    theme: "light",
+    delivered: [
+      "Free estimate request flow",
+      "Window & door service pages",
+      "Local SEO foundation",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Advantage Home Improvement",
+      role: "Las Vegas, Nevada",
+      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
 ];
