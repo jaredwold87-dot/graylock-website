@@ -117,10 +117,15 @@ const featuredProjects: FeaturedProject[] = [
       "Local SEO foundation",
       "Mobile-responsive build",
     ],
-    placeholder: {
+    testimonial: {
+      quote: [
+        "I wanted to thank Tim so much for helping me and my business. I am a chiropractor that had a very basic site that looked very similar to other medical professional sites. I did not know how much could be done with a professional website and how it could change how my business presented itself to people finding me or interested in how I can help them through chiropractic.",
+        "He was so helpful and took the time with me to make sure my site presented well and that I had everything I wanted to explain and show what I do as a chiropractor different from every other chiropractor.",
+        "Tim was also helpful with transferring my old site information and domain name from another company, which was very difficult, but he showed me what I needed to do and how he could help.",
+        "I cannot say enough great things about him and what he has done for me and my business.",
+      ],
       name: "Kingsbury Chiropractic",
       role: "Stateline, Nevada",
-      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
   {
