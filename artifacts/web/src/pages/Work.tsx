@@ -13,6 +13,7 @@ import wceTransformation from "@/assets/work/wce-transformation.webp";
 import smartTaxCrnaTransformation from "@/assets/work/smart-tax-crna-transformation.webp";
 import oliveCreekTransformation from "@/assets/work/olive-creek-transformation.webp";
 import advantageTransformation from "@/assets/work/advantage-transformation.webp";
+import bentOnEducationTransformation from "@/assets/work/bent-on-education-transformation.webp";
 import heroBackground from "@/assets/work/portfolio-hero-black-v1.webp";
 
 type Theme = "light" | "dark";
@@ -232,6 +233,26 @@ const featuredProjects: FeaturedProject[] = [
     placeholder: {
       name: "Advantage Home Improvement",
       role: "Las Vegas, Nevada",
+      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Bent on Education",
+    category: "Anesthesia & CRNA Education",
+    location: "CRNA-Led Podcasts & AHA Training",
+    description:
+      "A polished, credible home for a CRNA educator\u2019s podcasts and AHA training \u2014 built to turn anesthesia learners into listeners, students, and booked trainees.",
+    image: bentOnEducationTransformation,
+    theme: "light",
+    delivered: [
+      "Podcast & episode showcase",
+      "AHA training inquiry flow",
+      "Clear program navigation",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Bent on Education",
+      role: "Anesthesia & CRNA Education",
       note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
