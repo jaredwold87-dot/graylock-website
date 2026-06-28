@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { Layout } from "@/components/layout/Layout";
+import { GlobalSchema } from "@/components/GlobalSchema";
 import Home from "@/pages/Home";
 import HowItWorks from "@/pages/HowItWorks";
 import Pricing from "@/pages/Pricing";
@@ -118,6 +119,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <GlobalSchema />
             <ScrollToTop />
             <PageTracker />
             <SiteSettingsProvider>
