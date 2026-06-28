@@ -479,9 +479,9 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "After working with two other designers before finding Graylock Digital, I can confidently say the difference was night and day.",
-    name: "Emily Berg",
-    role: "Founder, Emboxed",
+      "The amount of time and effort they invested in researching our industry and truly understanding our vision for the new website was beyond impressive.",
+    name: "Kylen & Keith Perks",
+    role: "L.A. Perks Petroleum Specialists",
   },
 ];
 
