@@ -19,10 +19,7 @@ import {
   Code2,
   MapPin,
   Tags,
-  Landmark,
   ShieldCheck,
-  ShieldOff,
-  Scale,
   ChevronDown,
   Star,
   type LucideIcon,
@@ -127,33 +124,6 @@ const SEO_FEATURES: Feature[] = [
     title: "Metadata that earns the click",
     description:
       "Every page gets a unique, keyword-rich title tag and meta description written to stand out and pull clicks from the search results page.",
-  },
-];
-
-const COMPLIANCE_FEATURES: Feature[] = [
-  {
-    icon: Landmark,
-    title: "The federal floor",
-    description:
-      "Built against FTC truth-in-advertising standards, the 2024 Reviews Rule, CAN-SPAM for email, TCPA for phone capture, and ADA accessibility under WCAG 2.1 Level AA.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "The state layer",
-    description:
-      "Configured for the 20+ state consumer privacy laws — privacy notices, data-request workflows, Global Privacy Control signals, and opt-in for sensitive data.",
-  },
-  {
-    icon: Scale,
-    title: "Your industry, specifically",
-    description:
-      "State licensing-board advertising rules for healthcare, accounting, construction, and other trust-based professions shape your site from the start.",
-  },
-  {
-    icon: ShieldOff,
-    title: "What we refuse to do",
-    description:
-      "No accessibility overlay widgets, no advertising pixels on healthcare condition pages, and no claims we know your board will treat as misleading.",
   },
 ];
 
@@ -376,10 +346,10 @@ const TESTIMONIALS = [
 
 function TrustSection() {
   return (
-    <section className="bg-[#0F1E3C] py-20 md:py-28 px-6 md:px-12">
+    <section className="bg-[#F5F5F5] py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         <ScrollReveal>
-          <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+          <div className="rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
             <img
               src={`${import.meta.env.BASE_URL}home-service-client-trust.webp`}
               alt="A home service contractor reviewing completed work with satisfied homeowners."
@@ -390,28 +360,28 @@ function TrustSection() {
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
+          <p className="text-[#B23E16] text-xs font-sans font-bold uppercase tracking-widest mb-3">
             Trusted by Home Service Pros
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-offwhite mb-8 leading-[1.12]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-[#1A1A1A] mb-8 leading-[1.12]">
             Results the trades can measure
           </h2>
           <div className="space-y-5">
             {TESTIMONIALS.map((t) => (
               <figure
                 key={t.name}
-                className="bg-white/[0.06] border border-white/10 rounded-2xl p-6 md:p-7 backdrop-blur-sm"
+                className="bg-white border border-gray-200 rounded-2xl p-6 md:p-7 shadow-sm"
               >
                 <div className="flex gap-1 mb-4 text-orange" aria-hidden="true">
                   {[0, 1, 2, 3, 4].map((s) => (
                     <Star key={s} size={16} className="fill-current" />
                   ))}
                 </div>
-                <blockquote className="text-offwhite font-sans text-base md:text-lg leading-relaxed mb-4">
+                <blockquote className="text-[#1A1A1A] font-sans text-base md:text-lg leading-relaxed mb-4">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <figcaption className="text-stone font-sans text-sm">
-                  <span className="font-semibold text-offwhite">{t.name}</span>
+                <figcaption className="text-[#4A4A4A] font-sans text-sm">
+                  <span className="font-semibold text-[#1A1A1A]">{t.name}</span>
                   {" — "}
                   {t.role}
                 </figcaption>
@@ -462,7 +432,7 @@ export default function WebsiteDesignOverview() {
           src={`${import.meta.env.BASE_URL}hero-home-service-professional.jpg`}
           objectPosition="left center"
         />
-        <div className="absolute inset-0 bg-[rgba(15,30,60,0.65)]" />
+        <div className="absolute inset-0 bg-[#0f0f0f]/80" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
@@ -544,17 +514,6 @@ export default function WebsiteDesignOverview() {
         features={SEO_FEATURES}
         dark={true}
         bgClass="bg-[#0f0f0f]"
-      />
-
-      <TopicSection
-        id="compliance"
-        index="05"
-        eyebrow="Industry Compliance"
-        heading="Compliance built into the website from day one"
-        intro="A website is the public record of what your business says about itself. In regulated industries, we build to the federal, state, and licensing-board rules that govern your profession — so your site is an asset, not a liability."
-        features={COMPLIANCE_FEATURES}
-        dark={false}
-        bgClass="bg-[#F5F5F5]"
       />
 
       {/* Bottom CTA */}
