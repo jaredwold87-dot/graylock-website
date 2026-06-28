@@ -24,8 +24,12 @@
 }
 
 @layer base {
+  html {
+    background-color: #0F0F0F;
+  }
+
   body {
-    @apply font-sans antialiased bg-charcoal text-offwhite selection:bg-orange selection:text-white;
+    @apply font-sans antialiased bg-[#0F0F0F] text-offwhite selection:bg-orange selection:text-white;
   }
 
   h1, h2, h3, h4, h5, h6 {
