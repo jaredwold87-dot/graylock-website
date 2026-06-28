@@ -605,7 +605,8 @@ export default function WebsiteDesignOverview() {
       {/* What we deliver */}
       <WhatWeDeliverSection
         imageSrc={advantageTransformation}
-        imageAlt="Advantage Home Improvement website built by Graylock, shown as a before-and-after transformation."
+        imageAlt="Advantage Home Improvement website built by Graylock, shown in a desktop browser."
+        framed
       />
 
       <TopicSection

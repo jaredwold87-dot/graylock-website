@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Lock } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const DELIVER_ITEMS = [
@@ -27,9 +27,13 @@ const DELIVER_ITEMS = [
 export function WhatWeDeliverSection({
   imageSrc,
   imageAlt,
+  framed,
+  frameUrl = "advantagehomeimprovement.com",
 }: {
   imageSrc?: string;
   imageAlt?: string;
+  framed?: boolean;
+  frameUrl?: string;
 } = {}) {
   const resolvedImageSrc =
     imageSrc ?? `${import.meta.env.BASE_URL}west-coast-device-straight.webp`;
@@ -52,13 +56,34 @@ export function WhatWeDeliverSection({
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-10 items-center">
           <ScrollReveal className="order-2 lg:order-1">
-            <img
-              src={resolvedImageSrc}
-              alt={resolvedImageAlt}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-auto drop-shadow-2xl"
-            />
+            {framed ? (
+              <div className="rounded-xl overflow-hidden border border-black/10 shadow-2xl bg-white">
+                <div className="flex items-center gap-2 bg-[#ECECEC] px-4 py-2.5 border-b border-black/5">
+                  <span className="w-3 h-3 rounded-full bg-[#ff5f57]" aria-hidden="true" />
+                  <span className="w-3 h-3 rounded-full bg-[#febc2e]" aria-hidden="true" />
+                  <span className="w-3 h-3 rounded-full bg-[#28c840]" aria-hidden="true" />
+                  <div className="ml-3 flex-1 bg-white rounded-md px-3 py-1 text-[#6b6b6b] font-sans text-[11px] truncate flex items-center gap-1.5">
+                    <Lock size={10} className="text-[#28a745] shrink-0" aria-hidden="true" />
+                    {frameUrl}
+                  </div>
+                </div>
+                <img
+                  src={resolvedImageSrc}
+                  alt={resolvedImageAlt}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto block"
+                />
+              </div>
+            ) : (
+              <img
+                src={resolvedImageSrc}
+                alt={resolvedImageAlt}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto drop-shadow-2xl"
+              />
+            )}
           </ScrollReveal>
 
           <ScrollReveal delay={0.1} className="order-1 lg:order-2">
