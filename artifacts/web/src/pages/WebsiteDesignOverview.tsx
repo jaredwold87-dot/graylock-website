@@ -4,6 +4,7 @@ import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
+import advantageTransformation from "@/assets/work/advantage-transformation.webp";
 import {
   Eye,
   TrendingUp,
@@ -463,8 +464,8 @@ export default function WebsiteDesignOverview() {
 
       {/* What we deliver */}
       <WhatWeDeliverSection
-        imageSrc={`${import.meta.env.BASE_URL}home-service-website-mockup.webp`}
-        imageAlt="A Graylock-built home service website shown on a laptop and a phone."
+        imageSrc={advantageTransformation}
+        imageAlt="Advantage Home Improvement website built by Graylock, shown as a before-and-after transformation."
       />
 
       <TopicSection
