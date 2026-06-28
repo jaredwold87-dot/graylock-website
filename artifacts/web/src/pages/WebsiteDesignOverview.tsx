@@ -21,9 +21,12 @@ import {
   Code2,
   MapPin,
   Tags,
-  ShieldCheck,
   ChevronDown,
   Star,
+  Mountain,
+  Lock,
+  ArrowRight,
+  Check,
   type LucideIcon,
 } from "lucide-react";
 
@@ -129,37 +132,137 @@ const SEO_FEATURES: Feature[] = [
   },
 ];
 
-function FeatureCard({ feature, dark }: { feature: Feature; dark: boolean }) {
-  const Icon = feature.icon;
+function DesignShowcase() {
   return (
-    <div
-      className={
-        dark
-          ? "bg-[#242424] border border-[#333] rounded-xl p-6 hover:border-orange/30 transition-all duration-300 h-full"
-          : "bg-white border border-gray-200 rounded-xl p-6 hover:border-orange/40 transition-all duration-300 h-full"
-      }
-    >
-      <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center mb-4">
-        <Icon size={20} className="text-orange" />
+    <div className="border-t border-black/10">
+      {DESIGN_FEATURES.map((feature, i) => {
+        const Icon = feature.icon;
+        return (
+          <ScrollReveal key={feature.title} delay={i * 0.05}>
+            <div className="group flex items-start gap-5 md:gap-8 py-8 md:py-10 border-b border-black/10 transition-colors hover:bg-black/[0.02]">
+              <span className="font-display text-4xl md:text-6xl leading-none text-black/[0.12] group-hover:text-orange transition-colors duration-300 shrink-0 w-12 md:w-24">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="hidden sm:flex shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-orange/10 items-center justify-center">
+                <Icon size={24} className="text-orange" />
+              </div>
+              <div>
+                <h3 className="text-[#1A1A1A] font-sans font-semibold text-xl md:text-2xl mb-1.5">
+                  {feature.title}
+                </h3>
+                <p className="text-[#4A4A4A] font-sans text-[15px] md:text-base leading-relaxed max-w-2xl">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+        );
+      })}
+    </div>
+  );
+}
+
+function ConversionFlow() {
+  return (
+    <div className="relative">
+      <div
+        className="hidden lg:block absolute top-7 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-orange/0 via-orange/50 to-orange/0"
+        aria-hidden="true"
+      />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
+        {CONVERSION_FEATURES.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <ScrollReveal key={feature.title} delay={i * 0.08}>
+              <div className="relative text-center lg:text-left">
+                <div className="relative z-10 mx-auto lg:mx-0 w-14 h-14 rounded-full bg-[#1A1A1A] border-2 border-orange/70 flex items-center justify-center mb-5 shadow-[0_0_30px_-8px_rgba(232,93,38,0.65)]">
+                  <Icon size={24} className="text-orange" />
+                </div>
+                <div className="text-orange font-sans text-[11px] font-bold uppercase tracking-widest mb-2">
+                  Step {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="text-offwhite font-sans font-semibold text-lg mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-stone font-sans text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </ScrollReveal>
+          );
+        })}
       </div>
-      <h3
-        className={
-          dark
-            ? "text-offwhite font-sans font-semibold text-lg mb-2"
-            : "text-[#1A1A1A] font-sans font-semibold text-lg mb-2"
-        }
-      >
-        {feature.title}
-      </h3>
-      <p
-        className={
-          dark
-            ? "text-stone font-sans text-sm leading-relaxed"
-            : "text-[#4A4A4A] font-sans text-sm leading-relaxed"
-        }
-      >
-        {feature.description}
-      </p>
+    </div>
+  );
+}
+
+function SeoShowcase() {
+  return (
+    <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <ScrollReveal>
+        <div className="rounded-2xl bg-[#0f0f0f] border border-white/10 p-5 md:p-6 shadow-2xl">
+          <div className="flex items-center gap-2.5 bg-white/[0.06] border border-white/10 rounded-full px-4 py-2.5 mb-5">
+            <Search size={16} className="text-stone shrink-0" />
+            <span className="text-stone font-sans text-sm">roofing company near me</span>
+          </div>
+
+          <div className="relative rounded-xl border border-orange/40 bg-orange/[0.07] p-4 mb-3">
+            <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-orange bg-orange/15 px-2 py-0.5 rounded-full">
+              Your site
+            </span>
+            <div className="text-stone/70 font-sans text-xs mb-1">summitexteriors.com</div>
+            <div className="text-offwhite font-sans font-semibold text-[15px] mb-1.5">
+              Summit Exteriors — #1 Rated Roofing in Denver
+            </div>
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <span className="flex text-orange" aria-hidden="true">
+                {[0, 1, 2, 3, 4].map((s) => (
+                  <Star key={s} size={12} className="fill-current" />
+                ))}
+              </span>
+              <span className="text-stone font-sans text-xs">4.9 (320 reviews)</span>
+            </div>
+            <p className="text-stone font-sans text-xs leading-relaxed">
+              Trusted local roofing, siding &amp; window installation. Free estimates,
+              financing available, fully licensed &amp; insured.
+            </p>
+          </div>
+
+          {[0, 1].map((n) => (
+            <div
+              key={n}
+              className="rounded-xl border border-white/5 p-4 mb-3 last:mb-0 opacity-40"
+            >
+              <div className="h-2 w-24 bg-white/15 rounded mb-2.5" />
+              <div className="h-3 w-3/4 bg-white/20 rounded mb-2.5" />
+              <div className="h-2 w-full bg-white/10 rounded" />
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.1}>
+        <div className="space-y-7">
+          {SEO_FEATURES.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <div key={feature.title} className="flex items-start gap-4">
+                <div className="shrink-0 w-11 h-11 rounded-xl bg-orange/10 flex items-center justify-center">
+                  <Icon size={20} className="text-orange" />
+                </div>
+                <div>
+                  <h3 className="text-offwhite font-sans font-semibold text-lg mb-1">
+                    {feature.title}
+                  </h3>
+                  <p className="text-stone font-sans text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </ScrollReveal>
     </div>
   );
 }
@@ -170,22 +273,18 @@ function TopicSection({
   eyebrow,
   heading,
   intro,
-  features,
   dark,
   bgClass,
   children,
-  hideFeatures,
 }: {
   id: string;
   index: string;
   eyebrow: string;
   heading: string;
   intro: string;
-  features: Feature[];
   dark: boolean;
   bgClass: string;
-  children?: React.ReactNode;
-  hideFeatures?: boolean;
+  children: React.ReactNode;
 }) {
   return (
     <section id={id} className={`${bgClass} py-20 md:py-28 px-6 md:px-12 scroll-mt-24`}>
@@ -210,17 +309,7 @@ function TopicSection({
           </p>
         </ScrollReveal>
 
-        {!hideFeatures && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, i) => (
-              <ScrollReveal key={feature.title} delay={i * 0.05}>
-                <FeatureCard feature={feature} dark={dark} />
-              </ScrollReveal>
-            ))}
-          </div>
-        )}
-
-        {children && <div className={hideFeatures ? "" : "mt-14 md:mt-20"}>{children}</div>}
+        {children}
       </div>
     </section>
   );
@@ -228,101 +317,151 @@ function TopicSection({
 
 function SampleLeadForm() {
   const inputClass =
-    "w-full bg-white/[0.04] border border-white/10 rounded-lg px-3.5 py-2.5 text-offwhite placeholder:text-stone/50 font-sans text-sm focus:outline-none focus:border-orange/60 focus:ring-1 focus:ring-orange/40 transition-colors";
-  const labelClass = "block text-offwhite font-sans font-medium text-xs mb-1.5";
+    "w-full bg-[#F3F6F4] border border-[#15803d]/15 rounded-lg px-3.5 py-2.5 text-[#1A1A1A] placeholder:text-[#9aa39d] font-sans text-sm focus:outline-none focus:border-[#15803d]/60 focus:ring-1 focus:ring-[#15803d]/30 transition-colors";
+  const labelClass = "block text-[#3a443d] font-sans font-medium text-xs mb-1.5";
 
   return (
     <div className="relative">
-      <p className="text-stone/70 font-sans text-xs uppercase tracking-widest mb-3">
-        A sample of the forms we build
-      </p>
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="relative bg-[#161616] border border-white/10 rounded-2xl p-6 md:p-7 shadow-2xl"
-      >
-        <div className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3.5 py-1.5 mb-4">
-          <ShieldCheck size={14} className="text-orange" />
-          <span className="text-orange font-sans text-[11px] font-bold uppercase tracking-wider">
-            Get Started
-          </span>
-        </div>
-        <h3 className="text-xl md:text-2xl font-display text-offwhite mb-1.5">
-          Request a Consultation
-        </h3>
-        <p className="text-stone font-sans text-sm leading-relaxed mb-6">
-          Share a few details and we'll be in touch to design the right partnership.
-        </p>
+      <div className="absolute -top-3 -right-2 z-20 rotate-3 bg-orange text-white font-sans text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-md shadow-lg">
+        Sample Form
+      </div>
 
-        <div className="space-y-4 mb-5">
-          <div>
-            <label htmlFor="fullName" className={labelClass}>Full Name</label>
-            <input id="fullName" name="fullName" type="text" className={inputClass} placeholder="Dr. Jane Doe" readOnly />
+      <div className="rounded-2xl overflow-hidden border border-black/10 shadow-2xl bg-white">
+        <div className="flex items-center gap-2 bg-[#ECECEC] px-4 py-3 border-b border-black/5">
+          <span className="w-3 h-3 rounded-full bg-[#ff5f57]" aria-hidden="true" />
+          <span className="w-3 h-3 rounded-full bg-[#febc2e]" aria-hidden="true" />
+          <span className="w-3 h-3 rounded-full bg-[#28c840]" aria-hidden="true" />
+          <div className="ml-3 flex-1 bg-white rounded-md px-3 py-1 text-[#6b6b6b] font-sans text-[11px] truncate flex items-center gap-1.5">
+            <Lock size={10} className="text-[#28a745] shrink-0" />
+            summitexteriors.com/contact
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-[#15803d] to-[#0d5429] px-6 md:px-7 py-6 text-white">
+          <div className="flex items-center gap-2.5 mb-4">
+            <div className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center">
+              <Mountain size={20} className="text-white" />
+            </div>
+            <span className="font-display text-lg tracking-wide">SUMMIT EXTERIORS</span>
+          </div>
+          <h3 className="font-display text-2xl md:text-[26px] mb-1.5 leading-tight">
+            Get Your Free Roofing Estimate
+          </h3>
+          <p className="text-white/85 font-sans text-sm">
+            No-pressure quote within 24 hours. Licensed &amp; insured.
+          </p>
+        </div>
+
+        <form onSubmit={(e) => e.preventDefault()} className="px-6 md:px-7 py-6 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="sampleName" className={labelClass}>Full Name</label>
+              <input id="sampleName" name="sampleName" type="text" className={inputClass} placeholder="Jordan Miller" readOnly />
+            </div>
+            <div>
+              <label htmlFor="samplePhone" className={labelClass}>Phone</label>
+              <input id="samplePhone" name="samplePhone" type="tel" className={inputClass} placeholder="(555) 123-4567" readOnly />
+            </div>
           </div>
           <div>
-            <label htmlFor="emailAddress" className={labelClass}>Email Address</label>
-            <input id="emailAddress" name="emailAddress" type="email" className={inputClass} placeholder="you@business.com" readOnly />
+            <label htmlFor="sampleEmail" className={labelClass}>Email Address</label>
+            <input id="sampleEmail" name="sampleEmail" type="email" className={inputClass} placeholder="you@email.com" readOnly />
           </div>
           <div>
-            <label htmlFor="phoneNumber" className={labelClass}>Phone Number</label>
-            <input id="phoneNumber" name="phoneNumber" type="tel" className={inputClass} placeholder="(555) 123-4567" readOnly />
-          </div>
-          <div>
-            <label htmlFor="serviceNeeded" className={labelClass}>Service Needed</label>
+            <label htmlFor="sampleProject" className={labelClass}>Project Type</label>
             <div className="relative">
               <select
-                id="serviceNeeded"
-                name="serviceNeeded"
+                id="sampleProject"
+                name="sampleProject"
                 defaultValue=""
-                className={`${inputClass} appearance-none pr-10 cursor-pointer`}
+                tabIndex={-1}
+                aria-readonly="true"
+                onMouseDown={(e) => e.preventDefault()}
+                onKeyDown={(e) => e.preventDefault()}
+                className={`${inputClass} appearance-none pr-10 cursor-default`}
               >
                 <option value="" disabled>Select a service</option>
-                <option value="website-design">Website Design</option>
-                <option value="seo">SEO &amp; Local Search</option>
-                <option value="compliance">Compliance Review</option>
-                <option value="other">Other</option>
+                <option value="roofing">Roof Replacement</option>
+                <option value="siding">Siding Installation</option>
+                <option value="windows">Windows &amp; Doors</option>
+                <option value="gutters">Gutters</option>
               </select>
               <ChevronDown
                 size={16}
-                className="text-stone/50 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
+                className="text-[#9aa39d] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
               />
             </div>
           </div>
-        </div>
+          <div>
+            <label htmlFor="sampleDetails" className={labelClass}>Tell us about your project</label>
+            <textarea
+              id="sampleDetails"
+              name="sampleDetails"
+              rows={3}
+              className={`${inputClass} resize-none`}
+              placeholder="Roof is about 12 years old and has a few leaks near the chimney..."
+              readOnly
+            />
+          </div>
 
-        <button
-          type="submit"
-          className="w-full bg-orange hover:bg-orange/90 text-white font-sans font-bold text-base py-3.5 rounded-lg transition-colors"
-        >
-          Submit Inquiry
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="w-full bg-[#15803d] hover:bg-[#0d5429] text-white font-sans font-bold text-base py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2"
+          >
+            Get My Free Estimate
+            <ArrowRight size={18} />
+          </button>
+
+          <div className="flex items-center justify-center gap-2 pt-0.5">
+            <span className="flex text-[#f5a623]" aria-hidden="true">
+              {[0, 1, 2, 3, 4].map((s) => (
+                <Star key={s} size={13} className="fill-current" />
+              ))}
+            </span>
+            <span className="text-[#6b6b6b] font-sans text-xs">
+              Trusted by 500+ local homeowners
+            </span>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
 
 function LeadGenShowcase() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-      <ScrollReveal className="flex flex-col gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 lg:gap-14 items-center">
+      <ScrollReveal className="flex flex-col gap-5">
         {LEADGEN_FEATURES.map((feature) => {
           const Icon = feature.icon;
           return (
             <div
               key={feature.title}
-              className="flex-1 bg-white border border-gray-200 rounded-2xl p-7 md:p-8 hover:border-orange/40 transition-all duration-300 flex flex-col justify-center"
+              className="group relative bg-white border border-gray-200 rounded-2xl p-7 md:p-8 hover:border-orange/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
-              <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center mb-5">
-                <Icon size={24} className="text-orange" />
+              <div
+                className="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-orange/5 group-hover:bg-orange/10 transition-colors duration-300"
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center mb-5">
+                  <Icon size={24} className="text-orange" />
+                </div>
+                <h3 className="text-[#1A1A1A] font-sans font-semibold text-xl mb-2.5">
+                  {feature.title}
+                </h3>
+                <p className="text-[#4A4A4A] font-sans text-[15px] leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-[#1A1A1A] font-sans font-semibold text-xl mb-2.5">
-                {feature.title}
-              </h3>
-              <p className="text-[#4A4A4A] font-sans text-[15px] leading-relaxed">
-                {feature.description}
-              </p>
             </div>
           );
         })}
+        <div className="flex items-start gap-3 text-[#4A4A4A] font-sans text-sm leading-relaxed">
+          <Check size={18} className="text-orange shrink-0 mt-0.5" />
+          Every form is wired straight to your inbox — so no lead ever slips through the
+          cracks.
+        </div>
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <SampleLeadForm />
@@ -475,10 +614,11 @@ export default function WebsiteDesignOverview() {
         eyebrow="Website Design"
         heading="Custom websites designed to convert, not just decorate"
         intro="Most practice websites are digital brochures collecting dust. We plan every layout, structure, and word around how your specific clients think — and what they need to see before they pick up the phone."
-        features={DESIGN_FEATURES}
         dark={false}
         bgClass="bg-[#F5F5F5]"
-      />
+      >
+        <DesignShowcase />
+      </TopicSection>
 
       <TopicSection
         id="conversion"
@@ -486,10 +626,11 @@ export default function WebsiteDesignOverview() {
         eyebrow="Conversion-Focused Builds"
         heading="Every page engineered around a single action"
         intro="A beautiful site that doesn't convert is just an expensive brochure. We build with conversion architecture from the first wireframe — so visitors are guided, reassured, and prompted to act."
-        features={CONVERSION_FEATURES}
         dark={true}
         bgClass="bg-[#1A1A1A]"
-      />
+      >
+        <ConversionFlow />
+      </TopicSection>
 
       <TrustSection />
 
@@ -501,10 +642,8 @@ export default function WebsiteDesignOverview() {
         eyebrow="Lead Generation"
         heading="Dynamic forms that turn visitors into booked clients"
         intro="Getting traffic but no new clients means your website is the bottleneck. We build the forms, CTAs, and click-to-call that close the gap — so the visitors you already have start paying off."
-        features={LEADGEN_FEATURES}
         dark={false}
         bgClass="bg-[#F5F5F5]"
-        hideFeatures
       >
         <LeadGenShowcase />
       </TopicSection>
@@ -515,10 +654,11 @@ export default function WebsiteDesignOverview() {
         eyebrow="SEO Optimization"
         heading="Built to be found when clients are already searching"
         intro="Right now, prospective clients are searching Google for what you offer — and choosing a competitor. Every site we build is engineered for search from the ground up, so you stop losing them."
-        features={SEO_FEATURES}
         dark={true}
         bgClass="bg-[#0f0f0f]"
-      />
+      >
+        <SeoShowcase />
+      </TopicSection>
 
       {/* Bottom CTA */}
       <section className="bg-[#0f0f0f] py-24 md:py-28 px-6 md:px-12 border-t border-white/10">
