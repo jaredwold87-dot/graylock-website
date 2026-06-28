@@ -20,21 +20,21 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const customerTypes = [
   { label: "Contractors", icon: HardHat },
-  { label: "Home Builders", icon: Home },
-  { label: "Excavation Companies", icon: Truck },
   { label: "Well Drillers", icon: Droplets },
-  { label: "Plumbers", icon: Wrench },
-  { label: "Electricians", icon: Zap },
-  { label: "HVAC Companies", icon: Wind },
-  { label: "Landscapers", icon: Trees },
   { label: "Real Estate Agents", icon: Building2 },
   { label: "Chiropractors", icon: Activity },
-  { label: "Health Clinics", icon: Stethoscope },
   { label: "Dentists", icon: Smile },
+  { label: "Landscapers", icon: Trees },
+  { label: "Health Clinics", icon: Stethoscope },
+  { label: "Accountants", icon: Calculator },
+  { label: "Home Builders", icon: Home },
+  { label: "Plumbers", icon: Wrench },
+  { label: "HVAC Companies", icon: Wind },
   { label: "Optometrists", icon: Eye },
+  { label: "Excavation Companies", icon: Truck },
+  { label: "Electricians", icon: Zap },
   { label: "Physical Therapists", icon: Dumbbell },
   { label: "Law Firms", icon: Scale },
-  { label: "Accountants", icon: Calculator },
 ];
 
 export function IndustriesSection() {
