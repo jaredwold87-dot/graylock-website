@@ -4,6 +4,7 @@ import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
+import { IndustriesSection } from "@/components/home/IndustriesSection";
 import advantageTransformation from "@/assets/work/advantage-transformation.webp";
 import {
   Eye,
@@ -491,6 +492,8 @@ export default function WebsiteDesignOverview() {
       />
 
       <TrustSection />
+
+      <IndustriesSection />
 
       <TopicSection
         id="lead-gen"
