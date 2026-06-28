@@ -473,15 +473,15 @@ function LeadGenShowcase() {
 const TESTIMONIALS = [
   {
     quote:
-      "Graylock completely transformed how we get leads. Our new site looks professional and actually converts traffic into booked jobs.",
-    name: "Mike R.",
-    role: "HVAC Owner",
+      "10 out of 10, hands down. If you\u2019re even remotely considering a new website, do yourself a favor and use Graylock Digital!",
+    name: "Jim Erwin",
+    role: "CEO & Founder, Shooting Performance Institute",
   },
   {
     quote:
-      "Finally, a web design team that understands the trades. They handled everything from the copy to the compliance.",
-    name: "Sarah T.",
-    role: "General Contractor",
+      "After working with two other designers before finding Graylock Digital, I can confidently say the difference was night and day.",
+    name: "Emily Berg",
+    role: "Founder, Emboxed",
   },
 ];
 
