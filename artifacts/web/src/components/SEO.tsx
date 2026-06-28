@@ -20,6 +20,7 @@ export function SEO({
   return (
     <Helmet>
       <title>{title}</title>
+      <link rel="canonical" href={url} />
       <meta name="description" content={description} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
       <meta property="og:type" content="website" />

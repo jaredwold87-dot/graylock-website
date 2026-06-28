@@ -356,16 +356,16 @@ function SampleLeadForm() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="sampleName" className={labelClass}>Full Name</label>
-              <input id="sampleName" name="sampleName" type="text" className={inputClass} placeholder="Jordan Miller" readOnly />
+              <input id="sampleName" name="sampleName" type="text" className={inputClass} placeholder="Jordan Miller" required readOnly />
             </div>
             <div>
               <label htmlFor="samplePhone" className={labelClass}>Phone</label>
-              <input id="samplePhone" name="samplePhone" type="tel" className={inputClass} placeholder="(555) 123-4567" readOnly />
+              <input id="samplePhone" name="samplePhone" type="tel" className={inputClass} placeholder="(555) 123-4567" required readOnly />
             </div>
           </div>
           <div>
             <label htmlFor="sampleEmail" className={labelClass}>Email Address</label>
-            <input id="sampleEmail" name="sampleEmail" type="email" className={inputClass} placeholder="you@email.com" readOnly />
+            <input id="sampleEmail" name="sampleEmail" type="email" className={inputClass} placeholder="you@email.com" required readOnly />
           </div>
           <div>
             <label htmlFor="sampleProject" className={labelClass}>Project Type</label>
@@ -374,6 +374,7 @@ function SampleLeadForm() {
                 id="sampleProject"
                 name="sampleProject"
                 defaultValue=""
+                required
                 tabIndex={-1}
                 aria-readonly="true"
                 onMouseDown={(e) => e.preventDefault()}
@@ -556,7 +557,7 @@ export default function WebsiteDesignOverview() {
   return (
     <>
       <SEO
-        title="Website Design, Conversion, Lead Gen, SEO & Compliance | Graylock Digital"
+        title="Website Design & Lead Gen for Service Businesses | Graylock Digital"
         description="One service, built end to end: conversion-focused website design, dynamic lead-generation forms, SEO optimization, and industry compliance for professional practices."
         url="https://graylockdigital.com/services"
       />
