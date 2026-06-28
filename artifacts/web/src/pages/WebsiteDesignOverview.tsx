@@ -1,4 +1,5 @@
 import { SEO } from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
@@ -23,6 +24,7 @@ import {
   ShieldOff,
   Scale,
   ChevronDown,
+  Star,
   type LucideIcon,
 } from "lucide-react";
 
@@ -281,22 +283,36 @@ function SampleLeadForm() {
 
         <div className="space-y-4 mb-5">
           <div>
-            <label className={labelClass}>Full Name</label>
-            <input className={inputClass} placeholder="Dr. Jane Doe" readOnly />
+            <label htmlFor="fullName" className={labelClass}>Full Name</label>
+            <input id="fullName" name="fullName" type="text" className={inputClass} placeholder="Dr. Jane Doe" readOnly />
           </div>
           <div>
-            <label className={labelClass}>Email Address</label>
-            <input className={inputClass} placeholder="you@business.com" readOnly />
+            <label htmlFor="emailAddress" className={labelClass}>Email Address</label>
+            <input id="emailAddress" name="emailAddress" type="email" className={inputClass} placeholder="you@business.com" readOnly />
           </div>
           <div>
-            <label className={labelClass}>Phone Number</label>
-            <input className={inputClass} placeholder="(555) 123-4567" readOnly />
+            <label htmlFor="phoneNumber" className={labelClass}>Phone Number</label>
+            <input id="phoneNumber" name="phoneNumber" type="tel" className={inputClass} placeholder="(555) 123-4567" readOnly />
           </div>
           <div>
-            <label className={labelClass}>Service Needed</label>
-            <div className={`${inputClass} flex items-center justify-between text-stone/50`}>
-              <span>Select a service</span>
-              <ChevronDown size={16} className="text-stone/50" />
+            <label htmlFor="serviceNeeded" className={labelClass}>Service Needed</label>
+            <div className="relative">
+              <select
+                id="serviceNeeded"
+                name="serviceNeeded"
+                defaultValue=""
+                className={`${inputClass} appearance-none pr-10 cursor-pointer`}
+              >
+                <option value="" disabled>Select a service</option>
+                <option value="website-design">Website Design</option>
+                <option value="seo">SEO &amp; Local Search</option>
+                <option value="compliance">Compliance Review</option>
+                <option value="other">Other</option>
+              </select>
+              <ChevronDown
+                size={16}
+                className="text-stone/50 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
+              />
             </div>
           </div>
         </div>
@@ -343,6 +359,88 @@ function LeadGenShowcase() {
   );
 }
 
+const TESTIMONIALS = [
+  {
+    quote:
+      "Graylock completely transformed how we get leads. Our new site looks professional and actually converts traffic into booked jobs.",
+    name: "Mike R.",
+    role: "HVAC Owner",
+  },
+  {
+    quote:
+      "Finally, a web design team that understands the trades. They handled everything from the copy to the compliance.",
+    name: "Sarah T.",
+    role: "General Contractor",
+  },
+];
+
+function TrustSection() {
+  return (
+    <section className="bg-[#0F1E3C] py-20 md:py-28 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <ScrollReveal>
+          <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+            <img
+              src={`${import.meta.env.BASE_URL}home-service-client-trust.webp`}
+              alt="A home service contractor reviewing completed work with satisfied homeowners."
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <p className="text-orange text-xs font-sans font-bold uppercase tracking-widest mb-3">
+            Trusted by Home Service Pros
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-offwhite mb-8 leading-[1.12]">
+            Results the trades can measure
+          </h2>
+          <div className="space-y-5">
+            {TESTIMONIALS.map((t) => (
+              <figure
+                key={t.name}
+                className="bg-white/[0.06] border border-white/10 rounded-2xl p-6 md:p-7 backdrop-blur-sm"
+              >
+                <div className="flex gap-1 mb-4 text-orange" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((s) => (
+                    <Star key={s} size={16} className="fill-current" />
+                  ))}
+                </div>
+                <blockquote className="text-offwhite font-sans text-base md:text-lg leading-relaxed mb-4">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <figcaption className="text-stone font-sans text-sm">
+                  <span className="font-semibold text-offwhite">{t.name}</span>
+                  {" — "}
+                  {t.role}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+const SERVICE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Website Design, Conversion, Lead Generation, SEO & Compliance",
+  serviceType: "Web Design & Development",
+  description:
+    "Conversion-focused website design, dynamic lead-generation forms, SEO optimization, and industry compliance for trust-based local businesses.",
+  url: "https://graylockdigital.com/services",
+  areaServed: "United States",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Graylock Digital",
+    url: "https://graylockdigital.com",
+    telephone: "+15307225414",
+  },
+};
+
 export default function WebsiteDesignOverview() {
   return (
     <>
@@ -352,10 +450,19 @@ export default function WebsiteDesignOverview() {
         url="https://graylockdigital.com/services"
       />
 
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(SERVICE_SCHEMA)}
+        </script>
+      </Helmet>
+
       {/* Hero */}
       <section className="relative bg-[#0f0f0f] pt-32 pb-20 md:pt-40 md:pb-28 px-6 md:px-12 overflow-hidden">
-        <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-strategy-website-design.png`} />
-        <div className="absolute inset-0 bg-[#0f0f0f]/85" />
+        <HeroBackgroundImage
+          src={`${import.meta.env.BASE_URL}hero-home-service-professional.jpg`}
+          objectPosition="left center"
+        />
+        <div className="absolute inset-0 bg-[rgba(15,30,60,0.65)]" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
@@ -385,7 +492,10 @@ export default function WebsiteDesignOverview() {
       </section>
 
       {/* What we deliver */}
-      <WhatWeDeliverSection />
+      <WhatWeDeliverSection
+        imageSrc={`${import.meta.env.BASE_URL}home-service-website-mockup.webp`}
+        imageAlt="A Graylock-built home service website shown on a laptop and a phone."
+      />
 
       <TopicSection
         id="design"
@@ -408,6 +518,8 @@ export default function WebsiteDesignOverview() {
         dark={true}
         bgClass="bg-[#1A1A1A]"
       />
+
+      <TrustSection />
 
       <TopicSection
         id="lead-gen"

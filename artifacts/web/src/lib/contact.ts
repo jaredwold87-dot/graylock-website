@@ -1,0 +1,2 @@
+export const CONTACT_PHONE_DISPLAY = "(530) 722-5414";
+export const CONTACT_PHONE_TEL = "+15307225414";

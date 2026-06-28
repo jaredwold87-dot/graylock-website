@@ -1,9 +1,12 @@
 import { Link } from "wouter";
+import { Phone } from "lucide-react";
 import { useSiteSettingsContext } from "@/hooks/SiteSettingsContext";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL } from "@/lib/contact";
 
 export function Footer() {
   const settings = useSiteSettingsContext();
-  const phone = settings?.contact_info?.phone;
+  const phone = settings?.contact_info?.phone ?? CONTACT_PHONE_DISPLAY;
+  const phoneTel = settings?.contact_info?.phone ?? CONTACT_PHONE_TEL;
 
   const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const officeHours = settings?.office_hours;
@@ -88,8 +91,15 @@ export function Footer() {
           </ul>
           {phone && (
             <div className="mt-8">
-              <p className="text-offwhite/80 text-sm text-center font-sans">
-                <a href={`tel:${phone}`} className="hover:text-orange transition-colors">{phone}</a>
+              <h5 className="text-offwhite font-sans font-semibold text-xs uppercase tracking-wider mb-2">Call Us</h5>
+              <p className="text-offwhite/85 text-base font-sans">
+                <a
+                  href={`tel:${phoneTel}`}
+                  className="inline-flex items-center gap-2 hover:text-orange transition-colors"
+                >
+                  <Phone size={15} aria-hidden="true" />
+                  {phone}
+                </a>
               </p>
             </div>
           )}

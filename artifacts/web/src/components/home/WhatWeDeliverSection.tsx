@@ -24,7 +24,17 @@ const DELIVER_ITEMS = [
   },
 ];
 
-export function WhatWeDeliverSection() {
+export function WhatWeDeliverSection({
+  imageSrc,
+  imageAlt,
+}: {
+  imageSrc?: string;
+  imageAlt?: string;
+} = {}) {
+  const resolvedImageSrc =
+    imageSrc ?? `${import.meta.env.BASE_URL}west-coast-device-straight.webp`;
+  const resolvedImageAlt =
+    imageAlt ?? "A Graylock-built website shown on a laptop and a phone";
   return (
     <section className="bg-[#F5F5F5] py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
@@ -43,8 +53,8 @@ export function WhatWeDeliverSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-10 items-center">
           <ScrollReveal className="order-2 lg:order-1">
             <img
-              src={`${import.meta.env.BASE_URL}west-coast-device-straight.webp`}
-              alt="A Graylock-built website shown on a laptop and a phone"
+              src={resolvedImageSrc}
+              alt={resolvedImageAlt}
               loading="lazy"
               decoding="async"
               className="w-full h-auto drop-shadow-2xl"
