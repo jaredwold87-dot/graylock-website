@@ -188,10 +188,12 @@ const featuredProjects: FeaturedProject[] = [
       "Growing guides & resources",
       "Mobile-responsive build",
     ],
-    placeholder: {
+    testimonial: {
+      quote: [
+        "The startup was easy and the company was great to work with! Our website launch was seamlessly perfect!",
+      ],
       name: "Olive Creek Nursery",
       role: "Marshall County, Kentucky",
-      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
   {
