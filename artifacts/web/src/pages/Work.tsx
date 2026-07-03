@@ -15,6 +15,8 @@ import smartTaxCrnaTransformation from "@/assets/work/smart-tax-crna-transformat
 import oliveCreekTransformation from "@/assets/work/olive-creek-transformation.webp";
 import advantageTransformation from "@/assets/work/advantage-transformation.webp";
 import bentOnEducationTransformation from "@/assets/work/bent-on-education-transformation.webp";
+import wicksTransformation from "@/assets/work/wicks-transformation.webp";
+import bluegrassTransformation from "@/assets/work/bluegrass-transformation.webp";
 import heroBackground from "@/assets/work/portfolio-hero-black-v1.webp";
 
 type Theme = "light" | "dark";
@@ -256,6 +258,46 @@ const featuredProjects: FeaturedProject[] = [
     placeholder: {
       name: "Bent on Education",
       role: "Anesthesia & CRNA Education",
+      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Wicks Land & Yard Management",
+    category: "Land Management & Excavation",
+    location: "Godfrey, IL \u00b7 Owner-Operated",
+    description:
+      "A rugged, high-impact site for an owner-operated land management and excavation company \u2014 built to show off heavy-duty capability and turn Metro-East property owners into estimate requests.",
+    image: wicksTransformation,
+    theme: "light",
+    delivered: [
+      "Bold, equipment-forward design",
+      "Free estimate request flow",
+      "Service & coverage-area pages",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Wicks Land & Yard Management",
+      role: "Godfrey, IL",
+      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Bluegrass Dental Anesthesia Solutions",
+    category: "Mobile Dental Anesthesia",
+    location: "Serving Northern Kentucky & Lexington",
+    description:
+      "A clean, clinical site for a mobile CRNA anesthesia provider \u2014 built to reassure dental practices on safety and expertise and route them straight to a consultation request.",
+    image: bluegrassTransformation,
+    theme: "light",
+    delivered: [
+      "Trust-first clinical design",
+      "Consultation request flow",
+      "Services & service-area pages",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Bluegrass Dental Anesthesia Solutions",
+      role: "Northern Kentucky & Lexington",
       note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
