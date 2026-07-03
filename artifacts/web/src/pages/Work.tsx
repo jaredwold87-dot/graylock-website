@@ -43,6 +43,28 @@ type FeaturedProject = {
 
 const featuredProjects: FeaturedProject[] = [
   {
+    name: "Wicks Land & Yard Management",
+    category: "Land Management & Excavation",
+    location: "Godfrey, IL \u00b7 Owner-Operated",
+    description:
+      "A rugged, high-impact site for an owner-operated land management and excavation company \u2014 built to show off heavy-duty capability and turn Metro-East property owners into estimate requests.",
+    image: wicksTransformation,
+    theme: "light",
+    delivered: [
+      "Bold, equipment-forward design",
+      "Free estimate request flow",
+      "Service & coverage-area pages",
+      "Mobile-responsive build",
+    ],
+    testimonial: {
+      quote: [
+        "Really stellar job on everything and thanks for getting things moving so quickly \u2014 really exceeded my expectations!",
+      ],
+      name: "Wicks Land & Yard Management",
+      role: "Godfrey, IL",
+    },
+  },
+  {
     name: "Smart Tax CRNA",
     category: "Tax Strategy for CRNAs",
     location: "Serving CRNAs in All 50 States",
@@ -258,26 +280,6 @@ const featuredProjects: FeaturedProject[] = [
     placeholder: {
       name: "Bent on Education",
       role: "Anesthesia & CRNA Education",
-      note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
-    },
-  },
-  {
-    name: "Wicks Land & Yard Management",
-    category: "Land Management & Excavation",
-    location: "Godfrey, IL \u00b7 Owner-Operated",
-    description:
-      "A rugged, high-impact site for an owner-operated land management and excavation company \u2014 built to show off heavy-duty capability and turn Metro-East property owners into estimate requests.",
-    image: wicksTransformation,
-    theme: "light",
-    delivered: [
-      "Bold, equipment-forward design",
-      "Free estimate request flow",
-      "Service & coverage-area pages",
-      "Mobile-responsive build",
-    ],
-    placeholder: {
-      name: "Wicks Land & Yard Management",
-      role: "Godfrey, IL",
       note: "We\u2019re gathering the team\u2019s words on the project \u2014 check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
