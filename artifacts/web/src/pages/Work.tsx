@@ -58,7 +58,8 @@ const featuredProjects: FeaturedProject[] = [
     ],
     testimonial: {
       quote: [
-        "Really stellar job on everything and thanks for getting things moving so quickly \u2014 really exceeded my expectations!",
+        "Tim was excellent throughout the entire process of creating the website. The whole team really exceeded my expectations. The process was efficient, straightforward, and thorough.",
+        "Tim and his team did an exceptional job obtaining information regarding the desired direction of the website and executed it perfectly. Highly recommended!!!",
       ],
       name: "Wicks Land & Yard Management",
       role: "Godfrey, IL",
