@@ -536,11 +536,15 @@ export default function Work() {
                 </Link>
               </div>
               <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-stone/70 font-sans text-[13px] font-semibold uppercase tracking-[0.18em]">
-                <span>100% Custom</span>
-                <span className="text-[#E85D26]/50" aria-hidden="true">&middot;</span>
-                <span>No Templates</span>
-                <span className="text-[#E85D26]/50" aria-hidden="true">&middot;</span>
-                <span>Built to Convert</span>
+                <span className="whitespace-nowrap">100% Custom</span>
+                <span className="inline-flex items-center gap-x-5 whitespace-nowrap">
+                  <span className="text-[#E85D26]/50" aria-hidden="true">&middot;</span>
+                  <span>No Templates</span>
+                </span>
+                <span className="inline-flex items-center gap-x-5 whitespace-nowrap">
+                  <span className="text-[#E85D26]/50" aria-hidden="true">&middot;</span>
+                  <span>Built to Convert</span>
+                </span>
               </div>
             </div>
           </ScrollReveal>
