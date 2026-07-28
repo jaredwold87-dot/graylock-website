@@ -164,7 +164,7 @@ export function HeroSection() {
                   decoding="async"
                 />
                 <p className="text-stone font-sans text-xs text-center mt-1">
-                  A real Graylock-built website on every device.
+                  A real Graylock-built website, viewable on any device.
                 </p>
               </div>
             </div>
