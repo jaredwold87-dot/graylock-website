@@ -135,14 +135,14 @@ export function HeroSection() {
               <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance mb-4">
                 We'll show you exactly what your new site could look like — before you spend a dollar.
               </p>
-              <ul className="flex flex-col gap-2.5 mb-8">
+              <ul className="flex flex-col gap-2.5 mb-8 w-fit mx-auto">
                 {[
                   "Show up when clients search for you",
                   "Turn visitors into calls and estimate requests",
                   "Live in 7–10 days",
                   "Free website refresh every two years",
                 ].map((text, i) => (
-                  <li key={i} className="flex items-center gap-2.5 justify-center">
+                  <li key={i} className="flex items-center gap-2.5">
                     <Check
                       size={16}
                       strokeWidth={2.5}
