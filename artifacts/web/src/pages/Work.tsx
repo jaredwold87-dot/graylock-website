@@ -50,6 +50,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A rugged, high-impact site for an owner-operated land management and excavation company \u2014 built to show off heavy-duty capability and turn Metro-East property owners into estimate requests.",
     image: wicksTransformation,
+    url: "https://wicklandandyard.com/",
     theme: "light",
     delivered: [
       "Bold, equipment-forward design",
@@ -260,6 +261,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A clean, trust-first site for a local windows and doors installer \u2014 built around honest, low-pressure pricing that turns visitors into free in-home estimates.",
     image: advantageTransformation,
+    url: "https://windownv.com/",
     theme: "light",
     delivered: [
       "Free estimate request flow",
@@ -301,6 +303,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A clean, clinical site for a mobile CRNA anesthesia provider \u2014 built to reassure dental practices on safety and expertise and route them straight to a consultation request.",
     image: bluegrassTransformation,
+    url: "https://bluegrassanes.com/",
     theme: "light",
     delivered: [
       "Trust-first clinical design",
