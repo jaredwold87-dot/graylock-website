@@ -27,6 +27,7 @@ type FeaturedProject = {
   location?: string;
   description: string;
   image: string;
+  url?: string;
   theme: Theme;
   delivered: string[];
   testimonial?: {
@@ -72,6 +73,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A credible, trust-first site for a CRNA-owned tax firm \u2014 built to speak directly to nurse anesthetists and turn specialized expertise into booked strategy calls.",
     image: smartTaxCrnaTransformation,
+    url: "https://www.smarttaxcrna.com/",
     theme: "light",
     delivered: [
       "Industry-researched design",
@@ -94,6 +96,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A bold, credible site for a third-generation fueling company \u2014 built to reflect the scale and trust behind their work across the West.",
     image: perksTransformation,
+    url: "https://www.perkspetroleum.com/",
     theme: "light",
     delivered: [
       "Industry-researched design",
@@ -116,6 +119,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A dark, editorial storefront for a luxury gifting concierge \u2014 built so every curated detail feels as intentional as the gifts themselves.",
     image: emboxedTransformation,
+    url: "https://emboxed.com/",
     theme: "light",
     delivered: [
       "Editorial luxury design",
@@ -138,6 +142,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A clear, credible site for a Lake Tahoe chiropractor \u2014 built to turn answers, not guesswork, into booked appointments.",
     image: kingsburyTransformation,
+    url: "https://kingsburychiropractictahoe.com/",
     theme: "light",
     delivered: [
       "Online appointment booking",
@@ -163,6 +168,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A warm, compassionate site for a child and teen therapy practice \u2014 built to put anxious families at ease and route them straight to a free consultation.",
     image: montanaTransformation,
+    url: "https://mtcounselingsolutions.com/",
     theme: "light",
     delivered: [
       "Free consultation booking",
@@ -186,6 +192,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A polished, reassuring site for a five-specialist ophthalmology practice \u2014 built to make world-class eye care feel close to home and easy to book across two locations.",
     image: wceTransformation,
+    url: "https://westcoasteye.com/",
     theme: "light",
     delivered: [
       "Appointment request flow",
@@ -206,6 +213,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A warm, naturally grown site for a family-run, home-based nursery \u2014 built to help homesteaders, homeowners, and landowners grow resilient, food-producing landscapes.",
     image: oliveCreekTransformation,
+    url: "https://olivecreeknursery.com/",
     theme: "light",
     delivered: [
       "Browsable plant inventory",
@@ -228,6 +236,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "An outdated firearms-training site rebuilt into a bold, modern presence that matches the caliber of their work.",
     image: spiTransformation,
+    url: "https://shootingperformanceinstitute.com/",
     theme: "light",
     delivered: [
       "Custom homepage design",
@@ -271,6 +280,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A polished, credible home for a CRNA educator\u2019s podcasts and AHA training \u2014 built to turn anesthesia learners into listeners, students, and booked trainees.",
     image: bentOnEducationTransformation,
+    url: "https://bentoneducation.com/",
     theme: "light",
     delivered: [
       "Podcast & episode showcase",
@@ -418,6 +428,22 @@ function FeaturedProjectSection({ project, index }: { project: FeaturedProject; 
             <p className={cn("font-sans text-sm md:text-base leading-relaxed mb-5", t.body)}>
               {project.description}
             </p>
+
+            {project.url && (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener"
+                className="group inline-flex items-center gap-1.5 font-sans font-semibold text-sm text-[#B23E16] hover:text-[#E85D26] transition-colors mb-6"
+              >
+                Visit the live site
+                <ArrowRight
+                  size={15}
+                  className="group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
+              </a>
+            )}
 
             <div className="flex flex-wrap gap-2 mb-6">
               {project.delivered.map(d => (
