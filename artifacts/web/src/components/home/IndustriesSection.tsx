@@ -15,14 +15,16 @@ import {
   Dumbbell,
   Scale,
   Calculator,
+  Hammer,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const customerTypes = [
-  { label: "Contractors", icon: HardHat },
+  { label: "Cabinet Makers", icon: Hammer },
   { label: "Well Drillers", icon: Droplets },
   { label: "Real Estate Agents", icon: Building2 },
   { label: "Chiropractors", icon: Activity },
+  { label: "Contractors", icon: HardHat },
   { label: "Dentists", icon: Smile },
   { label: "Landscapers", icon: Trees },
   { label: "Health Clinics", icon: Stethoscope },

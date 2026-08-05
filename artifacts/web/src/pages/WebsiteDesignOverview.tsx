@@ -474,9 +474,9 @@ function LeadGenShowcase() {
 const TESTIMONIALS = [
   {
     quote:
-      "10 out of 10, hands down. If you\u2019re even remotely considering a new website, do yourself a favor and use Graylock Digital!",
-    name: "Jim Erwin",
-    role: "CEO & Founder, Shooting Performance Institute",
+      "Tim was excellent throughout the entire process of creating the website. The whole team really exceeded my expectations. The process was efficient, straightforward, and thorough.",
+    name: "Wicks Land & Yard Management",
+    role: "Godfrey, IL",
   },
   {
     quote:
@@ -503,10 +503,10 @@ function TrustSection() {
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <p className="text-[#B23E16] text-xs font-sans font-bold uppercase tracking-widest mb-3">
-            Trusted by Home Service Pros
+            Trusted by Service Businesses
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-[#1A1A1A] mb-8 leading-[1.12]">
-            Results the trades can measure
+            Results you can measure
           </h2>
           <div className="space-y-5">
             {TESTIMONIALS.map((t) => (
