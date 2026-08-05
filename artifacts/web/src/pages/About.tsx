@@ -121,7 +121,7 @@ export default function About() {
                 Tim <span className="text-[#E85D26]">—</span> Co-Founder
               </h3>
               <p className="text-[#555] font-sans text-lg leading-relaxed">
-                Speed and quality usually don't mix in this industry. Agencies take months; cheap freelancers cut corners. I spent years engineering a build system that solves that. We deliver custom, high-converting sites in 7 to 10 days, built entirely in the USA. I oversee the strategy and architecture from kickoff to launch because when our name is on the product, it has to be perfect.
+                Most business owners dread the website process — and honestly, I get it. It's confusing, expensive, and rarely delivers what was promised. I built my role at Graylock around changing that. I stay personally involved from the first conversation through launch, making sure the process is clear, the communication is honest, and the final product actually does what it's supposed to do: bring you more clients. Your success is the only metric that matters to me.
               </p>
             </ScrollReveal>
             <ScrollReveal className="order-1 md:order-2">
