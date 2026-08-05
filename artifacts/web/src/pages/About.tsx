@@ -109,7 +109,7 @@ export default function About() {
                 Jared <span className="text-[#E85D26]">—</span> Co-Founder
               </h3>
               <p className="text-[#555] font-sans text-lg leading-relaxed">
-                I got tired of watching hardworking local business owners get taken advantage of by flashy agencies selling $20,000 digital brochures that didn't make the phone ring. I built Graylock Digital because the trades deserve better. A great website isn't a luxury for the Fortune 500 — it's the most important tool in your truck. I personally lead every engagement to make sure your site actually does its job: getting you more jobs.
+                I started designing websites for friends, family, and small businesses long before Graylock existed. After watching what a well-built site could do — real leads, real revenue, real results — I couldn't go back to the templated, drag-and-drop world of WordPress and Wix. I founded Graylock because I knew what was possible, and I'd seen it work firsthand. We don't measure success by how many sites we ship. We measure it by whether your site is bringing in customers.
               </p>
             </ScrollReveal>
           </div>
