@@ -568,35 +568,35 @@ function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose:
         </button>
 
         {/* Left side: Image */}
-        <div className="w-full md:w-[55%] lg:w-[60%] h-[35vh] md:h-full shrink-0 border-b md:border-b-0 md:border-r border-white/[0.08] overflow-y-auto custom-scrollbar bg-[#050505]">
-          <img src={project.image} alt={project.name} className="w-full h-auto block" />
+        <div className="w-full md:w-[55%] lg:w-[60%] h-[28vh] sm:h-[30vh] md:h-full shrink-0 border-b md:border-b-0 md:border-r border-white/[0.08] bg-[#050505] flex items-center justify-center overflow-hidden">
+          <img src={project.image} alt={project.name} className="max-w-full max-h-full w-auto h-auto object-contain block" />
         </div>
 
-        {/* Right side: Content */}
-        <div className="w-full md:w-[45%] lg:w-[40%] flex flex-col p-6 md:p-10 lg:p-12 overflow-y-auto custom-scrollbar bg-[#0F0F0F]">
-          <span className="text-[#E85D26] font-sans font-bold text-xs uppercase tracking-[0.25em] mb-3">
+        {/* Right side: Content — everything fits, no scrolling */}
+        <div className="w-full md:w-[45%] lg:w-[40%] flex flex-col min-h-0 flex-1 p-5 md:p-8 lg:p-10 overflow-hidden bg-[#0F0F0F]">
+          <span className="text-[#E85D26] font-sans font-bold text-[11px] uppercase tracking-[0.25em] mb-2 shrink-0">
             {project.category}
           </span>
-          <h2 className="font-display text-3xl md:text-4xl text-white leading-tight mb-4">
+          <h2 className="font-display text-2xl md:text-3xl text-white leading-tight mb-2 shrink-0">
             {project.name}
           </h2>
           {project.location && (
-            <div className="flex items-center gap-2 text-white/50 text-sm font-sans mb-8">
-              <MapPin size={14} />
+            <div className="flex items-center gap-2 text-white/50 text-[13px] font-sans mb-4 shrink-0">
+              <MapPin size={13} />
               {project.location}
             </div>
           )}
 
-          <p className="text-white/70 font-sans text-base leading-relaxed mb-8">
+          <p className="text-white/70 font-sans text-[13px] md:text-sm leading-relaxed mb-4 shrink-0">
             {project.description}
           </p>
 
-          <div className="mb-8">
-            <h4 className="text-white/80 text-xs font-semibold uppercase tracking-wider mb-4">Delivered</h4>
-            <div className="flex flex-wrap gap-2">
+          <div className="mb-4 shrink-0">
+            <h4 className="text-white/80 text-[11px] font-semibold uppercase tracking-wider mb-2.5">Delivered</h4>
+            <div className="flex flex-wrap gap-1.5">
               {project.delivered.map((d) => (
-                <span key={d} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/[0.03] border border-white/[0.05] text-white/80 text-xs font-medium">
-                  <Check size={12} className="text-[#E85D26]" />
+                <span key={d} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.05] text-white/80 text-[11px] font-medium">
+                  <Check size={11} className="text-[#E85D26]" />
                   {d}
                 </span>
               ))}
@@ -604,27 +604,27 @@ function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose:
           </div>
 
           {(project.testimonial || project.placeholder) && (
-            <div className="mt-auto pt-8 border-t border-white/[0.05]">
-              <Quote size={20} className="text-[#E85D26]/50 mb-4" />
+            <div className="mt-auto pt-4 border-t border-white/[0.05] min-h-0 flex flex-col shrink overflow-hidden">
+              <Quote size={16} className="text-[#E85D26]/50 mb-2.5 shrink-0" />
               {project.testimonial ? (
                 <>
-                  <p className="text-white/90 font-sans italic text-[15px] leading-relaxed mb-4">
-                    "{project.testimonial.quote[0]}"
+                  <p className="text-white/90 font-sans italic text-[13px] leading-relaxed mb-3 overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:6] md:[-webkit-line-clamp:8]">
+                    "{project.testimonial.quote.join(" ")}"
                   </p>
-                  <div>
-                    <p className="text-white font-semibold text-sm">{project.testimonial.name}</p>
-                    <p className="text-white/50 text-xs mt-0.5">{project.testimonial.role}</p>
+                  <div className="shrink-0">
+                    <p className="text-white font-semibold text-[13px]">{project.testimonial.name}</p>
+                    <p className="text-white/50 text-[11px] mt-0.5">{project.testimonial.role}</p>
                   </div>
                 </>
               ) : project.placeholder ? (
                 <>
-                  <p className="text-white/60 font-sans text-[15px] leading-relaxed mb-4">
+                  <p className="text-white/60 font-sans text-[13px] leading-relaxed mb-3 overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4]">
                     {project.placeholder.note}
                   </p>
-                  <div>
-                    <p className="text-white font-semibold text-sm">{project.placeholder.name}</p>
+                  <div className="shrink-0">
+                    <p className="text-white font-semibold text-[13px]">{project.placeholder.name}</p>
                     {project.placeholder.role && (
-                      <p className="text-white/40 text-xs mt-0.5">{project.placeholder.role}</p>
+                      <p className="text-white/40 text-[11px] mt-0.5">{project.placeholder.role}</p>
                     )}
                   </div>
                 </>
@@ -633,14 +633,14 @@ function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose:
           )}
 
           {project.url && (
-            <div className="mt-10 pt-8">
+            <div className="mt-4 shrink-0">
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-[#E85D26] hover:bg-[#B23E16] text-white py-3.5 rounded-lg font-semibold transition-colors duration-300"
+                className="w-full flex items-center justify-center gap-2 bg-[#E85D26] hover:bg-[#B23E16] text-white py-3 rounded-lg font-semibold text-sm transition-colors duration-300"
               >
-                Visit Live Site <ExternalLink size={16} />
+                Visit Live Site <ExternalLink size={15} />
               </a>
             </div>
           )}
