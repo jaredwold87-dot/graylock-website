@@ -48,7 +48,23 @@ const queryClient = new QueryClient();
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const hash = window.location.hash;
+    if (hash) {
+      // Lazy-loaded pages may not have rendered the target yet — retry briefly.
+      let attempts = 0;
+      const tryScroll = () => {
+        const el = document.getElementById(hash.slice(1));
+        if (el) {
+          el.scrollIntoView();
+        } else if (attempts < 20) {
+          attempts += 1;
+          setTimeout(tryScroll, 100);
+        }
+      };
+      tryScroll();
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [location]);
   return null;
 }

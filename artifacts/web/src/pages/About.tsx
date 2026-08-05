@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Compass, Target, ShieldCheck, Handshake } from "lucide-react";
-import usaFlagBw from "@/assets/usa-flag-bw.webp";
+import usaFlagDistressed from "@/assets/usa-flag-distressed.webp";
 import founderJared from "@/assets/founder-jared.webp";
 import founderTim from "@/assets/founder-tim.webp";
 
@@ -173,15 +173,15 @@ export default function About() {
       </section>
 
       {/* ── AMERICAN MADE ── */}
-      <section className="relative py-32 md:py-44 px-6 md:px-12 overflow-hidden">
+      <section id="american-made" className="relative py-32 md:py-44 px-6 md:px-12 overflow-hidden">
         <img
-          src={usaFlagBw}
+          src={usaFlagDistressed}
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover grayscale contrast-125"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#0a0a0a]/80" />
+        <div className="absolute inset-0 bg-[#0a0a0a]/30" />
         <div aria-hidden="true" className="absolute inset-0 opacity-[0.05] pointer-events-none" style={GRIT_OVERLAY} />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
