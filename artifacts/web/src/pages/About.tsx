@@ -24,7 +24,7 @@ export default function About() {
   const pillars = [
     { icon: Compass, title: "Craftsmanship", desc: "Custom builds, no templates. Every pixel is intentional." },
     { icon: Target, title: "Conversion", desc: "We don't build brochures. We build lead-generation machines." },
-    { icon: ShieldCheck, title: "Compliance", desc: "Built to federal, state, and industry advertising standards." },
+    { icon: ShieldCheck, title: "Compliance", desc: "Whatever your industry — healthcare, real estate, insurance — we build to its compliance standards." },
     { icon: Handshake, title: "Commitment", desc: "Month-to-month support. We maintain it forever." },
   ];
 
