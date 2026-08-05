@@ -45,7 +45,13 @@ export default function About() {
       />
 
       {/* ── HERO ── */}
-      <ElevatedHero />
+      <ElevatedHero
+        lines={[
+          { text: "We Started Graylock" },
+          { text: "Because Good Businesses" },
+          { text: "Deserve Better.", accent: true },
+        ]}
+      />
 
       {/* ── THE 4 PILLARS ── */}
       <section className="bg-[#F4F1EC] py-24 md:py-32 px-6 md:px-12">

@@ -569,7 +569,13 @@ export default function WebsiteDesignOverview() {
       </Helmet>
 
       {/* Hero */}
-      <ElevatedHero />
+      <ElevatedHero
+        lines={[
+          { text: "Your Website." },
+          { text: "Your Reputation." },
+          { text: "Elevated.", accent: true },
+        ]}
+      />
 
       {/* What we deliver */}
       <WhatWeDeliverSection
@@ -583,7 +589,7 @@ export default function WebsiteDesignOverview() {
         index="01"
         eyebrow="Website Design"
         heading="Custom websites designed to convert, not just decorate"
-        intro="Most practice websites are digital brochures collecting dust. We plan every layout, structure, and word around how your specific clients think — and what they need to see before they pick up the phone."
+        intro="Most business websites are digital brochures collecting dust. We plan every layout, structure, and word around how your specific clients think — and what they need to see before they pick up the phone."
         dark={false}
         bgClass="bg-[#F5F5F5]"
       >
