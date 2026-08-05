@@ -572,78 +572,80 @@ function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose:
           <img src={project.image} alt={project.name} className="max-w-full max-h-full w-auto h-auto object-contain block" />
         </div>
 
-        {/* Right side: Content — everything fits, no scrolling */}
-        <div className="w-full md:w-[45%] lg:w-[40%] flex flex-col min-h-0 flex-1 p-5 md:p-8 lg:p-10 overflow-hidden bg-[#0F0F0F]">
-          <span className="text-[#E85D26] font-sans font-bold text-[11px] uppercase tracking-[0.25em] mb-2 shrink-0">
-            {project.category}
-          </span>
-          <h2 className="font-display text-2xl md:text-3xl text-white leading-tight mb-2 shrink-0">
-            {project.name}
-          </h2>
-          {project.location && (
-            <div className="flex items-center gap-2 text-white/50 text-[13px] font-sans mb-4 shrink-0">
-              <MapPin size={13} />
-              {project.location}
-            </div>
-          )}
+        {/* Right side: Content — scrollable so all content is reachable at any viewport height */}
+        <div className="w-full md:w-[45%] lg:w-[40%] flex flex-col min-h-0 flex-1 overflow-y-auto bg-[#0F0F0F]">
+          <div className="flex flex-col flex-1 p-5 md:p-8 lg:p-10">
+            <span className="text-[#E85D26] font-sans font-bold text-[11px] uppercase tracking-[0.25em] mb-2">
+              {project.category}
+            </span>
+            <h2 className="font-display text-2xl md:text-3xl text-white leading-tight mb-2">
+              {project.name}
+            </h2>
+            {project.location && (
+              <div className="flex items-center gap-2 text-white/50 text-[13px] font-sans mb-4">
+                <MapPin size={13} />
+                {project.location}
+              </div>
+            )}
 
-          <p className="text-white/70 font-sans text-[13px] md:text-sm leading-relaxed mb-4 shrink-0">
-            {project.description}
-          </p>
+            <p className="text-white/70 font-sans text-[13px] md:text-sm leading-relaxed mb-4">
+              {project.description}
+            </p>
 
-          <div className="mb-4 shrink-0">
-            <h4 className="text-white/80 text-[11px] font-semibold uppercase tracking-wider mb-2.5">Delivered</h4>
-            <div className="flex flex-wrap gap-1.5">
-              {project.delivered.map((d) => (
-                <span key={d} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.05] text-white/80 text-[11px] font-medium">
-                  <Check size={11} className="text-[#E85D26]" />
-                  {d}
-                </span>
-              ))}
+            <div className="mb-4">
+              <h4 className="text-white/80 text-[11px] font-semibold uppercase tracking-wider mb-2.5">Delivered</h4>
+              <div className="flex flex-wrap gap-1.5">
+                {project.delivered.map((d) => (
+                  <span key={d} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.05] text-white/80 text-[11px] font-medium">
+                    <Check size={11} className="text-[#E85D26]" />
+                    {d}
+                  </span>
+                ))}
+              </div>
             </div>
+
+            {(project.testimonial || project.placeholder) && (
+              <div className="mt-auto pt-4 border-t border-white/[0.05] flex flex-col">
+                <Quote size={16} className="text-[#E85D26]/50 mb-2.5 shrink-0" />
+                {project.testimonial ? (
+                  <>
+                    <p className="text-white/90 font-sans italic text-[13px] leading-relaxed mb-3">
+                      &ldquo;{project.testimonial.quote.join(" ")}&rdquo;
+                    </p>
+                    <div>
+                      <p className="text-white font-semibold text-[13px]">{project.testimonial.name}</p>
+                      <p className="text-white/50 text-[11px] mt-0.5">{project.testimonial.role}</p>
+                    </div>
+                  </>
+                ) : project.placeholder ? (
+                  <>
+                    <p className="text-white/60 font-sans text-[13px] leading-relaxed mb-3">
+                      {project.placeholder.note}
+                    </p>
+                    <div>
+                      <p className="text-white font-semibold text-[13px]">{project.placeholder.name}</p>
+                      {project.placeholder.role && (
+                        <p className="text-white/40 text-[11px] mt-0.5">{project.placeholder.role}</p>
+                      )}
+                    </div>
+                  </>
+                ) : null}
+              </div>
+            )}
+
+            {project.url && (
+              <div className="mt-4">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-[#E85D26] hover:bg-[#B23E16] text-white py-3 rounded-lg font-semibold text-sm transition-colors duration-300"
+                >
+                  Visit Live Site <ExternalLink size={15} />
+                </a>
+              </div>
+            )}
           </div>
-
-          {(project.testimonial || project.placeholder) && (
-            <div className="mt-auto pt-4 border-t border-white/[0.05] min-h-0 flex flex-col shrink overflow-hidden">
-              <Quote size={16} className="text-[#E85D26]/50 mb-2.5 shrink-0" />
-              {project.testimonial ? (
-                <>
-                  <p className="text-white/90 font-sans italic text-[13px] leading-relaxed mb-3 overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:6] md:[-webkit-line-clamp:8]">
-                    "{project.testimonial.quote.join(" ")}"
-                  </p>
-                  <div className="shrink-0">
-                    <p className="text-white font-semibold text-[13px]">{project.testimonial.name}</p>
-                    <p className="text-white/50 text-[11px] mt-0.5">{project.testimonial.role}</p>
-                  </div>
-                </>
-              ) : project.placeholder ? (
-                <>
-                  <p className="text-white/60 font-sans text-[13px] leading-relaxed mb-3 overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4]">
-                    {project.placeholder.note}
-                  </p>
-                  <div className="shrink-0">
-                    <p className="text-white font-semibold text-[13px]">{project.placeholder.name}</p>
-                    {project.placeholder.role && (
-                      <p className="text-white/40 text-[11px] mt-0.5">{project.placeholder.role}</p>
-                    )}
-                  </div>
-                </>
-              ) : null}
-            </div>
-          )}
-
-          {project.url && (
-            <div className="mt-4 shrink-0">
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-[#E85D26] hover:bg-[#B23E16] text-white py-3 rounded-lg font-semibold text-sm transition-colors duration-300"
-              >
-                Visit Live Site <ExternalLink size={15} />
-              </a>
-            </div>
-          )}
         </div>
       </motion.div>
     </div>
