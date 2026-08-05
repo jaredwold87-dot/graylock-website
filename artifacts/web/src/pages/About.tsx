@@ -2,7 +2,6 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { Compass, Target, ShieldCheck, Handshake } from "lucide-react";
 import usaFlagBw from "@/assets/usa-flag-bw.webp";
 import founderJared from "@/assets/founder-jared.webp";
@@ -140,12 +139,11 @@ export default function About() {
       </section>
 
       {/* ── THE GRAYLOCK WAY — TIMELINE ── */}
-      <section className="relative bg-black py-24 md:py-32 px-6 md:px-12 overflow-hidden">
-        <div aria-hidden="true" className="absolute inset-0 opacity-[0.04] pointer-events-none" style={GRIT_OVERLAY} />
-        <div className="max-w-6xl mx-auto relative z-10">
+      <section className="bg-white py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
           <ScrollReveal className="mb-16">
-            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">Our Story, Our Process</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05]">
+            <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">Our Story, Our Process</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-[#0f0f0f] leading-[1.05]">
               The Graylock Way
             </h2>
           </ScrollReveal>
@@ -163,9 +161,9 @@ export default function About() {
                       <div className="md:hidden absolute left-[7px] top-[7px] -bottom-[47px] w-px bg-[#E85D26]/30" />
                     )}
                     <div className="absolute top-0 left-0 md:relative md:mb-6 w-3.5 h-3.5 rounded-full bg-[#E85D26]" />
-                    <p className="text-[#E85D26] font-sans font-bold text-[11px] uppercase tracking-[0.15em] mb-1">Step {i + 1}</p>
-                    <p className="text-white font-display font-bold uppercase tracking-wide text-lg mb-2">{step.label}</p>
-                    <p className="text-stone font-sans text-sm leading-relaxed">{step.text}</p>
+                    <p className="text-[#B23E16] font-sans font-bold text-[11px] uppercase tracking-[0.15em] mb-1">Step {i + 1}</p>
+                    <p className="text-[#0f0f0f] font-display font-bold uppercase tracking-wide text-lg mb-2">{step.label}</p>
+                    <p className="text-[#555] font-sans text-sm leading-relaxed">{step.text}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -173,9 +171,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* ── OFFER BREAKDOWN ── */}
-      <OfferBreakdownSection />
 
       {/* ── AMERICAN MADE ── */}
       <section className="relative py-32 md:py-44 px-6 md:px-12 overflow-hidden">
