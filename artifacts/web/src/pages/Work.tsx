@@ -1,10 +1,11 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { IndustriesSection } from "@/components/home/IndustriesSection";
-import { cn } from "@/lib/utils";
-import { ArrowRight, Quote, Star, Check, Lock, MapPin, ExternalLink } from "lucide-react";
+import { X, Quote, Check, MapPin, ExternalLink, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+
 import spiTransformation from "@/assets/work/spi-transformation.webp";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
 import emboxedTransformation from "@/assets/work/emboxed-transformation.webp";
@@ -407,212 +408,259 @@ const featuredProjects: FeaturedProject[] = [
   },
 ];
 
-function SiteMockup({ src, alt }: { src: string; alt: string }) {
+function ProjectCard({ project, onClick }: { project: FeaturedProject; onClick: () => void }) {
   return (
-    <div className="max-w-5xl mx-auto group/mockup">
-      {/* Browser chrome */}
-      <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.22)] border border-black/[0.08] bg-[#16161d] ring-1 ring-black/5 transition-shadow duration-500 group-hover/mockup:shadow-[0_40px_100px_rgba(0,0,0,0.3)]">
-        <div className="flex items-center gap-2 px-4 py-2.5 md:py-3 bg-[#1e1e27] border-b border-white/[0.06]">
-          <span className="flex gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-            <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-            <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-          </span>
-          <div className="flex-1 flex justify-center">
-            <div className="flex items-center gap-2 w-full max-w-xs px-3 py-1.5 rounded-md bg-[#14141a] border border-white/[0.06]">
-              <Lock size={10} className="text-white/30 shrink-0" aria-hidden="true" />
-              <span className="h-1.5 flex-1 rounded-full bg-white/[0.08]" />
-            </div>
+    <div className="group flex flex-col gap-5 md:gap-6">
+      <button
+        type="button"
+        onClick={onClick}
+        aria-label={`View details for ${project.name}`}
+        className="relative block w-full text-left rounded-xl overflow-hidden bg-[#16161d] border border-white/[0.06] shadow-2xl cursor-pointer group-hover:border-white/[0.15] transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0f0f]"
+      >
+        <div className="absolute inset-0 bg-[#0f0f0f]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-[2px]">
+          <div className="translate-y-4 group-hover:translate-y-0 transition-all duration-500 bg-white text-black px-7 py-3.5 rounded-full font-sans font-semibold text-sm shadow-2xl flex items-center gap-2">
+            View Details
           </div>
         </div>
-        <div className="overflow-hidden">
+        {/* Sleek Browser Bar */}
+        <div className="flex items-center px-4 py-3 bg-[#111116] border-b border-white/[0.04]">
+          <span className="flex gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-white/[0.12] group-hover:bg-[#ff5f57] transition-colors duration-300" />
+            <span className="w-2.5 h-2.5 rounded-full bg-white/[0.12] group-hover:bg-[#febc2e] transition-colors duration-300 delay-75" />
+            <span className="w-2.5 h-2.5 rounded-full bg-white/[0.12] group-hover:bg-[#28c840] transition-colors duration-300 delay-150" />
+          </span>
+        </div>
+        <div className="overflow-hidden bg-[#0a0a0a] aspect-[16/11] relative">
           <img
-            src={src}
-            alt={alt}
-            className="w-full h-auto block transition-transform duration-700 group-hover/mockup:scale-[1.015]"
+            src={project.image}
+            alt={project.name}
+            className="w-full h-full object-cover object-top block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             loading="lazy"
-            decoding="async"
           />
         </div>
-      </div>
-      {/* Monitor stand */}
-      <div className="flex flex-col items-center mt-0.5" aria-hidden="true">
-        <div className="w-24 md:w-28 h-5 bg-gradient-to-b from-[#c2c6ce] to-[#8b8f99] [clip-path:polygon(32%_0,68%_0,80%_100%,20%_100%)]" />
-        <div className="w-40 md:w-48 h-2.5 rounded-full bg-[#acb0b9] shadow-md" />
+      </button>
+      <div className="flex justify-between items-start px-2 mt-1">
+        <div>
+          <h3 className="font-display text-2xl md:text-3xl text-white tracking-wide">{project.name}</h3>
+          <p className="font-sans text-[#E85D26] font-medium text-[13px] md:text-sm mt-1.5 tracking-widest uppercase">{project.category}</p>
+        </div>
+        {project.url && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors flex-shrink-0 ml-4"
+            title="Visit live site"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ExternalLink size={18} />
+          </a>
+        )}
       </div>
     </div>
   );
 }
 
-function FeaturedProjectSection({ project, index }: { project: FeaturedProject; index: number }) {
-  const t = {
-    section: "bg-[#F4F1EC]",
-    eyebrow: "text-[#B23E16]",
-    heading: "text-[#1a1a1a]",
-    body: "text-[#4a5568]",
-    pill: "bg-white/80 text-[#4a5568] border-black/[0.09]",
-    deliver: "bg-white border-black/[0.09] text-[#4a5568]",
-    check: "text-[#B23E16]",
-    quote: "text-[#1a1a1a]",
-    divider: "border-black/[0.09]",
-    capName: "text-[#1a1a1a]",
-    capRole: "text-[#6b7280]",
-    cardDashed: "bg-white/60 border-dashed border-black/[0.12]",
-  };
+function QuoteBreak({ quote, name, role }: { quote: string; name: string; role: string }) {
+  return (
+    <div className="py-24 md:py-32 flex items-center justify-center px-6">
+      <ScrollReveal>
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <Quote size={40} className="mx-auto text-[#E85D26]/40" />
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white leading-snug md:leading-tight">
+            &ldquo;{quote}&rdquo;
+          </h2>
+          <div className="pt-4">
+            <div className="w-12 h-0.5 bg-[#E85D26] mx-auto mb-6" />
+            <p className="font-sans text-white font-medium tracking-wide uppercase text-sm">{name}</p>
+            <p className="font-sans text-white/50 text-sm mt-1">{role}</p>
+          </div>
+        </div>
+      </ScrollReveal>
+    </div>
+  );
+}
 
-  const imageRight = index % 2 === 1;
+function ProjectBlock({ projects, onSelect }: { projects: FeaturedProject[]; onSelect: (p: FeaturedProject) => void }) {
+  const col1 = projects.filter((_, i) => i % 2 === 0);
+  const col2 = projects.filter((_, i) => i % 2 === 1);
 
   return (
-    <section
-      className={cn(
-        "relative py-24 md:py-32 px-6 md:px-12",
-        t.section
-      )}
-    >
-      {/* Subtle section separator */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/[0.07] to-transparent pointer-events-none" aria-hidden="true" />
-
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          {/* Mockup */}
-          <ScrollReveal
-            className={cn(imageRight && "md:order-2")}
-            delay={0.08}
-          >
-            <SiteMockup
-              src={project.image}
-              alt={`${project.name} website homepage designed by Graylock Digital`}
-            />
+    <>
+      {/* Mobile Stack */}
+      <div className="md:hidden flex flex-col gap-16 px-6 max-w-[90rem] mx-auto">
+        {projects.map((p) => (
+          <ScrollReveal key={p.name}>
+            <ProjectCard project={p} onClick={() => onSelect(p)} />
           </ScrollReveal>
+        ))}
+      </div>
 
-          {/* Content */}
-          <ScrollReveal delay={0.16} className={cn(imageRight && "md:order-1")}>
-            <div className="space-y-5">
-
-              {/* Eyebrow */}
-              <span
-                className={cn(
-                  "text-[11px] font-sans font-bold uppercase tracking-[0.25em] block",
-                  t.eyebrow
-                )}
-              >
-                {project.category}
-              </span>
-
-              {/* Heading */}
-              <h2 className={cn("text-2xl md:text-3xl lg:text-[2.15rem] font-display leading-tight", t.heading)}>
-                {project.name}
-              </h2>
-
-              {/* Location pill */}
-              {project.location && (
-                <div
-                  className={cn(
-                    "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-sans font-medium",
-                    t.pill
-                  )}
-                >
-                  <MapPin size={11} aria-hidden="true" className="shrink-0" />
-                  {project.location}
-                </div>
-              )}
-
-              {/* Divider accent */}
-              <div className="w-10 h-0.5 bg-[#E85D26]/40 rounded-full" aria-hidden="true" />
-
-              {/* Description */}
-              <p className={cn("font-sans text-sm md:text-[0.9375rem] leading-[1.75] max-w-md", t.body)}>
-                {project.description}
-              </p>
-
-              {/* Live site link */}
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/link inline-flex items-center gap-1.5 font-sans font-semibold text-sm text-[#B23E16] hover:text-[#E85D26] transition-colors duration-200"
-                >
-                  Visit the live site
-                  <ExternalLink
-                    size={13}
-                    className="opacity-70 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200"
-                    aria-hidden="true"
-                  />
-                </a>
-              )}
-
-              {/* Delivered tags */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                {project.delivered.map(d => (
-                  <span
-                    key={d}
-                    className={cn(
-                      "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-sans font-medium shadow-sm",
-                      t.deliver
-                    )}
-                  >
-                    <Check size={11} className={cn("shrink-0", t.check)} aria-hidden="true" />
-                    {d}
-                  </span>
-                ))}
-              </div>
-
-              {/* Testimonial / placeholder */}
-              {project.testimonial ? (
-                <figure className="mt-2 rounded-xl bg-white border border-black/[0.07] shadow-sm p-5 relative overflow-hidden">
-                  {/* Accent bar */}
-                  <div className="absolute left-0 inset-y-0 w-[3px] bg-[#E85D26] rounded-l-xl" aria-hidden="true" />
-                  <div className="pl-3">
-                    <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} size={13} className="text-[#E85D26] fill-[#E85D26]" />
-                      ))}
-                    </div>
-                    <blockquote className={cn("font-sans text-sm leading-[1.75] space-y-3", t.quote)}>
-                      {project.testimonial.quote.map((p, i) => (
-                        <p key={i} className="text-[#2d2d2d]">&ldquo;{p}&rdquo;</p>
-                      ))}
-                    </blockquote>
-                    <figcaption className={cn("mt-4 pt-4 border-t", t.divider)}>
-                      <p className={cn("font-display text-sm font-medium", t.capName)}>
-                        {project.testimonial.name}
-                      </p>
-                      <p className={cn("font-sans text-xs mt-0.5", t.capRole)}>
-                        {project.testimonial.role}
-                      </p>
-                    </figcaption>
-                  </div>
-                </figure>
-              ) : project.placeholder ? (
-                <figure className={cn("mt-2 rounded-xl border p-5", t.cardDashed)}>
-                  <Quote className="mb-2 text-[#E85D26]/40" size={24} aria-hidden="true" />
-                  <p className={cn("font-display text-base mb-1", t.capName)}>
-                    Client testimonial coming soon
-                  </p>
-                  <p className={cn("font-sans text-[13px] leading-relaxed", t.capRole)}>
-                    {project.placeholder.note}
-                  </p>
-                  <figcaption className={cn("mt-4 pt-4 border-t", t.divider)}>
-                    <p className={cn("font-display text-sm font-medium", t.capName)}>
-                      {project.placeholder.name}
-                    </p>
-                    <p className={cn("font-sans text-xs mt-0.5", t.capRole)}>
-                      {project.placeholder.role}
-                    </p>
-                  </figcaption>
-                </figure>
-              ) : null}
-            </div>
-          </ScrollReveal>
+      {/* Desktop Staggered Grid */}
+      <div className="hidden md:grid grid-cols-2 gap-8 lg:gap-16 px-8 md:px-12 max-w-[90rem] mx-auto">
+        <div className="flex flex-col gap-16 lg:gap-24">
+          {col1.map((p) => (
+            <ScrollReveal key={p.name}>
+              <ProjectCard project={p} onClick={() => onSelect(p)} />
+            </ScrollReveal>
+          ))}
+        </div>
+        <div className="flex flex-col gap-16 lg:gap-24 pt-20 lg:pt-32">
+          {col2.map((p) => (
+            <ScrollReveal key={p.name} delay={0.15}>
+              <ProjectCard project={p} onClick={() => onSelect(p)} />
+            </ScrollReveal>
+          ))}
         </div>
       </div>
-    </section>
+    </>
+  );
+}
+
+function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-12"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${project.name} project details`}
+    >
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={onClose}
+        className="absolute inset-0 bg-[#050505]/80 backdrop-blur-md cursor-pointer"
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.96, y: 20 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="relative w-full max-w-[72rem] h-[90vh] md:h-[85vh] bg-[#0F0F0F] border border-white/[0.08] rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row z-10"
+      >
+        <button
+          type="button"
+          autoFocus
+          onClick={onClose}
+          aria-label="Close project details"
+          className="absolute top-4 right-4 md:top-6 md:right-6 z-20 p-2.5 bg-black/40 hover:bg-black text-white/70 hover:text-white rounded-full backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26]"
+        >
+          <X size={20} />
+        </button>
+
+        {/* Left side: Image */}
+        <div className="w-full md:w-[55%] lg:w-[60%] h-[35vh] md:h-full shrink-0 border-b md:border-b-0 md:border-r border-white/[0.08] overflow-y-auto custom-scrollbar bg-[#050505]">
+          <img src={project.image} alt={project.name} className="w-full h-auto block" />
+        </div>
+
+        {/* Right side: Content */}
+        <div className="w-full md:w-[45%] lg:w-[40%] flex flex-col p-6 md:p-10 lg:p-12 overflow-y-auto custom-scrollbar bg-[#0F0F0F]">
+          <span className="text-[#E85D26] font-sans font-bold text-xs uppercase tracking-[0.25em] mb-3">
+            {project.category}
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl text-white leading-tight mb-4">
+            {project.name}
+          </h2>
+          {project.location && (
+            <div className="flex items-center gap-2 text-white/50 text-sm font-sans mb-8">
+              <MapPin size={14} />
+              {project.location}
+            </div>
+          )}
+
+          <p className="text-white/70 font-sans text-base leading-relaxed mb-8">
+            {project.description}
+          </p>
+
+          <div className="mb-8">
+            <h4 className="text-white/80 text-xs font-semibold uppercase tracking-wider mb-4">Delivered</h4>
+            <div className="flex flex-wrap gap-2">
+              {project.delivered.map((d) => (
+                <span key={d} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/[0.03] border border-white/[0.05] text-white/80 text-xs font-medium">
+                  <Check size={12} className="text-[#E85D26]" />
+                  {d}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {(project.testimonial || project.placeholder) && (
+            <div className="mt-auto pt-8 border-t border-white/[0.05]">
+              <Quote size={20} className="text-[#E85D26]/50 mb-4" />
+              {project.testimonial ? (
+                <>
+                  <p className="text-white/90 font-sans italic text-[15px] leading-relaxed mb-4">
+                    "{project.testimonial.quote[0]}"
+                  </p>
+                  <div>
+                    <p className="text-white font-semibold text-sm">{project.testimonial.name}</p>
+                    <p className="text-white/50 text-xs mt-0.5">{project.testimonial.role}</p>
+                  </div>
+                </>
+              ) : project.placeholder ? (
+                <>
+                  <p className="text-white/60 font-sans text-[15px] leading-relaxed mb-4">
+                    {project.placeholder.note}
+                  </p>
+                  <div>
+                    <p className="text-white font-semibold text-sm">{project.placeholder.name}</p>
+                    {project.placeholder.role && (
+                      <p className="text-white/40 text-xs mt-0.5">{project.placeholder.role}</p>
+                    )}
+                  </div>
+                </>
+              ) : null}
+            </div>
+          )}
+
+          {project.url && (
+            <div className="mt-10 pt-8">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 bg-[#E85D26] hover:bg-[#B23E16] text-white py-3.5 rounded-lg font-semibold transition-colors duration-300"
+              >
+                Visit Live Site <ExternalLink size={16} />
+              </a>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
 export default function Work() {
+  const [selectedProject, setSelectedProject] = useState<FeaturedProject | null>(null);
+
+  const quotes = [
+    {
+      quote: "After working with two other designers before finding Graylock Digital, I can confidently say the difference was night and day.",
+      name: "Emily Berg",
+      role: "Founder, Emboxed",
+    },
+    {
+      quote: "From start to finish, the entire process was seamless... His communication, professionalism, and dedication made the experience stress-free.",
+      name: "Rosi",
+      role: "Founder, Smart Tax CRNA",
+    },
+  ];
+
   return (
     <>
       <SEO
@@ -730,13 +778,26 @@ export default function Work() {
         </div>
       </section>
 
-      <IndustriesSection />
+      {/* ── Gallery ── */}
+      <section className="bg-[#0f0f0f] py-24 md:py-32 relative z-10">
+        <div className="space-y-4 md:space-y-8">
+          <ProjectBlock projects={featuredProjects.slice(0, 6)} onSelect={setSelectedProject} />
+          <QuoteBreak {...quotes[0]} />
+          <ProjectBlock projects={featuredProjects.slice(6, 12)} onSelect={setSelectedProject} />
+          <QuoteBreak {...quotes[1]} />
+          <ProjectBlock projects={featuredProjects.slice(12, 16)} onSelect={setSelectedProject} />
+        </div>
+      </section>
 
-      {featuredProjects.map((project, i) => (
-        <FeaturedProjectSection key={project.name} project={project} index={i} />
-      ))}
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        )}
+      </AnimatePresence>
 
-      <FinalCTASection />
+      <div className="theme-black border-t border-white/[0.05]">
+        <FinalCTASection />
+      </div>
     </>
   );
 }
