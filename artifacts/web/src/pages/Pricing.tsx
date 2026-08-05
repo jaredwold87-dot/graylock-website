@@ -153,23 +153,19 @@ export default function Pricing() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 mb-20">
             {[
-              { icon: <Server className="text-orange" size={22} />, title: "Premium Hosting", desc: "High-speed, enterprise-grade servers with 99.9% uptime — no shared hosting slowdowns." },
-              { icon: <Lock className="text-orange" size={22} />, title: "SSL Certificate", desc: "The security padlock that keeps your site trusted by browsers and protects visitor data." },
-              { icon: <Shield className="text-orange" size={22} />, title: "Security Monitoring", desc: "Weekly security scans, software updates, and proactive protection against vulnerabilities." },
-              { icon: <Activity className="text-orange" size={22} />, title: "Uptime Monitoring", desc: "Daily uptime checks so we catch and fix issues before your visitors ever notice." },
-              { icon: <BarChart3 className="text-orange" size={22} />, title: "Performance Reporting", desc: "Monthly reports on traffic, visitor behavior, and site performance — delivered straight to you." },
-              { icon: <Headphones className="text-orange" size={22} />, title: "Priority Support", desc: "Content update requests handled promptly with a dedicated point of contact on our team." },
+              { icon: Server, title: "Premium Hosting", desc: "High-speed, enterprise-grade servers with 99.9% uptime — no shared hosting slowdowns." },
+              { icon: Lock, title: "SSL Certificate", desc: "The security padlock that keeps your site trusted by browsers and protects visitor data." },
+              { icon: Shield, title: "Security Monitoring", desc: "Weekly security scans, software updates, and proactive protection against vulnerabilities." },
+              { icon: Activity, title: "Uptime Monitoring", desc: "Daily uptime checks so we catch and fix issues before your visitors ever notice." },
+              { icon: BarChart3, title: "Performance Reporting", desc: "Monthly reports on traffic, visitor behavior, and site performance — delivered straight to you." },
+              { icon: Headphones, title: "Priority Support", desc: "Content update requests handled promptly with a dedicated point of contact on our team." },
             ].map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.08} className="bg-white border border-gray-200/80 rounded-xl p-6 flex items-start gap-4 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.04)]">
-                <div className="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-orange/10">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="text-[#1a202c] font-display text-lg mb-1">{item.title}</h3>
-                  <p className="text-[#4a5568] font-sans text-sm leading-relaxed">{item.desc}</p>
-                </div>
+              <ScrollReveal key={i} delay={i * 0.08}>
+                <item.icon className="text-orange mb-4" size={32} strokeWidth={1.5} />
+                <h3 className="text-[#1a202c] font-display text-lg mb-2">{item.title}</h3>
+                <p className="text-[#4a5568] font-sans text-sm leading-relaxed">{item.desc}</p>
               </ScrollReveal>
             ))}
           </div>
