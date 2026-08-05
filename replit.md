@@ -15,6 +15,8 @@ The project's vision is to streamline website creation and lead generation for p
 # User Preferences
 
 - The agent should **not** make changes to the existing `artifacts/web` marketing website unless specifically instructed, as it is a critical, carefully curated asset.
+- Avoid boxed "info card" layouts (bordered/outlined card grids) for content sections; prefer open layouts with whitespace, icons, or simple left-border accents instead.
+- Avoid long runs of consecutive dark sections on a page; alternate dark and light (tan #F4F1EC) sections for visual rhythm.
 - The agent should prioritize the use of `pnpm` for all package management operations.
 - All new code should be written in TypeScript, adhering to the monorepo's existing TypeScript configuration and practices.
 - When generating or modifying API-related code, the agent should ensure consistency with the OpenAPI specification and leverage `orval` for codegen.

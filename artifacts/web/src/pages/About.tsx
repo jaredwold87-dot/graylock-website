@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
-import { CheckCircle2, Compass, Target, ShieldCheck, Handshake } from "lucide-react";
+import { Compass, Target, ShieldCheck, Handshake } from "lucide-react";
 import usaFlagBw from "@/assets/usa-flag-bw.webp";
 import founderJared from "@/assets/founder-jared.webp";
 import founderTim from "@/assets/founder-tim.webp";
@@ -49,24 +49,21 @@ export default function About() {
       <ElevatedHero />
 
       {/* ── THE 4 PILLARS ── */}
-      <section className="relative bg-[#111111] py-24 md:py-32 px-6 md:px-12 overflow-hidden">
-        <div aria-hidden="true" className="absolute inset-0 opacity-[0.04] pointer-events-none" style={GRIT_OVERLAY} />
-        <div className="max-w-6xl mx-auto relative z-10">
-          <ScrollReveal className="mb-16 text-center">
-            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">Our Philosophy</p>
-            <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05]">
+      <section className="bg-[#F4F1EC] py-24 md:py-32 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal className="mb-16 md:mb-20 text-center">
+            <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">Our Philosophy</p>
+            <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-[-0.02em] text-[#0f0f0f] leading-[1.05]">
               The Graylock Pillars
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 md:gap-x-12 gap-y-14">
             {pillars.map((p, i) => (
-              <ScrollReveal key={p.title} delay={i * 0.08} className="h-full">
-                <div className={`h-full p-6 md:p-10 ${i % 2 === 0 ? "border-r border-white/10" : ""} ${i < 2 ? "border-b lg:border-b-0 border-white/10" : ""} ${i === 1 ? "lg:border-r lg:border-white/10" : ""} ${i === 2 ? "lg:border-r lg:border-white/10" : ""}`}>
-                  <p.icon className="text-[#E85D26] mb-5" size={30} strokeWidth={1.5} />
-                  <h3 className="text-lg md:text-xl font-display font-bold text-white uppercase tracking-wide mb-3">{p.title}</h3>
-                  <p className="text-stone font-sans text-sm leading-relaxed">{p.desc}</p>
-                </div>
+              <ScrollReveal key={p.title} delay={i * 0.08}>
+                <p.icon className="text-[#E85D26] mb-5" size={32} strokeWidth={1.5} />
+                <h3 className="text-lg md:text-xl font-display font-bold text-[#0f0f0f] uppercase tracking-wide mb-3">{p.title}</h3>
+                <p className="text-[#555] font-sans text-sm md:text-base leading-relaxed">{p.desc}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -87,11 +84,11 @@ export default function About() {
       </section>
 
       {/* ── FOUNDERS ── */}
-      <section className="bg-[#111111] py-24 md:py-32 px-6 md:px-12">
+      <section className="bg-[#F4F1EC] py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="mb-16 text-center">
-            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">The Founders</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05]">
+            <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">The Founders</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-[#0f0f0f] leading-[1.05]">
               The People Behind the Work
             </h2>
           </ScrollReveal>
@@ -106,14 +103,13 @@ export default function About() {
                   loading="lazy"
                   className="w-full aspect-[4/5] object-cover object-top grayscale contrast-110"
                 />
-                <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#111111] to-transparent" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-wide mb-6">
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-[#0f0f0f] uppercase tracking-wide mb-6">
                 Jared <span className="text-[#E85D26]">—</span> Co-Founder
               </h3>
-              <p className="text-stone font-sans text-lg leading-relaxed">
+              <p className="text-[#555] font-sans text-lg leading-relaxed">
                 I got tired of watching hardworking local business owners get taken advantage of by flashy agencies selling $20,000 digital brochures that didn't make the phone ring. I built Graylock Digital because the trades deserve better. A great website isn't a luxury for the Fortune 500 — it's the most important tool in your truck. I personally lead every engagement to make sure your site actually does its job: getting you more jobs.
               </p>
             </ScrollReveal>
@@ -122,10 +118,10 @@ export default function About() {
           {/* Tim — photo right, text left */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <ScrollReveal delay={0.1} className="order-2 md:order-1">
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-wide mb-6">
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-[#0f0f0f] uppercase tracking-wide mb-6">
                 Tim <span className="text-[#E85D26]">—</span> Co-Founder
               </h3>
-              <p className="text-stone font-sans text-lg leading-relaxed">
+              <p className="text-[#555] font-sans text-lg leading-relaxed">
                 Speed and quality usually don't mix in this industry. Agencies take months; cheap freelancers cut corners. I spent years engineering a build system that solves that. We deliver custom, high-converting sites in 7 to 10 days, built entirely in the USA. I oversee the strategy and architecture from kickoff to launch because when our name is on the product, it has to be perfect.
               </p>
             </ScrollReveal>
@@ -137,7 +133,6 @@ export default function About() {
                   loading="lazy"
                   className="w-full aspect-[4/5] object-cover object-top grayscale contrast-110"
                 />
-                <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#111111] to-transparent" />
               </div>
             </ScrollReveal>
           </div>
@@ -208,20 +203,19 @@ export default function About() {
       </section>
 
       {/* ── CORE VALUES ── */}
-      <section className="bg-[#111111] py-24 md:py-32 px-6 md:px-12">
+      <section className="bg-[#F4F1EC] py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="mb-16">
-            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">What We Stand For</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05]">Our Core Values</h2>
+            <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">What We Stand For</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-[#0f0f0f] leading-[1.05]">Our Core Values</h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-12">
             {values.map((val, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className={`p-8 md:p-10 ${i % 2 === 0 ? "sm:border-r border-white/10" : ""} ${i < 2 ? "border-b border-white/10" : ""}`}>
-                  <CheckCircle2 className="text-[#E85D26] mb-4" size={22} />
-                  <h3 className="text-xl font-display text-white uppercase tracking-wide mb-3">{val.title}</h3>
-                  <p className="text-stone font-sans text-sm leading-relaxed">{val.desc}</p>
+                <div className="border-l-2 border-[#E85D26] pl-6">
+                  <h3 className="text-xl font-display text-[#0f0f0f] uppercase tracking-wide mb-3">{val.title}</h3>
+                  <p className="text-[#555] font-sans text-sm leading-relaxed">{val.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
