@@ -111,9 +111,12 @@ export default function About() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-[#0f0f0f] uppercase tracking-wide mb-6">
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-[#0f0f0f] uppercase tracking-wide mb-2">
                 Jared <span className="text-[#E85D26]">—</span> Co-Founder
               </h3>
+              <p className="text-[#B23E16] font-sans font-semibold uppercase tracking-[0.15em] text-sm mb-6">
+                Head of Design &amp; Development
+              </p>
               <p className="text-[#555] font-sans text-lg leading-relaxed">
                 I started designing websites for friends, family, and small businesses long before Graylock existed. After watching what a well-built site could do — real leads, real revenue, real results — I couldn't go back to the templated, drag-and-drop world of WordPress and Wix. I founded Graylock because I knew what was possible, and I'd seen it work firsthand. We don't measure success by how many sites we ship. We measure it by whether your site is bringing in customers.
               </p>
@@ -123,9 +126,12 @@ export default function About() {
           {/* Tim — photo right, text left */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <ScrollReveal delay={0.1} className="order-2 md:order-1">
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-[#0f0f0f] uppercase tracking-wide mb-6">
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-[#0f0f0f] uppercase tracking-wide mb-2">
                 Tim <span className="text-[#E85D26]">—</span> Co-Founder
               </h3>
+              <p className="text-[#B23E16] font-sans font-semibold uppercase tracking-[0.15em] text-sm mb-6">
+                Head of Client Strategy &amp; Experience
+              </p>
               <p className="text-[#555] font-sans text-lg leading-relaxed">
                 Most business owners dread the website process — and honestly, I get it. It's confusing, expensive, and rarely delivers what was promised. I built my role at Graylock around changing that. I stay personally involved from the first conversation through launch, making sure the process is clear, the communication is honest, and the final product actually does what it's supposed to do: bring you more clients. Your success is the only metric that matters to me.
               </p>
