@@ -1,8 +1,8 @@
 import { SEO } from "@/components/SEO";
 import { Helmet } from "react-helmet-async";
-import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
+import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
 import advantageTransformation from "@/assets/work/advantage-transformation.webp";
@@ -569,39 +569,7 @@ export default function WebsiteDesignOverview() {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative bg-[#0f0f0f] pt-32 pb-20 md:pt-40 md:pb-28 px-6 md:px-12 overflow-hidden">
-        <HeroBackgroundImage
-          src={`${import.meta.env.BASE_URL}hero-home-service-professional.jpg`}
-          objectPosition="left center"
-        />
-        <div className="absolute inset-0 bg-[#0f0f0f]/80" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange/[0.03] rounded-full blur-[100px] pointer-events-none" />
-
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <ScrollReveal>
-            <p className="text-orange font-sans font-semibold uppercase tracking-widest text-sm mb-4">
-              Website Design
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-offwhite mb-6 leading-[1.1]">
-              A Website That Wins You Business — Designed, Optimized, and Compliant
-            </h1>
-            <p className="text-offwhite/80 font-sans text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-              We don't just build pretty websites. We design conversion-focused sites with
-              lead-generating forms, SEO baked in, and your industry's compliance rules built into
-              the foundation — so the traffic you earn turns into booked clients.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
-              <CTAButton href="/get-started" className="px-8 py-5 text-lg">
-                Book a Free Discovery Call
-              </CTAButton>
-            </div>
-            <p className="text-offwhite/85 font-sans text-sm">
-              15-minute call · See a custom homepage demo · No obligation.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <ElevatedHero />
 
       {/* What we deliver */}
       <WhatWeDeliverSection
