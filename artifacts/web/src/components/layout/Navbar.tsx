@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_TEL } from "@/lib/contact";
+import { CONTACT_PHONE_TEL } from "@/lib/contact";
 
 const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -77,7 +77,7 @@ export function Navbar() {
               className="hidden lg:flex items-center gap-2 text-offwhite/90 hover:text-orange font-sans font-semibold text-sm transition-colors"
             >
               <Phone size={15} aria-hidden="true" />
-              {CONTACT_PHONE_DISPLAY}
+              Call Now
             </a>
             <Link
               href="/get-started"
@@ -132,7 +132,7 @@ export function Navbar() {
             className="mt-2 flex items-center gap-2 text-offwhite/90 hover:text-orange font-sans font-semibold text-lg transition-colors"
           >
             <Phone size={18} aria-hidden="true" />
-            {CONTACT_PHONE_DISPLAY}
+            Tap to Call
           </a>
         </div>
       </div>

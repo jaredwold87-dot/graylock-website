@@ -92,52 +92,50 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      <section className="bg-[#f5f5f4] py-24 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">What Happens After Launch?</h2>
-            <p className="text-gray-600 text-lg font-sans">Our relationship doesn't end when the site goes live. In fact, that's just the beginning.</p>
+      <section className="bg-[#F4F1EC] py-24 md:py-32 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal className="text-center mb-16 md:mb-20">
+            <h2 className="text-3xl md:text-5xl font-display text-[#0f0f0f] mb-6">What Happens After Launch?</h2>
+            <p className="text-[#555] text-lg font-sans">Our relationship doesn't end when the site goes live. In fact, that's just the beginning.</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-12 md:gap-y-14 mb-16">
             {[
               {
-                icon: <Wrench className="text-orange" size={22} />,
+                icon: Wrench,
                 title: "Total Maintenance",
                 desc: "We handle all the invisible technical work. Software updates, plugin management, security scans, and uptime monitoring. You never have to worry about your site getting hacked or going down.",
                 delay: 0.1,
               },
               {
-                icon: <MessagesSquare className="text-orange" size={22} />,
+                icon: MessagesSquare,
                 title: "Easy Change Requests",
                 desc: "Need to update your team page or change your holiday hours? Just email us. We treat your requests like an internal IT team would. Most content updates are reviewed and completed within 3 business days.",
                 delay: 0.2,
               },
               {
-                icon: <UserCheck className="text-orange" size={22} />,
+                icon: UserCheck,
                 title: "Dedicated Account Manager",
                 desc: "Every plan includes a dedicated account manager — a real person who knows your practice and your website. Need to discuss performance, request changes, or ask a question? You have a direct line. No support tickets, no chatbots.",
                 delay: 0.3,
               },
               {
-                icon: <TrendingUp className="text-orange" size={22} />,
+                icon: TrendingUp,
                 title: "Ongoing SEO & Performance Monitoring",
                 desc: "Your dedicated account manager monitors your site's SEO performance and keeps your site competitive in local search results. We also offer a long-term website refresh and strategy review at the 2-year mark — because great websites evolve with your practice.",
                 delay: 0.4,
               },
-            ].map((card) => (
-              <ScrollReveal key={card.title} delay={card.delay} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div className="w-11 h-11 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center mb-4">
-                  {card.icon}
-                </div>
-                <h3 className="text-2xl font-display text-[#1a202c] mb-4">{card.title}</h3>
-                <p className="text-gray-600 font-sans leading-relaxed">{card.desc}</p>
+            ].map((item) => (
+              <ScrollReveal key={item.title} delay={item.delay}>
+                <item.icon className="text-[#E85D26] mb-5" size={32} strokeWidth={1.5} />
+                <h3 className="text-2xl font-display text-[#0f0f0f] mb-3">{item.title}</h3>
+                <p className="text-[#555] font-sans leading-relaxed">{item.desc}</p>
               </ScrollReveal>
             ))}
           </div>
 
-          <ScrollReveal delay={0.45} className="text-center mb-8">
-            <p className="text-gray-600 font-sans leading-relaxed max-w-2xl mx-auto">
+          <ScrollReveal delay={0.45} className="text-center mb-10">
+            <p className="text-[#555] font-sans leading-relaxed max-w-2xl mx-auto">
               How much ongoing work is included depends on the plan you choose — every
               plan comes with a set number of monthly support hours for maintenance and
               change requests.{" "}
@@ -148,8 +146,8 @@ export default function HowItWorks() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.5} className="bg-orange/5 border border-orange/20 rounded-xl p-8 text-center">
-            <p className="text-[#1a202c] font-sans text-lg leading-relaxed">
+          <ScrollReveal delay={0.5} className="text-center border-t border-[#0f0f0f]/10 pt-10">
+            <p className="text-[#0f0f0f] font-display text-xl md:text-2xl leading-snug max-w-3xl mx-auto">
               We're not a launch-and-leave service. We're your long-term website partner — maintaining, improving, and growing your online presence month after month.
             </p>
           </ScrollReveal>

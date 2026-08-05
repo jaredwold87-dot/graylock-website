@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { X, Quote, Check, MapPin, ExternalLink, ArrowRight, ChevronDown } from "lucide-react";
-import { Link } from "wouter";
+import { X, Quote, Check, MapPin, ExternalLink } from "lucide-react";
 
 import spiTransformation from "@/assets/work/spi-transformation.webp";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
@@ -22,7 +21,8 @@ import jcsWellServicesTransformation from "@/assets/work/jcs-well-services-trans
 import rosenlundDrillingTransformation from "@/assets/work/rosenlund-drilling-transformation.webp";
 import erinSells775Transformation from "@/assets/work/erin-sells-775-transformation.webp";
 import tekmarkTransformation from "@/assets/work/tekmark-transformation.webp";
-import heroBackground from "@/assets/work/portfolio-hero-black-v1.webp";
+import { ElevatedHero } from "@/components/ui/ElevatedHero";
+import portfolioHeroBg from "@/assets/portfolio-hero-bg.webp";
 
 type Theme = "light" | "dark";
 
@@ -168,23 +168,23 @@ const featuredProjects: FeaturedProject[] = [
     },
   },
   {
-    name: "JC's Well Services",
-    category: "Water Treatment & Well Pump Services",
-    location: "Eugene & Lane County, OR",
+    name: "Bluegrass Dental Anesthesia Solutions",
+    category: "Mobile Dental Anesthesia",
+    location: "Serving Northern Kentucky & Lexington",
     description:
-      "A sharp, trust-forward site for a licensed well pump and water treatment specialist — built to capture 24/7 emergency calls and free-quote requests from homeowners across Lane County.",
-    image: jcsWellServicesTransformation,
-    url: "https://jcswellservices.com/",
+      "A clean, clinical site for a mobile CRNA anesthesia provider — built to reassure dental practices on safety and expertise and route them straight to a consultation request.",
+    image: bluegrassTransformation,
+    url: "https://bluegrassanes.com/",
     theme: "light",
     delivered: [
-      "24/7 emergency call flow",
-      "Free quote request page",
-      "Service & coverage-area pages",
+      "Trust-first clinical design",
+      "Consultation request flow",
+      "Services & service-area pages",
       "Mobile-responsive build",
     ],
     placeholder: {
-      name: "JC's Well Services",
-      role: "Eugene & Lane County, OR",
+      name: "Bluegrass Dental Anesthesia Solutions",
+      role: "Northern Kentucky & Lexington",
       note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
@@ -386,23 +386,23 @@ const featuredProjects: FeaturedProject[] = [
     },
   },
   {
-    name: "Bluegrass Dental Anesthesia Solutions",
-    category: "Mobile Dental Anesthesia",
-    location: "Serving Northern Kentucky & Lexington",
+    name: "JC's Well Services",
+    category: "Water Treatment & Well Pump Services",
+    location: "Eugene & Lane County, OR",
     description:
-      "A clean, clinical site for a mobile CRNA anesthesia provider — built to reassure dental practices on safety and expertise and route them straight to a consultation request.",
-    image: bluegrassTransformation,
-    url: "https://bluegrassanes.com/",
+      "A sharp, trust-forward site for a licensed well pump and water treatment specialist — built to capture 24/7 emergency calls and free-quote requests from homeowners across Lane County.",
+    image: jcsWellServicesTransformation,
+    url: "https://jcswellservices.com/",
     theme: "light",
     delivered: [
-      "Trust-first clinical design",
-      "Consultation request flow",
-      "Services & service-area pages",
+      "24/7 emergency call flow",
+      "Free quote request page",
+      "Service & coverage-area pages",
       "Mobile-responsive build",
     ],
     placeholder: {
-      name: "Bluegrass Dental Anesthesia Solutions",
-      role: "Northern Kentucky & Lexington",
+      name: "JC's Well Services",
+      role: "Eugene & Lane County, OR",
       note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
@@ -457,55 +457,6 @@ function ProjectCard({ project, onClick }: { project: FeaturedProject; onClick: 
           </a>
         )}
       </div>
-      {project.testimonial && <TestimonialDisclosure testimonial={project.testimonial} />}
-    </div>
-  );
-}
-
-function TestimonialDisclosure({ testimonial }: { testimonial: NonNullable<FeaturedProject["testimonial"]> }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="mx-2 rounded-xl border border-white/[0.07] bg-white/[0.03] overflow-hidden">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-        className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26] focus-visible:ring-inset"
-      >
-        <span className="flex items-center gap-2.5 font-sans text-sm font-semibold text-white/85">
-          <Quote size={15} className="text-[#E85D26] shrink-0" aria-hidden="true" />
-          Client Testimonial
-        </span>
-        <ChevronDown
-          size={17}
-          className={`text-white/50 shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-          aria-hidden="true"
-        />
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-4 pb-4 pt-1">
-              <blockquote className="space-y-3 font-sans text-sm leading-[1.75] text-white/75">
-                {testimonial.quote.map((p, i) => (
-                  <p key={i}>&ldquo;{p}&rdquo;</p>
-                ))}
-              </blockquote>
-              <div className="mt-4 pt-3.5 border-t border-white/[0.07]">
-                <p className="font-display text-sm text-white">{testimonial.name}</p>
-                <p className="font-sans text-xs text-white/50 mt-0.5">{testimonial.role}</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
@@ -664,113 +615,13 @@ export default function Work() {
       />
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-[#0f0f0f] pt-28 md:pt-36 pb-24 md:pb-32 px-6 md:px-12">
-        {/* Background image */}
-        <img
-          src={heroBackground}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 w-full h-full object-cover object-[72%_center] md:object-right opacity-85 select-none"
-        />
-
-        {/* Gradients */}
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0f0f0f] via-[#0f0f0f]/92 to-[#0f0f0f]/20"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-[#0f0f0f]/40"
-          aria-hidden="true"
-        />
-        {/* Orange radial glow */}
-        <div
-          className="pointer-events-none absolute -top-1/4 -right-1/4 w-[60%] h-[120%] bg-[radial-gradient(ellipse_at_center,rgba(232,93,38,0.15),transparent_60%)]"
-          aria-hidden="true"
-        />
-        {/* Bottom edge line */}
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"
-          aria-hidden="true"
-        />
-        {/* Subtle grid texture */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.4) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.4) 1px,transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="relative max-w-7xl mx-auto w-full">
-          <ScrollReveal>
-            <div className="max-w-2xl">
-              {/* Eyebrow */}
-              <div className="flex items-center gap-3 mb-8">
-                <span className="h-px w-10 bg-[#E85D26]" aria-hidden="true" />
-                <span className="text-[#E85D26] text-[11px] md:text-xs font-sans font-bold uppercase tracking-[0.32em]">
-                  The Portfolio
-                </span>
-              </div>
-
-              {/* Headline */}
-              <h1 className="text-5xl md:text-7xl lg:text-[5.25rem] font-display text-white mb-7 leading-[0.97] tracking-[-0.015em]">
-                Websites Worthy
-                <br />
-                of the Work
-                <br />
-                <span className="text-[#E85D26]">Behind Them.</span>
-              </h1>
-
-              {/* Subhead */}
-              <p className="text-lg md:text-xl font-sans text-stone/80 max-w-xl leading-[1.7]">
-                Custom-built digital storefronts for trust-based local businesses &mdash;
-                engineered to command attention, signal credibility, and turn quiet
-                visitors into committed clients.
-              </p>
-
-              {/* Project count badge */}
-              <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E85D26] animate-pulse" aria-hidden="true" />
-                <span className="text-white/60 font-sans text-xs font-medium tracking-wide">
-                  {featuredProjects.length} client projects below
-                </span>
-              </div>
-
-              {/* CTAs */}
-              <div className="mt-9 flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/get-started"
-                  className="group inline-flex items-center justify-center gap-2 bg-[#E85D26] text-white font-sans font-bold text-sm md:text-base px-7 py-3.5 rounded-lg shadow-[0_8px_32px_rgba(232,93,38,0.38)] hover:bg-[#d4521f] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(232,93,38,0.45)] transition-all duration-300"
-                >
-                  Book a Discovery Call
-                  <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform duration-200" />
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="inline-flex items-center justify-center gap-2 border border-white/[0.18] text-offwhite font-sans font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg hover:bg-white/[0.06] hover:border-white/30 transition-all duration-300"
-                >
-                  See Pricing
-                </Link>
-              </div>
-
-              {/* Trust line */}
-              <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-stone/50 font-sans text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.2em]">
-                <span className="whitespace-nowrap">100% Custom</span>
-                <span className="inline-flex items-center gap-x-4 whitespace-nowrap">
-                  <span className="text-[#E85D26]/40" aria-hidden="true">&middot;</span>
-                  <span>No Templates</span>
-                </span>
-                <span className="inline-flex items-center gap-x-4 whitespace-nowrap">
-                  <span className="text-[#E85D26]/40" aria-hidden="true">&middot;</span>
-                  <span>Built to Convert</span>
-                </span>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <ElevatedHero
+        lines={[
+          { text: "The Work Speaks" },
+          { text: "For Itself.", accent: true },
+        ]}
+        backgroundImage={portfolioHeroBg}
+      />
 
       {/* ── Gallery ── */}
       <section className="bg-[#0f0f0f] py-24 md:py-32 relative z-10">

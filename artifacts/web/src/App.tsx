@@ -76,7 +76,7 @@ function PageTracker() {
 
 function Router() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-navy" />}>
+    <Suspense fallback={<div className="min-h-screen bg-[#0F0F0F]" />}>
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/how-it-works" component={HowItWorks} />

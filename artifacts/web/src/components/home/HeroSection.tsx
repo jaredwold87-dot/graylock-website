@@ -7,6 +7,7 @@ const BASE = import.meta.env.BASE_URL;
 
 export function HeroSection() {
   return (
+    <>
     <section
       className="pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
       style={{ backgroundColor: "#0f0f0f" }}
@@ -132,28 +133,9 @@ export function HeroSection() {
                 </CTAButton>
               </div>
 
-              <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance mb-4">
+              <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance mb-8">
                 We'll show you exactly what your new site could look like — before you spend a dollar.
               </p>
-              <ul className="flex flex-col gap-2.5 mb-8 w-fit mx-auto">
-                {[
-                  "Show up when clients search for you",
-                  "Turn visitors into calls and estimate requests",
-                  "Live in 7–10 days",
-                  "Free website refresh every two years",
-                ].map((text, i) => (
-                  <li key={i} className="flex items-center gap-2.5">
-                    <Check
-                      size={16}
-                      strokeWidth={2.5}
-                      className="text-[#E85D26] flex-shrink-0"
-                    />
-                    <span className="text-stone font-sans text-sm leading-snug whitespace-nowrap">
-                      {text}
-                    </span>
-                  </li>
-                ))}
-              </ul>
 
               <div className="-mx-6">
                 <img
@@ -177,29 +159,31 @@ export function HeroSection() {
                 </CTAButton>
               </div>
 
-              <p className="text-stone/80 font-sans text-base mb-8">
+              <p className="text-stone/80 font-sans text-base">
                 We'll show you exactly what your new site could look like — before you spend a dollar.
               </p>
-
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-x-8 sm:gap-y-3">
-                {[
-                  "Show up when clients search for you",
-                  "Turn visitors into calls and estimate requests",
-                  "Live in 7–10 days",
-                  "Free website refresh every two years",
-                ].map((text, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#E85D26]/10 border border-[#E85D26]/30 flex items-center justify-center">
-                      <Check size={12} className="text-[#E85D26]" />
-                    </div>
-                    <span className="text-stone font-sans text-base">{text}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </ScrollReveal>
         </div>
       </div>
     </section>
+
+    {/* Slim black trust bar below the hero */}
+    <div className="bg-black border-t border-white/[0.06] py-4 md:py-5 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center lg:justify-between gap-x-8 gap-y-2.5">
+        {[
+          "Show up when clients search for you",
+          "Turn visitors into calls and estimate requests",
+          "Live in 7–10 days",
+          "Free website refresh every two years",
+        ].map((text, i) => (
+          <div key={i} className="flex items-center gap-2.5">
+            <Check size={15} strokeWidth={2.5} className="text-[#E85D26] flex-shrink-0" />
+            <span className="text-stone font-sans text-sm md:text-[15px] leading-snug">{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    </>
   );
 }

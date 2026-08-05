@@ -175,6 +175,12 @@ export default function About() {
               ))}
             </div>
           </div>
+
+          <ScrollReveal className="text-center border-t border-[#0f0f0f]/10 pt-10 mt-16 md:mt-20">
+            <p className="text-[#0f0f0f] font-display text-xl md:text-2xl leading-snug max-w-3xl mx-auto">
+              We&rsquo;re not a launch-and-leave service. We&rsquo;re a partner &mdash; for you and with you &mdash; here to keep your website updated and working as hard as your business does.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 

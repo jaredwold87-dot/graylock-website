@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
+import { ElevatedHero } from "@/components/ui/ElevatedHero";
+import pricingHeroBg from "@/assets/pricing-hero-bg.webp";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
@@ -39,20 +40,14 @@ export default function Pricing() {
     <>
       <SEO title="Pricing | Small Business Website Design Plans | Graylock Digital" description="Three flat monthly plans, one one-time build fee paid only after you approve your free demo, no long-term contracts. Starter from $199/mo, Growth from $299/mo, Scale from $449/mo. Hosting and updates included." url="https://graylockdigital.com/pricing" />
       
-      <section className="relative py-32 md:py-40 px-6 md:px-12 text-white overflow-hidden bg-[#0f0f0f]">
-        <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-pricing.png`} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f]/95 via-[#0f0f0f]/90 to-[#0f0f0f]" />
-        <div className="pointer-events-none absolute -top-1/4 right-0 w-[60%] h-[120%] bg-[radial-gradient(ellipse_at_center,rgba(232,93,38,0.15),transparent_60%)]" aria-hidden="true" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <ScrollReveal>
-            <p className="text-[#E85D26] font-sans font-semibold uppercase tracking-widest text-sm mb-4">
-              Pricing
-            </p>
-            <h1 className="text-4xl md:text-6xl font-display mb-6 leading-tight">Three plans. One flat fee. <span className="text-gradient">No surprises.</span></h1>
-            <p className="text-lg md:text-xl font-sans text-stone leading-relaxed">A one-time build fee — paid only after you approve your free custom homepage demo — then a flat monthly rate that covers hosting, maintenance, security, and ongoing support. Month-to-month — never locked in.</p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <ElevatedHero
+        lines={[
+          { text: "Transparent Pricing." },
+          { text: "Zero Surprises.", accent: true },
+        ]}
+        subheadline="One build fee, paid only after you approve your free demo. Then a flat monthly rate — hosting, maintenance, and support included. Month-to-month, cancel anytime."
+        backgroundImage={pricingHeroBg}
+      />
 
       <PricingSection hideHeader />
 

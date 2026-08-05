@@ -1,9 +1,11 @@
 import express from "express";
+import compression from "compression";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
+app.use(compression());
 const PORT = process.env.PORT || 3000;
 
 app.use("/assets", express.static(path.join(__dirname, "dist", "assets"), {

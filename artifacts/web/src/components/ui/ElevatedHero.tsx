@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
@@ -27,9 +28,15 @@ export function ElevatedHero({
 }: ElevatedHeroProps) {
   const hasContentBelow = Boolean(subheadline || (ctaLabel && ctaHref));
   return (
+    <>
+    <Helmet>
+      {/* LCP: fetch the hero background at high priority before CSS resolves it */}
+      <link rel="preload" as="image" href={backgroundImage} fetchPriority="high" />
+    </Helmet>
     <section
       className="relative min-h-[70vh] md:min-h-[65vh] flex items-center justify-center px-6 md:px-12 py-24 overflow-hidden"
       style={{
+        backgroundColor: "#0f0f0f",
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -64,5 +71,6 @@ export function ElevatedHero({
         </ScrollReveal>
       </div>
     </section>
+    </>
   );
 }
