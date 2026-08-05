@@ -75,7 +75,7 @@ export default function About() {
           <ScrollReveal>
             <span aria-hidden="true" className="block font-display text-7xl md:text-8xl leading-none text-[#E85D26] mb-2">&ldquo;</span>
             <blockquote className="text-white font-display text-3xl md:text-4xl lg:text-5xl leading-[1.2] mb-8">
-              We started Graylock because we saw too many hardworking business owners getting left behind online. These are the people who show up early, stay late, and take care of their clients. They deserve a website that works as hard as they do.
+              We started Graylock because we saw too many hardworking business owners getting left behind online. These are the people who show up early, stay late, and take care of their customers. They deserve a website that works as hard as they do &mdash; <span className="text-[#E85D26] font-bold">and a team that actually gives a damn.</span>
             </blockquote>
             <p className="text-[#E85D26] font-sans font-bold text-xs uppercase tracking-[0.2em]">&mdash; Tim &amp; Jared, Founders</p>
           </ScrollReveal>
