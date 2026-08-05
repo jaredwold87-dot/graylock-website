@@ -1,9 +1,9 @@
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
-import { CTAButton } from "@/components/ui/CTAButton";
+import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Wrench, MessagesSquare, UserCheck, TrendingUp } from "lucide-react";
+import processHeroBg from "@/assets/process-hero-bg.webp";
 
 export default function HowItWorks() {
   const steps = [
@@ -38,16 +38,10 @@ export default function HowItWorks() {
     <>
       <SEO title="How It Works | Our 5-Step Website Process | Graylock Digital" description="See our 5-step process: a 15-minute call, a free custom homepage demo, then a full build in 7–10 business days launched on your domain. No payment until after you approve the demo." url="https://graylockdigital.com/how-it-works" />
       
-      <section className="relative py-32 md:py-40 px-6 md:px-12 text-offwhite overflow-hidden">
-        <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-how-it-works.png`} />
-        <div className="absolute inset-0 bg-[#0f0f0f]/90 md:bg-[#0f0f0f]/75" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <ScrollReveal>
-            <h1 className="text-4xl md:text-6xl font-display mb-6">Our 5-Step Process</h1>
-            <p className="text-xl font-sans text-stone">From a 15-minute call to a free custom demo to a fully built site launched on your domain — most builds finish in 7–10 business days, and you don't pay anything until after you've seen and approved the demo.</p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <ElevatedHero
+        lines={[{ text: "Our Five-Step Process" }]}
+        backgroundImage={processHeroBg}
+      />
 
       <section className="bg-[#0f0f0f] pt-24 pb-12 px-6 md:px-12 relative overflow-hidden">
         <div className="max-w-5xl mx-auto relative">
@@ -141,6 +135,18 @@ export default function HowItWorks() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={0.45} className="text-center mb-8">
+            <p className="text-gray-600 font-sans leading-relaxed max-w-2xl mx-auto">
+              How much ongoing work is included depends on the plan you choose — every
+              plan comes with a set number of monthly support hours for maintenance and
+              change requests.{" "}
+              <a href="/pricing" className="text-[#B23E16] font-semibold hover:underline">
+                Compare plans
+              </a>{" "}
+              to see what's included.
+            </p>
+          </ScrollReveal>
 
           <ScrollReveal delay={0.5} className="bg-orange/5 border border-orange/20 rounded-xl p-8 text-center">
             <p className="text-[#1a202c] font-sans text-lg leading-relaxed">

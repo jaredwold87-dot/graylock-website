@@ -9,6 +9,8 @@ interface ElevatedHeroProps {
   subheadline?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  /** Background image URL; defaults to the mountain shot used on /about. */
+  backgroundImage?: string;
 }
 
 /**
@@ -16,13 +18,19 @@ interface ElevatedHeroProps {
  * uppercase headline. Used on /about and /services; each page passes
  * its own copy.
  */
-export function ElevatedHero({ lines, subheadline, ctaLabel, ctaHref }: ElevatedHeroProps) {
+export function ElevatedHero({
+  lines,
+  subheadline,
+  ctaLabel,
+  ctaHref,
+  backgroundImage = aboutHeroBg,
+}: ElevatedHeroProps) {
   const hasContentBelow = Boolean(subheadline || (ctaLabel && ctaHref));
   return (
     <section
       className="relative min-h-[70vh] md:min-h-[65vh] flex items-center justify-center px-6 md:px-12 py-24 overflow-hidden"
       style={{
-        backgroundImage: `url(${aboutHeroBg})`,
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
