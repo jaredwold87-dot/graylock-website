@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { X, Quote, Check, MapPin, ExternalLink, ArrowRight } from "lucide-react";
+import { X, Quote, Check, MapPin, ExternalLink, ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 
 import spiTransformation from "@/assets/work/spi-transformation.webp";
@@ -430,11 +430,11 @@ function ProjectCard({ project, onClick }: { project: FeaturedProject; onClick: 
             <span className="w-2.5 h-2.5 rounded-full bg-white/[0.12] group-hover:bg-[#28c840] transition-colors duration-300 delay-150" />
           </span>
         </div>
-        <div className="overflow-hidden bg-[#0a0a0a] aspect-[16/11] relative">
+        <div className="overflow-hidden bg-[#0a0a0a] aspect-[1600/870] relative">
           <img
             src={project.image}
             alt={project.name}
-            className="w-full h-full object-cover object-top block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            className="w-full h-full object-contain block transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             loading="lazy"
           />
         </div>
@@ -457,63 +457,68 @@ function ProjectCard({ project, onClick }: { project: FeaturedProject; onClick: 
           </a>
         )}
       </div>
+      {project.testimonial && <TestimonialDisclosure testimonial={project.testimonial} />}
     </div>
   );
 }
 
-function QuoteBreak({ quote, name, role }: { quote: string; name: string; role: string }) {
+function TestimonialDisclosure({ testimonial }: { testimonial: NonNullable<FeaturedProject["testimonial"]> }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="py-24 md:py-32 flex items-center justify-center px-6">
-      <ScrollReveal>
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <Quote size={40} className="mx-auto text-[#E85D26]/40" />
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white leading-snug md:leading-tight">
-            &ldquo;{quote}&rdquo;
-          </h2>
-          <div className="pt-4">
-            <div className="w-12 h-0.5 bg-[#E85D26] mx-auto mb-6" />
-            <p className="font-sans text-white font-medium tracking-wide uppercase text-sm">{name}</p>
-            <p className="font-sans text-white/50 text-sm mt-1">{role}</p>
-          </div>
-        </div>
-      </ScrollReveal>
+    <div className="mx-2 rounded-xl border border-white/[0.07] bg-white/[0.03] overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26] focus-visible:ring-inset"
+      >
+        <span className="flex items-center gap-2.5 font-sans text-sm font-semibold text-white/85">
+          <Quote size={15} className="text-[#E85D26] shrink-0" aria-hidden="true" />
+          Client Testimonial
+        </span>
+        <ChevronDown
+          size={17}
+          className={`text-white/50 shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-4 pb-4 pt-1">
+              <blockquote className="space-y-3 font-sans text-sm leading-[1.75] text-white/75">
+                {testimonial.quote.map((p, i) => (
+                  <p key={i}>&ldquo;{p}&rdquo;</p>
+                ))}
+              </blockquote>
+              <div className="mt-4 pt-3.5 border-t border-white/[0.07]">
+                <p className="font-display text-sm text-white">{testimonial.name}</p>
+                <p className="font-sans text-xs text-white/50 mt-0.5">{testimonial.role}</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
 function ProjectBlock({ projects, onSelect }: { projects: FeaturedProject[]; onSelect: (p: FeaturedProject) => void }) {
-  const col1 = projects.filter((_, i) => i % 2 === 0);
-  const col2 = projects.filter((_, i) => i % 2 === 1);
-
   return (
-    <>
-      {/* Mobile Stack */}
-      <div className="md:hidden flex flex-col gap-16 px-6 max-w-[90rem] mx-auto">
-        {projects.map((p) => (
-          <ScrollReveal key={p.name}>
-            <ProjectCard project={p} onClick={() => onSelect(p)} />
-          </ScrollReveal>
-        ))}
-      </div>
-
-      {/* Desktop Staggered Grid */}
-      <div className="hidden md:grid grid-cols-2 gap-8 lg:gap-16 px-8 md:px-12 max-w-[90rem] mx-auto">
-        <div className="flex flex-col gap-16 lg:gap-24">
-          {col1.map((p) => (
-            <ScrollReveal key={p.name}>
-              <ProjectCard project={p} onClick={() => onSelect(p)} />
-            </ScrollReveal>
-          ))}
-        </div>
-        <div className="flex flex-col gap-16 lg:gap-24 pt-20 lg:pt-32">
-          {col2.map((p) => (
-            <ScrollReveal key={p.name} delay={0.15}>
-              <ProjectCard project={p} onClick={() => onSelect(p)} />
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-    </>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-16 lg:gap-y-20 items-start px-6 md:px-12 max-w-[90rem] mx-auto">
+      {projects.map((p, i) => (
+        <ScrollReveal key={p.name} delay={i % 2 === 1 ? 0.12 : 0}>
+          <ProjectCard project={p} onClick={() => onSelect(p)} />
+        </ScrollReveal>
+      ))}
+    </div>
   );
 }
 
@@ -648,19 +653,6 @@ function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose:
 export default function Work() {
   const [selectedProject, setSelectedProject] = useState<FeaturedProject | null>(null);
 
-  const quotes = [
-    {
-      quote: "After working with two other designers before finding Graylock Digital, I can confidently say the difference was night and day.",
-      name: "Emily Berg",
-      role: "Founder, Emboxed",
-    },
-    {
-      quote: "From start to finish, the entire process was seamless... His communication, professionalism, and dedication made the experience stress-free.",
-      name: "Rosi",
-      role: "Founder, Smart Tax CRNA",
-    },
-  ];
-
   return (
     <>
       <SEO
@@ -780,13 +772,7 @@ export default function Work() {
 
       {/* ── Gallery ── */}
       <section className="bg-[#0f0f0f] py-24 md:py-32 relative z-10">
-        <div className="space-y-4 md:space-y-8">
-          <ProjectBlock projects={featuredProjects.slice(0, 6)} onSelect={setSelectedProject} />
-          <QuoteBreak {...quotes[0]} />
-          <ProjectBlock projects={featuredProjects.slice(6, 12)} onSelect={setSelectedProject} />
-          <QuoteBreak {...quotes[1]} />
-          <ProjectBlock projects={featuredProjects.slice(12, 16)} onSelect={setSelectedProject} />
-        </div>
+        <ProjectBlock projects={featuredProjects} onSelect={setSelectedProject} />
       </section>
 
       <AnimatePresence>
