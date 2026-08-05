@@ -1,13 +1,19 @@
 import { SEO } from "@/components/SEO";
-import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
-import { CheckCircle2, Flag, MapPin, Heart, ArrowRight } from "lucide-react";
+import { CheckCircle2, Compass, Target, ShieldCheck, Handshake, ArrowRight } from "lucide-react";
 import usaFlagBw from "@/assets/usa-flag-bw.webp";
 import founderJared from "@/assets/founder-jared.webp";
 import founderTim from "@/assets/founder-tim.webp";
+import aboutHeroBg from "@/assets/about-hero-bg.webp";
 import { Link } from "wouter";
+
+/** Subtle grit/noise overlay to break up flat digital backgrounds */
+const GRIT_OVERLAY = {
+  backgroundImage:
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\")",
+};
 
 export default function About() {
   const values = [
@@ -17,11 +23,19 @@ export default function About() {
     { title: "Relationship-Driven", desc: "We aren't a faceless platform. You always know exactly who is working on your site." }
   ];
 
-  const milestones = [
-    { label: "The Frustration", text: "We watched hardworking small businesses get burned by overpriced agencies and offshore freelancers who never delivered." },
-    { label: "The Realization", text: "A great website should not require a $20K budget or a 3-month timeline. We knew there was a better way." },
-    { label: "The Build", text: "We built a repeatable framework — U.S. team, proven process — that ships custom sites in 7–10 business days." },
-    { label: "The Mission", text: "Serve the business owners who show up early, stay late, and deserve a website that works as hard as they do." },
+  const pillars = [
+    { icon: Compass, title: "Craftsmanship", desc: "Custom builds, no templates. Every pixel is intentional." },
+    { icon: Target, title: "Conversion", desc: "We don't build brochures. We build lead-generation machines." },
+    { icon: ShieldCheck, title: "Compliance", desc: "Built to federal, state, and industry advertising standards." },
+    { icon: Handshake, title: "Commitment", desc: "Month-to-month support. We maintain it forever." },
+  ];
+
+  const timeline = [
+    { label: "The Problem", text: "Small businesses were getting burned by overpriced agencies." },
+    { label: "The Solution", text: "We engineered a 7-10 day custom build framework." },
+    { label: "The Demo", text: "We prove it first. You see a custom homepage before paying." },
+    { label: "The Launch", text: "Your site goes live, optimized for SEO and conversion." },
+    { label: "The Partnership", text: "We maintain, host, and update it forever." },
   ];
 
   return (
@@ -33,23 +47,28 @@ export default function About() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative py-36 md:py-52 px-6 md:px-12 text-offwhite overflow-hidden">
-        <HeroBackgroundImage src={`${import.meta.env.BASE_URL}hero-about.png`} />
-        <div className="absolute inset-0 bg-[#0f0f0f]/80 md:bg-[#0f0f0f]/70" />
-        <div className="max-w-3xl mx-auto text-center relative z-10">
+      <section
+        className="relative min-h-[70vh] md:min-h-[65vh] flex items-center justify-center px-6 md:px-12 py-24 overflow-hidden"
+        style={{
+          backgroundImage: `url(${aboutHeroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(10, 10, 10, 0.65)" }} />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-6">
-              Built for Practice Owners
-            </p>
-            <h1 className="text-5xl md:text-7xl font-display leading-[1.05] mb-8 text-white">
-              A Better Website Should Not Cost You Three Months and&nbsp;$20,000
+            <h1 className="font-display font-bold uppercase text-white text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-[-0.02em] mb-8">
+              <span className="block">Your Website.</span>
+              <span className="block">Your Reputation.</span>
+              <span className="block text-[#E85D26]">Elevated.</span>
             </h1>
-            <p className="text-stone font-sans text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
-              You started your practice to take care of clients — not to manage a website. Every month your site sends prospects to a competitor is a month of growth you don't get back.
+            <p className="text-white/85 font-sans text-lg md:text-xl leading-relaxed mb-10 max-w-3xl mx-auto">
+              You built something real. Your website should reflect it. We design, build, and maintain conversion-focused websites for serious businesses — from healthcare practices to home builders to professional service firms — all in 7–10 days.
             </p>
             <Link
               href="/get-started"
-              className="inline-flex items-center gap-3 bg-[#E85D26] text-white font-sans font-bold uppercase tracking-[0.18em] text-sm px-8 py-4 hover:bg-[#c94f20] transition-colors"
+              className="inline-flex items-center gap-3 bg-[#E85D26] text-white font-sans font-bold uppercase tracking-[0.18em] text-sm px-8 py-4 rounded-none hover:bg-[#c94f20] transition-colors"
             >
               Book a Discovery Call
               <ArrowRight size={16} />
@@ -58,50 +77,33 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── PHILOSOPHY ── */}
-      <section className="bg-[#F4F1EC] py-24 md:py-32 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal className="mb-16">
-            <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">Our Philosophy</p>
-            <h2 className="text-4xl md:text-6xl font-display text-[#0f0f0f] leading-[1.1] max-w-3xl">
-              We Only Work With Businesses We Genuinely Want to See Win
+      {/* ── THE 4 PILLARS ── */}
+      <section className="relative bg-[#111111] py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+        <div aria-hidden="true" className="absolute inset-0 opacity-[0.04] pointer-events-none" style={GRIT_OVERLAY} />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <ScrollReveal className="mb-16 text-center">
+            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">Our Philosophy</p>
+            <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05]">
+              The Graylock Pillars
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-            <ScrollReveal delay={0.1}>
-              <p className="text-[#0f0f0f] font-sans text-lg md:text-xl leading-relaxed mb-6">
-                We don't take on every business that comes our way. We look for small and local businesses — service companies, contractors, healthcare practices, and professional firms — where we know, not hope,{" "}
-                <em className="text-[#B23E16] not-italic font-semibold">know</em>, that a better website will directly impact their ability to win more clients.
-              </p>
-              <p className="text-[#555] font-sans text-lg leading-relaxed mb-6">
-                When a contractor loses a job because their site looked outdated, or a healthcare practice can't fill its schedule because prospective clients never make it past the homepage — those are the moments we're solving for.
-              </p>
-              <p className="text-[#0f0f0f] font-sans text-lg leading-relaxed font-semibold">
-                Your growth is our portfolio.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2}>
-              <div className="space-y-8">
-                {[
-                  { label: "We Seek You Out", body: "We actively look for businesses where a new site will make a measurable difference — not just anyone willing to pay." },
-                  { label: "Your Success Is Personal", body: "We don't disappear after launch. We stay invested because watching our clients grow is the best part of this work." },
-                  { label: "Partners, Not Vendors", body: "We think of ourselves as part of your team. When you win, we win. It's that simple." },
-                ].map((item, i) => (
-                  <div key={i} className="border-l-2 border-[#E85D26] pl-6">
-                    <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.15em] text-xs mb-2">{item.label}</p>
-                    <p className="text-[#555] font-sans text-base leading-relaxed">{item.body}</p>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10">
+            {pillars.map((p, i) => (
+              <ScrollReveal key={p.title} delay={i * 0.08} className="h-full">
+                <div className={`h-full p-6 md:p-10 ${i % 2 === 0 ? "border-r border-white/10" : ""} ${i < 2 ? "border-b lg:border-b-0 border-white/10" : ""} ${i === 1 ? "lg:border-r lg:border-white/10" : ""} ${i === 2 ? "lg:border-r lg:border-white/10" : ""}`}>
+                  <p.icon className="text-[#E85D26] mb-5" size={30} strokeWidth={1.5} />
+                  <h3 className="text-lg md:text-xl font-display font-bold text-white uppercase tracking-wide mb-3">{p.title}</h3>
+                  <p className="text-stone font-sans text-sm leading-relaxed">{p.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── PULL QUOTE ── */}
-      <section className="bg-[#0f0f0f] py-24 md:py-32 px-6 md:px-12">
+      <section className="bg-black py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <span aria-hidden="true" className="block font-display text-7xl md:text-8xl leading-none text-[#E85D26] mb-2">&ldquo;</span>
@@ -114,16 +116,16 @@ export default function About() {
       </section>
 
       {/* ── FOUNDERS ── */}
-      <section className="bg-[#0f0f0f] py-4 md:py-8 px-6 md:px-12 pb-24 md:pb-32">
+      <section className="bg-[#111111] py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="mb-16 text-center">
             <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">The Founders</p>
-            <h2 className="text-4xl md:text-5xl font-display text-white leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05]">
               The People Behind the Work
             </h2>
           </ScrollReveal>
 
-          {/* Jared */}
+          {/* Jared — photo left, text right */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mb-20 md:mb-28">
             <ScrollReveal>
               <div className="relative">
@@ -131,33 +133,29 @@ export default function About() {
                   src={founderJared}
                   alt="Jared, Co-Founder of Graylock Digital"
                   loading="lazy"
-                  className="w-full aspect-[4/5] object-cover object-top grayscale"
+                  className="w-full aspect-[4/5] object-cover object-top grayscale contrast-110"
                 />
-                <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0f0f0f] to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#111111] to-transparent" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-4">Co-Founder</p>
-              <h3 className="text-4xl md:text-5xl font-display text-white uppercase tracking-wide mb-6">Jared</h3>
-              <p className="text-stone font-sans text-lg leading-relaxed mb-4">
-                Jared has spent years watching small business owners get oversold, underserved, and handed websites that don't actually work. He built Graylock to change that — and personally leads every engagement to make sure it does.
-              </p>
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-wide mb-6">
+                Jared <span className="text-[#E85D26]">—</span> Co-Founder
+              </h3>
               <p className="text-stone font-sans text-lg leading-relaxed">
-                He believes that a great website shouldn't be a luxury reserved for businesses with agency budgets. It should be table stakes for every hardworking practice owner in America.
+                I got tired of watching hardworking local business owners get taken advantage of by flashy agencies selling $20,000 digital brochures that didn't make the phone ring. I built Graylock Digital because the trades deserve better. A great website isn't a luxury for the Fortune 500 — it's the most important tool in your truck. I personally lead every engagement to make sure your site actually does its job: getting you more jobs.
               </p>
             </ScrollReveal>
           </div>
 
-          {/* Tim */}
+          {/* Tim — photo right, text left */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <ScrollReveal delay={0.1} className="order-2 md:order-1">
-              <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-4">Co-Founder</p>
-              <h3 className="text-4xl md:text-5xl font-display text-white uppercase tracking-wide mb-6">Tim</h3>
-              <p className="text-stone font-sans text-lg leading-relaxed mb-4">
-                Tim leads the strategy and process side of Graylock, having refined a build system that delivers custom, high-performing sites in 7–10 business days without cutting corners. What takes agencies months, he's made repeatable.
-              </p>
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-wide mb-6">
+                Tim <span className="text-[#E85D26]">—</span> Co-Founder
+              </h3>
               <p className="text-stone font-sans text-lg leading-relaxed">
-                He stays personally involved from kickoff to launch — because when your name is on the work, you care a lot more about getting it right.
+                Speed and quality usually don't mix in this industry. Agencies take months; cheap freelancers cut corners. I spent years engineering a build system that solves that. We deliver custom, high-converting sites in 7 to 10 days, built entirely in the USA. I oversee the strategy and architecture from kickoff to launch because when our name is on the product, it has to be perfect.
               </p>
             </ScrollReveal>
             <ScrollReveal className="order-1 md:order-2">
@@ -166,39 +164,42 @@ export default function About() {
                   src={founderTim}
                   alt="Tim, Co-Founder of Graylock Digital"
                   loading="lazy"
-                  className="w-full aspect-[4/5] object-cover object-top grayscale"
+                  className="w-full aspect-[4/5] object-cover object-top grayscale contrast-110"
                 />
-                <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0f0f0f] to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#111111] to-transparent" />
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* ── ORIGINS MILESTONE STRIP ── */}
-      <section className="bg-[#F4F1EC] py-20 md:py-28 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal className="mb-14">
-            <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">Our Origins</p>
-            <h2 className="text-4xl md:text-5xl font-display text-[#0f0f0f] leading-[1.1]">
-              How Graylock Came to Be
+      {/* ── THE GRAYLOCK WAY — TIMELINE ── */}
+      <section className="relative bg-black py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+        <div aria-hidden="true" className="absolute inset-0 opacity-[0.04] pointer-events-none" style={GRIT_OVERLAY} />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <ScrollReveal className="mb-16">
+            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">Our Story, Our Process</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05]">
+              The Graylock Way
             </h2>
           </ScrollReveal>
 
           <div className="relative">
             {/* Horizontal line (desktop) */}
-            <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-[#E85D26]/30" />
+            <div className="hidden md:block absolute top-[7px] left-0 right-0 h-px bg-[#E85D26]/30" />
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
-              {milestones.map((m, i) => (
-                <ScrollReveal key={i} delay={i * 0.12}>
-                  <div className="relative">
-                    {/* Orange dot on the line */}
-                    <div className="hidden md:flex absolute -top-1.5 left-0 w-3.5 h-3.5 rounded-full bg-[#E85D26]" />
-                    <div className="md:pt-10 md:pl-0 border-l-2 border-[#E85D26] md:border-l-0 pl-5 md:pl-0">
-                      <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.15em] text-xs mb-2">{m.label}</p>
-                      <p className="text-[#555] font-sans text-sm leading-relaxed">{m.text}</p>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-6">
+              {timeline.map((step, i) => (
+                <ScrollReveal key={step.label} delay={i * 0.1}>
+                  <div className="relative pl-8 md:pl-0">
+                    {/* Vertical connector segment (mobile) — dot center to next dot center, none after last step */}
+                    {i < timeline.length - 1 && (
+                      <div className="md:hidden absolute left-[7px] top-[7px] -bottom-[47px] w-px bg-[#E85D26]/30" />
+                    )}
+                    <div className="absolute top-0 left-0 md:relative md:mb-6 w-3.5 h-3.5 rounded-full bg-[#E85D26]" />
+                    <p className="text-[#E85D26] font-sans font-bold text-[11px] uppercase tracking-[0.15em] mb-1">Step {i + 1}</p>
+                    <p className="text-white font-display font-bold uppercase tracking-wide text-lg mb-2">{step.label}</p>
+                    <p className="text-stone font-sans text-sm leading-relaxed">{step.text}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -207,98 +208,40 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── TEAM STATS ── */}
-      <section className="bg-white py-20 md:py-28 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal className="mb-14">
-            <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">The Team Behind Your Website</p>
-            <h2 className="text-4xl md:text-5xl font-display text-[#0f0f0f] leading-[1.1] max-w-3xl">
-              U.S.-Based Team — Founder-Led on Every Project
-            </h2>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1} className="mb-12">
-            <p className="text-[#555] font-sans text-lg md:text-xl leading-relaxed max-w-3xl">
-              Graylock Digital was founded by <span className="text-[#0f0f0f] font-semibold">Tim and Jared</span>, who personally lead every engagement alongside a small, vetted team of U.S.-based strategists, designers, and developers. You will never be handed off to a junior account manager or routed through an offshore queue — the people who scope your project are the people who build it.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#e8e4dd]">
-              {[
-                { num: "100%", label: "U.S.-based team", body: "Strategy, design, copy, and development — all in-house, all in the United States." },
-                { num: "7–10", label: "Business-day delivery", body: "A repeatable build framework, refined project after project, that ships fast without cutting corners." },
-                { num: "1", label: "Named point of contact", body: "A single, accountable owner from kickoff through launch and beyond. No tickets. No phone trees." },
-              ].map((stat, i) => (
-                <div key={i} className={`p-8 md:p-10 ${i < 2 ? "md:border-r border-b md:border-b-0 border-[#e8e4dd]" : ""}`}>
-                  <p className="text-[#E85D26] font-display text-5xl md:text-6xl mb-3">{stat.num}</p>
-                  <p className="text-[#0f0f0f] font-sans font-semibold uppercase tracking-wide text-sm mb-2">{stat.label}</p>
-                  <p className="text-[#555] font-sans text-sm leading-relaxed">{stat.body}</p>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* ── OFFER BREAKDOWN ── */}
       <OfferBreakdownSection />
 
-      {/* ── PROUDLY AMERICAN ── */}
-      <section className="bg-[#F4F1EC] py-24 md:py-32 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal className="mb-14">
-            <div className="inline-flex items-center gap-2 text-[#B23E16] font-sans font-bold uppercase tracking-[0.18em] text-xs mb-6">
-              <Flag size={14} />
-              Proudly American
-            </div>
-            <h2 className="text-4xl md:text-6xl font-display text-[#0f0f0f] leading-[1.1] max-w-3xl">
+      {/* ── AMERICAN MADE ── */}
+      <section className="relative py-32 md:py-44 px-6 md:px-12 overflow-hidden">
+        <img
+          src={usaFlagBw}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover grayscale contrast-125"
+        />
+        <div className="absolute inset-0 bg-[#0a0a0a]/80" />
+        <div aria-hidden="true" className="absolute inset-0 opacity-[0.05] pointer-events-none" style={GRIT_OVERLAY} />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <ScrollReveal>
+            <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05] mb-8">
               100% U.S.-Based.{" "}
               <br className="hidden md:block" />
-              Zero Outsourcing.
+              <span className="text-[#E85D26]">Zero Outsourcing.</span>
             </h2>
+            <p className="text-white/85 font-sans text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+              Every line of code, every word of copy, and every design decision is made right here in the United States. We are a small American business supporting other hardworking American businesses. No offshore teams. No call centers. Just partners who care about your livelihood as much as you do.
+            </p>
           </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-            <ScrollReveal delay={0.1}>
-              <p className="text-[#555] font-sans text-lg md:text-xl leading-relaxed mb-10">
-                Every person who touches your project — from the first phone call to the final pixel — is a hardworking American who cares about your practice like it's their own.
-              </p>
-              <div className="space-y-6">
-                {[
-                  { icon: <MapPin size={18} className="text-[#E85D26]" />, label: "Built in America", body: "Every website is designed, developed, and maintained by our team right here in the United States. No exceptions." },
-                  { icon: <Heart size={18} className="text-[#E85D26]" />, label: "Americans Helping Americans", body: "We're proud to be a small American business supporting other small American businesses. Your success strengthens our communities." },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="mt-0.5 flex-shrink-0">{item.icon}</div>
-                    <div>
-                      <p className="text-[#0f0f0f] font-sans font-bold uppercase tracking-[0.12em] text-xs mb-1">{item.label}</p>
-                      <p className="text-[#555] font-sans text-sm leading-relaxed">{item.body}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={usaFlagBw}
-                  alt="American flag"
-                  loading="lazy"
-                  className="w-full h-full object-cover grayscale contrast-125"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
         </div>
       </section>
 
       {/* ── CORE VALUES ── */}
-      <section className="bg-[#0f0f0f] py-24 md:py-32 px-6 md:px-12">
+      <section className="bg-[#111111] py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal className="mb-16">
             <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-5">What We Stand For</p>
-            <h2 className="text-4xl md:text-5xl font-display text-white leading-[1.1]">Our Core Values</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[1.05]">Our Core Values</h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-white/10">
