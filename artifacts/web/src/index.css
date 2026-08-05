@@ -226,3 +226,7 @@
 @media (min-width: 768px) {
   .hb-hero { background-image: var(--hb-hero-bg); }
 }
+
+
+/* ScrollReveal animations are applied entirely via inline JS transitions;
+   no CSS keyframe class needed here. See ScrollReveal.tsx. */
