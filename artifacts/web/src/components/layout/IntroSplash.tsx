@@ -17,6 +17,8 @@ type Phase = "hidden" | "in" | "out";
  */
 function decideShowIntro(): boolean {
   if (typeof window === "undefined") return false;
+  // Automated browsers (crawlers, Lighthouse, screenshot tools) skip the intro.
+  if (window.navigator.webdriver) return false;
   let alreadyShown = true;
   try {
     alreadyShown = window.sessionStorage.getItem(SESSION_KEY) === "1";
