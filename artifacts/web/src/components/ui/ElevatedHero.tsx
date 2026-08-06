@@ -34,7 +34,7 @@ export function ElevatedHero({
       <link rel="preload" as="image" href={backgroundImage} fetchPriority="high" />
     </Helmet>
     <section
-      className="relative min-h-[70vh] md:min-h-[65vh] flex items-center justify-center px-6 md:px-12 py-24 overflow-hidden"
+      className="relative min-h-[48vh] md:min-h-[65vh] flex items-center justify-center px-6 md:px-12 pt-32 pb-16 md:py-24 overflow-hidden"
       style={{
         backgroundColor: "#0f0f0f",
         backgroundImage: `url(${backgroundImage})`,
@@ -46,7 +46,7 @@ export function ElevatedHero({
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <ScrollReveal>
           <h1
-            className={`font-display font-bold uppercase text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.98] tracking-[-0.02em]${hasContentBelow ? " mb-8" : ""}`}
+            className={`font-display font-bold uppercase text-white text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.98] tracking-[-0.02em]${hasContentBelow ? " mb-8" : ""}`}
           >
             {lines.map((line) => (
               <span key={line.text} className={`block${line.accent ? " text-[#E85D26]" : ""}`}>
