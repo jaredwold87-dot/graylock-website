@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <>
     <section
-      className="pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden relative"
+      className="pt-32 pb-16 md:pt-44 md:pb-20 overflow-hidden relative"
       style={{ backgroundColor: "#0f0f0f" }}
     >
       {/* Mobile only: layered stylized background */}
@@ -107,6 +107,14 @@ export function HeroSection() {
             "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.95) 35%, rgba(10,10,10,0.4) 55%, transparent 70%)",
         }}
       />
+      {/* Top blend: fades the image's top edge into the solid black navbar (kills the blue-gray sliver) */}
+      <div
+        className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, #0F0F0F 0%, rgba(15,15,15,0.85) 40%, transparent 100%)",
+        }}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-2xl">
           <ScrollReveal>
@@ -165,23 +173,25 @@ export function HeroSection() {
             </div>
           </ScrollReveal>
         </div>
-
-        {/* Trust items in the black band at the bottom of the hero */}
-        <div className="mt-12 md:mt-20 pt-5 md:pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-center lg:justify-between gap-x-8 gap-y-2.5">
-          {[
-            "Show up when clients search for you",
-            "Turn visitors into calls and estimate requests",
-            "Live in 7–10 days",
-            "Free website refresh every two years",
-          ].map((text, i) => (
-            <div key={i} className="flex items-center gap-2.5">
-              <Check size={15} strokeWidth={2.5} className="text-[#E85D26] flex-shrink-0" />
-              <span className="text-stone font-sans text-sm md:text-[15px] leading-snug">{text}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
+
+    {/* Solid black trust bar below the hero image */}
+    <div className="bg-black border-t border-white/[0.08] py-4 md:py-5 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center lg:justify-between gap-x-8 gap-y-2.5">
+        {[
+          "Show up when clients search for you",
+          "Turn visitors into calls and estimate requests",
+          "Live in 7–10 days",
+          "Free website refresh every two years",
+        ].map((text, i) => (
+          <div key={i} className="flex items-center gap-2.5">
+            <Check size={15} strokeWidth={2.5} className="text-[#E85D26] flex-shrink-0" />
+            <span className="text-stone font-sans text-sm md:text-[15px] leading-snug">{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
     </>
   );
 }
