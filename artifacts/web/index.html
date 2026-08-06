@@ -41,9 +41,9 @@
       #intro-splash{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;background:#0F0F0F url(/splash-bg-mobile.webp) center/cover no-repeat;transition:opacity .5s ease-in;}
       @media (min-width:768px){#intro-splash{background-image:url(/splash-bg-desktop-v2.webp)}}
       #intro-splash.intro-splash--out{opacity:0;pointer-events:none}
-      #intro-splash img{width:230px;height:auto}
+      #intro-splash img{position:absolute;top:66.67%;left:50%;transform:translateX(-50%);width:230px;height:auto}
       @media (min-width:768px){#intro-splash img{width:300px}}
-      #intro-splash p{margin:0 0 44px;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#F2F3F5;text-align:center;font-size:2.1rem;line-height:1.22}
+      #intro-splash p{margin:0;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#F2F3F5;text-align:center;font-size:2.1rem;line-height:1.22}
       @media (min-width:768px){#intro-splash p{font-size:3.5rem}}
       @keyframes splash-line-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
       #intro-splash p span{display:block;animation:splash-line-in .45s ease-out both}
