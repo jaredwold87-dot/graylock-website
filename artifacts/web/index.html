@@ -43,10 +43,14 @@
       #intro-splash.intro-splash--out{opacity:0;pointer-events:none}
       #intro-splash img{width:230px;height:auto}
       @media (min-width:768px){#intro-splash img{width:300px}}
-      #intro-splash p{margin:44px 0 0;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#F2F3F5;text-align:center;font-size:2.1rem;line-height:1.22}
+      #intro-splash p{margin:0 0 44px;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#F2F3F5;text-align:center;font-size:2.1rem;line-height:1.22}
       @media (min-width:768px){#intro-splash p{font-size:2.9rem}}
-      #intro-splash p span{display:block}
-      @media (min-width:768px){#intro-splash p span{display:inline}}
+      @keyframes splash-line-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+      #intro-splash p span{display:block;animation:splash-line-in .45s ease-out both}
+      @media (min-width:768px){#intro-splash p span{display:inline-block}}
+      #intro-splash p span:nth-child(1){animation-delay:.15s}
+      #intro-splash p span:nth-child(2){animation-delay:.55s}
+      #intro-splash p span:nth-child(3){animation-delay:.95s}
       #intro-splash .splash-orange{color:#E85D26}
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9YFQ865HBJ"></script>
@@ -59,12 +63,12 @@
   </head>
   <body style="background-color: #0F0F0F;">
     <div id="intro-splash" aria-hidden="true">
-      <img src="/logo-horizontal.png" alt="" width="1280" height="261" fetchpriority="high" decoding="sync">
       <p>
         <span>Your Website.</span>
         <span>Your Reputation.</span>
         <span class="splash-orange">Elevated.</span>
       </p>
+      <img src="/logo-horizontal.png" alt="" width="1280" height="261" fetchpriority="high" decoding="sync">
     </div>
     <script>
       (function () {
@@ -90,11 +94,11 @@
         document.documentElement.style.overflow = "hidden";
         window.setTimeout(function () {
           el.classList.add("intro-splash--out");
-        }, 2000);
+        }, 2250);
         window.setTimeout(function () {
           if (el.parentNode) el.parentNode.removeChild(el);
           document.documentElement.style.overflow = "";
-        }, 2550);
+        }, 2800);
       })();
     </script>
     <div id="root"></div>
