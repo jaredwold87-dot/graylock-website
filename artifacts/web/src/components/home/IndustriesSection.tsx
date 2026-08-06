@@ -13,7 +13,6 @@ import {
   Smile,
   Eye,
   Dumbbell,
-  Scale,
   Calculator,
   Hammer,
 } from "lucide-react";
@@ -36,7 +35,6 @@ const customerTypes = [
   { label: "Excavation Companies", icon: Truck },
   { label: "Electricians", icon: Zap },
   { label: "Physical Therapists", icon: Dumbbell },
-  { label: "Law Firms", icon: Scale },
 ];
 
 export function IndustriesSection() {
