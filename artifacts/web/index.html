@@ -92,12 +92,16 @@
           return;
         }
         document.documentElement.style.overflow = "hidden";
+        // Release the scroll lock while the overlay is still fully opaque so
+        // the scrollbar's layout shift happens invisibly behind it.
+        window.setTimeout(function () {
+          document.documentElement.style.overflow = "";
+        }, 2100);
         window.setTimeout(function () {
           el.classList.add("intro-splash--out");
         }, 2250);
         window.setTimeout(function () {
           if (el.parentNode) el.parentNode.removeChild(el);
-          document.documentElement.style.overflow = "";
         }, 2800);
       })();
     </script>
