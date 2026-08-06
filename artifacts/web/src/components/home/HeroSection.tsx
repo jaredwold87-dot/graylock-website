@@ -132,7 +132,7 @@ export function HeroSection() {
                   variant="funnel"
                   className="w-full"
                 >
-                  See What Your New Site Could Look Like — Free
+                  Book a Discovery Call
                 </CTAButton>
               </div>
 
@@ -142,7 +142,7 @@ export function HeroSection() {
 
               <div className="-mx-6">
                 <img
-                  src={`${BASE}hero-mobile-device-v2.png`}
+                  src={`${BASE}hero-mobile-device-v2.webp`}
                   alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
                   className="w-full h-auto"
                   loading="eager"
@@ -158,7 +158,7 @@ export function HeroSection() {
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
                 <CTAButton href="/get-started" variant="funnel">
-                  See What Your New Site Could Look Like — Free
+                  Book a Discovery Call
                 </CTAButton>
               </div>
 

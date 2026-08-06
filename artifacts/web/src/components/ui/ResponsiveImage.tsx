@@ -6,7 +6,7 @@ interface ResponsiveImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export function ResponsiveImage({ src, alt, ...imgProps }: ResponsiveImageProps) {
-  const base = src.replace(/\?.*$/, "").replace(/\.(jpg|jpeg|png)$/i, "");
+  const base = src.replace(/\?.*$/, "").replace(/\.(jpg|jpeg|png|webp)$/i, "");
   const desktopWebp = `${base}.webp`;
   const mobileWebp = `${base}-mobile.webp`;
   const mobileJpg = `${base}-mobile.jpg`;
