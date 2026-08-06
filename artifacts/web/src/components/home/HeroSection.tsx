@@ -168,8 +168,8 @@ export function HeroSection() {
       </div>
     </section>
 
-    {/* Slim black trust bar below the hero */}
-    <div className="bg-black border-t border-white/[0.06] py-4 md:py-5 px-6 md:px-12">
+    {/* Slim trust bar below the hero */}
+    <div className="bg-[#F4F1EC] border-b border-[#0f0f0f]/10 py-4 md:py-5 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center lg:justify-between gap-x-8 gap-y-2.5">
         {[
           "Show up when clients search for you",
@@ -178,8 +178,8 @@ export function HeroSection() {
           "Free website refresh every two years",
         ].map((text, i) => (
           <div key={i} className="flex items-center gap-2.5">
-            <Check size={15} strokeWidth={2.5} className="text-[#E85D26] flex-shrink-0" />
-            <span className="text-stone font-sans text-sm md:text-[15px] leading-snug">{text}</span>
+            <Check size={15} strokeWidth={2.5} className="text-[#B23E16] flex-shrink-0" />
+            <span className="text-[#0f0f0f]/75 font-sans text-sm md:text-[15px] leading-snug">{text}</span>
           </div>
         ))}
       </div>

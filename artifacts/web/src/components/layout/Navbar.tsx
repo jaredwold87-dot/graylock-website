@@ -34,14 +34,14 @@ export function Navbar() {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-6 md:px-12",
+          "fixed top-0 left-0 right-0 z-50 bg-[#0F0F0F] transition-all duration-500 py-4 px-6 md:px-12",
           isScrolled
-            ? "glass-nav-scrolled border-b border-gunmetal/50 py-3"
-            : "glass-nav border-b border-transparent"
+            ? "border-b border-gunmetal/50 py-3 shadow-[0_1px_0_rgba(232,93,38,0.1),0_4px_20px_rgba(0,0,0,0.3)]"
+            : "border-b border-white/[0.06]"
         )}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center group">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
+          <Link href="/" className="flex items-center group flex-shrink-0">
             <img
               src={`${import.meta.env.BASE_URL}logo-horizontal.png`}
               alt="Graylock Digital"
@@ -49,39 +49,40 @@ export function Navbar() {
             />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
-            <div className="flex items-center gap-6">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.path}
-                  href={link.path}
+          <div className="hidden md:flex items-center justify-center flex-1 gap-6 lg:gap-9">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                className={cn(
+                  "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative whitespace-nowrap",
+                  location === link.path
+                    ? "text-orange"
+                    : "text-offwhite/90 hover:text-orange"
+                )}
+              >
+                {link.name}
+                <span
                   className={cn(
-                    "text-[15px] font-sans font-semibold tracking-[0.01em] transition-all duration-300 relative",
-                    location === link.path
-                      ? "text-orange"
-                      : "text-offwhite/90 hover:text-orange"
+                    "absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300",
+                    location === link.path ? "w-full" : "w-0"
                   )}
-                >
-                  {link.name}
-                  <span
-                    className={cn(
-                      "absolute -bottom-1 left-0 h-0.5 bg-orange transition-all duration-300",
-                      location === link.path ? "w-full" : "w-0"
-                    )}
-                  />
-                </Link>
-              ))}
-            </div>
+                />
+              </Link>
+            ))}
+          </div>
+
+          <div className="hidden md:flex items-center gap-6 flex-shrink-0">
             <a
               href={`tel:${CONTACT_PHONE_TEL}`}
-              className="hidden lg:flex items-center gap-2 text-offwhite/90 hover:text-orange font-sans font-semibold text-sm transition-colors"
+              className="hidden lg:flex items-center gap-2 text-offwhite/90 hover:text-orange font-sans font-semibold text-sm transition-colors whitespace-nowrap"
             >
               <Phone size={15} aria-hidden="true" />
               Call Now
             </a>
             <Link
               href="/get-started"
-              className="cta-shimmer bg-orange text-white text-sm font-bold px-5 py-2.5 rounded hover:bg-orange/90 transition-all duration-300 shadow-[0_2px_12px_rgba(232,93,38,0.25)] hover:shadow-[0_4px_20px_rgba(232,93,38,0.4)] hover:-translate-y-0.5"
+              className="cta-shimmer bg-orange text-white text-sm font-bold px-5 py-2.5 rounded hover:bg-orange/90 transition-all duration-300 shadow-[0_2px_12px_rgba(232,93,38,0.25)] hover:shadow-[0_4px_20px_rgba(232,93,38,0.4)] hover:-translate-y-0.5 whitespace-nowrap"
             >
               Book a Discovery Call
             </Link>
