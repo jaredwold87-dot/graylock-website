@@ -172,7 +172,7 @@ export function HeroSection() {
 
     {/* Solid trust bar at the bottom of the hero */}
     <div className="relative z-10 bg-black border-t border-white/[0.08] py-4 md:py-5 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center lg:justify-between gap-x-8 gap-y-2.5">
+      <div className="max-w-7xl mx-auto flex flex-col items-start w-fit lg:w-auto lg:flex-row lg:flex-wrap lg:items-center lg:justify-between gap-x-8 gap-y-2.5">
         {[
           "Show up when clients search for you",
           "Turn visitors into calls and estimate requests",
