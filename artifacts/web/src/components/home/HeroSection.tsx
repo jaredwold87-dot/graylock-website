@@ -85,7 +85,7 @@ export function HeroSection() {
       {/* Desktop/tablet background image */}
       <div className="hidden md:block">
         <img
-          src={`${BASE}hero-edge-2.webp`}
+          src={`${BASE}hero-edge-2b.webp`}
           alt=""
           aria-hidden="true"
           fetchPriority="high"

@@ -8,7 +8,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { Layout } from "@/components/layout/Layout";
-import { IntroSplash } from "@/components/layout/IntroSplash";
 import { prefetchNavAssets } from "@/lib/prefetchNavAssets";
 import { GlobalSchema } from "@/components/GlobalSchema";
 import Home from "@/pages/Home";
@@ -143,7 +142,6 @@ function App() {
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
-          <IntroSplash />
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
             <GlobalSchema />
             <ScrollToTop />
