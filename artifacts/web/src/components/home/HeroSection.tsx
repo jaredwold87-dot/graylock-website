@@ -116,7 +116,7 @@ export function HeroSection() {
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
               Custom Websites for Service Businesses
             </p>
-            <h1 className="text-5xl md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
+            <h1 className="text-[2.5rem] md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
               Every Day Your Website Underperforms,{" "}
               <span className="text-[#E85D26]">a Client Chooses Your Competitor.</span>
             </h1>
