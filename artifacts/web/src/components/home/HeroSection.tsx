@@ -1,11 +1,27 @@
+import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { HeroBackgroundImage } from "@/components/ui/HeroBackgroundImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const BASE = import.meta.env.BASE_URL;
 
+// Temporary A/B/C test: rotates every 5s so Tim can pick a winner.
+const HERO_BG_CANDIDATES = [
+  `${BASE}hero-edge-1.webp`,
+  `${BASE}hero-edge-2.webp`,
+  `${BASE}hero-edge-3.webp`,
+];
+
 export function HeroSection() {
+  const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setBgIndex((i) => (i + 1) % HERO_BG_CANDIDATES.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <>
     <section
@@ -83,13 +99,22 @@ export function HeroSection() {
             "linear-gradient(to right, transparent 0%, rgba(232,93,38,0.5) 50%, transparent 100%)",
         }}
       />
-      {/* Desktop/tablet background image — unchanged behavior */}
+      {/* Desktop/tablet background image — rotating candidates, crossfade every 5s */}
       <div className="hidden md:block">
-        <HeroBackgroundImage
-          src={`${BASE}hero-bg-device-v4.webp`}
-          objectPosition="right center"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {HERO_BG_CANDIDATES.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            aria-hidden="true"
+            fetchPriority={i === 0 ? "high" : "low"}
+            decoding="async"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              i === bgIndex ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ objectPosition: "right center" }}
+          />
+        ))}
       </div>
       {/* Tablet only (768–1023px): heavy near-black overlay over the desktop image */}
       <div
