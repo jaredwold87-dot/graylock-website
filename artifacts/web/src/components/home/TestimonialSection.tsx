@@ -1,5 +1,6 @@
+import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Lock, Star } from "lucide-react";
+import { ArrowRight, Lock, Star } from "lucide-react";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
 
 export function TestimonialSection() {
@@ -68,6 +69,13 @@ export function TestimonialSection() {
                   L.A. Perks Petroleum Specialists
                 </p>
               </figcaption>
+              <Link
+                href="/featured-projects"
+                className="inline-flex items-center gap-2 mt-6 text-[#B23E16] hover:text-[#E85D26] font-sans font-semibold text-sm uppercase tracking-[0.12em] transition-colors group"
+              >
+                View Our Portfolio &amp; More Reviews
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+              </Link>
             </figure>
           </ScrollReveal>
         </div>

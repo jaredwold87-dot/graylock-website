@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { Layout } from "@/components/layout/Layout";
+import { prefetchNavAssets } from "@/lib/prefetchNavAssets";
 import { GlobalSchema } from "@/components/GlobalSchema";
 import Home from "@/pages/Home";
 import HowItWorks from "@/pages/HowItWorks";
@@ -71,6 +72,13 @@ function ScrollToTop() {
 
 function PageTracker() {
   usePageTracking();
+  return null;
+}
+
+function NavPrefetcher() {
+  useEffect(() => {
+    prefetchNavAssets();
+  }, []);
   return null;
 }
 
@@ -138,6 +146,7 @@ function App() {
             <GlobalSchema />
             <ScrollToTop />
             <PageTracker />
+            <NavPrefetcher />
             <SiteSettingsProvider>
               <Layout>
                 <Router />
