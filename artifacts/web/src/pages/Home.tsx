@@ -13,6 +13,7 @@ export default function Home() {
     <>
       <SEO
         title="Graylock Digital — Custom Websites for Trust-Based Businesses"
+        ogTitle="Your Website. Your Reputation. Elevated."
         description="Mobile-first websites for private medical practices, accounting firms, and industrial & construction companies. Built in 7–10 business days. Flat monthly rate, no long-term contracts."
         url="https://graylockdigital.com/"
       />
