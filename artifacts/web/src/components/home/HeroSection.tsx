@@ -124,22 +124,8 @@ export function HeroSection() {
               We build custom, conversion-focused websites that show up on Google, earn trust in seconds, and turn visitors into booked appointments — live in 7–10 days.
             </p>
 
-            {/* Mobile-only sequence: CTA → reassurance → bullets → proof image */}
+            {/* Mobile-only sequence: proof image → CTA → reassurance */}
             <div className="md:hidden">
-              <div className="flex justify-center mb-6">
-                <CTAButton
-                  href="/get-started"
-                  variant="funnel"
-                  className="w-full"
-                >
-                  Book a Discovery Call
-                </CTAButton>
-              </div>
-
-              <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance mb-8">
-                We'll show you exactly what your new site could look like — before you spend a dollar.
-              </p>
-
               <div className="-mx-6">
                 <img
                   src={`${BASE}hero-mobile-device-v2.webp`}
@@ -152,6 +138,20 @@ export function HeroSection() {
                   A real Graylock-built website, viewable on any device.
                 </p>
               </div>
+
+              <div className="flex justify-center mt-8 mb-6">
+                <CTAButton
+                  href="/get-started"
+                  variant="funnel"
+                  className="w-full"
+                >
+                  Book a Discovery Call
+                </CTAButton>
+              </div>
+
+              <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance">
+                We'll show you exactly what your new site could look like — before you spend a dollar.
+              </p>
             </div>
 
             {/* Tablet/desktop sequence */}
