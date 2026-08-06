@@ -25,7 +25,7 @@ export function HeroSection() {
   return (
     <>
     <section
-      className="pt-32 pb-16 md:pt-44 md:pb-20 overflow-hidden relative"
+      className="overflow-hidden relative"
       style={{ backgroundColor: "#0f0f0f" }}
     >
       {/* Mobile only: layered stylized background */}
@@ -132,15 +132,7 @@ export function HeroSection() {
             "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.95) 35%, rgba(10,10,10,0.4) 55%, transparent 70%)",
         }}
       />
-      {/* Top blend: fades the image's top edge into the solid black navbar (kills the blue-gray sliver) */}
-      <div
-        className="absolute inset-x-0 top-0 h-32 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, #0F0F0F 0%, rgba(15,15,15,0.85) 40%, transparent 100%)",
-        }}
-      />
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-32 pb-16 md:pt-44 md:pb-20">
         <div className="max-w-2xl">
           <ScrollReveal>
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
@@ -199,10 +191,9 @@ export function HeroSection() {
           </ScrollReveal>
         </div>
       </div>
-    </section>
 
-    {/* Solid black trust bar below the hero image */}
-    <div className="bg-black border-t border-white/[0.08] py-4 md:py-5 px-6 md:px-12">
+    {/* Trust bar at the bottom of the hero — image continues behind it */}
+    <div className="relative z-10 bg-black/50 border-t border-white/[0.08] py-4 md:py-5 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center lg:justify-between gap-x-8 gap-y-2.5">
         {[
           "Show up when clients search for you",
@@ -217,6 +208,7 @@ export function HeroSection() {
         ))}
       </div>
     </div>
+    </section>
     </>
   );
 }
