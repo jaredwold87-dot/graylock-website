@@ -41,7 +41,7 @@ function LeadCaptureForm({ onSubmit, loading }: { onSubmit: (name: string, email
             onChange={(e) => setName(e.target.value)}
             maxLength={100}
             required
-            className="w-full bg-charcoal border border-gunmetal rounded-lg px-3 py-2.5 text-offwhite text-sm placeholder:text-stone/50 focus:outline-none focus:border-orange/50 transition-colors"
+            className="w-full bg-[#0F0F0F] border border-[#2A2A2A] rounded-lg px-3 py-2.5 text-offwhite text-sm placeholder:text-stone/50 focus:outline-none focus:border-orange/50 transition-colors"
           />
           <input
             type="email"
@@ -50,7 +50,7 @@ function LeadCaptureForm({ onSubmit, loading }: { onSubmit: (name: string, email
             onChange={(e) => setEmail(e.target.value)}
             maxLength={200}
             required
-            className="w-full bg-charcoal border border-gunmetal rounded-lg px-3 py-2.5 text-offwhite text-sm placeholder:text-stone/50 focus:outline-none focus:border-orange/50 transition-colors"
+            className="w-full bg-[#0F0F0F] border border-[#2A2A2A] rounded-lg px-3 py-2.5 text-offwhite text-sm placeholder:text-stone/50 focus:outline-none focus:border-orange/50 transition-colors"
           />
           <button
             type="submit"
@@ -74,7 +74,7 @@ function MessageBubble({ message }: { message: ChatMessage }) {
         className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
           isUser
             ? "bg-orange text-white rounded-br-md"
-            : "bg-gunmetal/60 text-offwhite rounded-bl-md"
+            : "bg-[#232323]/60 text-offwhite rounded-bl-md"
         }`}
       >
         {message.content}
@@ -87,7 +87,7 @@ function StreamingBubble({ content }: { content: string }) {
   if (!content) {
     return (
       <div className="flex justify-start mb-3">
-        <div className="bg-gunmetal/60 rounded-2xl rounded-bl-md px-3.5 py-2.5">
+        <div className="bg-[#232323]/60 rounded-2xl rounded-bl-md px-3.5 py-2.5">
           <div className="flex gap-1">
             <span className="w-2 h-2 bg-stone/50 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
             <span className="w-2 h-2 bg-stone/50 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
@@ -100,7 +100,7 @@ function StreamingBubble({ content }: { content: string }) {
 
   return (
     <div className="flex justify-start mb-3">
-      <div className="max-w-[85%] bg-gunmetal/60 text-offwhite rounded-2xl rounded-bl-md px-3.5 py-2.5 text-sm leading-relaxed">
+      <div className="max-w-[85%] bg-[#232323]/60 text-offwhite rounded-2xl rounded-bl-md px-3.5 py-2.5 text-sm leading-relaxed">
         {content}
       </div>
     </div>
@@ -263,8 +263,8 @@ export function ChatWidget() {
   return (
     <>
       {isOpen && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-[380px] max-h-[min(520px,calc(100vh-120px))] bg-navy border border-gunmetal rounded-2xl shadow-2xl shadow-black/40 flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-200">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-gunmetal bg-charcoal/50">
+        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-[380px] max-h-[min(520px,calc(100vh-120px))] bg-[#161616] border border-[#2A2A2A] rounded-2xl shadow-2xl shadow-black/40 flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-200">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-[#2A2A2A] bg-[#0F0F0F]/50">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-orange/20 flex items-center justify-center">
                 <MessageCircle className="text-orange" size={16} />
@@ -298,7 +298,7 @@ export function ChatWidget() {
                 <div ref={messagesEndRef} />
               </div>
 
-              <div className="p-3 border-t border-gunmetal bg-charcoal/30">
+              <div className="p-3 border-t border-[#2A2A2A] bg-[#0F0F0F]/30">
                 <div className="flex items-center gap-2">
                   <input
                     ref={inputRef}
@@ -309,7 +309,7 @@ export function ChatWidget() {
                     placeholder="Ask a question..."
                     maxLength={1000}
                     disabled={isStreaming}
-                    className="flex-1 bg-charcoal border border-gunmetal rounded-lg px-3 py-2 text-offwhite text-sm placeholder:text-stone/50 focus:outline-none focus:border-orange/50 transition-colors disabled:opacity-50"
+                    className="flex-1 bg-[#0F0F0F] border border-[#2A2A2A] rounded-lg px-3 py-2 text-offwhite text-sm placeholder:text-stone/50 focus:outline-none focus:border-orange/50 transition-colors disabled:opacity-50"
                   />
                   <button
                     onClick={handleSendMessage}
@@ -330,7 +330,7 @@ export function ChatWidget() {
         onClick={() => setIsOpen(!isOpen)}
         className={`fixed bottom-4 right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-lg shadow-black/30 flex items-center justify-center transition-all duration-200 ${
           isOpen
-            ? "bg-gunmetal hover:bg-gunmetal/80 scale-90"
+            ? "bg-[#232323] hover:bg-[#232323]/80 scale-90"
             : "bg-orange hover:bg-orange/90 hover:scale-105"
         }`}
         aria-label={isOpen ? "Close chat" : "Open chat"}
