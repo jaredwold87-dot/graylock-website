@@ -16,6 +16,7 @@ import oliveCreekTransformation from "@/assets/work/olive-creek-transformation.w
 import advantageTransformation from "@/assets/work/advantage-transformation.webp";
 import bentOnEducationTransformation from "@/assets/work/bent-on-education-transformation.webp";
 import wicksTransformation from "@/assets/work/wicks-transformation.webp";
+import willowTransformation from "@/assets/work/willow-transformation.webp";
 import bluegrassTransformation from "@/assets/work/bluegrass-transformation.webp";
 import jcsWellServicesTransformation from "@/assets/work/jcs-well-services-transformation.webp";
 import rosenlundDrillingTransformation from "@/assets/work/rosenlund-drilling-transformation.webp";
@@ -49,6 +50,27 @@ type FeaturedProject = {
 
 const featuredProjects: FeaturedProject[] = [
   {
+    name: "Willow Realty Group",
+    category: "Southern Idaho Real Estate",
+    location: "Serving the Magic Valley",
+    description:
+      "A polished, landscape-driven site for a Southern Idaho real estate group — built to pair full property search with the trust Willow has earned from hundreds of Magic Valley families.",
+    image: willowTransformation,
+    url: "https://willowrealestategroup.com/",
+    theme: "light",
+    delivered: [
+      "Property search integration",
+      "Home valuation tool",
+      "Agent contact flows",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Willow Realty Group",
+      role: "Serving the Magic Valley",
+      note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
     name: "Wicks Land & Yard Management",
     category: "Land Management & Excavation",
     location: "Godfrey, IL · Owner-Operated",
@@ -70,29 +92,6 @@ const featuredProjects: FeaturedProject[] = [
       ],
       name: "Wicks Land & Yard Management",
       role: "Godfrey, IL",
-    },
-  },
-  {
-    name: "Smart Tax CRNA",
-    category: "Tax Strategy for CRNAs",
-    location: "Serving CRNAs in All 50 States",
-    description:
-      "A credible, trust-first site for a CRNA-owned tax firm — built to speak directly to nurse anesthetists and turn specialized expertise into booked strategy calls.",
-    image: smartTaxCrnaTransformation,
-    url: "https://www.smarttaxcrna.com/",
-    theme: "light",
-    delivered: [
-      "Industry-researched design",
-      "Strategy call booking flow",
-      "Service & pricing pages",
-      "Mobile-responsive build",
-    ],
-    testimonial: {
-      quote: [
-        "I can't say enough great things about Tim and Graylock Digital! From start to finish, the entire process was seamless. Tim took the time to truly understand my vision for the website and went above and beyond to make sure every detail was exactly right. His communication, professionalism, and dedication made the experience stress-free and enjoyable. The final result exceeded every expectation I had. If you're looking for a team that genuinely cares about your success and delivers exceptional results, I highly recommend them!",
-      ],
-      name: "Rosi",
-      role: "Founder, Smart Tax CRNA",
     },
   },
   {
@@ -252,6 +251,29 @@ const featuredProjects: FeaturedProject[] = [
       name: "West Coast Eye Institute",
       role: "Citrus County, FL",
       note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Smart Tax CRNA",
+    category: "Tax Strategy for CRNAs",
+    location: "Serving CRNAs in All 50 States",
+    description:
+      "A credible, trust-first site for a CRNA-owned tax firm — built to speak directly to nurse anesthetists and turn specialized expertise into booked strategy calls.",
+    image: smartTaxCrnaTransformation,
+    url: "https://www.smarttaxcrna.com/",
+    theme: "light",
+    delivered: [
+      "Industry-researched design",
+      "Strategy call booking flow",
+      "Service & pricing pages",
+      "Mobile-responsive build",
+    ],
+    testimonial: {
+      quote: [
+        "I can't say enough great things about Tim and Graylock Digital! From start to finish, the entire process was seamless. Tim took the time to truly understand my vision for the website and went above and beyond to make sure every detail was exactly right. His communication, professionalism, and dedication made the experience stress-free and enjoyable. The final result exceeded every expectation I had. If you're looking for a team that genuinely cares about your success and delivers exceptional results, I highly recommend them!",
+      ],
+      name: "Rosi",
+      role: "Founder, Smart Tax CRNA",
     },
   },
   {
