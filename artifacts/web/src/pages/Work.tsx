@@ -17,6 +17,7 @@ import advantageTransformation from "@/assets/work/advantage-transformation.webp
 import bentOnEducationTransformation from "@/assets/work/bent-on-education-transformation.webp";
 import wicksTransformation from "@/assets/work/wicks-transformation.webp";
 import willowTransformation from "@/assets/work/willow-transformation.webp";
+import crnaMentorTransformation from "@/assets/work/crna-mentor-transformation.webp";
 import bluegrassTransformation from "@/assets/work/bluegrass-transformation.webp";
 import jcsWellServicesTransformation from "@/assets/work/jcs-well-services-transformation.webp";
 import rosenlundDrillingTransformation from "@/assets/work/rosenlund-drilling-transformation.webp";
@@ -59,7 +60,7 @@ const featuredProjects: FeaturedProject[] = [
     url: "https://willowrealestategroup.com/",
     theme: "light",
     delivered: [
-      "Property search integration",
+      "Custom IDX integration with their local MLS",
       "Home valuation tool",
       "Agent contact flows",
       "Mobile-responsive build",
@@ -204,8 +205,7 @@ const featuredProjects: FeaturedProject[] = [
     ],
     testimonial: {
       quote: [
-        "Before working with Graylock, I struggled to put into words exactly what I do and who I help. Tim and his team built a site that explains my practice clearly and speaks straight to the parents and families I want to serve — so by the time someone reaches out, they already understand how I can help them.",
-        "It has made a real difference. I'm getting more of the right inquiries, and new clients regularly tell me they booked because the website made them feel comfortable and confident before we ever spoke. I couldn't be happier with how it represents my work.",
+        "The Graylock Digital team did an amazing job on my new website, and I've already seen an increase in new client inquiries since it launched. Tim has been wonderful to work with throughout the process. He's incredibly knowledgeable, responsive, and always willing to answer questions or help whenever I need it. I highly recommend Graylock Digital to anyone looking for a team that truly cares about helping your business grow.",
       ],
       name: "Bobbie Wold",
       role: "Owner, Montana Counseling Solutions",
@@ -426,6 +426,29 @@ const featuredProjects: FeaturedProject[] = [
       name: "JC's Well Services",
       role: "Eugene & Lane County, OR",
       note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "CRNA Mentor",
+    category: "CRNA Admissions Mentorship",
+    location: "Serving Aspiring CRNAs Nationwide",
+    description:
+      "A confident, conversion-focused site for a CRNA admissions mentorship program — built to speak directly to ICU nurses chasing anesthesia school and turn them into booked calls and members.",
+    image: crnaMentorTransformation,
+    url: "https://www.crnamentor.com/",
+    theme: "light",
+    delivered: [
+      "Free call booking flow",
+      "Membership & program pages",
+      "Podcast & community hub",
+      "Mobile-responsive build",
+    ],
+    testimonial: {
+      quote: [
+        "Tim and his team were incredible to work with — thorough, efficient, and professional! I couldn't have had a better experience building my website! Thanks Graylock Digital!",
+      ],
+      name: "CRNA Mentor",
+      role: "Founder",
     },
   },
 ];
