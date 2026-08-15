@@ -42,17 +42,17 @@ export function WellDrillerProcessSection() {
     <section
       id="how-it-works"
       ref={sectionRef}
-      className="scroll-mt-[118px] bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 border-t border-white/5"
+      className="scroll-mt-[118px] bg-[#F5F5F5] py-20 md:py-28 px-6 md:px-12"
     >
       <div className="max-w-7xl mx-auto">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
-          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
+          <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
             How It Works
           </p>
-          <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] mb-6">
             The First Step Is Simple. The Demo Makes It Real.
           </h2>
-          <p className="text-stone text-lg font-sans leading-relaxed">
+          <p className="text-[#1A1A1A]/70 text-lg font-sans leading-relaxed">
             You keep running the crew. We learn what matters to the business, build a clear
             direction, and handle the website work if you decide the new site is worth moving
             forward with.
@@ -77,8 +77,8 @@ export function WellDrillerProcessSection() {
               return (
                 <ScrollReveal key={step.title} delay={i * 0.08}>
                   <div className="relative flex xl:block items-start gap-5">
-                    <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-[#0f0f0f] border border-[#E85D26]/50 flex items-center justify-center xl:mb-5">
-                      <span className="font-display text-[#E85D26] text-base font-bold">
+                    <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-white border border-[#E85D26]/60 flex items-center justify-center xl:mb-5">
+                      <span className="font-display text-[#B23E16] text-base font-bold">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -86,10 +86,10 @@ export function WellDrillerProcessSection() {
                       <div className="hidden xl:block text-[#E85D26] mb-3" aria-hidden="true">
                         <Icon size={19} strokeWidth={2.2} />
                       </div>
-                      <h3 className="text-white font-sans font-semibold text-lg xl:text-base mb-2 leading-snug">
+                      <h3 className="text-[#1A1A1A] font-sans font-semibold text-lg xl:text-base mb-2 leading-snug">
                         {step.title}
                       </h3>
-                      <p className="text-stone font-sans text-base xl:text-sm leading-relaxed">
+                      <p className="text-[#1A1A1A]/70 font-sans text-base xl:text-sm leading-relaxed">
                         {step.desc}
                       </p>
                     </div>
@@ -102,12 +102,12 @@ export function WellDrillerProcessSection() {
 
         {/* Timing statement (spec §9) — the 10–15 minutes is the conversation, never the demo build */}
         <ScrollReveal delay={0.1} className="mt-12 md:mt-16">
-          <div className="max-w-3xl mx-auto rounded-xl border border-white/10 bg-white/[0.03] px-6 py-6 md:px-8 md:py-7 text-center">
-            <p className="text-white font-sans text-base md:text-lg leading-relaxed">
+          <div className="max-w-3xl mx-auto rounded-xl border border-[#1A1A1A]/10 bg-white px-6 py-6 md:px-8 md:py-7 text-center">
+            <p className="text-[#1A1A1A] font-sans text-base md:text-lg leading-relaxed">
               The demo begins with a short{" "}
-              <span className="text-[#E85D26] font-semibold">10–15 minute conversation</span>.
+              <span className="text-[#B23E16] font-semibold">10–15 minute conversation</span>.
               Most core full-site builds are ready in{" "}
-              <span className="text-[#E85D26] font-semibold">7–10 business days</span> once the
+              <span className="text-[#B23E16] font-semibold">7–10 business days</span> once the
               direction, materials, and required access are ready.
             </p>
           </div>

@@ -1,10 +1,11 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 /**
- * "Why We Called" — the written version of the actual outreach call. Four
+ * "Who We Work With" — the written version of the actual outreach call. Four
  * labeled answers, in order: what we do, why we reached out, why we want to
- * work with this business, and how we'll help. No CTA by design; it bridges
- * into the gut-check section below.
+ * work with this business, and how we'll help. Light section (page alternates
+ * dark/light starting from the dark hero). No CTA by design; it bridges into
+ * the gut-check section below.
  */
 const POINTS = [
   {
@@ -28,28 +29,28 @@ const POINTS = [
 export function WellDrillerWhySection() {
   return (
     <section
-      id="why-graylock-called"
-      className="scroll-mt-[118px] relative bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 border-t border-white/5 overflow-hidden"
+      id="who-we-work-with"
+      className="scroll-mt-[118px] relative bg-[#F5F5F5] py-20 md:py-28 px-6 md:px-12 overflow-hidden"
     >
-      {/* near-black topo backdrop: faint contour rings, no glow */}
+      {/* faint topo backdrop: light contour rings */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
           backgroundImage:
-            "repeating-radial-gradient(circle at 110% -10%, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 64px)",
+            "repeating-radial-gradient(circle at 110% -10%, rgba(15,15,15,0.03) 0px, rgba(15,15,15,0.03) 1px, transparent 1px, transparent 64px)",
         }}
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
-            Why We Called
+          <p className="text-[#B23E16] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
+            Who We Work With
           </p>
-          <h2 className="text-3xl md:text-5xl font-display text-white mb-5 leading-tight">
-            What We Do — and Why We Called You.
+          <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] mb-5 leading-tight">
+            We Work With Well Drillers We Know We Can Help.
           </h2>
-          <p className="text-stone text-lg font-sans leading-relaxed">
+          <p className="text-[#1A1A1A]/70 text-lg font-sans leading-relaxed">
             The short version of the phone call, in writing.
           </p>
         </ScrollReveal>
@@ -58,10 +59,10 @@ export function WellDrillerWhySection() {
           {POINTS.map((point, i) => (
             <ScrollReveal key={point.label} delay={i * 0.08}>
               <div className="border-l-2 border-[#E85D26] pl-5 md:pl-6 h-full">
-                <h3 className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.18em] mb-3">
+                <h3 className="text-[#B23E16] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.18em] mb-3">
                   {String(i + 1).padStart(2, "0")} · {point.label}
                 </h3>
-                <p className="text-offwhite font-sans text-base md:text-lg leading-relaxed">
+                <p className="text-[#1A1A1A]/75 font-sans text-base md:text-lg leading-relaxed">
                   {point.copy}
                 </p>
               </div>
