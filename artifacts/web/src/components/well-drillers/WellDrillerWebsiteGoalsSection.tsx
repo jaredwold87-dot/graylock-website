@@ -69,6 +69,12 @@ export function WellDrillerWebsiteGoalsSection() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal className="text-center max-w-2xl mx-auto mt-12 md:mt-14">
+          <p className="font-hand font-semibold text-2xl md:text-[32px] text-[#E85D26] leading-snug -rotate-1">
+            If your website brings in more clients, we've done our job.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );
