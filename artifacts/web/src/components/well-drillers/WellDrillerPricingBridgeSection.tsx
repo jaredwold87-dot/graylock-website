@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
@@ -33,23 +33,37 @@ export function WellDrillerPricingBridgeSection() {
           <p className="text-[#1A1A1A] font-display text-2xl md:text-3xl mb-6">
             Website plans from $199/month
           </p>
-          <p className="text-[#1A1A1A]/60 font-sans text-sm leading-relaxed max-w-xl mx-auto mb-9">
-            Covered by Graylock's current{" "}
-            <Link
-              href="/pricing"
-              className="underline underline-offset-4 decoration-[#E85D26]/60 text-[#1A1A1A]/70 hover:text-[#1A1A1A] transition-colors"
-            >
-              30-day money-back guarantee
-            </Link>
-            . Your website also receives the current{" "}
-            <Link
-              href="/pricing#stay-current-guarantee"
-              className="underline underline-offset-4 decoration-[#E85D26]/60 text-[#1A1A1A]/70 hover:text-[#1A1A1A] transition-colors"
-            >
-              two-year refresh benefit
-            </Link>{" "}
-            while subscribed.
-          </p>
+          {/* Guarantee + refresh benefit as prominent checkmark items (links stay on /pricing) */}
+          <div className="flex flex-col items-center gap-3.5 mb-9">
+            <div className="flex items-center gap-2.5">
+              <CheckCircle2
+                size={22}
+                strokeWidth={2.2}
+                className="text-[#E85D26] flex-shrink-0"
+                aria-hidden="true"
+              />
+              <Link
+                href="/pricing"
+                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-lg underline underline-offset-4 decoration-[#E85D26]/60 hover:text-[#B23E16] transition-colors"
+              >
+                30-Day Money-Back Guarantee
+              </Link>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <CheckCircle2
+                size={22}
+                strokeWidth={2.2}
+                className="text-[#E85D26] flex-shrink-0"
+                aria-hidden="true"
+              />
+              <Link
+                href="/pricing#stay-current-guarantee"
+                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-lg underline underline-offset-4 decoration-[#E85D26]/60 hover:text-[#B23E16] transition-colors"
+              >
+                Two-Year Refresh Benefit While Subscribed
+              </Link>
+            </div>
+          </div>
           <div className="flex flex-col items-center gap-5">
             <CTAButton
               href={wellDrillerGetStartedHref("pricing_cta")}
