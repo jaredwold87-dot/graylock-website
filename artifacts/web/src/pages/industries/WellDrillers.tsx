@@ -3,7 +3,7 @@ import { SEO } from "@/components/SEO";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { WellDrillerHero } from "@/components/well-drillers/WellDrillerHero";
 import { WellDrillerWhySection } from "@/components/well-drillers/WellDrillerWhySection";
-import { WellDrillerReflectionSection } from "@/components/well-drillers/WellDrillerReflectionSection";
+import { WellDrillerWhyWeWantYouSection } from "@/components/well-drillers/WellDrillerWhyWeWantYouSection";
 import { WellDrillerWhatWeBuildSection } from "@/components/well-drillers/WellDrillerWhatWeBuildSection";
 import { WellDrillerFreeDemoSection } from "@/components/well-drillers/WellDrillerFreeDemoSection";
 import { WellDrillerProcessSection } from "@/components/well-drillers/WellDrillerProcessSection";
@@ -64,9 +64,9 @@ const WELL_DRILLER_SCHEMA = {
 
 /**
  * Single-page sales flow (demo-first): the section order mirrors the real
- * call — why we called → is the site doing its job → what a better site does
- * → free custom demo + market offer → process → proof → pricing/guarantee →
- * FAQ → final demo request. One public page; no internal sales views.
+ * call — who we work with → why we want to work with you → what we do →
+ * free custom demo + market offer → how we do it → proof → pricing/guarantee
+ * → FAQ → final demo request. One public page; no internal sales views.
  */
 export default function WellDrillers() {
   const viewTracked = useRef(false);
@@ -93,7 +93,7 @@ export default function WellDrillers() {
 
       <WellDrillerHero />
       <WellDrillerWhySection />
-      <WellDrillerReflectionSection />
+      <WellDrillerWhyWeWantYouSection />
       <WellDrillerWhatWeBuildSection />
       <WellDrillerFreeDemoSection />
       <WellDrillerProcessSection />

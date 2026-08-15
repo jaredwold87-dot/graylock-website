@@ -1,28 +1,23 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 /**
- * "Who We Work With" — the written version of the actual outreach call. Four
- * labeled answers, in order: what we do, why we reached out, why we want to
- * work with this business, and how we'll help. Light section (page alternates
- * dark/light starting from the dark hero). No CTA by design; it bridges into
- * the gut-check section below.
+ * "Who We Work With" — the qualifying criteria, stated plainly: the three
+ * website situations we look for before reaching out. Light section (page
+ * alternates dark/light starting from the dark hero). No CTA by design; it
+ * bridges into "Why We Want to Work With You" below.
  */
-const POINTS = [
+const CRITERIA = [
   {
-    label: "What We Do",
-    copy: "We build custom websites for well-drilling companies. That is the whole business — sites built to get found locally, look credible, and turn visitors into service and estimate calls.",
+    title: "Aren't Getting Customers From Their Website",
+    copy: "The site exists, but the phone isn't ringing because of it. The work comes from word of mouth while the website sits there doing nothing.",
   },
   {
-    label: "Why We Reached Out",
-    copy: "We only call well drillers we know we can help. Before we called, we looked at your current website and saw a real gap between the quality of your work and the site that represents it.",
+    title: "Are Stuck With an Outdated, Generic Website",
+    copy: "It was built years ago, could belong to any contractor in any trade, and doesn't reflect the quality of the work your crew actually does.",
   },
   {
-    label: "Why We Want to Work With You",
-    copy: "You have already built the reputation and the track record. Our job is to make your website finally match it — businesses like yours are the ones we do our best work for.",
-  },
-  {
-    label: "How We'll Help",
-    copy: "We build you the best website of any competitor in your service area — and we prove the direction first with a free custom homepage demo, before you commit to anything.",
+    title: "Have a Templated Site That Doesn't Rank on Google",
+    copy: "A basic template rarely shows up in local search — so the companies that do rank are winning jobs that should be yours.",
   },
 ];
 
@@ -48,24 +43,30 @@ export function WellDrillerWhySection() {
             Who We Work With
           </p>
           <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] leading-tight">
-            We Work With Well Drillers We Know We Can Help.
+            We Work With Well Drillers Who&hellip;
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10 md:gap-y-12 max-w-5xl mx-auto">
-          {POINTS.map((point, i) => (
-            <ScrollReveal key={point.label} delay={i * 0.08}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10 max-w-5xl mx-auto">
+          {CRITERIA.map((item, i) => (
+            <ScrollReveal key={item.title} delay={i * 0.08}>
               <div className="border-l-2 border-[#E85D26] pl-5 md:pl-6 h-full">
                 <h3 className="text-[#B23E16] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.18em] mb-3">
-                  {String(i + 1).padStart(2, "0")} · {point.label}
+                  {String(i + 1).padStart(2, "0")} · {item.title}
                 </h3>
                 <p className="text-[#1A1A1A]/75 font-sans text-base md:text-lg leading-relaxed">
-                  {point.copy}
+                  {item.copy}
                 </p>
               </div>
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal className="text-center max-w-2xl mx-auto mt-12 md:mt-14">
+          <p className="font-display italic text-lg md:text-xl text-[#1A1A1A]/70 leading-relaxed">
+            If any of that sounds like your website, you're exactly who we're looking for.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );

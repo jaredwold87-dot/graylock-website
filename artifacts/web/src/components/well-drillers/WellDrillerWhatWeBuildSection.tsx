@@ -31,7 +31,7 @@ export function WellDrillerWhatWeBuildSection() {
       <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
           <p className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4">
-            What a Better Website Is Built to Do
+            What We Do
           </p>
           <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] mb-5">
             Get Found. Earn the Call. Make the Next Step Easy.
