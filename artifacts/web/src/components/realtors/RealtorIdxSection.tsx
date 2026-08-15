@@ -1,33 +1,44 @@
 import { useEffect, useRef } from "react";
-import { ShieldCheck } from "lucide-react";
+import { Clock, ShieldCheck } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorIdxConfig } from "./idxConfig";
 
 const IDX_STEPS = [
   {
-    title: "Confirm Your Market + MLS",
-    desc: "We identify your market, brokerage details, local MLS, and the property-search experience you want buyers to have.",
+    title: "START WITH YOUR MARKET + GOALS",
+    desc: "We learn your market, brokerage, local MLS, and the buyer and seller experience you want your new website to create.",
   },
   {
-    title: "Choose the Right IDX Path",
-    desc: "We confirm the supported integration approach, required access, expected data fields, and the details your MLS or provider needs.",
+    title: "BEGIN IDX + MLS APPROVAL",
+    desc: "We start your IDX Broker setup. Elm Street\u2019s approval team helps move the local MLS process forward while we guide you through any required client steps.",
   },
   {
-    title: "Build + Test the Search Experience",
-    desc: "We connect the approved search solution, format listing pages to match your brand, and test the buyer journey across desktop and mobile.",
+    title: "BUILD YOUR SITE + INTEGRATE LISTINGS",
+    desc: "While approval is underway, we build the complete custom site and connect branded property search, listing pages, and lead-capture paths.",
   },
   {
-    title: "Support the Approval Handoff",
-    desc: "We provide the website information and technical coordination needed for your local MLS review, then address website-side revisions if they are requested.",
+    title: "COMPLETE MLS REVIEW + FINAL TESTING",
+    desc: "Once the MLS requirements are ready, we submit the website details needed for any required review, test the search experience, and address website-side requests.",
+  },
+  {
+    title: "LAUNCH YOUR NEW REAL ESTATE WEBSITE",
+    desc: "After required approvals and final testing are complete, we launch your site with live listings, clear buyer and seller paths, and a polished mobile experience.",
   },
 ];
+
+/** Faint blueprint-grid backdrop behind the process cards (4-6% opacity). */
+const BLUEPRINT_GRID_STYLE: React.CSSProperties = {
+  backgroundImage:
+    "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+  backgroundSize: "48px 48px",
+};
 
 export function RealtorIdxSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const firedRef = useRef(false);
 
-  // Fire realtor_idx_section_view once the section reaches at least 50%
+  // Fire realtor_idx_process_view once the section reaches at least 50%
   // viewport visibility. Sections taller than the viewport can never hit a
   // 50% intersection ratio, so also count "intersection covers half the
   // viewport" as visible.
@@ -43,7 +54,7 @@ export function RealtorIdxSection() {
             entry.intersectionRect.height >= window.innerHeight * 0.5;
           if (entry.isIntersecting && (entry.intersectionRatio >= 0.5 || coversHalfViewport)) {
             firedRef.current = true;
-            trackRealtorEvent("realtor_idx_section_view");
+            trackRealtorEvent("realtor_idx_process_view");
             observer.disconnect();
             return;
           }
@@ -59,80 +70,122 @@ export function RealtorIdxSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#0f0f0f] py-24 px-6 md:px-12 relative overflow-hidden border-t border-white/5"
+      id="idx-process"
+      className="bg-[#0f0f0f] py-20 md:py-32 px-6 md:px-12 relative overflow-hidden border-t border-white/5"
     >
-      <div className="max-w-6xl mx-auto">
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
-          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
-            IDX + MLS Integration, Made Clearer
-          </p>
-          <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
-            Property Search Should Help You Keep the Conversation.
-          </h2>
-          <p className="text-stone text-lg font-sans leading-relaxed">
-            An IDX-enabled property search can turn your website into more than an online
-            brochure. When your MLS and brokerage eligibility allow it, we connect the right
-            search experience to your site and help you work through the local MLS setup
-            steps without making you figure out the website side alone.
-          </p>
-        </ScrollReveal>
+      <ScrollReveal className="text-center max-w-[900px] mx-auto">
+        <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
+          Elm Street IDX Broker + MLS Integration
+        </p>
+        <h2 className="font-display uppercase text-white text-4xl md:text-6xl leading-[1.05] mb-6">
+          <span className="block">From Property Search to Launch,</span>
+          <span className="block text-[#E85D26]">We Make IDX Simple.</span>
+        </h2>
+        <p className="text-stone text-lg font-sans leading-relaxed">
+          As an Elm Street IDX Broker Developer Partner, we handle the website integration
+          and guide you through the setup. IDX Broker helps coordinate the local MLS
+          approval path while we build a custom real estate website that keeps listings,
+          search, and lead capture working together.
+        </p>
+      </ScrollReveal>
 
-        {/* Required reassurance statement */}
-        <ScrollReveal delay={0.1} className="max-w-3xl mx-auto mb-12 md:mb-16">
-          <div className="rounded-xl border border-[#E85D26]/30 bg-[#E85D26]/[0.06] p-6 flex items-start gap-4">
-            <ShieldCheck size={24} className="text-[#E85D26] shrink-0 mt-0.5" aria-hidden="true" />
-            <p className="text-offwhite font-sans text-base leading-relaxed">
-              You stay in control of your MLS relationship. We handle the website work,
-              coordinate the technical requirements, and help you move through the approval
-              process with a clear checklist.
-            </p>
-          </div>
-        </ScrollReveal>
+      {/* Compact partner / reassurance strip — outlined band, not a box */}
+      <ScrollReveal delay={0.1} className="mt-8 text-center">
+        <div className="inline-flex items-start sm:items-center gap-3 rounded-lg border border-white/15 px-5 py-3.5 text-left sm:text-center max-w-[820px]">
+          <ShieldCheck size={20} className="text-[#E85D26] shrink-0 mt-0.5 sm:mt-0" aria-hidden="true" />
+          <p className="text-offwhite font-sans text-sm md:text-base leading-snug">
+            You handle the few details only you can. We handle the strategy, design, IDX
+            integration, testing, and launch.
+          </p>
+        </div>
+        <p className="mt-3 text-stone/90 font-sans text-xs md:text-sm leading-relaxed max-w-[720px] mx-auto">
+          Your local MLS or brokerage may ask you to complete market-specific paperwork or
+          respond to an approval email. We will tell you exactly what is needed and keep
+          the technical work moving.
+        </p>
+      </ScrollReveal>
 
-        {/* Four-step IDX / MLS support sequence — stacked cards with visible step
-            numbers on mobile, grid on larger screens, no horizontal scroll */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-          {IDX_STEPS.map((step, i) => (
-            <ScrollReveal key={step.title} delay={i * 0.08}>
-              <div className="relative rounded-xl border border-white/10 bg-white/[0.03] p-6 h-full">
-                <div className="flex items-baseline gap-3 mb-3">
-                  <span
-                    aria-hidden="true"
-                    className="font-display text-4xl font-bold text-[#E85D26] leading-none"
-                  >
-                    {i + 1}
-                  </span>
-                  <div className="h-px flex-1 bg-gradient-to-r from-[#E85D26]/40 to-transparent" />
-                </div>
-                <h3 className="font-display text-xl text-white uppercase tracking-wide mb-2 leading-snug">
-                  <span className="sr-only">{`Step ${i + 1}: `}</span>
-                  {step.title}
-                </h3>
-                <p className="text-stone font-sans text-sm leading-relaxed">{step.desc}</p>
-              </div>
-            </ScrollReveal>
+      {/* Five-step process — connected timeline on desktop, vertical line on mobile */}
+      <div className="relative max-w-[1280px] mx-auto mt-14 md:mt-16">
+        <div
+          aria-hidden="true"
+          className="absolute -inset-x-6 -inset-y-8 pointer-events-none"
+          style={BLUEPRINT_GRID_STYLE}
+        />
+
+        {/* Desktop connector: thin charcoal line with an orange dot per step */}
+        <div aria-hidden="true" className="hidden xl:grid grid-cols-5 gap-5 relative mb-8">
+          <div className="absolute inset-x-[10%] top-1/2 -translate-y-1/2 h-px bg-[#2b2b2b]" />
+          {IDX_STEPS.map((step) => (
+            <div key={step.title} className="flex justify-center relative">
+              <span className="w-3 h-3 rounded-full bg-[#E85D26]" />
+            </div>
           ))}
         </div>
 
-        {/* Required fine print below the four steps */}
-        <ScrollReveal delay={0.1}>
-          <p className="mt-8 text-stone/70 font-sans text-xs leading-relaxed max-w-3xl mx-auto text-center">
-            IDX availability, required agreements, disclosures, data fields, approval
-            procedures, and third-party fees vary by MLS and provider. Final data access and
-            approval remain subject to your MLS, brokerage, and data-license requirements.
-          </p>
-        </ScrollReveal>
-
-        {/* MLS-supplied disclosure markup renders here once an engagement provides
-            it; nothing is shown until then (config placeholders only — no vendor
-            is hard-coded). */}
-        {realtorIdxConfig.idx_disclosure_html ? (
+        <div className="relative">
+          {/* Mobile connector: thin vertical orange line linking the step numbers */}
           <div
-            className="mt-6 text-stone/70 font-sans text-xs leading-relaxed max-w-3xl mx-auto text-center"
-            dangerouslySetInnerHTML={{ __html: realtorIdxConfig.idx_disclosure_html }}
+            aria-hidden="true"
+            className="md:hidden absolute left-[7px] top-4 bottom-4 w-px bg-[#E85D26]/40"
           />
-        ) : null}
+          <ol className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 pl-6 md:pl-0 list-none">
+            {IDX_STEPS.map((step, i) => (
+              <li key={step.title} className="relative h-full">
+                <span
+                  aria-hidden="true"
+                  className="md:hidden absolute -left-[21px] top-10 w-2.5 h-2.5 rounded-full bg-[#E85D26]"
+                />
+                <ScrollReveal delay={i * 0.08} className="h-full">
+                  <div className="h-full xl:min-h-[210px] rounded-xl border border-[#2a2a2a] bg-[#141414] px-5 pt-8 pb-6 transition-all duration-200 hover:-translate-y-1 hover:border-[#B23E16] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+                    <span
+                      aria-hidden="true"
+                      className="block font-display text-[40px] font-bold leading-none text-[#E85D26]"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-white uppercase tracking-wide text-[17px] leading-snug mt-3 mb-2">
+                      <span className="sr-only">{`Step ${i + 1}: `}</span>
+                      {step.title}
+                    </h3>
+                    <p className="text-stone font-sans text-sm leading-snug">{step.desc}</p>
+                  </div>
+                </ScrollReveal>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
+
+      {/* Timing statement */}
+      <ScrollReveal delay={0.1} className="mt-12 text-center max-w-[760px] mx-auto">
+        <Clock size={20} className="text-[#E85D26] mx-auto mb-3" aria-hidden="true" />
+        <p className="text-offwhite font-sans text-lg leading-relaxed">
+          Your custom site is typically designed, built, and ready for launch in 7&ndash;10
+          business days.
+        </p>
+        <p className="mt-2 text-stone font-sans text-sm md:text-base leading-relaxed">
+          Local MLS approval timelines and client paperwork can vary by market, but we keep
+          the website and IDX work moving while those steps are completed.
+        </p>
+      </ScrollReveal>
+
+      {/* Required footer note — always visible, real text in the page source */}
+      <p className="mt-10 text-stone/90 font-sans text-xs leading-relaxed max-w-3xl mx-auto text-center">
+        IDX availability, approval requirements, disclosures, and third-party fees vary by
+        local MLS, brokerage, and data provider. Final access remains subject to their
+        requirements.
+      </p>
+
+      {/* MLS-supplied disclosure markup renders here once an engagement provides
+          it; nothing is shown until then (config placeholders only — no vendor
+          is hard-coded). */}
+      {realtorIdxConfig.idx_disclosure_html ? (
+        <div
+          className="mt-6 text-stone/90 font-sans text-xs leading-relaxed max-w-3xl mx-auto text-center"
+          dangerouslySetInnerHTML={{ __html: realtorIdxConfig.idx_disclosure_html }}
+        />
+      ) : null}
     </section>
   );
 }

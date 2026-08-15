@@ -24,7 +24,7 @@ function HeroCopy() {
       </p>
       <h1 className="text-[2.5rem] md:text-5xl xl:text-[2.95rem] font-display text-white leading-[1.12] xl:leading-[1.08] mb-6">
         <span className="block text-balance">Your Next Client Is Searching.</span>
-        <span className="block text-balance text-[#E85D26]">Make Sure They Find You.</span>
+        <span className="block text-balance">Make Sure They Find You.</span>
       </h1>
       <p className="text-stone text-xl font-sans mb-6 md:mb-8 max-w-xl xl:max-w-[500px] leading-snug md:leading-relaxed">
         We build custom real estate websites that earn trust fast, showcase your market, and
@@ -167,8 +167,9 @@ export function RealtorHero() {
               }}
             />
             <div className="relative z-10 max-w-7xl h-full mx-auto px-6 md:px-12 flex items-center">
-              {/* Vertical centering biased to ~48% of hero height */}
-              <div className="w-[min(52%,620px)] pb-10">
+              {/* Vertical centering biased downward so the eyebrow's top edge sits
+                  level with the top of the laptop in the device asset */}
+              <div className="w-[min(52%,620px)] pt-10">
                 <ScrollReveal>
                   <HeroCopy />
                   <div className="flex flex-col items-start gap-4 mb-6">
