@@ -64,7 +64,7 @@ export function WellDrillerWhySection() {
         </div>
 
         <ScrollReveal className="text-center max-w-2xl mx-auto mt-12 md:mt-14">
-          <p className="font-hand font-semibold text-2xl md:text-[32px] text-[#B23E16] leading-snug -rotate-1">
+          <p className="font-hand font-semibold text-[28px] md:text-[38px] text-[#B23E16] leading-snug">
             If any of that sounds like your website, you're exactly who we want to help win.
           </p>
         </ScrollReveal>
