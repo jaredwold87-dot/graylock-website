@@ -110,7 +110,7 @@ export function HeroSection() {
             "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.95) 35%, rgba(10,10,10,0.4) 55%, transparent 70%)",
         }}
       />
-      <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative z-10 pt-32 pb-16 md:py-24 md:flex-1 md:flex md:items-center">
+      <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative z-10 pt-32 pb-16 md:py-24 md:flex-1 md:flex md:items-center lg:items-start lg:pt-[26vh]">
         <div className="max-w-2xl">
           <ScrollReveal>
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">

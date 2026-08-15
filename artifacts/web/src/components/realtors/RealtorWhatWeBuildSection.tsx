@@ -45,7 +45,7 @@ export function RealtorWhatWeBuildSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-10 items-center">
           <ScrollReveal className="order-2 lg:order-1">
-            <div className="rounded-2xl overflow-hidden shadow-2xl bg-[#17161B]">
+            <div>
               <img
                 src={willowDevices}
                 alt="The Willow Realty Group website — a custom real estate website by Graylock Digital, shown on a laptop and phone"

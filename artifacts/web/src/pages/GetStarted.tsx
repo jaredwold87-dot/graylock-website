@@ -73,12 +73,13 @@ export default function GetStarted() {
         subheadline="Tell us where to reach you — it takes under a minute, and we'll take it from there."
         backgroundImage={getStartedHeroBg}
       />
-      <section ref={formSectionRef} className="bg-white min-h-[60vh]">
-        <div className="max-w-xl mx-auto px-6 py-12 md:py-16">
+      <section ref={formSectionRef} className="bg-[#F4F1EC] min-h-[60vh] relative border-t border-[#0F0F0F]/10">
+        <div className="max-w-xl mx-auto px-6 py-16 md:py-24">
           {isRealtor && (
-            <div className="bg-orange/[0.07] border-l-4 border-orange rounded-r-lg px-5 py-4 mb-8">
-              <p className="text-charcoal font-sans text-sm md:text-base leading-relaxed">
-                You're booking a <span className="font-semibold">Realtor Website Call</span>.
+            <div className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
+              <p className="font-sans text-base leading-relaxed">
+                You're booking a <span className="font-bold text-white">Realtor Website Call</span>.
                 We'll come prepared to talk about your market, your website, and
                 property-search needs.
               </p>
@@ -90,9 +91,9 @@ export default function GetStarted() {
             landingPagePath={landingPagePath}
             variant="page"
           />
-          <p className="text-slate-500 text-sm font-sans text-center mt-10">
+          <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-12">
             Prefer to email us? Reach out at{" "}
-            <a href="mailto:hello@graylockdigital.com" className="text-orange hover:underline">
+            <a href="mailto:hello@graylockdigital.com" className="text-[#B23E16] font-semibold hover:underline">
               hello@graylockdigital.com
             </a>
           </p>

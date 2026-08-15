@@ -13,10 +13,11 @@ interface BookCallFormProps {
   variant?: "modal" | "page";
 }
 
-const INPUT_CLASSES =
-  "w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-charcoal font-sans text-base focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400";
+const INPUT_BASE =
+  "w-full bg-transparent border-0 border-b-2 border-[#0F0F0F]/20 px-0 py-3 font-sans text-lg focus:outline-none focus:border-[#E85D26] focus:bg-[#0F0F0F]/[0.03] transition-all rounded-none placeholder:text-[#0F0F0F]/60";
 
-const LABEL_CLASSES = "text-charcoal font-sans text-sm font-semibold";
+const LABEL_CLASSES = "text-[#0F0F0F] font-display uppercase tracking-widest text-sm font-bold block mb-1";
+const OPTIONAL_CLASSES = "text-[#0F0F0F]/60 font-sans normal-case tracking-normal text-xs font-normal ml-1";
 
 export function BookCallForm({
   industry = "",
@@ -119,14 +120,14 @@ export function BookCallForm({
 
   if (submitted) {
     return (
-      <div className={variant === "page" ? "text-center py-12" : "text-center py-6"}>
-        <CheckCircle className="text-orange w-14 h-14 mx-auto mb-5" aria-hidden="true" />
-        <h3 className="text-2xl md:text-3xl font-display text-charcoal mb-3">
+      <div className={variant === "page" ? "text-center py-20 app-fade-in" : "text-center py-12 app-fade-in"}>
+        <CheckCircle className="text-[#E85D26] w-16 h-16 mx-auto mb-6" aria-hidden="true" strokeWidth={1.5} />
+        <h3 className="text-4xl md:text-5xl font-display text-[#0F0F0F] uppercase tracking-tight mb-4">
           You're all set{name ? `, ${name.split(" ")[0]}` : ""}!
         </h3>
-        <p className="text-slate-600 font-sans leading-relaxed max-w-md mx-auto">
+        <p className="text-[#0F0F0F]/70 font-sans text-lg md:text-xl leading-relaxed max-w-md mx-auto">
           We'll reach out within one business day at{" "}
-          <span className="text-charcoal font-semibold">{email}</span> to set up your
+          <span className="text-[#0F0F0F] font-semibold">{email}</span> to set up your
           call.
         </p>
       </div>
@@ -134,8 +135,8 @@ export function BookCallForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate={false} className="flex flex-col gap-4">
-      <div className="flex flex-col gap-1.5">
+    <form onSubmit={handleSubmit} noValidate={false} className="flex flex-col gap-6">
+      <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-name" className={LABEL_CLASSES}>
           Name
         </label>
@@ -147,11 +148,11 @@ export function BookCallForm({
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your name"
-          className={INPUT_CLASSES}
+          className={`${INPUT_BASE} text-[#0F0F0F]`}
         />
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-business" className={LABEL_CLASSES}>
           {isRealtor ? "Brokerage or team name" : "Business name"}
         </label>
@@ -163,11 +164,11 @@ export function BookCallForm({
           value={businessName}
           onChange={(e) => setBusinessName(e.target.value)}
           placeholder={isRealtor ? "Your brokerage or team" : "Your business"}
-          className={INPUT_CLASSES}
+          className={`${INPUT_BASE} text-[#0F0F0F]`}
         />
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-email" className={LABEL_CLASSES}>
           Email
         </label>
@@ -179,11 +180,11 @@ export function BookCallForm({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
-          className={INPUT_CLASSES}
+          className={`${INPUT_BASE} text-[#0F0F0F]`}
         />
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-phone" className={LABEL_CLASSES}>
           Phone
         </label>
@@ -195,13 +196,13 @@ export function BookCallForm({
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="(208) 555-0123"
-          className={INPUT_CLASSES}
+          className={`${INPUT_BASE} text-[#0F0F0F]`}
         />
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-website" className={LABEL_CLASSES}>
-          Current website <span className="text-slate-500 font-normal">(Optional)</span>
+          Current website <span className={OPTIONAL_CLASSES}>(Optional)</span>
         </label>
         <input
           id="bc-website"
@@ -211,22 +212,22 @@ export function BookCallForm({
           value={websiteUrl}
           onChange={(e) => setWebsiteUrl(e.target.value)}
           placeholder="yourbusiness.com"
-          className={INPUT_CLASSES}
+          className={`${INPUT_BASE} text-[#0F0F0F]`}
         />
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-heard" className={LABEL_CLASSES}>
           How did you hear about us?{" "}
-          <span className="text-slate-500 font-normal">(Optional)</span>
+          <span className={OPTIONAL_CLASSES}>(Optional)</span>
         </label>
         <div className="relative">
           <select
             id="bc-heard"
             value={heardAboutUs}
             onChange={(e) => setHeardAboutUs(e.target.value)}
-            className={`${INPUT_CLASSES} appearance-none pr-10 ${
-              heardAboutUs ? "" : "text-slate-400"
+            className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+              heardAboutUs ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
             }`}
           >
             <option value="" disabled>
@@ -239,21 +240,21 @@ export function BookCallForm({
             <option value="Other">Other</option>
           </select>
           <ChevronDown
-            className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400"
-            size={18}
+            className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+            size={20}
             aria-hidden="true"
           />
         </div>
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-note" className={LABEL_CLASSES}>
           Anything we should know?{" "}
-          <span className="text-slate-500 font-normal">(Optional)</span>
+          <span className={OPTIONAL_CLASSES}>(Optional)</span>
         </label>
         <textarea
           id="bc-note"
-          rows={2}
+          rows={3}
           value={note}
           onChange={(e) => setNote(e.target.value)}
           placeholder={
@@ -261,32 +262,34 @@ export function BookCallForm({
               ? "Your market, IDX needs, timeline — whatever's useful."
               : "Goals, timeline — whatever's useful."
           }
-          className={`${INPUT_CLASSES} resize-none`}
+          className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
         />
       </div>
 
       {error && (
-        <p role="alert" className="text-red-600 font-sans text-sm leading-snug">
-          {error}
-        </p>
+        <div className="bg-[#B23E16]/10 border-l-4 border-[#B23E16] p-4 mt-2">
+          <p role="alert" className="text-[#B23E16] font-sans font-semibold text-sm leading-snug">
+            {error}
+          </p>
+        </div>
       )}
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-1 bg-orange text-white font-sans font-semibold text-lg px-8 py-4 rounded-lg hover:bg-orange/90 transition-all shadow-[0_4px_14px_rgba(232,93,38,0.25)] hover:shadow-[0_6px_20px_rgba(232,93,38,0.35)] hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex items-center justify-center gap-3"
+        className="mt-6 bg-[#0F0F0F] text-[#F4F1EC] font-display uppercase tracking-widest text-xl px-8 py-5 hover:bg-[#E85D26] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#0F0F0F] disabled:hover:text-[#F4F1EC] flex items-center justify-center gap-3 w-full"
       >
         {isSubmitting ? (
           <>
-            <Loader2 className="animate-spin" size={20} aria-hidden="true" />
-            Sending...
+            <Loader2 className="animate-spin" size={24} aria-hidden="true" />
+            <span>Sending...</span>
           </>
         ) : (
           "Request My Call"
         )}
       </button>
 
-      <p className="text-slate-500 text-sm font-sans text-center">
+      <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-2">
         Takes under a minute. No pressure, no obligation — we'll reach out within one
         business day.
       </p>
