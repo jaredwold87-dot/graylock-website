@@ -118,7 +118,7 @@ export function HeroSection() {
             </p>
             <h1 className="text-[2.5rem] md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
               Every Day Your Website Underperforms,{" "}
-              <span className="text-[#E85D26]">a Client Chooses Your Competitor.</span>
+              <span>a Client Chooses Your Competitor.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
               We build custom, conversion-focused websites that show up on Google, earn trust in seconds, and turn visitors into booked appointments — live in 7–10 days.

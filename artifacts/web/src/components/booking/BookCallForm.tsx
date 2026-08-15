@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { CheckCircle, Loader2 } from "lucide-react";
+import { CheckCircle, ChevronDown, Loader2 } from "lucide-react";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 
 interface BookCallFormProps {
@@ -28,6 +28,8 @@ export function BookCallForm({
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [websiteUrl, setWebsiteUrl] = useState("");
+  const [heardAboutUs, setHeardAboutUs] = useState("");
   const [note, setNote] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -51,6 +53,8 @@ export function BookCallForm({
       business_name: businessName.trim(),
       email: email.trim(),
       phone: phone.trim(),
+      website_url: websiteUrl.trim(),
+      heard_about_us: heardAboutUs,
       note: note.trim(),
       landing_page: resolvedLandingPage,
       submitted_at: submittedAt,
@@ -79,6 +83,8 @@ export function BookCallForm({
             "Discovery call request",
             isRealtor && "Lead source: Realtor Landing Page",
             resolvedLandingPage && `Page: ${resolvedLandingPage}`,
+            payload.website_url && `Website: ${payload.website_url}`,
+            payload.heard_about_us && `Heard about us: ${payload.heard_about_us}`,
             payload.note && `Note: ${payload.note}`,
             utmSummary && `UTM: ${utmSummary}`,
             `Submitted: ${submittedAt}`,
@@ -193,6 +199,53 @@ export function BookCallForm({
       </div>
 
       <div className="flex flex-col gap-1.5">
+        <label htmlFor="bc-website" className={LABEL_CLASSES}>
+          Current website <span className="text-slate-500 font-normal">(Optional)</span>
+        </label>
+        <input
+          id="bc-website"
+          type="text"
+          inputMode="url"
+          autoComplete="url"
+          value={websiteUrl}
+          onChange={(e) => setWebsiteUrl(e.target.value)}
+          placeholder="yourbusiness.com"
+          className={INPUT_CLASSES}
+        />
+      </div>
+
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="bc-heard" className={LABEL_CLASSES}>
+          How did you hear about us?{" "}
+          <span className="text-slate-500 font-normal">(Optional)</span>
+        </label>
+        <div className="relative">
+          <select
+            id="bc-heard"
+            value={heardAboutUs}
+            onChange={(e) => setHeardAboutUs(e.target.value)}
+            className={`${INPUT_CLASSES} appearance-none pr-10 ${
+              heardAboutUs ? "" : "text-slate-400"
+            }`}
+          >
+            <option value="" disabled>
+              Select one
+            </option>
+            <option value="Google search">Google search</option>
+            <option value="Referral / word of mouth">Referral / word of mouth</option>
+            <option value="Social media">Social media</option>
+            <option value="Saw a site you built">Saw a site you built</option>
+            <option value="Other">Other</option>
+          </select>
+          <ChevronDown
+            className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+            size={18}
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-1.5">
         <label htmlFor="bc-note" className={LABEL_CLASSES}>
           Anything we should know?{" "}
           <span className="text-slate-500 font-normal">(Optional)</span>
@@ -204,8 +257,8 @@ export function BookCallForm({
           onChange={(e) => setNote(e.target.value)}
           placeholder={
             isRealtor
-              ? "Your market, current site, IDX needs — whatever's useful."
-              : "Current site, goals, timeline — whatever's useful."
+              ? "Your market, IDX needs, timeline — whatever's useful."
+              : "Goals, timeline — whatever's useful."
           }
           className={`${INPUT_CLASSES} resize-none`}
         />
