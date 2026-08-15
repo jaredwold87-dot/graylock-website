@@ -59,7 +59,7 @@ export function WellDrillerWebsiteGoalsSection() {
             <ScrollReveal key={item.title} delay={i * 0.08}>
               <div>
                 <div className="h-[3px] w-9 bg-[#E85D26] mb-4" aria-hidden="true" />
-                <h3 className="font-display uppercase text-2xl md:text-[26px] text-white leading-snug mb-3">
+                <h3 className="font-display text-2xl md:text-[26px] text-white leading-snug mb-3">
                   {item.title}
                 </h3>
                 <p className="text-stone font-sans text-base md:text-lg leading-relaxed">
