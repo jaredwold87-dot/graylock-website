@@ -59,6 +59,12 @@ export function WellDrillerProofSection() {
           </p>
         </ScrollReveal>
 
+        <ScrollReveal className="text-center -mt-3 md:-mt-5 mb-10 md:mb-12">
+          <p className="font-hand font-semibold text-[28px] md:text-[38px] text-[#E85D26] leading-snug">
+            These are actual customers and website builds of ours.
+          </p>
+        </ScrollReveal>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-14 mb-14 md:mb-16">
           {PROJECTS.map((project, i) => (
             <ScrollReveal key={project.name} delay={i * 0.1}>
