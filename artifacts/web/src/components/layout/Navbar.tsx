@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { CONTACT_PHONE_TEL } from "@/lib/contact";
 import { REALTOR_LANDING_PATH, realtorGetStartedHref } from "@/lib/realtorLinks";
 import { useBookingCtaClick } from "@/components/booking/BookCallContext";
+import { WELL_DRILLER_LANDING_PATH, wellDrillerGetStartedHref } from "@/lib/wellDrillerLinks";
+import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 
 const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -32,11 +34,28 @@ export function Navbar() {
     setMobileMenuOpen(false);
   }, [location]);
 
-  // On the realtor landing page only, the booking CTA is context-specific;
+  // On campaign landing pages only, the booking CTA is context-specific;
   // every other page keeps the standard label and destination.
   const isRealtorLanding = location === REALTOR_LANDING_PATH;
-  const bookingHref = isRealtorLanding ? realtorGetStartedHref("site_cta") : "/get-started";
-  const bookingLabel = isRealtorLanding ? "Book a Realtor Website Call" : "Book a Discovery Call";
+  const isWellDrillerLanding = location === WELL_DRILLER_LANDING_PATH;
+  const bookingHref = isRealtorLanding
+    ? realtorGetStartedHref("site_cta")
+    : isWellDrillerLanding
+      ? wellDrillerGetStartedHref("header_cta")
+      : "/get-started";
+  const bookingLabel = isRealtorLanding
+    ? "Book a Realtor Website Call"
+    : isWellDrillerLanding
+      ? "Check My Market"
+      : "Book a Discovery Call";
+  // The navbar CTA counts as a market-check CTA on the well-driller landing page.
+  const trackBookingCta = () => {
+    if (isWellDrillerLanding) {
+      trackWellDrillerEvent("well_driller_market_availability_click", {
+        cta_placement: "header_cta",
+      });
+    }
+  };
   // Opens the quick booking modal in place; falls back to navigation for
   // middle/modifier clicks (and when the provider is absent).
   const bookingClick = useBookingCtaClick(bookingHref);
@@ -93,7 +112,10 @@ export function Navbar() {
             </a>
             <Link
               href={bookingHref}
-              onClick={bookingClick}
+              onClick={(e) => {
+                trackBookingCta();
+                bookingClick?.(e);
+              }}
               className="cta-shimmer bg-orange text-white text-sm font-bold px-5 py-2.5 rounded hover:bg-orange/90 transition-all duration-300 shadow-[0_2px_12px_rgba(232,93,38,0.25)] hover:shadow-[0_4px_20px_rgba(232,93,38,0.4)] hover:-translate-y-0.5 whitespace-nowrap"
             >
               {bookingLabel}
@@ -137,6 +159,7 @@ export function Navbar() {
           <Link
             href={bookingHref}
             onClick={(e) => {
+              trackBookingCta();
               bookingClick?.(e);
               // Intercepted → close the menu ourselves (no navigation happens).
               if (e.defaultPrevented) setMobileMenuOpen(false);

@@ -26,6 +26,7 @@ import {
   Activity,
   FileText,
   ScrollText,
+  Droplets,
 } from "lucide-react";
 
 type SitemapLink = {
@@ -74,6 +75,7 @@ const GROUPS: SitemapGroup[] = [
       { label: "Home Builders", path: "/websites-for-home-builders", icon: HomeIcon, description: "Custom homes, renovations, design-build." },
       { label: "Industrial Construction", path: "/websites-for-industrial-construction", icon: HardHat, description: "Contractors, trades, manufacturing." },
       { label: "Accounting Firms", path: "/websites-for-accountants", icon: Calculator, description: "CPAs, bookkeeping, tax, and advisory." },
+      { label: "Well Drillers", path: "/websites-for-well-drillers", icon: Droplets, description: "Drilling, pumps, and water systems." },
       { label: "Other Local Service Businesses", path: "/other-service-businesses", icon: Building2, description: "Trust-based pros — law, finance, and more." },
     ],
   },

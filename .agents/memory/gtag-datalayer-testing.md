@@ -14,3 +14,5 @@ window.dataLayer.filter(e => e && e[0] === 'event').map(e => e[1])
 ```
 
 Also note: SPA (wouter/pushState) navigation does NOT clear dataLayer, so events accumulate across in-app clicks — only a full reload resets it. The standard top-level `function gtag(){}` declaration in index.html IS available as `window.gtag`, so `typeof window.gtag === "function"` guards work.
+
+Related meta-tag gotcha: react-helmet-async APPENDS page-specific tags and leaves the static index.html defaults in place, so a single querySelector for e.g. `og:title` returns the stale static tag. Check all matching tags and assert on the page-specific value; duplicate static OG defaults on every route are pre-existing, and per-route crawler delivery is the prerender pipeline's job.

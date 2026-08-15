@@ -6,32 +6,70 @@ const leadsRouter = Router();
 
 interface LeadPayload {
   first_name: string;
+
   business_name: string;
+
   email: string;
+
   phone?: string;
   /** Optional free-text note from the quick discovery-call form. */
+
   note?: string;
   // Legacy wizard fields — optional; rendered only when present.
+
   service_area?: string;
+
   has_website?: boolean;
+
   website_url?: string;
+
   primary_goal?: string;
+
   ideal_customer?: string;
+
   branding_notes?: string;
+
   heard_about_us?: string;
   // Attribution context (optional)
+
   industry?: string;
+
   lead_source_label?: string;
+
   landing_page?: string;
+
   local_mls?: string;
+
   idx_need?: string;
+
   realtor_goals?: string;
+  // Well-driller campaign context (optional — present only for well-driller leads)
+
   submitted_at?: string;
+
   utm_source?: string;
+
   utm_medium?: string;
+
   utm_campaign?: string;
+
   utm_term?: string;
+
   utm_content?: string;
+
+  market?: string;
+
+  rep?: string;
+
+  source?: string;
+
+  main_services?: string[];
+
+  desired_jobs?: string;
+
+  preferred_contact_method?: string;
+
+  referrer?: string;
 }
 
 leadsRouter.post("/leads", async (req: Request, res: Response) => {
@@ -42,6 +80,21 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
     payload.lead_source_label === "Realtor Landing Page" ||
     payload.industry === "real-estate";
 
+  const isWellDrillerLead =
+    payload.lead_source_label === "Well Driller Landing Page" ||
+    payload.industry === "well-drilling";
+
+  const truncate = (value: string, max = 60) =>
+    value.length > max ? `${value.slice(0, max - 1).trimEnd()}…` : value;
+
+  const mainServices = Array.isArray(payload.main_services)
+    ? payload.main_services.filter((s) => typeof s === "string" && s.trim()).join(", ")
+    : "";
+
+  const wellDrillerMarket =
+    (payload.market || "").trim() ||
+    (payload.service_area ? truncate(payload.service_area.trim()) : "") ||
+    "Market TBD";
   const utmPairs = (
     ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const
   )
@@ -57,6 +110,23 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
         ...(payload.local_mls ? [`Local MLS: ${payload.local_mls}`] : []),
         ...(payload.idx_need ? [`Needs IDX property search: ${payload.idx_need}`] : []),
         ...(payload.realtor_goals ? [`Realtor goals: ${payload.realtor_goals}`] : []),
+        ...(utmPairs.length ? [`UTM: ${utmPairs.join(", ")}`] : []),
+      ].join("\n")
+    : "";
+
+  const wellDrillerLines = isWellDrillerLead
+    ? [
+        "",
+        "— Well Driller Market Offer lead —",
+        `Landing page: ${payload.landing_page || "/websites-for-well-drillers"}`,
+        `Industry: ${payload.industry || "well-drilling"}`,
+        `Market: ${payload.market || "Not provided"}`,
+        `Rep: ${payload.rep || "Not provided"}`,
+        `Source: ${payload.source || "Not provided"}`,
+        `Main services: ${mainServices || "Not provided"}`,
+        `Desired jobs: ${payload.desired_jobs || "Not provided"}`,
+        `Preferred contact method: ${payload.preferred_contact_method || "Not provided"}`,
+        `Referrer: ${payload.referrer || "Not provided"}`,
         ...(utmPairs.length ? [`UTM: ${utmPairs.join(", ")}`] : []),
       ].join("\n")
     : "";
@@ -86,7 +156,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
 
   const emailBody = `New discovery call request from graylockdigital.com
 
-${detailLines.join("\n")}${realtorLines}
+${detailLines.join("\n")}${realtorLines}${wellDrillerLines}
 
 Submitted: ${submittedAt}
 
@@ -99,9 +169,11 @@ Or log in to the GOS to view full lead record.`;
     recipients.push(process.env.TEAM_EMAIL_TIM);
   }
 
-  const subject = isRealtorLead
-    ? `New Lead (Realtor Landing Page): ${payload.business_name}`
-    : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
+  const subject = isWellDrillerLead
+    ? `New Well Driller Market Offer Request — ${payload.business_name} — ${wellDrillerMarket}`
+    : isRealtorLead
+      ? `New Lead (Realtor Landing Page): ${payload.business_name}`
+      : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
 
   const emailPromise = (async () => {
     try {
@@ -162,6 +234,25 @@ Or log in to the GOS to view full lead record.`;
                 localMls: payload.local_mls || "",
                 idxNeed: payload.idx_need || "",
                 realtorGoals: payload.realtor_goals || "",
+              }
+            : {}),
+          ...(isWellDrillerLead
+            ? {
+                industry: payload.industry || "well-drilling",
+                leadSourceLabel: "Well Driller Landing Page",
+                landingPage: payload.landing_page || "/websites-for-well-drillers",
+                market: payload.market || "",
+                rep: payload.rep || "",
+                // "source" above stays the site origin; the sales-campaign
+                // source param rides separately.
+                campaignSource: payload.source || "",
+                mainServices,
+                desiredJobs: payload.desired_jobs || "",
+                preferredContactMethod: payload.preferred_contact_method || "",
+                referrer: payload.referrer || "",
+                utmSource: payload.utm_source || "",
+                utmMedium: payload.utm_medium || "",
+                utmCampaign: payload.utm_campaign || "",
               }
             : {}),
         }),

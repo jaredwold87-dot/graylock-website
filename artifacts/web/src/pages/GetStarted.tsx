@@ -5,6 +5,8 @@ import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import getStartedHeroBg from "@/assets/get-started-hero-bg.webp";
 import { BookCallForm } from "@/components/booking/BookCallForm";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
+import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
+import { WELL_DRILLER_LANDING_PATH, getWellDrillerMarket } from "@/lib/wellDrillerLinks";
 
 /**
  * Fallback page for direct visits (bookmarks, ads, middle-clicked CTAs).
@@ -23,9 +25,12 @@ export default function GetStarted() {
   }, [search]);
 
   const isRealtor = industry === "real-estate";
+  const isWellDriller = industry === "well-drilling";
+  const wellDrillerMarket = isWellDriller ? getWellDrillerMarket() : null;
 
   const landingPagePath = useMemo(() => {
     if (utmParams["utm_source"] === "realtor_landing") return "/websites-for-realtors";
+    if (utmParams["utm_source"] === "well_driller_landing") return WELL_DRILLER_LANDING_PATH;
     if (typeof document !== "undefined" && document.referrer) {
       try {
         const ref = new URL(document.referrer);
@@ -37,29 +42,34 @@ export default function GetStarted() {
     return "";
   }, [utmParams]);
 
-  // realtor_form_view — fires once when the realtor-context form becomes visible.
-  const formSectionRef = useRef<HTMLElement>(null);
+  // Campaign form-view events — fire once when the campaign context block (the
+  // top of the form area) becomes visible. The block is compact, so a 50%
+  // threshold means "the user actually saw it"; observing the whole section
+  // proved unreliable, since 20% of the tall well-driller form section can be
+  // unreachable on partial scrolls.
+  const contextBlockRef = useRef<HTMLDivElement>(null);
   const formViewFired = useRef(false);
   useEffect(() => {
-    if (!isRealtor || formViewFired.current) return;
-    const el = formSectionRef.current;
+    if ((!isRealtor && !isWellDriller) || formViewFired.current) return;
+    const el = contextBlockRef.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting && !formViewFired.current) {
             formViewFired.current = true;
-            trackRealtorEvent("realtor_form_view");
+            if (isRealtor) trackRealtorEvent("realtor_form_view");
+            if (isWellDriller) trackWellDrillerEvent("well_driller_form_view");
             observer.disconnect();
             return;
           }
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.5 },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [isRealtor]);
+  }, [isRealtor, isWellDriller]);
 
   return (
     <>
@@ -73,16 +83,33 @@ export default function GetStarted() {
         subheadline="Tell us where to reach you — it takes under a minute, and we'll take it from there."
         backgroundImage={getStartedHeroBg}
       />
-      <section ref={formSectionRef} className="bg-[#F4F1EC] min-h-[60vh] relative border-t border-[#0F0F0F]/10">
+      <section className="bg-[#F4F1EC] min-h-[60vh] relative border-t border-[#0F0F0F]/10">
         <div className="max-w-xl mx-auto px-6 py-16 md:py-24">
           {isRealtor && (
-            <div className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
+            <div ref={contextBlockRef} className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
               <p className="font-sans text-base leading-relaxed">
                 You're booking a <span className="font-bold text-white">Realtor Website Call</span>.
                 We'll come prepared to talk about your market, your website, and
                 property-search needs.
               </p>
+            </div>
+          )}
+          {isWellDriller && (
+            <div ref={contextBlockRef} className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
+              <p className="font-sans text-base leading-relaxed">
+                You are checking the{" "}
+                <span className="font-bold text-white">Well Driller Market Offer</span>. Tell us a
+                little about your business and we will confirm availability, learn what
+                jobs you want more of, and prepare for a useful first conversation.
+              </p>
+              {wellDrillerMarket && (
+                <p className="font-sans text-sm mt-2 text-[#F4F1EC]/80">
+                  Market being checked:{" "}
+                  <span className="font-semibold uppercase text-white">{wellDrillerMarket}</span>
+                </p>
+              )}
             </div>
           )}
           <BookCallForm
