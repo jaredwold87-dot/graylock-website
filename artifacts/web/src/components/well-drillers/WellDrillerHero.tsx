@@ -25,11 +25,11 @@ function HeroCopy() {
       <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
         Built for Well Drillers Who Want to Win the Call
       </p>
-      {/* H1: two lines max — familiar truth → outcome; second line in Graylock orange */}
+      {/* H1: direct question — qualifier → payoff; second line in Graylock orange */}
       {/* Cap tuned so each phrase holds a single line on desktop (≤ 2 lines total) */}
-      <h1 className="font-display uppercase text-white leading-[1.05] mb-6 text-[clamp(40px,4.2vw,60px)]">
-        <span className="block text-balance">Your Website Should Work</span>
-        <span className="block text-balance text-[#E85D26]">As Hard as Your Crew.</span>
+      <h1 className="font-display uppercase text-white leading-[1.05] mb-6 text-[clamp(34px,3.1vw,44px)]">
+        <span className="block text-balance">Are You a Hard-Working Well Driller</span>
+        <span className="block text-balance text-[#E85D26]">That Deserves a Better Website?</span>
       </h1>
       <p className="text-stone text-lg font-sans leading-relaxed mb-7 max-w-[510px]">
         We build custom well-driller websites that make it easier to get found, earn trust

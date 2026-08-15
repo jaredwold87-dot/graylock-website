@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&family=Caveat:wght@600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -11,6 +11,7 @@
 
   --font-display: 'Barlow Condensed', sans-serif;
   --font-sans: 'Barlow', sans-serif;
+  --font-hand: 'Caveat', cursive;
 }
 
 /* Black theme: remaps the steel-blue surface tokens to neutral black shades.

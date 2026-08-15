@@ -64,8 +64,8 @@ export function WellDrillerWhySection() {
         </div>
 
         <ScrollReveal className="text-center max-w-2xl mx-auto mt-12 md:mt-14">
-          <p className="font-display italic text-lg md:text-xl text-[#1A1A1A]/70 leading-relaxed">
-            If any of that sounds like your website, you're exactly who we're looking for.
+          <p className="font-hand font-semibold text-2xl md:text-[32px] text-[#B23E16] leading-snug -rotate-1">
+            If any of that sounds like your website, you're exactly who we want to help win.
           </p>
         </ScrollReveal>
       </div>
