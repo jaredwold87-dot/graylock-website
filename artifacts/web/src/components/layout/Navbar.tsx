@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CONTACT_PHONE_TEL } from "@/lib/contact";
+import { REALTOR_LANDING_PATH, realtorGetStartedHref } from "@/lib/realtorLinks";
 
 const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -29,6 +30,12 @@ export function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  // On the realtor landing page only, the booking CTA is context-specific;
+  // every other page keeps the standard label and destination.
+  const isRealtorLanding = location === REALTOR_LANDING_PATH;
+  const bookingHref = isRealtorLanding ? realtorGetStartedHref("site_cta") : "/get-started";
+  const bookingLabel = isRealtorLanding ? "Book a Realtor Website Call" : "Book a Discovery Call";
 
   return (
     <>
@@ -81,10 +88,10 @@ export function Navbar() {
               Call Now
             </a>
             <Link
-              href="/get-started"
+              href={bookingHref}
               className="cta-shimmer bg-orange text-white text-sm font-bold px-5 py-2.5 rounded hover:bg-orange/90 transition-all duration-300 shadow-[0_2px_12px_rgba(232,93,38,0.25)] hover:shadow-[0_4px_20px_rgba(232,93,38,0.4)] hover:-translate-y-0.5 whitespace-nowrap"
             >
-              Book a Discovery Call
+              {bookingLabel}
             </Link>
           </div>
 
@@ -123,10 +130,10 @@ export function Navbar() {
           ))}
 
           <Link
-            href="/get-started"
+            href={bookingHref}
             className="mt-6 cta-shimmer bg-orange text-white font-sans font-bold px-8 py-4 rounded shadow-xl shadow-orange/20"
           >
-            Book a Discovery Call
+            {bookingLabel}
           </Link>
           <a
             href={`tel:${CONTACT_PHONE_TEL}`}

@@ -2,17 +2,27 @@ import { useState } from "react";
 import { useWizard } from "../WizardContext";
 
 export function Step1BasicInfo() {
-  const { data, updateData, goNext } = useWizard();
+  const { data, updateData, goNext, isRealtor } = useWizard();
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const businessLabel = isRealtor ? "Brokerage or Team Name" : "Business Name";
+  const areaLabel = isRealtor ? "Primary Market / Service Area" : "Primary Service Area";
 
   const validate = () => {
     const errs: Record<string, string> = {};
     if (!data.firstName.trim()) errs.firstName = "First name is required";
-    if (!data.businessName.trim()) errs.businessName = "Business name is required";
+    if (isRealtor) {
+      // Require at least two non-space characters.
+      if (data.businessName.trim().replace(/\s/g, "").length < 2) {
+        errs.businessName = "Brokerage or team name is required (at least 2 characters)";
+      }
+    } else if (!data.businessName.trim()) {
+      errs.businessName = "Business name is required";
+    }
     if (!data.email.trim()) errs.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errs.email = "Enter a valid email";
     if (!data.phone.trim()) errs.phone = "Phone number is required";
-    if (!data.serviceArea.trim()) errs.serviceArea = "Service area is required";
+    if (!data.serviceArea.trim()) errs.serviceArea = `${areaLabel} is required`;
     return errs;
   };
 
@@ -49,12 +59,12 @@ export function Step1BasicInfo() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-charcoal font-sans text-sm font-semibold">Business Name *</label>
+          <label className="text-charcoal font-sans text-sm font-semibold">{businessLabel} *</label>
           <input
             type="text"
             value={data.businessName}
             onChange={(e) => updateData({ businessName: e.target.value })}
-            placeholder="Jane's Consulting"
+            placeholder={isRealtor ? "Willow Realty Group" : "Jane's Consulting"}
             className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400"
           />
           {errors.businessName && <span className="text-red-600 text-sm font-sans">{errors.businessName}</span>}
@@ -85,15 +95,19 @@ export function Step1BasicInfo() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-charcoal font-sans text-sm font-semibold">Primary Service Area *</label>
+          <label className="text-charcoal font-sans text-sm font-semibold">{areaLabel} *</label>
           <input
             type="text"
             value={data.serviceArea}
             onChange={(e) => updateData({ serviceArea: e.target.value })}
-            placeholder="Austin, TX or 78701, 78702"
+            placeholder={isRealtor ? "Twin Falls, ID / Magic Valley" : "Austin, TX or 78701, 78702"}
             className="bg-white border border-slate-300 rounded-lg p-4 text-charcoal font-sans text-lg focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange transition-all placeholder:text-slate-400"
           />
-          <span className="text-slate-600 text-xs font-sans">City, State or zip code(s) where you serve clients</span>
+          <span className="text-slate-600 text-xs font-sans">
+            {isRealtor
+              ? "The market or area where you serve buyers and sellers"
+              : "City, State or zip code(s) where you serve clients"}
+          </span>
           {errors.serviceArea && <span className="text-red-600 text-sm font-sans">{errors.serviceArea}</span>}
         </div>
 

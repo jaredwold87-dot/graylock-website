@@ -60,6 +60,7 @@ export function Footer() {
           <div>
             <h4 className="font-display text-white text-lg mb-6 tracking-wide">LOCAL SERVICE BUSINESSES</h4>
             <ul className="space-y-4 flex flex-col">
+              <Link href="/websites-for-realtors" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Real Estate Agents</Link>
               <Link href="/websites-for-home-builders" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Home Builders</Link>
               <Link href="/websites-for-industrial-construction" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Industrial Construction</Link>
               <Link href="/websites-for-accountants" className="text-offwhite/85 hover:text-orange font-sans text-[15px] transition-colors">Accounting Firms</Link>

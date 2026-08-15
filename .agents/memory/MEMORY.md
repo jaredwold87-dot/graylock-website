@@ -5,3 +5,4 @@
 - [Image optimization](image-optimization.md) — @assets imports & public PNGs ship full-size; convert to webp (magick, not sharp) before referencing or pages bloat to MBs.
 - [Hero device positioning](hero-fullbleed-positioning.md) — can't move devices in a full-bleed object-cover hero via CSS; recompose the image (extend canvas) + cap headline width.
 - [theme-black body flash](theme-black-body-flash.md) — body/html bg must be literal #0F0F0F; bg-charcoal default (#0F1E35 navy) flashed blue on refresh since body is outside theme-black.
+- [gtag dataLayer testing](gtag-datalayer-testing.md) — plain gtag.js pushes Arguments (["event",name,props]), not {event:name}; filter e[0]==='event' or e2e checks false-negative.

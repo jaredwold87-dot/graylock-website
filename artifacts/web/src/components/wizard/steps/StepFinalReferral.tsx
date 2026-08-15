@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { useWizard } from "../WizardContext";
 import { Loader2 } from "lucide-react";
+import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 
 export function StepFinalReferral() {
-  const { data, updateData, setPhase } = useWizard();
+  const { data, updateData, setPhase, isRealtor, industry, utmParams, landingPagePath } =
+    useWizard();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
+
+    const submittedAt = new Date().toISOString();
+    const resolvedLandingPage =
+      landingPagePath || (isRealtor ? "/websites-for-realtors" : "");
 
     const payload = {
       first_name: data.firstName,
@@ -21,7 +27,24 @@ export function StepFinalReferral() {
       ideal_customer: data.targetCustomer || "",
       branding_notes: data.brandingNotes || "",
       heard_about_us: data.referralSource || "",
+      // Realtor landing page context (absent for the standard flow)
+      ...(isRealtor
+        ? {
+            industry,
+            lead_source_label: "Realtor Landing Page",
+            landing_page: resolvedLandingPage,
+            local_mls: data.localMls || "",
+            idx_need: data.idxNeed || "",
+            realtor_goals: data.realtorGoals || "",
+            submitted_at: submittedAt,
+            ...utmParams,
+          }
+        : {}),
     };
+
+    const utmSummary = Object.entries(utmParams)
+      .map(([k, v]) => `${k}=${v}`)
+      .join(", ");
 
     fetch(
       "https://graylock-os-ymwca.sevalla.app/api/public/leads/99c58e46-33ee-4c7c-ab23-eeb7badcc57b",
@@ -35,6 +58,14 @@ export function StepFinalReferral() {
           phone: data.phone || undefined,
           subject: data.businessName || undefined,
           message: [
+            isRealtor && "Lead source: Realtor Landing Page",
+            isRealtor && resolvedLandingPage && `Landing page: ${resolvedLandingPage}`,
+            isRealtor && `Brokerage/Team: ${data.businessName}`,
+            isRealtor && data.localMls && `Local MLS: ${data.localMls}`,
+            isRealtor && data.idxNeed && `IDX property search: ${data.idxNeed}`,
+            isRealtor && data.realtorGoals && `Website goals: ${data.realtorGoals}`,
+            isRealtor && utmSummary && `UTM: ${utmSummary}`,
+            isRealtor && `Submitted: ${submittedAt}`,
             data.primaryGoal && `Goal: ${data.primaryGoal}`,
             data.websiteUrl && `Website: ${data.websiteUrl}`,
             data.serviceArea && `Area: ${data.serviceArea}`,
@@ -47,11 +78,16 @@ export function StepFinalReferral() {
     ).catch(() => {});
 
     try {
-      await fetch(`${import.meta.env.BASE_URL || "/"}api/leads`, {
+      const res = await fetch(`${import.meta.env.BASE_URL || "/"}api/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      if (isRealtor && res.ok) {
+        trackRealtorEvent("realtor_form_submit", {
+          idx_interest: data.idxNeed || "",
+        });
+      }
     } catch (err) {
       console.error("Lead submission error:", err);
     }

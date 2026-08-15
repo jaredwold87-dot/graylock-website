@@ -16,11 +16,47 @@ interface LeadPayload {
   ideal_customer: string;
   branding_notes: string;
   heard_about_us: string;
+  // Realtor landing page context (optional — present only for realtor leads)
+  industry?: string;
+  lead_source_label?: string;
+  landing_page?: string;
+  local_mls?: string;
+  idx_need?: string;
+  realtor_goals?: string;
+  submitted_at?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
 }
 
 leadsRouter.post("/leads", async (req: Request, res: Response) => {
   const payload: LeadPayload = req.body;
-  const submittedAt = new Date().toISOString();
+  const submittedAt = payload.submitted_at || new Date().toISOString();
+
+  const isRealtorLead =
+    payload.lead_source_label === "Realtor Landing Page" ||
+    payload.industry === "real-estate";
+
+  const utmPairs = (
+    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const
+  )
+    .filter((key) => payload[key])
+    .map((key) => `${key}=${payload[key]}`);
+
+  const realtorLines = isRealtorLead
+    ? [
+        "",
+        "— Realtor Landing Page lead —",
+        `Landing page: ${payload.landing_page || "/websites-for-realtors"}`,
+        `Industry: ${payload.industry || "real-estate"}`,
+        `Local MLS: ${payload.local_mls || "Not provided"}`,
+        `Needs IDX property search: ${payload.idx_need || "Not provided"}`,
+        `Realtor goals: ${payload.realtor_goals || "Not provided"}`,
+        ...(utmPairs.length ? [`UTM: ${utmPairs.join(", ")}`] : []),
+      ].join("\n")
+    : "";
 
   const emailBody = `New website evaluation request from graylockdigital.com
 
@@ -34,7 +70,7 @@ Website URL: ${payload.website_url || "None"}
 Primary goal: ${payload.primary_goal || "Not provided"}
 Ideal customer: ${payload.ideal_customer || "Not provided"}
 Branding notes: ${payload.branding_notes || "Not provided"}
-Heard about us: ${payload.heard_about_us || "Not provided"}
+Heard about us: ${payload.heard_about_us || "Not provided"}${realtorLines}
 
 Submitted: ${submittedAt}
 
@@ -46,6 +82,10 @@ Or log in to the GOS to view full lead record.`;
   if (process.env.TEAM_EMAIL_TIM) {
     recipients.push(process.env.TEAM_EMAIL_TIM);
   }
+
+  const subject = isRealtorLead
+    ? `New Lead (Realtor Landing Page): ${payload.business_name}`
+    : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Website Review"}`;
 
   const emailPromise = (async () => {
     try {
@@ -59,7 +99,7 @@ Or log in to the GOS to view full lead record.`;
         from: "noreply@graylockdigital.com",
         to: recipients,
         replyTo: payload.email,
-        subject: `New Lead: ${payload.business_name} — ${payload.primary_goal || "Website Review"}`,
+        subject,
         text: emailBody,
       });
       logger.info({ email: payload.email }, "Lead email sent successfully");
@@ -92,6 +132,19 @@ Or log in to the GOS to view full lead record.`;
           heardAboutUs: payload.heard_about_us || "",
           source: "graylockdigital.com",
           submittedAt: submittedAt,
+          ...(isRealtorLead
+            ? {
+                industry: payload.industry || "real-estate",
+                leadSourceLabel: "Realtor Landing Page",
+                landingPage: payload.landing_page || "/websites-for-realtors",
+                localMls: payload.local_mls || "",
+                idxNeed: payload.idx_need || "",
+                realtorGoals: payload.realtor_goals || "",
+                utmSource: payload.utm_source || "",
+                utmMedium: payload.utm_medium || "",
+                utmCampaign: payload.utm_campaign || "",
+              }
+            : {}),
         }),
       });
       const responseBody = await response.text();
