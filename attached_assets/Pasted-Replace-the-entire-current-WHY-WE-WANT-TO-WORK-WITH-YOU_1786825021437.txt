@@ -1,0 +1,39 @@
+Replace the entire current “WHY WE WANT TO WORK WITH YOU / We Want to Help You Win More Clients” section with the following content and layout. Keep the existing dark background, three-column card structure, orange accent line above each card, and Graylock typography. Do not add stock images or additional CTAs to this section.
+
+EYEBROW (orange, tracked uppercase):
+THREE GOALS. ONE BETTER WEBSITE.
+
+SECTION H2 (white):
+What We Want Your Website to Do.
+
+Optional intro line below H2 (keep short, max-width 680px):
+We are not building you another generic contractor website. We are building a well-driller website designed to help you stand out, earn trust, and get found locally.
+
+CARD 1
+Number: 01
+Title:
+THE BEST WELL-DRILLER WEBSITE IN YOUR SERVICE AREA.
+Body:
+The goal is not simply to give you a newer website. We want to give you the strongest online presence of any well-drilling company a customer can compare in your service area—one that makes your experience, services, and professionalism clear before the first call.
+
+CARD 2
+Number: 02
+Title:
+ELEVATE YOUR WEBSITE. ELEVATE YOUR REPUTATION.
+Body:
+Your website should match the quality and dependability of the work your crew does in the field. We bring your services, service areas, experience, and proof into a professional online presence that earns trust quickly and makes you the obvious call.
+
+CARD 3
+Number: 03
+Title:
+MAKE IT EASIER FOR LOCAL CUSTOMERS TO FIND YOU.
+Body:
+We build the site around the well-drilling, pump, water-system, and local-service searches that matter to your business. That gives Google clear information about what you do and helps the right local customers find a clear way to contact you.
+
+DESIGN / RESPONSIVE RULES:
+- Use a small orange 01, 02, and 03 above each card title; retain the thin orange rule but make the number the primary visual marker.
+- Keep card titles in uppercase white, approximately 24–30px desktop, with tight line-height.
+- Use body copy in a light gray, 17–18px desktop, with a maximum of 4–5 lines per card at desktop width.
+- Keep the cards visually equal in height and add a very subtle charcoal border or background tint so they read as a connected three-step system.
+- On mobile, stack the cards in the 01 → 02 → 03 order with 28–32px spacing. Do not shrink the title text below 22px.
+- Remove all former copy from this section, including “Help You Win Clients,” “The Best From the Outside Looking In,” and the current long paragraph blocks.

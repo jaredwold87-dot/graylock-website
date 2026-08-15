@@ -3,7 +3,7 @@ import { SEO } from "@/components/SEO";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { WellDrillerHero } from "@/components/well-drillers/WellDrillerHero";
 import { WellDrillerWhySection } from "@/components/well-drillers/WellDrillerWhySection";
-import { WellDrillerWhyWeWantYouSection } from "@/components/well-drillers/WellDrillerWhyWeWantYouSection";
+import { WellDrillerWebsiteGoalsSection } from "@/components/well-drillers/WellDrillerWebsiteGoalsSection";
 import { WellDrillerWhatWeBuildSection } from "@/components/well-drillers/WellDrillerWhatWeBuildSection";
 import { WellDrillerFreeDemoSection } from "@/components/well-drillers/WellDrillerFreeDemoSection";
 import { WellDrillerProcessSection } from "@/components/well-drillers/WellDrillerProcessSection";
@@ -93,7 +93,7 @@ export default function WellDrillers() {
 
       <WellDrillerHero />
       <WellDrillerWhySection />
-      <WellDrillerWhyWeWantYouSection />
+      <WellDrillerWebsiteGoalsSection />
       <WellDrillerWhatWeBuildSection />
       <WellDrillerFreeDemoSection />
       <WellDrillerProcessSection />

@@ -153,7 +153,8 @@ export function WellDrillerHero() {
              uncovered (no overlay or gradient over the device screens) ── */}
       <div className="hidden xl:block" style={{ backgroundColor: "#1B191F" }}>
         <div className="relative max-w-[1920px] mx-auto">
-          <div className="relative h-[clamp(620px,78vh,730px)] overflow-hidden">
+          {/* Full first screen: hero runs to the fold; proof bar starts below it */}
+          <div className="relative h-screen min-h-[620px] overflow-hidden">
             {/* Device asset anchored bottom-right at its native aspect ratio so the
                 laptop and phone screens are never cropped or covered */}
             <img
@@ -161,7 +162,7 @@ export function WellDrillerHero() {
               alt={HERO_ALT}
               fetchPriority="high"
               decoding="async"
-              className="absolute bottom-0 right-0 h-[90%] w-auto max-w-none"
+              className="absolute bottom-0 right-0 h-[90%] max-h-[820px] w-auto max-w-none"
             />
             {/* Subtle contrast gradient over the copy side only (≤ rgba(0,0,0,0.18));
                 fades out well before the device side of the asset */}
