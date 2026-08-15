@@ -11,15 +11,15 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 const GOALS = [
   {
     title: "Build the Best Well-Driller Website in Your Service Area.",
-    copy: "The goal is not simply to give you a newer website. We want to give you the strongest online presence of any well-drilling company a customer can compare in your service area—one that makes your experience, services, and professionalism clear before the first call.",
+    copy: "Not just a newer website — we want you to have the strongest online presence of any well driller a customer can compare in your service area.",
   },
   {
     title: "Elevate Your Website. Elevate Your Reputation.",
-    copy: "Your website should match the quality and dependability of the work your crew does in the field. We bring your services, service areas, experience, and proof into a professional online presence that earns trust quickly and makes you the obvious call.",
+    copy: "A website that matches the dependable work your crew does, with the services, experience, and proof that make you the obvious call.",
   },
   {
     title: "Make It Easier for Local Customers to Find You.",
-    copy: "We build the site around the well-drilling, pump, water-system, and local-service searches that matter to your business. That gives Google clear information about what you do and helps the right local customers find a clear way to contact you.",
+    copy: "We build around the well, pump, and water-system searches that matter locally, so Google understands what you do and customers can contact you fast.",
   },
 ];
 
