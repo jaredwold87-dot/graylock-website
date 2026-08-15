@@ -1,8 +1,8 @@
-import { Check, MapPin, ArrowDown } from "lucide-react";
+import { Check, ArrowDown } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
-import { getWellDrillerMarket, wellDrillerGetStartedHref } from "@/lib/wellDrillerLinks";
+import { wellDrillerGetStartedHref } from "@/lib/wellDrillerLinks";
 import heroDesktop from "@/assets/hero-well-drillers.webp";
 import heroMobile from "@/assets/hero-well-drillers-mobile.webp";
 
@@ -16,54 +16,34 @@ const PROOF_ITEMS = [
 const HERO_ALT =
   "The Rosenlund Drilling website built by Graylock Digital, shown on a laptop and phone";
 
+/** Hero proof line (spec §4). */
 const REASSURANCE =
-  "No obligation to move forward. We show you a custom homepage direction before you pay anything.";
+  "No upfront cost to see the direction. No obligation after the demo. You decide after you see something built for your business.";
 
-function scrollToOffer(event: React.MouseEvent<HTMLAnchorElement>) {
-  const target = document.getElementById("market-offer");
+function scrollToDemo(event: React.MouseEvent<HTMLAnchorElement>) {
+  const target = document.getElementById("free-custom-demo");
   if (!target) return; // default anchor behavior still works
   event.preventDefault();
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
 }
 
-/** Dynamic availability line with the spec's safe generic fallback. */
-function AvailabilityLine() {
-  const market = getWellDrillerMarket();
-  return (
-    <p className="flex items-start gap-2 text-[#E85D26] font-sans text-xs md:text-[13px] font-bold uppercase tracking-[0.16em] mb-6">
-      <MapPin size={15} strokeWidth={2.5} className="flex-shrink-0 mt-[1px]" aria-hidden="true" />
-      <span>
-        Currently evaluating one qualified well driller{" "}
-        {market ? (
-          <>
-            in <span className="text-white">{market}</span>.
-          </>
-        ) : (
-          <>per selected market.</>
-        )}
-      </span>
-    </p>
-  );
-}
-
 function HeroCopy() {
   return (
     <>
       <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
-        We Reached Out for a Reason
+        For Well Drillers We Believe We Can Help
       </p>
       <h1 className="text-[2.5rem] md:text-5xl xl:text-[2.95rem] font-display text-white leading-[1.12] xl:leading-[1.08] mb-6">
-        <span className="block text-balance">Your Next Well-Drilling Job</span>
-        <span className="block text-balance text-[#E85D26]">Starts With a Search.</span>
+        <span className="block text-balance">We Didn't Reach Out to Sell You</span>
+        <span className="block text-balance text-[#E85D26]">A Generic Website.</span>
       </h1>
       <p className="text-stone text-lg md:text-xl font-sans mb-6 max-w-xl xl:max-w-[520px] leading-snug md:leading-relaxed">
-        We are selecting one qualified well driller in targeted markets to receive a custom,
-        lead-generating website with the one-time build fee waived. Built to help you get found
-        locally, outclass nearby competitors, and turn service or estimate requests into real
-        conversations.
+        We reached out because we see an opportunity for your business to look stronger online,
+        be easier to find locally, and turn more of the right visitors into real service and
+        estimate requests. Before you decide anything, we build a custom homepage demo around
+        your company—free and with no obligation.
       </p>
-      <AvailabilityLine />
     </>
   );
 }
@@ -80,22 +60,22 @@ function HeroCtas({ fullWidth }: { fullWidth?: boolean }) {
         variant="funnel"
         className={fullWidth ? "w-full" : undefined}
         onClick={() =>
-          trackWellDrillerEvent("well_driller_market_availability_click", {
+          trackWellDrillerEvent("well_driller_demo_cta_click", {
             cta_placement: "hero_cta",
           })
         }
       >
-        Check My Market Availability
+        Request My Free Custom Demo
       </CTAButton>
       <a
-        href="#market-offer"
-        onClick={scrollToOffer}
+        href="#free-custom-demo"
+        onClick={scrollToDemo}
         className={
           "inline-flex items-center gap-2 text-stone hover:text-[#E85D26] font-sans font-semibold text-[13px] uppercase tracking-[0.16em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange" +
           (fullWidth ? " self-center" : "")
         }
       >
-        See How the Offer Works
+        See How the Demo Works
         <ArrowDown size={15} aria-hidden="true" />
       </a>
     </div>
@@ -157,7 +137,7 @@ export function WellDrillerHero() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 md:pt-36 pb-10">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-10 md:pt-12 pb-10">
           <ScrollReveal>
             <HeroCopy />
             <HeroCtas fullWidth />
@@ -197,7 +177,7 @@ export function WellDrillerHero() {
              uncovered (no overlay or gradient over the device screens) ── */}
       <div className="hidden xl:block" style={{ backgroundColor: "#1B191F" }}>
         <div className="relative max-w-[1920px] mx-auto">
-          <div className="relative h-[clamp(760px,88vh,860px)] overflow-hidden">
+          <div className="relative h-[clamp(700px,82vh,820px)] overflow-hidden">
             {/* Device asset anchored bottom-right at its native aspect ratio so the
                 laptop and phone screens are never cropped or covered; canvas color
                 is sampled from the asset's own edges so it reads as one full-bleed

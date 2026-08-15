@@ -46,12 +46,12 @@ export function Navbar() {
   const bookingLabel = isRealtorLanding
     ? "Book a Realtor Website Call"
     : isWellDrillerLanding
-      ? "Check My Market"
+      ? "Request My Free Custom Demo"
       : "Book a Discovery Call";
-  // The navbar CTA counts as a market-check CTA on the well-driller landing page.
+  // The navbar CTA counts as a demo CTA on the well-driller landing page.
   const trackBookingCta = () => {
     if (isWellDrillerLanding) {
-      trackWellDrillerEvent("well_driller_market_availability_click", {
+      trackWellDrillerEvent("well_driller_demo_cta_click", {
         cta_placement: "header_cta",
       });
     }

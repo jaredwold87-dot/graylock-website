@@ -12,7 +12,7 @@ import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 
 export function BookCallModal() {
-  const { isOpen, industry, utmParams, closeBookCall } = useBookCall();
+  const { isOpen, industry, utmParams, leadParams, closeBookCall } = useBookCall();
   const isRealtor = industry === "real-estate";
   const isWellDriller = industry === "well-drilling";
 
@@ -34,16 +34,23 @@ export function BookCallModal() {
         <DialogHeader className="mb-8 text-left">
           <DialogTitle className="font-display text-[#0F0F0F] text-3xl sm:text-4xl uppercase tracking-tight leading-none">
             {isWellDriller
-              ? "Check My Market Availability"
+              ? "Let's Build Your Free Custom Demo."
               : isRealtor
                 ? "Book Your Realtor Website Call"
                 : "Book Your Discovery Call"}
           </DialogTitle>
           <DialogDescription className="text-[#0F0F0F]/70 font-sans text-base sm:text-lg pt-3 leading-snug">
-            Tell us where to reach you and we'll take it from there.
+            {isWellDriller
+              ? "Tell us a little about the business and what you want the website to do. We will use the conversation to prepare a homepage direction that is actually relevant to your company."
+              : "Tell us where to reach you and we'll take it from there."}
           </DialogDescription>
         </DialogHeader>
-        <BookCallForm industry={industry} utmParams={utmParams} variant="modal" />
+        <BookCallForm
+          industry={industry}
+          utmParams={utmParams}
+          leadParams={leadParams}
+          variant="modal"
+        />
       </DialogContent>
     </Dialog>
   );

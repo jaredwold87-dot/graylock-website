@@ -9,6 +9,8 @@ interface BookCallFormProps {
   industry?: string;
   /** utm_* attribution params to submit with the lead. */
   utmParams?: Record<string, string>;
+  /** Non-utm lead context from the CTA (e.g. stated_goal, intent). */
+  leadParams?: Record<string, string>;
   /** Pathname of the page the request came from ("" when unknown). */
   landingPagePath?: string;
   /** Compact spacing for the modal; roomier on the standalone page. */
@@ -37,6 +39,7 @@ const WELL_DRILLER_CONTACT_OPTIONS = ["Call", "Text", "Email"];
 export function BookCallForm({
   industry = "",
   utmParams = {},
+  leadParams = {},
   landingPagePath = "",
   variant = "modal",
 }: BookCallFormProps) {
@@ -50,6 +53,7 @@ export function BookCallForm({
   const [serviceArea, setServiceArea] = useState("");
   const [mainServices, setMainServices] = useState<string[]>([]);
   const [desiredJobs, setDesiredJobs] = useState("");
+  const [websiteGoal, setWebsiteGoal] = useState("");
   const [preferredContact, setPreferredContact] = useState("");
   const [wdErrors, setWdErrors] = useState<{
     business?: string;
@@ -128,7 +132,10 @@ export function BookCallForm({
             service_area: serviceArea.trim(),
             main_services: mainServices,
             desired_jobs: desiredJobs.trim(),
+            website_goal: websiteGoal.trim(),
             preferred_contact_method: preferredContact,
+            stated_goal: leadParams["stated_goal"] || "",
+            intent: leadParams["intent"] || "",
             market: campaignParams["market"] || "",
             rep: campaignParams["rep"] || "",
             source: campaignParams["source"] || "",
@@ -161,7 +168,7 @@ export function BookCallForm({
           phone: payload.phone || undefined,
           subject: payload.business_name || undefined,
           message: [
-            isWellDriller ? "Well Driller Market Offer request" : "Discovery call request",
+            isWellDriller ? "Well Driller Custom Demo request" : "Discovery call request",
             isRealtor && "Lead source: Realtor Landing Page",
             isWellDriller && "Lead source: Well Driller Landing Page",
             isWellDriller && campaignParams["market"] && `Market: ${campaignParams["market"]}`,
@@ -170,6 +177,8 @@ export function BookCallForm({
             isWellDriller && serviceArea.trim() && `Service area: ${serviceArea.trim()}`,
             isWellDriller && mainServices.length > 0 && `Main services: ${mainServices.join(", ")}`,
             isWellDriller && desiredJobs.trim() && `Desired jobs: ${desiredJobs.trim()}`,
+            isWellDriller && websiteGoal.trim() && `Website goal: ${websiteGoal.trim()}`,
+            isWellDriller && leadParams["stated_goal"] && `Stated goal: ${leadParams["stated_goal"]}`,
             isWellDriller && preferredContact && `Preferred contact: ${preferredContact}`,
             resolvedLandingPage && `Page: ${resolvedLandingPage}`,
             payload.website_url && `Website: ${payload.website_url}`,
@@ -198,6 +207,7 @@ export function BookCallForm({
       if (isWellDriller) {
         trackWellDrillerEvent("well_driller_form_submit", {
           services_selected: mainServices.join(", "),
+          ...(leadParams["stated_goal"] ? { stated_goal: leadParams["stated_goal"] } : {}),
           ...utmParams,
         });
       }
@@ -226,10 +236,8 @@ export function BookCallForm({
         <p className="text-[#0F0F0F]/70 font-sans text-lg md:text-xl leading-relaxed max-w-md mx-auto">
           {isWellDriller ? (
             <>
-              We received your market check and will follow up with the next step
-              shortly. Keep an eye on{" "}
-              <span className="text-[#0F0F0F] font-semibold">{email}</span> — that's
-              where we'll reach you.
+              We received your demo request and will follow up to learn the few
+              details we need to build something relevant—not generic.
             </>
           ) : (
             <>
@@ -322,6 +330,27 @@ export function BookCallForm({
       {isWellDriller && (
         <>
           <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-website" className={LABEL_CLASSES}>
+              Current Website <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <input
+              id="bc-website"
+              type="text"
+              inputMode="url"
+              autoComplete="url"
+              value={websiteUrl}
+              onChange={(e) => setWebsiteUrl(e.target.value)}
+              placeholder="yourbusiness.com"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+            {wdErrors.website && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {wdErrors.website}
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
             <label htmlFor="bc-service-area" className={LABEL_CLASSES}>
               Primary Service Area
             </label>
@@ -387,6 +416,21 @@ export function BookCallForm({
           </div>
 
           <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-website-goal" className={LABEL_CLASSES}>
+              What do you want your website to do better?{" "}
+              <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <textarea
+              id="bc-website-goal"
+              rows={3}
+              value={websiteGoal}
+              onChange={(e) => setWebsiteGoal(e.target.value)}
+              placeholder="Show up in local searches, look more professional, make it easier to request service — whatever matters most."
+              className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
+            />
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
             <label htmlFor="bc-preferred-contact" className={LABEL_CLASSES}>
               Preferred Contact Method
             </label>
@@ -423,27 +467,25 @@ export function BookCallForm({
         </>
       )}
 
-      <div className="flex flex-col gap-1.5 group">
-        <label htmlFor="bc-website" className={LABEL_CLASSES}>
-          Current website <span className={OPTIONAL_CLASSES}>(Optional)</span>
-        </label>
-        <input
-          id="bc-website"
-          type="text"
-          inputMode="url"
-          autoComplete="url"
-          value={websiteUrl}
-          onChange={(e) => setWebsiteUrl(e.target.value)}
-          placeholder="yourbusiness.com"
-          className={`${INPUT_BASE} text-[#0F0F0F]`}
-        />
-        {isWellDriller && wdErrors.website && (
-          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
-            {wdErrors.website}
-          </span>
-        )}
-      </div>
+      {!isWellDriller && (
+        <div className="flex flex-col gap-1.5 group">
+          <label htmlFor="bc-website" className={LABEL_CLASSES}>
+            Current website <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          </label>
+          <input
+            id="bc-website"
+            type="text"
+            inputMode="url"
+            autoComplete="url"
+            value={websiteUrl}
+            onChange={(e) => setWebsiteUrl(e.target.value)}
+            placeholder="yourbusiness.com"
+            className={`${INPUT_BASE} text-[#0F0F0F]`}
+          />
+        </div>
+      )}
 
+      {!isWellDriller && (
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-heard" className={LABEL_CLASSES}>
           How did you hear about us?{" "}
@@ -474,7 +516,9 @@ export function BookCallForm({
           />
         </div>
       </div>
+      )}
 
+      {!isWellDriller && (
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-note" className={LABEL_CLASSES}>
           Anything we should know?{" "}
@@ -493,6 +537,7 @@ export function BookCallForm({
           className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
         />
       </div>
+      )}
 
       {error && (
         <div className="bg-[#B23E16]/10 border-l-4 border-[#B23E16] p-4 mt-2">
@@ -512,6 +557,8 @@ export function BookCallForm({
             <Loader2 className="animate-spin" size={24} aria-hidden="true" />
             <span>Sending...</span>
           </>
+        ) : isWellDriller ? (
+          "Request My Custom Demo"
         ) : (
           "Request My Call"
         )}

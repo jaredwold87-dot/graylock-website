@@ -1,16 +1,15 @@
 import { useEffect, useRef } from "react";
 import { SEO } from "@/components/SEO";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
+import { WellDrillerAnchorStrip } from "@/components/well-drillers/WellDrillerAnchorStrip";
 import { WellDrillerHero } from "@/components/well-drillers/WellDrillerHero";
 import { WellDrillerWhySection } from "@/components/well-drillers/WellDrillerWhySection";
-import { WellDrillerTrustBar } from "@/components/well-drillers/WellDrillerTrustBar";
-import { WellDrillerProblemSection } from "@/components/well-drillers/WellDrillerProblemSection";
+import { WellDrillerReflectionSection } from "@/components/well-drillers/WellDrillerReflectionSection";
 import { WellDrillerWhatWeBuildSection } from "@/components/well-drillers/WellDrillerWhatWeBuildSection";
-import { WellDrillerMarketOfferSection } from "@/components/well-drillers/WellDrillerMarketOfferSection";
+import { WellDrillerFreeDemoSection } from "@/components/well-drillers/WellDrillerFreeDemoSection";
 import { WellDrillerProcessSection } from "@/components/well-drillers/WellDrillerProcessSection";
 import { WellDrillerProofSection } from "@/components/well-drillers/WellDrillerProofSection";
 import { WellDrillerTestimonialSection } from "@/components/well-drillers/WellDrillerTestimonialSection";
-import { WellDrillerComparisonSection } from "@/components/well-drillers/WellDrillerComparisonSection";
 import { WellDrillerPricingBridgeSection } from "@/components/well-drillers/WellDrillerPricingBridgeSection";
 import { WellDrillerFinalCTASection } from "@/components/well-drillers/WellDrillerFinalCTASection";
 import {
@@ -64,6 +63,12 @@ const WELL_DRILLER_SCHEMA = {
   ],
 };
 
+/**
+ * Single-page sales flow (demo-first): the section order mirrors the real
+ * call — why we called → is the site doing its job → what a better site does
+ * → free custom demo + market offer → process → proof → pricing/guarantee →
+ * FAQ → final demo request. One public page; no internal sales views.
+ */
 export default function WellDrillers() {
   const viewTracked = useRef(false);
 
@@ -87,18 +92,19 @@ export default function WellDrillers() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(WELL_DRILLER_SCHEMA) }}
       />
 
+      {/* Clears the fixed global navbar so the anchor strip sits directly beneath it */}
+      <div className="h-[72px] bg-[#0f0f0f]" aria-hidden="true" />
+      <WellDrillerAnchorStrip />
       <WellDrillerHero />
       <WellDrillerWhySection />
-      <WellDrillerTrustBar />
-      <WellDrillerProblemSection />
+      <WellDrillerReflectionSection />
       <WellDrillerWhatWeBuildSection />
-      <WellDrillerMarketOfferSection />
+      <WellDrillerFreeDemoSection />
       <WellDrillerProcessSection />
       <WellDrillerProofSection />
       {/* Testimonial stays unpublished until a real, approved well-driller
           testimonial is supplied (see WellDrillerTestimonialSection docs). */}
       <WellDrillerTestimonialSection testimonial={null} />
-      <WellDrillerComparisonSection />
       <WellDrillerPricingBridgeSection />
       <WellDrillerFAQSection />
       <WellDrillerFinalCTASection />

@@ -15,13 +15,20 @@ import { WELL_DRILLER_LANDING_PATH, getWellDrillerMarket } from "@/lib/wellDrill
 export default function GetStarted() {
   const search = useSearch();
 
-  const { industry, utmParams } = useMemo(() => {
+  const { industry, utmParams, leadParams } = useMemo(() => {
     const params = new URLSearchParams(search);
     const utm: Record<string, string> = {};
     params.forEach((value, key) => {
       if (key.startsWith("utm_")) utm[key] = value;
     });
-    return { industry: params.get("industry") ?? "", utmParams: utm };
+    // Non-utm lead context carried by campaign CTAs (e.g. the reflection
+    // cards pass the selected card label as stated_goal).
+    const lead: Record<string, string> = {};
+    for (const key of ["stated_goal", "intent"]) {
+      const value = params.get(key);
+      if (value) lead[key] = value;
+    }
+    return { industry: params.get("industry") ?? "", utmParams: utm, leadParams: lead };
   }, [search]);
 
   const isRealtor = industry === "real-estate";
@@ -98,15 +105,17 @@ export default function GetStarted() {
           {isWellDriller && (
             <div ref={contextBlockRef} className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
+              <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
+                Let's build your free custom demo.
+              </p>
               <p className="font-sans text-base leading-relaxed">
-                You are checking the{" "}
-                <span className="font-bold text-white">Well Driller Market Offer</span>. Tell us a
-                little about your business and we will confirm availability, learn what
-                jobs you want more of, and prepare for a useful first conversation.
+                Tell us a little about the business and what you want the website to do. We will
+                use the conversation to prepare a homepage direction that is actually relevant to
+                your company.
               </p>
               {wellDrillerMarket && (
                 <p className="font-sans text-sm mt-2 text-[#F4F1EC]/80">
-                  Market being checked:{" "}
+                  Market:{" "}
                   <span className="font-semibold uppercase text-white">{wellDrillerMarket}</span>
                 </p>
               )}
@@ -115,6 +124,7 @@ export default function GetStarted() {
           <BookCallForm
             industry={industry}
             utmParams={utmParams}
+            leadParams={leadParams}
             landingPagePath={landingPagePath}
             variant="page"
           />

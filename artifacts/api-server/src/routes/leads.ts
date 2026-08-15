@@ -67,7 +67,15 @@ interface LeadPayload {
 
   desired_jobs?: string;
 
+  website_goal?: string;
+
   preferred_contact_method?: string;
+
+  /** Reflection-card label the visitor selected before clicking through. */
+  stated_goal?: string;
+
+  /** CTA intent carried from the landing page (e.g. "free_demo"). */
+  intent?: string;
 
   referrer?: string;
 }
@@ -91,10 +99,12 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
     ? payload.main_services.filter((s) => typeof s === "string" && s.trim()).join(", ")
     : "";
 
-  const wellDrillerMarket =
-    (payload.market || "").trim() ||
+  // Subject shows the primary service area (spec: Business Name — Primary
+  // Service Area); campaign market is the fallback when the area is missing.
+  const wellDrillerServiceArea =
     (payload.service_area ? truncate(payload.service_area.trim()) : "") ||
-    "Market TBD";
+    (payload.market || "").trim() ||
+    "Service Area TBD";
   const utmPairs = (
     ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const
   )
@@ -117,14 +127,17 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
   const wellDrillerLines = isWellDrillerLead
     ? [
         "",
-        "— Well Driller Market Offer lead —",
+        "— Well Driller Custom Demo lead —",
         `Landing page: ${payload.landing_page || "/websites-for-well-drillers"}`,
         `Industry: ${payload.industry || "well-drilling"}`,
+        ...(payload.intent ? [`Intent: ${payload.intent}`] : []),
+        ...(payload.stated_goal ? [`Stated goal (reflection card): ${payload.stated_goal}`] : []),
         `Market: ${payload.market || "Not provided"}`,
         `Rep: ${payload.rep || "Not provided"}`,
         `Source: ${payload.source || "Not provided"}`,
         `Main services: ${mainServices || "Not provided"}`,
         `Desired jobs: ${payload.desired_jobs || "Not provided"}`,
+        `Website goal: ${payload.website_goal || "Not provided"}`,
         `Preferred contact method: ${payload.preferred_contact_method || "Not provided"}`,
         `Referrer: ${payload.referrer || "Not provided"}`,
         ...(utmPairs.length ? [`UTM: ${utmPairs.join(", ")}`] : []),
@@ -170,7 +183,7 @@ Or log in to the GOS to view full lead record.`;
   }
 
   const subject = isWellDrillerLead
-    ? `New Well Driller Market Offer Request — ${payload.business_name} — ${wellDrillerMarket}`
+    ? `New Well-Driller Custom Demo Request — ${payload.business_name} — ${wellDrillerServiceArea}`
     : isRealtorLead
       ? `New Lead (Realtor Landing Page): ${payload.business_name}`
       : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
@@ -248,6 +261,9 @@ Or log in to the GOS to view full lead record.`;
                 campaignSource: payload.source || "",
                 mainServices,
                 desiredJobs: payload.desired_jobs || "",
+                websiteGoal: payload.website_goal || "",
+                statedGoal: payload.stated_goal || "",
+                intent: payload.intent || "",
                 preferredContactMethod: payload.preferred_contact_method || "",
                 referrer: payload.referrer || "",
                 utmSource: payload.utm_source || "",

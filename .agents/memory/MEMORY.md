@@ -8,3 +8,4 @@
 - [gtag dataLayer testing](gtag-datalayer-testing.md) — plain gtag.js pushes Arguments (["event",name,props]), not {event:name}; filter e[0]==='event' or e2e checks false-negative.
 - [Lead form test pollution](lead-form-test-pollution.md) — any lead submit (browser or curl, even dev) creates real leads in Tim's production GOS CRM; e2e must never click submit.
 - [Campaign landing CTA scope](campaign-landing-cta-scope.md) — only in-page CTAs + navbar are campaign-aware; global footer Contact link stays plain by design (realtor precedent).
+- [WD guarantee wording](wd-guarantee-links.md) — ToS says fees non-refundable; guarantee trust lines link /pricing (+#stay-current-guarantee), never ToS; don't expand the wording.

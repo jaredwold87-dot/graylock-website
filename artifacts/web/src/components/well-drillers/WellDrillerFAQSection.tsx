@@ -4,39 +4,39 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/utils";
 import { Link } from "wouter";
 
-/** Exported so the page-level FAQPage JSON-LD always matches the visible FAQ. */
+/** Exported so the page-level FAQPage JSON-LD always matches the visible FAQ (spec §12). */
 export const WELL_DRILLER_FAQS = [
   {
-    q: "Why did Graylock reach out to my well-drilling company?",
-    a: "We look for established companies with real local capability and a website we believe can be made significantly more effective. If we contacted you, we see a possible opportunity to help you look stronger online, get found locally, and turn more visitors into service or estimate requests.",
+    q: "What exactly is the free demo?",
+    a: "It is a custom homepage direction built around your company, services, service area, and what you told us matters most. It is not a generic template preview, and there is no cost or obligation to review it.",
   },
   {
-    q: "What does \u201cone well driller per market\u201d mean?",
-    a: "In selected markets, Graylock is evaluating one qualified well-drilling company for the build-fee-waived offer. Availability depends on the market, campaign capacity, and fit. Checking availability does not create an obligation or promise permanent exclusivity.",
+    q: "What happens after I request a demo?",
+    a: "We set up a short conversation to learn what you want the site to accomplish. Then a Graylock founder walks you through the custom direction and answers the questions that matter to your business.",
   },
   {
-    q: "Is the website actually custom?",
-    a: "Yes. We create a custom homepage direction around your company, services, service area, and ideal jobs. We do not hand you a generic contractor theme and ask you to make it fit.",
+    q: "Do I have to decide on the call?",
+    a: "No. The demo exists so you can see something real before deciding whether Graylock is the right fit.",
   },
   {
-    q: "Will the site help customers find us on Google?",
-    a: "We build the site around clear services, service areas, technical SEO fundamentals, local relevance, and content structure so search engines and customers can understand what you do and where you work. No agency can ethically guarantee a specific Google ranking.",
+    q: "Why did you contact my company?",
+    a: "We focus on established companies with a real local reputation and a website or online presence we believe can be made more useful. We do not send the same offer to every business.",
   },
   {
-    q: "How do leads get to us?",
-    a: "Service and estimate-request forms are configured to send the inquiry details to your designated email inbox. We also make call and contact actions clear throughout the site so customers can reach the right person quickly.",
+    q: "Will the site help us get found locally?",
+    a: "We build around clear services, service areas, local-search fundamentals, and content structure so search engines and customers can better understand what you do and where you work. No agency can ethically guarantee a specific ranking.",
   },
   {
-    q: "How fast can you build a well-drilling website?",
-    a: "Most core builds are ready in 7\u201310 business days after the strategy, design direction, required content, domain access, and any third-party requirements are ready.",
+    q: "How do service and estimate requests get to us?",
+    a: "We configure clear phone actions and request forms so the inquiry details are sent directly to the email inbox your business designates.",
   },
   {
-    q: "Do we have to pay a large amount upfront?",
-    a: "You see a free custom homepage demo before deciding whether to move forward. If selected for the current market offer, the one-time build fee is waived; the ongoing monthly plan and all terms are shown clearly before launch.",
+    q: "What if I only want to answer a few questions by email?",
+    a: "That is fine. You can reply with the services you want more of, the areas you serve, and what you want the website to do better. We can use those details to prepare a more relevant demo conversation.",
   },
   {
-    q: "What happens after the site launches?",
-    a: "Graylock continues hosting, maintenance, support, and the current two-year refresh benefit while you are subscribed, under the published plan terms.",
+    q: "What does the local-market offer mean?",
+    a: "In selected markets, Graylock may waive the one-time website build fee for one well-drilling business it selects to work with. Availability depends on campaign capacity, local fit, and whether a selection has already been made.",
   },
 ];
 

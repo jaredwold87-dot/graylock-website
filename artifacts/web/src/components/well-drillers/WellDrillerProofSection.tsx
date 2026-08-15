@@ -47,15 +47,15 @@ export function WellDrillerProofSection() {
       <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
-            See the Standard
+            The Kind of Standard We Build Toward
           </p>
           <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
-            This Is What a Well-Drilling Website Can Look Like.
+            A Well-Drilling Website Should Look as Capable as the Company Behind It.
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed">
-            A serious website should make your company&rsquo;s capability obvious in seconds—on a
-            desktop in the office and on the phone a customer uses in the field. It should show
-            the work, explain the services, and make the next step simple.
+            A better website is not about making the business look flashy. It is about helping a
+            customer understand who they are calling, what work you do, where you work, and why
+            they should trust you before they ever pick up the phone.
           </p>
         </ScrollReveal>
 

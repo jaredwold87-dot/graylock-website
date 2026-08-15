@@ -6,55 +6,69 @@ import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { wellDrillerGetStartedHref } from "@/lib/wellDrillerLinks";
 
 /**
- * Pricing bridge (spec §"Pricing Context"): reuses the published pricing and
- * guarantee terms verbatim — no campaign-specific pricing is introduced here.
+ * Pricing + guarantee (spec §11): removes risk without putting a full price
+ * list in front of someone who has not seen the demo's value yet. The
+ * "from $199/month" figure must match the live /pricing page (Starter plan).
  */
 export function WellDrillerPricingBridgeSection() {
   return (
-    <section className="bg-[#0f0f0f] pb-24 px-6 md:px-12">
-      <div className="max-w-4xl mx-auto">
+    <section
+      id="pricing-guarantee"
+      className="scroll-mt-[118px] bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 border-t border-white/5"
+    >
+      <div className="max-w-3xl mx-auto text-center">
         <ScrollReveal>
-          <div className="rounded-2xl border border-[#E85D26]/40 bg-gradient-to-b from-[#E85D26]/[0.07] to-transparent px-7 py-10 md:px-12 md:py-12 text-center">
-            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
-              Built to Be a Better Business Decision
-            </p>
-            <h2 className="text-3xl md:text-4xl font-display text-white mb-5 leading-tight">
-              A Website That Helps Create Jobs Should Not Create a Huge Upfront Bill.
-            </h2>
-            <p className="text-stone font-sans text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-6">
-              Start with a free custom homepage demo. If your business is selected for the market
-              offer, the one-time build fee is waived. After launch, you are on a clear monthly
-              plan that includes the support required to keep the website current and working for
-              your business.
-            </p>
-            <p className="text-white font-display text-xl md:text-2xl mb-8">
-              Fully custom websites from{" "}
-              <span className="text-[#E85D26]">$199/month</span>.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-7">
-              <CTAButton
-                href={wellDrillerGetStartedHref("pricing_cta")}
-                variant="funnel"
-                onClick={() =>
-                  trackWellDrillerEvent("well_driller_market_availability_click", {
-                    cta_placement: "pricing_cta",
-                  })
-                }
-              >
-                Check My Market Availability
-              </CTAButton>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center gap-2 text-white/80 hover:text-[#E85D26] font-sans font-semibold text-sm uppercase tracking-[0.14em] px-4 py-3 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-              >
-                See Full Pricing
-                <ArrowRight size={15} aria-hidden="true" />
-              </Link>
-            </div>
-            <p className="text-stone/70 font-sans text-sm leading-relaxed max-w-xl mx-auto">
-              Covered by Graylock's current 30-day money-back guarantee. Your website also
-              receives the current free two-year refresh benefit while subscribed.
-            </p>
+          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
+            Pricing + Guarantee
+          </p>
+          <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
+            A Better Website Should Not Feel Like a Blind Bet.
+          </h2>
+          <p className="text-stone font-sans text-lg leading-relaxed mb-8">
+            The first thing you pay for is not the demo. You see the custom direction before you
+            decide whether the full site is worth moving forward with. If you are selected for
+            the active local-market offer, the one-time build fee is waived. After launch, your
+            business is on a clear monthly plan with ongoing support.
+          </p>
+          <p className="text-white font-display text-2xl md:text-3xl mb-6">
+            Website plans from $199/month
+          </p>
+          <p className="text-stone/80 font-sans text-sm leading-relaxed max-w-xl mx-auto mb-9">
+            Covered by Graylock's current{" "}
+            <Link
+              href="/pricing"
+              className="underline underline-offset-4 decoration-[#E85D26]/60 text-stone hover:text-white transition-colors"
+            >
+              30-day money-back guarantee
+            </Link>
+            . Your website also receives the current{" "}
+            <Link
+              href="/pricing#stay-current-guarantee"
+              className="underline underline-offset-4 decoration-[#E85D26]/60 text-stone hover:text-white transition-colors"
+            >
+              two-year refresh benefit
+            </Link>{" "}
+            while subscribed.
+          </p>
+          <div className="flex flex-col items-center gap-5">
+            <CTAButton
+              href={wellDrillerGetStartedHref("pricing_cta")}
+              variant="funnel"
+              onClick={() =>
+                trackWellDrillerEvent("well_driller_demo_cta_click", {
+                  cta_placement: "pricing_cta",
+                })
+              }
+            >
+              Request My Free Custom Demo
+            </CTAButton>
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 text-stone hover:text-[#E85D26] font-sans font-semibold text-[13px] uppercase tracking-[0.16em] transition-colors"
+            >
+              See Full Pricing
+              <ArrowRight size={14} aria-hidden="true" />
+            </Link>
           </div>
         </ScrollReveal>
       </div>

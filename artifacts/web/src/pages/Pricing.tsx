@@ -179,6 +179,7 @@ export default function Pricing() {
               </p>
             </ScrollReveal>
 
+            <div id="stay-current-guarantee" className="scroll-mt-28" aria-hidden="true" />
             <ScrollReveal delay={0.1} className="mb-14">
               <div className="flex items-center justify-center gap-2 mb-8">
                 <RefreshCw className="text-orange" size={18} />

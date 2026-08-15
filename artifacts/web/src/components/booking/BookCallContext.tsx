@@ -11,17 +11,23 @@ import {
 } from "react";
 import { useSearch } from "wouter";
 
+/** Non-utm campaign fields a CTA may carry into the lead payload. */
+const LEAD_PARAM_KEYS = ["stated_goal", "intent"] as const;
+
 export interface OpenBookCallOptions {
   /** Industry context (e.g. "real-estate") carried by the CTA that opened the form. */
   industry?: string;
   /** utm_* params carried by the CTA href; merged over the page URL's own utm params. */
   utmParams?: Record<string, string>;
+  /** Non-utm lead context from the CTA href (e.g. stated_goal, intent). */
+  leadParams?: Record<string, string>;
 }
 
 interface BookCallContextType {
   isOpen: boolean;
   industry: string;
   utmParams: Record<string, string>;
+  leadParams: Record<string, string>;
   openBookCall: (opts?: OpenBookCallOptions) => void;
   closeBookCall: () => void;
 }
@@ -38,6 +44,15 @@ export function useBookCall(): BookCallContextType {
 /** Tolerant hook for shared components (CTA buttons) — null outside the provider. */
 export function useBookCallOptional(): BookCallContextType | null {
   return useContext(BookCallContext);
+}
+
+function leadParamsFromSearchParams(params: URLSearchParams): Record<string, string> {
+  const lead: Record<string, string> = {};
+  for (const key of LEAD_PARAM_KEYS) {
+    const value = params.get(key);
+    if (value) lead[key] = value;
+  }
+  return lead;
 }
 
 /**
@@ -60,7 +75,11 @@ export function useBookingCtaClick(
     params.forEach((value, key) => {
       if (key.startsWith("utm_")) utm[key] = value;
     });
-    bookCall.openBookCall({ industry: params.get("industry") ?? "", utmParams: utm });
+    bookCall.openBookCall({
+      industry: params.get("industry") ?? "",
+      utmParams: utm,
+      leadParams: leadParamsFromSearchParams(params),
+    });
   };
 }
 
@@ -78,6 +97,7 @@ export function BookCallProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [industry, setIndustry] = useState("");
   const [utmParams, setUtmParams] = useState<Record<string, string>>({});
+  const [leadParams, setLeadParams] = useState<Record<string, string>>({});
 
   const openBookCall = useCallback((opts: OpenBookCallOptions = {}) => {
     // Page-level utm params (e.g. from an ad click) merged under CTA-level ones.
@@ -85,6 +105,7 @@ export function BookCallProvider({ children }: { children: ReactNode }) {
       typeof window !== "undefined" ? utmParamsFromSearch(window.location.search) : {};
     setIndustry(opts.industry ?? "");
     setUtmParams({ ...pageUtms, ...(opts.utmParams ?? {}) });
+    setLeadParams(opts.leadParams ?? {});
     setIsOpen(true);
   }, []);
 
@@ -97,13 +118,16 @@ export function BookCallProvider({ children }: { children: ReactNode }) {
     const params = new URLSearchParams(search);
     if (params.get("book") === "1" && !autoOpened.current) {
       autoOpened.current = true;
-      openBookCall({ industry: params.get("industry") ?? "" });
+      openBookCall({
+        industry: params.get("industry") ?? "",
+        leadParams: leadParamsFromSearchParams(params),
+      });
     }
   }, [search, openBookCall]);
 
   const value = useMemo(
-    () => ({ isOpen, industry, utmParams, openBookCall, closeBookCall }),
-    [isOpen, industry, utmParams, openBookCall, closeBookCall],
+    () => ({ isOpen, industry, utmParams, leadParams, openBookCall, closeBookCall }),
+    [isOpen, industry, utmParams, leadParams, openBookCall, closeBookCall],
   );
 
   return <BookCallContext.Provider value={value}>{children}</BookCallContext.Provider>;

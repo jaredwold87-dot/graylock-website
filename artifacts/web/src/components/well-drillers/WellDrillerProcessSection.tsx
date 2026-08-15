@@ -1,37 +1,38 @@
-import { Phone, LayoutDashboard, CheckCircle2, Network, Rocket } from "lucide-react";
+import { Phone, LayoutDashboard, Users, Network, Rocket } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useSectionHalfViewEvent } from "@/lib/wellDrillerAnalytics";
 
+/** Five connected steps — "conversation → custom demo → decision → build" (spec §9). */
 const STEPS = [
   {
     icon: Phone,
-    title: "15-Minute Discovery Call",
-    desc: "We learn what you do, where you work, what your current site is missing, and what kinds of jobs you want more of.",
+    title: "Tell Us What You Want the Site to Do",
+    desc: "In a short conversation, we learn your service area, priority work, current website frustrations, and what a real win would look like for the business.",
   },
   {
     icon: LayoutDashboard,
-    title: "Free Custom Homepage Demo",
-    desc: "We create a real homepage direction for your business so you can see how your company could look online before you spend a dollar.",
+    title: "We Build Your Free Custom Demo",
+    desc: "We turn that conversation into a homepage direction built around your company, not a generic theme or a slideshow of vague ideas.",
   },
   {
-    icon: CheckCircle2,
-    title: "You Approve the Direction",
-    desc: "If the design and strategy feel right, you approve the direction. If not, there is no pressure and no obligation to continue.",
+    icon: Users,
+    title: "You Review It With a Founder",
+    desc: "You meet with a founder to see the direction, ask direct questions, and decide whether it feels right for your business.",
   },
   {
     icon: Network,
-    title: "We Build Your Lead System",
-    desc: "We build the pages, service paths, area coverage, request forms, local visibility foundation, and mobile experience around your actual business.",
+    title: "We Build the Full Lead System",
+    desc: "If you choose to move forward, we build service pages, local-search foundations, request paths, mobile experience, and trust proof.",
   },
   {
     icon: Rocket,
-    title: "We Launch + Keep It Current",
-    desc: "We launch on your domain, route requests to your inbox, maintain the site, and refresh it every two years while you remain subscribed.",
+    title: "We Launch, Support, and Refresh It",
+    desc: "We launch the finished site, route requests to your chosen inbox, maintain it, and provide the current two-year refresh benefit while you are subscribed.",
   },
 ];
 
 /**
- * Five connected steps on a dark background with orange connectors (spec §8).
+ * "How the Demo Becomes the Website" (spec §9).
  * Fires `well_driller_process_view` once at ~50% visibility.
  */
 export function WellDrillerProcessSection() {
@@ -39,8 +40,9 @@ export function WellDrillerProcessSection() {
 
   return (
     <section
+      id="how-it-works"
       ref={sectionRef}
-      className="bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 border-t border-white/5"
+      className="scroll-mt-[118px] bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
@@ -48,12 +50,12 @@ export function WellDrillerProcessSection() {
             How It Works
           </p>
           <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
-            You Keep Running the Crew. We Handle the Website.
+            The First Step Is Simple. The Demo Makes It Real.
           </h2>
           <p className="text-stone text-lg font-sans leading-relaxed">
-            No drawn-out agency process. No generic theme dropped on your business. We make the
-            direction clear, build the site around your market, and launch a system designed to
-            bring the right requests to your team.
+            You keep running the crew. We learn what matters to the business, build a clear
+            direction, and handle the website work if you decide the new site is worth moving
+            forward with.
           </p>
         </ScrollReveal>
 
@@ -98,17 +100,15 @@ export function WellDrillerProcessSection() {
           </div>
         </div>
 
-        {/* Timing statement (spec §8) */}
+        {/* Timing statement (spec §9) — the 10–15 minutes is the conversation, never the demo build */}
         <ScrollReveal delay={0.1} className="mt-12 md:mt-16">
           <div className="max-w-3xl mx-auto rounded-xl border border-white/10 bg-white/[0.03] px-6 py-6 md:px-8 md:py-7 text-center">
-            <p className="text-white font-sans text-base md:text-lg leading-relaxed mb-3">
-              Most core website builds are designed, built, and ready to launch in{" "}
+            <p className="text-white font-sans text-base md:text-lg leading-relaxed">
+              The demo begins with a short{" "}
+              <span className="text-[#E85D26] font-semibold">10–15 minute conversation</span>.
+              Most core full-site builds are ready in{" "}
               <span className="text-[#E85D26] font-semibold">7–10 business days</span> once the
-              direction, needed materials, and approvals are ready.
-            </p>
-            <p className="text-stone/80 font-sans text-sm leading-relaxed">
-              Real-world inputs such as client content, third-party services, or domain access can
-              affect timing. Graylock will keep the path clear and moving.
+              direction, materials, and required access are ready.
             </p>
           </div>
         </ScrollReveal>
