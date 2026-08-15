@@ -47,12 +47,9 @@ export function WellDrillerWhySection() {
           <p className="text-[#B23E16] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
             Who We Work With
           </p>
-          <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] mb-5 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] leading-tight">
             We Work With Well Drillers We Know We Can Help.
           </h2>
-          <p className="text-[#1A1A1A]/70 text-lg font-sans leading-relaxed">
-            The short version of the phone call, in writing.
-          </p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10 md:gap-y-12 max-w-5xl mx-auto">
