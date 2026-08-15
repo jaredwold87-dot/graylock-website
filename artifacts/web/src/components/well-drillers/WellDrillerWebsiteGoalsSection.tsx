@@ -10,7 +10,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
  */
 const GOALS = [
   {
-    title: "The Best Well-Driller Website in Your Service Area.",
+    title: "Build the Best Well-Driller Website in Your Service Area.",
     copy: "The goal is not simply to give you a newer website. We want to give you the strongest online presence of any well-drilling company a customer can compare in your service area—one that makes your experience, services, and professionalism clear before the first call.",
   },
   {
