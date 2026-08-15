@@ -83,6 +83,12 @@ export function WellDrillerProveValueSection() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal className="text-center max-w-3xl mx-auto mt-12 md:mt-16">
+          <p className="font-hand font-semibold text-[28px] md:text-[38px] text-[#B23E16] leading-snug">
+            Your website — built and launched in an average of 7–10 business days.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );
