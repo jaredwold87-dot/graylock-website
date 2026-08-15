@@ -46,6 +46,9 @@ export function WellDrillerProveValueSection() {
     >
       <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
+            Our Process
+          </p>
           <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] leading-tight mb-5">
             We Prove Our Value Before You Pay a Dollar.
           </h2>
