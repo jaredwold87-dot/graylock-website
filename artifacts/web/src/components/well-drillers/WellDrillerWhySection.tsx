@@ -50,9 +50,10 @@ export function WellDrillerWhySection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-10 max-w-5xl mx-auto">
           {CRITERIA.map((item, i) => (
             <ScrollReveal key={item.title} delay={i * 0.08}>
-              <div className="border-l-2 border-[#E85D26] pl-5 md:pl-6 h-full">
-                <h3 className="text-[#B23E16] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.18em] mb-3">
-                  {String(i + 1).padStart(2, "0")} · {item.title}
+              <div>
+                <div className="h-[3px] w-9 bg-[#E85D26] mb-4" aria-hidden="true" />
+                <h3 className="font-display text-2xl md:text-[26px] text-[#1A1A1A] leading-snug mb-3">
+                  {item.title}
                 </h3>
                 <p className="text-[#1A1A1A]/75 font-sans text-base md:text-lg leading-relaxed">
                   {item.copy}
