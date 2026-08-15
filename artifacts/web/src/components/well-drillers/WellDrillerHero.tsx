@@ -162,7 +162,7 @@ export function WellDrillerHero() {
               alt={HERO_ALT}
               fetchPriority="high"
               decoding="async"
-              className="absolute bottom-0 right-0 h-[90%] max-h-[820px] w-auto max-w-none"
+              className="absolute bottom-0 right-0 h-[90%] max-h-[min(calc(50vw-90px),820px)] w-auto max-w-none"
             />
             {/* Subtle contrast gradient over the copy side only (≤ rgba(0,0,0,0.18));
                 fades out well before the device side of the asset */}
