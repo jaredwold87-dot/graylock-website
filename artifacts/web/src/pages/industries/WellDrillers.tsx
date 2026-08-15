@@ -5,7 +5,7 @@ import { WellDrillerHero } from "@/components/well-drillers/WellDrillerHero";
 import { WellDrillerWhySection } from "@/components/well-drillers/WellDrillerWhySection";
 import { WellDrillerWebsiteGoalsSection } from "@/components/well-drillers/WellDrillerWebsiteGoalsSection";
 import { WellDrillerWhatWeBuildSection } from "@/components/well-drillers/WellDrillerWhatWeBuildSection";
-import { WellDrillerFreeDemoSection } from "@/components/well-drillers/WellDrillerFreeDemoSection";
+import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { WellDrillerProcessSection } from "@/components/well-drillers/WellDrillerProcessSection";
 import { WellDrillerProofSection } from "@/components/well-drillers/WellDrillerProofSection";
 import { WellDrillerTestimonialSection } from "@/components/well-drillers/WellDrillerTestimonialSection";
@@ -95,7 +95,7 @@ export default function WellDrillers() {
       <WellDrillerWhySection />
       <WellDrillerWebsiteGoalsSection />
       <WellDrillerWhatWeBuildSection />
-      <WellDrillerFreeDemoSection />
+      <OfferBreakdownSection />
       <WellDrillerProcessSection />
       <WellDrillerProofSection />
       {/* Testimonial stays unpublished until a real, approved well-driller

@@ -5,8 +5,8 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
  * do: best well-driller site in the service area, elevate the reputation,
  * easier to find locally. Dark section (page alternates dark/light). Same
  * flat format as "Who We Work With" above — orange dash + prominent title +
- * body, no cards, no numbers. No CTA by design; the free-demo section below
- * carries the offer.
+ * body, no cards, no numbers. No CTA by design; later sections carry the
+ * offer.
  */
 const GOALS = [
   {

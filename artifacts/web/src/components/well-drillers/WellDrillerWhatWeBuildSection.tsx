@@ -1,6 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import devicesCrop from "@/assets/rosenlund-devices-crop.webp";
+import devicesCrop from "@/assets/rosenlund-devices-square.webp";
 
 /** Feature blocks — what the build actually covers. */
 const BUILD_ITEMS = [
@@ -33,23 +33,27 @@ export function WellDrillerWhatWeBuildSection() {
       className="scroll-mt-[118px] bg-[#F5F5F5] py-20 md:py-28 px-6 md:px-12"
     >
       <div className="max-w-6xl mx-auto">
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <p className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4">
             What We Do
           </p>
-          <h2 className="text-3xl md:text-[40px] font-display text-[#1A1A1A] leading-tight mb-6">
+          <h2 className="text-3xl md:text-[40px] font-display text-[#1A1A1A] leading-tight">
             When Someone Needs Drilling, Pump Work, or Water-System Help, Your Website Should
             Make Three Things Clear:
           </h2>
-          <div className="space-y-1.5">
-            <p className="font-display text-xl md:text-[26px] text-[#1A1A1A]">
-              You serve their area.
-            </p>
-            <p className="font-display text-xl md:text-[26px] text-[#1A1A1A]">
+        </ScrollReveal>
+
+        {/* The three things, spread across the section width in the handwritten accent style */}
+        <ScrollReveal className="mb-14 md:mb-20">
+          <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-3 lg:gap-8 text-center">
+            <p className="font-hand font-semibold text-[28px] md:text-[32px] xl:text-[36px] text-[#B23E16] leading-snug lg:whitespace-nowrap">
               You do the work they need.
             </p>
-            <p className="font-display text-xl md:text-[26px] text-[#1A1A1A]">
-              They know exactly how to reach you.
+            <p className="font-hand font-semibold text-[28px] md:text-[32px] xl:text-[36px] text-[#B23E16] leading-snug lg:whitespace-nowrap">
+              You serve their area.
+            </p>
+            <p className="font-hand font-semibold text-[28px] md:text-[32px] xl:text-[36px] text-[#B23E16] leading-snug lg:whitespace-nowrap">
+              You're easy to contact.
             </p>
           </div>
         </ScrollReveal>
