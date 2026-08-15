@@ -185,11 +185,12 @@ export function BookCallForm({
 
       <div className="flex flex-col gap-1.5">
         <label htmlFor="bc-phone" className={LABEL_CLASSES}>
-          Phone <span className="text-slate-500 font-normal">(Optional)</span>
+          Phone
         </label>
         <input
           id="bc-phone"
           type="tel"
+          required
           autoComplete="tel"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
