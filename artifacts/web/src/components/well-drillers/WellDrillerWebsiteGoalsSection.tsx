@@ -45,7 +45,7 @@ export function WellDrillerWebsiteGoalsSection() {
             Three Goals. One Better Website.
           </p>
           <h2 className="text-3xl md:text-5xl font-display text-white leading-tight mb-5">
-            What We Want Your Website to Do.
+            What We Will Do for You.
           </h2>
           <p className="text-stone font-sans text-lg leading-relaxed max-w-[680px] mx-auto">
             We are not building you another generic contractor website. We are building a
