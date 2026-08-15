@@ -33,35 +33,47 @@ export function WellDrillerPricingBridgeSection() {
           <p className="text-[#1A1A1A] font-display text-2xl md:text-3xl mb-6">
             Website plans from $199/month
           </p>
-          {/* Guarantee + refresh benefit as prominent checkmark items (links stay on /pricing) */}
-          <div className="flex flex-col items-center gap-3.5 mb-9">
+          {/* Guarantee, refresh benefit + waiver as prominent side-by-side checkmark items.
+              Row is wider than the 3xl text column on large screens so all three fit on one line. */}
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-y-3.5 gap-x-8 mb-9 md:mx-[-60px] lg:mx-[-130px]">
             <div className="flex items-center gap-2.5">
               <CheckCircle2
-                size={22}
+                size={20}
                 strokeWidth={2.2}
                 className="text-[#E85D26] flex-shrink-0"
                 aria-hidden="true"
               />
               <Link
                 href="/pricing"
-                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-lg underline underline-offset-4 decoration-[#E85D26]/60 hover:text-[#B23E16] transition-colors"
+                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-[17px] underline underline-offset-4 decoration-[#E85D26]/60 hover:text-[#B23E16] transition-colors whitespace-nowrap"
               >
                 30-Day Money-Back Guarantee
               </Link>
             </div>
             <div className="flex items-center gap-2.5">
               <CheckCircle2
-                size={22}
+                size={20}
                 strokeWidth={2.2}
                 className="text-[#E85D26] flex-shrink-0"
                 aria-hidden="true"
               />
               <Link
                 href="/pricing#stay-current-guarantee"
-                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-lg underline underline-offset-4 decoration-[#E85D26]/60 hover:text-[#B23E16] transition-colors"
+                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-[17px] underline underline-offset-4 decoration-[#E85D26]/60 hover:text-[#B23E16] transition-colors whitespace-nowrap"
               >
                 Two-Year Refresh Benefit While Subscribed
               </Link>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <CheckCircle2
+                size={20}
+                strokeWidth={2.2}
+                className="text-[#E85D26] flex-shrink-0"
+                aria-hidden="true"
+              />
+              <span className="text-[#1A1A1A] font-sans font-semibold text-base md:text-[17px] whitespace-nowrap">
+                One-Time Build Fee Waived
+              </span>
             </div>
           </div>
           <div className="flex flex-col items-center gap-5">
