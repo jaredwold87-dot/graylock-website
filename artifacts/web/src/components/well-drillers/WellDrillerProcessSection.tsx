@@ -1,8 +1,9 @@
-import { Phone, LayoutDashboard, Users, Network, Rocket } from "lucide-react";
+import { Phone, LayoutDashboard, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useSectionHalfViewEvent } from "@/lib/wellDrillerAnalytics";
 
-/** Five connected steps — "conversation → custom demo → decision → build" (spec §9). */
+/** Three connected steps — "conversation → custom demo → decision". The section
+ * sells the free demo only; the build/launch story lives in the sections above. */
 const STEPS = [
   {
     icon: Phone,
@@ -18,16 +19,6 @@ const STEPS = [
     icon: Users,
     title: "You Review It With a Founder",
     desc: "You meet with a founder to see the direction, ask direct questions, and decide whether it feels right for your business.",
-  },
-  {
-    icon: Network,
-    title: "We Build the Full Lead System",
-    desc: "If you choose to move forward, we build service pages, local-search foundations, request paths, mobile experience, and trust proof.",
-  },
-  {
-    icon: Rocket,
-    title: "We Launch, Support, and Refresh It",
-    desc: "We launch the finished site, route requests to your chosen inbox, maintain it, and provide the current two-year refresh benefit while you are subscribed.",
   },
 ];
 
@@ -53,9 +44,9 @@ export function WellDrillerProcessSection() {
             The First Step Is Simple. The Demo Makes It Real.
           </h2>
           <p className="text-[#1A1A1A]/70 text-lg font-sans leading-relaxed">
-            You keep running the crew. We learn what matters to the business, build a clear
-            direction, and handle the website work if you decide the new site is worth moving
-            forward with.
+            The demo is free, and it only takes 15 minutes to look at. Let us show you what
+            your website could look like — free of charge, no strings attached — and tell you
+            how we can help.
           </p>
         </ScrollReveal>
 
@@ -71,7 +62,7 @@ export function WellDrillerProcessSection() {
             aria-hidden="true"
           />
 
-          <div className="relative grid grid-cols-1 xl:grid-cols-5 gap-9 xl:gap-6">
+          <div className="relative grid grid-cols-1 xl:grid-cols-3 gap-9 xl:gap-10">
             {STEPS.map((step, i) => {
               const Icon = step.icon;
               return (
@@ -100,15 +91,13 @@ export function WellDrillerProcessSection() {
           </div>
         </div>
 
-        {/* Timing statement (spec §9) — the 10–15 minutes is the conversation, never the demo build */}
+        {/* Timing statement — the 10–15 minutes is the conversation, never the demo build */}
         <ScrollReveal delay={0.1} className="mt-12 md:mt-16">
           <div className="max-w-3xl mx-auto rounded-xl border border-[#1A1A1A]/10 bg-white px-6 py-6 md:px-8 md:py-7 text-center">
             <p className="text-[#1A1A1A] font-sans text-base md:text-lg leading-relaxed">
               The demo begins with a short{" "}
               <span className="text-[#B23E16] font-semibold">10–15 minute conversation</span>.
-              Most core full-site builds are ready in{" "}
-              <span className="text-[#B23E16] font-semibold">7–10 business days</span> once the
-              direction, materials, and required access are ready.
+              No payment, no commitment — you see the direction and decide from there.
             </p>
           </div>
         </ScrollReveal>
