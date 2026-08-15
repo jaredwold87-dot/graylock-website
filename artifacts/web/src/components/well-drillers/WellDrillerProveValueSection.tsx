@@ -1,9 +1,9 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Phone, LayoutDashboard, CheckCircle, Rocket } from "lucide-react";
-import discoveryCallImg from "@/assets/process-discovery-call.webp";
-import homepageDemoImg from "@/assets/process-homepage-demo.webp";
-import approvePayImg from "@/assets/process-approve-pay.webp";
-import launchDomainImg from "@/assets/process-launch-domain.webp";
+import discoveryCallImg from "@/assets/well-driller-process-discovery.webp";
+import homepageDemoImg from "@/assets/well-driller-process-demo.webp";
+import approvePayImg from "@/assets/well-driller-process-approval.webp";
+import launchDomainImg from "@/assets/well-driller-process-launch.webp";
 
 /**
  * Well-drillers variant of the home page's "We Prove Our Value" section.
