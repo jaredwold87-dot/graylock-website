@@ -16,7 +16,7 @@ const CRITERIA = [
     copy: "It was built years ago, could belong to any contractor in any trade, and doesn't reflect the quality of the work your crew actually does.",
   },
   {
-    title: "Have a Templated Site That Doesn't Rank on Google",
+    title: "Have a Website That Isn't Getting Found on Google",
     copy: "A basic template rarely shows up in local search — so the companies that do rank are winning jobs that should be yours.",
   },
 ];
