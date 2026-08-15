@@ -44,14 +44,15 @@ export function WellDrillerWhatWeBuildSection() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
-          {/* Live-build visual — the Rosenlund site on real devices */}
+          {/* Live-build visual — the Rosenlund site on real devices (transparent cutout) */}
           <ScrollReveal className="order-2 lg:order-1">
-            <div className="rounded-2xl overflow-hidden shadow-2xl bg-[#17161B]">
+            <div>
               <img
                 src={devicesCrop}
                 alt="The Rosenlund Drilling website by Graylock Digital — clear service paths and quote requests shown on a laptop and phone"
                 loading="lazy"
-                className="w-full h-auto"
+                decoding="async"
+                className="w-full h-auto block"
               />
             </div>
           </ScrollReveal>

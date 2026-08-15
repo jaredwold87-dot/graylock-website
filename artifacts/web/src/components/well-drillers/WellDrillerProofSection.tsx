@@ -17,7 +17,7 @@ const PROJECTS = [
     meta: "Industrial Drilling · Elko, NV",
     url: "https://rosenlunddrilling.com/",
     image: rosenlundImg,
-    alt: "Rosenlund Drilling website transformation — before and after the Graylock rebuild",
+    alt: "The Rosenlund Drilling website built by Graylock Digital, shown on a laptop",
     description:
       "A bold, heritage-driven site for Elko's premier industrial drilling contractor — built for mining operations, ranches, and rural property owners who can't afford to guess on their water supply.",
   },
@@ -26,7 +26,7 @@ const PROJECTS = [
     meta: "Casing Handling Tools · Global · Manufactured in the USA",
     url: "https://www.tekmarkwellcasingtools.com/",
     image: tekmarkImg,
-    alt: "TekMark Industries website transformation — before and after the Graylock rebuild",
+    alt: "The TekMark Industries website built by Graylock Digital, shown on a laptop",
     description:
       "A precision-focused site for a U.S. manufacturer of well casing handling tools — built to give drilling professionals a clear path from product specs to a purchase conversation.",
   },
@@ -35,7 +35,7 @@ const PROJECTS = [
     meta: "Well Pumps & Water Systems · Eugene & Lane County, OR",
     url: "https://jcswellservices.com/",
     image: jcsImg,
-    alt: "JC's Well Services website transformation — before and after the Graylock rebuild",
+    alt: "The JC's Well Services website built by Graylock Digital, shown on a laptop",
     description:
       "A trust-forward site for a well pump and water treatment specialist — built to make emergency service and estimate requests effortless across Lane County.",
   },
@@ -59,7 +59,7 @@ export function WellDrillerProofSection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-14 mb-14 md:mb-16">
           {PROJECTS.map((project, i) => (
             <ScrollReveal key={project.name} delay={i * 0.1}>
               <a
@@ -72,17 +72,29 @@ export function WellDrillerProofSection() {
                     destination: project.url,
                   })
                 }
-                className="group block h-full rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden transition-colors hover:border-[#E85D26]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#0f0f0f]">
-                  <img
-                    src={project.image}
-                    alt={project.alt}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                  />
+                {/* Laptop mockup — screen bezel + base, no card wrapper */}
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-1.5">
+                  <div className="w-[94%] mx-auto rounded-t-lg bg-[#1c1c1e] border border-b-0 border-white/15 p-1.5 md:p-2 shadow-[0_28px_50px_-24px_rgba(0,0,0,0.85)]">
+                    <img
+                      src={project.image}
+                      alt={project.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-auto block rounded-[3px]"
+                    />
+                  </div>
+                  <div className="relative h-2.5 md:h-3 w-full rounded-b-xl bg-gradient-to-b from-[#3e3e42] to-[#232326] border border-white/10">
+                    <div
+                      className="absolute left-1/2 top-0 -translate-x-1/2 h-[45%] w-[13%] rounded-b-md bg-[#151517]"
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
-                <div className="p-6">
+
+                {/* Plain text below the device */}
+                <div className="mt-6">
                   <h3 className="text-white font-sans font-semibold text-lg leading-snug mb-1">
                     {project.name}
                   </h3>

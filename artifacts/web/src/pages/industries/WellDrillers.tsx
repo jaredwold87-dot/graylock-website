@@ -92,10 +92,10 @@ export default function WellDrillers() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(WELL_DRILLER_SCHEMA) }}
       />
 
-      {/* Clears the fixed global navbar so the anchor strip sits directly beneath it */}
-      <div className="h-[72px] bg-[#0f0f0f]" aria-hidden="true" />
-      <WellDrillerAnchorStrip />
       <WellDrillerHero />
+      {/* Anchor strip sits below the hero (hero refinement spec) — it turns sticky
+          beneath the navbar once scrolled to, right before Why We Called */}
+      <WellDrillerAnchorStrip />
       <WellDrillerWhySection />
       <WellDrillerReflectionSection />
       <WellDrillerWhatWeBuildSection />
