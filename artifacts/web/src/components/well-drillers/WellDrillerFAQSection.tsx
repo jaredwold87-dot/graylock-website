@@ -23,6 +23,10 @@ export const WELL_DRILLER_FAQS = [
     a: "We focus on established companies with a real local reputation and a website or online presence we believe can be made more useful. We do not send the same offer to every business.",
   },
   {
+    q: "Are you going to build a website for my competitor?",
+    a: "We only reach out to well drillers, and we only reach out to one well driller in a given area. The build-fee waiver works the same way — it is only offered to one well-drilling company in a given area. We are not in the business of building for everyone on the same search results page.",
+  },
+  {
     q: "Will the site help us get found locally?",
     a: "We build around clear services, service areas, local-search fundamentals, and content structure so search engines and customers can better understand what you do and where you work. No agency can ethically guarantee a specific ranking.",
   },
