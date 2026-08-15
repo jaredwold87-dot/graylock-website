@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { wellDrillerGetStartedHref } from "@/lib/wellDrillerLinks";
 import heroDesktop from "@/assets/hero-well-drillers.webp";
-import heroMobile from "@/assets/hero-well-drillers-mobile.webp";
+import devicesCutout from "@/assets/rosenlund-devices-square.webp";
 
 const PROOF_ITEMS = [
   "Built for local search visibility",
@@ -117,26 +117,20 @@ export function WellDrillerHero() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-[96px] md:pt-[108px] pb-10">
           <ScrollReveal>
             <HeroCopy />
+            {/* Transparent laptop + phone cutout (same asset as "What We Do") — sits
+                above the CTA; replaces the old full-bleed photo container on mobile */}
+            <img
+              src={devicesCutout}
+              alt={HERO_ALT}
+              className="w-full max-w-[560px] mx-auto h-auto mb-7"
+              loading="eager"
+              decoding="async"
+            />
             <HeroCta fullWidth />
             <p className="text-offwhite font-sans text-sm leading-snug text-center sm:text-left">
               {REASSURANCE}
             </p>
           </ScrollReveal>
-        </div>
-
-        {/* Dedicated full-width media container — native aspect ratio, no crop */}
-        <div className="relative z-10 w-full" style={{ backgroundColor: "#1B191F" }}>
-          <picture>
-            <source media="(min-width: 768px)" srcSet={heroDesktop} />
-            <img
-              src={heroMobile}
-              alt={HERO_ALT}
-              className="w-full h-auto"
-              style={{ aspectRatio: "16 / 9", objectFit: "contain" }}
-              loading="eager"
-              decoding="async"
-            />
-          </picture>
         </div>
 
         {/* Proof row: two-by-two grid on mobile, one row from md up */}
