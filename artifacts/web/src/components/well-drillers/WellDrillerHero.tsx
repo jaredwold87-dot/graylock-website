@@ -23,7 +23,7 @@ function HeroCopy() {
   return (
     <>
       <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
-        Built for Well Drillers Who Want to Win the Call
+        Lead Generating Websites for Well Drillers
       </p>
       {/* H1: direct question — qualifier → payoff; second line in Graylock orange */}
       {/* Cap tuned so each phrase holds a single line on desktop (≤ 2 lines total) */}
