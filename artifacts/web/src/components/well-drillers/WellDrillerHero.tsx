@@ -173,9 +173,10 @@ export function WellDrillerHero() {
                   "linear-gradient(to right, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.08) 28%, transparent 42%)",
               }}
             />
-            {/* pt biases the copy below the fixed navbar band */}
-            <div className="relative z-10 max-w-7xl h-full mx-auto px-6 md:px-12 flex items-center pt-[56px]">
-              <div className="w-[min(56%,640px)] pb-8">
+            {/* Copy is bottom-anchored like the device image so the eyebrow line
+                stays level with the top of the laptop across viewport sizes */}
+            <div className="relative z-10 max-w-7xl h-full mx-auto px-6 md:px-12 flex items-end">
+              <div className="w-[min(56%,640px)] pb-[min(calc(41vw-453px),293px)]">
                 <ScrollReveal>
                   <HeroCopy />
                   <HeroCta />

@@ -2,23 +2,27 @@ import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import devicesCrop from "@/assets/rosenlund-devices-crop.webp";
 
-/** Feature blocks in the spec's exact order and wording (spec §7). */
+/** Feature blocks — what the build actually covers. */
 const BUILD_ITEMS = [
   {
     title: "Found When Local Customers Search",
-    desc: "We structure the site around the drilling, pump, water-system, and service-area searches that matter in your market—so the right people can find the right services at the right time.",
+    desc: "Search engine optimization is built in from day one. The site is structured around the drilling, pump, water-system, and service-area searches your customers actually type into Google — so you show up when it counts.",
   },
   {
     title: "Credibility That Holds Up Against Competitors",
-    desc: "Real work, clear capabilities, service areas, reviews, and trust signals are placed where prospects decide whether to call you or keep looking.",
+    desc: "A professional website design, services laid out clearly, and trust signals — experience, licensing, reviews, and real project work — placed exactly where a prospect decides whether to call you or keep looking.",
   },
   {
-    title: "Built to Turn Problems Into Requests",
-    desc: "Clear service paths, estimate-request forms, phone CTAs, and contact prompts guide visitors toward the next action instead of leaving them to figure it out.",
+    title: "Lead Generation Optimization",
+    desc: "The flow of the site and every call to action is aimed at your ideal client — guiding them from the problem they arrived with to a service request, quote request, or phone call.",
   },
   {
     title: "Leads Delivered Where You Need Them",
-    desc: "Service and estimate requests are sent directly to your designated email inbox so your team can see new opportunities and respond quickly.",
+    desc: "Service and quote requests are delivered to your inbox or CRM 24/7, so new opportunities reach your team the moment they come in — not whenever someone remembers to check the website.",
+  },
+  {
+    title: "A Website Viewable on Any Device",
+    desc: "Most local searches happen on a phone now. Your site is built mobile-first — fast, readable, and tap-to-call easy — so the first impression holds up on every screen size.",
   },
 ];
 
@@ -33,14 +37,21 @@ export function WellDrillerWhatWeBuildSection() {
           <p className="text-[#B23E16] text-xs md:text-sm font-sans font-bold uppercase tracking-[0.2em] mb-4">
             What We Do
           </p>
-          <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] mb-5">
-            Get Found. Earn the Call. Make the Next Step Easy.
+          <h2 className="text-3xl md:text-[40px] font-display text-[#1A1A1A] leading-tight mb-6">
+            When Someone Needs Drilling, Pump Work, or Water-System Help, Your Website Should
+            Make Three Things Clear:
           </h2>
-          <p className="font-display italic text-lg md:text-xl text-[#1A1A1A]/70 leading-relaxed">
-            When someone needs drilling, pump work, or water-system help, your website should
-            make three things clear: you serve their area, you do the work they need, and they
-            know exactly how to reach you.
-          </p>
+          <div className="space-y-1.5">
+            <p className="font-display text-xl md:text-[26px] text-[#1A1A1A]">
+              You serve their area.
+            </p>
+            <p className="font-display text-xl md:text-[26px] text-[#1A1A1A]">
+              You do the work they need.
+            </p>
+            <p className="font-display text-xl md:text-[26px] text-[#1A1A1A]">
+              They know exactly how to reach you.
+            </p>
+          </div>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
