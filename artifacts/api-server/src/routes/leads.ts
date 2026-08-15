@@ -8,15 +8,18 @@ interface LeadPayload {
   first_name: string;
   business_name: string;
   email: string;
-  phone: string;
-  service_area: string;
-  has_website: boolean;
-  website_url: string;
-  primary_goal: string;
-  ideal_customer: string;
-  branding_notes: string;
-  heard_about_us: string;
-  // Realtor landing page context (optional — present only for realtor leads)
+  phone?: string;
+  /** Optional free-text note from the quick discovery-call form. */
+  note?: string;
+  // Legacy wizard fields — optional; rendered only when present.
+  service_area?: string;
+  has_website?: boolean;
+  website_url?: string;
+  primary_goal?: string;
+  ideal_customer?: string;
+  branding_notes?: string;
+  heard_about_us?: string;
+  // Attribution context (optional)
   industry?: string;
   lead_source_label?: string;
   landing_page?: string;
@@ -51,26 +54,39 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
         "— Realtor Landing Page lead —",
         `Landing page: ${payload.landing_page || "/websites-for-realtors"}`,
         `Industry: ${payload.industry || "real-estate"}`,
-        `Local MLS: ${payload.local_mls || "Not provided"}`,
-        `Needs IDX property search: ${payload.idx_need || "Not provided"}`,
-        `Realtor goals: ${payload.realtor_goals || "Not provided"}`,
+        ...(payload.local_mls ? [`Local MLS: ${payload.local_mls}`] : []),
+        ...(payload.idx_need ? [`Needs IDX property search: ${payload.idx_need}`] : []),
+        ...(payload.realtor_goals ? [`Realtor goals: ${payload.realtor_goals}`] : []),
         ...(utmPairs.length ? [`UTM: ${utmPairs.join(", ")}`] : []),
       ].join("\n")
     : "";
 
-  const emailBody = `New website evaluation request from graylockdigital.com
+  // Only render the fields the visitor actually provided — the quick
+  // discovery-call form captures far less than the old wizard did.
+  const detailLines = [
+    `Name: ${payload.first_name}`,
+    `Business: ${payload.business_name}`,
+    `Email: ${payload.email}`,
+    `Phone: ${payload.phone || "Not provided"}`,
+    ...(payload.note ? [`Note: ${payload.note}`] : []),
+    ...(payload.service_area ? [`Service Area: ${payload.service_area}`] : []),
+    ...(typeof payload.has_website === "boolean"
+      ? [`Has website: ${payload.has_website ? "Yes" : "No"}`]
+      : []),
+    ...(payload.website_url ? [`Website URL: ${payload.website_url}`] : []),
+    ...(payload.primary_goal ? [`Primary goal: ${payload.primary_goal}`] : []),
+    ...(payload.ideal_customer ? [`Ideal customer: ${payload.ideal_customer}`] : []),
+    ...(payload.branding_notes ? [`Branding notes: ${payload.branding_notes}`] : []),
+    ...(payload.heard_about_us ? [`Heard about us: ${payload.heard_about_us}`] : []),
+    ...(!isRealtorLead && payload.landing_page
+      ? [`Came from: ${payload.landing_page}`]
+      : []),
+    ...(!isRealtorLead && utmPairs.length ? [`UTM: ${utmPairs.join(", ")}`] : []),
+  ];
 
-Name: ${payload.first_name}
-Business: ${payload.business_name}
-Email: ${payload.email}
-Phone: ${payload.phone || "Not provided"}
-Service Area: ${payload.service_area || "Not provided"}
-Has website: ${payload.has_website ? "Yes" : "No"}
-Website URL: ${payload.website_url || "None"}
-Primary goal: ${payload.primary_goal || "Not provided"}
-Ideal customer: ${payload.ideal_customer || "Not provided"}
-Branding notes: ${payload.branding_notes || "Not provided"}
-Heard about us: ${payload.heard_about_us || "Not provided"}${realtorLines}
+  const emailBody = `New discovery call request from graylockdigital.com
+
+${detailLines.join("\n")}${realtorLines}
 
 Submitted: ${submittedAt}
 
@@ -85,7 +101,7 @@ Or log in to the GOS to view full lead record.`;
 
   const subject = isRealtorLead
     ? `New Lead (Realtor Landing Page): ${payload.business_name}`
-    : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Website Review"}`;
+    : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
 
   const emailPromise = (async () => {
     try {
@@ -123,7 +139,9 @@ Or log in to the GOS to view full lead record.`;
           businessName: payload.business_name,
           email: payload.email,
           phone: payload.phone || "",
+          note: payload.note || "",
           serviceArea: payload.service_area || "",
+          // Omitted entirely when the short form didn't ask.
           hasWebsite: payload.has_website,
           websiteUrl: payload.website_url || "",
           primaryGoal: payload.primary_goal || "",
@@ -131,7 +149,11 @@ Or log in to the GOS to view full lead record.`;
           brandingNotes: payload.branding_notes || "",
           heardAboutUs: payload.heard_about_us || "",
           source: "graylockdigital.com",
+          landingPage: payload.landing_page || "",
           submittedAt: submittedAt,
+          utmSource: payload.utm_source || "",
+          utmMedium: payload.utm_medium || "",
+          utmCampaign: payload.utm_campaign || "",
           ...(isRealtorLead
             ? {
                 industry: payload.industry || "real-estate",
@@ -140,9 +162,6 @@ Or log in to the GOS to view full lead record.`;
                 localMls: payload.local_mls || "",
                 idxNeed: payload.idx_need || "",
                 realtorGoals: payload.realtor_goals || "",
-                utmSource: payload.utm_source || "",
-                utmMedium: payload.utm_medium || "",
-                utmCampaign: payload.utm_campaign || "",
               }
             : {}),
         }),

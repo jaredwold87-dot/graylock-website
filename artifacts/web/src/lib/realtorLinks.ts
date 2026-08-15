@@ -9,7 +9,7 @@ export type RealtorCtaPlacement =
 
 /**
  * Every booking CTA on the realtor landing page routes to the get-started
- * wizard with the industry context plus per-placement UTM parameters.
+ * quick booking form with the industry context plus per-placement UTM parameters.
  */
 export function realtorGetStartedHref(placement: RealtorCtaPlacement): string {
   return `/get-started?industry=real-estate&utm_source=realtor_landing&utm_medium=${placement}`;

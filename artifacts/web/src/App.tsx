@@ -10,6 +10,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Layout } from "@/components/layout/Layout";
 import { prefetchNavAssets } from "@/lib/prefetchNavAssets";
 import { GlobalSchema } from "@/components/GlobalSchema";
+import { BookCallProvider } from "@/components/booking/BookCallContext";
+import { BookCallModal } from "@/components/booking/BookCallModal";
 import Home from "@/pages/Home";
 import HowItWorks from "@/pages/HowItWorks";
 import Pricing from "@/pages/Pricing";
@@ -150,9 +152,12 @@ function App() {
             <PageTracker />
             <NavPrefetcher />
             <SiteSettingsProvider>
-              <Layout>
-                <Router />
-              </Layout>
+              <BookCallProvider>
+                <Layout>
+                  <Router />
+                </Layout>
+                <BookCallModal />
+              </BookCallProvider>
             </SiteSettingsProvider>
           </WouterRouter>
           <Toaster />

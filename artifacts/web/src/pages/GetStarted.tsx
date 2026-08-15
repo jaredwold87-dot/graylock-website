@@ -3,64 +3,13 @@ import { useSearch } from "wouter";
 import { SEO } from "@/components/SEO";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import getStartedHeroBg from "@/assets/get-started-hero-bg.webp";
-import { WizardProvider, useWizard } from "@/components/wizard/WizardContext";
-import { WizardShell } from "@/components/wizard/WizardShell";
-import { Step1BasicInfo } from "@/components/wizard/steps/Step1BasicInfo";
-import { Step2HasWebsite } from "@/components/wizard/steps/Step2HasWebsite";
-import { Step3A_WebsiteUrl } from "@/components/wizard/steps/Step3A_WebsiteUrl";
-import { Step4A_PrimaryGoal } from "@/components/wizard/steps/Step4A_PrimaryGoal";
-import { Step5A_TargetCustomer } from "@/components/wizard/steps/Step5A_TargetCustomer";
-import { Step6A_Branding } from "@/components/wizard/steps/Step6A_Branding";
-import { Step3B_BusinessType } from "@/components/wizard/steps/Step3B_BusinessType";
-import { Step4B_BusinessStage } from "@/components/wizard/steps/Step4B_BusinessStage";
-import { Step5B_LeadGen } from "@/components/wizard/steps/Step5B_LeadGen";
-import { Step6B_TargetCustomer } from "@/components/wizard/steps/Step6B_TargetCustomer";
-import { StepRealtorDetails } from "@/components/wizard/steps/StepRealtorDetails";
-import { StepFinalReferral } from "@/components/wizard/steps/StepFinalReferral";
-import { BookingState } from "@/components/wizard/BookingState";
+import { BookCallForm } from "@/components/booking/BookCallForm";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 
-function WizardContent() {
-  const { currentStep, data, phase, isRealtor } = useWizard();
-
-  if (phase === "booking" || phase === "confirmed") {
-    return <BookingState />;
-  }
-
-  const hasWebsite = data.hasWebsite;
-
-  if (currentStep === 1) return <Step1BasicInfo />;
-  if (currentStep === 2) return <Step2HasWebsite />;
-
-  if (hasWebsite === true) {
-    if (currentStep === 3) return <Step3A_WebsiteUrl />;
-    if (currentStep === 4) return <Step4A_PrimaryGoal />;
-    if (currentStep === 5) return <Step5A_TargetCustomer />;
-    if (currentStep === 6) return <Step6A_Branding />;
-    if (isRealtor) {
-      if (currentStep === 7) return <StepRealtorDetails />;
-      if (currentStep === 8) return <StepFinalReferral />;
-    } else if (currentStep === 7) {
-      return <StepFinalReferral />;
-    }
-  }
-
-  if (hasWebsite === false) {
-    if (currentStep === 3) return <Step3B_BusinessType />;
-    if (currentStep === 4) return <Step4B_BusinessStage />;
-    if (currentStep === 5) return <Step5B_LeadGen />;
-    if (currentStep === 6) return <Step6B_TargetCustomer />;
-    if (isRealtor) {
-      if (currentStep === 7) return <StepRealtorDetails />;
-      if (currentStep === 8) return <StepFinalReferral />;
-    } else if (currentStep === 7) {
-      return <StepFinalReferral />;
-    }
-  }
-
-  return <Step1BasicInfo />;
-}
-
+/**
+ * Fallback page for direct visits (bookmarks, ads, middle-clicked CTAs).
+ * Site CTAs normally open the same quick form in a modal without navigating.
+ */
 export default function GetStarted() {
   const search = useSearch();
 
@@ -114,35 +63,34 @@ export default function GetStarted() {
 
   return (
     <>
-      <SEO title="Get Your Free Custom Homepage Demo | Graylock Digital" description="Book a free 15-minute discovery call with Tim and get a custom homepage demo for your practice — before you spend a dollar. No obligation, no pressure." url="https://graylockdigital.com/get-started" />
+      <SEO title="Book a Discovery Call | Graylock Digital" description="Request a free 15-minute discovery call with Tim. Takes under a minute — we'll reach out within one business day. No obligation, no pressure." url="https://graylockdigital.com/get-started" />
       <ElevatedHero
         lines={[
           { text: "Let's Get" },
           { text: "Your Site" },
           { text: "Started.", accent: true },
         ]}
-        subheadline="This is the easy part. Fill out the form below and we'll take it from here."
+        subheadline="Tell us where to reach you — it takes under a minute, and we'll take it from there."
         backgroundImage={getStartedHeroBg}
       />
       <section ref={formSectionRef} className="bg-white min-h-[60vh]">
-        {isRealtor && (
-          <div className="max-w-2xl mx-auto px-6 pt-10">
-            <div className="bg-orange/[0.07] border-l-4 border-orange rounded-r-lg px-5 py-4">
+        <div className="max-w-xl mx-auto px-6 py-12 md:py-16">
+          {isRealtor && (
+            <div className="bg-orange/[0.07] border-l-4 border-orange rounded-r-lg px-5 py-4 mb-8">
               <p className="text-charcoal font-sans text-sm md:text-base leading-relaxed">
                 You're booking a <span className="font-semibold">Realtor Website Call</span>.
                 We'll come prepared to talk about your market, your website, and
                 property-search needs.
               </p>
             </div>
-          </div>
-        )}
-        <WizardProvider industry={industry} utmParams={utmParams} landingPagePath={landingPagePath}>
-          <WizardShell>
-            <WizardContent />
-          </WizardShell>
-        </WizardProvider>
-        <div className="max-w-2xl mx-auto px-6 pb-12 text-center">
-          <p className="text-slate-500 text-sm font-sans">
+          )}
+          <BookCallForm
+            industry={industry}
+            utmParams={utmParams}
+            landingPagePath={landingPagePath}
+            variant="page"
+          />
+          <p className="text-slate-500 text-sm font-sans text-center mt-10">
             Prefer to email us? Reach out at{" "}
             <a href="mailto:hello@graylockdigital.com" className="text-orange hover:underline">
               hello@graylockdigital.com

@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
+import { useBookingCtaClick } from "@/components/booking/BookCallContext";
 
 interface CTAButtonProps {
   href?: string;
@@ -11,6 +12,10 @@ interface CTAButtonProps {
 }
 
 export function CTAButton({ href, children, variant = 'primary', className, onClick, type = 'button' }: CTAButtonProps) {
+  // Booking CTAs (hrefs to /get-started) open the quick-request modal instead
+  // of navigating; the href is kept so middle-click / new-tab still works.
+  const bookingClick = useBookingCtaClick(href);
+
   const baseClasses = "cta-shimmer inline-flex items-center justify-center font-sans font-semibold tracking-wide px-8 py-4 rounded transition-all duration-300";
   
   const variants = {
@@ -24,8 +29,13 @@ export function CTAButton({ href, children, variant = 'primary', className, onCl
   const classes = cn(baseClasses, variants[variant], className);
 
   if (href) {
+    const handleClick = (e: React.MouseEvent) => {
+      onClick?.();
+      bookingClick?.(e);
+    };
+
     return (
-      <Link href={href} className={classes} onClick={onClick}>
+      <Link href={href} className={classes} onClick={handleClick}>
         {children}
       </Link>
     );
