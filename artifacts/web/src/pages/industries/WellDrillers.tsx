@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { SEO } from "@/components/SEO";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
-import { WellDrillerAnchorStrip } from "@/components/well-drillers/WellDrillerAnchorStrip";
 import { WellDrillerHero } from "@/components/well-drillers/WellDrillerHero";
 import { WellDrillerWhySection } from "@/components/well-drillers/WellDrillerWhySection";
 import { WellDrillerReflectionSection } from "@/components/well-drillers/WellDrillerReflectionSection";
@@ -93,9 +92,6 @@ export default function WellDrillers() {
       />
 
       <WellDrillerHero />
-      {/* Anchor strip sits below the hero (hero refinement spec) — it turns sticky
-          beneath the navbar once scrolled to, right before Why We Called */}
-      <WellDrillerAnchorStrip />
       <WellDrillerWhySection />
       <WellDrillerReflectionSection />
       <WellDrillerWhatWeBuildSection />
