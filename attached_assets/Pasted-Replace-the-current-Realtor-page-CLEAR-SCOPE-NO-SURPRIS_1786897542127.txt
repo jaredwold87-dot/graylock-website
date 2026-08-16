@@ -1,0 +1,129 @@
+Replace the current Realtor-page “CLEAR SCOPE. NO SURPRISES.” / “The Right Website Depends on Your Market, MLS Path, and Goals.” pricing section with a transparent two-package Realtor pricing section. This section must make the difference between an individual-agent website and a broker/team website obvious, while clearly stating that a basic IDX Broker plan is included in both starting prices.
+
+Keep the Graylock Realtor landing-page style: deep charcoal/black background, white condensed uppercase headlines, Graylock orange for prices and accents, thin orange rules, and subtle dark topo texture. Do not use generic SaaS pricing-card styling or bright white cards.
+
+SECTION EYEBROW (orange, uppercase, tracked):
+TRANSPARENT REALTOR WEBSITE PRICING
+
+SECTION H2 (white):
+Two Website Packages. Built for the Way You Work.
+
+SECTION INTRO (light gray, centered, max-width approximately 760px):
+Every Realtor website includes custom design, local-market strategy, lead capture, hosting, maintenance, and an IDX Broker Core plan. Choose the starting point that fits your business today, then add advanced IDX capabilities or custom functionality only if your market and goals require it.
+
+Create two equal-width pricing cards on desktop. The Agent card should appear first. The Broker + Team card should receive a subtle orange “MOST COMPLETE” label, but do not make the Agent plan feel like an inferior template product.
+
+CARD 1
+Eyebrow:
+FOR INDIVIDUAL AGENTS
+
+Plan name:
+AGENT WEBSITE + IDX CORE
+
+Price:
+$349
+/month
+
+Support line:
+A custom, lead-focused website for one agent who wants a stronger local presence, branded property search, and clear buyer and seller paths.
+
+Included list title:
+WHAT’S INCLUDED
+
+Included list:
+- Custom website with up to 8 total pages
+- Custom homepage, service/market pages, and mobile-first design
+- IDX Broker Core 60 plan included
+- Branded property search and listing-detail experience when MLS eligibility allows
+- Buyer inquiry, seller valuation, consultation, and contact capture paths
+- Local SEO foundation for your market and service area
+- Hosting, SSL, backups, maintenance, and ongoing support
+- Two-year website refresh benefit while subscribed
+
+Small qualification text at the bottom of the card:
+Your local MLS and brokerage must approve IDX data access. Advanced IDX plans, additional MLS coverage, and market-specific third-party requirements are reviewed before any upgrade is added.
+
+Button label:
+GET YOUR AGENT WEBSITE + IDX PLAN
+
+CTA URL:
+/get-started?industry=real-estate&plan=agent_idx_core&utm_source=realtor_landing&utm_medium=pricing_cta&utm_content=agent_package
+
+CARD 2
+Top label in orange outline pill:
+MOST COMPLETE
+
+Eyebrow:
+FOR BROKERAGES + TEAMS
+
+Plan name:
+BROKER + TEAM WEBSITE + IDX CORE
+
+Price:
+$449
+/month
+
+Support line:
+A larger custom website for brokerages and teams that need more pages, agent profiles, stronger local-market coverage, and a polished buyer and seller experience across the organization.
+
+Included list title:
+WHAT’S INCLUDED
+
+Included list:
+- Custom website with typically 12–15 total pages
+- Individual agent profile and biography pages, included within the scoped page count
+- Custom homepage, team, brokerage, market, community, and contact content
+- IDX Broker Core plan included
+- Branded property search and listing-detail experience when MLS eligibility allows
+- Buyer inquiry, seller valuation, consultation, and contact capture paths
+- Stronger local SEO foundation for multiple agents, service areas, or markets
+- Hosting, SSL, backups, maintenance, and ongoing support
+- Two-year website refresh benefit while subscribed
+
+Small qualification text at the bottom of the card:
+Advanced IDX plans, additional data coverage, more MLSs, CRM or lead-routing integrations, custom map/portal work, and provider or MLS-specific requirements can be added after a market review. We confirm the exact scope before you commit.
+
+Button label:
+GET YOUR BROKER + TEAM WEBSITE PLAN
+
+CTA URL:
+/get-started?industry=real-estate&plan=broker_team_idx_core&utm_source=realtor_landing&utm_medium=pricing_cta&utm_content=broker_team_package
+
+Below both pricing cards, add a full-width qualification and reassurance strip:
+
+Headline:
+IDX IS INCLUDED. YOUR LOCAL MLS PATH IS CONFIRMED FIRST.
+
+Body:
+Both starting packages include the listed IDX Broker Core plan. MLS eligibility, approvals, disclosures, available data fields, provider requirements, and any local third-party fees can vary by brokerage and market. We review those details with you before any advanced upgrade or additional cost is added.
+
+Below this, add a handwritten orange Graylock accent line:
+NO SURPRISES. JUST THE RIGHT WEBSITE FOR YOUR MARKET.
+
+Then add one centered closing block:
+
+H3:
+Not Sure Which Package Fits Your Business?
+
+Body:
+We will review your market, MLS path, current website, team structure, and buyer/seller goals on a short call—then recommend the right starting point before you commit to a build.
+
+Primary CTA:
+GET YOUR REALTOR WEBSITE + IDX PLAN
+
+CTA URL:
+/get-started?industry=real-estate&intent=realtor_idx_fit&utm_source=realtor_landing&utm_medium=pricing_cta&utm_content=pricing_section_fit_call
+
+IMPORTANT CONTENT RULES:
+- Remove the existing generic language: “Standard custom Graylock websites begin at the published monthly plan rates” and the standalone “start with a free Realtor Website + IDX Plan” card. The two package cards now provide the transparent pricing anchor.
+- Do not mention the generic $199/month Starter plan anywhere on the Realtor landing page.
+- Do not invent a one-time build fee, an all-in IDX cost, a monthly IDX upgrade price, MLS approval timing, a ranking guarantee, or a lead-volume guarantee.
+- Do not say IDX is guaranteed. Always use “when MLS eligibility allows” or equivalent language.
+- Do not use “cancel anytime” unless the wording exactly matches the current controlling Terms of Service and Pricing page.
+- Keep the current free-custom-direction / no-build-fee-before-demo promise elsewhere on the page; do not repeat it excessively inside every pricing card.
+
+DESIGN + RESPONSIVE REQUIREMENTS:
+- Desktop: two cards in a 50/50 grid with matched card height, 32px gap, and a strong but restrained orange border treatment on the Broker + Team card.
+- Mobile: stack the Agent card first, then the Broker + Team card. Keep the monthly price large and high-contrast. Each button must be full width and at least 48px tall.
+- Keep all qualification text legible at normal mobile size; do not hide it behind an accordion.
+- Ensure the four largest text elements—the section H2, both package names, and both prices—meet strong contrast requirements against the dark background.
