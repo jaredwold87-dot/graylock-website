@@ -48,6 +48,17 @@ export function AuctioneerGoalsSection() {
         aria-hidden="true"
         style={{ backgroundColor: "rgba(10,10,10,0.74)" }}
       />
+      {/* Center emphasis — extra darkening behind the content over the bright
+          ballroom photo (client legibility feedback, Aug 2026); fades toward
+          the edges so the scene stays visible */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse 75% 70% at 50% 50%, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.35) 55%, rgba(10,10,10,0) 85%)",
+        }}
+      />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
@@ -68,7 +79,7 @@ export function AuctioneerGoalsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {GOALS.map((item, i) => (
             <ScrollReveal key={item.title} delay={i * 0.08} className="h-full">
-              <div className="h-full rounded-xl border border-white/10 bg-white/[0.05] p-6 md:p-7">
+              <div className="h-full rounded-xl border border-white/10 bg-[#0f0f0f]/60 backdrop-blur-sm p-6 md:p-7">
                 <div className="h-[3px] w-9 bg-[#E85D26] mb-4" aria-hidden="true" />
                 <h3 className="font-display text-2xl md:text-[26px] text-white leading-snug mb-3">
                   {item.title}
