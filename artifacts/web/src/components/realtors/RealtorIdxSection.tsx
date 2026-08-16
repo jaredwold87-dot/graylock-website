@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { BadgeCheck } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorIdxConfig } from "./idxConfig";
@@ -104,6 +105,11 @@ export function RealtorIdxSection() {
               decoding="async"
             />
           </div>
+          {/* Partner trust line */}
+          <p className="mt-3.5 flex items-center justify-center gap-2 text-offwhite/90 font-sans font-bold uppercase tracking-[0.18em] text-xs">
+            <BadgeCheck size={15} strokeWidth={2.25} className="text-[#E85D26] flex-shrink-0" aria-hidden="true" />
+            IDX Broker Developer Partner
+          </p>
         </ScrollReveal>
 
         {/* Three stages — flat editorial columns over the photo, no cards */}

@@ -80,7 +80,7 @@ export function RealtorComparisonSection() {
 
         <ScrollReveal className="text-center mt-14 md:mt-16">
           <p className="font-hand font-semibold text-[28px] md:text-[38px] leading-snug text-[#B23E16] max-w-[820px] mx-auto">
-            You should not have to look like every other agent to get taken seriously.
+            A fully customized website meant to appeal to your local ideal customer.
           </p>
         </ScrollReveal>
       </div>
