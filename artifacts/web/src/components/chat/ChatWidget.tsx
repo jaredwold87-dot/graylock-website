@@ -328,6 +328,7 @@ export function ChatWidget() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
+        data-chat-launcher=""
         className={`fixed bottom-4 right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-lg shadow-black/30 flex items-center justify-center transition-all duration-200 ${
           isOpen
             ? "bg-[#232323] hover:bg-[#232323]/80 scale-90"

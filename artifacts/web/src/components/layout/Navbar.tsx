@@ -39,12 +39,12 @@ export function Navbar() {
   const isRealtorLanding = location === REALTOR_LANDING_PATH;
   const isWellDrillerLanding = location === WELL_DRILLER_LANDING_PATH;
   const bookingHref = isRealtorLanding
-    ? realtorGetStartedHref("site_cta")
+    ? realtorGetStartedHref("header")
     : isWellDrillerLanding
       ? wellDrillerGetStartedHref("header_cta")
       : "/get-started";
   const bookingLabel = isRealtorLanding
-    ? "Book a Realtor Website Call"
+    ? "Get Your Realtor Website + IDX Plan"
     : isWellDrillerLanding
       ? "Request My Free Custom Demo"
       : "Book a Discovery Call";

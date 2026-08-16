@@ -3,8 +3,13 @@ import { ChevronDown } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/utils";
 import { Link } from "wouter";
+import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 
-/** Exported so the page-level FAQPage JSON-LD always matches the visible FAQ. */
+/**
+ * Exported so the page-level FAQPage JSON-LD always matches the visible FAQ.
+ * Order per the conversion scope: IDX search, MLS approval, existing provider,
+ * seller leads, timing, MLS setup detail, ownership.
+ */
 export const REALTOR_FAQS = [
   {
     q: "Do you build real estate websites with IDX property search?",
@@ -19,16 +24,16 @@ export const REALTOR_FAQS = [
     a: "In many cases, yes. We will review your existing provider, local MLS requirements, available integration options, and the user experience before confirming the build approach.",
   },
   {
-    q: "What does the MLS setup process usually involve?",
-    a: "It typically starts with confirming your MLS and brokerage eligibility, completing any required data-use or provider agreements, receiving approved credentials or an embed/API method, and then testing the property-search experience and required disclosures. Exact steps vary by market.",
+    q: "Can the website help generate seller leads too?",
+    a: "Yes. We can create dedicated seller paths such as valuation requests, listing consultations, neighborhood pages, local proof, and clear contact actions—built around the conversation you want to start.",
   },
   {
     q: "How long does a real estate website take to build?",
     a: "The core Graylock website build is typically completed in 7–10 business days after the strategy, design direction, content, and required third-party approvals are ready. MLS and provider review timelines vary and are outside Graylock's control.",
   },
   {
-    q: "Can the website help generate seller leads too?",
-    a: "Yes. We can create dedicated seller paths such as valuation requests, listing consultations, neighborhood pages, local proof, and clear contact actions—built around the conversation you want to start.",
+    q: "What does the MLS setup process usually involve?",
+    a: "It typically starts with confirming your MLS and brokerage eligibility, completing any required data-use or provider agreements, receiving approved credentials or an embed/API method, and then testing the property-search experience and required disclosures. Exact steps vary by market.",
   },
   {
     q: "Do I own my website and domain?",
@@ -40,7 +45,7 @@ export function RealtorFAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#0f0f0f] py-28 px-6 md:px-12 relative overflow-hidden border-t border-white/5">
+    <section className="bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 relative overflow-hidden border-t border-white/5">
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -50,61 +55,61 @@ export function RealtorFAQSection() {
       />
 
       <div className="max-w-3xl mx-auto relative z-10">
-        <ScrollReveal className="text-center mb-14">
+        <ScrollReveal className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
             Common Questions
           </h2>
         </ScrollReveal>
 
-        <div className="space-y-3 mb-12">
+        {/* Flat accordion — divider rules only, no boxed cards */}
+        <div className="border-y border-white/10 divide-y divide-white/10 mb-12">
           {REALTOR_FAQS.map((faq, i) => {
             const isOpen = openIndex === i;
             const panelId = `realtor-faq-panel-${i}`;
             const buttonId = `realtor-faq-button-${i}`;
             return (
-              <ScrollReveal key={i} delay={i * 0.08}>
+              <div key={i}>
+                <h3>
+                  <button
+                    type="button"
+                    id={buttonId}
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => {
+                      if (!isOpen) {
+                        trackRealtorEvent("realtor_faq_expand", { question: faq.q });
+                      }
+                      setOpenIndex(isOpen ? null : i);
+                    }}
+                    className="w-full min-h-[44px] py-5 md:py-6 flex items-center justify-between gap-4 text-left cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange"
+                  >
+                    <span className="font-sans font-semibold text-offwhite text-lg">
+                      {faq.q}
+                    </span>
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={cn(
+                        "text-orange transition-transform duration-300 flex-shrink-0",
+                        isOpen ? "rotate-180" : "rotate-0",
+                      )}
+                    />
+                  </button>
+                </h3>
                 <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  // Collapse is CSS-animated; aria-hidden keeps the collapsed
+                  // state accurate for screen readers (no focusables inside).
+                  aria-hidden={!isOpen}
                   className={cn(
-                    "relative rounded-xl overflow-hidden border bg-white/[0.03] transition-colors duration-300",
-                    isOpen
-                      ? "border-orange/30 bg-white/[0.05]"
-                      : "border-white/10 hover:border-white/20",
+                    "overflow-hidden transition-all duration-300 ease-in-out",
+                    isOpen ? "max-h-[500px] pb-6 opacity-100" : "max-h-0 opacity-0",
                   )}
                 >
-                  <h3>
-                    <button
-                      type="button"
-                      id={buttonId}
-                      aria-expanded={isOpen}
-                      aria-controls={panelId}
-                      onClick={() => setOpenIndex(isOpen ? null : i)}
-                      className="relative z-10 w-full min-h-[44px] p-6 flex items-center justify-between gap-4 text-left cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange"
-                    >
-                      <span className="font-sans font-semibold text-offwhite text-lg">
-                        {faq.q}
-                      </span>
-                      <ChevronDown
-                        aria-hidden="true"
-                        className={cn(
-                          "text-orange transition-transform duration-300 flex-shrink-0",
-                          isOpen ? "rotate-180" : "rotate-0",
-                        )}
-                      />
-                    </button>
-                  </h3>
-                  <div
-                    id={panelId}
-                    role="region"
-                    aria-labelledby={buttonId}
-                    className={cn(
-                      "relative z-10 px-6 overflow-hidden transition-all duration-300 ease-in-out",
-                      isOpen ? "max-h-[500px] pb-6 opacity-100" : "max-h-0 opacity-0",
-                    )}
-                  >
-                    <p className="text-stone font-sans leading-relaxed">{faq.a}</p>
-                  </div>
+                  <p className="text-stone font-sans leading-relaxed pr-8">{faq.a}</p>
                 </div>
-              </ScrollReveal>
+              </div>
             );
           })}
         </div>

@@ -1,127 +1,87 @@
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { X, Check } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+
+/**
+ * "Why Graylock instead of a template" — tightened to four contrasts per
+ * column, rendered as flat editorial columns (no bordered cards, no VS badge).
+ */
+const TEMPLATE_POINTS = [
+  "Starts with a shared theme and rigid page structure",
+  "Makes property search an afterthought or a separate mystery",
+  "Gives buyers and sellers generic paths",
+  "Requires you to sort out future updates alone",
+];
+
+const GRAYLOCK_POINTS = [
+  "Starts with a custom direction built around your market and brand",
+  "Plans IDX/MLS readiness early when it is part of your scope",
+  "Creates distinct paths for search, valuation, consultation, and contact",
+  "Keeps the site maintained, supported, and refreshed while subscribed",
+];
 
 export function RealtorComparisonSection() {
-  const comparisons = [
-    {
-      theirs: "Start with a prebuilt real estate theme shared by countless agents",
-      ours: "Start with a custom homepage direction shaped around your brand, market, and lead goals",
-    },
-    {
-      theirs: "Make you commit before you have seen the actual direction",
-      ours: "Show you a real custom homepage demo before you pay",
-    },
-    {
-      theirs: "Treat property search as an afterthought or an opaque add-on",
-      ours: "Plan IDX/MLS readiness early and guide the website-side setup when eligible",
-    },
-    {
-      theirs: "Make buyers and sellers dig for a useful next step",
-      ours: "Build clear paths for search, valuation, consultation, and contact",
-    },
-    {
-      theirs: "Launch a site and leave you to maintain it",
-      ours: "Keep the site supported, maintained, and refreshed while subscribed",
-    },
-  ];
-
   return (
-    <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-      <div className="max-w-5xl mx-auto">
-        <ScrollReveal className="text-center mb-14">
+    <section className="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
+      <div className="max-w-6xl mx-auto">
+        <ScrollReveal className="text-center max-w-[820px] mx-auto mb-12 md:mb-16">
           <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
             Why Graylock
           </p>
-          <h2 className="text-3xl md:text-5xl font-display text-white mb-4">
-            A Lower-Risk Way to Build a Website That Earns Its Keep.
+          <h2 className="font-display text-white text-4xl md:text-[52px] leading-[1.08]">
+            A Real-Estate Website Should Not Look Like Everyone Else&rsquo;s.
           </h2>
-          <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Most real estate website options give you a rigid template, a long contract, or a
-            site that looks like every other agent in town. Graylock starts with a custom
-            direction and builds around how your market actually chooses an agent.
-          </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.15}>
-          {/* Stacked on mobile with the traditional column first; two columns with a
-              clear separator and the Recommended badge on Graylock from md up */}
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-5 items-stretch">
-            {/* VS badge */}
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
-              <div className="w-14 h-14 rounded-full bg-[#0f0f0f] border border-white/10 shadow-xl flex items-center justify-center">
-                <span className="font-display text-stone text-lg italic">vs</span>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-14 lg:gap-x-20 max-w-5xl mx-auto">
+          <ScrollReveal>
+            <div className="h-[3px] w-9 bg-stone/50 mb-4" aria-hidden="true" />
+            <h3 className="font-display text-2xl md:text-[26px] text-stone leading-snug mb-6">
+              The Typical Template
+            </h3>
+            <ul className="space-y-4">
+              {TEMPLATE_POINTS.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <X
+                    size={17}
+                    strokeWidth={2.5}
+                    className="text-stone/70 flex-shrink-0 mt-[3px]"
+                    aria-hidden="true"
+                  />
+                  <span className="text-stone font-sans text-[15px] md:text-base leading-snug">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
 
-            {/* Traditional templates and agencies — muted, the old way */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 md:p-8 md:pr-10 opacity-90">
-              <div className="mb-7">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-stone/50 font-sans font-semibold mb-1.5">
-                  The Old Way
-                </p>
-                <h3 className="font-display text-2xl text-stone">
-                  Traditional Templates and Agencies
-                </h3>
-              </div>
-              <ul className="space-y-5">
-                {comparisons.map((row, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-white/5 flex items-center justify-center">
-                      <X className="text-red-400/70" size={13} />
-                    </span>
-                    <span className="text-stone/75 font-sans text-sm leading-relaxed">
-                      {row.theirs}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-7 pt-6 border-t border-white/10">
-                <p className="text-stone/50 font-sans text-[11px] uppercase tracking-widest font-semibold mb-1.5">
-                  Upfront Cost &amp; Risk
-                </p>
-                <p className="text-stone/80 font-sans text-sm leading-relaxed">
-                  Pay upfront for a template or agency process before you know whether the
-                  website will feel like your brand.
-                </p>
-              </div>
-            </div>
+          <ScrollReveal delay={0.1}>
+            <div className="h-[3px] w-9 bg-[#E85D26] mb-4" aria-hidden="true" />
+            <h3 className="font-display text-2xl md:text-[26px] text-white leading-snug mb-6">
+              The Graylock Way
+            </h3>
+            <ul className="space-y-4">
+              {GRAYLOCK_POINTS.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <Check
+                    size={17}
+                    strokeWidth={2.5}
+                    className="text-white bg-[#E85D26] rounded-full p-[3px] w-[19px] h-[19px] flex-shrink-0 mt-0.5"
+                    aria-hidden="true"
+                  />
+                  <span className="text-offwhite font-sans text-[15px] md:text-base leading-snug">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        </div>
 
-            {/* Graylock Digital — elevated, the better way */}
-            <div className="relative rounded-2xl border border-[#E85D26]/40 bg-gradient-to-b from-[#E85D26]/[0.10] to-[#E85D26]/[0.02] p-7 md:p-8 md:pl-10 shadow-[0_0_50px_-12px_rgba(232,93,38,0.45)] md:scale-[1.04] z-10">
-              <div className="absolute -top-3 right-6 md:right-8 px-3 py-1 rounded-full bg-[#E85D26] shadow-lg">
-                <span className="text-white font-sans text-[11px] font-bold uppercase tracking-wider">
-                  Recommended
-                </span>
-              </div>
-              <div className="mb-7">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#E85D26] font-sans font-semibold mb-1.5">
-                  The Graylock Way
-                </p>
-                <h3 className="font-display text-2xl text-white">Graylock Digital</h3>
-              </div>
-              <ul className="space-y-5">
-                {comparisons.map((row, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#E85D26] flex items-center justify-center">
-                      <Check className="text-white" size={13} strokeWidth={3} />
-                    </span>
-                    <span className="text-white font-sans text-sm leading-relaxed">
-                      {row.ours}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-7 pt-6 border-t border-[#E85D26]/20">
-                <p className="text-[#E85D26] font-sans text-[11px] uppercase tracking-widest font-semibold mb-1.5">
-                  Upfront Cost &amp; Risk
-                </p>
-                <p className="text-white font-sans text-sm leading-relaxed font-semibold">
-                  $0 to see your custom demo. You approve the direction before the build fee
-                  is due.
-                </p>
-              </div>
-            </div>
-          </div>
+        <ScrollReveal className="text-center mt-14 md:mt-16">
+          <p className="font-hand font-semibold text-[28px] md:text-[38px] leading-snug text-[#E85D26] max-w-[820px] mx-auto">
+            You should not have to look like every other agent to get taken seriously.
+          </p>
         </ScrollReveal>
       </div>
     </section>

@@ -43,6 +43,15 @@ interface LeadPayload {
   idx_need?: string;
 
   realtor_goals?: string;
+  // Realtor fit-call fields (current realtor landing form)
+
+  role?: string;
+
+  mls?: string;
+
+  need_property_search?: string;
+
+  launch_timing?: string;
   // Well-driller campaign context (optional — present only for well-driller leads)
 
   submitted_at?: string;
@@ -117,6 +126,18 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
         "— Realtor Landing Page lead —",
         `Landing page: ${payload.landing_page || "/websites-for-realtors"}`,
         `Industry: ${payload.industry || "real-estate"}`,
+        ...(payload.role ? [`Role: ${payload.role}`] : []),
+        ...(payload.market ? [`Market / service area: ${payload.market}`] : []),
+        ...(payload.mls ? [`MLS: ${payload.mls}`] : []),
+        ...(payload.need_property_search
+          ? [`Needs property search: ${payload.need_property_search}`]
+          : []),
+        ...(payload.launch_timing
+          ? [`Target launch timing: ${payload.launch_timing}`]
+          : []),
+        ...(payload.intent ? [`Intent: ${payload.intent}`] : []),
+        ...(payload.referrer ? [`Referrer: ${payload.referrer}`] : []),
+        // Legacy realtor-form fields — kept for old payloads.
         ...(payload.local_mls ? [`Local MLS: ${payload.local_mls}`] : []),
         ...(payload.idx_need ? [`Needs IDX property search: ${payload.idx_need}`] : []),
         ...(payload.realtor_goals ? [`Realtor goals: ${payload.realtor_goals}`] : []),
@@ -148,7 +169,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
   // discovery-call form captures far less than the old wizard did.
   const detailLines = [
     `Name: ${payload.first_name}`,
-    `Business: ${payload.business_name}`,
+    `Business: ${payload.business_name || "Not provided"}`,
     `Email: ${payload.email}`,
     `Phone: ${payload.phone || "Not provided"}`,
     ...(payload.note ? [`Note: ${payload.note}`] : []),
@@ -185,7 +206,7 @@ Or log in to the GOS to view full lead record.`;
   const subject = isWellDrillerLead
     ? `New Well-Driller Custom Demo Request — ${payload.business_name} — ${wellDrillerServiceArea}`
     : isRealtorLead
-      ? `New Lead (Realtor Landing Page): ${payload.business_name}`
+      ? `New Lead (Realtor Landing Page): ${payload.business_name || payload.first_name}`
       : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
 
   const emailPromise = (async () => {
@@ -244,6 +265,13 @@ Or log in to the GOS to view full lead record.`;
                 industry: payload.industry || "real-estate",
                 leadSourceLabel: "Realtor Landing Page",
                 landingPage: payload.landing_page || "/websites-for-realtors",
+                role: payload.role || "",
+                market: payload.market || "",
+                mls: payload.mls || "",
+                needPropertySearch: payload.need_property_search || "",
+                launchTiming: payload.launch_timing || "",
+                intent: payload.intent || "",
+                referrer: payload.referrer || "",
                 localMls: payload.local_mls || "",
                 idxNeed: payload.idx_need || "",
                 realtorGoals: payload.realtor_goals || "",

@@ -1,43 +1,60 @@
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { ArrowRight } from "lucide-react";
-import { realtorGetStartedHref } from "@/lib/realtorLinks";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { trackRealtorEvent } from "@/lib/realtorAnalytics";
+import { realtorGetStartedHref, REALTOR_CTA_LABEL } from "@/lib/realtorLinks";
+import ctaBg from "@/assets/realtor-cta-bg.webp";
 
+/**
+ * Final CTA — atmospheric interior photo with a strong dark mask, copy block
+ * left-aligned on desktop, one action.
+ */
 export function RealtorFinalCTASection() {
   return (
-    <section className="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
-      <div className="max-w-4xl mx-auto text-center">
-        <ScrollReveal>
-          <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
-            Ready When You Are
-          </p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight">
-            Let's Build the Website Your Next Client Can Trust.
-          </h2>
-          <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-10">
-            Book a quick call. Tell us what is working, what is not, and what you want your
-            website to do for your business. We will make the path forward clear—and show
-            you a custom direction before you have to commit.
-          </p>
-        </ScrollReveal>
+    <section className="relative bg-[#0f0f0f] overflow-hidden border-t border-white/5 py-24 md:py-32 px-6 md:px-12">
+      <img
+        src={ctaBg}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(8,8,8,0.92) 0%, rgba(10,10,10,0.78) 55%, rgba(10,10,10,0.55) 100%)",
+        }}
+      />
 
-        <ScrollReveal delay={0.15}>
-          <div className="flex flex-col items-center gap-3">
-            <CTAButton
-              href={realtorGetStartedHref("final_cta")}
-              variant="funnel"
-              className="px-10 py-5 text-lg group"
-            >
-              Book a Realtor Website Call
-              <ArrowRight
-                className="inline-block ml-2 group-hover:translate-x-1 transition-transform"
-                size={18}
-              />
-            </CTAButton>
-            <p className="text-stone text-sm font-sans mt-3">
-              No pressure. No generic template. No obligation to move forward after your demo.
-            </p>
-          </div>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <ScrollReveal className="max-w-2xl">
+          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
+            You Should Know the Direction Before You Pay for the Build.
+          </p>
+          <h2 className="font-display text-white text-4xl md:text-[56px] leading-[1.06] mb-6">
+            Let&rsquo;s Plan the Realtor Website Your Market Deserves.
+          </h2>
+          <p className="text-stone font-sans text-lg leading-relaxed mb-9 max-w-[600px]">
+            In 15 minutes, we will review your market, current website, brokerage or MLS
+            path, buyer/seller goals, and what a stronger online experience could look like.
+            Then we will prepare a free custom homepage direction for your brand.
+          </p>
+          <CTAButton
+            href={realtorGetStartedHref("final_cta")}
+            variant="funnel"
+            className="px-8 py-4 text-base"
+            onClick={() =>
+              trackRealtorEvent("realtor_final_cta_click", { cta_placement: "final_cta" })
+            }
+          >
+            {REALTOR_CTA_LABEL}
+          </CTAButton>
+          <p className="mt-6 text-stone/90 font-sans text-sm leading-relaxed max-w-[540px]">
+            No generic template. No build fee before you see the direction. No obligation
+            after the demo.
+          </p>
         </ScrollReveal>
       </div>
     </section>

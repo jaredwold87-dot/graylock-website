@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { CheckCircle, ChevronDown, Loader2 } from "lucide-react";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
@@ -36,6 +36,17 @@ const WELL_DRILLER_SERVICE_OPTIONS = [
 
 const WELL_DRILLER_CONTACT_OPTIONS = ["Call", "Text", "Email"];
 
+const REALTOR_ROLE_OPTIONS = ["Agent", "Team Lead", "Brokerage Owner", "Other"];
+
+const REALTOR_NEED_SEARCH_OPTIONS = ["Yes", "No", "Not sure yet"];
+
+const REALTOR_LAUNCH_TIMING_OPTIONS = [
+  "As soon as possible",
+  "Within 1\u20133 months",
+  "In 3\u20136 months",
+  "6+ months / just researching",
+];
+
 export function BookCallForm({
   industry = "",
   utmParams = {},
@@ -62,6 +73,14 @@ export function BookCallForm({
     services?: string;
     contact?: string;
   }>({});
+  // Realtor fit-call fields (per the conversion scope — no budget field).
+  const [role, setRole] = useState("");
+  const [market, setMarket] = useState("");
+  const [mls, setMls] = useState("");
+  const [needSearch, setNeedSearch] = useState("");
+  const [launchTiming, setLaunchTiming] = useState("");
+  const [rtErrors, setRtErrors] = useState<{ phone?: string; website?: string }>({});
+  const fitCallStarted = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -73,6 +92,13 @@ export function BookCallForm({
     setMainServices((prev) =>
       prev.includes(service) ? prev.filter((s) => s !== service) : [...prev, service],
     );
+  };
+
+  // realtor_fit_call_start — first interaction with any field, fired once.
+  const handleFirstFocus = () => {
+    if (!isRealtor || fitCallStarted.current) return;
+    fitCallStarted.current = true;
+    trackRealtorEvent("realtor_fit_call_start", utmParams);
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -103,6 +129,19 @@ export function BookCallForm({
       setWdErrors(errs);
       if (Object.keys(errs).length > 0) return;
     }
+    if (isRealtor) {
+      const errs: { phone?: string; website?: string } = {};
+      const phoneDigits = phone.replace(/\D/g, "");
+      if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+        errs.phone = "Enter a valid phone number";
+      }
+      const website = websiteUrl.trim();
+      if (website && !/^(https?:\/\/)?([\w-]+\.)+[a-z]{2,}([\/?#]\S*)?$/i.test(website)) {
+        errs.website = "Enter a valid website address (e.g., yourbusiness.com)";
+      }
+      setRtErrors(errs);
+      if (Object.keys(errs).length > 0) return;
+    }
     setIsSubmitting(true);
 
     const submittedAt = new Date().toISOString();
@@ -124,7 +163,19 @@ export function BookCallForm({
       note: note.trim(),
       landing_page: resolvedLandingPage,
       submitted_at: submittedAt,
-      ...(isRealtor ? { industry, lead_source_label: "Realtor Landing Page" } : {}),
+      ...(isRealtor
+        ? {
+            industry,
+            lead_source_label: "Realtor Landing Page",
+            role,
+            market: market.trim(),
+            mls: mls.trim(),
+            need_property_search: needSearch,
+            launch_timing: launchTiming,
+            intent: leadParams["intent"] || "",
+            referrer: typeof document !== "undefined" ? document.referrer || "" : "",
+          }
+        : {}),
       ...(isWellDriller
         ? {
             industry,
@@ -168,8 +219,18 @@ export function BookCallForm({
           phone: payload.phone || undefined,
           subject: payload.business_name || undefined,
           message: [
-            isWellDriller ? "Well Driller Custom Demo request" : "Discovery call request",
+            isWellDriller
+              ? "Well Driller Custom Demo request"
+              : isRealtor
+                ? "Realtor Website + IDX Fit Call request"
+                : "Discovery call request",
             isRealtor && "Lead source: Realtor Landing Page",
+            isRealtor && role && `Role: ${role}`,
+            isRealtor && market.trim() && `Market / service area: ${market.trim()}`,
+            isRealtor && mls.trim() && `MLS: ${mls.trim()}`,
+            isRealtor && needSearch && `Needs property search: ${needSearch}`,
+            isRealtor && launchTiming && `Target launch timing: ${launchTiming}`,
+            isRealtor && leadParams["intent"] && `Intent: ${leadParams["intent"]}`,
             isWellDriller && "Lead source: Well Driller Landing Page",
             isWellDriller && campaignParams["market"] && `Market: ${campaignParams["market"]}`,
             isWellDriller && campaignParams["rep"] && `Rep: ${campaignParams["rep"]}`,
@@ -202,7 +263,15 @@ export function BookCallForm({
       if (!res.ok) throw new Error(`Lead submission failed (${res.status})`);
       if (isRealtor) {
         // Explicit utm context — the modal flow no longer carries it in the URL.
+        // realtor_form_submit stays for GA continuity; realtor_fit_call_complete
+        // is the scope's canonical completion event.
         trackRealtorEvent("realtor_form_submit", utmParams);
+        trackRealtorEvent("realtor_fit_call_complete", {
+          role,
+          need_property_search: needSearch,
+          market: market.trim(),
+          ...utmParams,
+        });
       }
       if (isWellDriller) {
         trackWellDrillerEvent("well_driller_form_submit", {
@@ -252,7 +321,12 @@ export function BookCallForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate={false} className="flex flex-col gap-6">
+    <form
+      onSubmit={handleSubmit}
+      onFocusCapture={handleFirstFocus}
+      noValidate={false}
+      className="flex flex-col gap-6"
+    >
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-name" className={LABEL_CLASSES}>
           Name
@@ -269,26 +343,28 @@ export function BookCallForm({
         />
       </div>
 
-      <div className="flex flex-col gap-1.5 group">
-        <label htmlFor="bc-business" className={LABEL_CLASSES}>
-          {isRealtor ? "Brokerage or team name" : "Business name"}
-        </label>
-        <input
-          id="bc-business"
-          type="text"
-          required
-          autoComplete="organization"
-          value={businessName}
-          onChange={(e) => setBusinessName(e.target.value)}
-          placeholder={isRealtor ? "Your brokerage or team" : "Your business"}
-          className={`${INPUT_BASE} text-[#0F0F0F]`}
-        />
-        {isWellDriller && wdErrors.business && (
-          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
-            {wdErrors.business}
-          </span>
-        )}
-      </div>
+      {!isRealtor && (
+        <div className="flex flex-col gap-1.5 group">
+          <label htmlFor="bc-business" className={LABEL_CLASSES}>
+            Business name
+          </label>
+          <input
+            id="bc-business"
+            type="text"
+            required
+            autoComplete="organization"
+            value={businessName}
+            onChange={(e) => setBusinessName(e.target.value)}
+            placeholder="Your business"
+            className={`${INPUT_BASE} text-[#0F0F0F]`}
+          />
+          {isWellDriller && wdErrors.business && (
+            <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              {wdErrors.business}
+            </span>
+          )}
+        </div>
+      )}
 
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-email" className={LABEL_CLASSES}>
@@ -323,6 +399,11 @@ export function BookCallForm({
         {isWellDriller && wdErrors.phone && (
           <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
             {wdErrors.phone}
+          </span>
+        )}
+        {isRealtor && rtErrors.phone && (
+          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+            {rtErrors.phone}
           </span>
         )}
       </div>
@@ -467,7 +548,169 @@ export function BookCallForm({
         </>
       )}
 
-      {!isWellDriller && (
+      {isRealtor && (
+        <>
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-role" className={LABEL_CLASSES}>
+              Role
+            </label>
+            <div className="relative">
+              <select
+                id="bc-role"
+                required
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                  role ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
+                }`}
+              >
+                <option value="" disabled>
+                  Select one
+                </option>
+                {REALTOR_ROLE_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                size={20}
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-market" className={LABEL_CLASSES}>
+              Market / service area
+            </label>
+            <input
+              id="bc-market"
+              type="text"
+              required
+              value={market}
+              onChange={(e) => setMarket(e.target.value)}
+              placeholder="e.g., Twin Falls + surrounding Southern Idaho"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-brokerage" className={LABEL_CLASSES}>
+              Brokerage <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <input
+              id="bc-brokerage"
+              type="text"
+              autoComplete="organization"
+              value={businessName}
+              onChange={(e) => setBusinessName(e.target.value)}
+              placeholder="Your brokerage"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-mls" className={LABEL_CLASSES}>
+              MLS, if known <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <input
+              id="bc-mls"
+              type="text"
+              value={mls}
+              onChange={(e) => setMls(e.target.value)}
+              placeholder="e.g., Intermountain MLS"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-website" className={LABEL_CLASSES}>
+              Current website URL <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <input
+              id="bc-website"
+              type="text"
+              inputMode="url"
+              autoComplete="url"
+              value={websiteUrl}
+              onChange={(e) => setWebsiteUrl(e.target.value)}
+              placeholder="yourbusiness.com"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+            {rtErrors.website && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {rtErrors.website}
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-need-search" className={LABEL_CLASSES}>
+              Do you need property search?
+            </label>
+            <div className="relative">
+              <select
+                id="bc-need-search"
+                required
+                value={needSearch}
+                onChange={(e) => setNeedSearch(e.target.value)}
+                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                  needSearch ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
+                }`}
+              >
+                <option value="" disabled>
+                  Select one
+                </option>
+                {REALTOR_NEED_SEARCH_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                size={20}
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-launch-timing" className={LABEL_CLASSES}>
+              Target launch timing
+            </label>
+            <div className="relative">
+              <select
+                id="bc-launch-timing"
+                required
+                value={launchTiming}
+                onChange={(e) => setLaunchTiming(e.target.value)}
+                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                  launchTiming ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
+                }`}
+              >
+                <option value="" disabled>
+                  Select one
+                </option>
+                {REALTOR_LAUNCH_TIMING_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                size={20}
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+        </>
+      )}
+
+      {!isWellDriller && !isRealtor && (
         <div className="flex flex-col gap-1.5 group">
           <label htmlFor="bc-website" className={LABEL_CLASSES}>
             Current website <span className={OPTIONAL_CLASSES}>(Optional)</span>
@@ -485,7 +728,7 @@ export function BookCallForm({
         </div>
       )}
 
-      {!isWellDriller && (
+      {!isWellDriller && !isRealtor && (
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-heard" className={LABEL_CLASSES}>
           How did you hear about us?{" "}
@@ -521,7 +764,9 @@ export function BookCallForm({
       {!isWellDriller && (
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-note" className={LABEL_CLASSES}>
-          Anything we should know?{" "}
+          {isRealtor
+            ? "Anything you want the new site to do better?"
+            : "Anything we should know?"}{" "}
           <span className={OPTIONAL_CLASSES}>(Optional)</span>
         </label>
         <textarea
@@ -529,9 +774,10 @@ export function BookCallForm({
           rows={3}
           value={note}
           onChange={(e) => setNote(e.target.value)}
+          maxLength={isRealtor ? 500 : undefined}
           placeholder={
             isRealtor
-              ? "Your market, IDX needs, timeline — whatever's useful."
+              ? "Search, seller leads, local visibility — whatever matters most."
               : "Goals, timeline — whatever's useful."
           }
           className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
@@ -559,6 +805,8 @@ export function BookCallForm({
           </>
         ) : isWellDriller ? (
           "Request My Custom Demo"
+        ) : isRealtor ? (
+          "Book My Fit Call"
         ) : (
           "Request My Call"
         )}
@@ -567,7 +815,9 @@ export function BookCallForm({
       <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-2">
         {isWellDriller
           ? "Takes under a minute. No pressure, no obligation."
-          : "Takes under a minute. No pressure, no obligation — we'll reach out within one business day."}
+          : isRealtor
+            ? "Takes under a minute. We'll reach out within one business day to schedule your 15-minute fit call."
+            : "Takes under a minute. No pressure, no obligation — we'll reach out within one business day."}
       </p>
     </form>
   );

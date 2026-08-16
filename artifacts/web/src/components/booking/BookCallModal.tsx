@@ -36,13 +36,15 @@ export function BookCallModal() {
             {isWellDriller
               ? "Let's Build Your Free Custom Demo."
               : isRealtor
-                ? "Book Your Realtor Website Call"
+                ? "15-Minute Realtor Website + IDX Fit Call"
                 : "Book Your Discovery Call"}
           </DialogTitle>
           <DialogDescription className="text-[#0F0F0F]/70 font-sans text-base sm:text-lg pt-3 leading-snug">
             {isWellDriller
               ? "Tell us a little about the business and what you want the website to do. We will use the conversation to prepare a homepage direction that is actually relevant to your company."
-              : "Tell us where to reach you and we'll take it from there."}
+              : isRealtor
+                ? "We will review your market, MLS path, current website, team structure, buyer/seller goals, and the right scope before you commit."
+                : "Tell us where to reach you and we'll take it from there."}
           </DialogDescription>
         </DialogHeader>
         <BookCallForm

@@ -95,10 +95,12 @@ export default function GetStarted() {
           {isRealtor && (
             <div ref={contextBlockRef} className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
+              <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
+                15-Minute Realtor Website + IDX Fit Call
+              </p>
               <p className="font-sans text-base leading-relaxed">
-                You're booking a <span className="font-bold text-white">Realtor Website Call</span>.
-                We'll come prepared to talk about your market, your website, and
-                property-search needs.
+                We will review your market, MLS path, current website, team structure,
+                buyer/seller goals, and the right scope before you commit.
               </p>
             </div>
           )}

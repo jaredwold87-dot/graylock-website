@@ -1,186 +1,194 @@
 import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
-import { realtorGetStartedHref } from "@/lib/realtorLinks";
-import heroDesktop from "@/assets/hero-realtors.webp";
+import { realtorGetStartedHref, REALTOR_CTA_LABEL } from "@/lib/realtorLinks";
 import willowDevices from "@/assets/willow-devices-crop.webp";
+import listingThumb from "@/assets/realtor-seller-visual.webp";
 
 const PROOF_ITEMS = [
-  "Built to earn buyer and seller trust",
-  "IDX property search when eligible",
-  "Turn search traffic into conversations",
-  "MLS setup guidance from start to launch",
+  "Custom brand + local-market pages",
+  "IDX search when eligible",
+  "Seller valuation + contact capture",
+  "MLS-aware setup + ongoing support",
 ];
 
-const HERO_ALT =
-  "The Willow Realty Group real estate website built by Graylock Digital, shown on a laptop and phone";
+/** Decorative dot-grid backdrop (same device as the other dark heroes). */
+const DOT_GRID_STYLE: React.CSSProperties = {
+  backgroundImage: "radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px)",
+  backgroundSize: "26px 26px",
+};
 
-function HeroCopy() {
+/**
+ * Illustrative listing-detail UI panel — gallery, property facts, inquiry CTA,
+ * and an MLS attribution area. Purely decorative (aria-hidden); values are
+ * generic mockup content, not a real listing.
+ */
+function ListingPanel({ className = "" }: { className?: string }) {
   return (
-    <>
-      <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
-        Custom Websites for Real Estate Professionals
-      </p>
-      <h1 className="text-[2.5rem] md:text-5xl xl:text-[2.95rem] font-display text-white leading-[1.12] xl:leading-[1.08] mb-6">
-        <span className="block text-balance">Your Next Client Is Searching.</span>
-        <span className="block text-balance">Make Sure They Find You.</span>
-      </h1>
-      <p className="text-stone text-xl font-sans mb-6 md:mb-8 max-w-xl xl:max-w-[500px] leading-snug md:leading-relaxed">
-        We build custom real estate websites that earn trust fast, showcase your market, and
-        turn property searches into buyer and seller conversations.
-      </p>
-    </>
-  );
-}
-
-function HeroCta({ fullWidth }: { fullWidth?: boolean }) {
-  return (
-    <CTAButton
-      href={realtorGetStartedHref("hero_cta")}
-      variant="funnel"
-      className={fullWidth ? "w-full" : undefined}
-      onClick={() => trackRealtorEvent("realtor_hero_cta_click", { cta_placement: "hero_cta" })}
+    <div
+      aria-hidden="true"
+      className={`bg-white rounded-lg shadow-2xl shadow-black/50 overflow-hidden select-none pointer-events-none ${className}`}
     >
-      Book a Realtor Website Call
-    </CTAButton>
-  );
-}
-
-function ProofItem({ text }: { text: string }) {
-  return (
-    <div className="flex items-start md:items-center gap-2.5">
-      <Check size={15} strokeWidth={2.5} className="text-[#E85D26] flex-shrink-0 mt-0.5 md:mt-0" />
-      <span className="text-stone font-sans text-sm md:text-[15px] leading-snug">{text}</span>
+      <div className="h-1 bg-[#E85D26]" />
+      <div className="p-3.5">
+        <img src={listingThumb} alt="" className="w-full h-[76px] object-cover rounded-[3px]" />
+        <div className="flex gap-1.5 mt-1.5">
+          <div className="h-6 flex-1 rounded-[2px] bg-[#E9E5DE]" />
+          <div className="h-6 flex-1 rounded-[2px] bg-[#DFD9CF]" />
+          <div className="h-6 flex-1 rounded-[2px] bg-[#E9E5DE]" />
+        </div>
+        <p className="font-display text-[#1A1A1A] text-[15px] leading-none mt-3">
+          Listing Details
+        </p>
+        <div className="flex gap-3 mt-1.5 font-sans text-[10px] font-medium text-[#1A1A1A]/65">
+          <span>4 Beds</span>
+          <span>3 Baths</span>
+          <span>2,400 Sq Ft</span>
+        </div>
+        <div className="mt-2.5 h-7 rounded-[3px] bg-[#E85D26] flex items-center justify-center">
+          <span className="text-white font-sans font-semibold text-[10px] uppercase tracking-wider">
+            Ask About This Home
+          </span>
+        </div>
+        <p className="mt-2 font-sans text-[8px] leading-none text-[#1A1A1A]/45">
+          Listing data · Local MLS attribution
+        </p>
+      </div>
     </div>
   );
 }
 
-export function RealtorHero() {
+/**
+ * Illustrative seller home-valuation UI panel (aria-hidden, decorative).
+ */
+function ValuationPanel({ className = "" }: { className?: string }) {
   return (
-    <section className="relative overflow-hidden" style={{ backgroundColor: "#0f0f0f" }}>
-      {/* ── Mobile / tablet / small desktop (<1280px): copy, then the transparent
-             device cutout above the CTA — no full-photo hero background ── */}
-      <div className="xl:hidden relative">
-        {/* Layer 1: faint dot grid */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          aria-hidden="true"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.06) 1px, transparent 0)",
-            backgroundSize: "22px 22px",
-          }}
-        />
-        {/* Layer 2: soft orange aurora upper-left */}
-        <div
-          className="absolute pointer-events-none rounded-full"
-          aria-hidden="true"
-          style={{
-            top: "-120px",
-            left: "-100px",
-            width: "420px",
-            height: "420px",
-            background:
-              "radial-gradient(circle, rgba(232,93,38,0.30) 0%, rgba(232,93,38,0.10) 45%, transparent 70%)",
-            filter: "blur(40px)",
-          }}
-        />
-        {/* Layer 3: orange accent glow upper-right */}
-        <div
-          className="absolute pointer-events-none rounded-full"
-          aria-hidden="true"
-          style={{
-            top: "-60px",
-            right: "-120px",
-            width: "320px",
-            height: "320px",
-            background:
-              "radial-gradient(circle, rgba(232,93,38,0.22) 0%, rgba(232,93,38,0.08) 45%, transparent 70%)",
-            filter: "blur(50px)",
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 md:pt-36 pb-10">
-          <ScrollReveal>
-            <HeroCopy />
-            <img
-              src={willowDevices}
-              alt={HERO_ALT}
-              className="w-full max-w-[560px] mx-auto mb-7"
-              loading="eager"
-              decoding="async"
-            />
-            <div className="flex justify-center sm:justify-start mb-4">
-              <div className="w-full sm:w-auto">
-                <HeroCta fullWidth />
-              </div>
-            </div>
-            <p className="text-offwhite font-sans text-sm leading-snug text-center sm:text-left text-balance">
-              See a custom homepage direction for your brand before you spend a dollar.
-            </p>
-          </ScrollReveal>
+    <div
+      aria-hidden="true"
+      className={`bg-white rounded-lg shadow-2xl shadow-black/50 overflow-hidden select-none pointer-events-none ${className}`}
+    >
+      <div className="h-1 bg-[#E85D26]" />
+      <div className="p-3.5">
+        <p className="font-display text-[#1A1A1A] text-[15px] leading-tight">
+          What&rsquo;s Your Home Worth?
+        </p>
+        <div className="mt-2.5 h-8 rounded-[3px] border border-[#1A1A1A]/15 flex items-center px-2.5">
+          <span className="font-sans text-[10px] text-[#1A1A1A]/45">Property address</span>
         </div>
-
-        {/* Proof row: two-by-two grid on mobile, one row from md up */}
-        <div className="relative z-10 bg-black border-t border-white/[0.08] px-6 md:px-12 py-6 md:py-5">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4">
-            {PROOF_ITEMS.map((text) => (
-              <ProofItem key={text} text={text} />
-            ))}
-          </div>
+        <div className="mt-1.5 h-8 rounded-[3px] border border-[#1A1A1A]/15 flex items-center justify-between px-2.5">
+          <span className="font-sans text-[10px] text-[#1A1A1A]/45">
+            When are you thinking of selling?
+          </span>
+          <span className="text-[#1A1A1A]/35 text-[9px]">▾</span>
+        </div>
+        <div className="mt-2.5 h-8 rounded-[3px] bg-[#E85D26] flex items-center justify-center">
+          <span className="text-white font-sans font-semibold text-[10px] uppercase tracking-wider">
+            Get My Valuation
+          </span>
         </div>
       </div>
+    </div>
+  );
+}
 
-      {/* ── Desktop (1280px+): full-bleed hero — copy left, devices right and
-             uncovered ── */}
-      <div className="hidden xl:block" style={{ backgroundColor: "#17161B" }}>
-        <div className="relative max-w-[1920px] mx-auto">
-          <div className="relative h-[clamp(760px,88vh,860px)] overflow-hidden">
-            {/* Device asset anchored bottom-right at its native aspect ratio so the
-                screens are never cropped or covered; canvas color is sampled from
-                the asset's own edges so it reads as one full-bleed background */}
-            <img
-              src={heroDesktop}
-              alt={HERO_ALT}
-              fetchPriority="high"
-              decoding="async"
-              className="absolute bottom-0 right-0 h-[90%] w-auto max-w-none"
-            />
-            {/* Subtle contrast gradient over the copy side only (≤ rgba(0,0,0,0.18));
-                fades out well before the device side of the asset */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to right, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.08) 28%, transparent 42%)",
-              }}
-            />
-            <div className="relative z-10 max-w-7xl h-full mx-auto px-6 md:px-12 flex items-center">
-              {/* Vertical centering biased downward so the eyebrow's top edge sits
-                  level with the top of the laptop in the device asset */}
-              <div className="w-[min(52%,620px)] pt-10">
-                <ScrollReveal>
-                  <HeroCopy />
-                  <div className="flex flex-col items-start gap-4 mb-6">
-                    <HeroCta />
-                  </div>
-                  <p className="text-stone/80 font-sans text-base max-w-[500px]">
-                    See a custom homepage direction for your brand before you spend a dollar.
-                  </p>
-                </ScrollReveal>
-              </div>
-            </div>
+/**
+ * Realtor landing hero — outcome-first headline, one primary CTA, and a
+ * product montage (Willow devices + listing / valuation UI panels) instead
+ * of a stock lifestyle photo.
+ */
+export function RealtorHero() {
+  return (
+    <section className="relative bg-[#0F0F0F] overflow-hidden">
+      {/* Backdrop: dot grid + soft orange glows */}
+      <div aria-hidden="true" className="absolute inset-0" style={DOT_GRID_STYLE} />
+      <div
+        aria-hidden="true"
+        className="absolute -top-32 -right-24 w-[560px] h-[560px] rounded-full bg-[#E85D26]/[0.07] blur-[120px]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 -left-40 w-[480px] h-[480px] rounded-full bg-[#E85D26]/[0.05] blur-[110px]"
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-32 md:pt-36 xl:pt-40">
+        <div className="flex flex-col xl:flex-row xl:items-center gap-12 xl:gap-16">
+          {/* Copy + CTA */}
+          <div className="xl:w-[46%] max-w-[640px]">
+            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-5">
+              Custom Real-Estate Websites + IDX Guidance
+            </p>
+            <h1 className="font-display text-white text-[40px] leading-[1.05] sm:text-5xl md:text-6xl xl:text-[62px] mb-6">
+              Turn Local Property Searches Into{" "}
+              <span className="text-[#E85D26]">Buyer + Seller Conversations.</span>
+            </h1>
+            <p className="text-stone font-sans text-lg leading-relaxed mb-8 max-w-[560px]">
+              We build custom real-estate websites that make your local expertise easy to
+              trust, give buyers a branded search experience when eligible, and give sellers
+              a clear reason to start the conversation with you.
+            </p>
+
+            <CTAButton
+              href={realtorGetStartedHref("hero")}
+              variant="funnel"
+              className="px-8 py-4 text-base"
+              onClick={() =>
+                trackRealtorEvent("realtor_hero_cta_click", { cta_placement: "hero" })
+              }
+            >
+              {REALTOR_CTA_LABEL}
+            </CTAButton>
+
+            <a
+              href="#willow-proof"
+              className="block mt-5 w-fit font-sans font-semibold text-sm tracking-wide text-offwhite/85 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-[#E85D26] transition-colors"
+            >
+              See what a better search experience looks like&nbsp;&darr;
+            </a>
+
+            <p className="mt-6 text-stone/90 font-sans text-sm leading-relaxed max-w-[520px]">
+              Free custom homepage direction. We confirm your MLS path and exact scope
+              before you commit.
+            </p>
           </div>
 
-          {/* Proof row: one horizontal row of four items */}
-          <div className="relative z-10 bg-black border-t border-white/[0.08] py-5 px-6 md:px-12">
-            <div className="max-w-7xl mx-auto flex flex-row flex-wrap items-center justify-between gap-x-8 gap-y-2.5">
-              {PROOF_ITEMS.map((text) => (
-                <ProofItem key={text} text={text} />
-              ))}
+          {/* Product montage */}
+          <div className="xl:w-[54%]">
+            <div className="relative">
+              <img
+                src={willowDevices}
+                alt="Custom real-estate website shown on desktop and mobile"
+                className="w-full h-auto relative z-10"
+                fetchPriority="high"
+                decoding="async"
+              />
+              {/* Supporting UI panels — beside the devices on wide screens */}
+              <ListingPanel className="hidden xl:block absolute z-20 w-[212px] -left-2 -bottom-4" />
+              <ValuationPanel className="hidden xl:block absolute z-20 w-[228px] right-0 -top-8" />
+            </div>
+
+            {/* Mobile/tablet: panels in a swipeable row under the devices */}
+            <div className="xl:hidden mt-6 -mx-6 px-6 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+              <ListingPanel className="min-w-[232px] max-w-[232px] snap-start" />
+              <ValuationPanel className="min-w-[244px] max-w-[244px] snap-start" />
             </div>
           </div>
+        </div>
+
+        {/* Proof row */}
+        <div className="relative mt-14 md:mt-16 border-t border-white/10 py-6 md:py-7 grid grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-4">
+          {PROOF_ITEMS.map((item) => (
+            <div key={item} className="flex items-start gap-2.5">
+              <Check
+                size={16}
+                strokeWidth={3}
+                className="text-[#E85D26] flex-shrink-0 mt-[3px]"
+                aria-hidden="true"
+              />
+              <span className="text-offwhite/90 font-sans font-semibold text-sm leading-snug">
+                {item}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

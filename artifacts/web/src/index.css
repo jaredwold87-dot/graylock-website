@@ -274,3 +274,10 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+/* Realtor landing: keep the chat launcher clear of the mobile sticky CTA bar */
+@media (max-width: 767px) {
+  body.realtor-sticky-visible button[data-chat-launcher] {
+    bottom: calc(4.9rem + env(safe-area-inset-bottom));
+  }
+}

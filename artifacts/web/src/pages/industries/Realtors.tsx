@@ -2,22 +2,21 @@ import { useEffect, useRef } from "react";
 import { SEO } from "@/components/SEO";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { RealtorHero } from "@/components/realtors/RealtorHero";
-import { RealtorTrustBar } from "@/components/realtors/RealtorTrustBar";
-import { RealtorProblemSection } from "@/components/realtors/RealtorProblemSection";
-import { RealtorWhatWeBuildSection } from "@/components/realtors/RealtorWhatWeBuildSection";
+import { RealtorTrustStrip } from "@/components/realtors/RealtorTrustStrip";
+import { RealtorWillowProofSection } from "@/components/realtors/RealtorWillowProofSection";
+import { RealtorTwoPathsSection } from "@/components/realtors/RealtorTwoPathsSection";
+import { RealtorPackageSection } from "@/components/realtors/RealtorPackageSection";
 import { RealtorIdxSection } from "@/components/realtors/RealtorIdxSection";
-import { RealtorProcessSection } from "@/components/realtors/RealtorProcessSection";
-import { RealtorProofBridgeSection } from "@/components/realtors/RealtorProofBridgeSection";
-import { RealtorTestimonialSection } from "@/components/realtors/RealtorTestimonialSection";
 import { RealtorComparisonSection } from "@/components/realtors/RealtorComparisonSection";
-import { RealtorPricingBridgeSection } from "@/components/realtors/RealtorPricingBridgeSection";
+import { RealtorInvestmentSection } from "@/components/realtors/RealtorInvestmentSection";
 import { RealtorFinalCTASection } from "@/components/realtors/RealtorFinalCTASection";
 import { RealtorFAQSection, REALTOR_FAQS } from "@/components/realtors/RealtorFAQSection";
+import { RealtorStickyCTA } from "@/components/realtors/RealtorStickyCTA";
 
 const PAGE_URL = "https://graylockdigital.com/websites-for-realtors";
-const PAGE_TITLE = "IDX Real Estate Websites for Agents & Teams | Graylock Digital";
+const PAGE_TITLE = "Custom IDX Real Estate Websites for Agents & Teams | Graylock Digital";
 const META_DESCRIPTION =
-  "Custom real estate websites with IDX property search, local MLS approval guidance, and lead-generation strategy for agents, teams, and brokerages.";
+  "Graylock builds custom real-estate websites for agents and teams with buyer search when eligible, seller lead capture, local-market pages, MLS guidance, and ongoing support. Get a free custom website + IDX plan.";
 
 const REALTOR_SCHEMA = {
   "@context": "https://schema.org",
@@ -73,7 +72,7 @@ export default function Realtors() {
     <div className="theme-black">
       <SEO
         title={PAGE_TITLE}
-        ogTitle="Real Estate Websites That Turn Searches Into Conversations"
+        ogTitle="Custom IDX Real Estate Websites for Agents & Teams"
         description={META_DESCRIPTION}
         url={PAGE_URL}
         image="https://graylockdigital.com/og-realtors.jpg"
@@ -83,20 +82,22 @@ export default function Realtors() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(REALTOR_SCHEMA) }}
       />
 
+      {/* Section order per the conversion-redesign scope: hero → trust strip →
+          Willow proof → buyer/seller paths → package scope → IDX stages →
+          comparison → investment → FAQ → final CTA. */}
       <RealtorHero />
-      <RealtorTrustBar />
-      <RealtorProblemSection />
-      <RealtorWhatWeBuildSection />
+      <RealtorTrustStrip />
+      <RealtorWillowProofSection />
+      <RealtorTwoPathsSection />
+      <RealtorPackageSection />
       <RealtorIdxSection />
-      <RealtorProcessSection />
-      <RealtorProofBridgeSection />
-      {/* Testimonial stays unpublished until a real, approved realtor
-          testimonial is supplied (see RealtorTestimonialSection docs). */}
-      <RealtorTestimonialSection testimonial={null} />
       <RealtorComparisonSection />
-      <RealtorPricingBridgeSection />
-      <RealtorFinalCTASection />
+      <RealtorInvestmentSection />
       <RealtorFAQSection />
+      <RealtorFinalCTASection />
+
+      {/* Mobile-only sticky bottom CTA (single action per the scope) */}
+      <RealtorStickyCTA />
     </div>
   );
 }
