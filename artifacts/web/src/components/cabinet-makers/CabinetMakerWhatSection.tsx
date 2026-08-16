@@ -105,7 +105,7 @@ export function CabinetMakerWhatSection() {
                 />
               </div>
               <figcaption className="mt-4 text-center font-hand font-semibold text-[22px] md:text-[24px] text-[#B23E16]">
-                The kind of project gallery we build to sell your work.
+                An elegant gallery to showcase your portfolio.
               </figcaption>
             </figure>
           </ScrollReveal>
