@@ -1,16 +1,8 @@
-import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorGetStartedHref, REALTOR_CTA_LABEL } from "@/lib/realtorLinks";
 import willowDevices from "@/assets/willow-devices-crop.webp";
 import listingThumb from "@/assets/realtor-seller-visual.webp";
-
-const PROOF_ITEMS = [
-  "Custom brand + local-market pages",
-  "IDX search when eligible",
-  "Seller valuation + contact capture",
-  "MLS-aware setup + ongoing support",
-];
 
 /** Decorative dot-grid backdrop (same device as the other dark heroes). */
 const DOT_GRID_STYLE: React.CSSProperties = {
@@ -110,7 +102,7 @@ export function RealtorHero() {
         className="absolute bottom-0 -left-40 w-[480px] h-[480px] rounded-full bg-[#E85D26]/[0.05] blur-[110px]"
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-32 md:pt-36 xl:pt-40">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-32 md:pt-36 xl:pt-40 pb-14 md:pb-16 xl:pb-20">
         <div className="flex flex-col xl:flex-row xl:items-center gap-12 xl:gap-16">
           {/* Copy + CTA */}
           <div className="xl:w-[46%] max-w-[640px]">
@@ -172,23 +164,6 @@ export function RealtorHero() {
               <ValuationPanel className="min-w-[244px] max-w-[244px] snap-start" />
             </div>
           </div>
-        </div>
-
-        {/* Proof row */}
-        <div className="relative mt-14 md:mt-16 border-t border-white/10 py-6 md:py-7 grid grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-4">
-          {PROOF_ITEMS.map((item) => (
-            <div key={item} className="flex items-start gap-2.5">
-              <Check
-                size={16}
-                strokeWidth={3}
-                className="text-[#E85D26] flex-shrink-0 mt-[3px]"
-                aria-hidden="true"
-              />
-              <span className="text-offwhite/90 font-sans font-semibold text-sm leading-snug">
-                {item}
-              </span>
-            </div>
-          ))}
         </div>
       </div>
     </section>
