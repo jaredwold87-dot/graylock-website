@@ -20,13 +20,13 @@ const CARDS = [
   },
   {
     image: whoGeneric,
-    alt: "Business owner frustrated at a desk late at night, staring at an outdated generic website on an old monitor",
+    alt: "Auction company owner reviewing printed event materials in a ballroom while staff prepare tables behind her",
     title: "Look Generic Online—Even Though Their Business Is Not.",
     copy: "A template site can make a seasoned auctioneer look interchangeable with every other name in the search results. Your website should make your experience, specialties, and professionalism obvious before anyone picks up the phone.",
   },
   {
     image: whoSeller,
-    alt: "Auctioneer with a clipboard walking a prospective seller through a warehouse of estate items while planning a consignment sale",
+    alt: "Auctioneer sitting down with a charity committee at a ballroom table to review the auction program together",
     title: "Need More of the Right Clients Reaching Out.",
     copy: "The website should make it easy for a nonprofit, gala committee, property owner, rancher, or executor to understand what you do and take the next step toward booking a conversation.",
   },

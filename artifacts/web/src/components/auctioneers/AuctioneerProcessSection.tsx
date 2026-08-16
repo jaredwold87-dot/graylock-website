@@ -19,7 +19,7 @@ const STEPS = [
   {
     icon: <Phone size={24} strokeWidth={2.2} />,
     image: processCallImg,
-    alt: "Auction company owner taking a short discovery call at a sale-barn office desk with an event calendar in front of him",
+    alt: "Auction company owner taking a short discovery call at his office desk with an auction catalog and event schedule in front of him",
     title: "15-Minute Discovery Call",
     desc: "A short conversation about the auction services you provide, the kinds of opportunities you want more of, your current website, and what you need it to do better.",
   },
@@ -33,7 +33,7 @@ const STEPS = [
   {
     icon: <CheckCircle size={24} strokeWidth={2.2} />,
     image: processApproveImg,
-    alt: "Auctioneer and event coordinator reviewing the new website together on a laptop in an event-planning setting",
+    alt: "Auctioneer and event coordinator reviewing printed pages of the new website together in a ballroom before an event",
     title: "You Approve the Design + Direction",
     desc: "If the strategy and design feel right, you give the direction the green light and we move ahead with the full build. If not, there is no obligation to move forward.",
   },
