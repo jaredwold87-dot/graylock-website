@@ -7,7 +7,6 @@ export const REALTOR_LANDING_PATH = "/websites-for-realtors";
 export type RealtorCtaPlacement =
   | "header"
   | "hero"
-  | "willow_case_study"
   | "package_scope"
   | "investment"
   | "final_cta"

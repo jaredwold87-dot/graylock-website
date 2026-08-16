@@ -130,13 +130,6 @@ export function RealtorHero() {
               {REALTOR_CTA_LABEL}
             </CTAButton>
 
-            <a
-              href="#willow-proof"
-              className="block mt-5 w-fit font-sans font-semibold text-sm tracking-wide text-offwhite/85 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-[#E85D26] transition-colors"
-            >
-              See what a better search experience looks like&nbsp;&darr;
-            </a>
-
             <p className="mt-6 text-stone/90 font-sans text-sm leading-relaxed max-w-[520px]">
               Free custom homepage direction. We confirm your MLS path and exact scope
               before you commit.

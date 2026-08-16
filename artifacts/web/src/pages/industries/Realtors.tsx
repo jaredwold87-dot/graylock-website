@@ -3,7 +3,6 @@ import { SEO } from "@/components/SEO";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { RealtorHero } from "@/components/realtors/RealtorHero";
 import { RealtorTrustStrip } from "@/components/realtors/RealtorTrustStrip";
-import { RealtorWillowProofSection } from "@/components/realtors/RealtorWillowProofSection";
 import { RealtorTwoPathsSection } from "@/components/realtors/RealtorTwoPathsSection";
 import { RealtorPackageSection } from "@/components/realtors/RealtorPackageSection";
 import { RealtorIdxSection } from "@/components/realtors/RealtorIdxSection";
@@ -87,7 +86,6 @@ export default function Realtors() {
           comparison → investment → FAQ → final CTA. */}
       <RealtorHero />
       <RealtorTrustStrip />
-      <RealtorWillowProofSection />
       <RealtorTwoPathsSection />
       <RealtorPackageSection />
       <RealtorIdxSection />
