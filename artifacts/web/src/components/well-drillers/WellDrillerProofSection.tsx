@@ -61,7 +61,7 @@ export function WellDrillerProofSection() {
 
         <ScrollReveal className="text-center -mt-3 md:-mt-5 mb-10 md:mb-12">
           <p className="font-hand font-semibold text-[28px] md:text-[38px] text-[#E85D26] leading-snug">
-            These are actual customers and website builds of ours.
+            These are our customers and the websites we&rsquo;ve built.
           </p>
         </ScrollReveal>
 
