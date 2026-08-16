@@ -62,16 +62,19 @@ export function AuctioneerWhatSection() {
 
         {/* Large type-only lead-in (spec) — handwritten, always visible */}
         <ScrollReveal className="text-center mb-14 md:mb-20">
-          <div className="flex flex-col items-center gap-1">
+          <ul className="flex flex-col items-center gap-1 list-none">
             {LEAD_IN_LINES.map((line) => (
-              <p
+              <li
                 key={line}
                 className="font-hand font-semibold text-[28px] md:text-[34px] xl:text-[38px] text-[#B23E16] leading-snug lg:whitespace-nowrap"
               >
+                <span aria-hidden="true" className="mr-2.5">
+                  •
+                </span>
                 {line}
-              </p>
+              </li>
             ))}
-          </div>
+          </ul>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-14 items-center">
