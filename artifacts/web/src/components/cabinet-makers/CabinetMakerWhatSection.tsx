@@ -1,11 +1,11 @@
 import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import devicesCutout from "@/assets/interior-finishes-devices.webp";
+import galleryExample from "@/assets/cabinet-gallery-example.webp";
 
 /**
  * "What a Better Cabinet-Maker Website Does" (spec §4.4) — type-only
- * handwritten lead-in, six-feature list, and the supplied sample-project
- * device mockup (transparent cutout of the laptop + phone composition).
+ * handwritten lead-in, six-feature list, and a browser-framed gallery page
+ * from the sample cabinet-maker build as the example of what we deliver.
  */
 const FEATURES = [
   {
@@ -74,16 +74,30 @@ export function CabinetMakerWhatSection() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-14 items-center">
-          {/* Sample-project device mockup — image first on mobile (spec responsive) */}
+          {/* Browser-framed gallery-page example — image first on mobile (spec responsive) */}
           <ScrollReveal>
-            <img
-              src={devicesCutout}
-              alt="A custom cabinet-maker website concept shown on a laptop and phone, with premium kitchen photography and a consultation call to action"
-              className="w-full h-auto"
-              style={{ filter: "drop-shadow(0 24px 32px rgba(0,0,0,0.16))" }}
-              loading="lazy"
-              decoding="async"
-            />
+            <figure>
+              <div className="rounded-xl overflow-hidden bg-white border border-black/10 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)]">
+                <div
+                  className="flex items-center gap-1.5 px-4 py-2.5 bg-[#F5F5F5] border-b border-black/[0.06]"
+                  aria-hidden="true"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#DBD7CF]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#DBD7CF]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#DBD7CF]" />
+                </div>
+                <img
+                  src={galleryExample}
+                  alt="A project-gallery page from a sample cabinet-maker website — a clean grid of custom kitchen photography that makes every project easy to explore"
+                  className="w-full h-auto"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption className="mt-4 text-center font-hand font-semibold text-[22px] md:text-[24px] text-[#B23E16]">
+                The kind of project gallery we build to sell your work.
+              </figcaption>
+            </figure>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
