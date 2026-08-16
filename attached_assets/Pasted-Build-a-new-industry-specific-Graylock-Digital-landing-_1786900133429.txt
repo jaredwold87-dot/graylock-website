@@ -1,0 +1,439 @@
+Build a new industry-specific Graylock Digital landing page at:
+
+/websites-for-auctioneers
+
+This is a nationwide follow-up page for auctioneers that Graylock salespeople have contacted. It must follow the same conversion-first framework, visual rhythm, dark premium styling, image-backed sections, orange handwritten emphasis, CTA structure, free-demo process, pricing/guarantee treatment, FAQ format, mobile behavior, and section order as the current Well Drillers landing page.
+
+IMPORTANT: This is NOT a local-market-exclusivity campaign. Do not say Graylock is selecting one auctioneer per market, do not reference protected territories, and do not suggest that Graylock will not work with competitors. We are reaching out to auctioneers nationwide that we believe can benefit from a stronger website. The offer is that Graylock is currently waiving the one-time website build fee for qualified auctioneer businesses it chooses to work with.
+
+The page must feel premium, event-driven, and capable. It should work for general auctioneers, contract-sale auctioneers, benefit and gala auctioneers, livestock auctioneers, equipment/estate auctioneers, and real-estate auctioneers without trying to list every possible specialty in the hero.
+
+Use the existing Graylock site header/footer, visual system, dark charcoal/black background, white condensed uppercase headings, Graylock orange CTA buttons, faint topo texture, and handwritten orange accent font. Do not use generic auction clip art, gavels floating on backgrounds, casino-like graphics, or loud red/blue patriotic imagery. Use cinematic, editorial visual direction: an auctioneer at work, an attentive crowd, a livestock/equipment sale, a polished event space, auction catalogs, and serious buyer/seller conversations.
+
+Use these global primary CTA rules:
+
+Primary CTA label:
+REQUEST MY FREE CUSTOM DEMO
+
+CTA destination:
+/get-started?industry=auctioneering&intent=free_demo&utm_source=auctioneer_landing&utm_medium=site_cta&utm_content=[placement]
+
+Use the following placement values: hero, process, portfolio, pricing, final_cta.
+
+--------------------------------------------------
+SECTION 1 — HERO
+--------------------------------------------------
+
+Purpose: Immediately make an auctioneer feel the page is for them, establish that Graylock builds a business-development website rather than simply a brochure, and make the free demo the obvious next step.
+
+Hero visual layout:
+- Keep the left 52–58% of the hero visually open and dark for text.
+- Place a large laptop and mobile phone device mockup in the right third, using a future real auctioneer website as the screen content.
+- The desktop screen should show an auctioneer site above the fold with an upcoming-auction visual, date/time, clear registration or event CTA, trust signal, and a secondary seller/event-organizer path.
+- The mobile screen should show the responsive version.
+- Until Graylock supplies a real auctioneer website sample, use placeholder asset names only. Do not invent a real auction business, auction results, bidder volume, testimonials, or credentials.
+
+Temporary asset placeholder:
+[AUCTIONEER_HERO_DEVICE_ASSET]
+
+Eyebrow:
+CUSTOM WEBSITES FOR AUCTIONEERS
+
+H1:
+WHEN THE AUCTION STARTS,
+YOUR WEBSITE SHOULD ALREADY BE WORKING.
+
+Set “YOUR WEBSITE SHOULD ALREADY BE WORKING.” in Graylock orange.
+
+Body copy:
+We build custom auctioneer websites that make upcoming events easy to find, establish trust before the first bid, and turn more sellers, buyers, and event organizers into real conversations.
+
+Primary CTA:
+REQUEST MY FREE CUSTOM DEMO
+
+Secondary anchor link:
+SEE HOW THE FREE DEMO WORKS ↓
+
+Reassurance line:
+Free custom direction. No generic template. No obligation after you see the demo.
+
+Hero proof items:
+- Upcoming auctions and event pages that are easy to explore
+- Clear paths for sellers, bidders, and event organizers
+- Inquiry and auction-request forms delivered to your inbox
+- Built to look exceptional on every screen
+
+--------------------------------------------------
+SECTION 2 — WHO WE WORK WITH
+--------------------------------------------------
+
+Purpose: Let the right auctioneer recognize the gap between the quality of their real-world work and their current website without insulting them.
+
+Eyebrow:
+WHO WE WORK WITH
+
+H2:
+WE WORK WITH AUCTIONEERS WHO…
+
+Build three dark cards. Use premium auction-specific imagery: a live auction scene, an outdated generic calendar/interface visual, and a seller/event-planning interaction. Use the existing Graylock orange line above each card.
+
+Card 1 title:
+HAVE AUCTIONS WORTH ATTENDING—BUT A WEBSITE THAT DOES NOT BUILD MOMENTUM.
+
+Card 1 body:
+You put serious work into every sale, event, or auction day. But if people cannot quickly understand what is happening, where to find it, and how to take part, the website is not helping your event earn the attention it deserves.
+
+Card 2 title:
+LOOK GENERIC ONLINE—EVEN THOUGH THEIR BUSINESS IS NOT.
+
+Card 2 body:
+A template site can make a seasoned auctioneer, a major benefit event, a livestock sale, or a high-value real-estate auction feel interchangeable. Your website should make your experience and professionalism obvious before anyone picks up the phone.
+
+Card 3 title:
+NEED MORE OF THE RIGHT AUCTION OPPORTUNITIES.
+
+Card 3 body:
+The website should make it easy for a property owner, organization, rancher, executor, or event planner to understand what you do and take the next step toward booking a conversation.
+
+Closing line:
+If your website is not helping build trust, promote events, and start more of the right conversations, you are exactly who we can help.
+
+--------------------------------------------------
+SECTION 3 — THREE GOALS. ONE BETTER WEBSITE.
+--------------------------------------------------
+
+Purpose: Reuse the Well Drillers page’s image-backed Three Goals pattern. Use a close or medium cinematic image of an auctioneer actively working a sale, an audience engaged in bidding, or a credible livestock/equipment auction setting. Apply a CSS black mask; do not bake the dark mask into the original asset.
+
+Eyebrow:
+THREE GOALS. ONE BETTER WEBSITE.
+
+H2:
+WHAT WE WILL DO FOR YOU.
+
+Intro:
+We are not building another generic service-business website. We are building an auctioneer website designed to create momentum, establish trust, and make the next auction opportunity easier to win.
+
+Goal 1 title:
+MAKE EVERY AUCTION LOOK WORTH SHOWING UP FOR.
+
+Goal 1 body:
+We turn your upcoming auctions, event details, sale categories, and brand into an experience that feels organized, professional, and worth paying attention to before the first bid is placed.
+
+Goal 2 title:
+ELEVATE YOUR WEBSITE. ELEVATE YOUR REPUTATION.
+
+Goal 2 body:
+Your website should match the confidence, preparation, and experience you bring to the room. We make your specialties, history, process, and proof easier for sellers, bidders, and organizations to trust.
+
+Goal 3 title:
+MAKE IT EASIER TO BOOK YOUR NEXT AUCTION.
+
+Goal 3 body:
+We structure the site around the auction services, event types, locations, and questions people search for—then give qualified visitors a direct path to request a consultation or discuss their sale.
+
+Handwritten orange accent line:
+MORE MOMENTUM. MORE TRUST. MORE AUCTION OPPORTUNITIES.
+
+Do not claim a guaranteed number of bidders, auction bookings, rankings, registrations, revenue, or sales results.
+
+--------------------------------------------------
+SECTION 4 — WHAT A BETTER AUCTIONEER WEBSITE DOES
+--------------------------------------------------
+
+Purpose: Move from the promise to the real jobs the website performs. Do not imply that Graylock builds a proprietary online bidding engine. If the client uses a bidding or registration platform, Graylock may link to or integrate the approved platform as separately scoped.
+
+Eyebrow:
+WHAT WE DO
+
+H2:
+WHEN SOMEONE IS DECIDING WHETHER TO ATTEND, CONSIGN, OR HIRE YOU, YOUR WEBSITE SHOULD MAKE THREE THINGS CLEAR:
+
+Large lead-in statements:
+YOU RUN THE KIND OF AUCTION THEY NEED.
+YOU MAKE THE DETAILS EASY TO FIND.
+YOU ARE EASY TO CONTACT BEFORE THE OPPORTUNITY PASSES.
+
+Use a large square device mockup or auctioneer project visual. Temporary asset placeholder:
+[AUCTIONEER_SQUARE_DEVICE_ASSET]
+
+Feature 1 title:
+UPCOMING AUCTIONS THAT BUILD MOMENTUM
+
+Feature 1 body:
+Give every auction, fundraiser, liquidation, livestock sale, property sale, or specialty event a clear home with the date, location, key details, imagery, and the right next action.
+
+Feature 2 title:
+A CLEAR PATH FOR BIDDERS + ATTENDEES
+
+Feature 2 body:
+Make it simple for people to explore auction details, review catalog or registration information, contact your team, and move toward the approved next step.
+
+Feature 3 title:
+A CLEAR PATH FOR SELLERS + EVENT ORGANIZERS
+
+Feature 3 body:
+Help prospective sellers and organizations understand your auction services, process, specialty fit, and how to request a conversation about their sale or event.
+
+Feature 4 title:
+TRUST THAT HOLDS UP BEFORE THE CALL
+
+Feature 4 body:
+Use credentials, experience, service types, team information, past-event proof, and clear process content to make your professionalism obvious before a prospect compares you to someone else.
+
+Feature 5 title:
+LOCAL AND SPECIALTY SEARCH VISIBILITY
+
+Feature 5 body:
+Structure the site around the auction categories, locations, services, and questions that matter to the buyers, sellers, and organizations looking for help.
+
+Feature 6 title:
+INQUIRIES DELIVERED WHERE YOU NEED THEM
+
+Feature 6 body:
+Send auction requests, seller inquiries, event-planning requests, and general contact submissions directly to the email inbox or CRM your business designates.
+
+--------------------------------------------------
+SECTION 5 — FREE DEMO PROCESS
+--------------------------------------------------
+
+Purpose: Reuse the exact low-risk process model from the Well Drillers and Cabinet Makers pages. Use four image cards with auction-specific visual direction. Keep it short and credible.
+
+Eyebrow:
+OUR PROCESS
+
+H2:
+WE PROVE THE DIRECTION BEFORE YOU PAY A DOLLAR.
+
+Intro:
+We do real strategic and design work first, so you can see what your new website could feel like before deciding whether Graylock is the right fit.
+
+Card 1 title:
+15-MINUTE DISCOVERY CALL
+
+Card 1 body:
+A short conversation about the auction services you provide, the kinds of opportunities you want more of, your current website, and what you need it to do better.
+
+Card 1 image direction:
+Auctioneer or owner in an office, event space, sale barn office, or working auction environment reviewing an event calendar or taking a call.
+
+Card 2 title:
+FREE CUSTOM HOMEPAGE DEMO
+
+Card 2 body:
+We turn that input into a real homepage direction for your auction business—built around your brand, specialties, events, and the people you need to reach.
+
+Card 2 image direction:
+Owner reviewing a polished auctioneer website concept on a desktop monitor, with an event calendar, auction photo, or studio/office context nearby.
+
+Card 3 title:
+YOU APPROVE THE DESIGN + DIRECTION
+
+Card 3 body:
+If the strategy and design feel right, you give the direction the green light and we move ahead with the full build. If not, there is no obligation to move forward.
+
+Card 3 image direction:
+Auctioneer and office manager, event coordinator, or partner reviewing the site together in an office or event-planning setting.
+
+Card 4 title:
+BUILT + LAUNCHED ON YOUR DOMAIN
+
+Card 4 body:
+We build the full site in an average of 7–10 business days after direction and core content are ready, then launch it live on your domain.
+
+Card 4 image direction:
+A live auction or event scene paired with the owner receiving a credible website inquiry or viewing the finished website. No tiny invented UI text.
+
+Closing line:
+Your custom auctioneer website—built and launched in an average of 7–10 business days.
+
+Do not promise a fixed launch date where client content, third-party integrations, auction-platform requirements, or feedback are incomplete.
+
+--------------------------------------------------
+SECTION 6 — THE STANDARD WE BUILD TOWARD / FEATURED PROJECT
+--------------------------------------------------
+
+Purpose: Create a portfolio proof module now, ready for a real auctioneer case study later. Do not invent a client, testimonial, booking result, bidding metric, sales total, or auction outcome.
+
+Temporary state, before Graylock supplies a real auctioneer project:
+
+Eyebrow:
+THE STANDARD WE BUILD TOWARD
+
+H2:
+AN AUCTIONEER WEBSITE SHOULD CREATE CONFIDENCE BEFORE THE FIRST BID.
+
+Body:
+A better website is not about making the business look flashy. It is about helping people understand what is happening, why they should trust the team behind it, and how to take the right next step before the opportunity passes.
+
+CTA:
+VIEW OUR PORTFOLIO
+
+Featured-project state, once Graylock provides a completed auctioneer site:
+
+[CLIENT NAME]
+[AUCTION SPECIALTY] · [CITY / REGION OR NATIONWIDE]
+
+[Write a factual 2–3 sentence project description using only approved information about the site design, upcoming-auction presentation, auction categories, inquiry paths, event organization, and integrations. Do not claim results without permission and evidence.]
+
+CTA:
+VISIT THE LIVE SITE →
+
+Use a real device mockup and two to three approved project-detail images. Feature actual pages such as Upcoming Auctions, Auction Details, Services, About, Seller Request, Event Registration, and Contact as applicable.
+
+--------------------------------------------------
+SECTION 7 — PRICING + GUARANTEE
+--------------------------------------------------
+
+Purpose: Reuse the transparent, low-risk offer framework without any local-market or geographic-exclusivity claim.
+
+Eyebrow:
+PRICING + GUARANTEE
+
+H2:
+A BETTER WEBSITE SHOULD NOT FEEL LIKE A BLIND BET.
+
+Body:
+The first thing you pay for is not the demo. You see a custom direction for your business before deciding whether the full site is worth moving forward with. For qualified auctioneer businesses Graylock chooses to work with, we are currently waiving the one-time website build fee. After launch, your business is on a clear monthly plan with hosting, maintenance, support, and refresh benefits while subscribed.
+
+Large price statement:
+WEBSITE PLANS FROM $199/MONTH
+
+Only retain this exact statement if it remains accurate on Graylock’s active public Pricing page. Link to the current Pricing page; do not create an auctioneer-specific price table unless Graylock formally approves one.
+
+Support badges / links:
+30-DAY MONEY-BACK GUARANTEE
+TWO-YEAR REFRESH BENEFIT WHILE SUBSCRIBED
+ONE-TIME BUILD FEE WAIVED FOR QUALIFIED AUCTIONEER BUSINESSES
+
+Primary CTA:
+REQUEST MY FREE CUSTOM DEMO
+
+Secondary CTA:
+SEE FULL PRICING
+
+IMPORTANT OFFER RULES:
+- Never say “one auctioneer per area,” “exclusive market offer,” “territory,” “first auctioneer,” or anything that suggests location-based exclusivity.
+- Do not say the waived build fee is automatic. Use “for qualified auctioneer businesses Graylock chooses to work with.”
+- Do not promise booking volume, auction revenue, bidder volume, lead volume, ranking positions, or ROI.
+- Keep all guarantee, ownership, cancellation, annual-payment, subscription, and refund statements identical to the active Graylock Pricing page and Terms of Service.
+
+--------------------------------------------------
+SECTION 8 — AUCTIONEER FAQS
+--------------------------------------------------
+
+Use the existing accordion component. Keep answers concise and avoid guarantees.
+
+FAQ 1: What exactly is the free custom demo?
+Answer: It is a custom homepage direction built around your auction business, services, specialties, upcoming-event presentation, and the kinds of opportunities you want more of. It is not a generic template preview, and there is no cost or obligation to review it.
+
+FAQ 2: What happens after I request a demo?
+Answer: We set up a short conversation to learn about your auction business, current website, specialties, and goals. Then a Graylock founder walks you through the custom direction and answers the questions that matter to your business.
+
+FAQ 3: Do I have to decide on the call?
+Answer: No. The demo exists so you can see something real before deciding whether Graylock is the right fit. There is no obligation to move forward after you review it.
+
+FAQ 4: Why did you contact my auction business?
+Answer: We focus on established auctioneers with a real business, a credible specialty, and an online presence we believe can be made more useful. We do not send the same offer to every company.
+
+FAQ 5: Can the website support different kinds of auctions?
+Answer: Yes. The website can be structured around the services and event categories that matter to your business, including general auctions, contract sales, benefit events, livestock auctions, estate or equipment sales, real-estate auctions, and other specialties you offer.
+
+FAQ 6: Can the website connect people to our current bidding or registration platform?
+Answer: We can plan clear links, calls to action, and approved integrations around the platform you use. Any specific third-party platform integration is confirmed during scoping so the experience and cost are clear before work begins.
+
+FAQ 7: Will the site help us get found on Google?
+Answer: We build around clear auction services, specialties, locations, event types, local-search fundamentals, and content structure so search engines and prospects can better understand what you do. No agency can ethically guarantee a specific ranking.
+
+FAQ 8: How do seller and event requests reach us?
+Answer: We configure clear call actions and request forms so the details are sent directly to the email inbox or CRM your business designates.
+
+FAQ 9: Can we keep new auction information current?
+Answer: Yes. Your monthly plan includes a defined update allowance, and we can help keep key website information current. More extensive event-management or integration work is scoped clearly before work begins.
+
+FAQ 10: What does it mean that the build fee may be waived?
+Answer: Graylock is currently waiving the one-time website build fee for qualified auctioneer businesses it chooses to work with. We confirm whether the offer applies before you commit to a full build.
+
+--------------------------------------------------
+SECTION 9 — FINAL CTA
+--------------------------------------------------
+
+Use a full-width cinematic image of an auctioneer leading a sale, a composed crowd, a premium event, or a serious livestock/equipment sale. Apply a CSS black mask. Do not reuse the hero device mockup.
+
+Eyebrow:
+READY TO SEE A BETTER DIRECTION?
+
+H2:
+LET’S BUILD THE WEBSITE YOUR NEXT AUCTION DESERVES.
+
+Body:
+Tell us what kinds of auctions you run, the opportunities you want more of, and what your current website is not doing. We will use that conversation to prepare a free, custom homepage direction for your auction business.
+
+CTA:
+REQUEST MY FREE CUSTOM DEMO
+
+Reassurance:
+No pressure. No generic template. No obligation after your demo.
+
+--------------------------------------------------
+FORM, SEO, TRACKING, AND MOBILE REQUIREMENTS
+--------------------------------------------------
+
+Form fields:
+- Name (required)
+- Auction business name (required)
+- Email (required; validate)
+- Phone (required; validate)
+- Current website (optional; URL validation)
+- Primary auction service area or nationwide (required)
+- Auction types (required multi-select): General / Contract Sales, Charity or Gala, Livestock, Equipment or Estate, Real Estate, Other
+- What do you want more of? (required multi-select): More Seller Opportunities, More Event Clients, More Bidder/Attendee Engagement, Better Upcoming-Auction Promotion, Better Website Credibility, Other
+- Current auction, registration, or bidding platform (optional)
+- Target launch timing (required select)
+- Additional notes (optional; 500-character max)
+
+Page title:
+Custom Auctioneer Websites That Build Trust + Auction Opportunities | Graylock Digital
+
+Meta description:
+Graylock builds custom auctioneer websites that promote upcoming auctions, earn seller and bidder trust, and turn more event interest into real conversations. Request a free custom homepage demo.
+
+H1:
+When the Auction Starts, Your Website Should Already Be Working.
+
+Canonical:
+https://graylockdigital.com/websites-for-auctioneers
+
+Schema:
+- Use WebPage and Service schema for Graylock’s service offering.
+- Use FAQPage schema only for questions visibly shown in the FAQ section.
+- Do not use Review, Event, Auction, or testimonial schema unless the page contains genuine, approved, and correctly attributed data.
+
+Analytics events:
+- auctioneer_hero_cta_click
+- auctioneer_who_we_work_with_view
+- auctioneer_goals_section_view
+- auctioneer_process_cta_click
+- auctioneer_featured_project_click
+- auctioneer_pricing_view
+- auctioneer_faq_expand
+- auctioneer_demo_start
+- auctioneer_demo_complete
+
+Responsive rules:
+- Hero: copy first and device visual below on mobile; four proof items become a two-by-two grid.
+- Who We Work With: stack the three cards in order with at least 24px vertical spacing.
+- Three Goals: retain the background image/mask; stack Goal 1, Goal 2, Goal 3.
+- What We Do: show the device/project visual before or after the intro; stack features cleanly.
+- Process: stack all four process cards; keep image aspect ratios consistent.
+- Add one sticky mobile CTA only: REQUEST MY FREE CUSTOM DEMO.
+- CTA buttons must be at least 48px tall, text must remain readable at 16px or larger, and no essential content may rely on a scroll-trigger animation to become visible.
+- Test all image-backed sections for accessible text contrast at desktop, tablet, mobile, and reduced-motion states.
+
+FINAL BUILD CHECKLIST:
+- No local-market-exclusivity language anywhere.
+- No “one auctioneer in your area” language anywhere.
+- No generic contractor or well-driller copy remains.
+- No fabricated auction company, results, reviews, testimonials, or platform claims.
+- All primary CTAs use the specified auctioneer UTM structure.
+- The page feels premium, organized, and event-driven—not like a generic small-business template.
+- Use temporary asset placeholders until Graylock supplies a real auctioneer project, then replace them without changing the section architecture.
