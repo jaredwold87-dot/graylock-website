@@ -28,7 +28,7 @@ const FEATURES = [
     desc: "Use credentials, experience, service types, team information, past-event proof, and clear process content to make your professionalism obvious before a prospect compares you to someone else.",
   },
   {
-    title: "Local and Specialty Search Visibility",
+    title: "SEO for Local and Specialty Searches",
     desc: "Structure the site around your services, specialties, and locations—and the searches organizers and sellers actually make when they need an auctioneer.",
   },
   {
