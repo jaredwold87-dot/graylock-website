@@ -2,8 +2,6 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorGetStartedHref, REALTOR_CTA_LABEL } from "@/lib/realtorLinks";
 import willowDevices from "@/assets/willow-devices-crop.webp";
-import willowListingCard from "@/assets/willow-listing-card.webp";
-import willowValuationForm from "@/assets/willow-valuation-form.webp";
 
 /** Decorative dot-grid backdrop (same device as the other dark heroes). */
 const DOT_GRID_STYLE: React.CSSProperties = {
@@ -12,37 +10,8 @@ const DOT_GRID_STYLE: React.CSSProperties = {
 };
 
 /**
- * Real listing card from the Willow site (screenshot, decorative / aria-hidden).
- */
-function ListingPanel({ className = "" }: { className?: string }) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`bg-white rounded-lg shadow-2xl shadow-black/50 overflow-hidden select-none pointer-events-none ${className}`}
-    >
-      <img src={willowListingCard} alt="" className="block w-full h-auto" decoding="async" />
-    </div>
-  );
-}
-
-/**
- * Real home-valuation form from the Willow site (screenshot, decorative / aria-hidden).
- */
-function ValuationPanel({ className = "" }: { className?: string }) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`bg-white rounded-lg shadow-2xl shadow-black/50 overflow-hidden select-none pointer-events-none ${className}`}
-    >
-      <img src={willowValuationForm} alt="" className="block w-full h-auto" decoding="async" />
-    </div>
-  );
-}
-
-/**
- * Realtor landing hero — outcome-first headline, one primary CTA, and a
- * product montage (Willow devices + real listing-card / valuation-form
- * screenshots) instead of a stock lifestyle photo.
+ * Realtor landing hero — outcome-first headline, one primary CTA, and the
+ * Willow devices montage instead of a stock lifestyle photo.
  */
 export function RealtorHero() {
   return (
@@ -93,24 +62,13 @@ export function RealtorHero() {
 
           {/* Product montage */}
           <div className="xl:w-[54%]">
-            <div className="relative">
-              <img
-                src={willowDevices}
-                alt="Custom real-estate website shown on desktop and mobile"
-                className="w-full h-auto relative z-10"
-                fetchPriority="high"
-                decoding="async"
-              />
-              {/* Supporting UI panels — beside the devices on wide screens */}
-              <ListingPanel className="hidden xl:block absolute z-20 w-[212px] -left-2 -bottom-4" />
-              <ValuationPanel className="hidden xl:block absolute z-20 w-[228px] right-0 -top-8" />
-            </div>
-
-            {/* Mobile/tablet: panels in a swipeable row under the devices */}
-            <div className="xl:hidden mt-6 -mx-6 px-6 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
-              <ListingPanel className="min-w-[232px] max-w-[232px] snap-start" />
-              <ValuationPanel className="min-w-[244px] max-w-[244px] snap-start" />
-            </div>
+            <img
+              src={willowDevices}
+              alt="Custom real-estate website shown on desktop and mobile"
+              className="w-full h-auto"
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
         </div>
       </div>
