@@ -3,8 +3,8 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackAuctioneerEvent } from "@/lib/auctioneerAnalytics";
 import { auctioneerGetStartedHref, AUCTIONEER_CTA_LABEL } from "@/lib/auctioneerLinks";
-import { AuctioneerDeviceMockup } from "./AuctioneerDeviceMockup";
 import heroDesktop from "@/assets/auctioneer-hero-devices.webp";
+import heroMobileDevices from "@/assets/auctioneer-hero-mobile-devices.webp";
 import hallTexture from "@/assets/auctioneer-hero-hall.webp";
 
 /**
@@ -99,8 +99,8 @@ function ProofItem({ text }: { text: string }) {
  * Desktop (1280px+) uses the supplied full-scene hero image — dark
  * architectural background with topo texture and the sample benefit-auction
  * site on a laptop + phone — as a full-bleed background with copy over its
- * empty left side. Below 1280px the SVG device mockup sits between the copy
- * and the CTA (same pattern as the cabinet-maker and well-driller heroes).
+ * empty left side. Below 1280px the transparent devices cutout sits between
+ * the copy and the CTA (same pattern as the cabinet-maker hero).
  */
 export function AuctioneerHero() {
   return (
@@ -142,7 +142,14 @@ export function AuctioneerHero() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-[96px] md:pt-[108px] pb-10">
           <ScrollReveal>
             <HeroCopy />
-            <AuctioneerDeviceMockup className="w-full max-w-[560px] mx-auto h-auto mb-7" />
+            {/* Transparent laptop + phone cutout (supplied Summit composition) */}
+            <img
+              src={heroMobileDevices}
+              alt={HERO_ALT}
+              className="w-full max-w-[560px] mx-auto h-auto mb-7"
+              loading="eager"
+              decoding="async"
+            />
             <HeroCtas fullWidth />
             <p className="text-offwhite font-sans text-sm leading-snug text-center sm:text-left">
               {REASSURANCE}
