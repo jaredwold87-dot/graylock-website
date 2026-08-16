@@ -28,8 +28,8 @@ function HeroCopy() {
       {/* H1: direct question — qualifier → payoff; second line in Graylock orange */}
       {/* Cap tuned so each phrase holds a single line on desktop (≤ 2 lines total) */}
       <h1 className="font-display uppercase text-white leading-[1.05] mb-6 text-[clamp(34px,3.1vw,44px)]">
-        <span className="block text-balance">Are You a Hard-Working Well Driller</span>
-        <span className="block text-balance">That Deserves a Better Website?</span>
+        <span className="block text-balance">Are You a Hard-Working Well-Driller</span>
+        <span className="block text-balance">That Needs a Better Website?</span>
       </h1>
       <p className="text-stone text-lg font-sans leading-relaxed mb-7 max-w-[510px]">
         We build custom well-driller websites that make it easier to get found, earn trust
