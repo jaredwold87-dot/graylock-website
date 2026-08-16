@@ -45,24 +45,24 @@ export function RealtorFAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 relative overflow-hidden border-t border-white/5">
+    <section className="bg-[#F4F1EC] py-20 md:py-28 px-6 md:px-12 relative overflow-hidden border-t border-[#0F0F0F]/10">
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: "radial-gradient(#fff 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(#0F0F0F 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
 
       <div className="max-w-3xl mx-auto relative z-10">
         <ScrollReveal className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-display text-offwhite mb-4">
+          <h2 className="text-3xl md:text-5xl font-display text-[#0F0F0F] mb-4">
             Common Questions
           </h2>
         </ScrollReveal>
 
         {/* Flat accordion — divider rules only, no boxed cards */}
-        <div className="border-y border-white/10 divide-y divide-white/10 mb-12">
+        <div className="border-y border-[#0F0F0F]/15 divide-y divide-[#0F0F0F]/15 mb-12">
           {REALTOR_FAQS.map((faq, i) => {
             const isOpen = openIndex === i;
             const panelId = `realtor-faq-panel-${i}`;
@@ -81,15 +81,15 @@ export function RealtorFAQSection() {
                       }
                       setOpenIndex(isOpen ? null : i);
                     }}
-                    className="w-full min-h-[44px] py-5 md:py-6 flex items-center justify-between gap-4 text-left cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange"
+                    className="w-full min-h-[44px] py-5 md:py-6 flex items-center justify-between gap-4 text-left cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#B23E16]"
                   >
-                    <span className="font-sans font-semibold text-offwhite text-lg">
+                    <span className="font-sans font-semibold text-[#0F0F0F] text-lg">
                       {faq.q}
                     </span>
                     <ChevronDown
                       aria-hidden="true"
                       className={cn(
-                        "text-orange transition-transform duration-300 flex-shrink-0",
+                        "text-[#B23E16] transition-transform duration-300 flex-shrink-0",
                         isOpen ? "rotate-180" : "rotate-0",
                       )}
                     />
@@ -107,7 +107,7 @@ export function RealtorFAQSection() {
                     isOpen ? "max-h-[500px] pb-6 opacity-100" : "max-h-0 opacity-0",
                   )}
                 >
-                  <p className="text-stone font-sans leading-relaxed pr-8">{faq.a}</p>
+                  <p className="text-[#0F0F0F]/70 font-sans leading-relaxed pr-8">{faq.a}</p>
                 </div>
               </div>
             );
@@ -117,7 +117,7 @@ export function RealtorFAQSection() {
         <ScrollReveal className="text-center">
           <Link
             href="/faq"
-            className="text-orange font-bold font-sans hover:underline underline-offset-4 decoration-2"
+            className="text-[#B23E16] font-bold font-sans hover:underline underline-offset-4 decoration-2"
           >
             See all FAQs &rarr;
           </Link>

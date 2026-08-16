@@ -80,16 +80,16 @@ export function RealtorTwoPathsSection() {
   }, []);
 
   return (
-    <section className="bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
+    <section className="bg-[#F4F1EC] py-20 md:py-28 px-6 md:px-12 border-t border-[#0F0F0F]/10">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal className="text-center max-w-[860px] mx-auto mb-12 md:mb-16">
-          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
+          <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
             Two Audiences. One Clear Website.
           </p>
-          <h2 className="font-display text-white text-4xl md:text-[52px] leading-[1.08] mb-6">
+          <h2 className="font-display text-[#0F0F0F] text-4xl md:text-[52px] leading-[1.08] mb-6">
             Buyers Need a Search Path. Sellers Need a Reason to Raise Their Hand.
           </h2>
-          <p className="text-stone font-sans text-lg leading-relaxed">
+          <p className="text-[#0F0F0F]/70 font-sans text-lg leading-relaxed">
             Your website should make both journeys feel simple, local, and unmistakably
             connected to your brand.
           </p>
@@ -150,7 +150,7 @@ export function RealtorTwoPathsSection() {
         </div>
 
         <ScrollReveal className="text-center mt-12 md:mt-14">
-          <p className="font-hand font-semibold text-[28px] md:text-[38px] leading-snug text-[#E85D26]">
+          <p className="font-hand font-semibold text-[28px] md:text-[38px] leading-snug text-[#B23E16]">
             Buyers search. Sellers compare. Be ready for both.
           </p>
         </ScrollReveal>

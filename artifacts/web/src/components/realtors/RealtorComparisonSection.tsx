@@ -21,21 +21,21 @@ const GRAYLOCK_POINTS = [
 
 export function RealtorComparisonSection() {
   return (
-    <section className="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
+    <section className="bg-[#F4F1EC] py-20 md:py-28 px-6 md:px-12 border-t border-[#0F0F0F]/10">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center max-w-[820px] mx-auto mb-12 md:mb-16">
-          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
+          <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
             Why Graylock
           </p>
-          <h2 className="font-display text-white text-4xl md:text-[52px] leading-[1.08]">
+          <h2 className="font-display text-[#0F0F0F] text-4xl md:text-[52px] leading-[1.08]">
             A Real-Estate Website Should Not Look Like Everyone Else&rsquo;s.
           </h2>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-14 lg:gap-x-20 max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="h-[3px] w-9 bg-stone/50 mb-4" aria-hidden="true" />
-            <h3 className="font-display text-2xl md:text-[26px] text-stone leading-snug mb-6">
+            <div className="h-[3px] w-9 bg-[#0F0F0F]/25 mb-4" aria-hidden="true" />
+            <h3 className="font-display text-2xl md:text-[26px] text-[#0F0F0F]/55 leading-snug mb-6">
               The Typical Template
             </h3>
             <ul className="space-y-4">
@@ -44,10 +44,10 @@ export function RealtorComparisonSection() {
                   <X
                     size={17}
                     strokeWidth={2.5}
-                    className="text-stone/70 flex-shrink-0 mt-[3px]"
+                    className="text-[#0F0F0F]/40 flex-shrink-0 mt-[3px]"
                     aria-hidden="true"
                   />
-                  <span className="text-stone font-sans text-[15px] md:text-base leading-snug">
+                  <span className="text-[#0F0F0F]/60 font-sans text-[15px] md:text-base leading-snug">
                     {point}
                   </span>
                 </li>
@@ -57,7 +57,7 @@ export function RealtorComparisonSection() {
 
           <ScrollReveal delay={0.1}>
             <div className="h-[3px] w-9 bg-[#E85D26] mb-4" aria-hidden="true" />
-            <h3 className="font-display text-2xl md:text-[26px] text-white leading-snug mb-6">
+            <h3 className="font-display text-2xl md:text-[26px] text-[#0F0F0F] leading-snug mb-6">
               The Graylock Way
             </h3>
             <ul className="space-y-4">
@@ -69,7 +69,7 @@ export function RealtorComparisonSection() {
                     className="text-white bg-[#E85D26] rounded-full p-[3px] w-[19px] h-[19px] flex-shrink-0 mt-0.5"
                     aria-hidden="true"
                   />
-                  <span className="text-offwhite font-sans text-[15px] md:text-base leading-snug">
+                  <span className="text-[#0F0F0F]/85 font-sans text-[15px] md:text-base leading-snug">
                     {point}
                   </span>
                 </li>
@@ -79,7 +79,7 @@ export function RealtorComparisonSection() {
         </div>
 
         <ScrollReveal className="text-center mt-14 md:mt-16">
-          <p className="font-hand font-semibold text-[28px] md:text-[38px] leading-snug text-[#E85D26] max-w-[820px] mx-auto">
+          <p className="font-hand font-semibold text-[28px] md:text-[38px] leading-snug text-[#B23E16] max-w-[820px] mx-auto">
             You should not have to look like every other agent to get taken seriously.
           </p>
         </ScrollReveal>
