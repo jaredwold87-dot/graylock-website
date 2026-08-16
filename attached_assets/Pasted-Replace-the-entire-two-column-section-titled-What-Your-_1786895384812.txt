@@ -1,0 +1,40 @@
+Replace the entire two-column section titled “What Your Realtor Website Package Includes.”
+
+The current right-hand column, “Confirmed After Market Review,” is too technical and confusing for a real-estate customer. It uses internal jargon such as MLS eligibility, IDX provider path, data fields, approval requirements, lead routing, bespoke maps, and expanded SEO. Remove that entire right-hand column and do not replace it with another technical checklist.
+
+Keep the left-side “Included With the Managed Website” list, but redesign this section as one clean, centered content area rather than a two-column comparison.
+
+Use this structure:
+
+SECTION HEADLINE:
+What Your Realtor Website Package Includes
+
+SECTION SUBHEAD:
+A custom, maintained real-estate website built to help local buyers and sellers understand your services, trust your brand, and take the next step.
+
+KEEP AND CLEAN UP THE INCLUDED LIST:
+- Custom-branded website built for mobile
+- Local pages that help buyers and sellers find you
+- Clear paths for property inquiries, seller valuations, consultations, and contact requests
+- Hosting, security, backups, maintenance, and ongoing support
+- Website updates and refresh benefits while subscribed
+- Standard property-listing display when it is available for your market
+
+Then add one small, visually quieter note below the included list. Do NOT create a second column.
+
+NOTE TITLE:
+A quick note on property listings and integrations
+
+NOTE COPY:
+Live property listings and certain advanced tools depend on your local MLS rules and the systems you already use. Before we build, we confirm what is available in your area and make sure the website is scoped around the way you actually work - so there are no surprises.
+
+DESIGN DIRECTION:
+- Remove all dotted-circle icons from the old “Confirmed After Market Review” column.
+- Keep the existing dark background, Graylock orange accent color, and white typography.
+- Make the included list easy to scan with the existing orange check icons.
+- Place the note below the list in a subtle dark-gray bordered panel or a restrained light-gray text block.
+- The note should feel secondary, not like a warning or a separate package tier.
+- Use a single-column layout on mobile with comfortable spacing.
+- Do not mention Elm Street, IDX provider paths, data fields, approval requirements, third-party costs, CRM/SMS integrations, bespoke maps, portals, paid media, or expanded SEO in this section. Those details belong later in the page or in the sales conversation.
+
+The goal is for a realtor to immediately understand: “This is what my website includes, and Graylock will confirm any local listing/integration details before building.”

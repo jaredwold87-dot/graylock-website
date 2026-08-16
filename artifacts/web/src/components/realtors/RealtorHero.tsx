@@ -2,7 +2,8 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorGetStartedHref, REALTOR_CTA_LABEL } from "@/lib/realtorLinks";
 import willowDevices from "@/assets/willow-devices-crop.webp";
-import listingThumb from "@/assets/realtor-seller-visual.webp";
+import willowListingCard from "@/assets/willow-listing-card.webp";
+import willowValuationForm from "@/assets/willow-valuation-form.webp";
 
 /** Decorative dot-grid backdrop (same device as the other dark heroes). */
 const DOT_GRID_STYLE: React.CSSProperties = {
@@ -11,9 +12,7 @@ const DOT_GRID_STYLE: React.CSSProperties = {
 };
 
 /**
- * Illustrative listing-detail UI panel — gallery, property facts, inquiry CTA,
- * and an MLS attribution area. Purely decorative (aria-hidden); values are
- * generic mockup content, not a real listing.
+ * Real listing card from the Willow site (screenshot, decorative / aria-hidden).
  */
 function ListingPanel({ className = "" }: { className?: string }) {
   return (
@@ -21,37 +20,13 @@ function ListingPanel({ className = "" }: { className?: string }) {
       aria-hidden="true"
       className={`bg-white rounded-lg shadow-2xl shadow-black/50 overflow-hidden select-none pointer-events-none ${className}`}
     >
-      <div className="h-1 bg-[#E85D26]" />
-      <div className="p-3.5">
-        <img src={listingThumb} alt="" className="w-full h-[76px] object-cover rounded-[3px]" />
-        <div className="flex gap-1.5 mt-1.5">
-          <div className="h-6 flex-1 rounded-[2px] bg-[#E9E5DE]" />
-          <div className="h-6 flex-1 rounded-[2px] bg-[#DFD9CF]" />
-          <div className="h-6 flex-1 rounded-[2px] bg-[#E9E5DE]" />
-        </div>
-        <p className="font-display text-[#1A1A1A] text-[15px] leading-none mt-3">
-          Listing Details
-        </p>
-        <div className="flex gap-3 mt-1.5 font-sans text-[10px] font-medium text-[#1A1A1A]/65">
-          <span>4 Beds</span>
-          <span>3 Baths</span>
-          <span>2,400 Sq Ft</span>
-        </div>
-        <div className="mt-2.5 h-7 rounded-[3px] bg-[#E85D26] flex items-center justify-center">
-          <span className="text-white font-sans font-semibold text-[10px] uppercase tracking-wider">
-            Ask About This Home
-          </span>
-        </div>
-        <p className="mt-2 font-sans text-[8px] leading-none text-[#1A1A1A]/45">
-          Listing data · Local MLS attribution
-        </p>
-      </div>
+      <img src={willowListingCard} alt="" className="block w-full h-auto" decoding="async" />
     </div>
   );
 }
 
 /**
- * Illustrative seller home-valuation UI panel (aria-hidden, decorative).
+ * Real home-valuation form from the Willow site (screenshot, decorative / aria-hidden).
  */
 function ValuationPanel({ className = "" }: { className?: string }) {
   return (
@@ -59,34 +34,15 @@ function ValuationPanel({ className = "" }: { className?: string }) {
       aria-hidden="true"
       className={`bg-white rounded-lg shadow-2xl shadow-black/50 overflow-hidden select-none pointer-events-none ${className}`}
     >
-      <div className="h-1 bg-[#E85D26]" />
-      <div className="p-3.5">
-        <p className="font-display text-[#1A1A1A] text-[15px] leading-tight">
-          What&rsquo;s Your Home Worth?
-        </p>
-        <div className="mt-2.5 h-8 rounded-[3px] border border-[#1A1A1A]/15 flex items-center px-2.5">
-          <span className="font-sans text-[10px] text-[#1A1A1A]/45">Property address</span>
-        </div>
-        <div className="mt-1.5 h-8 rounded-[3px] border border-[#1A1A1A]/15 flex items-center justify-between px-2.5">
-          <span className="font-sans text-[10px] text-[#1A1A1A]/45">
-            When are you thinking of selling?
-          </span>
-          <span className="text-[#1A1A1A]/35 text-[9px]">▾</span>
-        </div>
-        <div className="mt-2.5 h-8 rounded-[3px] bg-[#E85D26] flex items-center justify-center">
-          <span className="text-white font-sans font-semibold text-[10px] uppercase tracking-wider">
-            Get My Valuation
-          </span>
-        </div>
-      </div>
+      <img src={willowValuationForm} alt="" className="block w-full h-auto" decoding="async" />
     </div>
   );
 }
 
 /**
  * Realtor landing hero — outcome-first headline, one primary CTA, and a
- * product montage (Willow devices + listing / valuation UI panels) instead
- * of a stock lifestyle photo.
+ * product montage (Willow devices + real listing-card / valuation-form
+ * screenshots) instead of a stock lifestyle photo.
  */
 export function RealtorHero() {
   return (
