@@ -79,6 +79,11 @@ interface LeadPayload {
   website_goal?: string;
 
   preferred_contact_method?: string;
+  // Cabinet-maker campaign fields (optional — present only for cabinet-maker leads)
+
+  main_project_types?: string[];
+
+  desired_outcomes?: string[];
 
   /** Reflection-card label the visitor selected before clicking through. */
   stated_goal?: string;
@@ -101,6 +106,10 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
     payload.lead_source_label === "Well Driller Landing Page" ||
     payload.industry === "well-drilling";
 
+  const isCabinetMakerLead =
+    payload.lead_source_label === "Cabinet Maker Landing Page" ||
+    payload.industry === "cabinet-making";
+
   const truncate = (value: string, max = 60) =>
     value.length > max ? `${value.slice(0, max - 1).trimEnd()}…` : value;
 
@@ -108,9 +117,22 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
     ? payload.main_services.filter((s) => typeof s === "string" && s.trim()).join(", ")
     : "";
 
+  const mainProjectTypes = Array.isArray(payload.main_project_types)
+    ? payload.main_project_types.filter((s) => typeof s === "string" && s.trim()).join(", ")
+    : "";
+
+  const desiredOutcomes = Array.isArray(payload.desired_outcomes)
+    ? payload.desired_outcomes.filter((s) => typeof s === "string" && s.trim()).join(", ")
+    : "";
+
   // Subject shows the primary service area (spec: Business Name — Primary
   // Service Area); campaign market is the fallback when the area is missing.
   const wellDrillerServiceArea =
+    (payload.service_area ? truncate(payload.service_area.trim()) : "") ||
+    (payload.market || "").trim() ||
+    "Service Area TBD";
+
+  const cabinetMakerServiceArea =
     (payload.service_area ? truncate(payload.service_area.trim()) : "") ||
     (payload.market || "").trim() ||
     "Service Area TBD";
@@ -165,6 +187,24 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
       ].join("\n")
     : "";
 
+  const cabinetMakerLines = isCabinetMakerLead
+    ? [
+        "",
+        "— Cabinet Maker Custom Demo lead —",
+        `Landing page: ${payload.landing_page || "/websites-for-cabinet-makers"}`,
+        `Industry: ${payload.industry || "cabinet-making"}`,
+        ...(payload.intent ? [`Intent: ${payload.intent}`] : []),
+        `Market: ${payload.market || "Not provided"}`,
+        `Rep: ${payload.rep || "Not provided"}`,
+        `Source: ${payload.source || "Not provided"}`,
+        `Main project types: ${mainProjectTypes || "Not provided"}`,
+        `Wants more of: ${desiredOutcomes || "Not provided"}`,
+        `Target launch timing: ${payload.launch_timing || "Not provided"}`,
+        `Referrer: ${payload.referrer || "Not provided"}`,
+        ...(utmPairs.length ? [`UTM: ${utmPairs.join(", ")}`] : []),
+      ].join("\n")
+    : "";
+
   // Only render the fields the visitor actually provided — the quick
   // discovery-call form captures far less than the old wizard did.
   const detailLines = [
@@ -190,7 +230,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
 
   const emailBody = `New discovery call request from graylockdigital.com
 
-${detailLines.join("\n")}${realtorLines}${wellDrillerLines}
+${detailLines.join("\n")}${realtorLines}${wellDrillerLines}${cabinetMakerLines}
 
 Submitted: ${submittedAt}
 
@@ -205,9 +245,11 @@ Or log in to the GOS to view full lead record.`;
 
   const subject = isWellDrillerLead
     ? `New Well-Driller Custom Demo Request — ${payload.business_name} — ${wellDrillerServiceArea}`
-    : isRealtorLead
-      ? `New Lead (Realtor Landing Page): ${payload.business_name || payload.first_name}`
-      : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
+    : isCabinetMakerLead
+      ? `New Cabinet-Maker Custom Demo Request — ${payload.business_name} — ${cabinetMakerServiceArea}`
+      : isRealtorLead
+        ? `New Lead (Realtor Landing Page): ${payload.business_name || payload.first_name}`
+        : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
 
   const emailPromise = (async () => {
     try {
@@ -293,6 +335,26 @@ Or log in to the GOS to view full lead record.`;
                 statedGoal: payload.stated_goal || "",
                 intent: payload.intent || "",
                 preferredContactMethod: payload.preferred_contact_method || "",
+                referrer: payload.referrer || "",
+                utmSource: payload.utm_source || "",
+                utmMedium: payload.utm_medium || "",
+                utmCampaign: payload.utm_campaign || "",
+              }
+            : {}),
+          ...(isCabinetMakerLead
+            ? {
+                industry: payload.industry || "cabinet-making",
+                leadSourceLabel: "Cabinet Maker Landing Page",
+                landingPage: payload.landing_page || "/websites-for-cabinet-makers",
+                market: payload.market || "",
+                rep: payload.rep || "",
+                // "source" above stays the site origin; the sales-campaign
+                // source param rides separately.
+                campaignSource: payload.source || "",
+                mainProjectTypes,
+                desiredOutcomes,
+                launchTiming: payload.launch_timing || "",
+                intent: payload.intent || "",
                 referrer: payload.referrer || "",
                 utmSource: payload.utm_source || "",
                 utmMedium: payload.utm_medium || "",

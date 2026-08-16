@@ -11,3 +11,4 @@
 - [WD guarantee wording](wd-guarantee-links.md) — ToS says fees non-refundable; guarantee trust lines link /pricing (+#stay-current-guarantee), never ToS; don't expand the wording.
 - [Device cutout cleanup](device-cutout-cleanup.md) — bg removal leaves shadow blobs/backdrop slices on device shots; magenta-flatten to inspect, erase alpha rects, trim, no card wrapper.
 - [Hidden-UI a11y sync](hidden-ui-a11y-sync.md) — visually hidden UI (off-screen sticky bars, max-h-0 accordions) must also leave a11y tree/focus: invisible + transition-[transform,visibility], aria-hidden.
+- [Browser 404 red herring](browser-404-red-herring.md) — the lone console 404 on every page is api-server GET / (no root route), not a missing asset; don't chase it during QA.

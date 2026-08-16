@@ -7,6 +7,8 @@ import { REALTOR_LANDING_PATH, realtorGetStartedHref } from "@/lib/realtorLinks"
 import { useBookingCtaClick } from "@/components/booking/BookCallContext";
 import { WELL_DRILLER_LANDING_PATH, wellDrillerGetStartedHref } from "@/lib/wellDrillerLinks";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
+import { CABINET_MAKER_LANDING_PATH, cabinetMakerGetStartedHref } from "@/lib/cabinetMakerLinks";
+import { trackCabinetMakerEvent } from "@/lib/cabinetMakerAnalytics";
 
 const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -38,21 +40,29 @@ export function Navbar() {
   // every other page keeps the standard label and destination.
   const isRealtorLanding = location === REALTOR_LANDING_PATH;
   const isWellDrillerLanding = location === WELL_DRILLER_LANDING_PATH;
+  const isCabinetMakerLanding = location === CABINET_MAKER_LANDING_PATH;
   const bookingHref = isRealtorLanding
     ? realtorGetStartedHref("header")
     : isWellDrillerLanding
       ? wellDrillerGetStartedHref("header_cta")
-      : "/get-started";
+      : isCabinetMakerLanding
+        ? cabinetMakerGetStartedHref("header")
+        : "/get-started";
   const bookingLabel = isRealtorLanding
     ? "Get Your Real Estate Website + IDX Plan"
-    : isWellDrillerLanding
+    : isWellDrillerLanding || isCabinetMakerLanding
       ? "Request My Free Custom Demo"
       : "Book a Discovery Call";
-  // The navbar CTA counts as a demo CTA on the well-driller landing page.
+  // The navbar CTA counts as a demo CTA on the campaign landing pages.
   const trackBookingCta = () => {
     if (isWellDrillerLanding) {
       trackWellDrillerEvent("well_driller_demo_cta_click", {
         cta_placement: "header_cta",
+      });
+    }
+    if (isCabinetMakerLanding) {
+      trackCabinetMakerEvent("cabinet_maker_hero_cta_click", {
+        cta_placement: "header",
       });
     }
   };

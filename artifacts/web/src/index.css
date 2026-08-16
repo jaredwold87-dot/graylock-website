@@ -281,3 +281,10 @@
     bottom: calc(4.9rem + env(safe-area-inset-bottom));
   }
 }
+
+/* Cabinet-maker landing: same clearance while its sticky CTA bar is visible */
+@media (max-width: 767px) {
+  body.cabinet-sticky-visible button[data-chat-launcher] {
+    bottom: calc(4.9rem + env(safe-area-inset-bottom));
+  }
+}

@@ -7,6 +7,7 @@ import { BookCallForm } from "@/components/booking/BookCallForm";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { WELL_DRILLER_LANDING_PATH, getWellDrillerMarket } from "@/lib/wellDrillerLinks";
+import { CABINET_MAKER_LANDING_PATH } from "@/lib/cabinetMakerLinks";
 
 /**
  * Fallback page for direct visits (bookmarks, ads, middle-clicked CTAs).
@@ -33,11 +34,13 @@ export default function GetStarted() {
 
   const isRealtor = industry === "real-estate";
   const isWellDriller = industry === "well-drilling";
+  const isCabinetMaker = industry === "cabinet-making";
   const wellDrillerMarket = isWellDriller ? getWellDrillerMarket() : null;
 
   const landingPagePath = useMemo(() => {
     if (utmParams["utm_source"] === "realtor_landing") return "/websites-for-realtors";
     if (utmParams["utm_source"] === "well_driller_landing") return WELL_DRILLER_LANDING_PATH;
+    if (utmParams["utm_source"] === "cabinet_maker_landing") return CABINET_MAKER_LANDING_PATH;
     if (typeof document !== "undefined" && document.referrer) {
       try {
         const ref = new URL(document.referrer);
@@ -121,6 +124,19 @@ export default function GetStarted() {
                   <span className="font-semibold uppercase text-white">{wellDrillerMarket}</span>
                 </p>
               )}
+            </div>
+          )}
+          {isCabinetMaker && (
+            <div className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
+              <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
+                Let's build your free custom demo.
+              </p>
+              <p className="font-sans text-base leading-relaxed">
+                Tell us about your shop and the projects you want more of. We will use the
+                conversation to prepare a homepage direction built around your work—not a
+                generic template.
+              </p>
             </div>
           )}
           <BookCallForm

@@ -3,6 +3,8 @@ import { CheckCircle, ChevronDown, Loader2 } from "lucide-react";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { getWellDrillerCampaignParams } from "@/lib/wellDrillerLinks";
+import { trackCabinetMakerEvent } from "@/lib/cabinetMakerAnalytics";
+import { getCabinetMakerCampaignParams } from "@/lib/cabinetMakerLinks";
 
 interface BookCallFormProps {
   /** Industry context ("real-estate" on realtor CTAs, "" otherwise). */
@@ -47,6 +49,25 @@ const REALTOR_LAUNCH_TIMING_OPTIONS = [
   "6+ months / just researching",
 ];
 
+// Cabinet-maker demo-request options (spec §5, exact values).
+const CABINET_MAKER_PROJECT_OPTIONS = [
+  "Kitchens",
+  "Built-Ins",
+  "Closets",
+  "Vanities",
+  "Commercial / Millwork",
+  "Other",
+];
+
+const CABINET_MAKER_OUTCOME_OPTIONS = [
+  "Design Consultations",
+  "Quote Requests",
+  "Higher-End Projects",
+  "Builder / Designer Relationships",
+  "Better Portfolio Presentation",
+  "Other",
+];
+
 export function BookCallForm({
   industry = "",
   utmParams = {},
@@ -73,6 +94,17 @@ export function BookCallForm({
     services?: string;
     contact?: string;
   }>({});
+  // Cabinet-maker demo fields (required multi-selects + launch timing).
+  const [mainProjectTypes, setMainProjectTypes] = useState<string[]>([]);
+  const [desiredOutcomes, setDesiredOutcomes] = useState<string[]>([]);
+  const [cmErrors, setCmErrors] = useState<{
+    business?: string;
+    phone?: string;
+    website?: string;
+    projects?: string;
+    outcomes?: string;
+    timing?: string;
+  }>({});
   // Realtor fit-call fields (per the conversion scope — no budget field).
   const [role, setRole] = useState("");
   const [market, setMarket] = useState("");
@@ -81,12 +113,14 @@ export function BookCallForm({
   const [launchTiming, setLaunchTiming] = useState("");
   const [rtErrors, setRtErrors] = useState<{ phone?: string; website?: string }>({});
   const fitCallStarted = useRef(false);
+  const demoStarted = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
   const isRealtor = industry === "real-estate";
   const isWellDriller = industry === "well-drilling";
+  const isCabinetMaker = industry === "cabinet-making";
 
   const toggleService = (service: string) => {
     setMainServices((prev) =>
@@ -94,11 +128,28 @@ export function BookCallForm({
     );
   };
 
-  // realtor_fit_call_start — first interaction with any field, fired once.
+  const toggleProjectType = (option: string) => {
+    setMainProjectTypes((prev) =>
+      prev.includes(option) ? prev.filter((s) => s !== option) : [...prev, option],
+    );
+  };
+
+  const toggleDesiredOutcome = (option: string) => {
+    setDesiredOutcomes((prev) =>
+      prev.includes(option) ? prev.filter((s) => s !== option) : [...prev, option],
+    );
+  };
+
+  // Campaign start events — first interaction with any field, fired once.
   const handleFirstFocus = () => {
-    if (!isRealtor || fitCallStarted.current) return;
-    fitCallStarted.current = true;
-    trackRealtorEvent("realtor_fit_call_start", utmParams);
+    if (isRealtor && !fitCallStarted.current) {
+      fitCallStarted.current = true;
+      trackRealtorEvent("realtor_fit_call_start", utmParams);
+    }
+    if (isCabinetMaker && !demoStarted.current) {
+      demoStarted.current = true;
+      trackCabinetMakerEvent("cabinet_maker_demo_start", utmParams);
+    }
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -142,6 +193,32 @@ export function BookCallForm({
       setRtErrors(errs);
       if (Object.keys(errs).length > 0) return;
     }
+    if (isCabinetMaker) {
+      const errs: {
+        business?: string;
+        phone?: string;
+        website?: string;
+        projects?: string;
+        outcomes?: string;
+        timing?: string;
+      } = {};
+      if (businessName.trim().replace(/\s/g, "").length < 2) {
+        errs.business = "Enter your business name (at least two characters)";
+      }
+      const phoneDigits = phone.replace(/\D/g, "");
+      if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+        errs.phone = "Enter a valid phone number";
+      }
+      const website = websiteUrl.trim();
+      if (website && !/^(https?:\/\/)?([\w-]+\.)+[a-z]{2,}([\/?#]\S*)?$/i.test(website)) {
+        errs.website = "Enter a valid website address (e.g., yourbusiness.com)";
+      }
+      if (mainProjectTypes.length === 0) errs.projects = "Select at least one project type";
+      if (desiredOutcomes.length === 0) errs.outcomes = "Select at least one option";
+      if (!launchTiming) errs.timing = "Please choose an option";
+      setCmErrors(errs);
+      if (Object.keys(errs).length > 0) return;
+    }
     setIsSubmitting(true);
 
     const submittedAt = new Date().toISOString();
@@ -151,7 +228,11 @@ export function BookCallForm({
 
     // market/rep/source (+ page-level utms) ride on the page URL — the modal
     // opens in place on the landing page, so they stay readable here.
-    const campaignParams = isWellDriller ? getWellDrillerCampaignParams() : {};
+    const campaignParams = isWellDriller
+      ? getWellDrillerCampaignParams()
+      : isCabinetMaker
+        ? getCabinetMakerCampaignParams()
+        : {};
 
     const payload = {
       first_name: name.trim(),
@@ -193,7 +274,22 @@ export function BookCallForm({
             referrer: typeof document !== "undefined" ? document.referrer || "" : "",
           }
         : {}),
-      ...(isWellDriller
+      ...(isCabinetMaker
+        ? {
+            industry,
+            lead_source_label: "Cabinet Maker Landing Page",
+            service_area: serviceArea.trim(),
+            main_project_types: mainProjectTypes,
+            desired_outcomes: desiredOutcomes,
+            launch_timing: launchTiming,
+            intent: leadParams["intent"] || "",
+            market: campaignParams["market"] || "",
+            rep: campaignParams["rep"] || "",
+            source: campaignParams["source"] || "",
+            referrer: typeof document !== "undefined" ? document.referrer || "" : "",
+          }
+        : {}),
+      ...(isWellDriller || isCabinetMaker
         ? Object.fromEntries(
             Object.entries(campaignParams).filter(([key]) => key.startsWith("utm_")),
           )
@@ -221,9 +317,11 @@ export function BookCallForm({
           message: [
             isWellDriller
               ? "Well Driller Custom Demo request"
-              : isRealtor
-                ? "Real Estate Website + IDX Fit Call request"
-                : "Discovery call request",
+              : isCabinetMaker
+                ? "Cabinet Maker Custom Demo request"
+                : isRealtor
+                  ? "Real Estate Website + IDX Fit Call request"
+                  : "Discovery call request",
             isRealtor && "Lead source: Realtor Landing Page",
             isRealtor && role && `Role: ${role}`,
             isRealtor && market.trim() && `Market / service area: ${market.trim()}`,
@@ -241,6 +339,19 @@ export function BookCallForm({
             isWellDriller && websiteGoal.trim() && `Website goal: ${websiteGoal.trim()}`,
             isWellDriller && leadParams["stated_goal"] && `Stated goal: ${leadParams["stated_goal"]}`,
             isWellDriller && preferredContact && `Preferred contact: ${preferredContact}`,
+            isCabinetMaker && "Lead source: Cabinet Maker Landing Page",
+            isCabinetMaker && campaignParams["market"] && `Market: ${campaignParams["market"]}`,
+            isCabinetMaker && campaignParams["rep"] && `Rep: ${campaignParams["rep"]}`,
+            isCabinetMaker && campaignParams["source"] && `Source: ${campaignParams["source"]}`,
+            isCabinetMaker && serviceArea.trim() && `Service area: ${serviceArea.trim()}`,
+            isCabinetMaker &&
+              mainProjectTypes.length > 0 &&
+              `Main project types: ${mainProjectTypes.join(", ")}`,
+            isCabinetMaker &&
+              desiredOutcomes.length > 0 &&
+              `Wants more of: ${desiredOutcomes.join(", ")}`,
+            isCabinetMaker && launchTiming && `Target launch timing: ${launchTiming}`,
+            isCabinetMaker && leadParams["intent"] && `Intent: ${leadParams["intent"]}`,
             resolvedLandingPage && `Page: ${resolvedLandingPage}`,
             payload.website_url && `Website: ${payload.website_url}`,
             payload.heard_about_us && `Heard about us: ${payload.heard_about_us}`,
@@ -280,6 +391,12 @@ export function BookCallForm({
           ...utmParams,
         });
       }
+      if (isCabinetMaker) {
+        trackCabinetMakerEvent("cabinet_maker_demo_complete", {
+          project_types_selected: mainProjectTypes.join(", "),
+          ...utmParams,
+        });
+      }
       setSubmitted(true);
     } catch (err) {
       console.error("Lead submission error:", err);
@@ -296,14 +413,14 @@ export function BookCallForm({
       <div className={variant === "page" ? "text-center py-20 app-fade-in" : "text-center py-12 app-fade-in"}>
         <CheckCircle className="text-[#E85D26] w-16 h-16 mx-auto mb-6" aria-hidden="true" strokeWidth={1.5} />
         <h3 className="text-4xl md:text-5xl font-display text-[#0F0F0F] uppercase tracking-tight mb-4">
-          {isWellDriller ? (
+          {isWellDriller || isCabinetMaker ? (
             <>You're in.</>
           ) : (
             <>You're all set{name ? `, ${name.split(" ")[0]}` : ""}!</>
           )}
         </h3>
         <p className="text-[#0F0F0F]/70 font-sans text-lg md:text-xl leading-relaxed max-w-md mx-auto">
-          {isWellDriller ? (
+          {isWellDriller || isCabinetMaker ? (
             <>
               We received your demo request and will follow up to learn the few
               details we need to build something relevant—not generic.
@@ -363,6 +480,11 @@ export function BookCallForm({
               {wdErrors.business}
             </span>
           )}
+          {isCabinetMaker && cmErrors.business && (
+            <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              {cmErrors.business}
+            </span>
+          )}
         </div>
       )}
 
@@ -399,6 +521,11 @@ export function BookCallForm({
         {isWellDriller && wdErrors.phone && (
           <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
             {wdErrors.phone}
+          </span>
+        )}
+        {isCabinetMaker && cmErrors.phone && (
+          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+            {cmErrors.phone}
           </span>
         )}
         {isRealtor && rtErrors.phone && (
@@ -544,6 +671,167 @@ export function BookCallForm({
                 {wdErrors.contact}
               </span>
             )}
+          </div>
+        </>
+      )}
+
+      {isCabinetMaker && (
+        <>
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-cm-website" className={LABEL_CLASSES}>
+              Current Website <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <input
+              id="bc-cm-website"
+              type="text"
+              inputMode="url"
+              autoComplete="url"
+              value={websiteUrl}
+              onChange={(e) => setWebsiteUrl(e.target.value)}
+              placeholder="yourbusiness.com"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+            {cmErrors.website && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {cmErrors.website}
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-cm-service-area" className={LABEL_CLASSES}>
+              Primary Service Area
+            </label>
+            <input
+              id="bc-cm-service-area"
+              type="text"
+              required
+              value={serviceArea}
+              onChange={(e) => setServiceArea(e.target.value)}
+              placeholder="e.g., Boise metro and surrounding communities"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+          </div>
+
+          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
+            <legend className={`${LABEL_CLASSES} p-0`}>
+              Main Project Types{" "}
+              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+            </legend>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+              {CABINET_MAKER_PROJECT_OPTIONS.map((option) => {
+                const checked = mainProjectTypes.includes(option);
+                return (
+                  <label
+                    key={option}
+                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
+                      checked
+                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
+                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => toggleProjectType(option)}
+                      className="w-4 h-4 accent-[#E85D26] flex-shrink-0"
+                    />
+                    {option}
+                  </label>
+                );
+              })}
+            </div>
+            {cmErrors.projects && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {cmErrors.projects}
+              </span>
+            )}
+          </fieldset>
+
+          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
+            <legend className={`${LABEL_CLASSES} p-0`}>
+              What do you want more of?{" "}
+              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+            </legend>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+              {CABINET_MAKER_OUTCOME_OPTIONS.map((option) => {
+                const checked = desiredOutcomes.includes(option);
+                return (
+                  <label
+                    key={option}
+                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
+                      checked
+                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
+                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => toggleDesiredOutcome(option)}
+                      className="w-4 h-4 accent-[#E85D26] flex-shrink-0"
+                    />
+                    {option}
+                  </label>
+                );
+              })}
+            </div>
+            {cmErrors.outcomes && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {cmErrors.outcomes}
+              </span>
+            )}
+          </fieldset>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-cm-launch-timing" className={LABEL_CLASSES}>
+              Target launch timing
+            </label>
+            <div className="relative">
+              <select
+                id="bc-cm-launch-timing"
+                required
+                value={launchTiming}
+                onChange={(e) => setLaunchTiming(e.target.value)}
+                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                  launchTiming ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
+                }`}
+              >
+                <option value="" disabled>
+                  Select one
+                </option>
+                {REALTOR_LAUNCH_TIMING_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                size={20}
+                aria-hidden="true"
+              />
+            </div>
+            {cmErrors.timing && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {cmErrors.timing}
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-cm-note" className={LABEL_CLASSES}>
+              Additional notes <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <textarea
+              id="bc-cm-note"
+              rows={3}
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              maxLength={500}
+              placeholder="Anything about your shop, projects, or current website we should know."
+              className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
+            />
           </div>
         </>
       )}
@@ -710,7 +998,7 @@ export function BookCallForm({
         </>
       )}
 
-      {!isWellDriller && !isRealtor && (
+      {!isWellDriller && !isRealtor && !isCabinetMaker && (
         <div className="flex flex-col gap-1.5 group">
           <label htmlFor="bc-website" className={LABEL_CLASSES}>
             Current website <span className={OPTIONAL_CLASSES}>(Optional)</span>
@@ -728,7 +1016,7 @@ export function BookCallForm({
         </div>
       )}
 
-      {!isWellDriller && !isRealtor && (
+      {!isWellDriller && !isRealtor && !isCabinetMaker && (
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-heard" className={LABEL_CLASSES}>
           How did you hear about us?{" "}
@@ -761,7 +1049,7 @@ export function BookCallForm({
       </div>
       )}
 
-      {!isWellDriller && (
+      {!isWellDriller && !isCabinetMaker && (
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-note" className={LABEL_CLASSES}>
           {isRealtor
@@ -803,6 +1091,8 @@ export function BookCallForm({
             <Loader2 className="animate-spin" size={24} aria-hidden="true" />
             <span>Sending...</span>
           </>
+        ) : isCabinetMaker ? (
+          "Request My Free Custom Demo"
         ) : isWellDriller ? (
           "Request My Custom Demo"
         ) : isRealtor ? (
@@ -813,7 +1103,7 @@ export function BookCallForm({
       </button>
 
       <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-2">
-        {isWellDriller
+        {isWellDriller || isCabinetMaker
           ? "Takes under a minute. No pressure, no obligation."
           : isRealtor
             ? "Takes under a minute. We'll reach out within one business day to schedule your 15-minute fit call."

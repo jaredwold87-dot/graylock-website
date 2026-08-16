@@ -1,0 +1,132 @@
+import { ArrowDown, Check } from "lucide-react";
+import { CTAButton } from "@/components/ui/CTAButton";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { trackCabinetMakerEvent } from "@/lib/cabinetMakerAnalytics";
+import { cabinetMakerGetStartedHref, CABINET_MAKER_CTA_LABEL } from "@/lib/cabinetMakerLinks";
+import { CabinetMakerDeviceMockup } from "./CabinetMakerDeviceMockup";
+import walnutTexture from "@/assets/cabinet-hero-walnut.webp";
+
+/** Four proof items below the CTA — exact spec copy (§4, Hero). */
+const PROOF_ITEMS = [
+  "Built for local search visibility",
+  "Project galleries that sell your craftsmanship",
+  "Design + quote requests delivered to your inbox",
+  "Built to look exceptional on mobile",
+];
+
+const REASSURANCE =
+  "Free custom direction. No generic template. No obligation after you see the demo.";
+
+function ProofItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start xl:items-center gap-2.5">
+      <Check size={15} strokeWidth={2.5} className="text-[#E85D26] flex-shrink-0 mt-0.5 xl:mt-0" />
+      <span className="text-stone font-sans text-sm md:text-[15px] leading-snug">{text}</span>
+    </div>
+  );
+}
+
+/**
+ * Hero (spec §4.1): copy left (52–58% on desktop), placeholder device mockup
+ * right, CTA above the fold, proof items in a 2×2 grid on mobile. Dark
+ * architectural background with a subtle dot texture and a warm walnut-grain
+ * material detail that stays behind the device visual.
+ */
+export function CabinetMakerHero() {
+  return (
+    <section className="relative overflow-hidden" style={{ backgroundColor: "#0f0f0f" }}>
+      {/* Layer 1: faint dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.05) 1px, transparent 0)",
+          backgroundSize: "22px 22px",
+        }}
+      />
+      {/* Layer 2: dark walnut-grain material detail, right side only */}
+      <img
+        src={walnutTexture}
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+        className="absolute inset-y-0 right-0 w-full xl:w-[58%] h-full object-cover opacity-[0.14] pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to left, black 45%, transparent 95%)",
+          WebkitMaskImage: "linear-gradient(to left, black 45%, transparent 95%)",
+        }}
+      />
+      {/* Layer 3: warm brass glow behind the devices */}
+      <div
+        className="absolute -right-40 top-1/3 w-[640px] h-[640px] rounded-full pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(176,141,87,0.14) 0%, rgba(232,93,38,0.05) 45%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 md:pt-36 xl:pt-40 pb-14 md:pb-20">
+        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,56fr)_minmax(0,44fr)] gap-12 xl:gap-8 items-center">
+          {/* ── Copy ── */}
+          <div>
+            <ScrollReveal>
+              <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
+                Custom Websites for Cabinet Makers
+              </p>
+              {/* H1 — second line in Graylock orange (spec) */}
+              <h1 className="font-display uppercase text-white leading-[1.05] mb-6 text-[clamp(36px,4.2vw,54px)]">
+                <span className="block text-balance">Your Cabinets Are Custom.</span>
+                <span className="block text-balance text-[#E85D26]">
+                  Your Website Should Be Too.
+                </span>
+              </h1>
+              <p className="text-stone text-lg font-sans leading-relaxed mb-7 max-w-[540px]">
+                We build custom cabinet-maker websites that showcase the quality of your work,
+                earn trust before the first consultation, and turn project interest into real
+                design and quote requests.
+              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-5">
+                <CTAButton
+                  href={cabinetMakerGetStartedHref("hero")}
+                  variant="funnel"
+                  className="w-full sm:w-auto"
+                  onClick={() =>
+                    trackCabinetMakerEvent("cabinet_maker_hero_cta_click", {
+                      cta_placement: "hero",
+                    })
+                  }
+                >
+                  {CABINET_MAKER_CTA_LABEL}
+                </CTAButton>
+                <a
+                  href="#free-demo-process"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 text-stone hover:text-[#E85D26] font-sans font-semibold text-[13px] uppercase tracking-[0.16em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                >
+                  See How the Free Demo Works
+                  <ArrowDown size={14} aria-hidden="true" />
+                </a>
+              </div>
+              <p className="text-stone/80 font-sans text-base max-w-[540px]">{REASSURANCE}</p>
+            </ScrollReveal>
+          </div>
+
+          {/* ── Device mockup (placeholder until the real project ships) ── */}
+          <ScrollReveal delay={0.1}>
+            <CabinetMakerDeviceMockup className="w-full max-w-[760px] mx-auto xl:mx-0 h-auto" />
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* Proof row — 2×2 on mobile (spec responsive table), one row on desktop */}
+      <div className="relative z-10 bg-black border-t border-white/[0.08] px-6 md:px-12 py-5">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-4">
+          {PROOF_ITEMS.map((text) => (
+            <ProofItem key={text} text={text} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
