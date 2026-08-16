@@ -241,7 +241,8 @@ export default function Pricing() {
 
             <ScrollReveal delay={0.5} className="max-w-3xl mx-auto text-center mt-4">
               <p className="text-slate-500 font-sans text-xs leading-relaxed">
-                You own your domain, your written content, and your brand assets — always. The only thing we retain is the underlying code and hosting infrastructure, which is standard for any subscription-based web service. Cancel anytime with 30 days' notice — no cancellation fees.
+                You own your domain, your written content, and your brand assets — always. The only thing we retain is the underlying code and hosting infrastructure, which is standard for any subscription-based web service. Cancel anytime with 30 days' notice — no cancellation fees. Annual Plans are prepaid for a full 12-month term and are non-refundable after payment; see the{" "}
+                <a href="/terms" className="text-[#B23E16] hover:underline">Terms of Service §4.2A</a>{" "}for details.
               </p>
             </ScrollReveal>
           </div>

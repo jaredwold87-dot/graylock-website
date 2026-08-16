@@ -26,7 +26,7 @@ export default function TermsOfService() {
               Master Services Agreement
             </h1>
             <p className="text-gray-600 font-sans text-sm">
-              Effective: April 28, 2026 · Last updated: April 28, 2026
+              Effective: April 28, 2026 · Last updated: August 16, 2026
             </p>
           </ScrollReveal>
         </div>
@@ -56,6 +56,10 @@ export default function TermsOfService() {
           <ScrollReveal>
             <h2 className={H2}>1. Definitions</h2>
             <div className="space-y-4">
+              <p className={P}><span className="text-offwhite">&ldquo;Annual Fee&rdquo;</span> means the full prepaid Subscription fee for one Annual Term, calculated as ninety percent (90%) of the aggregate base Subscription fees otherwise payable for twelve monthly billing cycles at the applicable Subscription Tier, unless Graylock&rsquo;s checkout page or invoice states a different amount or calculation. The Annual Fee excludes applicable taxes, approved overage charges, approved &agrave; la carte services, third-party fees, and other charges not expressly included.</p>
+              <p className={P}><span className="text-offwhite">&ldquo;Annual Prepaid Plan&rdquo; or &ldquo;Annual Plan&rdquo;</span> means an optional, prepaid 12-month Subscription billing arrangement that Graylock may offer to eligible Customers in its discretion. An Annual Plan is selected through Graylock&rsquo;s checkout process or accepted through payment of a Graylock invoice that clearly identifies the annual billing arrangement and incorporates this Agreement.</p>
+              <p className={P}><span className="text-offwhite">&ldquo;Annual Renewal Date&rdquo;</span> means the calendar anniversary of the Subscription Start Date, and each subsequent calendar anniversary, on which the next Annual Fee is due and may be automatically charged unless the Annual Plan has been canceled before the charge is processed. If the applicable calendar anniversary does not occur in a given year (e.g., February 29 in a non-leap year), the Annual Renewal Date will be the last calendar day of that month.</p>
+              <p className={P}><span className="text-offwhite">&ldquo;Annual Term&rdquo;</span> means the 12-month period beginning on the Subscription Start Date or applicable Annual Renewal Date.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Build Phase&rdquo;</span> means the period beginning when you pay your initial build fee and ending when your Subscription begins.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Build Agreement&rdquo;</span> means a separate agreement governing the Build Phase, presented and accepted at the time of build-fee payment.</p>
               <p className={P}><span className="text-offwhite">&ldquo;Content&rdquo;</span> means all text, copy, images, photographs, video, audio, logos, brand assets, testimonials, and other materials displayed on or made available through your Website.</p>
@@ -143,9 +147,31 @@ export default function TermsOfService() {
               The &ldquo;Initial Term&rdquo; is the 24-month period beginning on the Subscription Start Date. During the Initial Term, your monthly Subscription fee will not increase. After the Initial Term, your Subscription continues on a month-to-month basis at the same rate, until cancelled or until we provide notice of a price change under Section 4.4.
             </p>
 
+            <h3 className={`${H3} mt-8`}>4.2A Annual Prepaid Plan</h3>
+            <p className={`${P} mb-4`}>
+              Graylock may offer an Annual Prepaid Plan to eligible Customers in its discretion. An Annual Plan is selected through Graylock&rsquo;s checkout process or accepted through payment of a Graylock invoice that clearly identifies the annual billing arrangement and incorporates this Agreement.
+            </p>
+            <p className={`${P} mb-4`}>
+              Under an Annual Plan, the Customer pays the full Annual Fee&mdash;equal to ninety percent (90%) of the aggregate base Subscription fees otherwise payable for twelve monthly billing cycles at the applicable Subscription Tier, representing a 10% discount compared with twelve monthly payments&mdash;in advance for a 12-month Annual Term. The Annual Plan automatically renews on each Annual Renewal Date for a successive Annual Term unless the Customer cancels future renewal under Section 4.3. Selecting an Annual Plan does not change any other terms of this Agreement; the Annual Plan is a billing arrangement only.
+            </p>
+            <div className="mt-4 border border-orange/30 bg-orange/5 rounded-lg px-5 py-4">
+              <p className="text-offwhite font-sans font-semibold text-sm uppercase tracking-wider mb-2">
+                Annual Prepaid Plan Exception
+              </p>
+              <p className="text-stone font-sans text-base leading-[1.75]">
+                The 30-day money-back guarantee does not apply to Annual Plans. The Annual Fee is non-refundable and non-prorated after payment, except where applicable law requires otherwise.
+              </p>
+            </div>
+
             <h3 className={`${H3} mt-8`}>4.3 Cancellation</h3>
-            <p className={P}>
+            <p className={`${P} mb-4`}>
               You may cancel your Subscription at any time through your client portal or by contacting your client relationship manager. There is no early-termination fee. Cancellation takes effect at the end of your then-current monthly billing cycle. Subscription fees already paid for the cycle in which you cancel are non-refundable.
+            </p>
+            <p className={`${P} mb-4`}>
+              If you are on an Annual Plan, cancellation stops the next annual renewal only. Your access to the Services continues through the end of the current Annual Term, and no subsequent Annual Fee will be charged after a valid cancellation takes effect. The prepaid Annual Fee for the current Annual Term is non-refundable, non-creditable, and non-prorated after payment, except where applicable law requires otherwise. For example, if your Annual Renewal Date is March 1 and you cancel on February 15, no further Annual Fee is charged and your access runs through the end of the current Annual Term; if you cancel on March 5, the Annual Fee for the new Annual Term has already been charged and is non-refundable.
+            </p>
+            <p className={P}>
+              To cancel future renewal of an Annual Plan, you must notify us through your client portal or by contacting your client relationship manager before the applicable Annual Renewal Date. Cancellation notice received after the Annual Renewal Date has no effect on the fee already charged for the Annual Term that has begun.
             </p>
 
             <h3 className={`${H3} mt-8`}>4.4 Price Changes After Initial Term</h3>
@@ -153,9 +179,15 @@ export default function TermsOfService() {
               After the Initial Term, we may change your Subscription fee with at least 60 days&rsquo; written notice to you. Notice will be sent to the email address on file for your account. The new fee will take effect on the next billing cycle that begins at least 60 days after the date of notice. If you do not wish to accept the new fee, you may cancel your Subscription before the new fee takes effect under Section 4.3.
             </p>
 
-            <h3 className={`${H3} mt-8`}>4.5 Payment Method</h3>
-            <p className={P}>
+            <h3 className={`${H3} mt-8`}>4.5 Payment Method and Annual Renewal Authorization</h3>
+            <p className={`${P} mb-4`}>
               You authorize us to charge the payment method on file for your Subscription fee, any &agrave; la carte services you authorize, and any update time exceeding your included allowance that you have approved. You are responsible for keeping your payment method current.
+            </p>
+            <p className={`${P} mb-4`}>
+              If you select an Annual Plan, you additionally authorize us to charge the Annual Fee to your payment method on file on the Subscription Start Date and on each Annual Renewal Date thereafter, unless you have canceled future renewal before the charge is processed. By selecting an Annual Plan, you acknowledge that you are prepaying for a full 12-month Annual Term and that the full Annual Fee will be charged in full on the applicable date.
+            </p>
+            <p className={P}>
+              Before charging the Annual Fee on the Subscription Start Date or any Annual Renewal Date, Graylock will clearly display the exact Annual Fee due, the 10% savings compared with twelve monthly payments, the Annual Term start and end dates, the next Annual Renewal Date, how to cancel future renewal, and the non-refundable and non-prorated nature of the Annual Fee.
             </p>
 
             <h3 className={`${H3} mt-8`}>4.6 Failed Payments</h3>
