@@ -26,7 +26,7 @@ const PATHS: PathDef[] = [
       "Search homes.",
       "Explore listing details.",
       "Send a property inquiry.",
-      "Schedule a conversation.",
+      "Start a conversation.",
     ],
     outcome: "A buyer conversation with property context\u2014not a random contact form submission.",
   },
