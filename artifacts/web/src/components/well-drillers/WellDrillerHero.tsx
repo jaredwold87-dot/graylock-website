@@ -33,7 +33,7 @@ function HeroCopy() {
       </h1>
       <p className="text-stone text-lg font-sans leading-relaxed mb-7 max-w-[510px]">
         We build custom well-driller websites that make it easier to get found, earn trust
-        fast, and turn service or estimate requests into real conversations.
+        fast, and turn service or estimate requests into real customers.
       </p>
     </>
   );
