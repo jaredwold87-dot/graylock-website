@@ -18,9 +18,9 @@ const CARDS = [
   },
   {
     image: whoReview,
-    alt: "Cabinet maker reviewing design drawings and wood material samples in a clean shop — the project story a generic portfolio never tells",
-    title: "Are Losing the Project Story in a Generic Portfolio.",
-    copy: "A few scattered photos are not enough for a high-consideration purchase. Homeowners, builders, and designers need to see the work, understand the process, and picture what you can create for them.",
+    alt: "Cabinet maker reviewing design drawings and wood material samples in a clean shop — finished work that never made it into an online portfolio",
+    title: "Have No Portfolio\u2014or Only a Few Photos.",
+    copy: "Years of finished kitchens and built-ins, and almost none of it online. Whether the photos sit in a camera roll or on a single gallery page, homeowners, builders, and designers cannot see the range of your work\u2014or picture what you could create for them.",
   },
   {
     image: whoPlans,
@@ -89,7 +89,7 @@ export function CabinetMakerWhoSection() {
 
         <ScrollReveal className="text-center max-w-2xl mx-auto mt-12 md:mt-14">
           <p className="font-hand font-semibold text-[28px] md:text-[38px] text-[#B23E16] leading-snug">
-            If your work is exceptional but your website is not helping prove it, you are
+            If your work is exceptional but your website is not, you are
             exactly who we can help.
           </p>
         </ScrollReveal>
