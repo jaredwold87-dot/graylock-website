@@ -13,7 +13,7 @@ const CARDS = [
   {
     image: whoKitchen,
     alt: "Finished custom kitchen with floor-to-ceiling built-in cabinetry and precise joinery — the level of craftsmanship a cabinet-maker website should make obvious",
-    title: "Have Work That Deserves a Better Showroom.",
+    title: "Have Work That Deserves a Better Online Showroom.",
     copy: "You build custom kitchens, built-ins, and spaces homeowners remember. But your current website does not make that level of craftsmanship obvious before a prospect ever calls.",
   },
   {
