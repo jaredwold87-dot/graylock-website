@@ -45,7 +45,7 @@ export function WellDrillerPricingBridgeSection() {
               />
               <Link
                 href="/pricing"
-                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-[17px] underline underline-offset-4 decoration-[#E85D26]/60 hover:text-[#B23E16] transition-colors whitespace-nowrap"
+                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-[17px] hover:text-[#B23E16] transition-colors whitespace-nowrap"
               >
                 30-Day Money-Back Guarantee
               </Link>
@@ -59,7 +59,7 @@ export function WellDrillerPricingBridgeSection() {
               />
               <Link
                 href="/pricing#stay-current-guarantee"
-                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-[17px] underline underline-offset-4 decoration-[#E85D26]/60 hover:text-[#B23E16] transition-colors whitespace-nowrap"
+                className="text-[#1A1A1A] font-sans font-semibold text-base md:text-[17px] hover:text-[#B23E16] transition-colors whitespace-nowrap"
               >
                 Two-Year Refresh Benefit While Subscribed
               </Link>
