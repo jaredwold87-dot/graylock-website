@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorGetStartedHref } from "@/lib/realtorLinks";
 import heroDesktop from "@/assets/hero-realtors.webp";
-import heroMobile from "@/assets/hero-realtors-mobile.webp";
+import willowDevices from "@/assets/willow-devices-crop.webp";
 
 const PROOF_ITEMS = [
   "Built to earn buyer and seller trust",
@@ -59,9 +59,8 @@ function ProofItem({ text }: { text: string }) {
 export function RealtorHero() {
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: "#0f0f0f" }}>
-      {/* ── Mobile / tablet / small desktop (<1280px): two-part hero — text block
-             first, then the device asset in a dedicated media container with no
-             destructive crop ── */}
+      {/* ── Mobile / tablet / small desktop (<1280px): copy, then the transparent
+             device cutout above the CTA — no full-photo hero background ── */}
       <div className="xl:hidden relative">
         {/* Layer 1: faint dot grid */}
         <div
@@ -105,6 +104,13 @@ export function RealtorHero() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 md:pt-36 pb-10">
           <ScrollReveal>
             <HeroCopy />
+            <img
+              src={willowDevices}
+              alt={HERO_ALT}
+              className="w-full max-w-[560px] mx-auto mb-7"
+              loading="eager"
+              decoding="async"
+            />
             <div className="flex justify-center sm:justify-start mb-4">
               <div className="w-full sm:w-auto">
                 <HeroCta fullWidth />
@@ -114,22 +120,6 @@ export function RealtorHero() {
               See a custom homepage direction for your brand before you spend a dollar.
             </p>
           </ScrollReveal>
-        </div>
-
-        {/* Dedicated full-width media container — object-fit: contain behavior via
-            native aspect ratio (the asset is 16:9); no crop, screens stay visible */}
-        <div className="relative z-10 w-full" style={{ backgroundColor: "#17161B" }}>
-          <picture>
-            <source media="(min-width: 768px)" srcSet={heroDesktop} />
-            <img
-              src={heroMobile}
-              alt={HERO_ALT}
-              className="w-full h-auto"
-              style={{ aspectRatio: "16 / 9", objectFit: "contain" }}
-              loading="eager"
-              decoding="async"
-            />
-          </picture>
         </div>
 
         {/* Proof row: two-by-two grid on mobile, one row from md up */}
