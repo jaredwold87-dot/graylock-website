@@ -66,8 +66,7 @@ export function RealtorHero() {
               Custom Real-Estate Websites + IDX Guidance
             </p>
             <h1 className="font-display text-white text-[40px] leading-[1.05] sm:text-5xl md:text-6xl xl:text-[62px] mb-6">
-              Turn Local Property Searches Into{" "}
-              <span className="text-[#E85D26]">Buyer + Seller Conversations.</span>
+              Turn Local Property Searches Into Buyer + Seller Conversations.
             </h1>
             <p className="text-stone font-sans text-lg leading-relaxed mb-8 max-w-[560px]">
               We build custom real-estate websites that make your local expertise easy to
