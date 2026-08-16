@@ -22,7 +22,7 @@ const FEATURES = [
     desc: "Guide each visitor toward the right next step—request a consultation, ask about a remodel, share plans, upload inspiration, or start a quote request.",
   },
   {
-    title: "Local Search Built Into the Foundation",
+    title: "Local SEO Built Into the Foundation",
     desc: "Structure the website around the services, project types, communities, and questions people actually use when searching for custom cabinetry in your area.",
   },
   {
