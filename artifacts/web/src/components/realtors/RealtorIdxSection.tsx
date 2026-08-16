@@ -3,6 +3,7 @@ import { Clock, ShieldCheck } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorIdxConfig } from "./idxConfig";
+import idxBrokerLogo from "@/assets/elm-street-idx-broker-logo.webp";
 
 const IDX_STEPS = [
   {
@@ -91,6 +92,19 @@ export function RealtorIdxSection() {
 
       {/* Compact partner / reassurance strip — outlined band, not a box */}
       <ScrollReveal delay={0.1} className="mt-8 text-center">
+        {/* Partner logo badge — the Elm Street IDX Broker logo is navy/green and
+            needs a light background, so it sits in its own white chip */}
+        <div className="mb-5">
+          <div className="inline-flex items-center rounded-lg bg-white px-6 py-3.5">
+            <img
+              src={idxBrokerLogo}
+              alt="Elm Street IDX Broker"
+              className="h-9 md:h-11 w-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
         <div className="inline-flex items-start sm:items-center gap-3 rounded-lg border border-white/15 px-5 py-3.5 text-left sm:text-center max-w-[820px]">
           <ShieldCheck size={20} className="text-[#E85D26] shrink-0 mt-0.5 sm:mt-0" aria-hidden="true" />
           <p className="text-offwhite font-sans text-sm md:text-base leading-snug">
