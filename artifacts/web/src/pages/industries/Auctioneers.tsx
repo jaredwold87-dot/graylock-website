@@ -46,10 +46,10 @@ const AUCTIONEER_SCHEMA = {
       "@type": "Service",
       name: "Custom Auctioneer Website Design",
       serviceType:
-        "Website design and marketing sites for auctioneers and auction companies, including general, contract-sale, benefit and gala, livestock, equipment, estate, and real-estate auction services",
+        "Website design and marketing sites for auctioneers and auction companies, including benefit and gala, charity, nonprofit, and fundraising auction services",
       url: PAGE_URL,
       description:
-        "Custom auctioneer website design focused on promoting the auctioneer's services to the nonprofits, event committees, sellers, and estates that hire them—presenting services and credibility and routing booking inquiries to the business's designated inbox or CRM. Graylock Digital is a website design and support provider and does not conduct auctions or operate bidding platforms.",
+        "Custom auctioneer website design focused on promoting the auctioneer's services to the nonprofits, charities, and event committees that hire them—presenting services and credibility and routing booking inquiries to the business's designated inbox or CRM. Graylock Digital is a website design and support provider and does not conduct auctions or operate bidding platforms.",
       provider: {
         "@type": "Organization",
         name: "Graylock Digital",
@@ -58,7 +58,7 @@ const AUCTIONEER_SCHEMA = {
       audience: {
         "@type": "Audience",
         audienceType:
-          "Auctioneers and auction companies, including general, contract-sale, benefit, livestock, equipment, estate, and real-estate auctioneers",
+          "Auctioneers and auction companies, including benefit, charity, gala, and fundraising auctioneers",
       },
     },
   ],
@@ -76,7 +76,7 @@ export default function Auctioneers() {
     <div className="theme-black">
       <SEO
         title={PAGE_TITLE}
-        ogTitle="When Someone Needs an Auctioneer, Your Website Should Reflect Your Skill and Expertise."
+        ogTitle="When an Organization Needs an Auctioneer, Your Website Should Reflect Your Skill and Expertise."
         description={META_DESCRIPTION}
         url={PAGE_URL}
       />

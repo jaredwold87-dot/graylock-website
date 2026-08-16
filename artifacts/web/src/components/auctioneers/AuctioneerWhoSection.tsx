@@ -7,7 +7,7 @@ import whoSeller from "@/assets/auctioneer-who-seller.webp";
 /**
  * "Who We Work With" (spec §2) — three dark cards with premium
  * auction-specific imagery (a live auction scene, an outdated generic
- * interface visual, and a seller/event-planning interaction) and orange
+ * interface visual, and a committee planning interaction) and orange
  * line accents on the light band, so the page keeps the framework's
  * dark/light rhythm after the dark hero.
  */
@@ -28,7 +28,7 @@ const CARDS = [
     image: whoSeller,
     alt: "Auctioneer sitting down with a charity committee at a ballroom table to review the auction program together",
     title: "Need More of the Right Clients Reaching Out.",
-    copy: "The website should make it easy for a nonprofit, gala committee, property owner, rancher, or executor to understand what you do and take the next step toward booking a conversation.",
+    copy: "The website should make it easy for a nonprofit board, gala committee, school, or foundation to understand what you do and take the next step toward booking a conversation.",
   },
 ];
 

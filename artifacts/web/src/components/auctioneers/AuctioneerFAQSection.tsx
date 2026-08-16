@@ -30,7 +30,7 @@ export const AUCTIONEER_FAQS = [
   },
   {
     q: "Can the website present all the auction services we offer?",
-    a: "Yes. The website is structured around the services that matter to your business, including general auctions, contract sales, benefit and charity events, livestock auctions, estate or equipment sales, real-estate auctions, and any other specialty you offer.",
+    a: "Yes. The website is structured around the services that matter to your business, including benefit and charity auctions, nonprofit galas, fundraising events, and any other specialty you offer.",
   },
   {
     q: "Can the website help us win more benefit and gala events?",

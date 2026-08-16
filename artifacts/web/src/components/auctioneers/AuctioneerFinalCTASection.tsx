@@ -6,7 +6,7 @@ import ctaBg from "@/assets/auctioneer-cta-bg.webp";
 
 /**
  * Final CTA (spec §9) — full-width cinematic image of an auctioneer leading
- * a serious equipment sale, with a CSS black mask (76%, top of the
+ * a serious evening event, with a CSS black mask (76%, top of the
  * framework's 62–76% range for the golden-hour image). Copy holds the left
  * half on desktop and stacks above the image's visual focus (kept right via
  * object-position) on mobile. Does not reuse the hero device mockup (spec).
@@ -14,7 +14,7 @@ import ctaBg from "@/assets/auctioneer-cta-bg.webp";
 export function AuctioneerFinalCTASection() {
   return (
     <section className="relative bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-      {/* Golden-hour equipment-auction background, visual focus kept right */}
+      {/* Golden-hour auction-event background, visual focus kept right */}
       <img
         src={ctaBg}
         alt=""

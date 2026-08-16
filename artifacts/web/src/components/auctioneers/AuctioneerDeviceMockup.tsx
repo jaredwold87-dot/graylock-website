@@ -103,12 +103,12 @@ export function AuctioneerDeviceMockup({ className }: { className?: string }) {
           </text>
           <rect x="178" y="238" width="140" height="32" rx="3" fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="1.2" />
           <text x="248" y="258" textAnchor="middle" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontWeight="700" fontSize="9" letterSpacing="1.2" fill="#FFFFFF">
-            PLAN A SALE WITH US
+            PLAN A FUNDRAISER
           </text>
           {/* trust bar: claim-free auction-category strip */}
           <rect x="0" y="312" width="582" height="40" fill="#0C0C0E" />
           <text x="291" y="336" textAnchor="middle" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontSize="9" letterSpacing="2" fill="rgba(255,255,255,0.55)">
-            GENERAL &#183; BENEFIT &#183; LIVESTOCK &#183; EQUIPMENT &#183; ESTATE &#183; REAL ESTATE
+            BENEFIT &#183; CHARITY &#183; GALA &#183; NONPROFIT &#183; FUNDRAISER
           </text>
         </g>
       </g>
@@ -134,7 +134,7 @@ export function AuctioneerDeviceMockup({ className }: { className?: string }) {
           <rect x="0" y="28" width="122" height="128" fill="url(#aucPhoneGrad)" />
           {/* stacked copy + CTA */}
           <text x="12" y="172" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontWeight="700" fontSize="6" letterSpacing="1.1" fill="#D9B37C">
-            FOR EVENTS + SALES
+            FOR CHARITY EVENTS
           </text>
           <text x="12" y="190" fontFamily="'Barlow Condensed', sans-serif" fontWeight="600" fontSize="13" fill="#FFFFFF">
             AN AUCTIONEER YOUR
@@ -147,7 +147,7 @@ export function AuctioneerDeviceMockup({ className }: { className?: string }) {
             BOOK YOUR EVENT
           </text>
           <text x="61" y="260" textAnchor="middle" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontSize="5.8" letterSpacing="1" fill="rgba(255,255,255,0.5)">
-            GENERAL &#183; LIVESTOCK &#183; ESTATE
+            BENEFIT &#183; GALA &#183; FUNDRAISER
           </text>
         </g>
       </g>

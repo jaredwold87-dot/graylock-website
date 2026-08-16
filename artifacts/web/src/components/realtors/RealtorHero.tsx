@@ -43,6 +43,15 @@ export function RealtorHero() {
               a clear reason to start the conversation with you.
             </p>
 
+            {/* Mobile / tablet: devices montage above the CTA (client direction) */}
+            <img
+              src={willowDevices}
+              alt="Custom real-estate website shown on desktop and mobile"
+              className="xl:hidden w-full h-auto mb-8"
+              fetchPriority="high"
+              decoding="async"
+            />
+
             <CTAButton
               href={realtorGetStartedHref("hero")}
               variant="funnel"
@@ -60,11 +69,13 @@ export function RealtorHero() {
             </p>
           </div>
 
-          {/* Product montage */}
-          <div className="xl:w-[54%]">
+          {/* Product montage — desktop only; on smaller screens it renders
+              inside the copy column above the CTA */}
+          <div className="hidden xl:block xl:w-[54%]">
             <img
               src={willowDevices}
-              alt="Custom real-estate website shown on desktop and mobile"
+              alt=""
+              aria-hidden="true"
               className="w-full h-auto"
               fetchPriority="high"
               decoding="async"

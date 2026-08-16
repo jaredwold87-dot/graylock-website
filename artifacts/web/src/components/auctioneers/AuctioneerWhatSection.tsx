@@ -1,27 +1,27 @@
 import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { AuctioneerDeviceMockup } from "./AuctioneerDeviceMockup";
+import devicesCutout from "@/assets/auctioneer-devices-cutout.webp";
 
 /**
  * "What a Better Auctioneer Website Does" (spec §4, repositioned per client
  * direction Aug 2026) — type-only handwritten lead-in, six-feature list, and
- * the square device placeholder ([AUCTIONEER_SQUARE_DEVICE_ASSET] — swap for
- * the real project mockup when supplied). The features market the auctioneer
- * to the organizations and sellers who hire them — no upcoming-auction
- * calendars, bidder/attendee paths, or bidding-platform features.
+ * the Summit Benefit Auctions laptop + phone cutout as the example of what we
+ * deliver. The features market the auctioneer to the organizations who hire
+ * them — no upcoming-auction calendars, bidder/attendee paths, or
+ * bidding-platform features.
  */
 const FEATURES = [
   {
     title: "Service Pages That Sell Your Range",
-    desc: "Give every service you offer—benefit and charity events, contract sales, livestock, equipment, estate, and real-estate auctions—a clear home with the detail organizers and sellers need.",
+    desc: "Give every event you take on—benefit and charity auctions, nonprofit galas, and fundraising events—a clear home with the detail organizers and committees need.",
   },
   {
     title: "A Clear Path for Event Organizers",
     desc: "Make it simple for nonprofits, charities, and gala committees to understand your event services, see your professionalism, and request your availability.",
   },
   {
-    title: "A Clear Path for Sellers + Estates",
-    desc: "Help property owners, executors, ranchers, and businesses understand your consignment and contract-sale services and how to start the conversation.",
+    title: "Guidance for First-Time Committees",
+    desc: "Many benefit and gala committees are hiring an auctioneer for the first time. Clear process and planning content makes it easy for them to book you with confidence.",
   },
   {
     title: "Trust That Holds Up Before the Call",
@@ -29,11 +29,11 @@ const FEATURES = [
   },
   {
     title: "SEO for Local and Specialty Searches",
-    desc: "Structure the site around your services, specialties, and locations—and the searches organizers and sellers actually make when they need an auctioneer.",
+    desc: "Structure the site around your services, specialties, and locations—and the searches organizers and committees actually make when they need an auctioneer.",
   },
   {
     title: "Inquiries Delivered Where You Need Them",
-    desc: "Send booking requests, event inquiries, seller consultations, and general contact submissions directly to the email inbox or CRM your business designates.",
+    desc: "Send booking requests, event inquiries, consultation requests, and general contact submissions directly to the email inbox or CRM your business designates.",
   },
 ];
 
@@ -55,7 +55,7 @@ export function AuctioneerWhatSection() {
             What We Do
           </p>
           <h2 className="text-3xl md:text-[44px] font-display text-[#1A1A1A] leading-tight">
-            When an Organization or Seller Is Deciding Whether to Hire You, Your Website
+            When an Organization Is Deciding Whether to Hire You, Your Website
             Should Make Three Things Clear:
           </h2>
         </ScrollReveal>
@@ -75,9 +75,16 @@ export function AuctioneerWhatSection() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-14 items-center">
-          {/* Square device placeholder — visual first on mobile (spec responsive) */}
+          {/* Devices cutout — visual first on mobile (spec responsive) */}
           <ScrollReveal>
-            <AuctioneerDeviceMockup className="w-full h-auto" />
+            <img
+              src={devicesCutout}
+              alt="The Summit Benefit Auctions concept site shown on a laptop and phone — a charity and gala auction homepage with a plan-your-event call to action"
+              className="w-full h-auto"
+              style={{ filter: "drop-shadow(0 24px 32px rgba(0,0,0,0.16))" }}
+              loading="lazy"
+              decoding="async"
+            />
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
