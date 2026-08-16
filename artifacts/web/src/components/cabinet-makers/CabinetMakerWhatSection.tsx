@@ -1,12 +1,11 @@
 import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CabinetMakerDeviceMockup } from "./CabinetMakerDeviceMockup";
+import devicesCutout from "@/assets/interior-finishes-devices.webp";
 
 /**
  * "What a Better Cabinet-Maker Website Does" (spec §4.4) — type-only
- * handwritten lead-in, six-feature list, and the square device placeholder
- * ([CABINET_MAKER_SQUARE_DEVICE_ASSET] — swap for the real project mockup
- * when supplied).
+ * handwritten lead-in, six-feature list, and the supplied sample-project
+ * device mockup (transparent cutout of the laptop + phone composition).
  */
 const FEATURES = [
   {
@@ -73,9 +72,16 @@ export function CabinetMakerWhatSection() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-14 items-center">
-          {/* Square device placeholder — image first on mobile (spec responsive) */}
+          {/* Sample-project device mockup — image first on mobile (spec responsive) */}
           <ScrollReveal>
-            <CabinetMakerDeviceMockup className="w-full h-auto" />
+            <img
+              src={devicesCutout}
+              alt="A custom cabinet-maker website concept shown on a laptop and phone, with premium kitchen photography and a consultation call to action"
+              className="w-full h-auto"
+              style={{ filter: "drop-shadow(0 24px 32px rgba(0,0,0,0.16))" }}
+              loading="lazy"
+              decoding="async"
+            />
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
