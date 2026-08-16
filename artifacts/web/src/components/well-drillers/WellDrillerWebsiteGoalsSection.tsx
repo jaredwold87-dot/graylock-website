@@ -17,7 +17,7 @@ const GOALS = [
     copy: "A website that matches the dependable work your crew does, with the services, experience, and proof that make you the obvious call.",
   },
   {
-    title: "Make It Easier for Local Customers to Find You.",
+    title: "Get You Found on Google.",
     copy: "We build around the well, pump, and water-system searches that matter locally, so Google understands what you do and customers can contact you fast.",
   },
 ];
