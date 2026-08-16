@@ -44,7 +44,7 @@ export function Navbar() {
       ? wellDrillerGetStartedHref("header_cta")
       : "/get-started";
   const bookingLabel = isRealtorLanding
-    ? "Get Your Realtor Website + IDX Plan"
+    ? "Get Your Real Estate Website + IDX Plan"
     : isWellDrillerLanding
       ? "Request My Free Custom Demo"
       : "Book a Discovery Call";

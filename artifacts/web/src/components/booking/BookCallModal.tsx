@@ -36,7 +36,7 @@ export function BookCallModal() {
             {isWellDriller
               ? "Let's Build Your Free Custom Demo."
               : isRealtor
-                ? "15-Minute Realtor Website + IDX Fit Call"
+                ? "15-Minute Real Estate Website + IDX Fit Call"
                 : "Book Your Discovery Call"}
           </DialogTitle>
           <DialogDescription className="text-[#0F0F0F]/70 font-sans text-base sm:text-lg pt-3 leading-snug">

@@ -22,4 +22,4 @@ export function realtorGetStartedHref(placement: RealtorCtaPlacement): string {
 }
 
 /** The one CTA label used by every primary realtor booking CTA. */
-export const REALTOR_CTA_LABEL = "Get Your Realtor Website + IDX Plan";
+export const REALTOR_CTA_LABEL = "Get Your Real Estate Website + IDX Plan";

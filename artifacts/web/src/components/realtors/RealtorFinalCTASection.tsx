@@ -34,7 +34,7 @@ export function RealtorFinalCTASection() {
             You Should Know the Direction Before You Pay for the Build.
           </p>
           <h2 className="font-display text-white text-4xl md:text-[56px] leading-[1.06] mb-6">
-            Let&rsquo;s Plan the Realtor Website Your Market Deserves.
+            Let&rsquo;s Plan the Real Estate Website Your Market Deserves.
           </h2>
           <p className="text-stone font-sans text-lg leading-relaxed mb-9 max-w-[600px]">
             In 15 minutes, we will review your market, current website, brokerage or MLS

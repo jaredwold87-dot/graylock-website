@@ -119,13 +119,13 @@ export function RealtorInvestmentSection() {
         {/* Section header */}
         <ScrollReveal className="text-center">
           <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">
-            Transparent Realtor Website Pricing
+            Transparent Real Estate Website Pricing
           </p>
           <h2 className="font-display text-white text-4xl md:text-[52px] leading-[1.08] mb-6">
             Two Website Packages. Built for the Way You Work.
           </h2>
           <p className="text-stone font-sans text-lg leading-relaxed max-w-[760px] mx-auto">
-            Every Realtor website includes custom design, local-market strategy, lead
+            Every real estate website includes custom design, local-market strategy, lead
             capture, hosting, maintenance, and an IDX Broker Core plan. Choose the starting
             point that fits your business today, then add advanced IDX capabilities or
             custom functionality only if your market and goals require it.

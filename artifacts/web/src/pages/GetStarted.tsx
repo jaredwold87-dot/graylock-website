@@ -96,7 +96,7 @@ export default function GetStarted() {
             <div ref={contextBlockRef} className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
               <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
-                15-Minute Realtor Website + IDX Fit Call
+                15-Minute Real Estate Website + IDX Fit Call
               </p>
               <p className="font-sans text-base leading-relaxed">
                 We will review your market, MLS path, current website, team structure,

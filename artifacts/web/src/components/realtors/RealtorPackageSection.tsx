@@ -6,7 +6,7 @@ import willowListingCard from "@/assets/willow-listing-card.webp";
 import willowValuationForm from "@/assets/willow-valuation-form.webp";
 
 /**
- * "What Your Realtor Website Package Includes" — makes the managed scope
+ * "What Your Real Estate Website Package Includes" — makes the managed scope
  * tangible before pricing in plain customer language. Real Willow-site
  * screenshots (valuation form + listing card) on the left, the included
  * list and a quiet listings/integrations note on the right. Flat, no
@@ -58,14 +58,14 @@ export function RealtorPackageSection() {
             <div className="relative max-w-[560px] mx-auto lg:mx-0 pb-12">
               <img
                 src={willowValuationForm}
-                alt="Home-valuation request form on a Graylock-built realtor website"
+                alt="Home-valuation request form on a Graylock-built real-estate website"
                 className="w-[84%] rounded-lg shadow-2xl shadow-black/50"
                 loading="lazy"
                 decoding="async"
               />
               <img
                 src={willowListingCard}
-                alt="Live property-listing card on a Graylock-built realtor website"
+                alt="Live property-listing card on a Graylock-built real-estate website"
                 className="absolute w-[46%] right-0 bottom-0 rounded-lg shadow-2xl shadow-black/50"
                 loading="lazy"
                 decoding="async"
@@ -77,7 +77,7 @@ export function RealtorPackageSection() {
           <div className="order-1 lg:order-2">
             <ScrollReveal>
               <h2 className="text-3xl md:text-4xl font-display text-white leading-tight mb-5">
-                What Your Realtor Website Package Includes.
+                What Your Real Estate Website Package Includes.
               </h2>
               <p className="text-stone font-sans text-lg leading-relaxed mb-9">
                 A custom, maintained real-estate website built to help local buyers and
