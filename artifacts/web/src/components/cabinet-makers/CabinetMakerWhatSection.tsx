@@ -1,5 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import devicesCutout from "@/assets/interior-finishes-devices.webp";
 import galleryExample from "@/assets/cabinet-gallery-example.webp";
 
 /**
@@ -74,8 +75,17 @@ export function CabinetMakerWhatSection() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-14 items-center">
-          {/* Browser-framed gallery-page example — image first on mobile (spec responsive) */}
+          {/* Device mockup stacked above the browser-framed gallery-page
+              example — images first on mobile (spec responsive) */}
           <ScrollReveal>
+            <img
+              src={devicesCutout}
+              alt="A custom cabinet-maker website concept shown on a laptop and phone, with premium kitchen photography and a consultation call to action"
+              className="w-full h-auto mb-10"
+              style={{ filter: "drop-shadow(0 24px 32px rgba(0,0,0,0.16))" }}
+              loading="lazy"
+              decoding="async"
+            />
             <figure>
               <div className="rounded-xl overflow-hidden bg-white border border-black/10 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.18)]">
                 <div
