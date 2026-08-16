@@ -1,5 +1,12 @@
 import { useEffect, useRef } from "react";
-import { BadgeCheck } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowLeftRight,
+  ArrowRight,
+  BadgeCheck,
+  Database,
+  MonitorSmartphone,
+} from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorIdxConfig } from "./idxConfig";
@@ -91,6 +98,38 @@ export function RealtorIdxSection() {
             guides the technical path, and helps keep approval steps moving without making
             you figure out the website side alone.
           </p>
+        </ScrollReveal>
+
+        {/* Plain-English IDX explainer + flat flow visual (MLS → IDX → your site) */}
+        <ScrollReveal delay={0.05} className="mt-9 md:mt-10 text-center">
+          <p className="text-stone font-sans text-base md:text-lg leading-relaxed max-w-[720px] mx-auto">
+            <span className="text-white font-semibold">What is IDX?</span> IDX (Internet
+            Data Exchange) is the approved connection that lets your website display live
+            MLS listings &mdash; so buyers can search real homes right on your site
+            instead of a big national portal.
+          </p>
+
+          <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8">
+            <div className="flex flex-col items-center w-[190px]">
+              <Database size={24} strokeWidth={1.75} className="text-[#E85D26]" aria-hidden="true" />
+              <p className="font-display text-white text-xl leading-none mt-3">Your Local MLS</p>
+              <p className="text-stone font-sans text-xs mt-1.5">Where listings live</p>
+            </div>
+            <ArrowRight size={20} className="hidden sm:block text-[#E85D26] flex-shrink-0" aria-hidden="true" />
+            <ArrowDown size={18} className="sm:hidden text-[#E85D26]" aria-hidden="true" />
+            <div className="flex flex-col items-center w-[190px]">
+              <ArrowLeftRight size={24} strokeWidth={1.75} className="text-[#E85D26]" aria-hidden="true" />
+              <p className="font-display text-white text-xl leading-none mt-3">IDX</p>
+              <p className="text-stone font-sans text-xs mt-1.5">The approved data feed</p>
+            </div>
+            <ArrowRight size={20} className="hidden sm:block text-[#E85D26] flex-shrink-0" aria-hidden="true" />
+            <ArrowDown size={18} className="sm:hidden text-[#E85D26]" aria-hidden="true" />
+            <div className="flex flex-col items-center w-[190px]">
+              <MonitorSmartphone size={24} strokeWidth={1.75} className="text-[#E85D26]" aria-hidden="true" />
+              <p className="font-display text-white text-xl leading-none mt-3">Your Website</p>
+              <p className="text-stone font-sans text-xs mt-1.5">Branded local search</p>
+            </div>
+          </div>
         </ScrollReveal>
 
         {/* Partner logo badge — the Elm Street IDX Broker logo is navy/green and
