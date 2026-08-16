@@ -38,8 +38,8 @@ export function WellDrillerWhatWeBuildSection() {
             What We Do
           </p>
           <h2 className="text-3xl md:text-[40px] font-display text-[#1A1A1A] leading-tight">
-            When Someone Needs Drilling, Pump Work, or Water-System Help, Your Website Should
-            Make Three Things Clear:
+            When Someone in Your Area Needs Your Services, Your Website Should Make Three
+            Things Clear:
           </h2>
         </ScrollReveal>
 
