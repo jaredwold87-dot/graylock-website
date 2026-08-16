@@ -84,6 +84,10 @@ interface LeadPayload {
   main_project_types?: string[];
 
   desired_outcomes?: string[];
+  // Auctioneer campaign fields (optional — present only for auctioneer leads)
+
+  auction_types?: string[];
+
 
   /** Reflection-card label the visitor selected before clicking through. */
   stated_goal?: string;
@@ -110,6 +114,10 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
     payload.lead_source_label === "Cabinet Maker Landing Page" ||
     payload.industry === "cabinet-making";
 
+  const isAuctioneerLead =
+    payload.lead_source_label === "Auctioneer Landing Page" ||
+    payload.industry === "auctioneering";
+
   const truncate = (value: string, max = 60) =>
     value.length > max ? `${value.slice(0, max - 1).trimEnd()}…` : value;
 
@@ -125,6 +133,10 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
     ? payload.desired_outcomes.filter((s) => typeof s === "string" && s.trim()).join(", ")
     : "";
 
+  const auctionTypes = Array.isArray(payload.auction_types)
+    ? payload.auction_types.filter((s) => typeof s === "string" && s.trim()).join(", ")
+    : "";
+
   // Subject shows the primary service area (spec: Business Name — Primary
   // Service Area); campaign market is the fallback when the area is missing.
   const wellDrillerServiceArea =
@@ -133,6 +145,11 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
     "Service Area TBD";
 
   const cabinetMakerServiceArea =
+    (payload.service_area ? truncate(payload.service_area.trim()) : "") ||
+    (payload.market || "").trim() ||
+    "Service Area TBD";
+
+  const auctioneerServiceArea =
     (payload.service_area ? truncate(payload.service_area.trim()) : "") ||
     (payload.market || "").trim() ||
     "Service Area TBD";
@@ -205,6 +222,24 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
       ].join("\n")
     : "";
 
+  const auctioneerLines = isAuctioneerLead
+    ? [
+        "",
+        "— Auctioneer Custom Demo lead —",
+        `Landing page: ${payload.landing_page || "/websites-for-auctioneers"}`,
+        `Industry: ${payload.industry || "auctioneering"}`,
+        ...(payload.intent ? [`Intent: ${payload.intent}`] : []),
+        `Market: ${payload.market || "Not provided"}`,
+        `Rep: ${payload.rep || "Not provided"}`,
+        `Source: ${payload.source || "Not provided"}`,
+        `Auction types: ${auctionTypes || "Not provided"}`,
+        `Wants more of: ${desiredOutcomes || "Not provided"}`,
+        `Target launch timing: ${payload.launch_timing || "Not provided"}`,
+        `Referrer: ${payload.referrer || "Not provided"}`,
+        ...(utmPairs.length ? [`UTM: ${utmPairs.join(", ")}`] : []),
+      ].join("\n")
+    : "";
+
   // Only render the fields the visitor actually provided — the quick
   // discovery-call form captures far less than the old wizard did.
   const detailLines = [
@@ -230,7 +265,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
 
   const emailBody = `New discovery call request from graylockdigital.com
 
-${detailLines.join("\n")}${realtorLines}${wellDrillerLines}${cabinetMakerLines}
+${detailLines.join("\n")}${realtorLines}${wellDrillerLines}${cabinetMakerLines}${auctioneerLines}
 
 Submitted: ${submittedAt}
 
@@ -247,9 +282,11 @@ Or log in to the GOS to view full lead record.`;
     ? `New Well-Driller Custom Demo Request — ${payload.business_name} — ${wellDrillerServiceArea}`
     : isCabinetMakerLead
       ? `New Cabinet-Maker Custom Demo Request — ${payload.business_name} — ${cabinetMakerServiceArea}`
-      : isRealtorLead
-        ? `New Lead (Realtor Landing Page): ${payload.business_name || payload.first_name}`
-        : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
+      : isAuctioneerLead
+        ? `New Auctioneer Custom Demo Request — ${payload.business_name} — ${auctioneerServiceArea}`
+        : isRealtorLead
+          ? `New Lead (Realtor Landing Page): ${payload.business_name || payload.first_name}`
+          : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
 
   const emailPromise = (async () => {
     try {
@@ -352,6 +389,26 @@ Or log in to the GOS to view full lead record.`;
                 // source param rides separately.
                 campaignSource: payload.source || "",
                 mainProjectTypes,
+                desiredOutcomes,
+                launchTiming: payload.launch_timing || "",
+                intent: payload.intent || "",
+                referrer: payload.referrer || "",
+                utmSource: payload.utm_source || "",
+                utmMedium: payload.utm_medium || "",
+                utmCampaign: payload.utm_campaign || "",
+              }
+            : {}),
+          ...(isAuctioneerLead
+            ? {
+                industry: payload.industry || "auctioneering",
+                leadSourceLabel: "Auctioneer Landing Page",
+                landingPage: payload.landing_page || "/websites-for-auctioneers",
+                market: payload.market || "",
+                rep: payload.rep || "",
+                // "source" above stays the site origin; the sales-campaign
+                // source param rides separately.
+                campaignSource: payload.source || "",
+                auctionTypes,
                 desiredOutcomes,
                 launchTiming: payload.launch_timing || "",
                 intent: payload.intent || "",

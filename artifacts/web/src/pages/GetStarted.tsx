@@ -8,6 +8,7 @@ import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { WELL_DRILLER_LANDING_PATH, getWellDrillerMarket } from "@/lib/wellDrillerLinks";
 import { CABINET_MAKER_LANDING_PATH } from "@/lib/cabinetMakerLinks";
+import { AUCTIONEER_LANDING_PATH } from "@/lib/auctioneerLinks";
 
 /**
  * Fallback page for direct visits (bookmarks, ads, middle-clicked CTAs).
@@ -35,12 +36,14 @@ export default function GetStarted() {
   const isRealtor = industry === "real-estate";
   const isWellDriller = industry === "well-drilling";
   const isCabinetMaker = industry === "cabinet-making";
+  const isAuctioneer = industry === "auctioneering";
   const wellDrillerMarket = isWellDriller ? getWellDrillerMarket() : null;
 
   const landingPagePath = useMemo(() => {
     if (utmParams["utm_source"] === "realtor_landing") return "/websites-for-realtors";
     if (utmParams["utm_source"] === "well_driller_landing") return WELL_DRILLER_LANDING_PATH;
     if (utmParams["utm_source"] === "cabinet_maker_landing") return CABINET_MAKER_LANDING_PATH;
+    if (utmParams["utm_source"] === "auctioneer_landing") return AUCTIONEER_LANDING_PATH;
     if (typeof document !== "undefined" && document.referrer) {
       try {
         const ref = new URL(document.referrer);
@@ -136,6 +139,19 @@ export default function GetStarted() {
                 Tell us about your shop and the projects you want more of. We will use the
                 conversation to prepare a homepage direction built around your work—not a
                 generic template.
+              </p>
+            </div>
+          )}
+          {isAuctioneer && (
+            <div className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
+              <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
+                Let's build your free custom demo.
+              </p>
+              <p className="font-sans text-base leading-relaxed">
+                Tell us about your auction business and the clients and events you want more of. We will use
+                the conversation to prepare a homepage direction built around how you actually
+                sell—not a generic template.
               </p>
             </div>
           )}

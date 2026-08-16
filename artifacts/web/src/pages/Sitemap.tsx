@@ -28,6 +28,7 @@ import {
   ScrollText,
   Droplets,
   Hammer,
+  Megaphone,
 } from "lucide-react";
 
 type SitemapLink = {
@@ -78,6 +79,7 @@ const GROUPS: SitemapGroup[] = [
       { label: "Accounting Firms", path: "/websites-for-accountants", icon: Calculator, description: "CPAs, bookkeeping, tax, and advisory." },
       { label: "Well Drillers", path: "/websites-for-well-drillers", icon: Droplets, description: "Drilling, pumps, and water systems." },
       { label: "Cabinet Makers", path: "/websites-for-cabinet-makers", icon: Hammer, description: "Custom cabinets, millwork, and kitchens." },
+      { label: "Auctioneers", path: "/websites-for-auctioneers", icon: Megaphone, description: "General, benefit, livestock, equipment, real estate." },
       { label: "Other Local Service Businesses", path: "/other-service-businesses", icon: Building2, description: "Trust-based pros — law, finance, and more." },
     ],
   },

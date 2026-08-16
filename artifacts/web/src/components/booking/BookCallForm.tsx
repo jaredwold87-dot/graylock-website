@@ -5,6 +5,8 @@ import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { getWellDrillerCampaignParams } from "@/lib/wellDrillerLinks";
 import { trackCabinetMakerEvent } from "@/lib/cabinetMakerAnalytics";
 import { getCabinetMakerCampaignParams } from "@/lib/cabinetMakerLinks";
+import { trackAuctioneerEvent } from "@/lib/auctioneerAnalytics";
+import { getAuctioneerCampaignParams } from "@/lib/auctioneerLinks";
 
 interface BookCallFormProps {
   /** Industry context ("real-estate" on realtor CTAs, "" otherwise). */
@@ -68,6 +70,25 @@ const CABINET_MAKER_OUTCOME_OPTIONS = [
   "Other",
 ];
 
+// Auctioneer demo-request options (spec §5, exact values).
+const AUCTIONEER_TYPE_OPTIONS = [
+  "General / Contract Sales",
+  "Charity or Gala",
+  "Livestock",
+  "Equipment or Estate",
+  "Real Estate",
+  "Other",
+];
+
+const AUCTIONEER_OUTCOME_OPTIONS = [
+  "More Benefit + Gala Event Bookings",
+  "More Seller + Estate Opportunities",
+  "More of the Right Client Inquiries",
+  "Better Presentation of My Services",
+  "Stronger Online Credibility",
+  "Other",
+];
+
 export function BookCallForm({
   industry = "",
   utmParams = {},
@@ -105,6 +126,16 @@ export function BookCallForm({
     outcomes?: string;
     timing?: string;
   }>({});
+  // Auctioneer demo fields (required multi-selects).
+  const [auctionTypes, setAuctionTypes] = useState<string[]>([]);
+  const [aucErrors, setAucErrors] = useState<{
+    business?: string;
+    phone?: string;
+    website?: string;
+    types?: string;
+    outcomes?: string;
+    timing?: string;
+  }>({});
   // Realtor fit-call fields (per the conversion scope — no budget field).
   const [role, setRole] = useState("");
   const [market, setMarket] = useState("");
@@ -121,6 +152,7 @@ export function BookCallForm({
   const isRealtor = industry === "real-estate";
   const isWellDriller = industry === "well-drilling";
   const isCabinetMaker = industry === "cabinet-making";
+  const isAuctioneer = industry === "auctioneering";
 
   const toggleService = (service: string) => {
     setMainServices((prev) =>
@@ -140,6 +172,12 @@ export function BookCallForm({
     );
   };
 
+  const toggleAuctionType = (option: string) => {
+    setAuctionTypes((prev) =>
+      prev.includes(option) ? prev.filter((s) => s !== option) : [...prev, option],
+    );
+  };
+
   // Campaign start events — first interaction with any field, fired once.
   const handleFirstFocus = () => {
     if (isRealtor && !fitCallStarted.current) {
@@ -149,6 +187,10 @@ export function BookCallForm({
     if (isCabinetMaker && !demoStarted.current) {
       demoStarted.current = true;
       trackCabinetMakerEvent("cabinet_maker_demo_start", utmParams);
+    }
+    if (isAuctioneer && !demoStarted.current) {
+      demoStarted.current = true;
+      trackAuctioneerEvent("auctioneer_demo_start", utmParams);
     }
   };
 
@@ -219,6 +261,32 @@ export function BookCallForm({
       setCmErrors(errs);
       if (Object.keys(errs).length > 0) return;
     }
+    if (isAuctioneer) {
+      const errs: {
+        business?: string;
+        phone?: string;
+        website?: string;
+        types?: string;
+        outcomes?: string;
+        timing?: string;
+      } = {};
+      if (businessName.trim().replace(/\s/g, "").length < 2) {
+        errs.business = "Enter your business name (at least two characters)";
+      }
+      const phoneDigits = phone.replace(/\D/g, "");
+      if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+        errs.phone = "Enter a valid phone number";
+      }
+      const website = websiteUrl.trim();
+      if (website && !/^(https?:\/\/)?([\w-]+\.)+[a-z]{2,}([\/?#]\S*)?$/i.test(website)) {
+        errs.website = "Enter a valid website address (e.g., yourbusiness.com)";
+      }
+      if (auctionTypes.length === 0) errs.types = "Select at least one auction type";
+      if (desiredOutcomes.length === 0) errs.outcomes = "Select at least one option";
+      if (!launchTiming) errs.timing = "Please choose an option";
+      setAucErrors(errs);
+      if (Object.keys(errs).length > 0) return;
+    }
     setIsSubmitting(true);
 
     const submittedAt = new Date().toISOString();
@@ -232,7 +300,9 @@ export function BookCallForm({
       ? getWellDrillerCampaignParams()
       : isCabinetMaker
         ? getCabinetMakerCampaignParams()
-        : {};
+        : isAuctioneer
+          ? getAuctioneerCampaignParams()
+          : {};
 
     const payload = {
       first_name: name.trim(),
@@ -289,7 +359,22 @@ export function BookCallForm({
             referrer: typeof document !== "undefined" ? document.referrer || "" : "",
           }
         : {}),
-      ...(isWellDriller || isCabinetMaker
+      ...(isAuctioneer
+        ? {
+            industry,
+            lead_source_label: "Auctioneer Landing Page",
+            service_area: serviceArea.trim(),
+            auction_types: auctionTypes,
+            desired_outcomes: desiredOutcomes,
+            launch_timing: launchTiming,
+            intent: leadParams["intent"] || "",
+            market: campaignParams["market"] || "",
+            rep: campaignParams["rep"] || "",
+            source: campaignParams["source"] || "",
+            referrer: typeof document !== "undefined" ? document.referrer || "" : "",
+          }
+        : {}),
+      ...(isWellDriller || isCabinetMaker || isAuctioneer
         ? Object.fromEntries(
             Object.entries(campaignParams).filter(([key]) => key.startsWith("utm_")),
           )
@@ -319,9 +404,11 @@ export function BookCallForm({
               ? "Well Driller Custom Demo request"
               : isCabinetMaker
                 ? "Cabinet Maker Custom Demo request"
-                : isRealtor
-                  ? "Real Estate Website + IDX Fit Call request"
-                  : "Discovery call request",
+                : isAuctioneer
+                  ? "Auctioneer Custom Demo request"
+                  : isRealtor
+                    ? "Real Estate Website + IDX Fit Call request"
+                    : "Discovery call request",
             isRealtor && "Lead source: Realtor Landing Page",
             isRealtor && role && `Role: ${role}`,
             isRealtor && market.trim() && `Market / service area: ${market.trim()}`,
@@ -352,6 +439,19 @@ export function BookCallForm({
               `Wants more of: ${desiredOutcomes.join(", ")}`,
             isCabinetMaker && launchTiming && `Target launch timing: ${launchTiming}`,
             isCabinetMaker && leadParams["intent"] && `Intent: ${leadParams["intent"]}`,
+            isAuctioneer && "Lead source: Auctioneer Landing Page",
+            isAuctioneer && campaignParams["market"] && `Market: ${campaignParams["market"]}`,
+            isAuctioneer && campaignParams["rep"] && `Rep: ${campaignParams["rep"]}`,
+            isAuctioneer && campaignParams["source"] && `Source: ${campaignParams["source"]}`,
+            isAuctioneer && serviceArea.trim() && `Service area: ${serviceArea.trim()}`,
+            isAuctioneer &&
+              auctionTypes.length > 0 &&
+              `Auction types: ${auctionTypes.join(", ")}`,
+            isAuctioneer &&
+              desiredOutcomes.length > 0 &&
+              `Wants more of: ${desiredOutcomes.join(", ")}`,
+            isAuctioneer && launchTiming && `Target launch timing: ${launchTiming}`,
+            isAuctioneer && leadParams["intent"] && `Intent: ${leadParams["intent"]}`,
             resolvedLandingPage && `Page: ${resolvedLandingPage}`,
             payload.website_url && `Website: ${payload.website_url}`,
             payload.heard_about_us && `Heard about us: ${payload.heard_about_us}`,
@@ -397,6 +497,12 @@ export function BookCallForm({
           ...utmParams,
         });
       }
+      if (isAuctioneer) {
+        trackAuctioneerEvent("auctioneer_demo_complete", {
+          auction_types_selected: auctionTypes.join(", "),
+          ...utmParams,
+        });
+      }
       setSubmitted(true);
     } catch (err) {
       console.error("Lead submission error:", err);
@@ -413,14 +519,14 @@ export function BookCallForm({
       <div className={variant === "page" ? "text-center py-20 app-fade-in" : "text-center py-12 app-fade-in"}>
         <CheckCircle className="text-[#E85D26] w-16 h-16 mx-auto mb-6" aria-hidden="true" strokeWidth={1.5} />
         <h3 className="text-4xl md:text-5xl font-display text-[#0F0F0F] uppercase tracking-tight mb-4">
-          {isWellDriller || isCabinetMaker ? (
+          {isWellDriller || isCabinetMaker || isAuctioneer ? (
             <>You're in.</>
           ) : (
             <>You're all set{name ? `, ${name.split(" ")[0]}` : ""}!</>
           )}
         </h3>
         <p className="text-[#0F0F0F]/70 font-sans text-lg md:text-xl leading-relaxed max-w-md mx-auto">
-          {isWellDriller || isCabinetMaker ? (
+          {isWellDriller || isCabinetMaker || isAuctioneer ? (
             <>
               We received your demo request and will follow up to learn the few
               details we need to build something relevant—not generic.
@@ -485,6 +591,11 @@ export function BookCallForm({
               {cmErrors.business}
             </span>
           )}
+          {isAuctioneer && aucErrors.business && (
+            <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              {aucErrors.business}
+            </span>
+          )}
         </div>
       )}
 
@@ -526,6 +637,11 @@ export function BookCallForm({
         {isCabinetMaker && cmErrors.phone && (
           <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
             {cmErrors.phone}
+          </span>
+        )}
+        {isAuctioneer && aucErrors.phone && (
+          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+            {aucErrors.phone}
           </span>
         )}
         {isRealtor && rtErrors.phone && (
@@ -836,6 +952,167 @@ export function BookCallForm({
         </>
       )}
 
+      {isAuctioneer && (
+        <>
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-auc-website" className={LABEL_CLASSES}>
+              Current Website <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <input
+              id="bc-auc-website"
+              type="text"
+              inputMode="url"
+              autoComplete="url"
+              value={websiteUrl}
+              onChange={(e) => setWebsiteUrl(e.target.value)}
+              placeholder="yourbusiness.com"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+            {aucErrors.website && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {aucErrors.website}
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-auc-service-area" className={LABEL_CLASSES}>
+              Primary Service Area
+            </label>
+            <input
+              id="bc-auc-service-area"
+              type="text"
+              required
+              value={serviceArea}
+              onChange={(e) => setServiceArea(e.target.value)}
+              placeholder="e.g., Central Texas and surrounding counties"
+              className={`${INPUT_BASE} text-[#0F0F0F]`}
+            />
+          </div>
+
+          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
+            <legend className={`${LABEL_CLASSES} p-0`}>
+              Auction Types{" "}
+              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+            </legend>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+              {AUCTIONEER_TYPE_OPTIONS.map((option) => {
+                const checked = auctionTypes.includes(option);
+                return (
+                  <label
+                    key={option}
+                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
+                      checked
+                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
+                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => toggleAuctionType(option)}
+                      className="w-4 h-4 accent-[#E85D26] flex-shrink-0"
+                    />
+                    {option}
+                  </label>
+                );
+              })}
+            </div>
+            {aucErrors.types && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {aucErrors.types}
+              </span>
+            )}
+          </fieldset>
+
+          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
+            <legend className={`${LABEL_CLASSES} p-0`}>
+              What do you want more of?{" "}
+              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+            </legend>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+              {AUCTIONEER_OUTCOME_OPTIONS.map((option) => {
+                const checked = desiredOutcomes.includes(option);
+                return (
+                  <label
+                    key={option}
+                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
+                      checked
+                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
+                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => toggleDesiredOutcome(option)}
+                      className="w-4 h-4 accent-[#E85D26] flex-shrink-0"
+                    />
+                    {option}
+                  </label>
+                );
+              })}
+            </div>
+            {aucErrors.outcomes && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {aucErrors.outcomes}
+              </span>
+            )}
+          </fieldset>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-auc-launch-timing" className={LABEL_CLASSES}>
+              Target launch timing
+            </label>
+            <div className="relative">
+              <select
+                id="bc-auc-launch-timing"
+                required
+                value={launchTiming}
+                onChange={(e) => setLaunchTiming(e.target.value)}
+                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                  launchTiming ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
+                }`}
+              >
+                <option value="" disabled>
+                  Select one
+                </option>
+                {REALTOR_LAUNCH_TIMING_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                size={20}
+                aria-hidden="true"
+              />
+            </div>
+            {aucErrors.timing && (
+              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+                {aucErrors.timing}
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-1.5 group">
+            <label htmlFor="bc-auc-note" className={LABEL_CLASSES}>
+              Additional notes <span className={OPTIONAL_CLASSES}>(Optional)</span>
+            </label>
+            <textarea
+              id="bc-auc-note"
+              rows={3}
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              maxLength={500}
+              placeholder="Anything about your auctions, sellers, or current website we should know."
+              className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
+            />
+          </div>
+        </>
+      )}
+
       {isRealtor && (
         <>
           <div className="flex flex-col gap-1.5 group">
@@ -998,7 +1275,7 @@ export function BookCallForm({
         </>
       )}
 
-      {!isWellDriller && !isRealtor && !isCabinetMaker && (
+      {!isWellDriller && !isRealtor && !isCabinetMaker && !isAuctioneer && (
         <div className="flex flex-col gap-1.5 group">
           <label htmlFor="bc-website" className={LABEL_CLASSES}>
             Current website <span className={OPTIONAL_CLASSES}>(Optional)</span>
@@ -1016,7 +1293,7 @@ export function BookCallForm({
         </div>
       )}
 
-      {!isWellDriller && !isRealtor && !isCabinetMaker && (
+      {!isWellDriller && !isRealtor && !isCabinetMaker && !isAuctioneer && (
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-heard" className={LABEL_CLASSES}>
           How did you hear about us?{" "}
@@ -1049,7 +1326,7 @@ export function BookCallForm({
       </div>
       )}
 
-      {!isWellDriller && !isCabinetMaker && (
+      {!isWellDriller && !isCabinetMaker && !isAuctioneer && (
       <div className="flex flex-col gap-1.5 group">
         <label htmlFor="bc-note" className={LABEL_CLASSES}>
           {isRealtor
@@ -1091,7 +1368,7 @@ export function BookCallForm({
             <Loader2 className="animate-spin" size={24} aria-hidden="true" />
             <span>Sending...</span>
           </>
-        ) : isCabinetMaker ? (
+        ) : isCabinetMaker || isAuctioneer ? (
           "Request My Free Custom Demo"
         ) : isWellDriller ? (
           "Request My Custom Demo"
@@ -1103,7 +1380,7 @@ export function BookCallForm({
       </button>
 
       <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-2">
-        {isWellDriller || isCabinetMaker
+        {isWellDriller || isCabinetMaker || isAuctioneer
           ? "Takes under a minute. No pressure, no obligation."
           : isRealtor
             ? "Takes under a minute. We'll reach out within one business day to schedule your 15-minute fit call."
