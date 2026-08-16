@@ -57,17 +57,19 @@ export function CabinetMakerWhatSection() {
           </h2>
         </ScrollReveal>
 
-        {/* Large type-only lead-in (spec) — handwritten, always visible */}
-        <ScrollReveal className="text-center mb-14 md:mb-20">
-          <div className="flex flex-col items-center gap-1">
-            {LEAD_IN_LINES.map((line) => (
-              <p
-                key={line}
-                className="font-hand font-semibold text-[28px] md:text-[34px] xl:text-[38px] text-[#B23E16] leading-snug lg:whitespace-nowrap"
-              >
-                {line}
-              </p>
-            ))}
+        {/* Large type-only lead-in (spec) — handwritten, spread left / center /
+            right across the top of the section (stacked + centered on mobile) */}
+        <ScrollReveal className="mb-14 md:mb-20">
+          <div className="flex flex-col items-center gap-1 lg:grid lg:grid-cols-3 lg:items-start lg:gap-x-10">
+            <p className="font-hand font-semibold text-[28px] md:text-[32px] text-[#B23E16] leading-snug text-center lg:text-left">
+              {LEAD_IN_LINES[0]}
+            </p>
+            <p className="font-hand font-semibold text-[28px] md:text-[32px] text-[#B23E16] leading-snug text-center">
+              {LEAD_IN_LINES[1]}
+            </p>
+            <p className="font-hand font-semibold text-[28px] md:text-[32px] text-[#B23E16] leading-snug text-center lg:text-right">
+              {LEAD_IN_LINES[2]}
+            </p>
           </div>
         </ScrollReveal>
 
