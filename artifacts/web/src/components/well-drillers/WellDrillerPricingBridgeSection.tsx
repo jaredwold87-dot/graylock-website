@@ -21,7 +21,7 @@ export function WellDrillerPricingBridgeSection() {
           <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
             Pricing + Guarantee
           </p>
-          <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] mb-6">
+          <h2 className="text-3xl md:text-[clamp(32px,4vw,36px)] font-display text-[#1A1A1A] mb-6">
             A Better Website Should Not Feel Like a Blind Bet.
           </h2>
           <p className="text-[#1A1A1A]/70 font-sans text-lg leading-relaxed mb-8">
