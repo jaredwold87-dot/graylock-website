@@ -2,12 +2,27 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { wellDrillerGetStartedHref } from "@/lib/wellDrillerLinks";
+import wdCtaBg from "@/assets/wd-cta-bg.webp";
 
 /** Final CTA (spec §13) — closes on the exact next step: the free custom demo. */
 export function WellDrillerFinalCTASection() {
   return (
-    <section className="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="relative bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5 overflow-hidden">
+      {/* Drill-rig-at-sunset photo background */}
+      <img
+        src={wdCtaBg}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      />
+      {/* Heavy black overlay — ~80% — tames the bright sunset sky */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{ backgroundColor: "rgba(10,10,10,0.80)" }}
+      />
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         <ScrollReveal>
           <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
             Ready to See a Better Direction?

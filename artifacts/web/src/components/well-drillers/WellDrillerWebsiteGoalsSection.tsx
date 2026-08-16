@@ -1,12 +1,11 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import wdGoalsBg from "@/assets/wd-goals-bg.webp";
 
 /**
  * "Three Goals. One Better Website." — what we want the visitor's website to
  * do: best well-driller site in the service area, elevate the reputation,
- * easier to find locally. Dark section (page alternates dark/light). Same
- * flat format as "Who We Work With" above — orange dash + prominent title +
- * body, no cards, no numbers. No CTA by design; later sections carry the
- * offer.
+ * easier to find locally. Dark section with rig-controls photo background +
+ * heavy black overlay for readability.
  */
 const GOALS = [
   {
@@ -29,14 +28,19 @@ export function WellDrillerWebsiteGoalsSection() {
       id="website-goals"
       className="scroll-mt-[118px] relative bg-[#0f0f0f] py-20 md:py-28 px-6 md:px-12 overflow-hidden border-t border-white/5"
     >
-      {/* faint topo backdrop: dark contour rings (mirrors the light section above) */}
+      {/* Rig-controls photo background */}
+      <img
+        src={wdGoalsBg}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      />
+      {/* Heavy black overlay — ~80% — keeps text readable over bright areas */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
-        style={{
-          backgroundImage:
-            "repeating-radial-gradient(circle at -10% 110%, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 64px)",
-        }}
+        style={{ backgroundColor: "rgba(10,10,10,0.80)" }}
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
