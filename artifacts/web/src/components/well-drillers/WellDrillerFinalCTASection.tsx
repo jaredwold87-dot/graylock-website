@@ -28,7 +28,7 @@ export function WellDrillerFinalCTASection() {
             Ready to See a Better Direction?
           </p>
           <h2 className="text-3xl md:text-5xl font-display text-white mb-6 leading-tight">
-            Let's Build the Website Your Next Customer Feels Good About Calling.
+            Let's Build the Website You Deserve.
           </h2>
           <p className="text-stone font-sans text-lg leading-relaxed mb-9 max-w-2xl mx-auto">
             Tell us where you work, what jobs you want more of, and what your current website is
