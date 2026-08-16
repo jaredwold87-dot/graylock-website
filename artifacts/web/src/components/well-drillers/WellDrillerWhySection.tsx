@@ -12,11 +12,11 @@ const CRITERIA = [
     copy: "The site exists, but the phone isn't ringing because of it. The work comes from word of mouth while the website sits there doing nothing.",
   },
   {
-    title: "Are Stuck With an Outdated, Generic Website",
+    title: "Have an Outdated and Generic Website",
     copy: "It was built years ago, could belong to any contractor in any trade, and doesn't reflect the quality of the work your crew actually does.",
   },
   {
-    title: "Have a Website That Isn't Getting Found on Google",
+    title: "Whose Website Isn't Being Found on Google",
     copy: "A basic template rarely shows up in local search — so the companies that do rank are winning jobs that should be yours.",
   },
 ];
