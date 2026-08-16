@@ -62,7 +62,7 @@ const PACKAGES: RealtorPackage[] = [
     support:
       "A larger custom website for brokerages and teams that need more pages, agent profiles, stronger local-market coverage, and a polished buyer and seller experience across the organization.",
     included: [
-      "Custom website with typically 12\u201315 total pages",
+      "Custom website with typically 15 total pages",
       "Individual agent profile and biography pages, included within the scoped page count",
       "Custom homepage, team, brokerage, market, community, and contact content",
       "IDX Broker Core plan included",
