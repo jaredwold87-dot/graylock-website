@@ -9,11 +9,11 @@ import wdGoalsBg from "@/assets/wd-goals-bg.webp";
  */
 const GOALS = [
   {
-    title: "Build the Best Well-Driller Website in Your Service Area.",
+    title: "Help You Stand Out.",
     copy: "Not just a newer website — we want you to have the strongest online presence of any well driller a customer can compare in your service area.",
   },
   {
-    title: "Elevate Your Website. Elevate Your Reputation.",
+    title: "Elevate Your Online Reputation.",
     copy: "A website that matches the dependable work your crew does, with the services, experience, and proof that make you the obvious call.",
   },
   {
