@@ -207,7 +207,7 @@ export function RealtorInvestmentSection() {
         <ScrollReveal delay={0.1} className="mt-14 md:mt-16">
           <div className="border-t border-white/10 pt-10 text-center">
             <h3 className="font-display text-white text-2xl md:text-[30px] leading-tight mb-4">
-              IDX IS INCLUDED. YOUR LOCAL MLS PATH IS CONFIRMED FIRST.
+              IDX IS INCLUDED WITH YOUR LOCAL MLS, PATH CONFIRMED FIRST.
             </h3>
             <p className="text-stone font-sans text-[15px] md:text-base leading-relaxed max-w-[860px] mx-auto">
               Both starting packages include the listed IDX Broker Core plan. MLS
