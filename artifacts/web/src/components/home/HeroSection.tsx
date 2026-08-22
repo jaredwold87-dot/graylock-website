@@ -3,8 +3,7 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import heroWillowTopo from "@/assets/hero-willow-topo-option-3-selected.webp";
 import heroMobileTopographic from "@/assets/hero-mobile-topographic.webp";
-
-const BASE = import.meta.env.BASE_URL;
+import heroMobileWillowDevices from "@/assets/hero-mobile-willow-devices.webp";
 
 export function HeroSection() {
   return (
@@ -48,7 +47,7 @@ export function HeroSection() {
           fetchPriority="high"
           loading="eager"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover lg:translate-x-[clamp(260px,23vw,340px)]"
+          className="absolute inset-0 w-full h-full object-cover lg:translate-x-[clamp(120px,11vw,170px)]"
           style={{ objectPosition: "86% center" }}
         />
       </div>
@@ -86,8 +85,8 @@ export function HeroSection() {
             <div className="md:hidden">
               <div className="-mx-6">
                 <img
-                  src={`${BASE}hero-mobile-device-v2.webp`}
-                  alt="The West Coast Eye Institute website built by Graylock Digital, shown on a laptop and phone"
+                  src={heroMobileWillowDevices}
+                  alt="The Willow Realty Group website built by Graylock Digital, shown on a laptop and upright phone"
                   className="w-full h-auto"
                   loading="eager"
                   decoding="async"
