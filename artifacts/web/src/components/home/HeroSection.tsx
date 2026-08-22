@@ -1,10 +1,37 @@
 import { Check } from "lucide-react";
+import { useEffect, useState } from "react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import heroWillowTopoOption1 from "@/assets/hero-willow-topo-option-1.webp";
+import heroWillowTopoOption2 from "@/assets/hero-willow-topo-option-2.webp";
+import heroWillowTopoOption3 from "@/assets/hero-willow-topo-option-3.webp";
+import heroWillowTopoOption4 from "@/assets/hero-willow-topo-option-4.webp";
+import heroWillowTopoOption5 from "@/assets/hero-willow-topo-option-5.webp";
 
 const BASE = import.meta.env.BASE_URL;
+const HERO_BACKGROUNDS = [
+  heroWillowTopoOption1,
+  heroWillowTopoOption2,
+  heroWillowTopoOption3,
+  heroWillowTopoOption4,
+  heroWillowTopoOption5,
+];
 
 export function HeroSection() {
+  const [activeBackgroundIndex, setActiveBackgroundIndex] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const rotation = window.setInterval(() => {
+      setActiveBackgroundIndex((index) => (index + 1) % HERO_BACKGROUNDS.length);
+    }, 5_000);
+
+    return () => window.clearInterval(rotation);
+  }, []);
+
   return (
     <>
     <section
@@ -84,15 +111,21 @@ export function HeroSection() {
       />
       {/* Desktop/tablet background image */}
       <div className="hidden md:block">
-        <img
-          src={`${BASE}hero-edge-2b.webp`}
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "right center" }}
-        />
+        {HERO_BACKGROUNDS.map((background, index) => (
+          <img
+            key={background}
+            src={background}
+            alt=""
+            aria-hidden="true"
+            fetchPriority={index === 0 ? "high" : "auto"}
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out will-change-opacity ${
+              index === activeBackgroundIndex ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ objectPosition: "right center" }}
+          />
+        ))}
       </div>
       {/* Tablet only (768–1023px): heavy near-black overlay over the desktop image */}
       <div
