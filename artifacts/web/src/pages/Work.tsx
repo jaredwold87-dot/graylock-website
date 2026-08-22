@@ -21,6 +21,8 @@ import meagherBuildersTransformation from "@/assets/work/meagher-builders-transf
 import interiorFinishesTransformation from "@/assets/work/interior-finishes-transformation.webp";
 import crnaMentorTransformation from "@/assets/work/crna-mentor-transformation.webp";
 import bluegrassTransformation from "@/assets/work/bluegrass-transformation.webp";
+import ianaPacTransformation from "@/assets/work/iana-pac-transformation.webp";
+import atlasAnesthesiaTransformation from "@/assets/work/atlas-anesthesia-transformation.webp";
 import jcsWellServicesTransformation from "@/assets/work/jcs-well-services-transformation.webp";
 import rosenlundDrillingTransformation from "@/assets/work/rosenlund-drilling-transformation.webp";
 import erinSells775Transformation from "@/assets/work/erin-sells-775-transformation.webp";
@@ -163,6 +165,27 @@ const featuredProjects: FeaturedProject[] = [
     },
   },
   {
+    name: "IANA PAC",
+    category: "CRNA Advocacy & Political Action",
+    location: "Illinois",
+    description:
+      "A bold, action-driven website for the Illinois CRNA Political Action Committee — built to rally members around advocacy, legislative priorities, and a stronger voice for patient care.",
+    image: ianaPacTransformation,
+    url: "https://ilcrnapac.com/",
+    theme: "light",
+    delivered: [
+      "Member donation flow",
+      "Legislative-priority presentation",
+      "Advocacy-focused visual design",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "IANA PAC",
+      role: "Illinois CRNA Political Action Committee",
+      note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
     name: "Emboxed",
     category: "Luxury Gifting Concierge",
     location: "Curated by Emily",
@@ -229,6 +252,27 @@ const featuredProjects: FeaturedProject[] = [
     placeholder: {
       name: "Bluegrass Dental Anesthesia Solutions",
       role: "Northern Kentucky & Lexington",
+      note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Atlas Anesthesia",
+    category: "Mobile Dental & Surgery Center Anesthesia",
+    location: "Wisconsin",
+    description:
+      "A clean, confidence-building site for a mobile anesthesia team — built to help dental practices and surgery centers understand their options and start a partnership conversation.",
+    image: atlasAnesthesiaTransformation,
+    url: "https://atlasanesthesia.co/",
+    theme: "light",
+    delivered: [
+      "Partner inquiry flow",
+      "Clear service navigation",
+      "Clinical trust presentation",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Atlas Anesthesia",
+      role: "Mobile Dental & Surgery Center Anesthesia · Wisconsin",
       note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
@@ -502,10 +546,24 @@ const featuredProjectPriority = [
   "Meagher Builders",
   "Interior Finishes",
   "L.A. Perks Petroleum Specialists",
-  "Emboxed",
+  "IANA PAC",
   "Kingsbury Chiropractic",
   "Rosenlund Drilling",
   "West Coast Eye Institute",
+  "Wicks Land & Yard Management",
+  "Bluegrass Dental Anesthesia Solutions",
+  "Emboxed",
+  "Smart Tax CRNA",
+  "Erin Hutchinson — Erin Sells 775",
+  "Olive Creek Nursery",
+  "TekMark Industries",
+  "Shooting Performance Institute",
+  "Advantage Home Improvement",
+  "Bent on Education",
+  "JC's Well Services",
+  "CRNA Mentor",
+  "Atlas Anesthesia",
+  "Montana Counseling Solutions",
 ];
 
 const orderedFeaturedProjects = [
