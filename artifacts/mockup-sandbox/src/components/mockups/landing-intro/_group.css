@@ -99,19 +99,19 @@
   display: block;
   overflow: hidden;
   opacity: 0;
-  animation: landing-intro-statement-reveal 780ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: landing-intro-statement-reveal 480ms ease-out forwards;
 }
 
 .landing-intro-preview__statement span:nth-child(1) {
-  animation-delay: 1425ms;
+  animation-delay: 2050ms;
 }
 
 .landing-intro-preview__statement span:nth-child(2) {
-  animation-delay: 1775ms;
+  animation-delay: 2950ms;
 }
 
 .landing-intro-preview__statement span:nth-child(3) {
-  animation-delay: 2125ms;
+  animation-delay: 3850ms;
 }
 
 .landing-intro-preview__statement-accent {
@@ -144,12 +144,12 @@
 
 .landing-intro-preview__progress span {
   display: block;
-  width: 72%;
+  width: 100%;
   height: 100%;
   background: #e85d26;
   transform: scaleX(0);
   transform-origin: left;
-  animation: landing-intro-progress-fill 4.7s cubic-bezier(0.65, 0, 0.35, 1) 400ms forwards;
+  animation: landing-intro-progress-fill 4.7s linear forwards;
 }
 
 .landing-intro-preview__skip {
@@ -209,7 +209,7 @@
 @keyframes landing-intro-statement-reveal {
   from {
     opacity: 0;
-    transform: translateY(115%);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;

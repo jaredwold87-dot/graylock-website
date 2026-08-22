@@ -62,7 +62,7 @@ export function LandingIntro() {
     document.body.style.overflow = "hidden";
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const introTimer = window.setTimeout(completeIntro, reducedMotion ? 2200 : 5200);
+    const introTimer = window.setTimeout(completeIntro, reducedMotion ? 2000 : 4700);
 
     return () => {
       window.clearTimeout(introTimer);
