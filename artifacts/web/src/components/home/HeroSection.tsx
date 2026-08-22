@@ -48,7 +48,7 @@ export function HeroSection() {
           fetchPriority="high"
           loading="eager"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover lg:translate-x-[clamp(260px,23vw,340px)]"
           style={{ objectPosition: "86% center" }}
         />
       </div>
