@@ -66,16 +66,21 @@ export function HeroSection() {
             "linear-gradient(to right, rgba(8,8,8,0.58) 0%, rgba(8,8,8,0.38) 42%, rgba(8,8,8,0.12) 68%, transparent 82%)",
         }}
       />
-      {/* Desktop: shared Willow laptop-and-phone cutout */}
-      <img
-        src={heroMobileWillowDevices}
-        alt=""
-        aria-hidden="true"
-        className="absolute hidden lg:block pointer-events-none right-[-1.5vw] top-[20vh] w-[min(55vw,820px)] h-auto z-[1]"
-        loading="eager"
-        decoding="async"
-      />
-      <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative z-10 pt-32 pb-16 md:py-24 md:flex-1 md:flex md:items-center lg:items-start lg:pt-[26vh]">
+      {/* Desktop: shared Willow laptop-and-phone cutout with proof caption */}
+      <div className="absolute hidden lg:flex pointer-events-none right-[-1.5vw] top-[20vh] w-[min(55vw,820px)] z-[1] flex-col items-center">
+        <img
+          src={heroMobileWillowDevices}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-auto"
+          loading="eager"
+          decoding="async"
+        />
+        <p className="mt-2 text-center text-stone/80 font-sans text-xs tracking-wide">
+          A real website designed and built by Graylock Digital.
+        </p>
+      </div>
+      <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative z-10 pt-32 pb-16 md:py-24 md:flex-1 md:flex md:items-center lg:items-start lg:pt-[20vh]">
         <div className="max-w-2xl">
           <ScrollReveal>
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
@@ -99,8 +104,8 @@ export function HeroSection() {
                   loading="eager"
                   decoding="async"
                 />
-                <p className="text-stone font-sans text-xs text-center mt-1">
-                  A real Graylock-built website, viewable on any device.
+                <p className="text-stone/90 font-sans text-xs text-center mt-1">
+                  A real website designed and built by Graylock Digital.
                 </p>
               </div>
 
