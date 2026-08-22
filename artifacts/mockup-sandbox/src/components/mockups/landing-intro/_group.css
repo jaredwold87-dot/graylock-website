@@ -43,6 +43,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: landing-intro-topo-drift 6.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .landing-intro-preview__shade {
@@ -69,6 +70,8 @@
 .landing-intro-preview__logo {
   width: min(56vw, 280px);
   height: auto;
+  opacity: 0;
+  animation: landing-intro-logo-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1) 400ms forwards;
 }
 
 .landing-intro-preview__rule {
@@ -76,6 +79,9 @@
   height: 1px;
   margin: clamp(1.5rem, 4vw, 2.25rem) 0;
   background: linear-gradient(90deg, transparent, #e85d26 18%, #e85d26 82%, transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: landing-intro-rule-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1) 1050ms forwards;
 }
 
 .landing-intro-preview__statement {
@@ -87,6 +93,25 @@
   font-weight: 700;
   line-height: 0.91;
   letter-spacing: -0.04em;
+}
+
+.landing-intro-preview__statement span {
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+  animation: landing-intro-statement-reveal 780ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.landing-intro-preview__statement span:nth-child(1) {
+  animation-delay: 1425ms;
+}
+
+.landing-intro-preview__statement span:nth-child(2) {
+  animation-delay: 1775ms;
+}
+
+.landing-intro-preview__statement span:nth-child(3) {
+  animation-delay: 2125ms;
 }
 
 .landing-intro-preview__statement-accent {
@@ -122,6 +147,9 @@
   width: 72%;
   height: 100%;
   background: #e85d26;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: landing-intro-progress-fill 4.7s cubic-bezier(0.65, 0, 0.35, 1) 400ms forwards;
 }
 
 .landing-intro-preview__skip {
@@ -129,13 +157,73 @@
   top: clamp(1.25rem, 3vw, 2.25rem);
   right: clamp(1.25rem, 3vw, 2.25rem);
   padding: 0.35rem 0;
+  border: 0;
   border-bottom: 1px solid rgba(242, 243, 245, 0.45);
+  background: transparent;
   color: rgba(242, 243, 245, 0.72);
   font-family: "Barlow", sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.landing-intro-preview__skip:hover,
+.landing-intro-preview__skip:focus-visible {
+  color: #fff;
+  border-color: #e85d26;
+  outline: none;
+}
+
+@keyframes landing-intro-topo-drift {
+  from {
+    opacity: 0.42;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes landing-intro-logo-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes landing-intro-rule-reveal {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes landing-intro-statement-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(115%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes landing-intro-progress-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @media (max-width: 640px) {

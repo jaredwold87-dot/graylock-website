@@ -1,9 +1,16 @@
 import "./_group.css";
+import { useState } from "react";
 import topographicBackground from "@/assets/hero-desktop-topographic.webp";
 
 export function LandingIntro() {
+  const [replayKey, setReplayKey] = useState(0);
+
   return (
-    <section className="landing-intro-preview" aria-label="Graylock Digital landing introduction preview">
+    <section
+      key={replayKey}
+      className="landing-intro-preview"
+      aria-label="Graylock Digital landing introduction preview"
+    >
       <img
         src={topographicBackground}
         alt=""
@@ -34,7 +41,13 @@ export function LandingIntro() {
       <div className="landing-intro-preview__progress" aria-hidden="true">
         <span />
       </div>
-      <span className="landing-intro-preview__skip" aria-hidden="true">Skip intro</span>
+      <button
+        type="button"
+        className="landing-intro-preview__skip"
+        onClick={() => setReplayKey((currentKey) => currentKey + 1)}
+      >
+        Replay intro
+      </button>
     </section>
   );
 }
