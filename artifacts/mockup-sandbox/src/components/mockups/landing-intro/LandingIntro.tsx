@@ -21,9 +21,9 @@ export function LandingIntro() {
         />
         <div className="landing-intro-preview__rule" aria-hidden="true" />
         <p className="landing-intro-preview__statement">
-          <span>your website.</span>
-          <span>your reputation.</span>
-          <span className="landing-intro-preview__statement-accent">elevated.</span>
+          <span>Your Website.</span>
+          <span>Your Reputation.</span>
+          <span className="landing-intro-preview__statement-accent">Elevated.</span>
         </p>
       </div>
 

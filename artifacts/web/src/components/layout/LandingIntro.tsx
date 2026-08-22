@@ -99,9 +99,9 @@ export function LandingIntro() {
         />
         <div className="intro-screen__rule" aria-hidden="true" />
         <p className="intro-screen__statement">
-          <span>your website.</span>
-          <span>your reputation.</span>
-          <span className="intro-screen__statement-accent">elevated.</span>
+          <span>Your Website.</span>
+          <span>Your Reputation.</span>
+          <span className="intro-screen__statement-accent">Elevated.</span>
         </p>
       </div>
 
