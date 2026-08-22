@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import heroWillowTopo from "@/assets/hero-willow-topo-option-3-selected.webp";
+import heroDesktopTopographic from "@/assets/hero-desktop-topographic.webp";
 import heroMobileTopographic from "@/assets/hero-mobile-topographic.webp";
 import heroMobileWillowDevices from "@/assets/hero-mobile-willow-devices.webp";
 
@@ -38,17 +38,16 @@ export function HeroSection() {
             "linear-gradient(to right, transparent 0%, rgba(232,93,38,0.5) 50%, transparent 100%)",
         }}
       />
-      {/* Desktop/tablet background image */}
+      {/* Desktop/tablet topographic background */}
       <div className="hidden md:block">
         <img
-          src={heroWillowTopo}
+          src={heroDesktopTopographic}
           alt=""
           aria-hidden="true"
           fetchPriority="high"
           loading="eager"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover lg:translate-x-[clamp(120px,11vw,170px)]"
-          style={{ objectPosition: "86% center" }}
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
       {/* Tablet only (768–1023px): heavy near-black overlay over the desktop image */}
@@ -59,13 +58,22 @@ export function HeroSection() {
             "linear-gradient(to bottom, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.85) 55%, rgba(10,10,10,0.78) 100%)",
         }}
       />
-      {/* Desktop: side gradient that lets the laptop show through on the right */}
+      {/* Desktop: subtle text-safe gradient over the topographic background */}
       <div
         className="absolute inset-0 hidden lg:block pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.95) 35%, rgba(10,10,10,0.4) 55%, transparent 70%)",
+            "linear-gradient(to right, rgba(8,8,8,0.58) 0%, rgba(8,8,8,0.38) 42%, rgba(8,8,8,0.12) 68%, transparent 82%)",
         }}
+      />
+      {/* Desktop: shared Willow laptop-and-phone cutout */}
+      <img
+        src={heroMobileWillowDevices}
+        alt=""
+        aria-hidden="true"
+        className="absolute hidden lg:block pointer-events-none right-[-1.5vw] top-[20vh] w-[min(55vw,820px)] h-auto z-[1]"
+        loading="eager"
+        decoding="async"
       />
       <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative z-10 pt-32 pb-16 md:py-24 md:flex-1 md:flex md:items-center lg:items-start lg:pt-[26vh]">
         <div className="max-w-2xl">
