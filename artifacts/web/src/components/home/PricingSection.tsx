@@ -22,9 +22,10 @@ const PLAN_CTA_LABELS: Record<string, string> = {
 
 interface PricingSectionProps {
   hideHeader?: boolean;
+  hidePlanCallout?: boolean;
 }
 
-export function PricingSection({ hideHeader = false }: PricingSectionProps = {}) {
+export function PricingSection({ hideHeader = false, hidePlanCallout = false }: PricingSectionProps = {}) {
   const popularIndex = Math.max(0, PRICING_TIERS.findIndex((t: any) => t.popular));
   const [activeIndex, setActiveIndex] = useState<number>(popularIndex);
   const activeTier: any = PRICING_TIERS[activeIndex];
@@ -174,77 +175,79 @@ export function PricingSection({ hideHeader = false }: PricingSectionProps = {})
           })}
         </div>
 
-        <ScrollReveal delay={0.3} className="mt-10 md:mt-12">
-          <div className="relative overflow-hidden rounded-2xl border border-[#1a202c]/10 bg-gradient-to-br from-white via-white to-[#f5f7fa] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_24px_56px_rgba(15,30,53,0.08)]">
-            <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-orange via-orange/80 to-orange/40" />
-            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-orange/10 blur-3xl" />
+        {!hidePlanCallout && (
+          <ScrollReveal delay={0.3} className="mt-10 md:mt-12">
+            <div className="relative overflow-hidden rounded-2xl border border-[#1a202c]/10 bg-gradient-to-br from-white via-white to-[#f5f7fa] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_24px_56px_rgba(15,30,53,0.08)]">
+              <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-orange via-orange/80 to-orange/40" />
+              <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-orange/10 blur-3xl" />
 
-            <div className="relative px-6 md:px-10 py-7 md:py-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
-              <div className="flex-shrink-0 flex md:flex-col items-center md:items-start gap-3 md:gap-1 md:min-w-[180px]">
-                <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange">
-                  Best fit for
-                </span>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`label-${activeTier.name}`}
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="flex items-baseline gap-2"
-                  >
-                    <h4 className="text-2xl md:text-3xl font-display text-[#1a202c] leading-none">
-                      {activeTier.name}
-                    </h4>
-                    <span className="text-xs font-sans font-semibold text-stone">
-                      {PLAN_FOR_LABELS[activeTier.name]}
-                    </span>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              <div className="hidden md:block w-px self-stretch bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
-
-              <div className="flex-1 min-w-0">
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={`desc-${activeTier.name}`}
-                    initial={{ opacity: 0, x: 8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -8 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="text-[#1a202c] text-base md:text-lg font-sans leading-relaxed"
-                  >
-                    {activeTier.description}
-                  </motion.p>
-                </AnimatePresence>
-              </div>
-
-              <div className="flex md:flex-col items-center gap-2 md:gap-1 md:min-w-[140px] md:items-end">
-                <div className="flex gap-1.5">
-                  {PRICING_TIERS.map((t: any, i: number) => (
-                    <button
-                      key={t.name}
-                      type="button"
-                      onClick={() => setActiveIndex(i)}
-                      onMouseEnter={() => setActiveIndex(i)}
-                      aria-label={`Show ${t.name} description`}
-                      className={cn(
-                        "h-1.5 rounded-full transition-all duration-300",
-                        i === activeIndex
-                          ? "w-8 bg-orange"
-                          : "w-4 bg-[#1a202c]/15 hover:bg-[#1a202c]/30"
-                      )}
-                    />
-                  ))}
+              <div className="relative px-6 md:px-10 py-7 md:py-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+                <div className="flex-shrink-0 flex md:flex-col items-center md:items-start gap-3 md:gap-1 md:min-w-[180px]">
+                  <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-orange">
+                    Best fit for
+                  </span>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={`label-${activeTier.name}`}
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="flex items-baseline gap-2"
+                    >
+                      <h4 className="text-2xl md:text-3xl font-display text-[#1a202c] leading-none">
+                        {activeTier.name}
+                      </h4>
+                      <span className="text-xs font-sans font-semibold text-stone">
+                        {PLAN_FOR_LABELS[activeTier.name]}
+                      </span>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
-                <span className="hidden md:inline-flex items-center gap-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-stone mt-2">
-                  Hover a plan <ArrowRight size={11} />
-                </span>
+
+                <div className="hidden md:block w-px self-stretch bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
+
+                <div className="flex-1 min-w-0">
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={`desc-${activeTier.name}`}
+                      initial={{ opacity: 0, x: 8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -8 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="text-[#1a202c] text-base md:text-lg font-sans leading-relaxed"
+                    >
+                      {activeTier.description}
+                    </motion.p>
+                  </AnimatePresence>
+                </div>
+
+                <div className="flex md:flex-col items-center gap-2 md:gap-1 md:min-w-[140px] md:items-end">
+                  <div className="flex gap-1.5">
+                    {PRICING_TIERS.map((t: any, i: number) => (
+                      <button
+                        key={t.name}
+                        type="button"
+                        onClick={() => setActiveIndex(i)}
+                        onMouseEnter={() => setActiveIndex(i)}
+                        aria-label={`Show ${t.name} description`}
+                        className={cn(
+                          "h-1.5 rounded-full transition-all duration-300",
+                          i === activeIndex
+                            ? "w-8 bg-orange"
+                            : "w-4 bg-[#1a202c]/15 hover:bg-[#1a202c]/30"
+                        )}
+                      />
+                    ))}
+                  </div>
+                  <span className="hidden md:inline-flex items-center gap-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-stone mt-2">
+                    Hover a plan <ArrowRight size={11} />
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        )}
 
         <ScrollReveal delay={0.5} className="mt-12 text-center">
           <p className="text-[#1a202c] font-sans font-semibold mb-3">

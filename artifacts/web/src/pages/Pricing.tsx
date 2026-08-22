@@ -49,7 +49,7 @@ export default function Pricing() {
         backgroundImage={pricingHeroBg}
       />
 
-      <PricingSection hideHeader />
+      <PricingSection hideHeader hidePlanCallout />
 
       <section className="bg-[#0f0f0f] py-16 px-6 border-t border-white/5 md:hidden">
         <div className="max-w-md mx-auto">
