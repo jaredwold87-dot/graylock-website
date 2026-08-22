@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import heroWillowTopo from "@/assets/hero-willow-topo-option-3-selected.webp";
+import heroMobileTopographic from "@/assets/hero-mobile-topographic.webp";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -12,66 +13,21 @@ export function HeroSection() {
       className="overflow-hidden relative md:min-h-screen md:flex md:flex-col"
       style={{ backgroundColor: "#0f0f0f" }}
     >
-      {/* Mobile only: layered stylized background */}
-      {/* Layer 1: faint dot grid covering entire hero */}
-      <div
-        className="absolute inset-0 md:hidden pointer-events-none"
+      {/* Mobile: textured wallpaper with a dark text-safe overlay */}
+      <img
+        src={heroMobileTopographic}
+        alt=""
         aria-hidden="true"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(242,243,245,0.06) 1px, transparent 0)",
-          backgroundSize: "22px 22px",
-        }}
+        className="absolute inset-0 w-full h-full object-cover md:hidden pointer-events-none"
+        loading="eager"
+        decoding="async"
       />
-      {/* Layer 2: large soft orange aurora blob upper-left */}
-      <div
-        className="absolute md:hidden pointer-events-none rounded-full"
-        aria-hidden="true"
-        style={{
-          top: "-120px",
-          left: "-100px",
-          width: "420px",
-          height: "420px",
-          background:
-            "radial-gradient(circle, rgba(232,93,38,0.30) 0%, rgba(232,93,38,0.10) 45%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
-      {/* Layer 3: orange accent glow upper-right */}
-      <div
-        className="absolute md:hidden pointer-events-none rounded-full"
-        aria-hidden="true"
-        style={{
-          top: "-60px",
-          right: "-120px",
-          width: "320px",
-          height: "320px",
-          background:
-            "radial-gradient(circle, rgba(232,93,38,0.22) 0%, rgba(232,93,38,0.08) 45%, transparent 70%)",
-          filter: "blur(50px)",
-        }}
-      />
-      {/* Layer 4: deeper orange glow lower-right for depth */}
-      <div
-        className="absolute md:hidden pointer-events-none rounded-full"
-        aria-hidden="true"
-        style={{
-          bottom: "-100px",
-          right: "-80px",
-          width: "380px",
-          height: "380px",
-          background:
-            "radial-gradient(circle, rgba(232,93,38,0.16) 0%, rgba(232,93,38,0.06) 45%, transparent 70%)",
-          filter: "blur(50px)",
-        }}
-      />
-      {/* Layer 5: thin diagonal sheen line */}
       <div
         className="absolute inset-0 md:hidden pointer-events-none"
         aria-hidden="true"
         style={{
           background:
-            "linear-gradient(115deg, transparent 0%, transparent 45%, rgba(242,243,245,0.04) 50%, transparent 55%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(7,7,7,0.58) 0%, rgba(7,7,7,0.48) 55%, rgba(7,7,7,0.38) 100%)",
         }}
       />
       {/* Layer 6: hairline divider at bottom of hero */}
