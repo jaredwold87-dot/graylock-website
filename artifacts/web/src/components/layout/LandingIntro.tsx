@@ -62,7 +62,7 @@ export function LandingIntro() {
     document.body.style.overflow = "hidden";
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const introTimer = window.setTimeout(completeIntro, reducedMotion ? 2000 : 4700);
+    const introTimer = window.setTimeout(completeIntro, reducedMotion ? 1600 : 3700);
 
     return () => {
       window.clearTimeout(introTimer);
@@ -107,7 +107,7 @@ export function LandingIntro() {
 
       <div className="intro-screen__footer" aria-hidden="true">
         <span>GRAYLOCK DIGITAL</span>
-        <span>ENTERING THE EXPERIENCE</span>
+        <span>ENTERING GRAYLOCK DIGITAL</span>
       </div>
       <div className="intro-screen__progress" aria-hidden="true">
         <span />

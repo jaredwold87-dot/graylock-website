@@ -36,7 +36,7 @@ export function LandingIntro() {
 
       <div className="landing-intro-preview__footer" aria-hidden="true">
         <span>GRAYLOCK DIGITAL</span>
-        <span>ENTERING THE EXPERIENCE</span>
+        <span>ENTERING GRAYLOCK DIGITAL</span>
       </div>
       <div className="landing-intro-preview__progress" aria-hidden="true">
         <span />
