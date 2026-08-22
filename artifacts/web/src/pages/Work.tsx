@@ -17,6 +17,8 @@ import advantageTransformation from "@/assets/work/advantage-transformation.webp
 import bentOnEducationTransformation from "@/assets/work/bent-on-education-transformation.webp";
 import wicksTransformation from "@/assets/work/wicks-transformation.webp";
 import willowTransformation from "@/assets/work/willow-transformation.webp";
+import meagherBuildersTransformation from "@/assets/work/meagher-builders-transformation.webp";
+import interiorFinishesTransformation from "@/assets/work/interior-finishes-transformation.webp";
 import crnaMentorTransformation from "@/assets/work/crna-mentor-transformation.webp";
 import bluegrassTransformation from "@/assets/work/bluegrass-transformation.webp";
 import jcsWellServicesTransformation from "@/assets/work/jcs-well-services-transformation.webp";
@@ -68,6 +70,46 @@ const featuredProjects: FeaturedProject[] = [
     placeholder: {
       name: "Willow Realty Group",
       role: "Serving the Magic Valley",
+      note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Meagher Builders",
+    category: "Custom Homes & Luxury Remodels",
+    location: "Carson Valley & Lake Tahoe",
+    description:
+      "A refined, photo-led website for a high-end custom home builder — built to show the craftsmanship behind each project and start more qualified project conversations.",
+    image: meagherBuildersTransformation,
+    theme: "light",
+    delivered: [
+      "Custom portfolio presentation",
+      "Project conversation flow",
+      "Craftsmanship-led visual design",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Meagher Builders",
+      role: "Carson Valley & Lake Tahoe",
+      note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Interior Finishes",
+    category: "Cabinets & Design",
+    location: "Northern Nevada & Northern California",
+    description:
+      "An elevated, design-forward website for a cabinetry and interiors studio — built to showcase tailored spaces and turn inspired homeowners into consultation requests.",
+    image: interiorFinishesTransformation,
+    theme: "light",
+    delivered: [
+      "Design-led visual direction",
+      "Consultation request flow",
+      "Services & process presentation",
+      "Mobile-responsive build",
+    ],
+    placeholder: {
+      name: "Interior Finishes",
+      role: "Northern Nevada & Northern California",
       note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
     },
   },
@@ -453,6 +495,24 @@ const featuredProjects: FeaturedProject[] = [
   },
 ];
 
+const featuredProjectPriority = [
+  "Willow Realty Group",
+  "Meagher Builders",
+  "Interior Finishes",
+  "L.A. Perks Petroleum Specialists",
+  "Emboxed",
+  "Kingsbury Chiropractic",
+  "Rosenlund Drilling",
+  "West Coast Eye Institute",
+];
+
+const orderedFeaturedProjects = [
+  ...featuredProjectPriority
+    .map((name) => featuredProjects.find((project) => project.name === name))
+    .filter((project): project is FeaturedProject => Boolean(project)),
+  ...featuredProjects.filter((project) => !featuredProjectPriority.includes(project.name)),
+];
+
 function ProjectCard({ project, onClick }: { project: FeaturedProject; onClick: () => void }) {
   return (
     <div className="group flex flex-col gap-5 md:gap-6">
@@ -670,7 +730,7 @@ export default function Work() {
 
       {/* ── Gallery ── */}
       <section className="bg-[#0f0f0f] py-24 md:py-32 relative z-10">
-        <ProjectBlock projects={featuredProjects} onSelect={setSelectedProject} />
+        <ProjectBlock projects={orderedFeaturedProjects} onSelect={setSelectedProject} />
       </section>
 
       <AnimatePresence>
