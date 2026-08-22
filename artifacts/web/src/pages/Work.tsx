@@ -80,6 +80,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A refined, photo-led website for a high-end custom home builder — built to show the craftsmanship behind each project and start more qualified project conversations.",
     image: meagherBuildersTransformation,
+    url: "https://meagherbuilders.com/",
     theme: "light",
     delivered: [
       "Custom portfolio presentation",
@@ -100,6 +101,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "An elevated, design-forward website for a cabinetry and interiors studio — built to showcase tailored spaces and turn inspired homeowners into consultation requests.",
     image: interiorFinishesTransformation,
+    url: "https://www.interiorfinishesreno.com/",
     theme: "light",
     delivered: [
       "Design-led visual direction",
