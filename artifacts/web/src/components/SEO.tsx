@@ -10,7 +10,7 @@ interface SEOProps {
   noindex?: boolean;
 }
 
-const DEFAULT_IMAGE = "https://graylockdigital.com/og-image.jpg";
+const DEFAULT_IMAGE = "https://graylockdigital.com/og-image-intro.jpg";
 
 export function SEO({
   title = "Graylock Digital — Custom Websites for Trust-Based Businesses",

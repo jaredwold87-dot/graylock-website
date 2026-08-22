@@ -150,6 +150,20 @@
   pointer-events: none;
 }
 
+.intro-screen--complete .intro-screen__background,
+.intro-screen--complete .intro-screen__logo,
+.intro-screen--complete .intro-screen__statement span {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+.intro-screen--complete .intro-screen__rule,
+.intro-screen--complete .intro-screen__progress span {
+  animation: none;
+  transform: scaleX(1);
+}
+
 .intro-screen__background,
 .intro-screen__shade,
 .intro-screen__glow {

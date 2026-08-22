@@ -5,31 +5,33 @@ const INTRO_SEEN_KEY = "graylock-landing-intro-seen";
 
 function getIntroConfig() {
   if (typeof window === "undefined") {
-    return { shouldShow: false, isPreview: false };
+    return { shouldShow: false, isPreview: false, showCompleteFrame: false };
   }
 
   const searchParams = new URLSearchParams(window.location.search);
   const isPreview = searchParams.get("intro") === "preview";
+  const showCompleteFrame = isPreview && searchParams.get("frame") === "complete";
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
   const path = basePath && window.location.pathname.startsWith(basePath)
     ? window.location.pathname.slice(basePath.length) || "/"
     : window.location.pathname;
 
   if (isPreview) {
-    return { shouldShow: true, isPreview: true };
+    return { shouldShow: true, isPreview: true, showCompleteFrame };
   }
 
   if (path !== "/") {
-    return { shouldShow: false, isPreview: false };
+    return { shouldShow: false, isPreview: false, showCompleteFrame: false };
   }
 
   try {
     return {
       shouldShow: window.sessionStorage.getItem(INTRO_SEEN_KEY) !== "true",
       isPreview: false,
+      showCompleteFrame: false,
     };
   } catch {
-    return { shouldShow: true, isPreview: false };
+    return { shouldShow: true, isPreview: false, showCompleteFrame: false };
   }
 }
 
@@ -61,6 +63,12 @@ export function LandingIntro() {
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
+    if (introConfig.showCompleteFrame) {
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const introTimer = window.setTimeout(completeIntro, reducedMotion ? 1600 : 3700);
 
@@ -68,7 +76,7 @@ export function LandingIntro() {
       window.clearTimeout(introTimer);
       document.body.style.overflow = originalOverflow;
     };
-  }, [completeIntro, isVisible]);
+  }, [completeIntro, introConfig.showCompleteFrame, isVisible]);
 
   if (!isVisible) {
     return null;
@@ -76,7 +84,7 @@ export function LandingIntro() {
 
   return (
     <section
-      className={`intro-screen ${isExiting ? "intro-screen--exiting" : ""}`}
+      className={`intro-screen ${isExiting ? "intro-screen--exiting" : ""} ${introConfig.showCompleteFrame ? "intro-screen--complete" : ""}`}
       aria-label="Graylock Digital introduction"
       role="status"
       aria-live="polite"
@@ -113,14 +121,16 @@ export function LandingIntro() {
         <span />
       </div>
 
-      <button
-        type="button"
-        className="intro-screen__skip"
-        onClick={completeIntro}
-        disabled={isExiting}
-      >
-        Skip intro
-      </button>
+      {!introConfig.showCompleteFrame && (
+        <button
+          type="button"
+          className="intro-screen__skip"
+          onClick={completeIntro}
+          disabled={isExiting}
+        >
+          Skip intro
+        </button>
+      )}
     </section>
   );
 }

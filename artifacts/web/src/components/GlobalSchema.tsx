@@ -11,7 +11,7 @@ const GLOBAL_SCHEMA = [
     legalName: "Graylock Digital, LLC",
     url: SITE_URL,
     logo: `${SITE_URL}/apple-touch-icon.png`,
-    image: `${SITE_URL}/og-image.jpg`,
+    image: `${SITE_URL}/og-image-intro.jpg`,
     description:
       "Custom websites for trust-based local businesses — conversion-focused design, lead generation, SEO, and industry compliance, built in 7–10 business days.",
     areaServed: "United States",
