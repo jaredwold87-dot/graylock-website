@@ -203,28 +203,27 @@ function SeoShowcase() {
         <div className="rounded-2xl bg-[#0f0f0f] border border-white/10 p-5 md:p-6 shadow-2xl">
           <div className="flex items-center gap-2.5 bg-white/[0.06] border border-white/10 rounded-full px-4 py-2.5 mb-5">
             <Search size={16} className="text-stone shrink-0" />
-            <span className="text-stone font-sans text-sm">roofing company near me</span>
+            <span className="text-stone font-sans text-sm">custom cabinets near me</span>
           </div>
 
           <div className="relative rounded-xl border border-orange/40 bg-orange/[0.07] p-4 mb-3">
             <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-orange bg-orange/15 px-2 py-0.5 rounded-full">
               Your site
             </span>
-            <div className="text-stone/70 font-sans text-xs mb-1">summitexteriors.com</div>
-            <div className="text-offwhite font-sans font-semibold text-[15px] mb-1.5">
-              Summit Exteriors — #1 Rated Roofing in Denver
+            <div className="text-stone/70 font-sans text-xs mb-1">
+              www.interiorfinishesreno.com
             </div>
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <span className="flex text-orange" aria-hidden="true">
-                {[0, 1, 2, 3, 4].map((s) => (
-                  <Star key={s} size={12} className="fill-current" />
-                ))}
+            <div className="text-offwhite font-sans font-semibold text-[15px] mb-1.5">
+              Interior Finishes Cabinets &amp; Design
+            </div>
+            <div className="mb-1.5 flex items-center gap-1.5 text-stone">
+              <MapPin size={12} aria-hidden="true" />
+              <span className="font-sans text-xs">
+                Northern Nevada &amp; Northern California
               </span>
-              <span className="text-stone font-sans text-xs">4.9 (320 reviews)</span>
             </div>
             <p className="text-stone font-sans text-xs leading-relaxed">
-              Trusted local roofing, siding &amp; window installation. Free estimates,
-              financing available, fully licensed &amp; insured.
+              Custom cabinetry and interior design for thoughtfully tailored spaces.
             </p>
           </div>
 
@@ -333,7 +332,7 @@ function SampleLeadForm() {
           <span className="w-3 h-3 rounded-full bg-[#28c840]" aria-hidden="true" />
           <div className="ml-3 flex-1 bg-white rounded-md px-3 py-1 text-[#6b6b6b] font-sans text-[11px] truncate flex items-center gap-1.5">
             <Lock size={10} className="text-[#28a745] shrink-0" />
-            summitexteriors.com/contact
+            www.interiorfinishesreno.com/contact
           </div>
         </div>
 
@@ -342,13 +341,13 @@ function SampleLeadForm() {
             <div className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center">
               <Mountain size={20} className="text-white" />
             </div>
-            <span className="font-display text-lg tracking-wide">SUMMIT EXTERIORS</span>
+            <span className="font-display text-lg tracking-wide">INTERIOR FINISHES</span>
           </div>
           <h3 className="font-display text-2xl md:text-[26px] mb-1.5 leading-tight">
-            Get Your Free Roofing Estimate
+            Request a Design Consultation
           </h3>
           <p className="text-white/85 font-sans text-sm">
-            No-pressure quote within 24 hours. Licensed &amp; insured.
+            Tell us about your space and project goals.
           </p>
         </div>
 
@@ -382,10 +381,10 @@ function SampleLeadForm() {
                 className={`${inputClass} appearance-none pr-10 cursor-default`}
               >
                 <option value="" disabled>Select a service</option>
-                <option value="roofing">Roof Replacement</option>
-                <option value="siding">Siding Installation</option>
-                <option value="windows">Windows &amp; Doors</option>
-                <option value="gutters">Gutters</option>
+                <option value="kitchen">Kitchen Cabinetry</option>
+                <option value="bathroom">Bathroom Cabinetry</option>
+                <option value="built-ins">Custom Built-Ins</option>
+                <option value="design">Interior Design</option>
               </select>
               <ChevronDown
                 size={16}
@@ -400,7 +399,7 @@ function SampleLeadForm() {
               name="sampleDetails"
               rows={3}
               className={`${inputClass} resize-none`}
-              placeholder="Roof is about 12 years old and has a few leaks near the chimney..."
+              placeholder="We’re planning a kitchen remodel and would like to discuss custom cabinetry..."
               readOnly
             />
           </div>
@@ -409,18 +408,14 @@ function SampleLeadForm() {
             type="submit"
             className="w-full bg-[#15803d] hover:bg-[#0d5429] text-white font-sans font-bold text-base py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2"
           >
-            Get My Free Estimate
+            Request My Consultation
             <ArrowRight size={18} />
           </button>
 
           <div className="flex items-center justify-center gap-2 pt-0.5">
-            <span className="flex text-[#f5a623]" aria-hidden="true">
-              {[0, 1, 2, 3, 4].map((s) => (
-                <Star key={s} size={13} className="fill-current" />
-              ))}
-            </span>
+            <MapPin size={13} className="text-[#15803d]" aria-hidden="true" />
             <span className="text-[#6b6b6b] font-sans text-xs">
-              Trusted by 500+ local homeowners
+              Serving Northern Nevada &amp; Northern California
             </span>
           </div>
         </form>

@@ -22,16 +22,16 @@ const FOUNDERS = [
 
 export function FounderAccountabilitySection() {
   return (
-    <section className="relative overflow-hidden bg-[#171717] px-6 py-20 md:px-12 md:py-28">
+    <section className="relative overflow-hidden border-t border-black/[0.06] bg-white px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-6xl">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#E85D26] md:text-sm">
+          <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#B23E16] md:text-sm">
             The People Behind the Work
           </p>
-          <h2 className="font-display text-4xl leading-tight text-white md:text-5xl">
+          <h2 className="font-display text-4xl leading-tight text-[#1a202c] md:text-5xl">
             You’ll Know Who Is Building Your Website.
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl font-sans text-base leading-relaxed text-stone md:text-lg">
+          <p className="mx-auto mt-6 max-w-3xl font-sans text-base leading-relaxed text-[#1a202c]/70 md:text-lg">
             Graylock is led by Tim and Jared. From strategy and messaging through design,
             development, launch, and ongoing support, your website is handled by a real
             U.S.-based team that stays involved after it goes live.
@@ -41,7 +41,7 @@ export function FounderAccountabilitySection() {
         <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
           {FOUNDERS.map((founder, index) => (
             <ScrollReveal key={founder.name} delay={index * 0.1} className="h-full">
-              <article className="grid h-full grid-cols-[112px_1fr] overflow-hidden rounded-xl border border-white/[0.09] bg-[#101010] shadow-xl sm:grid-cols-[150px_1fr]">
+              <article className="grid h-full grid-cols-[112px_1fr] overflow-hidden rounded-xl border border-[#1a202c]/10 bg-[#F8F7F5] shadow-[0_18px_50px_rgba(26,32,44,0.09)] sm:grid-cols-[150px_1fr]">
                 <img
                   src={founder.image}
                   alt={`${founder.name}, ${founder.role}`}
@@ -50,11 +50,11 @@ export function FounderAccountabilitySection() {
                   decoding="async"
                 />
                 <div className="flex flex-col justify-center p-5 sm:p-7">
-                  <h3 className="font-display text-3xl text-white">{founder.name}</h3>
-                  <p className="mt-2 font-sans text-[11px] font-bold uppercase leading-relaxed tracking-[0.13em] text-[#E85D26]">
+                  <h3 className="font-display text-3xl text-[#1a202c]">{founder.name}</h3>
+                  <p className="mt-2 font-sans text-[11px] font-bold uppercase leading-relaxed tracking-[0.13em] text-[#B23E16]">
                     {founder.role}
                   </p>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-stone">
+                  <p className="mt-4 font-sans text-sm leading-relaxed text-[#1a202c]/70">
                     {founder.description}
                   </p>
                 </div>
@@ -66,7 +66,7 @@ export function FounderAccountabilitySection() {
         <ScrollReveal delay={0.15} className="mt-10 text-center">
           <Link
             href="/about"
-            className="inline-flex min-h-12 items-center font-sans text-sm font-semibold text-offwhite underline decoration-[#E85D26]/60 underline-offset-4 transition-colors hover:text-[#E85D26] focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26]"
+            className="inline-flex min-h-12 items-center font-sans text-sm font-semibold text-[#B23E16] underline decoration-[#B23E16]/45 underline-offset-4 transition-colors hover:text-[#E85D26] focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26]"
           >
             Meet the Graylock Team →
           </Link>
