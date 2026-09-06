@@ -1,0 +1,98 @@
+Update ONLY the top portion of the Graylock Digital homepage. Do not change other pages, do not redesign the entire site, and do not modify any homepage sections below the new Google review proof bar described below.
+
+IMPORTANT: Keep the existing “Entering Graylock Digital” intro sequence exactly as it is. Do not remove it, shorten it, restyle it, or change its behavior.
+
+GOAL
+Improve clarity and conversion in the homepage hero while preserving Graylock’s premium, custom, rugged visual style and existing design system.
+
+1. HERO CTA UPDATE
+
+In the homepage hero section only, replace the existing primary CTA text:
+
+“Book a Discovery Call”
+
+with:
+
+“Request a 15-Minute Discovery Call”
+
+Keep the CTA linked to the existing /get-started page.
+
+Directly beneath the primary CTA, add this supporting microcopy:
+
+“Tell us about your business. We’ll discuss your goals, then create a custom homepage direction before any build fee.”
+
+The microcopy should be visually subordinate to the CTA, easy to read, and not compete with the headline.
+
+2. ADD A SECONDARY HERO CTA
+
+Add a secondary CTA beside or directly below the primary CTA, depending on the existing responsive layout.
+
+Secondary CTA text:
+
+“See Real Client Websites”
+
+Link it to:
+
+/featured-projects
+
+Style this as a clear secondary action. It should be visibly clickable but less visually dominant than the orange primary CTA. Do not make it look like a plain, easily missed text link.
+
+3. ADD PRICE CLARITY UNDER THE HERO CTAS
+
+Below the CTA area, add this exact pricing qualifier:
+
+“Plans from $199/month. Build fees begin at $799 and are only paid after you approve your free homepage demo.”
+
+Use a smaller but readable style. It should reinforce transparency and lower risk without becoming a distracting headline.
+
+Do not claim that $199/month is the entire starting cost. Keep the build-fee language exactly clear.
+
+4. ADD A GOOGLE REVIEW PROOF BAR BELOW THE HERO
+
+Immediately after the hero section and before the current “Why Design Decides Everything” section, add a compact horizontal social-proof bar.
+
+Use this content:
+
+“5.0 on Google from 13 ratings”
+“Read our client reviews →”
+
+Make “Read our client reviews →” link to:
+
+https://www.google.com/maps/search/?api=1&query=Graylock%20Digital
+
+Do not use a Google logo, Google badge, “Google Guaranteed” badge, or any third-party badge graphic.
+
+The proof bar should feel polished, restrained, and credible. It should visually fit Graylock’s current dark, premium, high-contrast visual system. Use the existing brand colors, spacing, border treatments, and typography patterns where appropriate.
+
+5. MOBILE REQUIREMENTS
+
+On mobile, keep the order exactly as follows:
+
+1. Hero eyebrow
+2. Hero headline
+3. Hero supporting copy
+4. Primary CTA
+5. CTA microcopy
+6. Secondary CTA
+7. Price qualifier
+8. Google review proof bar
+
+Ensure the primary CTA and secondary CTA have large, comfortable tap targets. Do not let the hero CTA area become cramped, overly tall, or difficult to scan.
+
+6. SCOPE LIMITS
+
+For this prompt, do not:
+- Remove or alter the “Entering Graylock Digital” intro sequence.
+- Change the global navigation CTA.
+- Change homepage sections below the new Google proof bar.
+- Add testimonial cards yet.
+- Change pricing-page copy or pricing-page layout.
+- Add unverified client results, metrics, logos, or review badges.
+- Use Bobbie Wold’s name, review, quote, or business-result claim anywhere.
+
+After implementation, verify that:
+- The homepage hero still looks polished and on-brand.
+- Both hero CTAs work.
+- The Google review link works.
+- The layout is responsive on desktop and mobile.
+- No existing homepage functionality is broken.

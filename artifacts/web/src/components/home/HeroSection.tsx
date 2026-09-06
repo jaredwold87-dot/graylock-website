@@ -94,46 +94,56 @@ export function HeroSection() {
               We build custom, conversion-focused websites that show up on Google, earn trust in seconds, and turn visitors into booked appointments — live in 7–10 days.
             </p>
 
-            {/* Mobile-only sequence: proof image → CTA → reassurance */}
+            {/* Mobile CTA sequence intentionally mirrors the conversion brief:
+                primary → microcopy → secondary → pricing. */}
             <div className="md:hidden">
-              <div className="-mx-6">
-                <img
-                  src={heroMobileWillowDevices}
-                  alt="The Willow Realty Group website built by Graylock Digital, shown on a laptop and upright phone"
-                  className="w-full h-auto"
-                  loading="eager"
-                  decoding="async"
-                />
-                <p className="text-stone/90 font-sans text-xs text-center mt-1">
-                  A real website designed and built by Graylock Digital.
-                </p>
-              </div>
-
-              <div className="flex justify-center mt-8 mb-6">
+              <div className="mt-8">
                 <CTAButton
                   href="/get-started"
                   variant="funnel"
-                  className="w-full"
+                  className="w-full min-h-14 px-5"
                 >
-                  Book a Discovery Call
+                  Request a 15-Minute Discovery Call
                 </CTAButton>
               </div>
 
-              <p className="text-offwhite font-sans text-sm text-center leading-snug text-balance">
-                We'll show you exactly what your new site could look like — before you spend a dollar.
+              <p className="mt-4 text-stone font-sans text-sm text-center leading-relaxed text-balance">
+                Tell us about your business. We’ll discuss your goals, then create a custom
+                homepage direction before any build fee.
+              </p>
+
+              <CTAButton
+                href="/featured-projects"
+                variant="outline"
+                className="w-full min-h-14 px-5 mt-5"
+              >
+                See Real Client Websites
+              </CTAButton>
+
+              <p className="mt-5 text-stone/85 font-sans text-sm text-center leading-relaxed text-balance">
+                Plans from $199/month. Build fees begin at $799 and are only paid after you
+                approve your free homepage demo.
               </p>
             </div>
 
             {/* Tablet/desktop sequence */}
             <div className="hidden md:block">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <CTAButton href="/get-started" variant="funnel">
-                  Book a Discovery Call
+                  Request a 15-Minute Discovery Call
+                </CTAButton>
+                <CTAButton href="/featured-projects" variant="outline">
+                  See Real Client Websites
                 </CTAButton>
               </div>
 
-              <p className="text-stone/80 font-sans text-base">
-                We'll show you exactly what your new site could look like — before you spend a dollar.
+              <p className="mt-4 text-stone font-sans text-sm leading-relaxed max-w-xl">
+                Tell us about your business. We’ll discuss your goals, then create a custom
+                homepage direction before any build fee.
+              </p>
+              <p className="mt-4 text-stone/80 font-sans text-sm leading-relaxed max-w-xl">
+                Plans from $199/month. Build fees begin at $799 and are only paid after you
+                approve your free homepage demo.
               </p>
             </div>
           </ScrollReveal>
