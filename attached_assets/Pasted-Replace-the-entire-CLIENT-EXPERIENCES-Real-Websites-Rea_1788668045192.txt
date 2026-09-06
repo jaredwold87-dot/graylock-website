@@ -1,0 +1,177 @@
+Replace the entire “CLIENT EXPERIENCES / Real Websites. Real Business Owners.” testimonial section that was just added to the Graylock Digital homepage.
+
+IMPORTANT:
+- Keep the existing “Entering Graylock Digital” intro sequence exactly as it is.
+- Do not alter the homepage hero, hero CTAs, price qualifier, or Google review proof bar.
+- Do not change homepage sections below this testimonial section.
+- Do not use Bobbie Wold’s name, review, quote, image, business, or results claim anywhere.
+- Remove the existing three testimonial cards completely, including the weak short Francisca quote, the “never faced any pushback” Nijma quote, and all italic summary lines beneath the testimonials.
+- Do not use testimonial-summary copy that is not part of a real client quote.
+
+GOAL
+
+Rebuild this section so it feels like strong, credible client proof—not generic praise.
+
+The testimonials must show that Graylock:
+- Creates websites clients are genuinely proud of.
+- Understands a business owner’s vision.
+- Delivers a professional, clear, seamless process.
+- Is responsive, approachable, and easy to work with.
+- Provides a level of quality and value that clients would strongly recommend.
+
+SECTION CONTENT
+
+Eyebrow:
+
+“CLIENT EXPERIENCES”
+
+Headline:
+
+“Trusted By Business Owners Who Expect More From Their Website.”
+
+Supporting copy:
+
+“Custom work, clear communication, and a process built around your business—not a recycled template.”
+
+Do not use “Real Websites. Real Business Owners.” as the headline.
+
+TESTIMONIAL CARD SYSTEM
+
+Create three static testimonial cards in a responsive grid.
+
+Desktop:
+- Three equal-width columns.
+
+Tablet:
+- Two columns, with the third card centered or full-width below.
+
+Mobile:
+- One card per row.
+
+Do NOT use:
+- Auto-rotating carousels.
+- Sliders.
+- Fake testimonial copy.
+- Editorial summaries presented as if they are client quotes.
+- Generic stock portraits.
+- Google logos, badges, or unverified review widgets.
+- Client logos unless those assets are already approved and available.
+
+Each card must include:
+1. A restrained five-star visual treatment using the existing orange accent color.
+2. The exact approved client-review excerpt below.
+3. Client name.
+4. Client business or professional context.
+5. A small label identifying the client type.
+6. A small text link to the portfolio page.
+
+The testimonial quote should be the focal point of the card. Make it large enough to read easily and meaningful enough to occupy several lines. Do not let the reviewer attribution or decorative stars overpower the quote.
+
+TESTIMONIAL CARD 1 — INTERIOR FINISHES
+
+Use this exact quotation:
+
+“We couldn’t be happier with our new website! From start to finish, the entire process was professional, creative, and seamless.”
+
+Attribution:
+
+“Francisca Rangel”
+“Interior Finishes Cabinets and Design”
+“Local Service Business”
+
+Link text:
+
+“View Client Websites →”
+
+Link destination:
+
+/featured-projects
+
+This card should communicate that Graylock creates a custom website that reflects the business owner’s vision and makes the process feel easy.
+
+If an approved Interior Finishes project screenshot is already available in the existing project assets, use it subtly as supporting visual context. Do not use stock imagery if an approved asset is not available.
+
+TESTIMONIAL CARD 2 — COUNSELING PRACTICE
+
+Use this exact quotation:
+
+“Graylock created an amazing website for my new counseling practice that far surpassed my expectations. Tim was great to work with, as was Jameson. Timely responses and very approachable guys.”
+
+Attribution:
+
+“Stephen Jennings”
+“Counseling Practice”
+“Professional Practice”
+
+Link text:
+
+“See Client Websites →”
+
+Link destination:
+
+/featured-projects
+
+This card should communicate that Graylock understands high-trust professional practices and gives clients a responsive, human, easy-to-work-with experience.
+
+Do not use patient images, medical imagery, clinical claims, or any implication of patient outcomes.
+
+TESTIMONIAL CARD 3 — IANA
+
+Use this exact quotation:
+
+“Tim went above and beyond to ensure our site was the best version it could be. I would recommend this service 10/10 especially relative to their pricing as compared to similar services.”
+
+Attribution:
+
+“Nijma Yusuf”
+“IANA”
+“Association Website”
+
+Link text:
+
+“View Client Websites →”
+
+Link destination:
+
+/featured-projects
+
+Do not mention:
+- “Multiple rounds of edits”
+- “Questions”
+- “Pushback”
+- “Customer for life”
+
+The point of this card is exceptional effort, quality, and strong value—not revisions or project friction.
+
+VISUAL AND COPY REQUIREMENTS
+
+- Use the existing Graylock Digital dark, premium, high-contrast visual system.
+- Keep orange accent usage restrained and intentional.
+- Use static cards with clear borders, subtle texture, or controlled depth so they feel like substantial proof, not generic SaaS testimonial components.
+- Do not use italic editorial summary copy below any testimonial.
+- Do not add commentary that is not from a client review.
+- Do not add a quote shorter than two meaningful sentences unless it is being used as a compact supporting proof element elsewhere.
+- Keep quotation marks consistent and professionally styled.
+- Ensure all cards have aligned visual rhythm, even with different quote lengths.
+- If card heights differ, use layout spacing that makes the difference look intentional rather than broken.
+
+SECTION PLACEMENT
+
+Place this rebuilt testimonial section immediately below the Google review proof bar and immediately above the existing “Why Design Decides Everything” section.
+
+ACCESSIBILITY REQUIREMENTS
+
+- Keep testimonials as selectable HTML text, never embedded in images.
+- Maintain strong color contrast.
+- Ensure portfolio links have visible hover and keyboard-focus states.
+- Mark decorative stars so they do not create repetitive or confusing screen-reader output.
+
+AFTER IMPLEMENTATION, VERIFY
+
+- The old testimonial section and its weak quotes are completely removed.
+- The new testimonial section uses only the three exact quotes provided above.
+- Francisca Rangel, Stephen Jennings, and Nijma Yusuf are spelled correctly.
+- All three portfolio links work and route to /featured-projects.
+- The desktop layout is a balanced three-card grid.
+- The mobile layout stacks cleanly with readable spacing.
+- No content below this testimonial section has been changed.

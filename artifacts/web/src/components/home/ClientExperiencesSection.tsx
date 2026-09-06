@@ -4,43 +4,40 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const TESTIMONIALS = [
   {
-    quote: "We couldn’t be happier with our new website!",
+    quote:
+      "We couldn’t be happier with our new website! From start to finish, the entire process was professional, creative, and seamless.",
     name: "Francisca Rangel",
     business: "Interior Finishes Cabinets and Design",
     context: "Local Service Business",
-    summary: "Professional, creative, and seamless from start to finish.",
-    linkLabel: "View Our Portfolio →",
+    linkLabel: "View Client Websites →",
   },
   {
     quote:
-      "Graylock created an amazing website for my new counseling practice that far surpassed my expectations.",
+      "Graylock created an amazing website for my new counseling practice that far surpassed my expectations. Tim was great to work with, as was Jameson. Timely responses and very approachable guys.",
     name: "Stephen Jennings",
     business: "Counseling Practice",
     context: "Professional Practice",
-    summary: "Timely, approachable, and easy to work with.",
     linkLabel: "See Client Websites →",
   },
   {
     quote:
-      "I sent over multiple rounds of edits and questions and never faced any pushback.",
+      "Tim went above and beyond to ensure our site was the best version it could be. I would recommend this service 10/10 especially relative to their pricing as compared to similar services.",
     name: "Nijma Yusuf",
     business: "IANA",
     context: "Association Website",
-    summary:
-      "Thorough collaboration, thoughtful revisions, and a website built around the client’s vision.",
-    linkLabel: "View Our Portfolio →",
+    linkLabel: "View Client Websites →",
   },
 ] as const;
 
 export function ClientExperiencesSection() {
   return (
-    <section className="relative overflow-hidden bg-[#101010] px-6 py-20 md:px-12 md:py-28">
+    <section className="relative overflow-hidden bg-white px-6 py-20 md:px-12 md:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-50"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
+            "radial-gradient(circle at 1px 1px, rgba(26,32,44,0.055) 1px, transparent 0)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -54,12 +51,12 @@ export function ClientExperiencesSection() {
           <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.22em] text-[#E85D26] md:text-sm">
             Client Experiences
           </p>
-          <h2 className="font-display text-4xl leading-tight text-white md:text-5xl">
-            Real Websites. Real Business Owners.
+          <h2 className="font-display text-4xl leading-tight text-[#1a202c] md:text-5xl">
+            Trusted By Business Owners Who Expect More From Their Website.
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-stone md:text-lg">
-            Graylock builds custom websites for businesses that need to earn trust quickly,
-            communicate clearly, and give the right clients a reason to reach out.
+          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-[#1a202c]/70 md:text-lg">
+            Custom work, clear communication, and a process built around your business—not a
+            recycled template.
           </p>
         </ScrollReveal>
 
@@ -70,8 +67,8 @@ export function ClientExperiencesSection() {
               delay={index * 0.08}
               className="h-full"
             >
-              <article className="flex h-full min-h-[390px] flex-col rounded-xl border border-white/[0.09] bg-[#171717] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition-colors duration-300 hover:border-[#E85D26]/35 md:p-8">
-                <div className="flex items-center gap-1 text-[#E85D26]" aria-hidden="true">
+              <article className="flex h-full min-h-[420px] flex-col rounded-xl border border-[#1a202c]/10 bg-[#F8F7F5] p-7 shadow-[0_18px_50px_rgba(26,32,44,0.09)] transition-colors duration-300 hover:border-[#E85D26]/45 md:p-8">
+                <div className="flex items-center gap-1 text-[#B23E16]" aria-hidden="true">
                   {Array.from({ length: 5 }).map((_, starIndex) => (
                     <Star
                       key={starIndex}
@@ -82,27 +79,24 @@ export function ClientExperiencesSection() {
                   ))}
                 </div>
 
-                <blockquote className="mt-7 font-sans text-xl font-medium leading-relaxed text-offwhite">
+                <blockquote className="mt-7 font-sans text-xl font-medium leading-relaxed text-[#1a202c]">
                   “{testimonial.quote}”
                 </blockquote>
 
                 <div className="mt-auto pt-8">
                   <div className="mb-5 h-px w-10 bg-[#E85D26]/70" aria-hidden="true" />
-                  <p className="font-sans text-base font-semibold text-white">
+                  <p className="font-sans text-base font-semibold text-[#1a202c]">
                     {testimonial.name}
                   </p>
-                  <p className="mt-1 font-sans text-sm leading-snug text-offwhite/75">
+                  <p className="mt-1 font-sans text-sm leading-snug text-[#1a202c]/70">
                     {testimonial.business}
                   </p>
-                  <p className="mt-2 font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-[#E85D26]">
+                  <p className="mt-2 font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-[#B23E16]">
                     {testimonial.context}
-                  </p>
-                  <p className="mt-4 font-sans text-sm italic leading-relaxed text-stone">
-                    {testimonial.summary}
                   </p>
                   <Link
                     href="/featured-projects"
-                    className="mt-6 inline-flex min-h-11 items-center font-sans text-sm font-semibold text-offwhite underline decoration-[#E85D26]/60 underline-offset-4 transition-colors hover:text-[#E85D26] focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26]"
+                    className="mt-6 inline-flex min-h-11 items-center font-sans text-sm font-semibold text-[#B23E16] underline decoration-[#B23E16]/45 underline-offset-4 transition-colors hover:text-[#E85D26] focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26]"
                   >
                     {testimonial.linkLabel}
                   </Link>
