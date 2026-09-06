@@ -5,7 +5,7 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
-import advantageTransformation from "@/assets/work/advantage-transformation.webp";
+import atlasAnesthesiaTransformation from "@/assets/work/atlas-anesthesia-transformation.webp";
 import {
   Eye,
   TrendingUp,
@@ -579,9 +579,10 @@ export default function WebsiteDesignOverview() {
 
       {/* What we deliver */}
       <WhatWeDeliverSection
-        imageSrc={advantageTransformation}
-        imageAlt="Advantage Home Improvement website built by Graylock, shown in a desktop browser."
+        imageSrc={atlasAnesthesiaTransformation}
+        imageAlt="Atlas Anesthesia website built by Graylock, shown in a desktop browser."
         framed
+        frameUrl="atlasanesthesia.co"
       />
 
       <TopicSection
