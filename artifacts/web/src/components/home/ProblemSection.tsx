@@ -23,15 +23,15 @@ export function ProblemSection() {
   ];
 
   return (
-    <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 relative overflow-hidden border-t border-white/5">
+    <section className="bg-white py-24 px-6 md:px-12 relative overflow-hidden border-t border-black/[0.06]">
       <div className="max-w-6xl mx-auto">
 
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">The Problem With Most Service Business Websites</p>
-          <h2 className="text-3xl md:text-5xl font-display text-white mb-6">
+          <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">The Problem With Most Service Business Websites</p>
+          <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">
             You Run a Professional Business. Your Website Should Look Like It.
           </h2>
-          <p className="text-stone text-lg font-sans leading-relaxed">
+          <p className="text-[#1a202c]/70 text-lg font-sans leading-relaxed">
             Potential clients judge the quality of your service by the quality of your site before they ever speak to you. If the two don't match, they don't reach out.
           </p>
         </ScrollReveal>
