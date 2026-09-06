@@ -112,10 +112,15 @@ const featuredProjects: FeaturedProject[] = [
       "Services & process presentation",
       "Mobile-responsive build",
     ],
-    placeholder: {
-      name: "Interior Finishes",
-      role: "Northern Nevada & Northern California",
-      note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    testimonial: {
+      quote: [
+        "We couldn’t be happier with our new website! From start to finish, the entire process was professional, creative, and seamless. Tim and his team did an amazing job taking our vision for Interior Finishes Cabinets and Design and turning it into a website that truly represents our brand.",
+        "The new site looks modern, sophisticated, and professional, while showcasing our cabinetry and design work beautifully. We especially love how clean and easy to navigate it is, and the attention to detail throughout the entire website is incredible.",
+        "It’s clear that they took the time to understand our business and what we wanted to communicate to our clients. We feel like our new website finally reflects the quality of the work we provide.",
+        "We highly recommend them to anyone looking for a talented, professional, and creative website designer. Thank you for giving our business a website we’re truly proud to share!",
+      ],
+      name: "Francisca Rangel",
+      role: "Interior Finishes Cabinets & Design",
     },
   },
   {

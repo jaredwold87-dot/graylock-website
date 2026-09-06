@@ -1,25 +1,11 @@
-import { ArrowRight } from "lucide-react";
-import { Link } from "wouter";
+import { ExternalLink, Quote, Star } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackCabinetMakerEvent } from "@/lib/cabinetMakerAnalytics";
 
 /**
- * "The Standard We Build Toward" (spec §4.6) — TEMPORARY pre-project state.
- *
- * The spec forbids fabricating a client case study before the real featured
- * cabinet-maker project exists, so this section ships as the simple
- * placeholder block only (eyebrow, H2, body, portfolio CTA).
- *
- * SWAP-IN (when Graylock supplies the real project): replace this section's
- * body with the featured-project module —
- *   [CLIENT NAME]
- *   [PRIMARY SERVICE] · [CITY / REGION]
- *   One 2–3 sentence factual description of the site's visual approach,
- *   portfolio strategy, and conversion paths (no invented outcomes).
- *   "VISIT THE LIVE SITE →" linking to the approved public URL,
- *   a real device mockup, and 2–3 supporting project imagery tiles.
- * Include no performance claims without measurement proof and permission.
- * The demo CTA for that state uses cabinetMakerGetStartedHref("portfolio").
+ * Real cabinet and design project proof. The review below is reproduced from
+ * the customer-provided Google review capture; no performance outcomes are
+ * inferred from it.
  */
 export function CabinetMakerFeaturedProjectSection() {
   return (
@@ -37,21 +23,26 @@ export function CabinetMakerFeaturedProjectSection() {
           backgroundSize: "26px 26px",
         }}
       />
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.88fr_1.12fr] gap-10 lg:gap-16 items-center">
         <ScrollReveal>
           <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
-            The Standard We Build Toward
+            Featured Cabinet &amp; Design Project
           </p>
-          <h2 className="text-3xl md:text-5xl font-display text-white leading-tight mb-6">
-            A Cabinet-Maker Website Should Look as Considered as the Work Behind It.
+          <h2 className="text-4xl md:text-5xl font-display text-white leading-tight mb-3">
+            Interior Finishes
           </h2>
-          <p className="text-stone font-sans text-lg leading-relaxed mb-9 max-w-2xl mx-auto">
-            A strong website is not about making the business look flashy. It is about helping
-            the right prospect see the quality of your work, understand the kinds of projects
-            you take on, and feel confident starting the conversation.
+          <p className="text-offwhite/65 font-sans text-sm font-semibold uppercase tracking-[0.14em] mb-6">
+            Cabinets &amp; Design · Northern Nevada &amp; Northern California
           </p>
-          <Link
-            href="/featured-projects"
+          <p className="text-stone font-sans text-lg leading-relaxed mb-8">
+            We created an elevated, design-forward website that showcases the quality of
+            Interior Finishes’ cabinetry and interior work, explains its services clearly,
+            and gives inspired homeowners a direct path to request a consultation.
+          </p>
+          <a
+            href="https://www.interiorfinishesreno.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() =>
               trackCabinetMakerEvent("cabinet_maker_featured_project_click", {
                 cta_placement: "portfolio",
@@ -59,9 +50,55 @@ export function CabinetMakerFeaturedProjectSection() {
             }
             className="cta-shimmer inline-flex items-center justify-center gap-2 font-sans font-semibold tracking-wide px-8 py-4 rounded transition-all duration-300 border-2 border-[#E85D26] text-[#E85D26] hover:bg-[#E85D26] hover:text-white bg-transparent hover:shadow-[0_4px_20px_rgba(232,93,38,0.25)]"
           >
-            View Our Portfolio
-            <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+            Visit the Live Site
+            <ExternalLink size={16} aria-hidden="true" />
+          </a>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1}>
+          <figure className="relative rounded-2xl border border-white/[0.09] bg-black/35 p-7 md:p-10 shadow-2xl">
+            <Quote
+              size={34}
+              className="text-[#E85D26]/70 mb-6"
+              aria-hidden="true"
+            />
+            <div
+              className="flex items-center gap-1 text-[#F9C440] mb-5"
+              aria-label="5 out of 5 stars"
+            >
+              {Array.from({ length: 5 }).map((_, index) => (
+                <Star key={index} size={18} fill="currentColor" strokeWidth={1.5} />
+              ))}
+            </div>
+            <blockquote className="font-sans text-offwhite text-base md:text-[17px] leading-relaxed">
+              <p className="mb-4">
+                “We couldn’t be happier with our new website! From start to finish, the
+                entire process was professional, creative, and seamless. Tim and his team
+                did an amazing job taking our vision for Interior Finishes Cabinets and
+                Design and turning it into a website that truly represents our brand.”
+              </p>
+              <p className="mb-4">
+                “The new site looks modern, sophisticated, and professional, while
+                showcasing our cabinetry and design work beautifully. We especially love
+                how clean and easy to navigate it is, and the attention to detail
+                throughout the entire website is incredible.”
+              </p>
+              <p className="mb-4">
+                “It’s clear that they took the time to understand our business and what we
+                wanted to communicate to our clients. We feel like our new website finally
+                reflects the quality of the work we provide.”
+              </p>
+              <p>
+                “We highly recommend them to anyone looking for a talented, professional,
+                and creative website designer. Thank you for giving our business a website
+                we’re truly proud to share!”
+              </p>
+            </blockquote>
+            <figcaption className="mt-7 pt-6 border-t border-white/[0.08]">
+              <p className="font-sans font-semibold text-white">Francisca Rangel</p>
+              <p className="font-sans text-sm text-stone mt-1">5-star Google Review</p>
+            </figcaption>
+          </figure>
         </ScrollReveal>
       </div>
     </section>

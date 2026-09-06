@@ -20,8 +20,9 @@ const META_DESCRIPTION =
   "Graylock builds custom cabinet-maker websites that showcase premium work, improve local visibility, and turn project interest into design consultations and quote requests. Request a free custom homepage demo.";
 
 // WebPage + Service schema (spec §5); FAQPage main entity mirrors only the
-// FAQ visibly rendered on this page. No review/testimonial schema until a
-// genuine approved testimonial exists.
+// FAQ visibly rendered on this page. The approved customer review is visibly
+// attributed on-page but intentionally not emitted as self-serving Review
+// structured data.
 const CABINET_MAKER_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
