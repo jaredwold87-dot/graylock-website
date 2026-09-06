@@ -13,7 +13,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Graylock created an amazing website for my new counseling practice that far surpassed my expectations. Tim was great to work with, as was Jameson. Timely responses and very approachable guys.",
+      "Graylock created an amazing website for my new counseling practice that far surpassed my expectations. Tim was great to work with. Timely responses and very approachable guys.",
     name: "Stephen Jennings",
     business: "Counseling Practice",
     context: "Professional Practice",
