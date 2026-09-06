@@ -1,6 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { HeroSection } from "@/components/home/HeroSection";
 import { GoogleReviewProofBar } from "@/components/home/GoogleReviewProofBar";
+import { ClientExperiencesSection } from "@/components/home/ClientExperiencesSection";
 import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
 import { TrustBar } from "@/components/home/TrustBar";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
@@ -20,6 +21,7 @@ export default function Home() {
       />
       <HeroSection />
       <GoogleReviewProofBar />
+      <ClientExperiencesSection />
       <TrustBar />
       <ProblemSection />
       <WhatWeDeliverSection />

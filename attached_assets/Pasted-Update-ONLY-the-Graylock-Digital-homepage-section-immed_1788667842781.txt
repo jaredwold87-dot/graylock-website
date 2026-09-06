@@ -1,0 +1,173 @@
+Update ONLY the Graylock Digital homepage section immediately below the Google review proof bar added in the prior update.
+
+IMPORTANT:
+- Keep the existing “Entering Graylock Digital” intro sequence exactly as it is.
+- Do not alter the hero, hero CTAs, hero pricing qualifier, or Google review proof bar from the prior update.
+- Do not remove, rewrite, move, or restyle the existing “Why Design Decides Everything” statistics section yet.
+- Do not change other pages.
+- Do not use Bobbie Wold’s name, review, quote, image, or business-result claim anywhere.
+
+GOAL
+
+Add a polished, static testimonial section between the Google review proof bar and the existing “Why Design Decides Everything” section.
+
+This section should give visitors immediate proof that real business owners in relevant industries have had a strong experience working with Graylock. It should feel credible, premium, concise, and visually consistent with Graylock’s existing dark, rugged, high-contrast visual style.
+
+SECTION CONTENT
+
+Use this section eyebrow:
+
+“CLIENT EXPERIENCES”
+
+Use this headline:
+
+“Real Websites. Real Business Owners.”
+
+Use this supporting copy:
+
+“Graylock builds custom websites for businesses that need to earn trust quickly, communicate clearly, and give the right clients a reason to reach out.”
+
+TESTIMONIAL CARD SYSTEM
+
+Create three static testimonial cards in a responsive grid.
+
+Desktop:
+- Three columns when space allows.
+
+Tablet:
+- Two columns, with the third card centered or full-width below if needed.
+
+Mobile:
+- One card per row.
+
+Do NOT use:
+- An auto-rotating carousel.
+- A slider that hides testimonials.
+- Fake star counts.
+- Generic stock portraits.
+- Google logos or Google badges.
+- Client logos unless they already exist in the site assets and are approved for use.
+
+Each card should include:
+1. A subtle five-star visual treatment using Graylock’s existing accent color. This should be a design element, not a claim of a Google rating within each card.
+2. The testimonial quote.
+3. The reviewer’s name.
+4. The client business or context.
+5. An optional small contextual label, such as “Professional Practice,” “Local Service Business,” or “Association Website.”
+
+TESTIMONIAL CARD 1 — INTERIOR FINISHES
+
+Use this exact quote:
+
+“We couldn’t be happier with our new website!”
+
+Attribution:
+
+“Francisca Rangel”
+“Interior Finishes Cabinets and Design”
+“Local Service Business”
+
+Add a small secondary text line beneath the attribution:
+
+“Professional, creative, and seamless from start to finish.”
+
+This is a summary of the public review theme, not part of the quoted testimonial. Style it differently from the quotation so it is not presented as a direct quote.
+
+Add a small text link or secondary CTA:
+
+“View Our Portfolio →”
+
+Link it to:
+
+/featured-projects
+
+If a current approved Interior Finishes website screenshot already exists in the project assets, use it as a subtle card visual or background detail. If not, do not use stock imagery. Use the card design, typography, and accent treatment instead.
+
+TESTIMONIAL CARD 2 — COUNSELING PRACTICE
+
+Use this exact quote:
+
+“Graylock created an amazing website for my new counseling practice that far surpassed my expectations.”
+
+Attribution:
+
+“Stephen Jennings”
+“Counseling Practice”
+“Professional Practice”
+
+Add a small secondary text line beneath the attribution:
+
+“Timely, approachable, and easy to work with.”
+
+This is a summary of the public review theme, not part of the direct quote.
+
+Add a small text link or secondary CTA:
+
+“See Client Websites →”
+
+Link it to:
+
+/featured-projects
+
+Do not use healthcare imagery, patient imagery, or clinical claims. Keep this card focused on the professional website experience and client service.
+
+TESTIMONIAL CARD 3 — IANA
+
+Use this exact quote:
+
+“I sent over multiple rounds of edits and questions and never faced any pushback.”
+
+Attribution:
+
+“Nijma Yusuf”
+“IANA”
+“Association Website”
+
+Add a small secondary text line beneath the attribution:
+
+“Thorough collaboration, thoughtful revisions, and a website built around the client’s vision.”
+
+This is a summary of the public review theme, not part of the direct quote.
+
+Add a small text link or secondary CTA:
+
+“View Our Portfolio →”
+
+Link it to:
+
+/featured-projects
+
+VISUAL DIRECTION
+
+- Maintain the current Graylock Digital design language: dark background, high contrast, restrained orange accent usage, strong typography, premium spacing, and subtle rugged/topographic texture only if it already exists in the system.
+- Make the quotations easy to read. Do not use oversized quotation marks that overpower the text.
+- Use visible but restrained card borders, shadows, dividers, or texture so cards feel intentional and substantial.
+- The cards must not look like generic SaaS testimonial components.
+- Avoid placing too much text in each card. Keep cards visually balanced despite varying quote lengths.
+- Ensure the card grid does not create awkward uneven heights on desktop. Use a layout that feels aligned and controlled.
+
+ACCESSIBILITY REQUIREMENTS
+
+- Keep all testimonial text as selectable HTML text, not embedded inside images.
+- Maintain accessible color contrast.
+- Ensure any links have clear hover and keyboard-focus states.
+- Use descriptive labels for any decorative star treatment if it is announced to assistive technology, or mark purely decorative stars appropriately.
+
+SCOPE LIMITS
+
+For this prompt, do not:
+- Remove or modify the “Entering Graylock Digital” intro sequence.
+- Change the hero section, hero CTA copy, price qualifier, or Google proof bar.
+- Change the “Why Design Decides Everything” statistics section.
+- Add the Kingsbury Chiropractic review yet, because its full approved quote has not been finalized.
+- Change the portfolio page.
+- Add client logos, photos, or project visuals unless approved assets already exist in the project.
+- Add performance claims, lead-generation claims, rankings claims, or numerical results.
+- Add a testimonial carousel.
+
+After implementation, verify:
+- The testimonial section appears immediately below the Google review proof bar.
+- The three testimonial cards display correctly on desktop, tablet, and mobile.
+- Every testimonial name, business/context label, and quote is spelled exactly as provided.
+- All portfolio links route to /featured-projects.
+- The testimonial section does not break or restyle surrounding homepage sections.
