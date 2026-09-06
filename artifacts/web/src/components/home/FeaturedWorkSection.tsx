@@ -5,7 +5,7 @@ import mobileWebsite from "@/assets/interior-finishes-mobile.webp";
 
 export function FeaturedWorkSection() {
   return (
-    <section className="relative overflow-hidden bg-[#111111] px-6 py-20 md:px-12 md:py-28">
+    <section className="relative overflow-hidden bg-[#111111] px-6 py-14 md:px-12 md:py-[4.5rem]">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-60"

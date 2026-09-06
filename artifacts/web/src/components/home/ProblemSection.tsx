@@ -23,7 +23,7 @@ export function ProblemSection() {
   ];
 
   return (
-    <section className="bg-white py-24 px-6 md:px-12 relative overflow-hidden border-t border-black/[0.06]">
+    <section className="bg-white pt-14 pb-24 px-6 md:px-12 md:pt-[4.5rem] md:pb-24 relative overflow-hidden border-t border-black/[0.06]">
       <div className="max-w-6xl mx-auto">
 
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">

@@ -31,7 +31,7 @@ const TESTIMONIALS = [
 
 export function ClientExperiencesSection() {
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-20 md:px-12 md:py-28">
+    <section className="relative overflow-hidden bg-white px-6 pt-20 pb-14 md:px-12 md:pt-28 md:pb-[4.5rem]">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-50"

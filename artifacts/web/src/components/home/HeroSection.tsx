@@ -76,7 +76,7 @@ export function HeroSection() {
           loading="eager"
           decoding="async"
         />
-        <p className="mt-2 text-center text-stone/80 font-sans text-xs tracking-wide">
+        <p className="mt-3 text-center text-offwhite/90 font-sans text-sm tracking-wide">
           A real website designed and built by Graylock Digital.
         </p>
       </div>
@@ -94,8 +94,7 @@ export function HeroSection() {
               We build custom, conversion-focused websites that show up on Google, earn trust in seconds, and turn visitors into booked appointments — live in 7–10 days.
             </p>
 
-            {/* Mobile CTA sequence intentionally mirrors the conversion brief:
-                primary → microcopy → secondary → pricing. */}
+            {/* Mobile CTA sequence: primary → secondary → microcopy → pricing. */}
             <div className="md:hidden">
               <div className="mt-8">
                 <CTAButton
@@ -107,23 +106,24 @@ export function HeroSection() {
                 </CTAButton>
               </div>
 
-              <p className="mt-4 text-stone font-sans text-sm text-center leading-relaxed text-balance">
-                Tell us about your business. We’ll discuss your goals, then create a custom
-                homepage direction before any build fee.
-              </p>
-
               <CTAButton
                 href="/featured-projects"
                 variant="outline"
-                className="w-full min-h-14 px-5 mt-5"
+                className="w-full min-h-14 px-5 mt-4"
               >
                 See Real Client Websites
               </CTAButton>
 
-              <p className="mt-5 text-stone/85 font-sans text-sm text-center leading-relaxed text-balance">
-                Plans from $199/month. Build fees begin at $799 and are only paid after you
-                approve your free homepage demo.
-              </p>
+              <div className="mt-7 rounded-lg bg-black/30 px-4 py-3.5 backdrop-blur-[2px]">
+                <p className="text-offwhite/95 font-sans text-[15px] text-center leading-relaxed text-balance">
+                  Tell us about your business. We’ll discuss your goals, then create a custom
+                  homepage direction before any build fee.
+                </p>
+                <p className="mt-3 text-offwhite/85 font-sans text-[15px] text-center leading-relaxed text-balance">
+                  Plans from $199/month. Build fees begin at $799 and are only paid after you
+                  approve your free homepage demo.
+                </p>
+              </div>
             </div>
 
             {/* Tablet/desktop sequence */}
@@ -137,14 +137,16 @@ export function HeroSection() {
                 </CTAButton>
               </div>
 
-              <p className="mt-4 text-stone font-sans text-sm leading-relaxed max-w-xl">
-                Tell us about your business. We’ll discuss your goals, then create a custom
-                homepage direction before any build fee.
-              </p>
-              <p className="mt-4 text-stone/80 font-sans text-sm leading-relaxed max-w-xl">
-                Plans from $199/month. Build fees begin at $799 and are only paid after you
-                approve your free homepage demo.
-              </p>
+              <div className="mt-7 max-w-xl rounded-lg bg-black/25 px-4 py-3.5 backdrop-blur-[2px]">
+                <p className="text-offwhite/95 font-sans text-base leading-relaxed">
+                  Tell us about your business. We’ll discuss your goals, then create a custom
+                  homepage direction before any build fee.
+                </p>
+                <p className="mt-3 text-offwhite/85 font-sans text-base leading-relaxed">
+                  Plans from $199/month. Build fees begin at $799 and are only paid after you
+                  approve your free homepage demo.
+                </p>
+              </div>
             </div>
           </ScrollReveal>
         </div>

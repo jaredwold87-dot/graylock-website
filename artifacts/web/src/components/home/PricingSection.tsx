@@ -159,7 +159,7 @@ export function PricingSection({ hideHeader = false, hidePlanCallout = false }: 
                 variant={tier.popular ? 'primary' : 'outline'}
                 className="w-full"
               >
-                {PLAN_CTA_LABELS[tier.name] || 'Book a Discovery Call'}
+                {PLAN_CTA_LABELS[tier.name] || 'Request a 15-Minute Discovery Call'}
               </CTAButton>
               {tier.isCustom && (
                 <p className={cn(

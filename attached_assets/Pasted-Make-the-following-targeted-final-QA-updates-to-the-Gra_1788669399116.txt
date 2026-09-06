@@ -1,0 +1,124 @@
+Make the following targeted final QA updates to the Graylock Digital website.
+
+IMPORTANT SCOPE RULES:
+- Keep the existing “Entering Graylock Digital” intro sequence exactly as it is.
+- Do not redesign the homepage.
+- Do not remove or rewrite the hero headline, Google review proof bar, testimonial section, Featured Work section, process section, FAQ section, founder section, final CTA, or footer navigation.
+- Do not add new homepage sections.
+- Do not use Bobbie Wold’s name, review, image, quote, or results claim anywhere.
+- Preserve the current dark, premium, rugged/topographic Graylock visual system.
+- Do not introduce new unverified performance, lead, ranking, traffic, revenue, accessibility, or compliance claims.
+
+--------------------------------------------------
+1. STANDARDIZE THE DISCOVERY-CALL CTA LANGUAGE SITEWIDE
+--------------------------------------------------
+
+The website currently uses both:
+- “Book a Discovery Call”
+- “Request a 15-Minute Discovery Call”
+
+This is inconsistent because the destination is a request form, not an instant calendar booking flow.
+
+Replace every user-facing instance of:
+
+“Book a Discovery Call”
+
+with:
+
+“Request a 15-Minute Discovery Call”
+
+Apply this everywhere it appears, including:
+- Main navigation CTA
+- Mobile navigation CTA
+- Homepage sticky navigation CTA
+- Any footer CTA
+- Any page-level CTA
+- The `/get-started` page browser title / SEO title
+- Any related heading, button, metadata, or accessible label that still uses “Book a Discovery Call”
+
+Keep the CTA destination as:
+
+/get-started
+
+Do not change existing homepage CTA text that already says “Request a 15-Minute Discovery Call.”
+
+After updating, search the entire project to confirm there are no remaining user-facing instances of “Book a Discovery Call.”
+
+--------------------------------------------------
+2. IMPROVE HERO DISCLOSURE READABILITY
+--------------------------------------------------
+
+On the homepage hero, keep the existing CTA buttons and exact copy, but improve the readability of the two lines beneath the buttons:
+
+“Tell us about your business. We’ll discuss your goals, then create a custom homepage direction before any build fee.”
+
+“Plans from $199/month. Build fees begin at $799 and are only paid after you approve your free homepage demo.”
+
+These lines are currently too small and low-contrast against the detailed dark topographic hero background.
+
+Make these improvements:
+- Increase the font size slightly on desktop and mobile.
+- Increase text contrast so the text is comfortably readable.
+- Add more vertical spacing between the CTA buttons, microcopy, and price qualifier.
+- Preserve the visual hierarchy: primary CTA first, secondary CTA second, then microcopy, then price qualifier.
+- If necessary, place only the microcopy and pricing text on a subtle dark translucent background or simplified background area. Do not create a large card or visually heavy panel.
+- Keep the existing hero visual, headline, device mockups, and CTA button styles unchanged.
+
+Also improve the readability of this small caption beneath the hero project image:
+
+“A real website designed and built by Graylock Digital.”
+
+Either:
+- Increase its contrast and font size enough to make it readable, or
+- Remove it completely if it cannot be made readable without distracting from the hero.
+
+--------------------------------------------------
+3. TIGHTEN SPACING BETWEEN PROOF SECTIONS
+--------------------------------------------------
+
+Keep all existing content and section order exactly as it is.
+
+Only reduce unnecessary blank vertical space in these two locations:
+
+A. The gap after the white CLIENT EXPERIENCES testimonial section and before the dark FEATURED WORK section.
+
+B. The gap after the FEATURED WORK section and before the following “THE PROBLEM WITH MOST SERVICE BUSINESS WEBSITES” section.
+
+Reduce each of these gaps by approximately 30–40%.
+
+Do not make the page cramped. Preserve comfortable internal section spacing and the premium feel. The goal is simply to make the proof sequence feel more connected and keep scroll momentum moving.
+
+--------------------------------------------------
+4. REPLACE THE FOOTER ACCESSIBILITY / COMPLIANCE CLAIM
+--------------------------------------------------
+
+Find the footer statement that currently says Graylock websites:
+
+“meet WCAG 2.1 AA accessibility standards”
+
+Remove that sentence and replace the full accessibility/compliance statement with this exact copy:
+
+“Graylock builds websites with accessibility and current web standards in mind. Final compliance requirements should be reviewed with the appropriate professional for your business and industry.”
+
+Requirements:
+- Keep this statement in the footer location.
+- Increase its font size and contrast slightly so it is readable on the dark footer background.
+- Keep it visually subordinate to the main footer navigation.
+- Do not state or imply that every Graylock website is WCAG compliant, legally compliant, HIPAA compliant, ADA compliant, or compliant with any specific regulation unless that claim has been independently verified.
+- Do not change the rest of the footer navigation or links.
+
+--------------------------------------------------
+5. FINAL TECHNICAL CHECKS
+--------------------------------------------------
+
+After making the updates, verify:
+
+- The “Entering Graylock Digital” intro still functions exactly as it did before.
+- All primary CTAs consistently read “Request a 15-Minute Discovery Call.”
+- All primary discovery CTAs still route to `/get-started`.
+- No “Book a Discovery Call” text remains anywhere in visible UI, titles, metadata, buttons, menus, or accessible labels.
+- The hero microcopy and pricing qualifier are clearly readable on desktop and mobile.
+- The testimonial section, Featured Work section, and following problem section have tighter but still premium spacing.
+- The footer accessibility/compliance statement uses the exact replacement copy above.
+- The Interior Finishes external CTA still opens in a new tab and retains `rel="noopener noreferrer"`.
+- No existing links, functionality, responsiveness, or visual styling outside this scope are broken.

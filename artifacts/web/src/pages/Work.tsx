@@ -9,7 +9,6 @@ import spiTransformation from "@/assets/work/spi-transformation.webp";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
 import emboxedTransformation from "@/assets/work/emboxed-transformation.webp";
 import kingsburyTransformation from "@/assets/work/kingsbury-transformation.webp";
-import montanaTransformation from "@/assets/work/montana-transformation.webp";
 import wceTransformation from "@/assets/work/wce-transformation.webp";
 import smartTaxCrnaTransformation from "@/assets/work/smart-tax-crna-transformation.webp";
 import oliveCreekTransformation from "@/assets/work/olive-creek-transformation.webp";
@@ -310,29 +309,6 @@ const featuredProjects: FeaturedProject[] = [
     },
   },
   {
-    name: "Montana Counseling Solutions",
-    category: "Counseling & Therapy",
-    location: "Kalispell, MT",
-    description:
-      "A warm, compassionate site for a child and teen therapy practice — built to put anxious families at ease and route them straight to a free consultation.",
-    image: montanaTransformation,
-    url: "https://mtcounselingsolutions.com/",
-    theme: "light",
-    delivered: [
-      "Free consultation booking",
-      "Warm, trust-building design",
-      "Clear service navigation",
-      "Mobile-responsive build",
-    ],
-    testimonial: {
-      quote: [
-        "The Graylock Digital team did an amazing job on my new website, and I've already seen an increase in new client inquiries since it launched. Tim has been wonderful to work with throughout the process. He's incredibly knowledgeable, responsive, and always willing to answer questions or help whenever I need it. I highly recommend Graylock Digital to anyone looking for a team that truly cares about helping your business grow.",
-      ],
-      name: "Bobbie Wold",
-      role: "Owner, Montana Counseling Solutions",
-    },
-  },
-  {
     name: "Rosenlund Drilling",
     category: "Industrial Drilling",
     location: "Elko, NV",
@@ -597,7 +573,6 @@ const featuredProjectPriority = [
   "JC's Well Services",
   "CRNA Mentor",
   "Atlas Anesthesia",
-  "Montana Counseling Solutions",
 ];
 
 const orderedFeaturedProjects = [

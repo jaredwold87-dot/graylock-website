@@ -57,7 +57,7 @@ export function Navbar() {
     ? "Get Your Real Estate Website + IDX Plan"
     : isWellDrillerLanding || isCabinetMakerLanding || isAuctioneerLanding
       ? "Request My Free Custom Demo"
-      : "Book a Discovery Call";
+      : "Request a 15-Minute Discovery Call";
   // The navbar CTA counts as a demo CTA on the campaign landing pages.
   const trackBookingCta = () => {
     if (isWellDrillerLanding) {

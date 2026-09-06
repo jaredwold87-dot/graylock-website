@@ -86,7 +86,7 @@ export default function GetStarted() {
 
   return (
     <>
-      <SEO title="Book a Discovery Call | Graylock Digital" description="Request a free 15-minute discovery call with Tim. Takes under a minute — we'll reach out within one business day. No obligation, no pressure." url="https://graylockdigital.com/get-started" />
+      <SEO title="Request a 15-Minute Discovery Call | Graylock Digital" description="Request a free 15-minute discovery call with Tim. Takes under a minute — we'll reach out within one business day. No obligation, no pressure." url="https://graylockdigital.com/get-started" />
       <ElevatedHero
         lines={[
           { text: "Let's Get" },
