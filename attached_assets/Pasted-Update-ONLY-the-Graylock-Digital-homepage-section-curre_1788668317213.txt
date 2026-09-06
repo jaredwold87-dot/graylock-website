@@ -1,0 +1,157 @@
+Update ONLY the Graylock Digital homepage section currently titled:
+
+“Why Design Decides Everything”
+“Your Visitors Judge You in Milliseconds”
+
+IMPORTANT:
+- Remove this entire statistics section from the homepage, including the 50ms, 75%, and 94% statistics, their research citations, and the surrounding section copy.
+- Keep the existing “Entering Graylock Digital” intro sequence exactly as it is.
+- Do not alter the hero, hero CTAs, pricing qualifier, Google review proof bar, or the testimonial section above this area.
+- Do not change homepage sections below this replacement section.
+- Do not use Bobbie Wold’s name, review, quote, business, image, or results claim anywhere.
+- Do not add made-up performance metrics, lead increases, traffic increases, conversion rates, SEO rankings, or client outcomes.
+
+GOAL
+
+Replace generalized research statistics with tangible proof of Graylock’s actual work.
+
+Build a premium featured-project section for Interior Finishes Cabinets and Design. The section should make visitors think:
+
+“This is the caliber of website Graylock could build for my business.”
+
+SECTION CONTENT
+
+Use this eyebrow:
+
+“FEATURED WORK”
+
+Use this headline:
+
+“A Custom Website Should Reflect the Quality of the Business Behind It.”
+
+Use this supporting copy:
+
+“Interior Finishes Cabinets and Design trusted Graylock to turn their vision into a custom website with a polished, professional online presence.”
+
+Do not claim that the website increased leads, sales, conversions, rankings, traffic, or revenue.
+
+PROJECT LABEL
+
+Display this project information clearly but subtly:
+
+“Interior Finishes Cabinets and Design”
+“Cabinets & Design”
+“Featured Graylock Project”
+
+PROJECT VISUALS
+
+Create a large, high-quality project showcase using the real Interior Finishes website.
+
+Use:
+- One large desktop website view.
+- One smaller mobile website view layered beside or in front of the desktop view.
+- A clean, editorial presentation that makes the website itself the hero.
+
+Asset rules:
+- First, look for an existing approved Interior Finishes project image, thumbnail, screenshot, or website mockup already included in the Graylock website project.
+- If no appropriate existing project visual is available, capture or use a clean screenshot of the live Interior Finishes website:
+  https://www.interiorfinishesreno.com/
+- Do not use generic stock cabinetry imagery.
+- Do not generate a fake website design.
+- Do not use placeholder browser windows, placeholder devices, or irrelevant mockups.
+- Do not distort or crop the website screens so aggressively that the actual project is not recognizable.
+
+CLIENT QUOTE
+
+Do not repeat the short Francisca Rangel testimonial from the testimonial section above.
+
+Instead, add a small restrained proof label near the project information:
+
+“Built around the client’s vision.”
+
+This is not a direct quotation. Style it as a small project descriptor, not as a testimonial or a claim of a measurable business result.
+
+CTA SYSTEM
+
+Add one primary project CTA:
+
+“Visit the Live Website →”
+
+Link it to:
+
+https://www.interiorfinishesreno.com/
+
+Open the external live-site link in a new browser tab with appropriate security attributes.
+
+Add one secondary text CTA:
+
+“Explore All Client Websites →”
+
+Link it to:
+
+/featured-projects
+
+VISUAL DIRECTION
+
+- The section should feel like a portfolio showcase, not another three-card testimonial or feature grid.
+- Use the current Graylock Digital dark, premium, high-contrast visual system.
+- Use restrained orange accents to direct attention to the project label, subtle dividers, and CTAs.
+- Make the desktop/mobile project visuals large and unmistakably central.
+- Use strong spacing and intentional composition. This should feel like an editorial showcase of real work.
+- Add a subtle topographic texture, glow, grid, or framing treatment only if it matches the existing Graylock system. Do not add decorative effects just for visual noise.
+- Do not use excessive device frames or oversized floating UI elements.
+- Keep the section focused: project visuals, project identity, brief context, and two clear actions.
+
+DESKTOP LAYOUT
+
+Use a balanced two-column layout:
+
+Left column:
+- FEATURED WORK eyebrow
+- Headline
+- Supporting copy
+- Project label
+- “Built around the client’s vision.” descriptor
+- Primary live-site CTA
+- Secondary portfolio CTA
+
+Right column:
+- Large desktop website showcase
+- Smaller mobile website showcase overlapping the desktop visual in a controlled, premium way
+
+MOBILE LAYOUT
+
+Stack content in this order:
+
+1. FEATURED WORK eyebrow
+2. Headline
+3. Supporting copy
+4. Project label
+5. Desktop and mobile website visuals
+6. “Built around the client’s vision.” descriptor
+7. Primary live-site CTA
+8. Secondary portfolio CTA
+
+On mobile:
+- Keep the website visuals large enough to be recognizable.
+- Do not let overlapping devices block important content.
+- Do not make the section feel cramped or overly tall.
+- Ensure both CTAs have comfortable tap targets.
+
+ACCESSIBILITY REQUIREMENTS
+
+- Add meaningful alt text to project images or screenshots, such as:
+  “Desktop and mobile views of the Interior Finishes Cabinets and Design website created by Graylock Digital.”
+- Ensure all CTAs have visible hover and keyboard-focus states.
+- Maintain accessible contrast.
+- Do not put essential project information only inside images.
+
+AFTER IMPLEMENTATION, VERIFY
+
+- The entire old “Why Design Decides Everything” statistics section has been removed.
+- The new featured-project section appears directly below the testimonial section.
+- The Interior Finishes project visuals use real website work, not stock or placeholder imagery.
+- The live website CTA opens https://www.interiorfinishesreno.com/ in a new tab.
+- The portfolio CTA links to /featured-projects.
+- The section works cleanly on desktop, tablet, and mobile.
+- No sections above or below this replacement section were changed.

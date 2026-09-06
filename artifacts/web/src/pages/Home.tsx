@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { GoogleReviewProofBar } from "@/components/home/GoogleReviewProofBar";
 import { ClientExperiencesSection } from "@/components/home/ClientExperiencesSection";
 import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
-import { TrustBar } from "@/components/home/TrustBar";
+import { FeaturedWorkSection } from "@/components/home/FeaturedWorkSection";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiationSection";
@@ -22,7 +22,7 @@ export default function Home() {
       <HeroSection />
       <GoogleReviewProofBar />
       <ClientExperiencesSection />
-      <TrustBar />
+      <FeaturedWorkSection />
       <ProblemSection />
       <WhatWeDeliverSection />
       <OfferBreakdownSection />
