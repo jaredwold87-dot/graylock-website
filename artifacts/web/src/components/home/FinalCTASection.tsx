@@ -27,14 +27,14 @@ export function FinalCTASection() {
             <CTAButton
               href="/get-started"
               variant="funnel"
-              className="min-h-14 px-8 text-base"
+              className="min-h-12 px-7 text-base"
             >
               Request a 15-Minute Discovery Call
             </CTAButton>
             <CTAButton
               href="/featured-projects"
               variant="outline"
-              className="min-h-14 px-8 text-base"
+              className="min-h-12 px-7 text-base"
             >
               See Real Client Websites
             </CTAButton>
