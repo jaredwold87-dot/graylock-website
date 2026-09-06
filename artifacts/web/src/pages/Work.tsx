@@ -27,7 +27,7 @@ import jcsWellServicesTransformation from "@/assets/work/jcs-well-services-trans
 import rosenlundDrillingTransformation from "@/assets/work/rosenlund-drilling-transformation.webp";
 import erinSells775Transformation from "@/assets/work/erin-sells-775-transformation.webp";
 import tekmarkTransformation from "@/assets/work/tekmark-transformation.webp";
-import benevolentAuctionsDevices from "@/assets/benevolent-auctions-devices.webp";
+import benevolentTransformation from "@/assets/work/benevolent-transformation.webp";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import portfolioHeroBg from "@/assets/portfolio-hero-bg.webp";
 
@@ -129,7 +129,7 @@ const featuredProjects: FeaturedProject[] = [
     location: "Southwest Florida · Serving Nationwide",
     description:
       "A polished, conversion-focused website for an experienced fundraising auction partner — built to make its services easy to understand and give nonprofit leaders a clear path to request an auction consultation.",
-    image: benevolentAuctionsDevices,
+    image: benevolentTransformation,
     url: "https://benevolentauctions.com/",
     theme: "light",
     delivered: [
