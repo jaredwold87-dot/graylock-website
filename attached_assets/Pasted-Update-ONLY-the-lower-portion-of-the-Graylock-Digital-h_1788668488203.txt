@@ -1,0 +1,363 @@
+Update ONLY the lower portion of the Graylock Digital homepage, beginning with the current section titled:
+
+“Why Graylock”
+“A Lower-Risk Way to Build a Better Website”
+
+and continuing through the final homepage CTA above the footer.
+
+IMPORTANT:
+- Keep the existing “Entering Graylock Digital” intro sequence exactly as it is.
+- Do not change the hero, hero CTAs, price qualifier, Google review proof bar, testimonial section, or featured Interior Finishes project section added in prior updates.
+- Do not change the footer.
+- Do not use Bobbie Wold’s name, review, quote, image, business, or results claim anywhere.
+- Do not add unverified lead, traffic, ranking, revenue, conversion, or performance claims.
+- Do not add generic stock founder images. Use only existing approved Graylock founder photos if they are already available in the project.
+
+GOAL
+
+Replace the current competitor-focused comparison section with a clearer, more credible “how the Graylock process reduces risk” section.
+
+Then add a concise FAQ section that answers the most important sales objections.
+
+Then add a founder-accountability section that makes Graylock feel more personal and trustworthy.
+
+Finally, rewrite the final CTA so it clearly communicates the next step.
+
+--------------------------------------------------
+1. REPLACE THE CURRENT “TRADITIONAL AGENCIES VS. GRAYLOCK” SECTION
+--------------------------------------------------
+
+Remove the entire current comparison section, including all references to:
+
+- “Traditional Agencies”
+- “The Old Way”
+- “$10,000–$20,000 upfront”
+- “No refunds if you hate it”
+- “Deliver generic templates”
+- “Build it once, then forget you”
+- Any other broad negative claims about competitors
+
+Replace it with this section.
+
+Eyebrow:
+
+“A CLEARER WAY TO BUILD”
+
+Headline:
+
+“See the Direction Before You Commit.”
+
+Supporting copy:
+
+“Building a new website should not feel like a gamble. Graylock starts by understanding your business, creating a custom homepage direction, and giving you a clear path forward before any build fee is due.”
+
+Create four numbered or visually connected process steps.
+
+STEP 1
+
+Title:
+
+“Start With a Short Discovery Call”
+
+Copy:
+
+“Tell us what is working, what is not, and what you want your website to do for your business.”
+
+STEP 2
+
+Title:
+
+“See a Custom Homepage Direction”
+
+Copy:
+
+“Graylock researches your business, audience, and market, then creates a homepage direction built around your specific business.”
+
+STEP 3
+
+Title:
+
+“Approve the Direction Before the Build Begins”
+
+Copy:
+
+“If the direction feels right, approve the build and move forward with clarity. If it is not the right fit, there is no build fee.”
+
+STEP 4
+
+Title:
+
+“Launch With Ongoing Support”
+
+Copy:
+
+“Your website is hosted, maintained, and supported after launch through a month-to-month plan.”
+
+Add one CTA below the four steps:
+
+“Request a 15-Minute Discovery Call”
+
+Link to:
+
+/get-started
+
+Add this price qualifier below the CTA:
+
+“Plans from $199/month. Build fees begin at $799 and are only paid after you approve your free homepage demo.”
+
+VISUAL DIRECTION:
+- Make this section feel like a premium, reassuring process—not a generic feature grid.
+- Use a clear visual progression from Step 1 through Step 4.
+- Use existing Graylock orange accents only to guide the eye through the process.
+- Avoid competitor logos, versus symbols, attack language, large price comparisons, or aggressive claims.
+- Keep the layout spacious and easy to scan on desktop and mobile.
+
+--------------------------------------------------
+2. ADD A NEW FAQ SECTION BELOW THE PROCESS SECTION
+--------------------------------------------------
+
+Immediately below the new “See the Direction Before You Commit” section, add a compact FAQ section.
+
+Eyebrow:
+
+“COMMON QUESTIONS”
+
+Headline:
+
+“Clear Answers Before You Reach Out.”
+
+Supporting copy:
+
+“Everything you need to know about the free homepage demo, pricing, ownership, and the path to launch.”
+
+Use accessible accordions. Only one accordion needs to be open by default. Ensure all accordions can be operated by keyboard and have clear expanded/collapsed states.
+
+Use these exact questions and answers.
+
+FAQ 1
+
+Question:
+
+“What happens after I request a discovery call?”
+
+Answer:
+
+“We start with a short conversation about your business, your current website, and what you want to improve. If Graylock is the right fit, we create a custom homepage direction for you to review before any build fee is due.”
+
+FAQ 2
+
+Question:
+
+“Is the homepage demo actually custom to my business?”
+
+Answer:
+
+“Yes. Graylock researches your business, audience, services, and market before creating a homepage direction. The goal is to show you a real strategic direction for your business—not a recycled template.”
+
+FAQ 3
+
+Question:
+
+“What does a new website cost?”
+
+Answer:
+
+“Plans start at $199 per month. Build fees begin at $799 and are paid only after you approve your custom homepage direction. Hosting, maintenance, and ongoing support are included in the monthly plan.”
+
+Add an inline text link at the end of this answer:
+
+“See full pricing →”
+
+Link it to:
+
+/pricing
+
+FAQ 4
+
+Question:
+
+“How long does a website build take?”
+
+Answer:
+
+“Most standard websites are built and launched in 7–10 business days after the direction and required content are approved. Larger or more complex websites may take longer.”
+
+FAQ 5
+
+Question:
+
+“What do I own if I cancel?”
+
+Answer:
+
+“You keep your domain, written content, images, and brand assets. The underlying website code and hosting infrastructure remain with Graylock. Month-to-month plans can be cancelled with 30 days’ notice.”
+
+Add an inline text link at the end of this answer:
+
+“Read the full FAQ →”
+
+Link it to:
+
+/faq
+
+FAQ 6
+
+Question:
+
+“What happens after my website launches?”
+
+Answer:
+
+“Graylock continues to host, maintain, support, and update your website so it stays current, secure, and useful to your business after launch.”
+
+Do not add legal-compliance claims, absolute uptime promises, ranking guarantees, or unsupported performance guarantees in this FAQ section.
+
+--------------------------------------------------
+3. ADD A FOUNDER ACCOUNTABILITY SECTION BELOW THE FAQ
+--------------------------------------------------
+
+Immediately below the FAQ section, add a concise founder/team section.
+
+Eyebrow:
+
+“THE PEOPLE BEHIND THE WORK”
+
+Headline:
+
+“You’ll Know Who Is Building Your Website.”
+
+Supporting copy:
+
+“Graylock is led by Tim and Jared. From strategy and messaging through design, development, launch, and ongoing support, your website is handled by a real U.S.-based team that stays involved after it goes live.”
+
+Create two balanced founder cards or a single refined two-person layout.
+
+FOUNDER 1
+
+Name:
+
+“Tim”
+
+Role:
+
+“Co-Founder · Client Strategy & Experience”
+
+Short description:
+
+“Guides the strategy, communication, and client experience from the first conversation through launch.”
+
+FOUNDER 2
+
+Name:
+
+“Jared”
+
+Role:
+
+“Co-Founder · Design & Development”
+
+Short description:
+
+“Leads the design and development work that turns the strategy into a polished, high-performing website.”
+
+Add one CTA:
+
+“Meet the Graylock Team →”
+
+Link to:
+
+/about
+
+FOUNDER VISUAL RULES:
+- Use authentic existing headshots of Tim and Jared only if approved assets already exist.
+- If approved headshots are not available, do not substitute stock headshots or AI-generated people.
+- In that case, use names, roles, refined typography, and a subtle Graylock visual treatment without portrait images.
+- Keep this section personal, professional, and restrained.
+- Do not add unverified years of experience, client counts, awards, certifications, or claims of expertise.
+
+--------------------------------------------------
+4. REWRITE THE FINAL HOMEPAGE CTA
+--------------------------------------------------
+
+Replace the current final homepage CTA block with the following.
+
+Eyebrow:
+
+“YOUR NEXT STEP”
+
+Headline:
+
+“See What a Better Website Could Look Like for Your Business.”
+
+Supporting copy:
+
+“Start with a 15-minute discovery call. Tell us what you want your website to do, and Graylock will create a custom homepage direction before any build fee is due.”
+
+Primary CTA:
+
+“Request a 15-Minute Discovery Call”
+
+Link to:
+
+/get-started
+
+Secondary CTA:
+
+“See Real Client Websites”
+
+Link to:
+
+/featured-projects
+
+Add this exact line beneath the CTAs:
+
+“Plans from $199/month. Build fees begin at $799 after demo approval.”
+
+Add this final reassurance line beneath the price qualifier:
+
+“No pressure. No obligation. Just a clearer path forward.”
+
+FINAL CTA VISUAL REQUIREMENTS:
+- Make the primary CTA visually dominant using the existing Graylock orange CTA style.
+- Make the secondary CTA clearly visible but visually secondary.
+- Use a confident, clean composition with generous spacing.
+- Do not use a countdown timer, fake urgency, exit popup, discount, competitor comparison, or exaggerated scarcity.
+- Ensure the final CTA is easy to tap and read on mobile.
+
+--------------------------------------------------
+5. MOBILE AND ACCESSIBILITY REQUIREMENTS
+--------------------------------------------------
+
+On mobile, use this order:
+
+1. “See the Direction Before You Commit” process section
+2. Process CTA and price qualifier
+3. FAQ section
+4. Founder accountability section
+5. Final CTA
+
+Ensure:
+- Process steps stack clearly and remain easy to scan.
+- FAQ accordions have comfortable touch targets.
+- Founder cards do not become cramped.
+- Both final CTA buttons have comfortable tap targets.
+- Text contrast remains accessible.
+- All interactive elements have visible keyboard-focus states.
+- Accordion controls use correct semantic buttons and ARIA expanded/collapsed states.
+
+--------------------------------------------------
+6. AFTER IMPLEMENTATION, VERIFY
+--------------------------------------------------
+
+Verify that:
+
+- The old competitor-comparison section is completely removed.
+- No broad negative claims about traditional agencies remain in this homepage area.
+- The new process section includes all four steps and the correct `/get-started` CTA.
+- The FAQ section includes all six questions and the pricing/FAQ links work.
+- The founder section links to `/about`.
+- The final CTA links correctly to `/get-started` and `/featured-projects`.
+- The exact pricing language is used accurately.
+- No Bobbie Wold content exists anywhere on the homepage.
+- The updated lower homepage works cleanly on desktop, tablet, and mobile.
+- No homepage sections above this lower-page area were changed.

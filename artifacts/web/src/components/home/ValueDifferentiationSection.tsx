@@ -1,113 +1,85 @@
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { X, Check } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+
+const PROCESS_STEPS = [
+  {
+    title: "Start With a Short Discovery Call",
+    copy: "Tell us what is working, what is not, and what you want your website to do for your business.",
+  },
+  {
+    title: "See a Custom Homepage Direction",
+    copy: "Graylock researches your business, audience, and market, then creates a homepage direction built around your specific business.",
+  },
+  {
+    title: "Approve the Direction Before the Build Begins",
+    copy: "If the direction feels right, approve the build and move forward with clarity. If it is not the right fit, there is no build fee.",
+  },
+  {
+    title: "Launch With Ongoing Support",
+    copy: "Your website is hosted, maintained, and supported after launch through a month-to-month plan.",
+  },
+] as const;
 
 export function ValueDifferentiationSection() {
-  const comparisons = [
-    { theirs: "Ask for thousands before showing real work", ours: "Show you a custom homepage direction before you commit" },
-    { theirs: "Take weeks to pitch and scope", ours: "Move quickly with a clear process" },
-    { theirs: "Lock you into long-term contracts", ours: "Month-to-month support, cancel anytime" },
-    { theirs: "Deliver generic templates", ours: "Build custom sites around your business and positioning" },
-    { theirs: "Build it once, then forget you", ours: "Refresh your site every 2 years — free, while subscribed" },
-  ];
-
   return (
-    <section className="bg-[#0f0f0f] py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-      <div className="max-w-5xl mx-auto">
-
-        <ScrollReveal className="text-center mb-14">
-          <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">Why Graylock</p>
-          <h2 className="text-3xl md:text-5xl font-display text-white mb-4">
-            A Lower-Risk Way to Build a Better Website
+    <section className="relative overflow-hidden border-t border-white/5 bg-[#0f0f0f] px-6 py-20 md:px-12 md:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-60"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 0)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <ScrollReveal className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#E85D26] md:text-sm">
+            A Clearer Way to Build
+          </p>
+          <h2 className="font-display text-4xl leading-tight text-white md:text-5xl">
+            See the Direction Before You Commit.
           </h2>
-          <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Most agencies make you pay — and gamble — before you ever see results. We flip the model.
+          <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-stone md:text-lg">
+            Building a new website should not feel like a gamble. Graylock starts by
+            understanding your business, creating a custom homepage direction, and giving
+            you a clear path forward before any build fee is due.
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.15}>
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-5 items-stretch">
+        <ol className="relative mt-14 grid list-none grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div
+            aria-hidden="true"
+            className="absolute left-[12.5%] right-[12.5%] top-7 hidden h-px bg-gradient-to-r from-[#E85D26]/20 via-[#E85D26]/70 to-[#E85D26]/20 lg:block"
+          />
+          {PROCESS_STEPS.map((step, index) => (
+            <li key={step.title} className="relative">
+              <ScrollReveal delay={index * 0.08} className="h-full">
+                <article className="relative h-full border-l border-white/10 pl-7 lg:border-l-0 lg:pl-0 lg:pt-0">
+                  <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-[#E85D26]/50 bg-[#161616] font-display text-xl text-[#E85D26] shadow-[0_0_24px_rgba(232,93,38,0.12)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-6 font-display text-2xl leading-snug text-white">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 font-sans text-[15px] leading-relaxed text-stone">
+                    {step.copy}
+                  </p>
+                </article>
+              </ScrollReveal>
+            </li>
+          ))}
+        </ol>
 
-            {/* VS badge */}
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
-              <div className="w-14 h-14 rounded-full bg-[#0f0f0f] border border-white/10 shadow-xl flex items-center justify-center">
-                <span className="font-display text-stone text-lg italic">vs</span>
-              </div>
-            </div>
-
-            {/* Traditional Agencies — muted, the old way */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 md:p-8 md:pr-10 opacity-90">
-              <div className="mb-7">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-stone/50 font-sans font-semibold mb-1.5">The Old Way</p>
-                <h3 className="font-display text-2xl text-stone">Traditional Agencies</h3>
-              </div>
-              <ul className="space-y-5">
-                {comparisons.map((row, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-white/5 flex items-center justify-center">
-                      <X className="text-red-400/70" size={13} />
-                    </span>
-                    <span className="text-stone/75 font-sans text-sm leading-relaxed">{row.theirs}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-7 pt-6 border-t border-white/10">
-                <p className="text-stone/50 font-sans text-[11px] uppercase tracking-widest font-semibold mb-1.5">Upfront Cost &amp; Risk</p>
-                <p className="text-stone/80 font-sans text-sm leading-relaxed">$10,000–$20,000 upfront. No refunds if you hate it.</p>
-              </div>
-            </div>
-
-            {/* Graylock Digital — elevated, the better way */}
-            <div className="relative rounded-2xl border border-[#E85D26]/40 bg-gradient-to-b from-[#E85D26]/[0.10] to-[#E85D26]/[0.02] p-7 md:p-8 md:pl-10 shadow-[0_0_50px_-12px_rgba(232,93,38,0.45)] md:scale-[1.04] z-10">
-              <div className="absolute -top-3 right-6 md:right-8 px-3 py-1 rounded-full bg-[#E85D26] shadow-lg">
-                <span className="text-white font-sans text-[11px] font-bold uppercase tracking-wider">Recommended</span>
-              </div>
-              <div className="mb-7">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#E85D26] font-sans font-semibold mb-1.5">The Graylock Way</p>
-                <h3 className="font-display text-2xl text-white">Graylock Digital</h3>
-              </div>
-              <ul className="space-y-5">
-                {comparisons.map((row, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#E85D26] flex items-center justify-center">
-                      <Check className="text-white" size={13} strokeWidth={3} />
-                    </span>
-                    <span className="text-white font-sans text-sm leading-relaxed">{row.ours}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-7 pt-6 border-t border-[#E85D26]/20">
-                <p className="text-[#E85D26] font-sans text-[11px] uppercase tracking-widest font-semibold mb-1.5">Upfront Cost &amp; Risk</p>
-                <p className="text-white font-sans text-sm leading-relaxed font-semibold">$0 to see your custom demo. Build fee paid only after you approve it.</p>
-              </div>
-            </div>
-
-          </div>
+        <ScrollReveal delay={0.15} className="mt-14 text-center">
+          <CTAButton href="/get-started" variant="funnel" className="min-h-14 px-8">
+            Request a 15-Minute Discovery Call
+          </CTAButton>
+          <p className="mx-auto mt-5 max-w-2xl font-sans text-sm leading-relaxed text-stone">
+            Plans from $199/month. Build fees begin at $799 and are only paid after you
+            approve your free homepage demo.
+          </p>
         </ScrollReveal>
-
-        <ScrollReveal delay={0.2}>
-          <div className="relative mt-12 md:mt-14 rounded-2xl border border-[#E85D26]/40 bg-gradient-to-b from-[#E85D26]/[0.10] to-[#E85D26]/[0.02] shadow-[0_0_50px_-12px_rgba(232,93,38,0.45)] p-8 md:p-10 text-center">
-            <p className="text-[#E85D26] font-sans font-bold uppercase tracking-[0.2em] text-xs mb-4">
-              Pricing That Sets Us Apart
-            </p>
-            <p className="font-display text-2xl md:text-3xl text-white leading-snug mb-3">
-              Fully custom websites from{" "}
-              <span className="text-[#E85D26]">$199/month</span>.
-            </p>
-            <p className="text-stone font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-6">
-              No templates. No thrown-together drag-and-drop. Every site is designed
-              and built from scratch around your business — a real custom website,
-              not a recycled theme.
-            </p>
-            <p className="text-white font-sans text-base md:text-lg font-semibold max-w-2xl mx-auto leading-relaxed mb-8">
-              Built by a <span className="text-[#E85D26]">100% US-based team</span>.
-            </p>
-            <CTAButton href="/pricing" variant="funnel">
-              See Our Pricing
-            </CTAButton>
-          </div>
-        </ScrollReveal>
-
       </div>
     </section>
   );

@@ -1,39 +1,50 @@
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTAButton } from "@/components/ui/CTAButton";
-import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function FinalCTASection() {
   return (
-    <section className="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-12 border-t border-white/5">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative overflow-hidden border-t border-white/5 bg-[#0f0f0f] px-6 py-20 md:px-12 md:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E85D26]/[0.07] blur-[130px]"
+      />
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
         <ScrollReveal>
-          <p className="text-[#E85D26] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">Plans Start at $199/mo</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight">
-            See What Your New Homepage Could Look Like
+          <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#E85D26] md:text-sm">
+            Your Next Step
+          </p>
+          <h2 className="font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
+            See What a Better Website Could Look Like for Your Business.
           </h2>
-          <p className="text-stone text-lg md:text-xl font-sans max-w-2xl mx-auto leading-relaxed mb-10">
-            Flat monthly rate, no long-term contracts — hosting, support, and ongoing maintenance included. Get a free, custom homepage demo built for your business before you spend a dollar.
+          <p className="mx-auto mt-6 max-w-2xl font-sans text-lg leading-relaxed text-stone md:text-xl">
+            Start with a 15-minute discovery call. Tell us what you want your website to do,
+            and Graylock will create a custom homepage direction before any build fee is due.
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.15}>
-          <div className="flex flex-col items-center gap-3">
-            <CTAButton href="/get-started" variant="funnel" className="px-10 py-5 text-lg group">
-              Book a Discovery Call
-              <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-            </CTAButton>
-            <Link
-              href="/pricing"
-              className="inline-flex items-center gap-2 text-stone hover:text-[#E85D26] font-sans font-semibold transition-colors group mt-2"
+        <ScrollReveal delay={0.12}>
+          <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+            <CTAButton
+              href="/get-started"
+              variant="funnel"
+              className="min-h-14 px-8 text-base"
             >
-              See full pricing
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <p className="text-stone text-sm font-sans mt-3">
-              No pressure. No obligation. Just a clearer path forward.
-            </p>
+              Request a 15-Minute Discovery Call
+            </CTAButton>
+            <CTAButton
+              href="/featured-projects"
+              variant="outline"
+              className="min-h-14 px-8 text-base"
+            >
+              See Real Client Websites
+            </CTAButton>
           </div>
+          <p className="mt-6 font-sans text-sm leading-relaxed text-stone">
+            Plans from $199/month. Build fees begin at $799 after demo approval.
+          </p>
+          <p className="mt-3 font-sans text-sm font-semibold text-offwhite">
+            No pressure. No obligation. Just a clearer path forward.
+          </p>
         </ScrollReveal>
       </div>
     </section>

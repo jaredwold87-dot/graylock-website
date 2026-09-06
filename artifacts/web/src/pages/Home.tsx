@@ -7,6 +7,8 @@ import { FeaturedWorkSection } from "@/components/home/FeaturedWorkSection";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiationSection";
+import { HomeFAQSection } from "@/components/home/HomeFAQSection";
+import { FounderAccountabilitySection } from "@/components/home/FounderAccountabilitySection";
 import { TestimonialSection } from "@/components/home/TestimonialSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
@@ -28,6 +30,8 @@ export default function Home() {
       <OfferBreakdownSection />
       <TestimonialSection />
       <ValueDifferentiationSection />
+      <HomeFAQSection />
+      <FounderAccountabilitySection />
       <FinalCTASection />
     </>
   );
