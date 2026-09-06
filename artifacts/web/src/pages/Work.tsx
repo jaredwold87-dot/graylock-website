@@ -70,10 +70,13 @@ const featuredProjects: FeaturedProject[] = [
       "Agent contact flows",
       "Mobile-responsive build",
     ],
-    placeholder: {
-      name: "Willow Realty Group",
-      role: "Serving the Magic Valley",
-      note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    testimonial: {
+      quote: [
+        "I have been extremely impressed Graylock digital, from the first meeting we had to the launch of our new website and beyond. This company is so professional, well organized, and well informed. The communication was excellent, they listened to my needs and answered my questions.",
+        "Not only do we have a state of the art, beautiful, easy to use website. The lead generation has been amazing, we have been converting leads into actual customers because of this website. My previous vendor I used for our website platform generated a lot of leads, but no conversions into actual customers. I highly recommend Graylock Digital.",
+      ],
+      name: "Mark Nelson",
+      role: "5-star Google Review",
     },
   },
   {

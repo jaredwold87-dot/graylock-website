@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { RealtorHero } from "@/components/realtors/RealtorHero";
 import { RealtorTrustStrip } from "@/components/realtors/RealtorTrustStrip";
+import { RealtorFeaturedProjectSection } from "@/components/realtors/RealtorFeaturedProjectSection";
 import { RealtorTwoPathsSection } from "@/components/realtors/RealtorTwoPathsSection";
 import { RealtorPackageSection } from "@/components/realtors/RealtorPackageSection";
 import { RealtorIdxSection } from "@/components/realtors/RealtorIdxSection";
@@ -17,6 +18,8 @@ const PAGE_TITLE = "Custom IDX Real Estate Websites for Agents & Teams | Grayloc
 const META_DESCRIPTION =
   "Graylock builds custom real-estate websites for agents and teams with buyer search when eligible, seller lead capture, local-market pages, MLS guidance, and ongoing support. Get a free custom website + IDX plan.";
 
+// The approved customer review is visibly attributed on-page but intentionally
+// not emitted as self-serving Review structured data.
 const REALTOR_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
@@ -86,6 +89,7 @@ export default function Realtors() {
           comparison → investment → FAQ → final CTA. */}
       <RealtorHero />
       <RealtorTrustStrip />
+      <RealtorFeaturedProjectSection />
       <RealtorTwoPathsSection />
       <RealtorPackageSection />
       <RealtorIdxSection />
