@@ -21,7 +21,8 @@ const META_DESCRIPTION =
 
 // WebPage + Service schema (spec); FAQPage main entity mirrors only the
 // FAQ visibly rendered on this page. No Review, Event, Auction, or
-// testimonial schema until genuine, approved, attributed data exists.
+// Review content is visibly attributed on-page but intentionally not emitted
+// as self-serving Review structured data.
 const AUCTIONEER_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [

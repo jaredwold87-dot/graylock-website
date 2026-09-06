@@ -3,8 +3,7 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { trackAuctioneerEvent } from "@/lib/auctioneerAnalytics";
 import { auctioneerGetStartedHref, AUCTIONEER_CTA_LABEL } from "@/lib/auctioneerLinks";
-import heroDesktop from "@/assets/auctioneer-hero-devices.webp";
-import heroMobileDevices from "@/assets/auctioneer-hero-mobile-devices.webp";
+import benevolentDevices from "@/assets/benevolent-auctions-devices.webp";
 import hallTexture from "@/assets/auctioneer-hero-hall.webp";
 
 /**
@@ -24,7 +23,7 @@ const REASSURANCE =
   "Free custom direction. No generic template. No obligation after you see the demo.";
 
 const HERO_ALT =
-  "A custom auctioneer website concept shown on a laptop and phone — a benefit-auction hero with a live gala scene, charity and gala positioning, and a clear plan-your-event call to action";
+  "The Benevolent Auctions website built by Graylock Digital, shown on a laptop and phone with a fundraising auction consultation call to action";
 
 function HeroCopy() {
   return (
@@ -96,11 +95,9 @@ function ProofItem({ text }: { text: string }) {
  * Hero (spec §1): copy left, device composition right, CTA above the fold,
  * proof items in a 2×2 grid on mobile.
  *
- * Desktop (1280px+) uses the supplied full-scene hero image — dark
- * architectural background with topo texture and the sample benefit-auction
- * site on a laptop + phone — as a full-bleed background with copy over its
- * empty left side. Below 1280px the transparent devices cutout sits between
- * the copy and the CTA (same pattern as the cabinet-maker hero).
+ * The real Benevolent Auctions website appears on a transparent laptop +
+ * phone composition. Desktop places it over the auction-hall texture beside
+ * the copy; smaller screens place it between the copy and CTA.
  */
 export function AuctioneerHero() {
   return (
@@ -142,9 +139,9 @@ export function AuctioneerHero() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-[96px] md:pt-[108px] pb-10">
           <ScrollReveal>
             <HeroCopy />
-            {/* Transparent laptop + phone cutout (supplied Summit composition) */}
+            {/* Transparent laptop + phone cutout (real Benevolent Auctions project) */}
             <img
-              src={heroMobileDevices}
+              src={benevolentDevices}
               alt={HERO_ALT}
               className="w-full max-w-[560px] mx-auto h-auto mb-7"
               loading="eager"
@@ -167,40 +164,51 @@ export function AuctioneerHero() {
         </div>
       </div>
 
-      {/* ── Desktop (1280px+): full-bleed hero composition — copy left over the
-             image's empty side, devices right and uncovered ── */}
+      {/* ── Desktop (1280px+): copy left, real project devices right ── */}
       <div className="hidden xl:block">
-        <div className="relative max-w-[1920px] mx-auto">
-          {/* Height tracks the 2400×1340 asset ratio so the composition is
-              never cropped below the 1920px container cap */}
-          <div
-            className="relative overflow-hidden"
-            style={{ height: "clamp(640px, 55.83vw, 1072px)" }}
-          >
+        <div className="relative max-w-[1920px] mx-auto overflow-hidden">
+          <div className="relative min-h-[720px]">
             <img
-              src={heroDesktop}
-              alt={HERO_ALT}
-              fetchPriority="high"
+              src={hallTexture}
+              alt=""
+              aria-hidden="true"
               decoding="async"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover opacity-[0.24]"
             />
-            {/* Subtle contrast gradient over the copy side only; fades out
-                well before the device side of the composition */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(to right, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.08) 28%, transparent 42%)",
+                  "linear-gradient(90deg, rgba(15,15,15,0.98) 0%, rgba(15,15,15,0.91) 36%, rgba(15,15,15,0.48) 68%, rgba(15,15,15,0.72) 100%)",
               }}
             />
-            <div className="relative z-10 max-w-7xl h-full mx-auto px-6 md:px-12 flex items-center">
-              <div className="w-[min(40%,560px)]">
+            <div
+              className="absolute right-[-2%] top-1/2 w-[60%] h-[76%] rounded-full pointer-events-none"
+              aria-hidden="true"
+              style={{
+                transform: "translateY(-50%)",
+                background:
+                  "radial-gradient(circle, rgba(176,141,87,0.16) 0%, rgba(232,93,38,0.06) 45%, transparent 72%)",
+              }}
+            />
+            <div className="relative z-10 max-w-7xl min-h-[720px] mx-auto px-12 grid grid-cols-[0.88fr_1.12fr] items-center gap-8">
+              <div className="max-w-[540px]">
                 <ScrollReveal>
                   <HeroCopy />
                   <HeroCtas />
                   <p className="text-stone/80 font-sans text-base max-w-[540px]">{REASSURANCE}</p>
                 </ScrollReveal>
               </div>
+              <ScrollReveal delay={0.08}>
+                <img
+                  src={benevolentDevices}
+                  alt={HERO_ALT}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full max-w-[760px] ml-auto h-auto"
+                  style={{ filter: "drop-shadow(0 30px 38px rgba(0,0,0,0.48))" }}
+                />
+              </ScrollReveal>
             </div>
           </div>
 

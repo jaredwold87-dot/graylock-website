@@ -1,11 +1,11 @@
 import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import devicesCutout from "@/assets/auctioneer-devices-cutout.webp";
+import benevolentDevices from "@/assets/benevolent-auctions-devices.webp";
 
 /**
  * "What a Better Auctioneer Website Does" (spec §4, repositioned per client
  * direction Aug 2026) — type-only handwritten lead-in, six-feature list, and
- * the Summit Benefit Auctions laptop + phone cutout as the example of what we
+ * the real Benevolent Auctions laptop + phone cutout as the example of what we
  * deliver. The features market the auctioneer to the organizations who hire
  * them — no upcoming-auction calendars, bidder/attendee paths, or
  * bidding-platform features.
@@ -81,8 +81,8 @@ export function AuctioneerWhatSection() {
           {/* Devices cutout — visual first on mobile (spec responsive) */}
           <ScrollReveal>
             <img
-              src={devicesCutout}
-              alt="The Summit Benefit Auctions concept site shown on a laptop and phone — a charity and gala auction homepage with a plan-your-event call to action"
+              src={benevolentDevices}
+              alt="The Benevolent Auctions website built by Graylock Digital, shown on a laptop and phone"
               className="w-full h-auto"
               style={{ filter: "drop-shadow(0 24px 32px rgba(0,0,0,0.16))" }}
               loading="lazy"
