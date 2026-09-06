@@ -27,6 +27,7 @@ import jcsWellServicesTransformation from "@/assets/work/jcs-well-services-trans
 import rosenlundDrillingTransformation from "@/assets/work/rosenlund-drilling-transformation.webp";
 import erinSells775Transformation from "@/assets/work/erin-sells-775-transformation.webp";
 import tekmarkTransformation from "@/assets/work/tekmark-transformation.webp";
+import benevolentAuctionsDevices from "@/assets/benevolent-auctions-devices.webp";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import portfolioHeroBg from "@/assets/portfolio-hero-bg.webp";
 
@@ -115,6 +116,30 @@ const featuredProjects: FeaturedProject[] = [
       name: "Interior Finishes",
       role: "Northern Nevada & Northern California",
       note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
+    },
+  },
+  {
+    name: "Benevolent Auctions",
+    category: "Fundraising Auction Partners",
+    location: "Southwest Florida · Serving Nationwide",
+    description:
+      "A polished, conversion-focused website for an experienced fundraising auction partner — built to make its services easy to understand and give nonprofit leaders a clear path to request an auction consultation.",
+    image: benevolentAuctionsDevices,
+    url: "https://benevolentauctions.com/",
+    theme: "light",
+    delivered: [
+      "Conversion-focused website design",
+      "Auction consultation request flow",
+      "Clear service presentation",
+      "Mobile-responsive build",
+    ],
+    testimonial: {
+      quote: [
+        "Graylock Digital exceeded our expectations. Tim was easy to work with and responded to our needs almost immediately. They truly care about your business growth.",
+        "We are very happy with our new website and super excited to work with Tim and his team for years to come.",
+      ],
+      name: "Jill Baugh",
+      role: "5-star Google Review",
     },
   },
   {
@@ -544,6 +569,7 @@ const featuredProjects: FeaturedProject[] = [
 const featuredProjectPriority = [
   "Willow Realty Group",
   "Meagher Builders",
+  "Benevolent Auctions",
   "Interior Finishes",
   "L.A. Perks Petroleum Specialists",
   "IANA PAC",
