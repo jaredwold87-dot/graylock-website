@@ -153,7 +153,7 @@ export function BookCallForm({
 
   const styles = {
     input: isPage
-      ? "w-full bg-[#F4F1EC]/40 border border-[#0F0F0F]/10 px-4 py-4 font-sans text-lg focus:outline-none focus:border-[#E85D26] focus:bg-white focus:ring-1 focus:ring-[#E85D26]/10 transition-all rounded-none placeholder:text-[#0F0F0F]/40 hover:border-[#0F0F0F]/30"
+      ? "w-full bg-[#F4F1EC]/40 border border-[#0F0F0F]/10 px-3.5 py-3 font-sans text-base focus:outline-none focus:border-[#E85D26] focus:bg-white focus:ring-1 focus:ring-[#E85D26]/10 transition-all rounded-none placeholder:text-[#0F0F0F]/40 hover:border-[#0F0F0F]/30"
       : INPUT_BASE,
     label: isPage
       ? "text-[#0F0F0F] font-sans font-bold tracking-widest text-[13px] uppercase block"
@@ -164,12 +164,13 @@ export function BookCallForm({
     legend: isPage
       ? "text-[#0F0F0F] font-sans font-bold tracking-widest text-[13px] uppercase block p-0"
       : `${LABEL_CLASSES} p-0`,
-    fieldGroup: isPage ? "flex flex-col gap-2 group" : "flex flex-col gap-1.5 group",
+    fieldGroup: isPage ? "flex flex-col gap-1.5 group" : "flex flex-col gap-1.5 group",
+    fullWidth: isPage ? "md:col-span-2" : "",
     checkboxGrid: isPage
-      ? "grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1"
+      ? "grid grid-cols-1 sm:grid-cols-3 gap-2 mt-1"
       : "grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1",
     getCheckboxLabel: (checked: boolean) => isPage
-      ? `flex items-center gap-3 border px-4 py-3.5 font-sans text-base cursor-pointer transition-all ${
+      ? `flex items-center gap-2 border px-3 py-2.5 font-sans text-sm cursor-pointer transition-all ${
           checked
             ? "border-[#E85D26] bg-[#E85D26]/5 text-[#0F0F0F]"
             : "border-[#0F0F0F]/10 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/30 hover:bg-[#F4F1EC]/50"
@@ -183,9 +184,9 @@ export function BookCallForm({
       ? "pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0F0F0F]/40 group-focus-within:text-[#E85D26] transition-colors"
       : "pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors",
     submitBtn: isPage
-      ? "mt-4 bg-[#0F0F0F] text-white font-sans font-bold tracking-widest uppercase text-lg px-8 py-5 hover:bg-[#E85D26] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 w-full shadow-xl shadow-[#0F0F0F]/5"
+      ? "mt-2 bg-[#E85D26] text-white font-sans font-bold tracking-widest uppercase text-base px-6 py-4 hover:bg-[#D94F1C] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 w-full shadow-lg shadow-[#E85D26]/10"
       : "mt-6 bg-[#0F0F0F] text-[#F4F1EC] font-display uppercase tracking-widest text-xl px-8 py-5 hover:bg-[#E85D26] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#0F0F0F] disabled:hover:text-[#F4F1EC] flex items-center justify-center gap-3 w-full",
-    formGap: isPage ? "flex flex-col gap-8" : "flex flex-col gap-6",
+    formGap: isPage ? "grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-5" : "flex flex-col gap-6",
     errorText: isPage
       ? "text-[#B23E16] font-sans font-medium text-sm mt-1"
       : "text-[#B23E16] font-sans font-semibold text-sm",
@@ -736,7 +737,7 @@ export function BookCallForm({
             />
           </div>
 
-          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+          <fieldset className={`${styles.fieldGroup} ${styles.fullWidth} border-0 p-0 m-0`}>
             <legend className={styles.legend}>
               Main Services{" "}
               <span className={styles.optional}>(Select all that apply)</span>
@@ -767,14 +768,14 @@ export function BookCallForm({
             )}
           </fieldset>
 
-          <div className={styles.fieldGroup}>
+          <div className={`${styles.fieldGroup} ${styles.fullWidth}`}>
             <label htmlFor="bc-desired-jobs" className={styles.label}>
               What kinds of jobs do you want more of?{" "}
               <span className={styles.optional}>(Optional)</span>
             </label>
             <textarea
               id="bc-desired-jobs"
-              rows={3}
+              rows={isPage ? 2 : 3}
               value={desiredJobs}
               onChange={(e) => setDesiredJobs(e.target.value)}
               placeholder="Service calls, new wells, pumps, commercial work, agricultural work, or something else."
@@ -782,14 +783,14 @@ export function BookCallForm({
             />
           </div>
 
-          <div className={styles.fieldGroup}>
+          <div className={`${styles.fieldGroup} ${styles.fullWidth}`}>
             <label htmlFor="bc-website-goal" className={styles.label}>
               What do you want your website to do better?{" "}
               <span className={styles.optional}>(Optional)</span>
             </label>
             <textarea
               id="bc-website-goal"
-              rows={3}
+              rows={isPage ? 2 : 3}
               value={websiteGoal}
               onChange={(e) => setWebsiteGoal(e.target.value)}
               placeholder="Show up in local searches, look more professional, make it easier to request service — whatever matters most."
@@ -872,7 +873,7 @@ export function BookCallForm({
             />
           </div>
 
-          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+          <fieldset className={`${styles.fieldGroup} ${styles.fullWidth} border-0 p-0 m-0`}>
             <legend className={styles.legend}>
               Main Project Types{" "}
               <span className={styles.optional}>(Select all that apply)</span>
@@ -903,7 +904,7 @@ export function BookCallForm({
             )}
           </fieldset>
 
-          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+          <fieldset className={`${styles.fieldGroup} ${styles.fullWidth} border-0 p-0 m-0`}>
             <legend className={styles.legend}>
               What do you want more of?{" "}
               <span className={styles.optional}>(Select all that apply)</span>
@@ -970,13 +971,13 @@ export function BookCallForm({
             )}
           </div>
 
-          <div className={styles.fieldGroup}>
+          <div className={`${styles.fieldGroup} ${styles.fullWidth}`}>
             <label htmlFor="bc-cm-note" className={styles.label}>
               Additional notes <span className={styles.optional}>(Optional)</span>
             </label>
             <textarea
               id="bc-cm-note"
-              rows={3}
+              rows={isPage ? 2 : 3}
               value={note}
               onChange={(e) => setNote(e.target.value)}
               maxLength={500}
@@ -1025,7 +1026,7 @@ export function BookCallForm({
             />
           </div>
 
-          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+          <fieldset className={`${styles.fieldGroup} ${styles.fullWidth} border-0 p-0 m-0`}>
             <legend className={styles.legend}>
               Auction Types{" "}
               <span className={styles.optional}>(Select all that apply)</span>
@@ -1056,7 +1057,7 @@ export function BookCallForm({
             )}
           </fieldset>
 
-          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+          <fieldset className={`${styles.fieldGroup} ${styles.fullWidth} border-0 p-0 m-0`}>
             <legend className={styles.legend}>
               What do you want more of?{" "}
               <span className={styles.optional}>(Select all that apply)</span>
@@ -1123,13 +1124,13 @@ export function BookCallForm({
             )}
           </div>
 
-          <div className={styles.fieldGroup}>
+          <div className={`${styles.fieldGroup} ${styles.fullWidth}`}>
             <label htmlFor="bc-auc-note" className={styles.label}>
               Additional notes <span className={styles.optional}>(Optional)</span>
             </label>
             <textarea
               id="bc-auc-note"
-              rows={3}
+              rows={isPage ? 2 : 3}
               value={note}
               onChange={(e) => setNote(e.target.value)}
               maxLength={500}
@@ -1354,7 +1355,7 @@ export function BookCallForm({
       )}
 
       {!isWellDriller && !isCabinetMaker && !isAuctioneer && (
-      <div className={styles.fieldGroup}>
+      <div className={`${styles.fieldGroup} ${styles.fullWidth}`}>
         <label htmlFor="bc-note" className={styles.label}>
           {isRealtor
             ? "Anything you want the new site to do better?"
@@ -1363,7 +1364,7 @@ export function BookCallForm({
         </label>
         <textarea
           id="bc-note"
-          rows={3}
+          rows={isPage ? 2 : 3}
           value={note}
           onChange={(e) => setNote(e.target.value)}
           maxLength={isRealtor ? 500 : undefined}
@@ -1377,43 +1378,45 @@ export function BookCallForm({
       </div>
       )}
 
-      {error && (
-        <div className={styles.errorBanner}>
-          {isPage && <AlertCircle className="w-5 h-5 text-[#B23E16] flex-shrink-0 mt-0.5" />}
-          <p role="alert" className="text-[#B23E16] font-sans font-semibold text-sm leading-snug">
-            {error}
-          </p>
-        </div>
-      )}
+            <div className={styles.fullWidth}>
+        {error && (
+                <div className={styles.errorBanner}>
+                  {isPage && <AlertCircle className="w-5 h-5 text-[#B23E16] flex-shrink-0 mt-0.5" />}
+                  <p role="alert" className="text-[#B23E16] font-sans font-semibold text-sm leading-snug">
+                    {error}
+                  </p>
+                </div>
+              )}
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className={styles.submitBtn}
-      >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="animate-spin" size={24} aria-hidden="true" />
-            <span>Sending...</span>
-          </>
-        ) : isCabinetMaker || isAuctioneer ? (
-          "Request My Free Custom Demo"
-        ) : isWellDriller ? (
-          "Request My Custom Demo"
-        ) : isRealtor ? (
-          "Book My Fit Call"
-        ) : (
-          "Request My Call"
-        )}
-      </button>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={styles.submitBtn}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="animate-spin" size={24} aria-hidden="true" />
+                    <span>Sending...</span>
+                  </>
+                ) : isCabinetMaker || isAuctioneer ? (
+                  "Request My Free Custom Demo"
+                ) : isWellDriller ? (
+                  "Request My Custom Demo"
+                ) : isRealtor ? (
+                  "Book My Fit Call"
+                ) : (
+                  "Request My Call"
+                )}
+              </button>
 
-      <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-2">
-        {isWellDriller || isCabinetMaker || isAuctioneer
-          ? "Takes under a minute. No pressure, no obligation."
-          : isRealtor
-            ? "Takes under a minute. We'll reach out within one business day to schedule your 15-minute fit call."
-            : "Takes under a minute. No pressure, no obligation — we'll reach out within one business day."}
-      </p>
-    </form>
-  );
+              <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-2">
+                {isWellDriller || isCabinetMaker || isAuctioneer
+                  ? "Takes under a minute. No pressure, no obligation."
+                  : isRealtor
+                    ? "Takes under a minute. We'll reach out within one business day to schedule your 15-minute fit call."
+                    : "Takes under a minute. No pressure, no obligation — we'll reach out within one business day."}
+              </p>
+
+      </div>
+    </form>  );
 }

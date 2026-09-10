@@ -1,4 +1,6 @@
+const fs = require('fs');
 
+const content = `
 import { useEffect, useMemo, useRef } from "react";
 import { useSearch } from "wouter";
 import { SEO } from "@/components/SEO";
@@ -76,9 +78,9 @@ export default function GetStarted() {
   return (
     <>
       <SEO title="Request a 15-Minute Discovery Call | Graylock Digital" description="Request a free 15-minute discovery call with Tim. Takes under a minute — we'll reach out within one business day. No obligation, no pressure." url="https://graylockdigital.com/get-started" />
-      <div className="min-h-[100dvh] bg-[#0F0F0F] pt-[72px] md:pt-[84px] flex flex-col">
+      <div className="min-h-screen bg-[#0F0F0F] pt-[72px] md:pt-[84px] flex flex-col">
         <div className="flex-1 flex flex-col md:flex-row">
-
+          
           {/* Intro Column - Charcoal */}
           <div className="w-full md:w-5/12 lg:w-4/12 bg-[#0F0F0F] text-[#F4F1EC] p-8 md:p-12 lg:p-16 flex flex-col justify-between border-t border-[#F4F1EC]/10">
             <div>
@@ -146,16 +148,16 @@ export default function GetStarted() {
                 </div>
               )}
             </div>
-
-            <div className="mt-0 flex items-center gap-4 border-t border-[#F4F1EC]/10 pt-5 md:pt-8">
-              <img
-                src={timFounder}
-                alt="Tim, Co-Founder"
-                className="w-14 h-14 rounded-full object-cover grayscale opacity-90 border border-[#F4F1EC]/10"
+            
+            <div className="mt-12 md:mt-0 flex items-center gap-4 border-t border-[#F4F1EC]/10 pt-8">
+              <img 
+                src={timFounder} 
+                alt="Tim, Founder" 
+                className="w-14 h-14 rounded-full object-cover grayscale opacity-90 border border-[#F4F1EC]/10" 
               />
               <div>
                 <p className="font-sans font-semibold text-white text-sm">Tim</p>
-                <p className="font-sans text-[#F4F1EC]/50 text-xs">Co-Founder, Graylock Digital</p>
+                <p className="font-sans text-[#F4F1EC]/50 text-xs">Founder, Graylock Digital</p>
               </div>
             </div>
           </div>
@@ -177,3 +179,6 @@ export default function GetStarted() {
     </>
   );
 }
+`;
+
+fs.writeFileSync('artifacts/web/src/pages/GetStarted.tsx', content);
