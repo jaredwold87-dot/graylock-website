@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function FinalCTASection() {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0f0f0f] px-6 py-20 md:px-12 md:py-28">
+    <section className="relative overflow-hidden border-t border-white/5 bg-[var(--home-dark-surface,#0f0f0f)] px-6 py-20 md:px-12 md:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E85D26]/[0.07] blur-[130px]"

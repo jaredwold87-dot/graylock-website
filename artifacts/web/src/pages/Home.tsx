@@ -14,7 +14,7 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export default function Home() {
   return (
-    <>
+    <div className="[--home-dark-surface:#292B2E]">
       <SEO
         title="Graylock Digital — Custom Websites for Trust-Based Businesses"
         ogTitle="Your Website. Your Reputation. Elevated."
@@ -33,6 +33,6 @@ export default function Home() {
       <HomeFAQSection />
       <FounderAccountabilitySection />
       <FinalCTASection />
-    </>
+    </div>
   );
 }

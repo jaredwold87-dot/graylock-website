@@ -22,7 +22,7 @@ const PROCESS_STEPS = [
 
 export function ValueDifferentiationSection() {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0f0f0f] px-6 py-20 md:px-12 md:py-28">
+    <section className="relative overflow-hidden border-t border-white/5 bg-[var(--home-dark-surface,#0f0f0f)] px-6 py-20 md:px-12 md:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-60"

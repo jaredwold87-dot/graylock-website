@@ -7,7 +7,7 @@ export function GoogleReviewProofBar() {
   return (
     <section
       aria-label="Google review rating"
-      className="bg-[#151515] border-y border-white/[0.08] px-6 md:px-12 py-5"
+      className="bg-[var(--home-dark-surface,#151515)] border-y border-white/[0.08] px-6 md:px-12 py-5"
     >
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-center sm:text-left">
         <div className="flex items-center gap-3">
