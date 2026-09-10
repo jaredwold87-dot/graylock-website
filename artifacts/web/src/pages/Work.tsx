@@ -12,7 +12,6 @@ import kingsburyTransformation from "@/assets/work/kingsbury-transformation.webp
 import wceTransformation from "@/assets/work/wce-transformation.webp";
 import smartTaxCrnaTransformation from "@/assets/work/smart-tax-crna-transformation.webp";
 import oliveCreekTransformation from "@/assets/work/olive-creek-transformation.webp";
-import advantageTransformation from "@/assets/work/advantage-transformation.webp";
 import bentOnEducationTransformation from "@/assets/work/bent-on-education-transformation.webp";
 import wicksTransformation from "@/assets/work/wicks-transformation.webp";
 import willowTransformation from "@/assets/work/willow-transformation.webp";
@@ -29,6 +28,7 @@ import tekmarkTransformation from "@/assets/work/tekmark-transformation.webp";
 import benevolentTransformation from "@/assets/work/benevolent-transformation.webp";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import portfolioHeroBg from "@/assets/portfolio-hero-bg.webp";
+import camasCreekLumber from "@/assets/work/camas-creek-lumber.webp";
 
 type Theme = "light" | "dark";
 
@@ -54,6 +54,22 @@ type FeaturedProject = {
 };
 
 const featuredProjects: FeaturedProject[] = [
+  {
+    name: "Camas Creek Lumber",
+    category: "Custom-Cut Lumber & Timbers",
+    location: "Stevensville, Montana",
+    description:
+      "A landscape-led website for a Montana sawmill, showcasing full-dimension rough-cut lumber, timbers, and beams alongside specialty wood and custom-log milling.",
+    image: camasCreekLumber,
+    url: "https://www.camascreeklumber.com/",
+    theme: "light",
+    delivered: [
+      "Lumber & timbers presentation",
+      "Specialty wood showcase",
+      "Custom-log milling information",
+      "Prominent quote-request calls to action",
+    ],
+  },
   {
     name: "Willow Realty Group",
     category: "Southern Idaho Real Estate",
@@ -463,27 +479,6 @@ const featuredProjects: FeaturedProject[] = [
     },
   },
   {
-    name: "Advantage Home Improvement",
-    category: "Replacement Windows & Doors",
-    location: "Las Vegas – Henderson – Greater Valley",
-    description:
-      "A clean, trust-first site for a local windows and doors installer — built around honest, low-pressure pricing that turns visitors into free in-home estimates.",
-    image: advantageTransformation,
-    url: "https://windownv.com/",
-    theme: "light",
-    delivered: [
-      "Free estimate request flow",
-      "Window & door service pages",
-      "Local SEO foundation",
-      "Mobile-responsive build",
-    ],
-    placeholder: {
-      name: "Advantage Home Improvement",
-      role: "Las Vegas, Nevada",
-      note: "We're gathering the team's words on the project — check back shortly to hear about their experience working with Graylock Digital.",
-    },
-  },
-  {
     name: "Bent on Education",
     category: "Anesthesia & CRNA Education",
     location: "CRNA-Led Podcasts & AHA Training",
@@ -551,6 +546,7 @@ const featuredProjects: FeaturedProject[] = [
 ];
 
 const featuredProjectPriority = [
+  "Camas Creek Lumber",
   "Willow Realty Group",
   "Meagher Builders",
   "Benevolent Auctions",
@@ -568,7 +564,6 @@ const featuredProjectPriority = [
   "Olive Creek Nursery",
   "TekMark Industries",
   "Shooting Performance Institute",
-  "Advantage Home Improvement",
   "Bent on Education",
   "JC's Well Services",
   "CRNA Mentor",
