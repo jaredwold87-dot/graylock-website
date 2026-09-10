@@ -96,46 +96,46 @@ export default function GetStarted() {
         subheadline="Tell us where to reach you — it takes under a minute, and we'll take it from there."
         backgroundImage={getStartedHeroBg}
       />
-      <section className="bg-[#F4F1EC] min-h-[60vh] relative border-t border-[#0F0F0F]/10">
-        <div className="max-w-xl mx-auto px-6 py-16 md:py-24">
+      <section className="bg-[#F4F1EC] min-h-[70vh] relative py-16 md:py-32 border-t border-[#0F0F0F]/10">
+        <div className="max-w-3xl mx-auto px-4 md:px-8">
+          <div className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#0F0F0F]/5 p-8 md:p-14 lg:p-16">
           {isRealtor && (
-            <div ref={contextBlockRef} className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
-              <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
+            <div ref={contextBlockRef} className="mb-12 pb-12 border-b border-[#0F0F0F]/10">
+              <span className="text-[#E85D26] font-sans font-bold tracking-widest uppercase text-xs mb-4 block">Discovery Call</span>
+              <h2 className="font-display text-4xl text-[#0F0F0F] leading-tight mb-6">
                 15-Minute Real Estate Website + IDX Fit Call
-              </p>
-              <p className="font-sans text-base leading-relaxed">
+              </h2>
+              <p className="font-sans text-xl text-[#0F0F0F]/70 leading-relaxed">
                 We will review your market, MLS path, current website, team structure,
                 buyer/seller goals, and the right scope before you commit.
               </p>
             </div>
           )}
           {isWellDriller && (
-            <div ref={contextBlockRef} className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
-              <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
+            <div ref={contextBlockRef} className="mb-12 pb-12 border-b border-[#0F0F0F]/10">
+              <span className="text-[#E85D26] font-sans font-bold tracking-widest uppercase text-xs mb-4 block">Discovery Call</span>
+              <h2 className="font-display text-4xl text-[#0F0F0F] leading-tight mb-6">
                 Let's build your free custom demo.
-              </p>
-              <p className="font-sans text-base leading-relaxed">
+              </h2>
+              <p className="font-sans text-xl text-[#0F0F0F]/70 leading-relaxed">
                 Tell us a little about the business and what you want the website to do. We will
                 use the conversation to prepare a homepage direction that is actually relevant to
                 your company.
               </p>
               {wellDrillerMarket && (
-                <p className="font-sans text-sm mt-2 text-[#F4F1EC]/80">
-                  Market:{" "}
-                  <span className="font-semibold uppercase text-white">{wellDrillerMarket}</span>
-                </p>
+                <div className="mt-8 inline-block bg-[#F4F1EC] text-[#0F0F0F] px-4 py-2 font-sans text-sm font-medium tracking-wide">
+                  Market: <span className="font-semibold">{wellDrillerMarket}</span>
+                </div>
               )}
             </div>
           )}
           {isCabinetMaker && (
-            <div className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
-              <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
+            <div className="mb-12 pb-12 border-b border-[#0F0F0F]/10">
+              <span className="text-[#E85D26] font-sans font-bold tracking-widest uppercase text-xs mb-4 block">Discovery Call</span>
+              <h2 className="font-display text-4xl text-[#0F0F0F] leading-tight mb-6">
                 Let's build your free custom demo.
-              </p>
-              <p className="font-sans text-base leading-relaxed">
+              </h2>
+              <p className="font-sans text-xl text-[#0F0F0F]/70 leading-relaxed">
                 Tell us about your shop and the projects you want more of. We will use the
                 conversation to prepare a homepage direction built around your work—not a
                 generic template.
@@ -143,12 +143,12 @@ export default function GetStarted() {
             </div>
           )}
           {isAuctioneer && (
-            <div className="bg-[#0F0F0F] text-[#F4F1EC] p-6 mb-10 relative">
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#E85D26]"></div>
-              <p className="font-display uppercase tracking-tight text-2xl text-white leading-none mb-3">
+            <div className="mb-12 pb-12 border-b border-[#0F0F0F]/10">
+              <span className="text-[#E85D26] font-sans font-bold tracking-widest uppercase text-xs mb-4 block">Discovery Call</span>
+              <h2 className="font-display text-4xl text-[#0F0F0F] leading-tight mb-6">
                 Let's build your free custom demo.
-              </p>
-              <p className="font-sans text-base leading-relaxed">
+              </h2>
+              <p className="font-sans text-xl text-[#0F0F0F]/70 leading-relaxed">
                 Tell us about your auction business and the clients and events you want more of. We will use
                 the conversation to prepare a homepage direction built around how you actually
                 sell—not a generic template.
@@ -162,12 +162,15 @@ export default function GetStarted() {
             landingPagePath={landingPagePath}
             variant="page"
           />
-          <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-12">
-            Prefer to email us? Reach out at{" "}
-            <a href="mailto:hello@graylockdigital.com" className="text-[#B23E16] font-semibold hover:underline">
-              hello@graylockdigital.com
-            </a>
-          </p>
+          </div>
+          <div className="text-center mt-12">
+            <p className="text-[#0F0F0F]/60 text-base font-sans">
+              Prefer to email us? Reach out at{" "}
+              <a href="mailto:hello@graylockdigital.com" className="text-[#E85D26] font-semibold hover:text-[#0F0F0F] transition-colors underline underline-offset-4 decoration-[#E85D26]/30 hover:decoration-[#0F0F0F]">
+                hello@graylockdigital.com
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </>

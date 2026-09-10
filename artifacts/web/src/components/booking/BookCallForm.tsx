@@ -1,5 +1,5 @@
 import { useRef, useState, type FormEvent } from "react";
-import { CheckCircle, ChevronDown, Loader2 } from "lucide-react";
+import { CheckCircle, ChevronDown, Loader2, AlertCircle } from "lucide-react";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { getWellDrillerCampaignParams } from "@/lib/wellDrillerLinks";
@@ -148,6 +148,51 @@ export function BookCallForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+
+  const isPage = variant === "page";
+
+  const styles = {
+    input: isPage
+      ? "w-full bg-[#F4F1EC]/40 border border-[#0F0F0F]/10 px-4 py-4 font-sans text-lg focus:outline-none focus:border-[#E85D26] focus:bg-white focus:ring-1 focus:ring-[#E85D26]/10 transition-all rounded-none placeholder:text-[#0F0F0F]/40 hover:border-[#0F0F0F]/30"
+      : INPUT_BASE,
+    label: isPage
+      ? "text-[#0F0F0F] font-sans font-bold tracking-widest text-[13px] uppercase block"
+      : LABEL_CLASSES,
+    optional: isPage
+      ? "text-[#0F0F0F]/40 font-sans normal-case tracking-normal text-xs font-normal ml-2"
+      : OPTIONAL_CLASSES,
+    legend: isPage
+      ? "text-[#0F0F0F] font-sans font-bold tracking-widest text-[13px] uppercase block p-0"
+      : `${LABEL_CLASSES} p-0`,
+    fieldGroup: isPage ? "flex flex-col gap-2 group" : "flex flex-col gap-1.5 group",
+    checkboxGrid: isPage
+      ? "grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1"
+      : "grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1",
+    getCheckboxLabel: (checked: boolean) => isPage
+      ? `flex items-center gap-3 border px-4 py-3.5 font-sans text-base cursor-pointer transition-all ${
+          checked
+            ? "border-[#E85D26] bg-[#E85D26]/5 text-[#0F0F0F]"
+            : "border-[#0F0F0F]/10 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/30 hover:bg-[#F4F1EC]/50"
+        }`
+      : `flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
+          checked
+            ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
+            : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
+        }`,
+    selectIcon: isPage
+      ? "pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0F0F0F]/40 group-focus-within:text-[#E85D26] transition-colors"
+      : "pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors",
+    submitBtn: isPage
+      ? "mt-4 bg-[#0F0F0F] text-white font-sans font-bold tracking-widest uppercase text-lg px-8 py-5 hover:bg-[#E85D26] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 w-full shadow-xl shadow-[#0F0F0F]/5"
+      : "mt-6 bg-[#0F0F0F] text-[#F4F1EC] font-display uppercase tracking-widest text-xl px-8 py-5 hover:bg-[#E85D26] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#0F0F0F] disabled:hover:text-[#F4F1EC] flex items-center justify-center gap-3 w-full",
+    formGap: isPage ? "flex flex-col gap-8" : "flex flex-col gap-6",
+    errorText: isPage
+      ? "text-[#B23E16] font-sans font-medium text-sm mt-1"
+      : "text-[#B23E16] font-sans font-semibold text-sm",
+    errorBanner: isPage
+      ? "bg-white border border-[#B23E16]/20 p-4 mt-4 flex items-start gap-3"
+      : "bg-[#B23E16]/10 border-l-4 border-[#B23E16] p-4 mt-2",
+  };
 
   const isRealtor = industry === "real-estate";
   const isWellDriller = industry === "well-drilling";
@@ -516,9 +561,11 @@ export function BookCallForm({
 
   if (submitted) {
     return (
-      <div className={variant === "page" ? "text-center py-20 app-fade-in" : "text-center py-12 app-fade-in"}>
-        <CheckCircle className="text-[#E85D26] w-16 h-16 mx-auto mb-6" aria-hidden="true" strokeWidth={1.5} />
-        <h3 className="text-4xl md:text-5xl font-display text-[#0F0F0F] uppercase tracking-tight mb-4">
+      <div className={variant === "page" ? "text-center py-24 app-fade-in" : "text-center py-12 app-fade-in"}>
+        <CheckCircle className="text-[#E85D26] w-16 h-16 mx-auto mb-8" aria-hidden="true" strokeWidth={1.5} />
+        <h3 className={variant === "page"
+          ? "text-4xl md:text-5xl font-display text-[#0F0F0F] leading-tight mb-6"
+          : "text-4xl md:text-5xl font-display text-[#0F0F0F] uppercase tracking-tight mb-4"}>
           {isWellDriller || isCabinetMaker || isAuctioneer ? (
             <>You're in.</>
           ) : (
@@ -548,10 +595,10 @@ export function BookCallForm({
       onSubmit={handleSubmit}
       onFocusCapture={handleFirstFocus}
       noValidate={false}
-      className="flex flex-col gap-6"
+      className={styles.formGap}
     >
-      <div className="flex flex-col gap-1.5 group">
-        <label htmlFor="bc-name" className={LABEL_CLASSES}>
+      <div className={styles.fieldGroup}>
+        <label htmlFor="bc-name" className={styles.label}>
           Name
         </label>
         <input
@@ -562,13 +609,13 @@ export function BookCallForm({
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your name"
-          className={`${INPUT_BASE} text-[#0F0F0F]`}
+          className={`${styles.input} text-[#0F0F0F]`}
         />
       </div>
 
       {!isRealtor && (
-        <div className="flex flex-col gap-1.5 group">
-          <label htmlFor="bc-business" className={LABEL_CLASSES}>
+        <div className={styles.fieldGroup}>
+          <label htmlFor="bc-business" className={styles.label}>
             Business name
           </label>
           <input
@@ -579,28 +626,28 @@ export function BookCallForm({
             value={businessName}
             onChange={(e) => setBusinessName(e.target.value)}
             placeholder="Your business"
-            className={`${INPUT_BASE} text-[#0F0F0F]`}
+            className={`${styles.input} text-[#0F0F0F]`}
           />
           {isWellDriller && wdErrors.business && (
-            <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+            <span role="alert" className={styles.errorText}>
               {wdErrors.business}
             </span>
           )}
           {isCabinetMaker && cmErrors.business && (
-            <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+            <span role="alert" className={styles.errorText}>
               {cmErrors.business}
             </span>
           )}
           {isAuctioneer && aucErrors.business && (
-            <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+            <span role="alert" className={styles.errorText}>
               {aucErrors.business}
             </span>
           )}
         </div>
       )}
 
-      <div className="flex flex-col gap-1.5 group">
-        <label htmlFor="bc-email" className={LABEL_CLASSES}>
+      <div className={styles.fieldGroup}>
+        <label htmlFor="bc-email" className={styles.label}>
           Email
         </label>
         <input
@@ -611,12 +658,12 @@ export function BookCallForm({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
-          className={`${INPUT_BASE} text-[#0F0F0F]`}
+          className={`${styles.input} text-[#0F0F0F]`}
         />
       </div>
 
-      <div className="flex flex-col gap-1.5 group">
-        <label htmlFor="bc-phone" className={LABEL_CLASSES}>
+      <div className={styles.fieldGroup}>
+        <label htmlFor="bc-phone" className={styles.label}>
           Phone
         </label>
         <input
@@ -627,25 +674,25 @@ export function BookCallForm({
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="(208) 555-0123"
-          className={`${INPUT_BASE} text-[#0F0F0F]`}
+          className={`${styles.input} text-[#0F0F0F]`}
         />
         {isWellDriller && wdErrors.phone && (
-          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+          <span role="alert" className={styles.errorText}>
             {wdErrors.phone}
           </span>
         )}
         {isCabinetMaker && cmErrors.phone && (
-          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+          <span role="alert" className={styles.errorText}>
             {cmErrors.phone}
           </span>
         )}
         {isAuctioneer && aucErrors.phone && (
-          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+          <span role="alert" className={styles.errorText}>
             {aucErrors.phone}
           </span>
         )}
         {isRealtor && rtErrors.phone && (
-          <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+          <span role="alert" className={styles.errorText}>
             {rtErrors.phone}
           </span>
         )}
@@ -653,9 +700,9 @@ export function BookCallForm({
 
       {isWellDriller && (
         <>
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-website" className={LABEL_CLASSES}>
-              Current Website <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-website" className={styles.label}>
+              Current Website <span className={styles.optional}>(Optional)</span>
             </label>
             <input
               id="bc-website"
@@ -665,17 +712,17 @@ export function BookCallForm({
               value={websiteUrl}
               onChange={(e) => setWebsiteUrl(e.target.value)}
               placeholder="yourbusiness.com"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
             {wdErrors.website && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {wdErrors.website}
               </span>
             )}
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-service-area" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-service-area" className={styles.label}>
               Primary Service Area
             </label>
             <input
@@ -685,26 +732,22 @@ export function BookCallForm({
               value={serviceArea}
               onChange={(e) => setServiceArea(e.target.value)}
               placeholder="e.g., Elko County, NV and surrounding rural areas"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
           </div>
 
-          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
-            <legend className={`${LABEL_CLASSES} p-0`}>
+          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+            <legend className={styles.legend}>
               Main Services{" "}
-              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+              <span className={styles.optional}>(Select all that apply)</span>
             </legend>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+            <div className={styles.checkboxGrid}>
               {WELL_DRILLER_SERVICE_OPTIONS.map((service) => {
                 const checked = mainServices.includes(service);
                 return (
                   <label
                     key={service}
-                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
-                      checked
-                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
-                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
-                    }`}
+                    className={styles.getCheckboxLabel(checked)}
                   >
                     <input
                       type="checkbox"
@@ -718,16 +761,16 @@ export function BookCallForm({
               })}
             </div>
             {wdErrors.services && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {wdErrors.services}
               </span>
             )}
           </fieldset>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-desired-jobs" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-desired-jobs" className={styles.label}>
               What kinds of jobs do you want more of?{" "}
-              <span className={OPTIONAL_CLASSES}>(Optional)</span>
+              <span className={styles.optional}>(Optional)</span>
             </label>
             <textarea
               id="bc-desired-jobs"
@@ -735,14 +778,14 @@ export function BookCallForm({
               value={desiredJobs}
               onChange={(e) => setDesiredJobs(e.target.value)}
               placeholder="Service calls, new wells, pumps, commercial work, agricultural work, or something else."
-              className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
+              className={`${styles.input} text-[#0F0F0F] resize-none`}
             />
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-website-goal" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-website-goal" className={styles.label}>
               What do you want your website to do better?{" "}
-              <span className={OPTIONAL_CLASSES}>(Optional)</span>
+              <span className={styles.optional}>(Optional)</span>
             </label>
             <textarea
               id="bc-website-goal"
@@ -750,12 +793,12 @@ export function BookCallForm({
               value={websiteGoal}
               onChange={(e) => setWebsiteGoal(e.target.value)}
               placeholder="Show up in local searches, look more professional, make it easier to request service — whatever matters most."
-              className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
+              className={`${styles.input} text-[#0F0F0F] resize-none`}
             />
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-preferred-contact" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-preferred-contact" className={styles.label}>
               Preferred Contact Method
             </label>
             <div className="relative">
@@ -763,7 +806,7 @@ export function BookCallForm({
                 id="bc-preferred-contact"
                 value={preferredContact}
                 onChange={(e) => setPreferredContact(e.target.value)}
-                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                className={`${styles.input} appearance-none pr-10 cursor-pointer ${
                   preferredContact ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
                 }`}
               >
@@ -777,13 +820,13 @@ export function BookCallForm({
                 ))}
               </select>
               <ChevronDown
-                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                className={styles.selectIcon}
                 size={20}
                 aria-hidden="true"
               />
             </div>
             {wdErrors.contact && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {wdErrors.contact}
               </span>
             )}
@@ -793,9 +836,9 @@ export function BookCallForm({
 
       {isCabinetMaker && (
         <>
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-cm-website" className={LABEL_CLASSES}>
-              Current Website <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-cm-website" className={styles.label}>
+              Current Website <span className={styles.optional}>(Optional)</span>
             </label>
             <input
               id="bc-cm-website"
@@ -805,17 +848,17 @@ export function BookCallForm({
               value={websiteUrl}
               onChange={(e) => setWebsiteUrl(e.target.value)}
               placeholder="yourbusiness.com"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
             {cmErrors.website && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {cmErrors.website}
               </span>
             )}
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-cm-service-area" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-cm-service-area" className={styles.label}>
               Primary Service Area
             </label>
             <input
@@ -825,26 +868,22 @@ export function BookCallForm({
               value={serviceArea}
               onChange={(e) => setServiceArea(e.target.value)}
               placeholder="e.g., Boise metro and surrounding communities"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
           </div>
 
-          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
-            <legend className={`${LABEL_CLASSES} p-0`}>
+          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+            <legend className={styles.legend}>
               Main Project Types{" "}
-              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+              <span className={styles.optional}>(Select all that apply)</span>
             </legend>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+            <div className={styles.checkboxGrid}>
               {CABINET_MAKER_PROJECT_OPTIONS.map((option) => {
                 const checked = mainProjectTypes.includes(option);
                 return (
                   <label
                     key={option}
-                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
-                      checked
-                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
-                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
-                    }`}
+                    className={styles.getCheckboxLabel(checked)}
                   >
                     <input
                       type="checkbox"
@@ -858,28 +897,24 @@ export function BookCallForm({
               })}
             </div>
             {cmErrors.projects && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {cmErrors.projects}
               </span>
             )}
           </fieldset>
 
-          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
-            <legend className={`${LABEL_CLASSES} p-0`}>
+          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+            <legend className={styles.legend}>
               What do you want more of?{" "}
-              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+              <span className={styles.optional}>(Select all that apply)</span>
             </legend>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+            <div className={styles.checkboxGrid}>
               {CABINET_MAKER_OUTCOME_OPTIONS.map((option) => {
                 const checked = desiredOutcomes.includes(option);
                 return (
                   <label
                     key={option}
-                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
-                      checked
-                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
-                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
-                    }`}
+                    className={styles.getCheckboxLabel(checked)}
                   >
                     <input
                       type="checkbox"
@@ -893,14 +928,14 @@ export function BookCallForm({
               })}
             </div>
             {cmErrors.outcomes && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {cmErrors.outcomes}
               </span>
             )}
           </fieldset>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-cm-launch-timing" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-cm-launch-timing" className={styles.label}>
               Target launch timing
             </label>
             <div className="relative">
@@ -909,7 +944,7 @@ export function BookCallForm({
                 required
                 value={launchTiming}
                 onChange={(e) => setLaunchTiming(e.target.value)}
-                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                className={`${styles.input} appearance-none pr-10 cursor-pointer ${
                   launchTiming ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
                 }`}
               >
@@ -923,21 +958,21 @@ export function BookCallForm({
                 ))}
               </select>
               <ChevronDown
-                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                className={styles.selectIcon}
                 size={20}
                 aria-hidden="true"
               />
             </div>
             {cmErrors.timing && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {cmErrors.timing}
               </span>
             )}
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-cm-note" className={LABEL_CLASSES}>
-              Additional notes <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-cm-note" className={styles.label}>
+              Additional notes <span className={styles.optional}>(Optional)</span>
             </label>
             <textarea
               id="bc-cm-note"
@@ -946,7 +981,7 @@ export function BookCallForm({
               onChange={(e) => setNote(e.target.value)}
               maxLength={500}
               placeholder="Anything about your shop, projects, or current website we should know."
-              className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
+              className={`${styles.input} text-[#0F0F0F] resize-none`}
             />
           </div>
         </>
@@ -954,9 +989,9 @@ export function BookCallForm({
 
       {isAuctioneer && (
         <>
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-auc-website" className={LABEL_CLASSES}>
-              Current Website <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-auc-website" className={styles.label}>
+              Current Website <span className={styles.optional}>(Optional)</span>
             </label>
             <input
               id="bc-auc-website"
@@ -966,17 +1001,17 @@ export function BookCallForm({
               value={websiteUrl}
               onChange={(e) => setWebsiteUrl(e.target.value)}
               placeholder="yourbusiness.com"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
             {aucErrors.website && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {aucErrors.website}
               </span>
             )}
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-auc-service-area" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-auc-service-area" className={styles.label}>
               Primary Service Area
             </label>
             <input
@@ -986,26 +1021,22 @@ export function BookCallForm({
               value={serviceArea}
               onChange={(e) => setServiceArea(e.target.value)}
               placeholder="e.g., Central Texas and surrounding counties"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
           </div>
 
-          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
-            <legend className={`${LABEL_CLASSES} p-0`}>
+          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+            <legend className={styles.legend}>
               Auction Types{" "}
-              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+              <span className={styles.optional}>(Select all that apply)</span>
             </legend>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+            <div className={styles.checkboxGrid}>
               {AUCTIONEER_TYPE_OPTIONS.map((option) => {
                 const checked = auctionTypes.includes(option);
                 return (
                   <label
                     key={option}
-                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
-                      checked
-                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
-                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
-                    }`}
+                    className={styles.getCheckboxLabel(checked)}
                   >
                     <input
                       type="checkbox"
@@ -1019,28 +1050,24 @@ export function BookCallForm({
               })}
             </div>
             {aucErrors.types && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {aucErrors.types}
               </span>
             )}
           </fieldset>
 
-          <fieldset className="flex flex-col gap-1.5 border-0 p-0 m-0">
-            <legend className={`${LABEL_CLASSES} p-0`}>
+          <fieldset className={`${styles.fieldGroup} border-0 p-0 m-0`}>
+            <legend className={styles.legend}>
               What do you want more of?{" "}
-              <span className={OPTIONAL_CLASSES}>(Select all that apply)</span>
+              <span className={styles.optional}>(Select all that apply)</span>
             </legend>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+            <div className={styles.checkboxGrid}>
               {AUCTIONEER_OUTCOME_OPTIONS.map((option) => {
                 const checked = desiredOutcomes.includes(option);
                 return (
                   <label
                     key={option}
-                    className={`flex items-center gap-2.5 border-2 px-3.5 py-2.5 font-sans text-base cursor-pointer transition-all ${
-                      checked
-                        ? "border-[#E85D26] bg-[#E85D26]/10 text-[#0F0F0F]"
-                        : "border-[#0F0F0F]/20 text-[#0F0F0F]/70 hover:border-[#0F0F0F]/40"
-                    }`}
+                    className={styles.getCheckboxLabel(checked)}
                   >
                     <input
                       type="checkbox"
@@ -1054,14 +1081,14 @@ export function BookCallForm({
               })}
             </div>
             {aucErrors.outcomes && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {aucErrors.outcomes}
               </span>
             )}
           </fieldset>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-auc-launch-timing" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-auc-launch-timing" className={styles.label}>
               Target launch timing
             </label>
             <div className="relative">
@@ -1070,7 +1097,7 @@ export function BookCallForm({
                 required
                 value={launchTiming}
                 onChange={(e) => setLaunchTiming(e.target.value)}
-                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                className={`${styles.input} appearance-none pr-10 cursor-pointer ${
                   launchTiming ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
                 }`}
               >
@@ -1084,21 +1111,21 @@ export function BookCallForm({
                 ))}
               </select>
               <ChevronDown
-                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                className={styles.selectIcon}
                 size={20}
                 aria-hidden="true"
               />
             </div>
             {aucErrors.timing && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {aucErrors.timing}
               </span>
             )}
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-auc-note" className={LABEL_CLASSES}>
-              Additional notes <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-auc-note" className={styles.label}>
+              Additional notes <span className={styles.optional}>(Optional)</span>
             </label>
             <textarea
               id="bc-auc-note"
@@ -1107,7 +1134,7 @@ export function BookCallForm({
               onChange={(e) => setNote(e.target.value)}
               maxLength={500}
               placeholder="Anything about your auctions, sellers, or current website we should know."
-              className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
+              className={`${styles.input} text-[#0F0F0F] resize-none`}
             />
           </div>
         </>
@@ -1115,8 +1142,8 @@ export function BookCallForm({
 
       {isRealtor && (
         <>
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-role" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-role" className={styles.label}>
               Role
             </label>
             <div className="relative">
@@ -1125,7 +1152,7 @@ export function BookCallForm({
                 required
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                className={`${styles.input} appearance-none pr-10 cursor-pointer ${
                   role ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
                 }`}
               >
@@ -1139,15 +1166,15 @@ export function BookCallForm({
                 ))}
               </select>
               <ChevronDown
-                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                className={styles.selectIcon}
                 size={20}
                 aria-hidden="true"
               />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-market" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-market" className={styles.label}>
               Market / service area
             </label>
             <input
@@ -1157,13 +1184,13 @@ export function BookCallForm({
               value={market}
               onChange={(e) => setMarket(e.target.value)}
               placeholder="e.g., Twin Falls + surrounding Southern Idaho"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-brokerage" className={LABEL_CLASSES}>
-              Brokerage <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-brokerage" className={styles.label}>
+              Brokerage <span className={styles.optional}>(Optional)</span>
             </label>
             <input
               id="bc-brokerage"
@@ -1172,13 +1199,13 @@ export function BookCallForm({
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
               placeholder="Your brokerage"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-mls" className={LABEL_CLASSES}>
-              MLS, if known <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-mls" className={styles.label}>
+              MLS, if known <span className={styles.optional}>(Optional)</span>
             </label>
             <input
               id="bc-mls"
@@ -1186,13 +1213,13 @@ export function BookCallForm({
               value={mls}
               onChange={(e) => setMls(e.target.value)}
               placeholder="e.g., Intermountain MLS"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-website" className={LABEL_CLASSES}>
-              Current website URL <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-website" className={styles.label}>
+              Current website URL <span className={styles.optional}>(Optional)</span>
             </label>
             <input
               id="bc-website"
@@ -1202,17 +1229,17 @@ export function BookCallForm({
               value={websiteUrl}
               onChange={(e) => setWebsiteUrl(e.target.value)}
               placeholder="yourbusiness.com"
-              className={`${INPUT_BASE} text-[#0F0F0F]`}
+              className={`${styles.input} text-[#0F0F0F]`}
             />
             {rtErrors.website && (
-              <span role="alert" className="text-[#B23E16] font-sans font-semibold text-sm">
+              <span role="alert" className={styles.errorText}>
                 {rtErrors.website}
               </span>
             )}
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-need-search" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-need-search" className={styles.label}>
               Do you need property search?
             </label>
             <div className="relative">
@@ -1221,7 +1248,7 @@ export function BookCallForm({
                 required
                 value={needSearch}
                 onChange={(e) => setNeedSearch(e.target.value)}
-                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                className={`${styles.input} appearance-none pr-10 cursor-pointer ${
                   needSearch ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
                 }`}
               >
@@ -1235,15 +1262,15 @@ export function BookCallForm({
                 ))}
               </select>
               <ChevronDown
-                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                className={styles.selectIcon}
                 size={20}
                 aria-hidden="true"
               />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5 group">
-            <label htmlFor="bc-launch-timing" className={LABEL_CLASSES}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="bc-launch-timing" className={styles.label}>
               Target launch timing
             </label>
             <div className="relative">
@@ -1252,7 +1279,7 @@ export function BookCallForm({
                 required
                 value={launchTiming}
                 onChange={(e) => setLaunchTiming(e.target.value)}
-                className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+                className={`${styles.input} appearance-none pr-10 cursor-pointer ${
                   launchTiming ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
                 }`}
               >
@@ -1266,7 +1293,7 @@ export function BookCallForm({
                 ))}
               </select>
               <ChevronDown
-                className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+                className={styles.selectIcon}
                 size={20}
                 aria-hidden="true"
               />
@@ -1276,9 +1303,9 @@ export function BookCallForm({
       )}
 
       {!isWellDriller && !isRealtor && !isCabinetMaker && !isAuctioneer && (
-        <div className="flex flex-col gap-1.5 group">
-          <label htmlFor="bc-website" className={LABEL_CLASSES}>
-            Current website <span className={OPTIONAL_CLASSES}>(Optional)</span>
+        <div className={styles.fieldGroup}>
+          <label htmlFor="bc-website" className={styles.label}>
+            Current website <span className={styles.optional}>(Optional)</span>
           </label>
           <input
             id="bc-website"
@@ -1288,23 +1315,23 @@ export function BookCallForm({
             value={websiteUrl}
             onChange={(e) => setWebsiteUrl(e.target.value)}
             placeholder="yourbusiness.com"
-            className={`${INPUT_BASE} text-[#0F0F0F]`}
+            className={`${styles.input} text-[#0F0F0F]`}
           />
         </div>
       )}
 
       {!isWellDriller && !isRealtor && !isCabinetMaker && !isAuctioneer && (
-      <div className="flex flex-col gap-1.5 group">
-        <label htmlFor="bc-heard" className={LABEL_CLASSES}>
+      <div className={styles.fieldGroup}>
+        <label htmlFor="bc-heard" className={styles.label}>
           How did you hear about us?{" "}
-          <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <span className={styles.optional}>(Optional)</span>
         </label>
         <div className="relative">
           <select
             id="bc-heard"
             value={heardAboutUs}
             onChange={(e) => setHeardAboutUs(e.target.value)}
-            className={`${INPUT_BASE} appearance-none pr-10 cursor-pointer ${
+            className={`${styles.input} appearance-none pr-10 cursor-pointer ${
               heardAboutUs ? "text-[#0F0F0F]" : "text-[#0F0F0F]/60"
             }`}
           >
@@ -1318,7 +1345,7 @@ export function BookCallForm({
             <option value="Other">Other</option>
           </select>
           <ChevronDown
-            className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[#0F0F0F]/60 group-focus-within:text-[#E85D26] transition-colors"
+            className={styles.selectIcon}
             size={20}
             aria-hidden="true"
           />
@@ -1327,12 +1354,12 @@ export function BookCallForm({
       )}
 
       {!isWellDriller && !isCabinetMaker && !isAuctioneer && (
-      <div className="flex flex-col gap-1.5 group">
-        <label htmlFor="bc-note" className={LABEL_CLASSES}>
+      <div className={styles.fieldGroup}>
+        <label htmlFor="bc-note" className={styles.label}>
           {isRealtor
             ? "Anything you want the new site to do better?"
             : "Anything we should know?"}{" "}
-          <span className={OPTIONAL_CLASSES}>(Optional)</span>
+          <span className={styles.optional}>(Optional)</span>
         </label>
         <textarea
           id="bc-note"
@@ -1345,13 +1372,14 @@ export function BookCallForm({
               ? "Search, seller leads, local visibility — whatever matters most."
               : "Goals, timeline — whatever's useful."
           }
-          className={`${INPUT_BASE} text-[#0F0F0F] resize-none`}
+          className={`${styles.input} text-[#0F0F0F] resize-none`}
         />
       </div>
       )}
 
       {error && (
-        <div className="bg-[#B23E16]/10 border-l-4 border-[#B23E16] p-4 mt-2">
+        <div className={styles.errorBanner}>
+          {isPage && <AlertCircle className="w-5 h-5 text-[#B23E16] flex-shrink-0 mt-0.5" />}
           <p role="alert" className="text-[#B23E16] font-sans font-semibold text-sm leading-snug">
             {error}
           </p>
@@ -1361,7 +1389,7 @@ export function BookCallForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-6 bg-[#0F0F0F] text-[#F4F1EC] font-display uppercase tracking-widest text-xl px-8 py-5 hover:bg-[#E85D26] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#0F0F0F] disabled:hover:text-[#F4F1EC] flex items-center justify-center gap-3 w-full"
+        className={styles.submitBtn}
       >
         {isSubmitting ? (
           <>
