@@ -67,7 +67,7 @@ export function HeroSection() {
         }}
       />
       {/* Desktop: shared Willow laptop-and-phone cutout with proof caption */}
-      <div className="absolute hidden lg:flex pointer-events-none right-[-1.5vw] top-[20vh] w-[min(55vw,820px)] z-[1] flex-col items-center">
+      <div className="absolute hidden lg:flex pointer-events-none right-[-1.5vw] top-[20vh] w-[min(44vw,656px)] z-[1] flex-col items-center">
         <img
           src={heroMobileWillowDevices}
           alt=""
