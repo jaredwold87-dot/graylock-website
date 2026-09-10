@@ -19,6 +19,8 @@ interface BookCallFormProps {
   landingPagePath?: string;
   /** Compact spacing for the modal; roomier on the standalone page. */
   variant?: "modal" | "page";
+  /** Use the compact two-column presentation inside the booking dialog. */
+  compact?: boolean;
 }
 
 const INPUT_BASE =
@@ -95,6 +97,7 @@ export function BookCallForm({
   leadParams = {},
   landingPagePath = "",
   variant = "modal",
+  compact = false,
 }: BookCallFormProps) {
   const [name, setName] = useState("");
   const [businessName, setBusinessName] = useState("");
@@ -149,7 +152,7 @@ export function BookCallForm({
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  const isPage = variant === "page";
+  const isPage = variant === "page" || compact;
 
   const styles = {
     input: isPage

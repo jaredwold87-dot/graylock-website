@@ -70,6 +70,9 @@ export function useBookingCtaClick(
     if (e.defaultPrevented || e.button !== 0) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
+    // These links open a controlled dialog without a Radix DialogTrigger.
+    // Focus the invoking link so the dialog can restore focus on dismissal.
+    if (e.currentTarget instanceof HTMLElement) e.currentTarget.focus({ preventScroll: true });
     const params = new URLSearchParams(href.split("?")[1] ?? "");
     const utm: Record<string, string> = {};
     params.forEach((value, key) => {

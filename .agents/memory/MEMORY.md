@@ -14,3 +14,4 @@
 - [Browser 404 red herring](browser-404-red-herring.md) — the lone console 404 on every page is api-server GET / (no root route), not a missing asset; don't chase it during QA.
 - [Single homepage intro](single-homepage-intro.md) — keep only the React landing intro; a separate pre-JS splash makes visitors see two reveals.
 - [Text-message link previews](text-message-link-previews.md) — Graylock URL previews in texts come from Open Graph metadata, not an SMS/MMS attachment.
+- [Discovery form entry point](discovery-form-entrypoint.md) — form redesigns must cover the actual CTA popup, not only the standalone page.
