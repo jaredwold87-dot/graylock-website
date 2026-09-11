@@ -3,6 +3,24 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import heroDesktopTopographic from "@/assets/hero-desktop-topographic.webp";
 import heroMobileTopographic from "@/assets/hero-mobile-topographic.webp";
 import heroMobileWillowDevices from "@/assets/hero-mobile-willow-devices.webp";
+import markHeroExcerpt from "@/assets/reviews/mark_nelson_hero_excerpt.webp";
+
+function HeroClientReview() {
+  return (
+    <figure className="mt-4 w-full max-w-[490px] mx-auto">
+      <img
+        src={markHeroExcerpt}
+        width={962}
+        height={276}
+        alt="Mark Nelson’s five-star Google review excerpt: The lead generation has been amazing, we have been converting leads into actual customers because of this website."
+        className="w-full h-auto rounded-lg shadow-lg"
+      />
+      <figcaption className="mt-2 text-center text-offwhite/80 font-sans text-xs">
+        Mark Nelson · Willow Realty Group · Review excerpt
+      </figcaption>
+    </figure>
+  );
+}
 
 export function HeroSection() {
   return (
@@ -69,8 +87,7 @@ export function HeroSection() {
       <div className="absolute hidden lg:flex pointer-events-none left-[75%] -translate-x-1/2 top-[20vh] w-[min(44vw,656px)] z-[1] flex-col items-center">
         <img
           src={heroMobileWillowDevices}
-          alt=""
-          aria-hidden="true"
+          alt="Willow Realty Group’s website on a laptop and phone"
           className="w-full h-auto"
           loading="eager"
           decoding="async"
@@ -78,6 +95,7 @@ export function HeroSection() {
         <p className="mt-3 text-center text-offwhite/90 font-sans text-sm tracking-wide">
           A real website designed and built by Graylock Digital.
         </p>
+        <HeroClientReview />
       </div>
       <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative z-10 pt-32 pb-16 md:py-24 md:flex-1 md:flex md:items-center lg:items-start lg:pt-[20vh]">
         <div className="max-w-2xl">
@@ -124,6 +142,15 @@ export function HeroSection() {
                   See Real Client Websites
                 </CTAButton>
               </div>
+            </div>
+            <div className="lg:hidden mt-10 max-w-lg mx-auto">
+              <img
+                src={heroMobileWillowDevices}
+                alt="Willow Realty Group’s website on a laptop and phone"
+                className="w-full h-auto"
+                loading="lazy"
+              />
+              <HeroClientReview />
             </div>
           </ScrollReveal>
         </div>
