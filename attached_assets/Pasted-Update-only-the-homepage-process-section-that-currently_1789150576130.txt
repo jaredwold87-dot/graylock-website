@@ -1,0 +1,129 @@
+Update only the homepage process section that currently appears directly after the “What We Deliver” section.
+
+The current process section has the heading:
+
+“We Prove Our Value Before You Pay a Dollar.”
+
+and contains four white cards with generic process images:
+
+1. 15-Minute Discovery Call
+2. Free Custom Homepage Demo
+3. You Approve the Design & Direction
+4. Built & Launched on Your Domain
+
+Do not change the hero, offer section, testimonials, featured work, problem-diagnosis section, “What We Deliver” section, navigation, footer, CTA behavior, form behavior, pricing, or any other homepage section.
+
+IMPORTANT:
+This must become the homepage’s one and only detailed process section. There is another later homepage section currently framed around “A Clearer Way to Build” / “See the Direction Before You Commit.” Remove that later duplicate process section entirely after this section is updated. Do not remove FAQs, founder content, final CTA, or any other later section.
+
+GOAL:
+Convert the current card-based process section into a premium, open editorial process timeline. It must feel like a clear, low-risk path from first conversation through launch—not like a SaaS feature grid, generic four-card module, or stock-agency process section.
+
+REMOVE FROM THIS SECTION:
+- All four white card containers
+- Rounded card corners
+- Card shadows
+- Generic/AI/stock process images
+- Orange icon boxes over the images
+- Any generic feature-card styling
+- The current “We Prove Our Value Before You Pay a Dollar” heading and supporting copy
+- Any hover-only or hidden process details
+
+COPY:
+
+Eyebrow:
+HOW IT WORKS
+
+Main heading:
+A Clear Path From First Call to Launch.
+
+Supporting copy:
+Start with a short fit call. If Graylock is the right fit, you see a custom homepage direction before any build fee is due. You approve the direction, then we build and launch your website.
+
+PROCESS STEPS:
+
+STEP 01
+
+Heading:
+15-Minute Fit Call
+
+Body:
+We learn about your business, your current website, and what you need your online presence to improve. Then we determine whether Graylock is the right fit.
+
+STEP 02
+
+Heading:
+Your Free Homepage Direction
+
+Body:
+If the work is a fit, we create a custom homepage direction around your business before any build fee is due.
+
+STEP 03
+
+Heading:
+Approve the Direction
+
+Body:
+You review the direction, scope, and next steps. If it feels right, you approve the build and move forward with clarity.
+
+STEP 04
+
+Heading:
+Built and Launched on Your Domain
+
+Body:
+Once the required materials and approvals are confirmed, standard sites are built, tested, and launched in 7–10 business days.
+
+DESIGN DIRECTION:
+
+This section should feel like a premium editorial service timeline, not a set of feature cards.
+
+Desktop:
+- Use an open four-step horizontal timeline.
+- Use one centered introductory area with the eyebrow, heading, and supporting copy.
+- Below it, show all four steps in a horizontal row.
+- Each step should have a large orange number: 01, 02, 03, 04.
+- Use a restrained thin horizontal line that visually connects the process steps.
+- Place each heading and body copy below or beside its number, using a clear editorial grid.
+- Use generous whitespace.
+- Keep the warm off-white background and Graylock’s existing charcoal, off-white, and orange palette.
+- Do not use individual backgrounds, card borders, shadows, rounded rectangles, badges, decorative icons, stock images, AI-generated images, gradients, or glass effects.
+- The visual hierarchy should naturally emphasize Step 02, “Your Free Homepage Direction,” through typography, spacing, or a subtle orange accent only. Do not use a box or background fill.
+
+Tablet:
+- Preserve the process sequence and readable hierarchy.
+- Use either a two-by-two open grid with connecting rules or a clean wrapped timeline, depending on available space.
+- Do not convert the steps into cards.
+
+Mobile:
+- Stack all four steps vertically in chronological order.
+- Use a vertical timeline rule with the orange numbers aligned to the left.
+- Keep headings and descriptions to the right of or beneath each number.
+- Ensure the process is easy to scan and every step is fully visible without interaction.
+- Do not use card containers, boxed layouts, accordions, or image panels.
+- Avoid horizontal overflow, tiny typography, excessive line wrapping, or cramped spacing.
+
+ACCESSIBILITY:
+- Use one semantic section and a single h2 for “A Clear Path From First Call to Launch.”
+- Use h3 elements for the four step headings.
+- Mark timeline connector lines and decorative elements as aria-hidden.
+- Maintain strong text contrast.
+- Ensure all process details are visible by default with no hover or click required.
+- Respect reduced-motion preferences if any existing animation is retained.
+
+SITE-WIDE CLEANUP:
+- Locate the later homepage section currently framed around:
+  - “A Clearer Way to Build”
+  - “See the Direction Before You Commit”
+- Remove that entire later duplicate process section from the homepage.
+- Remove its duplicate process steps and its duplicate CTA.
+- Do not remove the FAQ, founder/accountability section, final CTA, or footer content that follows it.
+
+FINAL CHECK:
+- Confirm this revised “How It Works” timeline is now the only detailed process explanation on the homepage.
+- Confirm all generic process images and card containers have been removed from this section.
+- Confirm the wording consistently uses “Free Homepage Direction,” not “demo,” “concept,” or other conflicting terms.
+- Confirm the timeline uses only the approved 7–10 business-day language.
+- Verify desktop, tablet, and mobile rendering.
+- Confirm no other homepage sections, CTA routing, booking modal behavior, form behavior, navigation, pricing, or legal/guarantee wording was changed.
+- After implementation, report the exact component(s) changed and confirm the later duplicate process section was removed.

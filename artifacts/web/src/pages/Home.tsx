@@ -7,7 +7,6 @@ import { WhatWeDeliverSection } from "@/components/home/WhatWeDeliverSection";
 import { FeaturedWorkSection } from "@/components/home/FeaturedWorkSection";
 import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
-import { ValueDifferentiationSection } from "@/components/home/ValueDifferentiationSection";
 import { HomeFAQSection } from "@/components/home/HomeFAQSection";
 import { FounderAccountabilitySection } from "@/components/home/FounderAccountabilitySection";
 import { TestimonialSection } from "@/components/home/TestimonialSection";
@@ -31,7 +30,6 @@ export default function Home() {
       <WhatWeDeliverSection homepage />
       <OfferBreakdownSection />
       <TestimonialSection />
-      <ValueDifferentiationSection />
       <HomeFAQSection />
       <FounderAccountabilitySection />
       <FinalCTASection />

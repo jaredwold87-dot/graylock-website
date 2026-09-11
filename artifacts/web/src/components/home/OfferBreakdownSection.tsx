@@ -1,72 +1,103 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Phone, LayoutDashboard, CheckCircle, Rocket } from "lucide-react";
-import discoveryCallImg from "@/assets/process-discovery-call.webp";
-import homepageDemoImg from "@/assets/process-homepage-demo.webp";
-import approvePayImg from "@/assets/process-approve-pay.webp";
-import launchDomainImg from "@/assets/process-launch-domain.webp";
 
 export function OfferBreakdownSection() {
-  const offers = [
+  const steps = [
     {
-      icon: <Phone size={24} strokeWidth={2.2} />,
-      image: discoveryCallImg,
-      title: "15-Minute Discovery Call",
-      desc: "A quick call to hear what you like and dislike about your current site, and what you want from a new one.",
+      num: "01",
+      title: "15-Minute Fit Call",
+      desc: "We learn about your business, your current website, and what you need your online presence to improve. Then we determine whether Graylock is the right fit.",
+      highlight: false
     },
     {
-      icon: <LayoutDashboard size={24} strokeWidth={2.2} />,
-      image: homepageDemoImg,
-      title: "Free Custom Homepage Demo",
-      desc: "We turn that input into a real, custom homepage concept for your business — no payment required to see it.",
+      num: "02",
+      title: "Your Free Homepage Direction",
+      desc: "If the work is a fit, we create a custom homepage direction around your business before any build fee is due.",
+      highlight: false
     },
     {
-      icon: <CheckCircle size={24} strokeWidth={2.2} />,
-      image: approvePayImg,
-      title: "You Approve the Design & Direction",
-      desc: "If you like what you see, you give the design and direction the green light and we move ahead with the full build.",
+      num: "03",
+      title: "Approve the Direction",
+      desc: "You review the direction, scope, and next steps. If it feels right, you approve the build and move forward with clarity.",
+      highlight: false
     },
     {
-      icon: <Rocket size={24} strokeWidth={2.2} />,
-      image: launchDomainImg,
-      title: "Built & Launched on Your Domain",
-      desc: "We build out the full site in 7–10 business days, then launch it live on your own domain.",
-    },
+      num: "04",
+      title: "Built and Launched on Your Domain",
+      desc: "Once the required materials and approvals are confirmed, standard sites are built, tested, and launched in 7–10 business days.",
+      highlight: false
+    }
   ];
 
   return (
-    <section className="relative bg-[#f5f5f4] py-16 md:py-24 px-6 md:px-12 border-t border-gray-100">
+    <section className="relative bg-[#f5f5f4] py-24 md:py-32 px-6 md:px-12 border-t border-gray-100 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] mb-6 leading-tight">
-            We Prove Our Value Before You Pay a Dollar.
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
+          <span className="text-[#B23E16] font-sans font-semibold tracking-wider text-sm uppercase mb-4 block">
+            HOW IT WORKS
+          </span>
+          <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6 leading-tight">
+            A Clear Path From First Call to Launch.
           </h2>
-          <p className="text-[#4a5568] text-base md:text-lg font-sans leading-relaxed">
-            We do real strategic work before asking you to commit, so you can see the direction clearly and decide with confidence.
+          <p className="text-[#4a5568] text-base md:text-lg lg:text-xl font-sans leading-relaxed">
+            Start with a short fit call. If Graylock is the right fit, you see a custom homepage direction before any build fee is due. You approve the direction, then we build and launch your website.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {offers.map((offer, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 h-full overflow-hidden flex flex-col">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={offer.image}
-                    alt={offer.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-3 left-3 w-12 h-12 rounded-lg bg-[#E85D26] flex items-center justify-center text-white shadow-lg">
-                    {offer.icon}
+        <div className="relative">
+          {/* Mobile vertical connecting rule */}
+          <div 
+            className="block md:hidden absolute left-[20px] top-[20px] bottom-[40px] w-[1px] bg-[#d1d5db]" 
+            aria-hidden="true" 
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 md:gap-y-24 gap-x-8 lg:gap-x-12 relative z-10">
+            {steps.map((step, i) => (
+              <ScrollReveal key={i} delay={i * 0.15} className="relative">
+                {/* 
+                  Horizontal Line for each item on tablet/desktop. 
+                  Extends far to the right, hidden by the next item's number background. 
+                */}
+                <div 
+                  className={`hidden absolute top-[20px] left-[50px] w-[calc(100%+2rem-50px)] lg:w-[calc(100%+3rem-50px)] h-[1px] bg-[#d1d5db] -z-10
+                    ${i === 3 ? '!hidden' : ''} 
+                    ${i === 1 ? 'lg:block md:hidden' : 'md:block'}
+                  `}
+                  aria-hidden="true"
+                />
+
+                <div className="relative flex flex-col md:block items-start text-left pl-16 md:pl-0">
+                  {/* Number container - solid bg masks the horizontal line behind it */}
+                  <div className="absolute md:relative top-0 left-0 md:inline-block bg-[#f5f5f4] md:pr-6 md:pb-6 z-10">
+                    <span className={`text-4xl md:text-5xl font-display leading-none block ${
+                      step.highlight ? 'text-[#E85D26]' : 'text-[#E85D26] opacity-90'
+                    }`}>
+                      {step.num}
+                    </span>
+                  </div>
+
+                  <div className="md:mt-2">
+                    {step.highlight && (
+                      <div className="hidden md:block w-8 h-1 bg-[#E85D26] mb-4 opacity-80" aria-hidden="true" />
+                    )}
+                    <h3 className={`font-display mb-3 md:mb-4 leading-tight ${
+                      step.highlight 
+                        ? 'text-2xl md:text-3xl text-[#1a202c]' 
+                        : 'text-xl md:text-2xl text-[#1a202c] opacity-90'
+                    }`}>
+                      {step.title}
+                    </h3>
+                    <p className={`font-sans leading-relaxed ${
+                      step.highlight
+                        ? 'text-[#1a202c] font-medium text-base md:text-lg'
+                        : 'text-[#4a5568] text-base'
+                    }`}>
+                      {step.desc}
+                    </p>
                   </div>
                 </div>
-                <div className="p-7 md:p-8 flex-1">
-                  <h3 className="text-xl md:text-2xl font-display text-[#1a202c] mb-3 leading-tight">{offer.title}</h3>
-                  <p className="text-[#4a5568] font-sans text-base leading-relaxed">{offer.desc}</p>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
