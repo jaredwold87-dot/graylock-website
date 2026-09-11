@@ -23,10 +23,10 @@ export function FeaturedWorkSection() {
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
         <ScrollReveal>
           <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.22em] text-[#E85D26] md:text-sm">
-            Featured Work
+            FEATURED CLIENT WEBSITE
           </p>
           <h2 className="font-display text-4xl leading-tight text-white md:text-5xl">
-            A Custom Website Should Reflect the Quality of the Business Behind It.
+            The Website Behind Francisca’s Review.
           </h2>
           <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-stone md:text-lg">
             Interior Finishes Cabinets and Design trusted Graylock to turn their vision into
