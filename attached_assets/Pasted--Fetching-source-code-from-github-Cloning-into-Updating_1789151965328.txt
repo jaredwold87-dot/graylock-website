@@ -1,0 +1,18 @@
+⬇️ Fetching source code from github...
+
+Cloning into '.'...
+Updating files:  62% (790/1265)Updating files:  63% (797/1265)Updating files:  64% (810/1265)Updating files:  65% (823/1265)Updating files:  66% (835/1265)Updating files:  67% (848/1265)Updating files:  68% (861/1265)Updating files:  69% (873/1265)Updating files:  70% (886/1265)Updating files:  71% (899/1265)Updating files:  72% (911/1265)Updating files:  73% (924/1265)Updating files:  74% (937/1265)Updating files:  75% (949/1265)Updating files:  76% (962/1265)Updating files:  77% (975/1265)Updating files:  78% (987/1265)Updating files:  79% (1000/1265)Updating files:  80% (1012/1265)Updating files:  81% (1025/1265)Updating files:  82% (1038/1265)Updating files:  83% (1050/1265)Updating files:  84% (1063/1265)Updating files:  85% (1076/1265)Updating files:  86% (1088/1265)Updating files:  87% (1101/1265)Updating files:  88% (1114/1265)Updating files:  89% (1126/1265)Updating files:  89% (1137/1265)Updating files:  90% (1139/1265)Updating files:  91% (1152/1265)Updating files:  92% (1164/1265)Updating files:  93% (1177/1265)Updating files:  94% (1190/1265)Updating files:  95% (1202/1265)Updating files:  96% (1215/1265)Updating files:  97% (1228/1265)Updating files:  98% (1240/1265)Updating files:  99% (1253/1265)Updating files: 100% (1265/1265)Updating files: 100% (1265/1265), done.
+HEAD is now at e1e44f9 Update home page components and booking modal styles
+
+✅ Source code fetched successfully
+
+📦 Building and pushing docker image using Dockerfile...
+
+#1 [internal] booting buildkit
+#1 pulling image moby/buildkit:buildx-stable-1
+#1 pulling image moby/buildkit:buildx-stable-1 15.3s done
+#1 ERROR: Error response from daemon: Head "https://registry-1.docker.io/v2/moby/buildkit/manifests/buildx-stable-1": Get "https://auth.docker.io/token?account=kinsta&scope=repository%3Amoby%2Fbuildkit%3Apull&service=registry.docker.io": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+------
+ > [internal] booting buildkit:
+------
+ERROR: Error response from daemon: Head "https://registry-1.docker.io/v2/moby/buildkit/manifests/buildx-stable-1": Get "https://auth.docker.io/token?account=kinsta&scope=repository%3Amoby%2Fbuildkit%3Apull&service=registry.docker.io": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
