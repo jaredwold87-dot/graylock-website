@@ -1,10 +1,10 @@
 ---
 name: Homepage offer presentation
-description: Four core offers must not be presented as feature cards.
+description: Homepage offer hierarchy and superseded presentation preferences.
 ---
 
-Do not use feature cards for the four core homepage offers. Treat them as primary differentiators with strong, unboxed typography.
+Prioritize the free custom homepage direction before any build fee as the main offer; launch timing, guarantee, and ongoing support are supporting risk-removal elements.
 
-**Why:** The user explicitly rejected feature cards for this section and emphasized that these are the business's biggest offers, not secondary features.
+**Why:** On 2026-09-11 the user explicitly replaced the earlier no-cards preference with an asymmetric card brief. The earlier rejection of four equal feature cards should not block this new direction.
 
-**How to apply:** Preserve the offer order and qualifications while iterating on presentation. Avoid per-offer boxes, tile backgrounds, and rounded containers. The user also rejected vertically stacked desktop rows as too tall; use compact, unboxed side-by-side offers with a centered, prominent section heading.
+**How to apply:** Keep the primary offer visually dominant rather than treating all four offers equally. Use the latest approved section copy and do not extend its guarantee wording to other pages or legal terms.

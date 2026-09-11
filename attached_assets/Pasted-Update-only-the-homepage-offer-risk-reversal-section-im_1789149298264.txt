@@ -1,0 +1,110 @@
+Update only the homepage offer/risk-reversal section immediately below the hero. Do not change the hero, header, testimonial overlay, navigation, portfolio, pricing page, form behavior, or any other homepage section.
+
+Target the existing homepage offer section currently headed:
+
+“See your new homepage before you commit.”
+
+The goal is to make this section feel more premium, visually engaging, and conversion-focused by presenting it as a clear risk-removal offer stack—not as four equally weighted feature columns.
+
+IMPORTANT POSITIONING:
+- The core offer is not “a website.”
+- The core offer is: the prospect can see a custom homepage direction for their business before any build fee is due.
+- The 7–10-day build path, 30-day money-back guarantee, and two-year refresh are supporting risk-reversal elements.
+- Keep the tone premium, clear, direct, and confident.
+- Do not add scarcity, countdown timers, fake urgency, excessive badges, gradients, glassmorphism, or new stock images.
+- Use the existing Graylock typography, colors, spacing system, CTA component, and animation patterns.
+- Do not add new dependencies.
+
+SECTION COPY
+
+Eyebrow:
+THE GRAYLOCK DIFFERENCE
+
+Main heading:
+See the direction before the build fee is due.
+
+Supporting copy:
+Start with a short fit call. If Graylock is the right fit, we create a custom homepage direction around your business before you decide whether to move forward.
+
+FEATURED PRIMARY OFFER CARD
+
+Small label:
+01 — START HERE
+
+Heading:
+Your Free Custom Homepage Direction
+
+Body:
+See a strategic homepage direction built around your business, services, proof, and the action you want the right prospect to take—before any build fee is due.
+
+Supporting line:
+No build fee until you approve the direction.
+
+SUPPORTING OFFER CARDS
+
+Card 02 heading:
+A Defined 7–10-Day Launch Path
+
+Card 02 body:
+Once you approve the direction and provide the required materials and approvals, standard sites are built and launched in 7–10 business days.
+
+Card 03 heading:
+30-Day Money-Back Guarantee
+
+Card 03 body:
+After launch, if the site is not right for your business, you are covered by our 30-day money-back guarantee.
+
+Card 04 heading:
+Support That Stays Current
+
+Card 04 body:
+Your monthly plan includes hosting, maintenance, ongoing support, and a website refresh every two years while you remain an active client.
+
+CTA BUTTON
+
+Use the existing CTAButton component and its existing /get-started behavior so the current booking modal, tracking, and routing behavior remain intact.
+
+Button label:
+Get Your Free Homepage Direction
+
+CTA microcopy:
+Start with a 15-minute fit call. No build fee is due before you approve the direction.
+
+LAYOUT / DESIGN REQUIREMENTS
+
+Desktop:
+- Replace the current four equal text columns with a premium asymmetric “offer stack” layout.
+- Use a 12-column or equivalent responsive grid.
+- Make the primary “Your Free Custom Homepage Direction” card visually dominant, approximately 40–45% of the content width.
+- Place the three supporting offer cards to its right in a balanced three-card layout.
+- The dominant card should use a subtle dark charcoal/near-black background, white/off-white typography, an orange accent line or small orange number label, and tasteful depth through existing border/shadow styles.
+- The three supporting cards should remain light/warm-white with restrained borders, generous whitespace, orange section numbers, and clear visual hierarchy.
+- Use simple line icons only if existing icon assets are already in the project. Do not add decorative icons just for the sake of it.
+- Place the CTA centered beneath the offer stack with the microcopy beneath it.
+
+Tablet:
+- Put the featured offer card across the full width first.
+- Place the three supporting cards below in either a three-column row or a clean responsive grid, depending on available space.
+- Preserve readable card height and spacing.
+
+Mobile:
+- Stack the featured offer card first, then the three supporting cards.
+- Keep the CTA full width or nearly full width.
+- Ensure all copy is readable without excessive line wrapping or tiny type.
+- Preserve strong spacing between the heading, featured card, supporting cards, and CTA.
+
+ACCESSIBILITY / QUALITY:
+- Use a semantic section with a single h2 and h3 headings for cards.
+- Maintain sufficient contrast.
+- Keep hover effects subtle and do not rely on hover to reveal important content.
+- Respect reduced-motion preferences if using any motion.
+- Ensure the CTA remains keyboard accessible and uses the existing focus styles.
+- Do not introduce layout shift, horizontal overflow, or broken mobile spacing.
+
+FINAL CHECK:
+- Verify the section at desktop width, tablet width, and mobile width.
+- Verify that the CTA still opens the existing booking/request flow.
+- Keep all existing offer terms accurate: free homepage direction before a build fee, 7–10-day standard build path after required approvals/materials, 30-day money-back guarantee, and two-year refresh for active clients.
+- Do not modify any guarantee terms, pricing, or legal language beyond the exact section copy above.
+
+After implementing, summarize exactly which component(s) were changed and confirm that no other homepage sections were modified.

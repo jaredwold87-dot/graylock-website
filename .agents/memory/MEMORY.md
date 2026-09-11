@@ -15,4 +15,4 @@
 - [Single homepage intro](single-homepage-intro.md) — keep only the React landing intro; a separate pre-JS splash makes visitors see two reveals.
 - [Text-message link previews](text-message-link-previews.md) — Graylock URL previews in texts come from Open Graph metadata, not an SMS/MMS attachment.
 - [Discovery form entry point](discovery-form-entrypoint.md) — form redesigns must cover the actual CTA popup, not only the standalone page.
-- [Homepage offers](homepage-offer-presentation.md) — no feature cards for the four core offers; emphasize them as primary differentiators.
+- [Homepage offers](homepage-offer-presentation.md) — primary free direction offer dominates; asymmetric cards supersede the earlier no-cards preference.

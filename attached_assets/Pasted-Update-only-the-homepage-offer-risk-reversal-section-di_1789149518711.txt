@@ -1,0 +1,114 @@
+Update only the homepage offer/risk-reversal section directly below the hero.
+
+The current section has the correct content and hierarchy, but the visual implementation looks too much like a SaaS feature-card grid. Graylock is a premium, trust-led custom website agency. The section should feel editorial, composed, restrained, and high-end—not like a dashboard, pricing table, or generic “four benefits” module.
+
+Do not change the hero, header, navigation, testimonial overlay, portfolio, pricing page, form behavior, guarantee terms, footer, or any other homepage section. Do not change the actual offer content unless explicitly directed below.
+
+PRIMARY GOAL:
+Replace the existing card-based layout with a premium editorial two-column offer layout.
+
+REMOVE:
+- All individual card containers
+- Rounded card corners
+- Drop shadows
+- Individual card backgrounds
+- “Start Here” pills/badges
+- SaaS-style boxed feature-grid treatment
+- Any visual pattern that makes all four offer elements feel like equal generic features
+- Any unnecessary icons, gradients, glass effects, stock images, or decorative UI elements
+
+KEEP:
+- The warm off-white section background
+- Graylock’s existing typography
+- Existing charcoal, warm-white, and orange palette
+- Existing responsive behavior and animation conventions
+- Existing CTAButton component and current /get-started behavior
+- The same offer sequence:
+  1. Free Custom Homepage Direction
+  2. Defined 7–10-Day Launch Path
+  3. 30-Day Money-Back Guarantee
+  4. Support That Stays Current
+
+SECTION COPY:
+
+Eyebrow:
+THE GRAYLOCK DIFFERENCE
+
+Main heading:
+See the direction before the build fee is due.
+
+Intro paragraph:
+A website should not feel like a leap of faith. Graylock does the strategic work first, so you can see the direction for your business before deciding whether to move forward.
+
+Primary CTA:
+Get Your Free Homepage Direction
+
+CTA microcopy:
+Start with a 15-minute fit call. No build fee is due before you approve the direction.
+
+RIGHT-SIDE COMMITMENTS:
+
+01
+Your Free Custom Homepage Direction
+
+We create a homepage direction around your business, services, proof, and the action you want the right prospect to take—before any build fee is due.
+
+02
+A Defined 7–10-Day Launch Path
+
+Once you approve the direction and provide the required materials and approvals, standard sites are built and launched in 7–10 business days.
+
+03
+30-Day Money-Back Guarantee
+
+After launch, if the site is not right for your business, you are covered by our 30-day money-back guarantee.
+
+04
+Support That Stays Current
+
+Your monthly plan includes hosting, maintenance, ongoing support, and a website refresh every two years while you remain an active client.
+
+DESKTOP LAYOUT:
+- Use a restrained two-column editorial composition.
+- Left column: approximately 42–45% width.
+- Right column: approximately 55–58% width.
+- The left column contains the eyebrow, headline, introductory paragraph, orange primary CTA, and CTA microcopy.
+- The right column contains the four numbered commitments stacked vertically.
+- Each commitment should be an open layout row, not a card.
+- Use a thin horizontal divider line between each commitment.
+- Use large orange section numbers: 01, 02, 03, 04.
+- Numbers should be visually distinct but not decorative badges.
+- Place each number in a narrow left column, with the commitment heading and supporting copy aligned to its right.
+- The first commitment should be slightly more prominent through typography and spacing only—not through a box, card, background fill, or badge.
+- Use generous vertical spacing and a strong editorial grid.
+- Keep the section visually calm and sophisticated.
+
+TABLET LAYOUT:
+- Maintain the two-column composition where space allows.
+- If the viewport becomes too narrow, place the left-column offer statement first and the commitment rows beneath it.
+- Do not convert the commitments back into cards.
+
+MOBILE LAYOUT:
+- Stack the main offer statement first.
+- Place the CTA directly below the intro paragraph.
+- Stack the four numbered commitment rows below the CTA.
+- Keep each commitment as an open text row with dividers.
+- Ensure there is no horizontal overflow, tiny type, cramped spacing, or excessive line wrapping.
+- Keep the CTA large and easy to tap.
+
+ACCESSIBILITY:
+- Use one semantic section with one h2.
+- Use h3 elements for each commitment heading.
+- Preserve strong color contrast.
+- Do not rely on hover states to reveal content.
+- Preserve keyboard focus styling for the CTA.
+- Respect reduced-motion preferences.
+- Make all typography readable at desktop, tablet, and mobile sizes.
+
+FINAL QUALITY CHECK:
+- The section should feel like a premium agency commitment statement or editorial service pledge.
+- It must not look like a SaaS feature grid, pricing card layout, dashboard, or generic benefits section.
+- The CTA must preserve the existing booking modal, tracking, and /get-started behavior.
+- Do not modify any other homepage sections.
+- Verify desktop, tablet, and mobile rendering before completing.
+- After implementation, report the exact component changed and confirm that no other homepage section was modified.
