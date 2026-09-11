@@ -1,0 +1,90 @@
+Update only the homepage problem-diagnosis section that currently appears after the Featured Work section.
+
+The existing section currently uses the eyebrow:
+
+“THE PROBLEM WITH MOST SERVICE BUSINESS WEBSITES”
+
+and the headline:
+
+“You Run a Professional Business. Your Website Should Look Like It.”
+
+It includes three image tiles currently titled:
+
+- “It doesn't reflect your expertise”
+- “Your message is unclear”
+- “It isn't converting traffic”
+
+Do not change the hero, offer section, testimonials, featured-work section, “What We Deliver” section, navigation, footer, CTA behavior, form behavior, or any other homepage section.
+
+GOAL:
+Keep the current visual direction—three dark editorial image tiles with white text over the images—but improve the copy so this section diagnoses the specific reasons an otherwise professional business may lose qualified prospects online. The section should complement the hero instead of repeating the hero’s message.
+
+COPY CHANGES:
+
+Keep the existing eyebrow exactly as written:
+
+THE PROBLEM WITH MOST SERVICE BUSINESS WEBSITES
+
+Replace the main heading with:
+
+A Professional Website Has to Do More Than Look Professional.
+
+Replace the supporting paragraph with:
+
+Before a prospect calls, they are already deciding whether your business feels credible, relevant, and easy to choose.
+
+Replace the three tile titles and supporting copy with the following:
+
+TILE 01
+
+Title:
+It Does Not Reflect Your Expertise
+
+Supporting copy:
+An outdated or generic site can make the quality of your business harder to recognize.
+
+TILE 02
+
+Title:
+Your Message Is Not Clear Enough
+
+Supporting copy:
+If a visitor cannot quickly understand what you do and who you help, they move on.
+
+TILE 03
+
+Title:
+The Next Step Is Not Clear
+
+Supporting copy:
+When proof, service information, and calls to action are disconnected, good prospects leave without reaching out.
+
+DESIGN / UX REQUIREMENTS:
+- Preserve the existing three-image grid, image choices, dark image overlays, rounded image corners, typography, and overall spacing.
+- Keep the white title text over each image.
+- Add the supporting copy below each title inside the existing bottom image overlay.
+- The supporting copy must be visible by default on desktop, tablet, and mobile.
+- Do not hide the supporting copy behind hover, focus, animation, accordion behavior, or any other interaction.
+- Hover may create a subtle visual enhancement, such as a mild image scale or slight overlay adjustment, but all essential copy must already be visible.
+- Increase the height of the bottom image overlay or adjust the gradient as needed so the titles and supporting copy remain readable on all three tiles.
+- Preserve strong contrast and readable typography over the images.
+- Keep the tile layout editorial and premium. Do not turn the tiles into feature cards, boxed UI, SaaS-style cards, or add icons.
+- Do not add a CTA to this section.
+
+RESPONSIVE REQUIREMENTS:
+- Desktop: retain the three-column image grid.
+- Tablet: preserve the grid where practical; ensure all copy remains readable.
+- Mobile: stack the tiles vertically while keeping the title and supporting copy visible without hover.
+- Do not introduce horizontal scrolling, clipped text, or excessive text wrapping.
+
+ACCESSIBILITY:
+- Use semantic h3 headings for each tile.
+- Maintain sufficient text-to-background contrast.
+- Keep each image alt text aligned with the updated tile subject.
+- Respect reduced-motion preferences for any existing image-hover animation.
+
+FINAL CHECK:
+- Verify the section at desktop, tablet, and mobile sizes.
+- Confirm that all supporting copy is visible without hover.
+- Confirm that no other homepage section or CTA behavior was changed.
+- After completing the update, report the exact component changed and summarize the final desktop and mobile behavior.

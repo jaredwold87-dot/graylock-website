@@ -7,18 +7,18 @@ export function ProblemSection() {
   const problems = [
     {
       image: expertiseImg,
-      title: "It doesn't reflect your expertise",
-      desc: "An outdated, generic site makes prospects question your quality before they ever call.",
+      title: "It Does Not Reflect Your Expertise",
+      desc: "An outdated or generic site can make the quality of your business harder to recognize.",
     },
     {
       image: unclearImg,
-      title: "Your message is unclear",
-      desc: "If visitors can't tell what you do in seconds, they leave for someone easier to understand.",
+      title: "Your Message Is Not Clear Enough",
+      desc: "If a visitor cannot quickly understand what you do and who you help, they move on.",
     },
     {
       image: conversionImg,
-      title: "It isn't converting traffic",
-      desc: "Weak structure, poor mobile UX, and unclear CTAs quietly cost you leads every month.",
+      title: "The Next Step Is Not Clear",
+      desc: "When proof, service information, and calls to action are disconnected, good prospects leave without reaching out.",
     },
   ];
 
@@ -29,36 +29,32 @@ export function ProblemSection() {
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <p className="text-[#B23E16] font-sans font-bold uppercase tracking-[0.2em] text-sm mb-4">The Problem With Most Service Business Websites</p>
           <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">
-            You Run a Professional Business. Your Website Should Look Like It.
+            A Professional Website Has to Do More Than Look Professional.
           </h2>
           <p className="text-[#1a202c]/70 text-lg font-sans leading-relaxed">
-            Potential clients judge the quality of your service by the quality of your site before they ever speak to you. If the two don't match, they don't reach out.
+            Before a prospect calls, they are already deciding whether your business feels credible, relevant, and easy to choose.
           </p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {problems.map((prob, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="group relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[3/4]">
+            <ScrollReveal key={i} delay={i * 0.1} className="min-w-0">
+              <div className="group relative w-full min-w-0 rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[3/4] min-h-[320px]">
                 <img
                   src={prob.image}
                   alt={prob.title}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-105"
                 />
-                {/* Bottom gradient so the title reads over any image */}
-                <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/95 via-black/55 to-transparent transition-opacity duration-300" />
-                <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
+                {/* Persistent dark overlay keeps every title and description readable. */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/10" />
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-5 lg:p-7">
                   <h3 className="text-white font-sans font-semibold text-lg leading-snug">
                     {prob.title}
                   </h3>
-                  <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
-                    <div className="overflow-hidden">
-                      <p className="text-stone font-sans text-sm md:text-base leading-relaxed pt-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                        {prob.desc}
-                      </p>
-                    </div>
-                  </div>
+                  <p className="text-white/90 font-sans text-base leading-relaxed pt-2">
+                    {prob.desc}
+                  </p>
                 </div>
               </div>
             </ScrollReveal>
