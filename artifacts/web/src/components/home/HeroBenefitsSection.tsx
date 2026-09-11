@@ -85,7 +85,7 @@ export function HeroBenefitsSection() {
               </div>
 
               {/* Commitment 04 */}
-              <div className="flex flex-row gap-6 md:gap-8 pt-10 md:pt-12">
+              <div className="flex flex-row gap-6 md:gap-8 py-10 md:py-12 border-b border-black/10">
                 <div className="text-[#B23E16] font-display text-xl md:text-2xl font-medium tracking-tight mt-1 shrink-0">
                   04
                 </div>
@@ -95,6 +95,21 @@ export function HeroBenefitsSection() {
                   </h3>
                   <p className="text-[#292B2E]/70 leading-relaxed text-base md:text-lg">
                     Your monthly plan includes hosting, maintenance, ongoing support, and a website refresh every two years while you remain an active client.
+                  </p>
+                </div>
+              </div>
+
+              {/* Commitment 05 */}
+              <div className="flex flex-row gap-6 md:gap-8 pt-10 md:pt-12">
+                <div className="text-[#B23E16] font-display text-xl md:text-2xl font-medium tracking-tight mt-1 shrink-0">
+                  05
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-display font-medium text-[#292B2E] mb-3 tracking-tight">
+                    No Long-Term Lock-In. Cancel Anytime.
+                  </h3>
+                  <p className="text-[#292B2E]/70 leading-relaxed text-base md:text-lg">
+                    Stay because the service works for your business, not because you’re locked in. You can cancel your monthly plan at any time with no early-termination fee. Cancellation takes effect at the end of your current billing cycle.
                   </p>
                 </div>
               </div>

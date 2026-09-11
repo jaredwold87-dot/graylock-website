@@ -1,0 +1,211 @@
+Update only the following homepage areas:
+
+1. The FAQ section
+2. The “People Behind the Work” / founder section
+3. The final dark CTA section immediately above the footer
+4. The persistent/header CTA label used across the site
+
+Do not change the hero, offer section, Google-review section, featured-work section, problem-diagnosis section, “What We Deliver” section, process timeline, portfolio, pricing page, footer structure, navigation links, booking modal behavior, form fields, pricing, guarantee terms, or any other homepage section.
+
+GOAL:
+Make the final homepage sections consistent with the site-wide offer language:
+
+“Free Homepage Direction”
+
+The 15-minute conversation is the small first commitment, but the customer-facing value event is the custom Homepage Direction. Use “fit call” when describing the conversation. Do not continue using inconsistent phrases such as “discovery call,” “homepage demo,” “free custom demo,” or “homepage concept” in the areas covered by this update.
+
+Use the existing Graylock typography, color palette, spacing, CTA component, animations, focus states, and responsive conventions. Do not add new dependencies, feature cards, badges, countdowns, scarcity, or new visual sections.
+
+────────────────────────────────────────
+SECTION 1 — FAQ
+────────────────────────────────────────
+
+Keep the existing FAQ layout, accordion behavior, visual design, spacing, chevrons, and section placement.
+
+Keep the eyebrow exactly as:
+
+COMMON QUESTIONS
+
+Keep the main heading exactly as:
+
+Clear Answers Before You Reach Out.
+
+Replace the supporting copy with:
+
+Everything you need to know about the free homepage direction, pricing, ownership, support, and the path to launch.
+
+Replace the FAQ question labels with these exact questions, in this exact order:
+
+1. What happens after I request a homepage direction?
+
+2. Is the homepage direction actually custom to my business?
+
+3. What does a new website cost?
+
+4. How long does a website build take?
+
+5. What do I own if I cancel?
+
+6. What happens after my website launches?
+
+Update the FAQ answers where needed so they consistently follow these rules:
+
+FAQ 1 — What happens after I request a homepage direction?
+
+Use this answer:
+
+Start with a short fit call about your business, your current website, and what you want your online presence to improve. If Graylock is the right fit, we create a custom homepage direction for you to review before any build fee is due.
+
+FAQ 2 — Is the homepage direction actually custom to my business?
+
+Use this answer:
+
+Yes. Graylock researches your business, services, audience, and market before creating a homepage direction around your specific business. It is not pulled from a template library.
+
+FAQ 3 — What does a new website cost?
+
+Keep the current accurate pricing structure, but ensure it clearly states:
+
+Plans start at $199 per month. Build fees begin at $799 and are only due after you approve the homepage direction. You will see the exact scope and price before deciding whether to move forward.
+
+FAQ 4 — How long does a website build take?
+
+Replace any existing 3–5-business-day, 3-to-5-day, or otherwise inconsistent timeline language with this exact answer:
+
+Once the homepage direction, required materials, and approvals are confirmed, standard websites are typically built, tested, and launched in 7–10 business days. Larger or more complex projects may take longer.
+
+FAQ 5 — What do I own if I cancel?
+
+Keep the current accurate ownership/cancellation language. Ensure the answer clearly distinguishes the customer’s domain, written content, images, and brand assets from any proprietary Graylock framework, platform, hosting, or implementation components, if that distinction is part of the actual current terms. Do not invent ownership rights or restrictions. Link to the existing Terms of Service or ownership details page only if an appropriate existing page is available.
+
+FAQ 6 — What happens after my website launches?
+
+Update the answer to accurately state that the ongoing monthly plan includes hosting, maintenance, and support. State that active clients receive a website refresh every two years only if that is true for the applicable plan. Mention the 30-day satisfaction guarantee only in a way that matches the real written guarantee terms. If a guarantee-terms page exists, include a subtle factual link such as:
+
+See satisfaction guarantee terms →
+
+Do not use “no questions asked” unless the written terms, payment workflow, and refund process fully support that exact language.
+
+FAQ ACCESSIBILITY:
+- Preserve semantic accordion button behavior.
+- Preserve keyboard operation, focus states, and aria-expanded/aria-controls behavior.
+- Ensure all answer text remains readable on mobile.
+- Do not hide substantive answers behind hover behavior.
+
+────────────────────────────────────────
+SECTION 2 — PEOPLE BEHIND THE WORK
+────────────────────────────────────────
+
+Keep the existing section layout, portraits, founder cards, founder names, individual role labels, “Meet the Graylock Team” link, background, typography, spacing, and placement.
+
+Keep the eyebrow exactly as:
+
+THE PEOPLE BEHIND THE WORK
+
+Keep the headline exactly as:
+
+You’ll Know Who Is Building Your Website.
+
+Replace only the supporting paragraph with:
+
+Graylock is led by Tim and Jared. From your homepage direction through design, development, launch, and ongoing support, your website is handled by a real U.S.-based team that stays involved after it goes live.
+
+Do not change the individual Tim and Jared bio copy unless correcting a clear typo.
+
+Do not turn the founder cards into generic feature cards, sliders, carousels, or social-media profile modules.
+
+────────────────────────────────────────
+SECTION 3 — FINAL CTA
+────────────────────────────────────────
+
+Keep the current dark charcoal background, visual layout, spacing, primary/secondary CTA relationship, and placement immediately above the footer.
+
+Replace the final CTA copy with the following exact copy:
+
+Eyebrow:
+
+YOUR NEXT STEP
+
+Headline:
+
+See Your Homepage Direction Before the Build Fee Is Due.
+
+Supporting copy:
+
+Start with a 15-minute fit call. If Graylock is the right fit, we create a custom homepage direction for your business before any build fee is due.
+
+Primary CTA label:
+
+Get Your Free Homepage Direction
+
+Secondary CTA label:
+
+See Real Client Websites
+
+Pricing line:
+
+Plans from $199/month. Build fees begin at $799 after you approve your homepage direction.
+
+Final reassurance line:
+
+No build fee to see the direction. No pressure. No obligation.
+
+PRIMARY CTA BEHAVIOR:
+- Use the existing CTAButton component.
+- Preserve the existing booking/request flow, tracking, routing, and modal behavior.
+- Do not create a new form, new route, or new scheduling integration.
+- The CTA may still open the existing fit-call form; only its customer-facing label should change.
+
+SECONDARY CTA BEHAVIOR:
+- Preserve the existing portfolio/client-websites destination and behavior.
+- Do not add a third CTA.
+
+────────────────────────────────────────
+SECTION 4 — HEADER / SITE-WIDE CTA LABEL
+────────────────────────────────────────
+
+Update the persistent header CTA label from:
+
+Request a 15-Minute Discovery Call
+
+to:
+
+Get Your Free Homepage Direction
+
+Preserve its current destination, routing, tracking, styling, modal behavior, accessibility, and responsive/mobile navigation behavior.
+
+Where the header CTA opens the existing form or modal, update the surrounding customer-facing title and supporting copy only if those labels appear in the modified CTA flow:
+
+Form/modal title:
+
+Get Your Free Homepage Direction
+
+Form/modal supporting copy:
+
+Start with a 15-minute fit call. Tell us what you want your website to improve; if Graylock is the right fit, we will create a custom homepage direction before any build fee.
+
+Do not change required form fields, form validation, lead routing, CRM behavior, consent behavior, scheduling behavior, or backend/API behavior.
+
+────────────────────────────────────────
+SITE-WIDE CONSISTENCY CHECK
+────────────────────────────────────────
+
+Within the homepage and CTA/modal labels touched by this change:
+
+- Replace “homepage demo” with “homepage direction.”
+- Replace “discovery call” with “fit call” when describing the short initial conversation.
+- Use “Get Your Free Homepage Direction” for the primary customer-facing CTA label.
+- Use only the approved standard build timing:
+  “7–10 business days after the homepage direction, required materials, and approvals are confirmed.”
+- Remove any remaining 3–5-business-day language from the homepage, relevant FAQ content, modified CTA/modal content, and any directly associated homepage copy.
+- Do not make or imply ranking, lead-generation, appointment, revenue, conversion-rate, or compliance guarantees.
+
+FINAL CHECK:
+- Verify desktop, tablet, and mobile rendering.
+- Verify FAQ accordion behavior, keyboard accessibility, and mobile readability.
+- Verify the founder section’s existing layout and portraits remain unchanged.
+- Verify the final CTA’s primary button still opens the existing request/booking flow.
+- Verify the header CTA still opens the same flow.
+- Verify the secondary CTA still reaches the existing real-client-websites/portfolio destination.
+- Confirm that no other homepage sections, forms, navigation behavior, pricing, guarantee terms, legal copy, or footer links were changed.
+- After implementation, report the components changed, all wording updated, the final header CTA behavior, and whether any 3–5-business-day references were found and corrected.
