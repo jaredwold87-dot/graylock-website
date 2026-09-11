@@ -12,7 +12,7 @@ export function HeroBenefitsSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
             
             {/* Left Column: Offer Statement & CTA (5/12 = 41.6%) */}
-            <div className="lg:col-span-5 flex flex-col justify-start">
+            <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start flex flex-col justify-start">
               <span className="text-[#B23E16] font-bold tracking-wider text-sm uppercase mb-4 block">
                 The Graylock Difference
               </span>
