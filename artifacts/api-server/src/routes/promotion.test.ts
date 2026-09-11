@@ -68,6 +68,158 @@ test("campaign activity is false without real date bounds", () => {
   assert.equal(promotion.campaignIsLive(base), false);
 });
 
+test("monthly periods use Los Angeles calendar midnights across leap, DST, and year boundaries", () => {
+  const leapFebruary = promotion.monthlyPeriodFor(
+    "America/Los_Angeles",
+    new Date("2024-02-29T20:00:00.000Z"),
+  );
+  assert.deepEqual(leapFebruary, {
+    occurrenceKey: "2024-02",
+    startDateTime: "2024-02-01T08:00:00.000Z",
+    endDateTime: "2024-03-01T08:00:00.000Z",
+    deadlineDisplayText: "February 29, 2024, 11:59 PM America/Los_Angeles",
+  });
+  const monthlyCampaign = {
+    enabled: true,
+    manualKillSwitch: false,
+    recurrenceMode: "monthly",
+    experimentId: "build-fee-waiver-v1",
+    timezone: "America/Los_Angeles",
+    startDateTime: null,
+    endDateTime: null,
+  } as never;
+  assert.equal(
+    promotion.campaignIsLive(monthlyCampaign, new Date(leapFebruary.startDateTime)),
+    true,
+  );
+  const inLeapFebruaryOccurrence = (instant: string) => {
+    const timestamp = new Date(instant).getTime();
+    return timestamp >= new Date(leapFebruary.startDateTime).getTime() &&
+      timestamp < new Date(leapFebruary.endDateTime).getTime();
+  };
+  assert.equal(
+    inLeapFebruaryOccurrence(leapFebruary.endDateTime),
+    false,
+  );
+
+  const dstMonth = promotion.monthlyPeriodFor(
+    "America/Los_Angeles",
+    new Date("2024-03-15T19:00:00.000Z"),
+  );
+  assert.equal(dstMonth.startDateTime, "2024-03-01T08:00:00.000Z");
+  assert.equal(dstMonth.endDateTime, "2024-04-01T07:00:00.000Z");
+
+  const december = promotion.monthlyPeriodFor(
+    "America/Los_Angeles",
+    new Date("2024-12-15T20:00:00.000Z"),
+  );
+  assert.equal(december.occurrenceKey, "2024-12");
+  assert.equal(december.startDateTime, "2024-12-01T08:00:00.000Z");
+  assert.equal(december.endDateTime, "2025-01-01T08:00:00.000Z");
+});
+
+test("recurring assignment IDs and report occurrence filters select an isolated month", () => {
+  const campaign = {
+    experimentId: "build-fee-waiver-v1",
+    recurrenceMode: "monthly",
+    timezone: "America/Los_Angeles",
+    enabled: true,
+    manualKillSwitch: false,
+    startDateTime: null,
+    endDateTime: null,
+  } as never;
+  const resolved = promotion.resolveCampaignForPublic(
+    campaign,
+    new Date("2025-01-02T12:00:00.000Z"),
+  );
+  assert.equal(resolved.occurrenceKey, "2025-01");
+  assert.equal(resolved.experimentId, "build-fee-waiver-v1:2025-01");
+  assert.equal(
+    promotion.assignmentIsCurrentOccurrence(
+      { experimentId: "build-fee-waiver-v1:2024-12" } as never,
+      campaign,
+      new Date("2025-01-02T12:00:00.000Z"),
+    ),
+    false,
+  );
+  assert.equal(
+    promotion.occurrenceKeyForExperimentId("build-fee-waiver-v1", resolved.experimentId),
+    "2025-01",
+  );
+  const filters = promotion.readReportFilters({ query: { occurrenceKey: "2025-01" } } as never);
+  assert.equal(filters.occurrenceKey, "2025-01");
+  assert.throws(
+    () => promotion.parseOccurrenceKey("2025-13"),
+    /occurrenceKey must be YYYY-MM/,
+  );
+});
+
+test("an old monthly assignment is rejected after recurrence changes back to manual", () => {
+  const manualCampaign = {
+    experimentId: "build-fee-waiver-v1",
+    recurrenceMode: "manual",
+    timezone: "America/Los_Angeles",
+    startDateTime: "2025-01-01T08:00:00.000Z",
+    endDateTime: "2025-02-01T08:00:00.000Z",
+  } as never;
+  assert.equal(
+    promotion.assignmentIsCurrentOccurrence(
+      { experimentId: "build-fee-waiver-v1:2024-12" } as never,
+      manualCampaign,
+    ),
+    false,
+  );
+  assert.equal(
+    promotion.assignmentIsCurrentOccurrence(
+      { experimentId: "build-fee-waiver-v1" } as never,
+      manualCampaign,
+    ),
+    true,
+  );
+});
+
+test("lead report serialization and CSV headers retain the monthly occurrence", () => {
+  const currentLead = promotion.leadRowToApi({
+    id: 7,
+    experiment_id: "build-fee-waiver-v1:2025-03",
+    campaign_base_experiment_id: "build-fee-waiver-v1",
+  });
+  const historicalLead = promotion.leadRowToApi({
+    id: 8,
+    experiment_id: "build-fee-waiver-v1",
+    campaign_base_experiment_id: "build-fee-waiver-v1",
+  });
+  assert.equal(currentLead.experimentId, "build-fee-waiver-v1:2025-03");
+  assert.equal(currentLead.occurrenceKey, "2025-03");
+  assert.equal(historicalLead.occurrenceKey, null);
+  assert.equal(promotion.LEAD_EXPORT_HEADERS.includes("experimentId"), true);
+  assert.equal(promotion.LEAD_EXPORT_HEADERS.includes("occurrenceKey"), true);
+});
+
+test("monthly report evaluation has a period start for selected and current-month scopes", () => {
+  const campaign = {
+    recurrenceMode: "monthly",
+    timezone: "America/Los_Angeles",
+    startDateTime: null,
+  } as never;
+  assert.deepEqual(
+    promotion.evaluationPeriodFor(campaign, "2024-02"),
+    {
+      occurrenceKey: "2024-02",
+      startDateTime: "2024-02-01T08:00:00.000Z",
+      scope: "selected_occurrence",
+    },
+  );
+  assert.deepEqual(
+    promotion.evaluationPeriodFor(campaign, undefined, new Date("2024-03-15T19:00:00.000Z")),
+    {
+      occurrenceKey: "2024-03",
+      startDateTime: "2024-03-01T08:00:00.000Z",
+      scope: "current_month",
+    },
+  );
+});
+
 test("report filter contract accepts every documented cohort filter", () => {
   const filters = promotion.readReportFilters({
     query: {
@@ -83,11 +235,13 @@ test("report filter contract accepts every documented cohort filter", () => {
       leadStatus: "qualified",
       assignedTeamMember: "team-member",
       monthlyPlan: "standard",
+      occurrenceKey: "2026-09",
     },
   } as never);
   assert.equal(filters.variant, "savings_led");
   assert.equal(filters.assignedTeamMember, "team-member");
   assert.equal(filters.monthlyPlan, "standard");
+  assert.equal(filters.occurrenceKey, "2026-09");
 });
 
 test("lead status and reason allowlists reject arbitrary workflow states", () => {

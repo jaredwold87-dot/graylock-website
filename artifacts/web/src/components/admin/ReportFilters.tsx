@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { ReportFilters as ReportFilterValues } from "./adminApi";
+import { PromotionReportPeriod, ReportFilters as ReportFilterValues } from "./adminApi";
 
 type ReportFiltersProps = {
   filters: ReportFilterValues;
@@ -7,11 +7,13 @@ type ReportFiltersProps = {
   onApply: () => void;
   onExport: (type: "aggregate" | "leads") => void;
   exporting: "aggregate" | "leads" | null;
+  periods?: PromotionReportPeriod[];
 };
 
 export const EMPTY_REPORT_FILTERS: ReportFilterValues = {
   dateFrom: "",
   dateTo: "",
+  occurrenceKey: "",
   campaignId: "",
   stage: "",
   variant: "",
@@ -48,6 +50,7 @@ export function ReportFilters({
   onApply,
   onExport,
   exporting,
+  periods = [],
 }: ReportFiltersProps) {
   function update(key: keyof ReportFilterValues, value: string) {
     onChange({ ...filters, [key]: value });
@@ -66,7 +69,8 @@ export function ReportFilters({
           <h2 className="mt-2 text-2xl font-bold text-white">Filters and export</h2>
           <p className="mt-2 text-sm leading-6 text-[#aeb5c0]">
             Every filter is sent to report and CSV export requests. Leave a field empty to include
-            all values.
+            all values. Monthly campaigns can be narrowed to one YYYY-MM occurrence; leaving it
+            empty preserves the full historical manual report.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -90,7 +94,7 @@ export function ReportFilters({
       </div>
       <form onSubmit={submit}>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {fields.map((field) => (
+          {fields.filter((field) => field.key !== "occurrenceKey").map((field) => (
             <label className="block" key={field.key}>
               <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-[#aeb5c0]">
                 {field.label}
@@ -104,6 +108,28 @@ export function ReportFilters({
               />
             </label>
           ))}
+          <label className="block">
+            <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-[#aeb5c0]">
+              Monthly occurrence
+            </span>
+            <select
+              className="w-full border border-white/15 bg-[#10131a] px-3 py-2.5 text-sm text-white outline-none transition focus:border-[#e85d26]"
+              value={filters.occurrenceKey}
+              onChange={(event) => update("occurrenceKey", event.target.value)}
+            >
+              <option value="">All periods / historical</option>
+              {periods
+                .filter((period) => Boolean(period.occurrenceKey))
+                .map((period) => (
+                  <option key={period.occurrenceKey} value={period.occurrenceKey || ""}>
+                    {period.occurrenceKey}
+                  </option>
+                ))}
+            </select>
+            <span className="mt-1 block text-[0.68rem] leading-4 text-[#8f98a7]">
+              Select a YYYY-MM occurrence when the server reports available monthly periods.
+            </span>
+          </label>
           <label className="block">
             <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-[#aeb5c0]">
               Variant

@@ -4,10 +4,8 @@ import type { PromotionCampaign, PromotionVariant } from "@/lib/promotion";
 import { X } from "lucide-react";
 import { getCountdownState } from "./PromotionCountdownHelper";
 
-const PREVIEW_DEADLINE_TIMESTAMP = Date.parse("2026-10-01T06:59:00Z");
-
 function getHeadlineDate(timestamp: number, timezone?: string): string {
-  if (!Number.isFinite(timestamp)) return "September 30";
+  if (!Number.isFinite(timestamp)) return "";
   try {
     return new Intl.DateTimeFormat("en-US", {
       timeZone: timezone || "UTC",
@@ -15,12 +13,12 @@ function getHeadlineDate(timestamp: number, timezone?: string): string {
       day: "numeric",
     }).format(new Date(timestamp));
   } catch {
-    return "September 30";
+    return "";
   }
 }
 
 function formatCompactDeadline(timestamp: number, timezone?: string): string {
-  if (!Number.isFinite(timestamp)) return "SEPTEMBER 30 • 11:59 PM PT";
+  if (!Number.isFinite(timestamp)) return "";
   try {
     const formatter = new Intl.DateTimeFormat("en-US", {
       timeZone: timezone || "UTC",
@@ -44,7 +42,7 @@ function formatCompactDeadline(timestamp: number, timezone?: string): string {
 
     return `${month.toUpperCase()} ${day} • ${hour}:${minute} ${dayPeriod} ${tz}`.toUpperCase();
   } catch {
-    return "SEPTEMBER 30 • 11:59 PM PT";
+    return "";
   }
 }
 
@@ -75,23 +73,23 @@ export function PromotionPopup({
     : Number.NaN;
   const hasValidDeadline = Number.isFinite(parsedDeadline);
 
-  const countdownDeadline = hasValidDeadline
-    ? parsedDeadline
-    : (!hasConfiguredDeadline && preview)
-      ? PREVIEW_DEADLINE_TIMESTAMP
-      : null;
+  const countdownDeadline = hasValidDeadline ? parsedDeadline : null;
 
   const [now, setNow] = useState(() => Date.now() + serverTimeOffsetMs);
 
   useEffect(() => {
     // Only tick if we have a real deadline to count down to.
-    if (!hasValidDeadline) return;
+    if (!hasValidDeadline || !open) return;
     setNow(Date.now() + serverTimeOffsetMs);
     const interval = window.setInterval(() => {
       setNow(Date.now() + serverTimeOffsetMs);
     }, 1000);
     return () => window.clearInterval(interval);
-  }, [hasValidDeadline, serverTimeOffsetMs]);
+  }, [hasValidDeadline, serverTimeOffsetMs, countdownDeadline, open]);
+
+  useEffect(() => {
+    if (open) setDismissalHandled(false);
+  }, [open, campaign.experimentId]);
 
   const countdown = useMemo(() => {
     // No real countdown for unconfigured preview.
@@ -102,7 +100,7 @@ export function PromotionPopup({
   }, [countdownDeadline, now, preview, hasConfiguredDeadline]);
 
   const savingsLed = variant === "savings_led";
-  const effectivelyOpen = open && (hasValidDeadline || preview) && !countdown.expired;
+  const effectivelyOpen = open && hasValidDeadline && !countdown.expired;
 
   const dismiss = (
     dismissalType: "close_button" | "no_thanks" | "escape_key" | "backdrop_click",
@@ -113,7 +111,8 @@ export function PromotionPopup({
   };
 
   const termsUrl = campaign.legalTermsUrl;
-  const rawDisclosure = "Qualified new projects. Monthly plans start at $199/month. Approved scope and terms apply.";
+  const recurring = campaign.recurrenceMode === "monthly";
+  const rawDisclosure = `${recurring ? "Recurring monthly offer. " : ""}Qualified new projects. Monthly plans start at $199/month. Approved scope and terms apply.`;
 
   const renderDisclosure = () => {
     if (!termsUrl) return rawDisclosure;
@@ -134,13 +133,29 @@ export function PromotionPopup({
   const configuredDeadlineText = preview
     ? campaign.deadlineDisplayText?.replace(/\s*—\s*preview only/i, "").trim()
     : campaign.deadlineDisplayText?.trim();
-  const deadlineDisplayText = (!hasConfiguredDeadline && preview ? "" : configuredDeadlineText) || (countdownDeadline !== null
-    ? formatCompactDeadline(countdownDeadline, campaign.timezone)
+  // Monthly periods end exclusively at midnight on the first of the next month.
+  // Copy describes the final eligible minute of the month, not that next date.
+  const displayDeadlineTimestamp = countdownDeadline !== null
+    ? countdownDeadline - (recurring ? 60000 : 0)
+    : Number.NaN;
+  const deadlineDisplayText = (!recurring && configuredDeadlineText) || (countdownDeadline !== null
+    ? formatCompactDeadline(displayDeadlineTimestamp, campaign.timezone)
     : "");
 
   const headlineDate = countdownDeadline !== null
-    ? getHeadlineDate(countdownDeadline, campaign.timezone)
-    : "September 30";
+    ? getHeadlineDate(displayDeadlineTimestamp, campaign.timezone)
+    : "";
+  const monthName = useMemo(() => {
+    if (!Number.isFinite(displayDeadlineTimestamp)) return "";
+    try {
+      return new Intl.DateTimeFormat("en-US", {
+        timeZone: campaign.timezone || "UTC",
+        month: "long",
+      }).format(new Date(displayDeadlineTimestamp));
+    } catch {
+      return "";
+    }
+  }, [displayDeadlineTimestamp, campaign.timezone]);
 
   return (
     <DialogPrimitive.Root open={effectivelyOpen} onOpenChange={(nextOpen) => !nextOpen && dismiss("backdrop_click")}>
@@ -194,15 +209,15 @@ export function PromotionPopup({
           <div className="relative z-10 px-6 pb-6 sm:px-12 sm:pb-6">
             {/* Eyebrow */}
             <p className="mb-3 font-hand text-[clamp(11px,3.6vw,22px)] whitespace-nowrap font-bold leading-[1.15] tracking-normal text-[#B23E16]">
-              LIMITED-TIME OFFER • SEPTEMBER PROJECTS ONLY
+              {recurring ? "MONTHLY BUILD-FEE WAIVER" : "LIMITED-TIME OFFER"} • {monthName.toUpperCase()} PROJECTS
             </p>
 
             {/* Headline */}
             <DialogPrimitive.Title className="mb-4 font-display text-[34px] leading-[1.05] tracking-tight text-[#111111] sm:text-[44px] max-w-[500px]">
               {savingsLed ? (
-                <>We’re <span className="italic text-[#B23E16]">Waiving Build Fees</span> Through September 30.</>
+                <>We’re <span className="italic text-[#B23E16]">Waiving Build Fees</span> Through {headlineDate}.</>
               ) : (
-                <>Redeem Your <span className="italic text-[#B23E16]">$0 Build Fee</span> Before September Ends.</>
+                <>Redeem Your <span className="italic text-[#B23E16]">$0 Build Fee</span> Before {monthName} Ends.</>
               )}
             </DialogPrimitive.Title>
 
@@ -210,7 +225,7 @@ export function PromotionPopup({
             <div className="relative mb-4 flex flex-col items-start">
               <div className="absolute right-1 top-2 flex h-[100px] w-[100px] rotate-[8deg] flex-col items-center justify-center rounded-[20px] border-2 border-white bg-[#E85D26] px-2 text-center text-[#111111] shadow-[3px_5px_0_#111111] sm:right-6 sm:top-0 sm:h-[132px] sm:w-[132px]">
                 <span className="font-display text-[23px] leading-[0.95] sm:text-[30px]">NO BUILD<br />FEES</span>
-                <span className="mt-1 font-hand text-[15px] font-bold leading-none sm:text-[20px]">all of September</span>
+                <span className="mt-1 font-hand text-[15px] font-bold leading-none sm:text-[20px]">all of {monthName}</span>
               </div>
               <span className="mb-1 font-sans text-[11px] font-bold uppercase tracking-widest text-[#555555]">
                 BUILD FEE

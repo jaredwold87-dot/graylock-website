@@ -188,6 +188,7 @@ const COLUMNS: Array<{ key: keyof PromotionLead; label: string }> = [
   { key: "leadId", label: "Lead ID" },
   { key: "createdDate", label: "Created date" },
   { key: "campaignId", label: "Campaign ID" },
+  { key: "occurrenceKey", label: "Occurrence" },
   { key: "variant", label: "Variant" },
   { key: "promotionSource", label: "Promotion source" },
   { key: "firstName", label: "Name" },

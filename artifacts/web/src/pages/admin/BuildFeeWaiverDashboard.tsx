@@ -79,6 +79,9 @@ function validateReport(report: PromotionReport): PromotionReport {
 
 function campaignStatus(campaign: Campaign) {
   if (campaign.manualKillSwitch) return "Paused";
+  if (campaign.recurrenceMode === "monthly") {
+    return campaign.enabled ? "Live" : "Draft";
+  }
   const now = Date.now();
   const start = campaign.startDateTime ? Date.parse(campaign.startDateTime) : Number.NaN;
   const end = campaign.endDateTime ? Date.parse(campaign.endDateTime) : Number.NaN;
@@ -306,6 +309,7 @@ function BuildFeeWaiverDashboardContent() {
                 onApply={() => setAppliedFilters({ ...filters })}
                 onChange={setFilters}
                 onExport={exportReport}
+                periods={report?.periods}
               />
 
               {reportError ? <ErrorBanner message={reportError} /> : null}

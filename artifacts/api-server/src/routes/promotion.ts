@@ -93,6 +93,8 @@ const ECONOMIC_KINDS = new Set([
   "refund",
 ]);
 const DEVICE_TYPES = new Set(["desktop", "mobile", "tablet", "unknown"]);
+const RECURRENCE_MODES = new Set(["manual", "monthly"]);
+const OCCURRENCE_KEY_PATTERN = /^\d{4}-(0[1-9]|1[0-2])$/;
 const sessions = new Map<
   string,
   { expiresAt: number; csrfToken: string; username: string }
@@ -107,9 +109,14 @@ interface Campaign {
   enabled: boolean;
   campaignName: string;
   timezone: string;
+  recurrenceMode: "manual" | "monthly";
   startDateTime: string | null;
   endDateTime: string | null;
   deadlineDisplayText: string | null;
+  /** Present on public, resolved campaign responses. */
+  occurrenceKey?: string | null;
+  /** Present on public, resolved campaign responses when recurring. */
+  baseExperimentId?: string;
   eligiblePagePaths: string[];
   trafficAllocationControl: number;
   trafficAllocationVariantA: number;
@@ -168,6 +175,7 @@ interface ReportFilters {
   monthlyPlan?: string;
   startDate?: string;
   endDate?: string;
+  occurrenceKey?: string;
 }
 
 function toCampaign(row: Record<string, unknown>): Campaign {
@@ -178,6 +186,7 @@ function toCampaign(row: Record<string, unknown>): Campaign {
     enabled: Boolean(row.enabled),
     campaignName: String(row.campaign_name),
     timezone: String(row.timezone),
+    recurrenceMode: row.recurrence_mode === "monthly" ? "monthly" : "manual",
     startDateTime: row.start_date_time ? new Date(String(row.start_date_time)).toISOString() : null,
     endDateTime: row.end_date_time ? new Date(String(row.end_date_time)).toISOString() : null,
     deadlineDisplayText: row.deadline_display_text ? String(row.deadline_display_text) : null,
@@ -233,22 +242,192 @@ function toAssignment(row: Record<string, unknown>): Assignment {
   };
 }
 
+interface MonthlyPeriod {
+  occurrenceKey: string;
+  startDateTime: string;
+  endDateTime: string;
+  deadlineDisplayText: string;
+}
+
+interface ResolvedCampaign extends Campaign {
+  occurrenceKey: string | null;
+  baseExperimentId?: string;
+}
+
+function datePartsInTimeZone(date: Date, timezone: string): {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  second: number;
+} {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: timezone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(date);
+  const valueFor = (type: Intl.DateTimeFormatPartTypes): number =>
+    Number(parts.find((part) => part.type === type)?.value);
+  return {
+    year: valueFor("year"),
+    month: valueFor("month"),
+    day: valueFor("day"),
+    hour: valueFor("hour"),
+    minute: valueFor("minute"),
+    second: valueFor("second"),
+  };
+}
+
+/**
+ * Converts a local timezone wall-clock value to an instant using Intl's IANA
+ * data. Iterating the offset makes the conversion safe on offset changes; our
+ * month boundaries are local midnight (not the ambiguous DST hour).
+ */
+function zonedTimeToUtc(
+  year: number,
+  month: number,
+  day: number,
+  timezone: string,
+): Date {
+  const target = Date.UTC(year, month - 1, day);
+  let timestamp = target;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const local = datePartsInTimeZone(new Date(timestamp), timezone);
+    const offset = Date.UTC(
+      local.year,
+      local.month - 1,
+      local.day,
+      local.hour,
+      local.minute,
+      local.second,
+    ) - timestamp;
+    timestamp = target - offset;
+  }
+  return new Date(timestamp);
+}
+
+export function monthlyPeriodFor(timezone: string, now = new Date()): MonthlyPeriod {
+  const local = datePartsInTimeZone(now, timezone);
+  return monthlyPeriodForYearMonth(timezone, local.year, local.month);
+}
+
+function monthlyPeriodForYearMonth(timezone: string, year: number, month: number): MonthlyPeriod {
+  const nextYear = month === 12 ? year + 1 : year;
+  const nextMonth = month === 12 ? 1 : month + 1;
+  const start = zonedTimeToUtc(year, month, 1, timezone);
+  const end = zonedTimeToUtc(nextYear, nextMonth, 1, timezone);
+  const lastInstant = new Date(end.getTime() - 1);
+  const lastDate = new Intl.DateTimeFormat("en-US", {
+    timeZone: timezone,
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(lastInstant);
+  return {
+    occurrenceKey: `${year}-${String(month).padStart(2, "0")}`,
+    startDateTime: start.toISOString(),
+    endDateTime: end.toISOString(),
+    deadlineDisplayText: `${lastDate}, 11:59 PM ${timezone}`,
+  };
+}
+
+export function monthlyPeriodForOccurrence(timezone: string, occurrenceKey: string): MonthlyPeriod {
+  if (!OCCURRENCE_KEY_PATTERN.test(occurrenceKey)) {
+    throw new InputError("occurrenceKey must be YYYY-MM");
+  }
+  return monthlyPeriodForYearMonth(
+    timezone,
+    Number(occurrenceKey.slice(0, 4)),
+    Number(occurrenceKey.slice(5, 7)),
+  );
+}
+
+export function evaluationPeriodFor(
+  campaign: Campaign,
+  occurrenceKey?: string,
+  now = new Date(),
+): {
+  occurrenceKey: string | null;
+  startDateTime: string | null;
+  scope: "campaign" | "current_month" | "selected_occurrence";
+} {
+  if (campaign.recurrenceMode !== "monthly") {
+    return {
+      occurrenceKey: null,
+      startDateTime: campaign.startDateTime,
+      scope: "campaign",
+    };
+  }
+  const period = occurrenceKey
+    ? monthlyPeriodForOccurrence(campaign.timezone, occurrenceKey)
+    : monthlyPeriodFor(campaign.timezone, now);
+  return {
+    occurrenceKey: period.occurrenceKey,
+    startDateTime: period.startDateTime,
+    scope: occurrenceKey ? "selected_occurrence" : "current_month",
+  };
+}
+
+export function effectiveExperimentId(baseExperimentId: string, occurrenceKey: string | null): string {
+  return occurrenceKey ? `${baseExperimentId}:${occurrenceKey}` : baseExperimentId;
+}
+
+export function occurrenceKeyForExperimentId(
+  baseExperimentId: string,
+  experimentId: string,
+): string | null {
+  const prefix = `${baseExperimentId}:`;
+  const occurrenceKey = experimentId.startsWith(prefix)
+    ? experimentId.slice(prefix.length)
+    : "";
+  return OCCURRENCE_KEY_PATTERN.test(occurrenceKey) ? occurrenceKey : null;
+}
+
+export function resolveCampaignForPublic(campaign: Campaign, now = new Date()): ResolvedCampaign {
+  if (campaign.recurrenceMode !== "monthly") {
+    return { ...campaign, occurrenceKey: null };
+  }
+  const period = monthlyPeriodFor(campaign.timezone, now);
+  return {
+    ...campaign,
+    experimentId: effectiveExperimentId(campaign.experimentId, period.occurrenceKey),
+    baseExperimentId: campaign.experimentId,
+    ...period,
+  };
+}
+
+export function assignmentIsCurrentOccurrence(
+  assignment: Assignment,
+  campaign: Campaign,
+  now = new Date(),
+): boolean {
+  return assignment.experimentId === resolveCampaignForPublic(campaign, now).experimentId;
+}
+
 function campaignIsLive(campaign: Campaign, now = new Date()): boolean {
-  if (!campaign.enabled || campaign.manualKillSwitch || !campaign.startDateTime || !campaign.endDateTime) {
+  const resolved = resolveCampaignForPublic(campaign, now);
+  if (!resolved.enabled || resolved.manualKillSwitch || !resolved.startDateTime || !resolved.endDateTime) {
     return false;
   }
   const timestamp = now.getTime();
   return (
-    timestamp >= new Date(campaign.startDateTime).getTime() &&
-    timestamp <= new Date(campaign.endDateTime).getTime()
+    timestamp >= new Date(resolved.startDateTime).getTime() &&
+    timestamp < new Date(resolved.endDateTime).getTime()
   );
 }
 
 function campaignStatus(campaign: Campaign, now = new Date()): string {
+  const resolved = resolveCampaignForPublic(campaign, now);
   if (campaign.manualKillSwitch) return "Paused";
-  if (campaign.endDateTime && now.getTime() > new Date(campaign.endDateTime).getTime()) return "Expired";
+  if (resolved.endDateTime && now.getTime() >= new Date(resolved.endDateTime).getTime()) return "Expired";
   if (!campaign.enabled) return "Draft";
-  if (campaign.startDateTime && now.getTime() < new Date(campaign.startDateTime).getTime()) return "Scheduled";
+  if (resolved.startDateTime && now.getTime() < new Date(resolved.startDateTime).getTime()) return "Scheduled";
   return campaignIsLive(campaign, now) ? "Live" : "Draft";
 }
 
@@ -584,7 +763,7 @@ async function assignmentByToken(token: string): Promise<{ assignment: Assignmen
     `
       SELECT a.*, c.campaign_id AS campaign_id_text,
         c.experiment_id AS campaign_experiment_id, c.campaign_name,
-        c.enabled, c.timezone, c.start_date_time, c.end_date_time,
+        c.enabled, c.timezone, c.recurrence_mode, c.start_date_time, c.end_date_time,
         c.deadline_display_text, c.eligible_page_paths,
         c.traffic_allocation_control, c.traffic_allocation_variant_a,
         c.traffic_allocation_variant_b, c.trigger_minimum_seconds,
@@ -634,7 +813,16 @@ function readReportFilters(req: Request): ReportFilters {
     monthlyPlan: reportFilterValue(q.monthlyPlan, "monthlyPlan"),
     startDate: reportFilterValue(q.startDate, "startDate"),
     endDate: reportFilterValue(q.endDate, "endDate"),
+    occurrenceKey: parseOccurrenceKey(q.occurrenceKey),
   };
+}
+
+export function parseOccurrenceKey(value: unknown): string | undefined {
+  if (value === undefined || value === null || value === "") return undefined;
+  if (typeof value !== "string" || !OCCURRENCE_KEY_PATTERN.test(value)) {
+    throw new InputError("occurrenceKey must be YYYY-MM");
+  }
+  return value;
 }
 
 function addFilter(
@@ -668,6 +856,10 @@ async function buildReport(filters: ReportFilters): Promise<Record<string, unkno
   }
   addFilter(where, params, "a.utm_campaign = ?", filters.utmCampaign);
   addFilter(where, params, "a.device_type = ?", filters.deviceType);
+  if (filters.occurrenceKey !== undefined) {
+    params.push(filters.occurrenceKey);
+    where.push(`a.experiment_id = c.experiment_id || ':' || $${params.length}`);
+  }
   addFilter(where, params, "a.assigned_at >= ?", filters.startDate ? asOptionalTimestamp(filters.startDate, "startDate") : undefined);
   addFilter(where, params, "a.assigned_at <= ?", filters.endDate ? asOptionalTimestamp(filters.endDate, "endDate") : undefined);
   if (filters.businessCategory !== undefined) {
@@ -703,6 +895,36 @@ async function buildReport(filters: ReportFilters): Promise<Record<string, unkno
   const assignments = assignmentResult.rows.map(mapAssignmentRow);
   const assignmentIds = assignments.map((assignment) => assignment.id);
   const campaign = await fetchCampaign(filters.campaignId ?? DEFAULT_CAMPAIGN_ID);
+  const periods = campaign
+    ? await (async () => {
+        const result = await pool.query(
+          `
+            SELECT DISTINCT experiment_id
+            FROM experiment_assignments
+            WHERE campaign_id = $1
+            ORDER BY experiment_id DESC
+          `,
+          [campaign.id],
+        );
+        const items = result.rows.map((row) => {
+          const experimentId = String(row.experiment_id);
+          return {
+            experimentId,
+            occurrenceKey: occurrenceKeyForExperimentId(campaign.experimentId, experimentId),
+          };
+        });
+        if (campaign.recurrenceMode === "monthly") {
+          const current = resolveCampaignForPublic(campaign);
+          if (!items.some((item) => item.experimentId === current.experimentId)) {
+            items.unshift({
+              experimentId: current.experimentId,
+              occurrenceKey: current.occurrenceKey,
+            });
+          }
+        }
+        return items;
+      })()
+    : [];
   const variants = [...VARIANTS];
   const countsByVariant = new Map<string, Record<string, number>>();
   for (const variant of variants) countsByVariant.set(variant, {});
@@ -751,6 +973,10 @@ async function buildReport(filters: ReportFilters): Promise<Record<string, unkno
     leadWhere.push(`COALESCE(l.device_type, a.device_type) = $${leadParams.length + 1}`);
     leadParams.push(filters.deviceType);
   }
+  if (filters.occurrenceKey !== undefined) {
+    leadWhere.push(`a.experiment_id = c.experiment_id || ':' || $${leadParams.length + 1}`);
+    leadParams.push(filters.occurrenceKey);
+  }
   if (filters.startDate) {
     leadWhere.push(`l.created_at >= $${leadParams.length + 1}`);
     leadParams.push(asOptionalTimestamp(filters.startDate, "startDate"));
@@ -777,7 +1003,7 @@ async function buildReport(filters: ReportFilters): Promise<Record<string, unkno
   }
   const leadsResult = await pool.query(
     `
-      SELECT l.*
+      SELECT l.*, c.experiment_id AS campaign_base_experiment_id
       FROM promotion_lead_attribution l
       LEFT JOIN experiment_assignments a ON a.id = l.assignment_id
       LEFT JOIN promotion_campaigns c ON c.campaign_id = l.campaign_id
@@ -957,15 +1183,41 @@ async function buildReport(filters: ReportFilters): Promise<Record<string, unkno
       costsComplete,
     };
   });
-  const evaluationCampaign = campaign ?? {
-    minEvaluationDays: 14,
-    minEligibleVisitors: 200,
-    startDateTime: null,
-  };
-  const elapsedDays = evaluationCampaign.startDateTime
-    ? Math.max(0, Math.floor((Date.now() - new Date(evaluationCampaign.startDateTime).getTime()) / 86_400_000))
+  const evaluationCampaign = campaign ?? null;
+  const evaluationPeriod = evaluationCampaign
+    ? evaluationPeriodFor(evaluationCampaign, filters.occurrenceKey)
+    : { occurrenceKey: null, startDateTime: null, scope: "campaign" as const };
+  const elapsedDays = evaluationPeriod.startDateTime
+    ? Math.max(0, Math.floor((Date.now() - new Date(evaluationPeriod.startDateTime).getTime()) / 86_400_000))
     : 0;
-  const eligibleVisitors = metrics.reduce((sum, metric) => sum + metric.eligibleVisitors, 0);
+  let eligibleVisitors = metrics.reduce((sum, metric) => sum + metric.eligibleVisitors, 0);
+  // An unfiltered recurring report intentionally remains an all-history
+  // aggregate. Its readiness is instead evaluated against the current-month
+  // assignment cohort, so aggregate counts are never compared to one month's
+  // elapsed days.
+  if (evaluationCampaign?.recurrenceMode === "monthly" && !filters.occurrenceKey) {
+    const evaluationWhere = [...where];
+    const evaluationParams = [...params];
+    evaluationParams.push(effectiveExperimentId(
+      evaluationCampaign.experimentId,
+      evaluationPeriod.occurrenceKey,
+    ));
+    evaluationWhere.push(`a.experiment_id = $${evaluationParams.length}`);
+    const currentEligible = await pool.query(
+      `
+        SELECT COUNT(DISTINCT e.assignment_id)::int AS count
+        FROM promotion_events e
+        JOIN experiment_assignments a ON a.id = e.assignment_id
+        JOIN promotion_campaigns c ON c.id = a.campaign_id
+        WHERE ${evaluationWhere.join(" AND ")}
+          AND e.event_name = 'promo_popup_eligible'
+      `,
+      evaluationParams,
+    );
+    eligibleVisitors = Number(currentEligible.rows[0]?.count ?? 0);
+  }
+  const minEvaluationDays = evaluationCampaign?.minEvaluationDays ?? 14;
+  const minEligibleVisitors = evaluationCampaign?.minEligibleVisitors ?? 200;
   return {
     campaign: campaign
       ? { ...campaign, status: campaignStatus(campaign) }
@@ -975,15 +1227,19 @@ async function buildReport(filters: ReportFilters): Promise<Record<string, unkno
     leads,
     economics,
     evaluation: {
-      ready: elapsedDays >= evaluationCampaign.minEvaluationDays &&
-        eligibleVisitors >= evaluationCampaign.minEligibleVisitors,
-      minEvaluationDays: evaluationCampaign.minEvaluationDays,
-      minEligibleVisitors: evaluationCampaign.minEligibleVisitors,
+      ready: elapsedDays >= minEvaluationDays &&
+        eligibleVisitors >= minEligibleVisitors,
+      minEvaluationDays,
+      minEligibleVisitors,
       elapsedDays,
       eligibleVisitors,
+      occurrenceKey: evaluationPeriod.occurrenceKey,
+      periodStartDateTime: evaluationPeriod.startDateTime,
+      scope: evaluationPeriod.scope,
     },
     guidance: "Evaluate variants using qualified requests, held fit calls, first monthly payments, delivery capacity, refunds, cancellations, and customer fit—not click-through rate alone.",
     filters,
+    periods,
     leadCount: leadRows.size,
   };
 }
@@ -1014,6 +1270,10 @@ function toSnakeMetadata(assignment: Assignment): Record<string, string | null> 
 }
 
 function leadRowToApi(row: Record<string, unknown>): Record<string, unknown> {
+  const baseExperimentId = row.campaign_base_experiment_id
+    ? String(row.campaign_base_experiment_id)
+    : null;
+  const experimentId = row.experiment_id ? String(row.experiment_id) : null;
   return {
     id: Number(row.id),
     submissionId: row.submission_id,
@@ -1021,7 +1281,10 @@ function leadRowToApi(row: Record<string, unknown>): Record<string, unknown> {
     createdAt: row.created_at,
     updatedAt: row.updated_at,
     campaignId: row.campaign_id,
-    experimentId: row.experiment_id,
+    experimentId,
+    occurrenceKey: baseExperimentId && experimentId
+      ? occurrenceKeyForExperimentId(baseExperimentId, experimentId)
+      : null,
     experimentVariant: row.experiment_variant,
     anonymousVisitorId: row.anonymous_visitor_id,
     promotionSource: row.promotion_source,
@@ -1078,16 +1341,29 @@ function leadRowToApi(row: Record<string, unknown>): Record<string, unknown> {
   };
 }
 
+const LEAD_EXPORT_HEADERS = [
+  "internalLeadId", "createdAt", "campaignId", "experimentId", "occurrenceKey",
+  "experimentVariant", "promotionSource", "firstName", "email", "phone", "businessName",
+  "websiteUrl", "primaryGoal", "serviceArea", "businessCategory", "declaredWebsiteGoal",
+  "declaredTiming", "leadStatus", "qualificationStatus", "noFitReason",
+  "fitCallDate", "fitCallStatus", "directionStatus", "promotionAcceptanceStatus",
+  "waivedBuildFeeAmount", "monthlyPlan", "firstPaymentStatus", "launchStatus",
+  "refundCancellationStatus", "assignedTeamMember", "notes",
+  "emailNotificationStatus", "emailNotificationError",
+];
+
 // Public campaign contract.
 promotionRouter.get("/promotion/campaign", async (_req, res) => {
   setNoCache(res);
   try {
     const campaign = await fetchCampaign();
-    const serverNow = new Date().toISOString();
+    const now = new Date();
+    const serverNow = now.toISOString();
+    const resolvedCampaign = campaign ? resolveCampaignForPublic(campaign, now) : null;
     res.json({
-      campaign,
+      campaign: resolvedCampaign,
       serverNow,
-      active: campaign ? campaignIsLive(campaign, new Date(serverNow)) : false,
+      active: campaign ? campaignIsLive(campaign, now) : false,
     });
   } catch (error) {
     logger.error({ err: error }, "Failed to read promotion campaign");
@@ -1119,9 +1395,11 @@ promotionRouter.post("/promotion/assign", async (req, res) => {
       ? null
       : sanitizeFreeText(req.body.device_type, "device_type", 30);
     if (deviceType && !DEVICE_TYPES.has(deviceType)) throw new InputError("device_type is invalid");
-    const campaign = await fetchCampaign();
-    const serverNow = new Date().toISOString();
-    if (!campaign || !campaignIsLive(campaign, new Date(serverNow))) {
+    const rawCampaign = await fetchCampaign();
+    const now = new Date();
+    const serverNow = now.toISOString();
+    const campaign = rawCampaign ? resolveCampaignForPublic(rawCampaign, now) : null;
+    if (!campaign || !campaignIsLive(rawCampaign!, now)) {
       res.json({ assignment: null, campaign, serverNow, active: false });
       return;
     }
@@ -1218,6 +1496,12 @@ promotionRouter.post("/promotion/events", async (req, res): Promise<void> => {
       return;
     }
     const { assignment, campaign } = assignmentData;
+    // A token remains resolvable for historical reporting, but an assignment
+    // from a prior recurring month must not accept new browser activity.
+    if (!assignmentIsCurrentOccurrence(assignment, campaign)) {
+      res.json({ ok: true });
+      return;
+    }
     const pagePath = sanitizePath(req.body?.page_path, "page_path");
     const source = sanitizeTracking(req.body?.source, "source");
     const triggerType = sanitizeTracking(req.body?.trigger_type, "trigger_type");
@@ -1386,7 +1670,7 @@ promotionRouter.patch(
       if (!incoming || typeof incoming !== "object") throw new InputError("campaign is required");
       const campaign = { ...existing } as Record<string, unknown>;
       const editableFields = [
-        "enabled", "campaignName", "timezone", "startDateTime", "endDateTime",
+        "enabled", "campaignName", "timezone", "recurrenceMode", "startDateTime", "endDateTime",
         "deadlineDisplayText", "eligiblePagePaths", "trafficAllocationControl",
         "trafficAllocationVariantA", "trafficAllocationVariantB",
         "triggerMinimumSeconds", "triggerMinimumScrollDepth",
@@ -1402,6 +1686,9 @@ promotionRouter.patch(
         typeof campaign.dashboardEnabled !== "boolean" || typeof campaign.manualKillSwitch !== "boolean") {
         throw new InputError("boolean campaign fields are invalid");
       }
+      if (typeof campaign.recurrenceMode !== "string" || !RECURRENCE_MODES.has(campaign.recurrenceMode)) {
+        throw new InputError("recurrenceMode must be manual or monthly");
+      }
       const startDateTime = asOptionalTimestamp(campaign.startDateTime, "startDateTime");
       const endDateTime = asOptionalTimestamp(campaign.endDateTime, "endDateTime");
       if (startDateTime && endDateTime && new Date(startDateTime) >= new Date(endDateTime)) {
@@ -1416,16 +1703,24 @@ promotionRouter.patch(
       if (allocations.reduce((sum, value) => sum + value, 0) !== 100) {
         throw new InputError("traffic allocations must total 100");
       }
-      if (campaign.enabled && (!startDateTime || !endDateTime)) {
+      if (campaign.enabled && campaign.recurrenceMode === "manual" && (!startDateTime || !endDateTime)) {
         throw new InputError("real startDateTime and endDateTime are required before enabling");
       }
       const confirmEnabled = req.body?.confirmEnabled === true || incoming.confirmEnabled === true;
       const confirmDeadline = req.body?.confirmDeadline === true || incoming.confirmDeadline === true;
+      const confirmRecurrenceChange = req.body?.confirmRecurrenceChange === true ||
+        incoming.confirmRecurrenceChange === true;
       if (!existing.enabled && campaign.enabled && !confirmEnabled) {
         throw new InputError("confirmEnabled must be true when enabling");
       }
       if (existing.endDateTime !== endDateTime && !confirmDeadline) {
         throw new InputError("confirmDeadline must be true when changing the deadline");
+      }
+      if (
+        (existing.recurrenceMode !== campaign.recurrenceMode || existing.timezone !== campaign.timezone) &&
+        !confirmRecurrenceChange
+      ) {
+        throw new InputError("confirmRecurrenceChange must be true when changing recurrenceMode or timezone");
       }
       const pagePaths = campaign.eligiblePagePaths;
       if (!Array.isArray(pagePaths) || pagePaths.length > 100 ||
@@ -1473,22 +1768,22 @@ promotionRouter.patch(
         const updated = await client.query(
           `
             UPDATE promotion_campaigns SET
-              enabled=$1, campaign_name=$2, timezone=$3, start_date_time=$4,
-              end_date_time=$5, deadline_display_text=$6, eligible_page_paths=$7,
-              traffic_allocation_control=$8, traffic_allocation_variant_a=$9,
-              traffic_allocation_variant_b=$10, trigger_minimum_seconds=$11,
-              trigger_minimum_scroll_depth=$12, dismissal_frequency_cap_days=$13,
-              popup_enabled=$14, dashboard_enabled=$15, manual_kill_switch=$16,
-              standard_build_fee_display_value=$17, monthly_plan_disclosure=$18,
-              legal_terms_url=$19, privacy_policy_url=$20, stage=$21,
-              min_evaluation_days=$22, min_eligible_visitors=$23,
+              enabled=$1, campaign_name=$2, timezone=$3, recurrence_mode=$4,
+              start_date_time=$5, end_date_time=$6, deadline_display_text=$7, eligible_page_paths=$8,
+              traffic_allocation_control=$9, traffic_allocation_variant_a=$10,
+              traffic_allocation_variant_b=$11, trigger_minimum_seconds=$12,
+              trigger_minimum_scroll_depth=$13, dismissal_frequency_cap_days=$14,
+              popup_enabled=$15, dashboard_enabled=$16, manual_kill_switch=$17,
+              standard_build_fee_display_value=$18, monthly_plan_disclosure=$19,
+              legal_terms_url=$20, privacy_policy_url=$21, stage=$22,
+              min_evaluation_days=$23, min_eligible_visitors=$24,
               version=version+1, updated_at=NOW()
-            WHERE campaign_id=$24
+            WHERE campaign_id=$25
             RETURNING *
           `,
           [
-            campaign.enabled, campaign.campaignName, campaign.timezone, startDateTime,
-            endDateTime, campaign.deadlineDisplayText, JSON.stringify(pagePaths),
+            campaign.enabled, campaign.campaignName, campaign.timezone, campaign.recurrenceMode,
+            startDateTime, endDateTime, campaign.deadlineDisplayText, JSON.stringify(pagePaths),
             allocations[0], allocations[1], allocations[2], campaign.triggerMinimumSeconds,
             scrollDepth, campaign.dismissalFrequencyCapDays, campaign.popupEnabled,
             campaign.dashboardEnabled, campaign.manualKillSwitch,
@@ -1622,19 +1917,9 @@ promotionRouter.get(
         res.type("text/csv").setHeader("Content-Disposition", "attachment; filename=promotion-aggregate.csv").send(lines.join("\n"));
       } else {
         const rows = report.leads as Array<Record<string, unknown>>;
-        const headers = [
-          "internalLeadId", "createdAt", "campaignId", "experimentVariant",
-          "promotionSource", "firstName", "email", "phone", "businessName",
-          "websiteUrl", "primaryGoal", "serviceArea", "businessCategory", "declaredWebsiteGoal",
-          "declaredTiming", "leadStatus", "qualificationStatus", "noFitReason",
-          "fitCallDate", "fitCallStatus", "directionStatus", "promotionAcceptanceStatus",
-          "waivedBuildFeeAmount", "monthlyPlan", "firstPaymentStatus", "launchStatus",
-          "refundCancellationStatus", "assignedTeamMember", "notes",
-          "emailNotificationStatus", "emailNotificationError",
-        ];
         const lines = [
-          headers.map(csvCell).join(","),
-          ...rows.map((row) => headers.map((header) => csvCell(row[header])).join(",")),
+          LEAD_EXPORT_HEADERS.map(csvCell).join(","),
+          ...rows.map((row) => LEAD_EXPORT_HEADERS.map((header) => csvCell(row[header])).join(",")),
         ];
         res.type("text/csv").setHeader("Content-Disposition", "attachment; filename=promotion-leads.csv").send(lines.join("\n"));
       }
@@ -1652,7 +1937,13 @@ promotionRouter.get(
       const leadIdentifier = sanitizeFreeText(req.params.id, "lead id", 100);
       if (!leadIdentifier) throw new InputError("lead id is required");
       const leadResult = await pool.query(
-        "SELECT * FROM promotion_lead_attribution WHERE internal_lead_id=$1 OR id::text=$1 LIMIT 1",
+          `
+            SELECT l.*, c.experiment_id AS campaign_base_experiment_id
+            FROM promotion_lead_attribution l
+            LEFT JOIN promotion_campaigns c ON c.campaign_id = l.campaign_id
+            WHERE l.internal_lead_id=$1 OR l.id::text=$1
+            LIMIT 1
+          `,
         [leadIdentifier],
       );
       if (!leadResult.rows[0]) {
@@ -1860,7 +2151,12 @@ promotionRouter.patch(
         }
         await client.query("COMMIT");
         const updated = await pool.query(
-          "SELECT * FROM promotion_lead_attribution WHERE id=$1",
+          `
+            SELECT l.*, c.experiment_id AS campaign_base_experiment_id
+            FROM promotion_lead_attribution l
+            LEFT JOIN promotion_campaigns c ON c.campaign_id = l.campaign_id
+            WHERE l.id=$1
+          `,
           [row.id],
         );
         res.json({ lead: updated.rows[0] ? leadRowToApi(updated.rows[0]) : null });
@@ -1943,6 +2239,8 @@ export {
   sanitizePath,
   sanitizeTracking,
   readReportFilters,
+  leadRowToApi,
+  LEAD_EXPORT_HEADERS,
   LEAD_STATUSES,
   NO_FIT_REASONS,
   outcomeFor,

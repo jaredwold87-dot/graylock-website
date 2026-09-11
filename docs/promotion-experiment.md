@@ -8,7 +8,8 @@ must not be exposed through permissive CORS.
 
 Public:
 
-* `GET /api/promotion/campaign` → `{campaign,serverNow,active}` (no-store).
+* `GET /api/promotion/campaign` → `{campaign,serverNow,active}` (no-store;
+  monthly campaigns are resolved to the current calendar-month occurrence).
 * `POST /api/promotion/assign` → `{assignment,campaign,serverNow,active}`.
 * `POST /api/promotion/events` → `{ok:true}`.
 * `POST /api/leads` → existing form response plus `{internal_lead_id}`;
@@ -67,7 +68,8 @@ The first migration creates `september-build-fee-waiver` /
 * `enabled: false`, `manualKillSwitch: false`, and `popupEnabled: true`
 * `stage: "stage1"`
 * `timezone: "America/Los_Angeles"`
-* `startDateTime: null`, `endDateTime: null`, and `deadlineDisplayText: null`
+* `recurrenceMode: "monthly"`; its raw/manual `startDateTime`,
+  `endDateTime`, and `deadlineDisplayText` remain untouched
 * allocations `control: 50`, `savings_led: 50`, `direction_led: 0`
 * `triggerMinimumSeconds: 25`, `triggerMinimumScrollDepth: 0.55`
 * `dismissalFrequencyCapDays: 30` (legacy configuration; dismissal now hides the notice for the entire campaign without withdrawing eligibility)
@@ -75,16 +77,20 @@ The first migration creates `september-build-fee-waiver` /
 * `monthlyPlanDisclosure: "Applicable monthly plan, scope, and terms apply."`
 * `minEvaluationDays: 14`, `minEligibleVisitors: 200`
 
-The campaign is intentionally not live until an administrator supplies real
-start and end dates. A campaign cannot be enabled without both dates and an
-explicit `confirmEnabled: true`. A live deadline change requires
-`confirmDeadline: true`.
+The campaign remains intentionally disabled after migration. A manual campaign
+cannot be enabled without real start and end dates and an explicit
+`confirmEnabled: true`. A monthly campaign derives its dates from its IANA
+timezone, but still requires explicit enablement. A live manual deadline change
+requires `confirmDeadline: true`.
 
 The migration is transactional and takes a PostgreSQL transaction advisory
 lock. Migration versions are recorded in `promotion_schema_migrations`; v2 is
 an additive migration for lead fields and the unique assignment-to-lead
 idempotency constraint, while v3 adds notification leases, payload snapshots,
-and Resend idempotency keys. An already-v1 or v2 database is upgraded safely.
+and Resend idempotency keys. V4 additively adds `recurrence_mode` and sets only
+the requested campaign to `monthly`; it does not alter campaign dates,
+enabled/popup/kill-switch flags, assignments, events, leads, or historical
+records. An already-v1, v2, or v3 database is upgraded safely.
 Campaign edits are versioned in `promotion_campaign_versions`.
 
 The durable relations are `promotion_campaigns`,
@@ -130,13 +136,16 @@ Response:
 {
   "campaign": {
     "campaignId": "september-build-fee-waiver",
-    "experimentId": "build-fee-waiver-v1",
     "enabled": false,
     "campaignName": "September Build-Fee Waiver",
     "timezone": "America/Los_Angeles",
-    "startDateTime": null,
-    "endDateTime": null,
-    "deadlineDisplayText": null,
+    "recurrenceMode": "monthly",
+    "baseExperimentId": "build-fee-waiver-v1",
+    "experimentId": "build-fee-waiver-v1:2026-09",
+    "occurrenceKey": "2026-09",
+    "startDateTime": "2026-09-01T07:00:00.000Z",
+    "endDateTime": "2026-10-01T07:00:00.000Z",
+    "deadlineDisplayText": "September 30, 2026, 11:59 PM America/Los_Angeles",
     "eligiblePagePaths": ["/"],
     "trafficAllocationControl": 50,
     "trafficAllocationVariantA": 50,
@@ -160,9 +169,18 @@ Response:
 }
 ```
 
-The response is `no-store`. `active` is computed on the server from enabled,
-kill switch, and real date bounds. It is false when dates are null, before
-start, after end, or paused.
+The response is `no-store`. For `recurrenceMode: "monthly"`, the public
+campaign is resolved at request time: `startDateTime` is local month-day 1 at
+00:00 inclusive, `endDateTime` is the following local month-day 1 at 00:00
+exclusive, and `deadlineDisplayText` truthfully names the final local date at
+11:59 PM. IANA timezone data handles DST, leap February, and December-to-January
+rollover. The public `experimentId` is the effective
+`baseExperimentId:occurrenceKey`; `campaignId` remains stable. Manual campaigns
+return their raw experiment ID and dates with `occurrenceKey: null`.
+
+`active` is computed on the server from enabled, kill switch, and the resolved
+or manual period. It is false when manual dates are null, before start, at or
+after the exclusive end, or paused.
 
 ### Sticky assignment
 
@@ -198,7 +216,7 @@ When live:
 {
   "assignment": {
     "campaign_id": "september-build-fee-waiver",
-    "experiment_id": "build-fee-waiver-v1",
+    "experiment_id": "build-fee-waiver-v1:2026-09",
     "experiment_variant": "control",
     "anonymous_visitor_id": "first-party-random-id",
     "assigned_at": "2026-09-01T12:00:00.000Z",
@@ -213,8 +231,10 @@ When live:
 ```
 
 The token is stored server-side and is required for event validation. The
-assignment is unique per campaign, experiment, and anonymous visitor and is
-created under an advisory lock. Existing assignments never get re-randomized.
+assignment is unique per campaign, effective experiment, and anonymous visitor
+and is created under an advisory lock. Each monthly occurrence therefore gets a
+new assignment for the same visitor without rekeying or changing historical
+rows. Existing assignments never get re-randomized.
 Invalid allocation totals fail safely to `control` and produce a
 non-sensitive server warning. With the default disabled campaign, assignment
 returns `assignment: null` and `active: false`, avoiding production
@@ -273,13 +293,18 @@ After login, it returns `{ "authenticated": true, "csrfToken": "..." }`.
 * `POST /api/promotion/admin/logout` — requires `X-CSRF-Token`.
 * `GET /api/promotion/admin/campaign` — returns `{campaign}`.
 * `PATCH /api/promotion/admin/campaign` — accepts `{campaign:{...},
-  confirmEnabled?,confirmDeadline?}` and returns `{campaign}`. Editable fields
-  are all documented campaign fields except IDs, timestamps, and version.
+  confirmEnabled?,confirmDeadline?,confirmRecurrenceChange?}` and returns
+  `{campaign}`. `recurrenceMode` is `manual` or `monthly`. Admin GET/PATCH
+  always use the raw `experimentId` and stored manual date fields; no effective
+  experiment ID is persisted to the campaign. Changing `recurrenceMode` or
+  `timezone` requires `confirmRecurrenceChange: true`. Editable fields are all
+  documented campaign fields except IDs, timestamps, and version.
 * `POST /api/promotion/admin/campaign/pause` — kill switch; immediately sets
   `manualKillSwitch` and disables the campaign. Returns `{campaign,paused:true}`.
 
-`PATCH` validates all dates, paths, allocations (must total 100), thresholds,
-and text bounds. Enabling without real dates is rejected.
+`PATCH` validates recurrence mode, timezone, dates, paths, allocations (must
+total 100), thresholds, and text bounds. Enabling a manual campaign without
+real dates is rejected.
 
 ### Report
 
@@ -287,13 +312,20 @@ and text bounds. Enabling without real dates is rejected.
 
 Supported query filters are `startDate`, `endDate`, `campaignId`, `stage`,
 `variant`, `trafficSource`, `utmCampaign`, `deviceType`,
-`businessCategory`, `leadStatus`, `assignedTeamMember`, and `monthlyPlan`.
+`businessCategory`, `leadStatus`, `assignedTeamMember`, `monthlyPlan`, and
+`occurrenceKey` (`YYYY-MM`).
 
 Response:
 
 ```json
 {
   "campaign": {},
+  "periods": [
+    {
+      "experimentId": "build-fee-waiver-v1:2026-09",
+      "occurrenceKey": "2026-09"
+    }
+  ],
   "status": "Draft",
   "metrics": [
     {
@@ -323,19 +355,36 @@ Response:
     "minEvaluationDays": 14,
     "minEligibleVisitors": 200,
     "elapsedDays": 0,
-    "eligibleVisitors": 10
+      "eligibleVisitors": 10,
+      "occurrenceKey": "2026-09",
+      "periodStartDateTime": "2026-09-01T07:00:00.000Z",
+      "scope": "current_month"
   },
   "guidance": "Evaluate variants using qualified requests, held fit calls, first monthly payments, delivery capacity, refunds, cancellations, and customer fit—not click-through rate alone."
 }
 ```
 
-Counts are distinct assignments per event, and qualified/downstream counts
+`occurrenceKey` filters assignments by the exact effective assignment
+`experiment_id` (`campaign.experiment_id || ':' || occurrenceKey`); events,
+leads, outcomes, and economics are all derived from that selected assignment
+cohort. `periods` lists existing effective experiments for the selected
+campaign and includes the current monthly occurrence even before it has an
+assignment. Historical unsuffixed experiments remain visible with
+`occurrenceKey: null`. Counts are distinct assignments per event, and qualified/downstream counts
 are distinct local leads. Metrics and leads use the same filters. Economics
 counts only the earliest `monthly_payment` record for each lead in
 `firstPaymentsCollected`; `totalMonthlyPayments` includes every recorded
 monthly payment. `grossProfitEstimate` is `null` and `costsComplete` is false
 unless every attributed lead in the filtered cohort has explicit, complete
 delivery and support cost records. The API never fabricates profitability.
+
+For a monthly report with `occurrenceKey`, evaluation uses that occurrence's
+local month-start and reports `scope: "selected_occurrence"`. Without an
+occurrence filter, metrics remain the requested all-history aggregate, while
+evaluation intentionally uses only the current month's matching assignment
+cohort and local month-start (`scope: "current_month"`). This explicit split
+prevents all-history counts from being compared to the current month's elapsed
+days. Manual campaigns retain `scope: "campaign"`.
 
 `GET /api/promotion/admin/export?type=aggregate|leads` accepts the same
 filters and emits CSV from the same report query. Formula-like cell prefixes
@@ -399,11 +448,20 @@ existing Resend email path. The JSON response includes
 `{success:true,internal_lead_id}`. The token itself is not forwarded to email
 or any notification payload.
 
+Assignment tokens for prior monthly occurrences remain resolvable so their
+historical records and reports remain intact. They cannot create a new
+attributed lead or new browser activity in a later month; a lead submission
+with an expired monthly token is rejected.
+
 The dashboard report includes every stored submission: attributed rows are
 joined to their assignment/campaign when present, while ordinary submissions
 remain visible through the left join with `campaignId`, `experimentId`, and
 `experimentVariant` set to `null`. The default report does not silently drop
 these general leads.
+
+Lead report rows include `occurrenceKey` (or `null` for unsuffixed historical
+assignments), and the private leads CSV includes both `experimentId` and
+`occurrenceKey` so exported monthly cohorts remain distinguishable.
 
 Successful submissions are sent through Resend using only server-side
 `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `LEADS_RECIPIENT_EMAIL`, and optional
@@ -464,9 +522,11 @@ To activate:
 1. Configure `PROMOTION_ADMIN_PASSWORD` and `SESSION_SECRET` (and set an
    explicit origin in production).
 2. Log in and fetch the default campaign.
-3. PATCH real `startDateTime`, `endDateTime`, and the factual
-   `deadlineDisplayText`, with `confirmDeadline: true` if changing an
-   existing deadline.
+3. For a manual campaign, PATCH real `startDateTime`, `endDateTime`, and the
+   factual `deadlineDisplayText`, with `confirmDeadline: true` if changing an
+   existing deadline. For the configured monthly campaign, confirm any
+   recurrence/timezone change with `confirmRecurrenceChange: true`; public
+   period fields are derived automatically.
 4. Enable with `confirmEnabled: true`.
 5. Verify assignment and impression events in the private report.
 
@@ -474,5 +534,7 @@ To pause, call the admin pause endpoint with the current CSRF token. Variant B
 (`direction_led`) is implemented in the allocation and assignment system but
 is disabled by default at 0%.
 
-No countdown, fake scarcity, close-window deadline, image, stock visual,
-illustration, prize treatment, or AI-generated visual is part of this backend.
+The offer may be described truthfully as a recurring monthly offer. Its
+server-derived month-end display is a factual calendar cutoff, not a countdown
+or invented scarcity. No fake scarcity, stock visual, illustration, prize
+treatment, or AI-generated visual is part of this backend.

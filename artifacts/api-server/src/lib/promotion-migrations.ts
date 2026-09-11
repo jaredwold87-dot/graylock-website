@@ -35,6 +35,7 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
           enabled BOOLEAN NOT NULL DEFAULT FALSE,
           campaign_name TEXT NOT NULL,
           timezone VARCHAR(80) NOT NULL,
+          recurrence_mode VARCHAR(20) NOT NULL DEFAULT 'manual',
           start_date_time TIMESTAMPTZ,
           end_date_time TIMESTAMPTZ,
           deadline_display_text TEXT,
@@ -240,6 +241,7 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
         `
           INSERT INTO promotion_campaigns (
             campaign_id, experiment_id, enabled, campaign_name, timezone,
+            recurrence_mode,
             eligible_page_paths, traffic_allocation_control,
             traffic_allocation_variant_a, traffic_allocation_variant_b,
             trigger_minimum_seconds, trigger_minimum_scroll_depth,
@@ -249,7 +251,7 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
             min_eligible_visitors
           ) VALUES (
             'september-build-fee-waiver', 'build-fee-waiver-v1', FALSE,
-            'September Build-Fee Waiver', 'America/Los_Angeles',
+            'September Build-Fee Waiver', 'America/Los_Angeles', 'monthly',
             '["/"]'::jsonb, 50, 50, 0, 25, 0.5500, 30, TRUE, TRUE,
             FALSE, 'from $799', 'Applicable monthly plan, scope, and terms apply.',
             'stage1', 14, 200
@@ -263,6 +265,7 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
           SELECT id, version, jsonb_build_object(
             'campaignId', campaign_id, 'experimentId', experiment_id,
             'enabled', enabled, 'campaignName', campaign_name, 'timezone', timezone,
+             'recurrenceMode', recurrence_mode,
             'startDateTime', start_date_time, 'endDateTime', end_date_time,
             'deadlineDisplayText', deadline_display_text,
             'eligiblePagePaths', eligible_page_paths,
@@ -371,6 +374,33 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
       `);
       await client.query(
         "INSERT INTO promotion_schema_migrations (version) VALUES (3)",
+      );
+    }
+    // Version 4 makes recurrence an additive campaign setting. Existing
+    // campaign dates, enabled state, popup state, and kill switch are left
+    // exactly as they were; only the requested campaign's recurrence mode is
+    // changed. Assignment, event, and lead rows are deliberately untouched.
+    if (currentVersion < 4) {
+      await client.query(`
+        ALTER TABLE promotion_campaigns
+          ADD COLUMN IF NOT EXISTS recurrence_mode VARCHAR(20) NOT NULL DEFAULT 'manual'
+      `);
+      await client.query(`
+        ALTER TABLE promotion_campaigns
+          DROP CONSTRAINT IF EXISTS promotion_campaigns_recurrence_mode_valid
+      `);
+      await client.query(`
+        ALTER TABLE promotion_campaigns
+          ADD CONSTRAINT promotion_campaigns_recurrence_mode_valid
+          CHECK (recurrence_mode IN ('manual', 'monthly'))
+      `);
+      await client.query(`
+        UPDATE promotion_campaigns
+        SET recurrence_mode = 'monthly'
+        WHERE campaign_id = 'september-build-fee-waiver'
+      `);
+      await client.query(
+        "INSERT INTO promotion_schema_migrations (version) VALUES (4)",
       );
     }
 

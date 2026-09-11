@@ -9,6 +9,8 @@
 
 export const PROMOTION_VARIANTS = ["control", "savings_led", "direction_led"] as const;
 export type PromotionVariant = (typeof PROMOTION_VARIANTS)[number];
+export const PROMOTION_RECURRENCE_MODES = ["manual", "monthly"] as const;
+export type PromotionRecurrenceMode = (typeof PROMOTION_RECURRENCE_MODES)[number];
 
 export type PromotionEventName =
   | "promo_popup_eligible"
@@ -36,6 +38,14 @@ export type PromotionEventName =
 export interface PromotionCampaign {
   campaignId: string;
   experimentId: string;
+  /** The configured/base experiment id. Public monthly responses may expose an
+   * effective experimentId while retaining this value for diagnostics. */
+  rawBaseExperimentId?: string;
+  /** Compatibility name used by the public API for the configured id. */
+  baseExperimentId?: string;
+  recurrenceMode: PromotionRecurrenceMode;
+  /** YYYY-MM for the public monthly occurrence; absent for manual campaigns. */
+  occurrenceKey?: string | null;
   enabled: boolean;
   campaignName: string;
   timezone: string;
@@ -105,8 +115,6 @@ export interface PromotionEventFields {
   [key: string]: string | number | undefined;
 }
 
-const PREVIEW_DEADLINE = "September 30, 2026 at 11:59 PM Pacific — preview only";
-
 /**
  * A disabled fallback is intentional.  A network failure must never turn the
  * popup on or create an unassigned treatment experience.
@@ -114,8 +122,10 @@ const PREVIEW_DEADLINE = "September 30, 2026 at 11:59 PM Pacific — preview onl
 export const DEFAULT_PROMOTION_CAMPAIGN: PromotionCampaign = {
   campaignId: "",
   experimentId: "",
+  recurrenceMode: "manual",
+  occurrenceKey: null,
   enabled: false,
-  campaignName: "September Build-Fee Waiver",
+  campaignName: "Build-Fee Waiver",
   timezone: "America/Los_Angeles",
   startDateTime: null,
   endDateTime: null,
@@ -141,7 +151,8 @@ export function getPromotionDeadline(
   campaign: PromotionCampaign,
   preview = false,
 ): string {
-  return campaign.deadlineDisplayText?.trim() || (preview ? PREVIEW_DEADLINE : "");
+  void preview;
+  return campaign.deadlineDisplayText?.trim() || "";
 }
 
 export function mergePromotionCampaign(
@@ -150,6 +161,23 @@ export function mergePromotionCampaign(
   const merged = { ...DEFAULT_PROMOTION_CAMPAIGN, ...(campaign ?? {}) };
   return {
     ...merged,
+    rawBaseExperimentId:
+      typeof merged.rawBaseExperimentId === "string"
+        ? merged.rawBaseExperimentId
+        : typeof merged.baseExperimentId === "string"
+          ? merged.baseExperimentId
+          : undefined,
+    baseExperimentId:
+      typeof merged.baseExperimentId === "string"
+        ? merged.baseExperimentId
+        : typeof merged.rawBaseExperimentId === "string"
+          ? merged.rawBaseExperimentId
+          : undefined,
+    recurrenceMode: merged.recurrenceMode === "monthly" ? "monthly" : "manual",
+    occurrenceKey:
+      typeof merged.occurrenceKey === "string" && /^\d{4}-\d{2}$/.test(merged.occurrenceKey)
+        ? merged.occurrenceKey
+        : null,
     eligiblePagePaths:
       Array.isArray(merged.eligiblePagePaths) && merged.eligiblePagePaths.length
         ? merged.eligiblePagePaths.filter((path): path is string => typeof path === "string")
@@ -172,6 +200,9 @@ const memoryStates = new Map<string, PromotionSuppressionState>();
 export interface PromotionSuppressionState {
   campaignId: string;
   configHash: string;
+  recurrenceMode?: PromotionRecurrenceMode;
+  occurrenceKey?: string;
+  experimentId?: string;
   dismissedAt?: string;
   ctaClickedAt?: string;
   formStartedAt?: string;
@@ -407,11 +438,32 @@ export function promotionConfigHash(campaign: PromotionCampaign): string {
   return (hash >>> 0).toString(16);
 }
 
+export interface PromotionSuppressionScope {
+  recurrenceMode?: PromotionRecurrenceMode;
+  occurrenceKey?: string | null;
+  /** Effective public experiment id. Monthly values include the occurrence. */
+  experimentId?: string | null;
+}
+
+function suppressionStorageKey(
+  campaignId: string,
+  scope: PromotionSuppressionScope = {},
+): string {
+  if (scope.recurrenceMode !== "monthly") return `${STORAGE_STATE_PREFIX}${campaignId}`;
+  const experimentId = scope.experimentId || "";
+  const occurrenceKey = scope.occurrenceKey || "";
+  // Monthly state is deliberately scoped to both the effective experiment and
+  // occurrence. Manual state keeps the legacy campaign-only key so an old
+  // dismissal remains permanent.
+  return `${STORAGE_STATE_PREFIX}${campaignId}:${experimentId}:${occurrenceKey}`;
+}
+
 export function getPromotionSuppressionState(
   campaignId: string,
   configHash: string,
+  scope: PromotionSuppressionScope = {},
 ): PromotionSuppressionState {
-  const key = `${STORAGE_STATE_PREFIX}${campaignId}`;
+  const key = suppressionStorageKey(campaignId, scope);
   const fromMemory = memoryStates.get(key);
   if (fromMemory) return fromMemory;
   const stored = readStorage(key);
@@ -426,13 +478,19 @@ export function getPromotionSuppressionState(
       // Ignore malformed local state and use a clean state.
     }
   }
-  const initial = { campaignId, configHash };
+  const initial: PromotionSuppressionState = {
+    campaignId,
+    configHash,
+    recurrenceMode: scope.recurrenceMode,
+    occurrenceKey: scope.occurrenceKey || undefined,
+    experimentId: scope.experimentId || undefined,
+  };
   memoryStates.set(key, initial);
   return initial;
 }
 
 export function savePromotionSuppressionState(state: PromotionSuppressionState): void {
-  const key = `${STORAGE_STATE_PREFIX}${state.campaignId}`;
+  const key = suppressionStorageKey(state.campaignId, state);
   memoryStates.set(key, state);
   writeStorage(key, JSON.stringify(state));
 }
@@ -563,15 +621,69 @@ export function toLeadAttributionPayload(
 }
 
 export function getDefaultPreviewCampaign(campaign?: PromotionCampaign | null): PromotionCampaign {
-  const merged = mergePromotionCampaign(campaign);
+  // Development preview has no server period to supply. Treat the default
+  // preview as recurring and derive its dates from the browser's local
+  // calendar without touching tracking, storage, or submission code.
+  const merged = mergePromotionCampaign(
+    campaign ?? { recurrenceMode: "monthly" },
+  );
+  if (merged.recurrenceMode === "monthly") return getMonthlyPreviewCampaign(merged);
   return {
     ...merged,
     enabled: true,
     popupEnabled: true,
     campaignId: merged.campaignId || "preview-build-fee-waiver",
     experimentId: merged.experimentId || "preview",
-    deadlineDisplayText: merged.deadlineDisplayText || PREVIEW_DEADLINE,
+    deadlineDisplayText: merged.deadlineDisplayText || "Offer deadline shown in preview",
   };
+}
+
+/**
+ * Return the browser-local calendar occurrence used by development previews.
+ * This is intentionally a pure helper: it does not read/write storage or
+ * emit tracking events.
+ */
+export function getLocalOccurrenceKey(date = new Date()): string {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+}
+
+export function getMonthlyPreviewCampaign(
+  campaign?: PromotionCampaign | null,
+  date = new Date(),
+): PromotionCampaign {
+  const merged = mergePromotionCampaign(campaign);
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const start = new Date(year, month, 1);
+  const end = new Date(year, month + 1, 1);
+  const lastDay = new Date(year, month + 1, 0).getDate();
+  const monthName = new Intl.DateTimeFormat("en-US", { month: "long" }).format(start);
+  const occurrenceKey = getLocalOccurrenceKey(date);
+  return {
+    ...merged,
+    enabled: true,
+    popupEnabled: true,
+    campaignId: merged.campaignId || "preview-build-fee-waiver",
+    experimentId: `${merged.rawBaseExperimentId || merged.baseExperimentId || merged.experimentId || "preview"}:${occurrenceKey}`,
+    rawBaseExperimentId:
+      merged.rawBaseExperimentId || merged.baseExperimentId || merged.experimentId || "preview",
+    baseExperimentId:
+      merged.baseExperimentId || merged.rawBaseExperimentId || merged.experimentId || "preview",
+    recurrenceMode: "monthly",
+    occurrenceKey,
+    startDateTime: start.toISOString(),
+    endDateTime: end.toISOString(),
+    deadlineDisplayText: `${monthName} ${lastDay}, ${year} at 11:59 PM local time — preview only`,
+  };
+}
+
+export function getPromotionOccurrenceKey(campaign: PromotionCampaign): string {
+  if (campaign.recurrenceMode !== "monthly") return "";
+  if (campaign.occurrenceKey && /^\d{4}-\d{2}$/.test(campaign.occurrenceKey)) {
+    return campaign.occurrenceKey;
+  }
+  const match = campaign.experimentId.match(/:(\d{4}-\d{2})$/);
+  return match?.[1] || getLocalOccurrenceKey();
 }
 
 export function nowIso(): string {

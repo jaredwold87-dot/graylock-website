@@ -14,6 +14,7 @@ import {
   getPromotionApiUrl,
   getPromotionAttribution,
   getPromotionPreviewVariant,
+  getPromotionOccurrenceKey,
   getPromotionRequestContext,
   getPromotionSuppressionState,
   getStoredPromotionAssignment,
@@ -79,6 +80,26 @@ function assignmentWithSafeVariant(
   // source of the token/visitor relationship, but the client fails closed.
   console.error("Promotion campaign has invalid traffic allocation; using Control.");
   return { ...assignment, experiment_variant: "control" };
+}
+
+function campaignPeriodKey(campaign: PromotionCampaign | null | undefined): string {
+  if (!campaign) return "";
+  return [
+    campaign.campaignId,
+    campaign.recurrenceMode,
+    campaign.recurrenceMode === "monthly" ? getPromotionOccurrenceKey(campaign) : "",
+    campaign.experimentId,
+  ].join(":");
+}
+
+function suppressionScope(campaign: PromotionCampaign) {
+  return {
+    recurrenceMode: campaign.recurrenceMode,
+    occurrenceKey: campaign.recurrenceMode === "monthly"
+      ? getPromotionOccurrenceKey(campaign)
+      : undefined,
+    experimentId: campaign.experimentId,
+  };
 }
 
 function buildAttribution(
@@ -169,6 +190,9 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   const popupTriggerRef = useRef<string>("time_scroll_threshold");
   const eventQueueRef = useRef<Array<{ eventName: PromotionEventName; fields: PromotionEventFields }>>([]);
   const mountedRef = useRef(true);
+  const periodRequestVersionRef = useRef(0);
+  const refreshRequestVersionRef = useRef(0);
+  const campaignFetchVersionRef = useRef(0);
 
   useEffect(() => {
     locationRef.current = location;
@@ -184,6 +208,25 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   }, [location]);
 
   const applyCampaign = useCallback((nextCampaign: PromotionCampaign, active: boolean) => {
+    const previous = campaignRef.current;
+    if (previous && campaignPeriodKey(previous) !== campaignPeriodKey(nextCampaign)) {
+      // A monthly occurrence is a new experiment period. Do not allow an
+      // assignment, popup impression, route timer, or booking attribution
+      // from the previous period to cross that boundary.
+      periodRequestVersionRef.current += 1;
+      assignmentRef.current = null;
+      setAssignment(null);
+      setAssignmentConfirmed(false);
+      setAssignmentSuppressed(false);
+      setPromotionAttribution(null);
+      eventQueueRef.current = [];
+      impressionTrackedRef.current = "";
+      popupTriggerRef.current = "time_scroll_threshold";
+      routeStartedAtRef.current = Date.now();
+      setPopupOpen(false);
+      setFormStarted(false);
+      if (bookCall?.isOpen) bookCall.closeBookCall();
+    }
     campaignRef.current = nextCampaign;
     campaignActiveRef.current = active;
     setCampaign(nextCampaign);
@@ -194,12 +237,22 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         window.dispatchEvent(new Event(PROMOTION_ACTIVE_EVENT));
       }
     }
-  }, []);
+  }, [bookCall]);
 
   const sendEvent = useCallback((eventName: PromotionEventName, fields: PromotionEventFields) => {
     if (previewRef.current) return;
     const currentAssignment = assignmentRef.current;
     const currentCampaign = campaignRef.current;
+    if (
+      currentAssignment &&
+      currentCampaign &&
+      (currentAssignment.campaign_id !== currentCampaign.campaignId ||
+        currentAssignment.experiment_id !== currentCampaign.experimentId)
+    ) {
+      // An event emitted by an abandoned period must never be attributed to
+      // the newly active assignment.
+      return;
+    }
     if (!currentAssignment?.assignment_token || !currentCampaign?.campaignId) {
       if (eventQueueRef.current.length < 50) {
         eventQueueRef.current.push({ eventName, fields });
@@ -243,7 +296,11 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     const activeCampaign = campaignRef.current;
     if (!activeCampaign) return;
     const configHash = promotionConfigHash(activeCampaign);
-    const state = getPromotionSuppressionState(activeCampaign.campaignId, configHash);
+    const state = getPromotionSuppressionState(
+      activeCampaign.campaignId,
+      configHash,
+      suppressionScope(activeCampaign),
+    );
     const next = { ...state, configHash };
     const timestamp = nowIso();
     if (eventName === "promo_form_started" || eventName === "standard_form_started") {
@@ -269,6 +326,8 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   const assignCampaign = useCallback(
     async (nextCampaign: PromotionCampaign, active: boolean) => {
       if (!active || !nextCampaign.campaignId || !nextCampaign.experimentId) return;
+      const requestVersion = ++periodRequestVersionRef.current;
+      const expectedPeriod = campaignPeriodKey(nextCampaign);
       setAssignmentConfirmed(false);
       const persist = !previewRef.current && isPromotionStorageAvailable();
       if (!persist) {
@@ -287,6 +346,12 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         ? getStoredPromotionAssignment(nextCampaign.campaignId, nextCampaign.experimentId)
         : null;
       if (stored) {
+        if (
+          requestVersion !== periodRequestVersionRef.current ||
+          campaignPeriodKey(campaignRef.current) !== expectedPeriod
+        ) {
+          return;
+        }
         const safeStored = assignmentWithSafeVariant(stored, nextCampaign);
         assignmentRef.current = safeStored;
         setAssignment(safeStored);
@@ -315,14 +380,28 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         });
         if (!response.ok) return;
         const data = (await response.json()) as PromotionAssignmentResponse;
+        if (
+          !mountedRef.current ||
+          requestVersion !== periodRequestVersionRef.current ||
+          campaignPeriodKey(campaignRef.current) !== expectedPeriod
+        ) {
+          return;
+        }
+        const serverCampaign = mergePromotionCampaign(data.campaign ?? nextCampaign);
+        if (campaignPeriodKey(serverCampaign) !== expectedPeriod) {
+          // The server crossed a month boundary while this assignment request
+          // was in flight. Install the new period and request its assignment;
+          // the old response is intentionally discarded.
+          applyCampaign(serverCampaign, Boolean(data.active));
+          if (data.active) void assignCampaign(serverCampaign, true);
+          return;
+        }
         if (data.active === false) {
-          applyCampaign(mergePromotionCampaign(data.campaign ?? nextCampaign), false);
+          applyCampaign(serverCampaign, false);
           return;
         }
         if (!data.assignment) return;
-        const serverCampaign = mergePromotionCampaign(data.campaign ?? nextCampaign);
         const safeAssignment = assignmentWithSafeVariant(data.assignment, serverCampaign);
-        if (!mountedRef.current) return;
         campaignRef.current = serverCampaign;
         setCampaign(serverCampaign);
         assignmentRef.current = safeAssignment;
@@ -341,8 +420,16 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   );
 
   const refreshCampaign = useCallback(async () => {
+    const refreshVersion = ++refreshRequestVersionRef.current;
+    const fetchVersion = ++campaignFetchVersionRef.current;
     const result = await fetchCampaign();
-    if (!result || !mountedRef.current || previewRef.current) return result;
+    if (
+      !result ||
+      !mountedRef.current ||
+      previewRef.current ||
+      refreshVersion !== refreshRequestVersionRef.current ||
+      fetchVersion !== campaignFetchVersionRef.current
+    ) return result;
     const previous = campaignRef.current;
     applyCampaign(result.campaign, result.active);
     const serverTimestamp = Date.parse(result.serverNow);
@@ -350,8 +437,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     if (
       result.active &&
       (!assignmentRef.current ||
-        previous?.campaignId !== result.campaign.campaignId ||
-        previous?.experimentId !== result.campaign.experimentId)
+        campaignPeriodKey(previous) !== campaignPeriodKey(result.campaign))
     ) {
       await assignCampaign(result.campaign, result.active);
     }
@@ -434,6 +520,8 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
       !activeCampaign ||
       !activeCampaign.popupEnabled ||
       !currentAssignment ||
+      currentAssignment.campaign_id !== activeCampaign.campaignId ||
+      currentAssignment.experiment_id !== activeCampaign.experimentId ||
       !assignmentConfirmed ||
       !isPromotionPathEligible(activeCampaign, location) ||
       currentAssignment.experiment_variant === "control"
@@ -443,7 +531,11 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     }
 
     const configHash = promotionConfigHash(activeCampaign);
-    const state = getPromotionSuppressionState(activeCampaign.campaignId, configHash);
+    const state = getPromotionSuppressionState(
+      activeCampaign.campaignId,
+      configHash,
+      suppressionScope(activeCampaign),
+    );
     const normalizedState =
       state.configHash !== configHash
         ? {
@@ -487,18 +579,30 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
       }
       popupTriggerRef.current = "time_scroll_threshold";
       void (async () => {
+        const triggerPeriod = campaignPeriodKey(activeCampaign);
+        const fetchVersion = ++campaignFetchVersionRef.current;
         // Recheck the kill switch and deadline immediately before making the
         // dialog visible.
         const latest = await fetchCampaign();
-        if (!latest?.active || !mountedRef.current) {
+        if (
+          fetchVersion !== campaignFetchVersionRef.current ||
+          !mountedRef.current ||
+          campaignPeriodKey(campaignRef.current) !== triggerPeriod
+        ) {
+          return;
+        }
+        if (!latest?.active) {
           applyCampaign(latest?.campaign ?? activeCampaign, false);
           return;
         }
         if (
-          latest.campaign.campaignId !== activeCampaign.campaignId ||
+          campaignPeriodKey(latest.campaign) !== triggerPeriod ||
           !latest.campaign.popupEnabled
         ) {
-          setPopupOpen(false);
+          applyCampaign(latest.campaign, latest.active);
+          if (campaignPeriodKey(latest.campaign) !== triggerPeriod) {
+            await assignCampaign(latest.campaign, latest.active);
+          }
           return;
         }
         if (popupOpen || bookCall?.isOpen || chatOpen || formStarted) return;
@@ -521,6 +625,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     campaignActive,
     assignmentConfirmed,
     assignmentSuppressed,
+    assignCampaign,
     chatOpen,
     formStarted,
     introComplete,
@@ -535,7 +640,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
       setPopupOpen(false);
       return;
     }
-    const key = `${assignment.campaign_id}:${location}`;
+    const key = `${assignment.campaign_id}:${assignment.experiment_id}:${location}`;
     if (impressionTrackedRef.current === key) return;
     impressionTrackedRef.current = key;
     const seconds = (Date.now() - routeStartedAtRef.current) / 1000;
@@ -574,7 +679,11 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         return;
       }
       const configHash = promotionConfigHash(currentCampaign);
-      const state = getPromotionSuppressionState(currentCampaign.campaignId, configHash);
+    const state = getPromotionSuppressionState(
+      currentCampaign.campaignId,
+      configHash,
+      suppressionScope(currentCampaign),
+    );
       const next = { ...state, configHash, dismissedAt: nowIso() };
       savePromotionSuppressionState(next);
       setPopupOpen(false);
@@ -604,7 +713,11 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
       if (!currentCampaign || !currentAssignment) return;
       if (!previewRef.current) {
         const configHash = promotionConfigHash(currentCampaign);
-        const state = getPromotionSuppressionState(currentCampaign.campaignId, configHash);
+        const state = getPromotionSuppressionState(
+          currentCampaign.campaignId,
+          configHash,
+          suppressionScope(currentCampaign),
+        );
         savePromotionSuppressionState({ ...state, configHash, ctaClickedAt: timestamp });
       }
       setPromotionAttribution(

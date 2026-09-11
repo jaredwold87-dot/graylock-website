@@ -17,6 +17,9 @@ type CampaignStatus = "Draft" | "Scheduled" | "Live" | "Paused" | "Expired";
 
 function campaignStatus(campaign: Campaign): CampaignStatus {
   if (campaign.manualKillSwitch) return "Paused";
+  if (campaign.recurrenceMode === "monthly") {
+    return campaign.enabled ? "Live" : "Draft";
+  }
   const now = Date.now();
   const start = campaign.startDateTime ? Date.parse(campaign.startDateTime) : Number.NaN;
   const end = campaign.endDateTime ? Date.parse(campaign.endDateTime) : Number.NaN;
@@ -56,6 +59,9 @@ export function CampaignControl({
     campaign.endDateTime !== draft.endDateTime ||
     campaign.startDateTime !== draft.startDateTime ||
     campaign.deadlineDisplayText !== draft.deadlineDisplayText;
+  const modeTimezoneNeedsConfirmation =
+    campaign.recurrenceMode !== draft.recurrenceMode ||
+    campaign.timezone !== draft.timezone;
   const enableNeedsConfirmation = !campaign.enabled && draft.enabled;
 
   function update<K extends keyof Campaign>(key: K, value: Campaign[K]) {
@@ -86,6 +92,16 @@ export function CampaignControl({
       );
       if (!confirmed) return;
     }
+    if (modeTimezoneNeedsConfirmation) {
+      const confirmed = window.confirm(
+        `Change recurrence to ${draft.recurrenceMode === "monthly" ? "Monthly" : "Manual"} and display timezone to ${draft.timezone}? ${
+          draft.recurrenceMode === "monthly"
+            ? "Monthly mode automatically uses the current calendar month in this timezone, ending at exclusive next-month midnight; the displayed deadline is the month's final day at 11:59."
+            : "Manual mode preserves and uses the saved start/end instants."
+        }`,
+      );
+      if (!confirmed) return;
+    }
 
     setSaving(true);
     setNotice("");
@@ -96,6 +112,7 @@ export function CampaignControl({
           ...draft,
           confirmEnabled: enableNeedsConfirmation || undefined,
           confirmDeadline: deadlineNeedsConfirmation || undefined,
+          confirmRecurrenceChange: modeTimezoneNeedsConfirmation || undefined,
         },
         csrfToken,
       );
@@ -166,8 +183,9 @@ export function CampaignControl({
           <h2 className="mt-2 text-2xl font-bold text-white">Configuration</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[#aeb5c0]">
             Changes are sent to the server only after explicit confirmation for enabling or
-            changing a live deadline. Stored date values are ISO instants; timezone is a display
-            preference and does not silently shift those values.
+            changing a live deadline, recurrence mode, or timezone. Manual mode uses saved ISO
+            start/end instants; Monthly mode automatically runs for the current calendar month in
+            the configured timezone and preserves those manual values.
           </p>
         </div>
         <button
@@ -225,24 +243,39 @@ export function CampaignControl({
           </label>
 
           <label className="block">
+            <span className="admin-label">Recurrence</span>
+            <select
+              className="admin-input"
+              value={draft.recurrenceMode}
+              onChange={(event) => update("recurrenceMode", event.target.value === "monthly" ? "monthly" : "manual")}
+            >
+              <option value="monthly">Monthly — automatic calendar-month periods</option>
+              <option value="manual">Manual — use saved dates</option>
+            </select>
+            <span className="admin-help">
+              Monthly dates are generated in the configured timezone. Switching modes requires
+              confirmation; manual start/end values remain saved.
+            </span>
+          </label>
+          <label className="block">
             <span className="admin-label">Timezone / display zone</span>
             <input className="admin-input" value={draft.timezone} onChange={(event) => update("timezone", event.target.value)} placeholder="America/Los_Angeles" />
-            <span className="admin-help">No implicit conversion of ISO instants.</span>
+            <span className="admin-help">Monthly calendar boundaries and deadline display use this timezone. Changes require confirmation.</span>
           </label>
           <label className="block">
             <span className="admin-label">Start ISO instant</span>
-            <input className="admin-input" value={draft.startDateTime || ""} onChange={(event) => update("startDateTime", event.target.value || null)} placeholder="2026-09-01T07:00:00.000Z" />
-            <span className="admin-help">Use an ISO instant with an explicit offset or Z.</span>
+            <input className="admin-input" disabled={draft.recurrenceMode === "monthly"} value={draft.startDateTime || ""} onChange={(event) => update("startDateTime", event.target.value || null)} placeholder="2026-09-01T07:00:00.000Z" />
+            <span className="admin-help">{draft.recurrenceMode === "monthly" ? "Preserved for Manual mode; Monthly supplies the current month's start." : "Use an ISO instant with an explicit offset or Z."}</span>
           </label>
           <label className="block">
             <span className="admin-label">End ISO instant</span>
-            <input className="admin-input" value={draft.endDateTime || ""} onChange={(event) => update("endDateTime", event.target.value || null)} placeholder="2026-09-30T06:59:59.000Z" />
-            <span className="admin-help">Enforcement uses this exact instant.</span>
+            <input className="admin-input" disabled={draft.recurrenceMode === "monthly"} value={draft.endDateTime || ""} onChange={(event) => update("endDateTime", event.target.value || null)} placeholder="2026-09-30T06:59:59.000Z" />
+            <span className="admin-help">{draft.recurrenceMode === "monthly" ? "Preserved for Manual mode; Monthly ends at exclusive next-month midnight." : "Enforcement uses this exact instant."}</span>
           </label>
           <label className="block md:col-span-2">
             <span className="admin-label">Deadline display text</span>
-            <input className="admin-input" value={draft.deadlineDisplayText || ""} onChange={(event) => update("deadlineDisplayText", event.target.value || null)} placeholder="September 30, 2026 at 11:59 PM Pacific" />
-            <span className="admin-help">Must describe the end instant in the selected display timezone; it is not used for enforcement.</span>
+            <input className="admin-input" disabled={draft.recurrenceMode === "monthly"} value={draft.deadlineDisplayText || ""} onChange={(event) => update("deadlineDisplayText", event.target.value || null)} placeholder="September 30, 2026 at 11:59 PM Pacific" />
+            <span className="admin-help">{draft.recurrenceMode === "monthly" ? "Generated as the month's last day at 11:59 in the configured timezone." : "Must describe the end instant in the selected display timezone; it is not used for enforcement."}</span>
           </label>
 
           <label className="block">
@@ -280,7 +313,7 @@ export function CampaignControl({
           </label>
           <label className="block">
             <span className="admin-label">After dismissal</span>
-            <p className="text-sm text-[#d8dce3]">Hide this campaign’s popup. The offer remains available until its deadline.</p>
+            <p className="text-sm text-[#d8dce3]">{draft.recurrenceMode === "monthly" ? "Hide this month’s popup; a new month can show it again." : "Hide this campaign’s popup."} The offer remains available until its deadline.</p>
           </label>
 
           <label className="block md:col-span-2 xl:col-span-1">

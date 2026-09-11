@@ -1,6 +1,7 @@
 export const PROMOTION_API_BASE = `${String(import.meta.env.BASE_URL || "/").replace(/\/$/, "")}/api/promotion`;
 
 export type VariantName = "control" | "savings_led" | "direction_led";
+export type RecurrenceMode = "manual" | "monthly";
 
 export type Campaign = {
   campaignId: string;
@@ -8,6 +9,11 @@ export type Campaign = {
   enabled: boolean;
   campaignName: string;
   timezone: string;
+  recurrenceMode: RecurrenceMode;
+  /** Public campaign responses expose this for diagnostics; admin keeps the
+   * editable experimentId as the configured/base id. */
+  rawBaseExperimentId?: string;
+  occurrenceKey?: string | null;
   startDateTime: string | null;
   endDateTime: string | null;
   deadlineDisplayText: string | null;
@@ -78,6 +84,7 @@ export type PromotionLead = {
   refundCancellationStatus: string | null;
   assignedTeamMember: string | null;
   notes: string | null;
+  occurrenceKey?: string | null;
   emailNotificationStatus?: "pending" | "sending" | "sent" | "failed" | "manual_review" | string | null;
   emailNotificationError?: string | null;
   emailNotificationSentAt?: string | null;
@@ -105,9 +112,15 @@ export type ReportEvaluation = {
   eligibleVisitors: number;
 };
 
+export type PromotionReportPeriod = {
+  experimentId: string;
+  occurrenceKey: string | null;
+};
+
 export type PromotionReport = {
   campaign: Campaign;
   status: string;
+  periods?: PromotionReportPeriod[];
   metrics: VariantMetric[];
   leads: PromotionLead[];
   economics: VariantEconomics[];
@@ -129,6 +142,7 @@ export type LeadEconomicRecord = {
 export type ReportFilters = {
   dateFrom: string;
   dateTo: string;
+  occurrenceKey: string;
   campaignId: string;
   stage: string;
   variant: string;
@@ -227,18 +241,31 @@ export function loginAdmin(username: string, password: string) {
 }
 
 export function getCampaign(signal?: AbortSignal) {
-  return promotionRequest<{ campaign: Campaign }>("/admin/campaign", { signal });
+  return promotionRequest<{ campaign: Campaign }>("/admin/campaign", { signal }).then((result) => ({
+    ...result,
+    campaign: {
+      ...result.campaign,
+      recurrenceMode: (result.campaign.recurrenceMode === "monthly" ? "monthly" : "manual") as RecurrenceMode,
+    },
+  }));
 }
 
 export function updateCampaign(
-  values: Partial<Campaign> & { confirmEnabled?: boolean; confirmDeadline?: boolean },
+  values: Partial<Campaign> & {
+    confirmEnabled?: boolean;
+    confirmDeadline?: boolean;
+    confirmRecurrenceChange?: boolean;
+  },
   csrfToken: string,
 ) {
   const {
     campaignId: _campaignId,
     experimentId: _experimentId,
+    rawBaseExperimentId: _rawBaseExperimentId,
+    occurrenceKey: _occurrenceKey,
     confirmEnabled,
     confirmDeadline,
+    confirmRecurrenceChange,
     ...editableCampaign
   } = values;
   return promotionRequest<{ campaign: Campaign }>("/admin/campaign", {
@@ -247,6 +274,7 @@ export function updateCampaign(
       campaign: editableCampaign,
       ...(confirmEnabled ? { confirmEnabled } : {}),
       ...(confirmDeadline ? { confirmDeadline } : {}),
+      ...(confirmRecurrenceChange ? { confirmRecurrenceChange } : {}),
     },
     csrfToken,
   });

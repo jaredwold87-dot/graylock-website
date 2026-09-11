@@ -5,6 +5,7 @@ import { pool } from "@workspace/db";
 import { logger } from "../lib/logger";
 import {
   assignmentByToken,
+  assignmentIsCurrentOccurrence,
   requirePromotionAdmin,
   requirePromotionCsrf,
   requirePromotionOrigin,
@@ -264,6 +265,10 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
       return;
     }
     const { assignment, campaign } = promotionAssignment;
+    if (!assignmentIsCurrentOccurrence(assignment, campaign)) {
+      res.status(400).json({ error: "Promotion assignment belongs to an expired monthly occurrence" });
+      return;
+    }
     if (
       (payload.campaign_id && payload.campaign_id !== campaign.campaignId) ||
       (payload.experiment_id && payload.experiment_id !== assignment.experimentId) ||

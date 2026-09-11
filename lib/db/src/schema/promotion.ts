@@ -29,6 +29,7 @@ export const promotionCampaignsTable = pgTable(
     enabled: boolean("enabled").notNull().default(false),
     campaignName: text("campaign_name").notNull(),
     timezone: varchar("timezone", { length: 80 }).notNull(),
+    recurrenceMode: varchar("recurrence_mode", { length: 20 }).notNull().default("manual"),
     startDateTime: timestamp("start_date_time", { withTimezone: true }),
     endDateTime: timestamp("end_date_time", { withTimezone: true }),
     deadlineDisplayText: text("deadline_display_text"),
