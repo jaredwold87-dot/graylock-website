@@ -1,0 +1,128 @@
+Update only the homepage client-testimonial section that appears directly after the “How It Works” process timeline.
+
+The current section has:
+
+Eyebrow:
+“DON’T JUST TAKE OUR WORD FOR IT”
+
+Heading:
+“Real Results From Real Business Owners”
+
+A real L.A. Perks Petroleum Specialists website visual on the left.
+
+A long quote from Kylen & Keith Perks on the right.
+
+Orange five-star decoration above the quote.
+
+A client attribution line and a CTA:
+“VIEW OUR PORTFOLIO & MORE REVIEWS →”
+
+Do not change the hero, offer section, Google-review screenshot section, featured-work section, problem-diagnosis section, “What We Deliver” section, process timeline, FAQ, founder section, final CTA, navigation, footer, booking form, pricing, or any other homepage section.
+
+GOAL:
+Keep this section as the final substantive proof section after the process timeline. Reframe it as evidence that Graylock learns the client’s business, understands the client’s goals, and remains a capable website partner throughout the process.
+
+Do not frame the quote as independently verified business “results” unless specific, supportable outcome data is displayed. This testimonial primarily validates Graylock’s client experience, industry research, communication, attention to detail, and ability to turn a client’s vision into a finished website.
+
+COPY CHANGES:
+
+Replace the eyebrow with:
+
+CLIENT PERSPECTIVE
+
+Replace the main heading with:
+
+A Website Partner Who Learns Your Business First.
+
+Keep the existing Kylen & Keith Perks quote exactly as it currently appears unless correcting a typo or preserving proper quotation formatting.
+
+Add this small project-identification block near the real website visual, either immediately above it or immediately below it:
+
+FEATURED CLIENT WEBSITE
+
+L.A. Perks Petroleum Specialists
+
+Petroleum Infrastructure, Fueling Systems & Service
+
+ATTRIBUTION:
+
+Keep the existing attribution:
+
+Kylen & Keith Perks
+
+L.A. Perks Petroleum Specialists
+
+STARS / REVIEW-SOURCE RULE:
+
+First inspect the source of the Kylen & Keith Perks testimonial.
+
+- If the quote is an actual published Google review that can be accurately linked to its original Google review source, keep the orange five stars and add a small, subtle linked label directly beneath or beside the stars:
+
+5-star Google review
+
+The label must link to the original review source.
+
+- If the quote is from a client-approved testimonial, email, survey, direct message, or any source other than a published linked Google review, remove the orange five stars entirely. Do not replace them with decorative stars. Optionally use a small, factual label:
+
+Client testimonial
+
+Do not imply a review-platform rating unless the review source is real, current, and linked.
+
+CTA CHANGES:
+
+Replace the primary CTA text:
+
+VIEW OUR PORTFOLIO & MORE REVIEWS →
+
+with:
+
+VISIT THE L.A. PERKS WEBSITE →
+
+The primary CTA must link directly to the live L.A. Perks Petroleum Specialists website shown in the visual. Open an external website in a new tab using appropriate secure external-link behavior.
+
+Below or beside the primary CTA, add a quieter secondary text link:
+
+Explore More Client Websites →
+
+Link this secondary CTA to the existing Graylock portfolio/client-websites page.
+
+DESIGN / LAYOUT REQUIREMENTS:
+
+- Preserve the existing two-column layout: real L.A. Perks website visual on the left and quote/client attribution on the right.
+- Preserve the existing warm off-white background, Graylock typography, orange accent palette, spacing rhythm, and premium editorial visual language.
+- Preserve the actual L.A. Perks website visual. Do not replace it with a stock image, AI-generated image, generic device mockup, or decorative illustration.
+- Do not turn the quote, client details, project label, or CTAs into cards, boxes, badges, a carousel, a testimonial slider, or a SaaS-style review component.
+- Do not add additional testimonials, statistics, invented outcome claims, generic marketing copy, or another CTA button.
+- Keep the project-identification block visually restrained. It should provide context without competing with the quote or the website visual.
+- Use the quote as the visual focal point on the right side.
+- Maintain readable line length and comfortable whitespace around the quote.
+- If a source label such as “5-star Google review” or “Client testimonial” is used, style it as a small factual editorial label, not as a badge or pill.
+
+RESPONSIVE REQUIREMENTS:
+
+- Desktop: retain the existing two-column website-visual/quote composition.
+- Tablet: preserve the connection between the project visual and the testimonial without crowding either side.
+- Mobile: stack the project label and real website visual first, followed by the review-source label if applicable, quote, attribution, primary CTA, and secondary portfolio link.
+- Keep the live-site CTA clearly visible and easy to tap.
+- Do not create horizontal overflow, clipped device visuals, tiny quote text, or overly dense spacing.
+
+ACCESSIBILITY:
+
+- Use one semantic section with a single h2 for “A Website Partner Who Learns Your Business First.”
+- Use appropriate semantic quotation markup for the client quote.
+- Preserve or improve meaningful alt text for the real L.A. Perks website visual.
+- Mark decorative stars as aria-hidden if they remain.
+- Make all links keyboard accessible with existing focus styles.
+- Ensure external links clearly communicate their behavior where appropriate.
+- Maintain sufficient color contrast throughout.
+
+FINAL CHECK:
+
+- Confirm this section is framed as client/process proof, not unsupported “results” proof.
+- Confirm the real L.A. Perks website visual remains unchanged.
+- Confirm the primary CTA links directly to the live L.A. Perks website.
+- Confirm the secondary CTA links to the existing Graylock portfolio/client-websites page.
+- Confirm the stars appear only if the quote is a verified, linked Google review; otherwise confirm they were removed.
+- Verify desktop, tablet, and mobile behavior.
+- Confirm that no other homepage sections, booking behavior, CTA routing, pricing, legal wording, or navigation were changed.
+- After implementation, report the exact component changed, the verified testimonial source treatment used, and the final primary/secondary CTA destinations.

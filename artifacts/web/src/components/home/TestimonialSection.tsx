@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ArrowRight, Lock, Star } from "lucide-react";
+import { ArrowRight, Lock } from "lucide-react";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
 
 export function TestimonialSection() {
@@ -9,15 +9,26 @@ export function TestimonialSection() {
       <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center mb-12 md:mb-16">
           <p className="text-[#B23E16] font-sans text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-3">
-            Don&rsquo;t Just Take Our Word For It
+            CLIENT PERSPECTIVE
           </p>
           <h2 className="text-3xl md:text-4xl font-display text-[#1a202c] leading-tight">
-            Real Results From Real Business Owners
+            A Website Partner Who Learns Your Business First.
           </h2>
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
           <ScrollReveal delay={0.1}>
             <div className="max-w-xl mx-auto">
+              <div className="mb-6">
+                <p className="text-[#B23E16] font-sans text-xs font-bold uppercase tracking-[0.2em] mb-2">
+                  FEATURED CLIENT WEBSITE
+                </p>
+                <p className="font-display text-xl text-[#1a202c]">
+                  L.A. Perks Petroleum Specialists
+                </p>
+                <p className="mt-1 font-sans text-sm text-[#4a5568]">
+                  Petroleum Infrastructure, Fueling Systems &amp; Service
+                </p>
+              </div>
               <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-black/10 bg-[#15151a] ring-1 ring-black/5">
                 <div className="flex items-center gap-2 px-4 py-2.5 md:py-3 bg-[#1f1f26] border-b border-white/5">
                   <span className="flex gap-1.5">
@@ -45,11 +56,7 @@ export function TestimonialSection() {
 
           <ScrollReveal delay={0.15}>
             <figure>
-              <div className="flex gap-1 mb-5 text-[#E85D26]">
-                {[0, 1, 2, 3, 4].map((s) => (
-                  <Star key={s} size={18} className="fill-current" />
-                ))}
-              </div>
+              <p className="mb-5 font-sans text-sm text-[#4a5568]">Client testimonial</p>
               <blockquote className="font-display text-xl md:text-2xl text-[#1a202c] leading-snug mb-6">
                 &ldquo;Working with Tim and the team at Graylock Digital was an
                 outstanding experience from start to finish. The amount of time and
@@ -69,13 +76,24 @@ export function TestimonialSection() {
                   L.A. Perks Petroleum Specialists
                 </p>
               </figcaption>
+              <div className="mt-6 flex flex-col items-start gap-3">
+              <a
+                href="https://www.perkspetroleum.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 text-[#B23E16] hover:text-[#E85D26] font-sans font-semibold text-sm uppercase tracking-[0.12em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B23E16] focus-visible:ring-offset-4"
+              >
+                VISIT THE L.A. PERKS WEBSITE
+                <ArrowRight size={15} className="shrink-0" aria-hidden="true" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
               <Link
                 href="/featured-projects"
-                className="inline-flex items-center gap-2 mt-6 text-[#B23E16] hover:text-[#E85D26] font-sans font-semibold text-sm uppercase tracking-[0.12em] transition-colors group"
+                className="inline-flex min-h-11 items-center gap-2 text-[#4a5568] hover:text-[#B23E16] font-sans text-sm underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B23E16] focus-visible:ring-offset-4"
               >
-                View Our Portfolio &amp; More Reviews
-                <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+                Explore More Client Websites →
               </Link>
+              </div>
             </figure>
           </ScrollReveal>
         </div>
