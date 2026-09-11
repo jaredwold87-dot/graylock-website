@@ -13,7 +13,7 @@ function HeroClientReview() {
         width={962}
         height={276}
         alt="Mark Nelson’s five-star Google review excerpt: The lead generation has been amazing, we have been converting leads into actual customers because of this website."
-        className="w-full h-auto rounded-lg shadow-lg"
+        className="w-full h-auto rounded-lg shadow-lg ring-2 ring-[#C5DA5A]"
       />
       <figcaption className="mt-2 text-center text-offwhite/80 font-sans text-xs">
         Mark Nelson · Willow Realty Group · Review excerpt
