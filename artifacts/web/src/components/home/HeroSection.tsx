@@ -5,6 +5,24 @@ import heroDesktopTopographic from "@/assets/hero-desktop-topographic.webp";
 import heroMobileTopographic from "@/assets/hero-mobile-topographic.webp";
 import heroMobileWillowDevices from "@/assets/hero-mobile-willow-devices.webp";
 
+function HeroBenefits() {
+  return (
+    <ul className="mt-3 space-y-2 text-offwhite/90 font-sans text-[15px] md:text-base leading-snug text-left">
+      {[
+        "Begin with a free homepage demo",
+        "30-Day Money-Back Guarantee",
+        "Stay up to date with an included website refresh every 2 years",
+        "On average, live in 7–10 business days",
+      ].map((benefit) => (
+        <li key={benefit} className="flex items-start gap-2.5">
+          <Check size={16} strokeWidth={2.5} className="text-[#E85D26] shrink-0 mt-0.5" aria-hidden="true" />
+          <span>{benefit}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function HeroSection() {
   return (
     <>
@@ -94,7 +112,7 @@ export function HeroSection() {
               We build custom, conversion-focused websites that show up on Google, earn trust in seconds, and turn visitors into booked appointments — live in 7–10 days.
             </p>
 
-            {/* Mobile CTA sequence: primary → secondary → microcopy → pricing. */}
+            {/* Mobile CTA sequence: primary → secondary → microcopy → benefits. */}
             <div className="md:hidden">
               <div className="mt-8">
                 <CTAButton
@@ -119,10 +137,7 @@ export function HeroSection() {
                   Tell us about your business. We’ll discuss your goals, then create a custom
                   homepage direction before any build fee.
                 </p>
-                <p className="mt-3 text-offwhite/85 font-sans text-[15px] text-center leading-relaxed text-balance">
-                  Plans from $199/month. Build fees begin at $799 and are only paid after you
-                  approve your free homepage demo.
-                </p>
+                <HeroBenefits />
               </div>
             </div>
 
@@ -142,10 +157,7 @@ export function HeroSection() {
                   Tell us about your business. We’ll discuss your goals, then create a custom
                   homepage direction before any build fee.
                 </p>
-                <p className="mt-3 text-offwhite/85 font-sans text-base leading-relaxed">
-                  Plans from $199/month. Build fees begin at $799 and are only paid after you
-                  approve your free homepage demo.
-                </p>
+                <HeroBenefits />
               </div>
             </div>
           </ScrollReveal>
