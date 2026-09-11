@@ -657,12 +657,13 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
           onCta={openFromPopup}
         />
       )}
-      {previewControlLabel && (
+      {Boolean(previewVariant) && (
         <div
           role="status"
-          className="fixed bottom-3 left-3 z-[60] border border-[#E85D26]/50 bg-[#292B2E] px-3 py-2 font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-[#EFA17F] shadow-lg"
+          className="fixed top-0 left-0 right-0 z-[200] bg-[#1A1A1A] border-b-2 border-[#E85D26] py-2.5 px-4 text-center font-sans text-[11px] font-bold uppercase tracking-widest text-white shadow-sm"
         >
-          Preview only · control · no promotion popup
+          Preview mode — submissions are disabled
+          {previewVariant === "control" && " · Control variant (no popup)"}
         </div>
       )}
     </>
