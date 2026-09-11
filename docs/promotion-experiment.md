@@ -70,7 +70,7 @@ The first migration creates `september-build-fee-waiver` /
 * `startDateTime: null`, `endDateTime: null`, and `deadlineDisplayText: null`
 * allocations `control: 50`, `savings_led: 50`, `direction_led: 0`
 * `triggerMinimumSeconds: 25`, `triggerMinimumScrollDepth: 0.55`
-* `dismissalFrequencyCapDays: 30`
+* `dismissalFrequencyCapDays: 30` (legacy configuration; dismissal now hides the notice for the entire campaign without withdrawing eligibility)
 * `standardBuildFeeDisplayValue: "from $799"`
 * `monthlyPlanDisclosure: "Applicable monthly plan, scope, and terms apply."`
 * `minEvaluationDays: 14`, `minEligibleVisitors: 200`

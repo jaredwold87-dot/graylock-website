@@ -279,8 +279,8 @@ export function CampaignControl({
             <span className="admin-help">Decimal from 0 to 1 (default 0.55).</span>
           </label>
           <label className="block">
-            <span className="admin-label">Dismissal cap (days)</span>
-            <input className="admin-input" min="0" step="1" type="number" value={numberValue(draft.dismissalFrequencyCapDays)} onChange={(event) => updateNumber("dismissalFrequencyCapDays", event.target.value)} />
+            <span className="admin-label">After dismissal</span>
+            <p className="text-sm text-[#d8dce3]">Hide this campaign’s popup. The offer remains available until its deadline.</p>
           </label>
 
           <label className="block md:col-span-2 xl:col-span-1">

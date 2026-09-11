@@ -148,6 +148,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   const bookCall = useBookCallOptional();
   const [campaign, setCampaign] = useState<PromotionCampaign | null>(null);
   const [campaignActive, setCampaignActive] = useState(false);
+  const [serverTimeOffsetMs, setServerTimeOffsetMs] = useState(0);
   const [assignment, setAssignment] = useState<PromotionAssignment | null>(null);
   const [assignmentConfirmed, setAssignmentConfirmed] = useState(false);
   const [assignmentSuppressed, setAssignmentSuppressed] = useState(false);
@@ -344,6 +345,8 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     if (!result || !mountedRef.current || previewRef.current) return result;
     const previous = campaignRef.current;
     applyCampaign(result.campaign, result.active);
+    const serverTimestamp = Date.parse(result.serverNow);
+    if (Number.isFinite(serverTimestamp)) setServerTimeOffsetMs(serverTimestamp - Date.now());
     if (
       result.active &&
       (!assignmentRef.current ||
@@ -446,14 +449,11 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         ? {
             ...state,
             configHash,
-            dismissedAt: undefined,
           }
         : state;
     if (normalizedState.configHash !== state.configHash) savePromotionSuppressionState(normalizedState);
-    const capMs = Math.max(0, activeCampaign.dismissalFrequencyCapDays) * 86400000;
-    const dismissedRecently =
-      Boolean(normalizedState.dismissedAt) &&
-      Date.now() - new Date(normalizedState.dismissedAt || 0).getTime() < capMs;
+    // Dismissal hides this campaign's notice permanently, not the offer.
+    const dismissedRecently = Boolean(normalizedState.dismissedAt);
     const permanentlySuppressed = Boolean(
       normalizedState.ctaClickedAt || normalizedState.formStartedAt || normalizedState.submittedAt,
     );
@@ -502,6 +502,9 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
           return;
         }
         if (popupOpen || bookCall?.isOpen || chatOpen || formStarted) return;
+        applyCampaign(latest.campaign, latest.active);
+        const serverTimestamp = Date.parse(latest.serverNow);
+        if (Number.isFinite(serverTimestamp)) setServerTimeOffsetMs(serverTimestamp - Date.now());
         setPopupOpen(true);
       })();
     };
@@ -653,6 +656,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
           campaign={campaign}
           variant={variant}
           preview={Boolean(previewVariant)}
+          serverTimeOffsetMs={serverTimeOffsetMs}
           onDismiss={dismiss}
           onCta={openFromPopup}
         />
@@ -663,6 +667,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
           className="fixed top-0 left-0 right-0 z-[200] bg-[#1A1A1A] border-b-2 border-[#E85D26] py-2.5 px-4 text-center font-sans text-[11px] font-bold uppercase tracking-widest text-white shadow-sm"
         >
           Preview mode — submissions are disabled
+          {!campaign?.endDateTime && previewVariant !== "control" && " · Sample deadline"}
           {previewVariant === "control" && " · Control variant (no popup)"}
         </div>
       )}

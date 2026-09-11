@@ -1,3 +1,4 @@
+- [Promotion dismissal](promotion-dismissal-policy.md) — closing hides the campaign notice, not offer eligibility; do not claim dismissal forfeits the offer.
 - [ResponsiveImage variants](responsive-image-variants.md) — grid images need sibling webp/mobile files in public/; @assets imports 404 the picture source and vanish.
 - [Graylock color tokens](graylock-color-tokens.md) — `orange` token now = brand orange #E85D26 (was steel-blue); use #B23E16 for small orange text on light bg.
 - [Featured Projects background](featured-projects-theme-rhythm.md) — all project sections use one solid tan (#F4F1EC) light theme; do NOT re-add dark/light alternation.

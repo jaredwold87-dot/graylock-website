@@ -1,16 +1,91 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import type { PromotionCampaign, PromotionVariant } from "@/lib/promotion";
 import { getPromotionDeadline } from "@/lib/promotion";
 import { X } from "lucide-react";
+
+const PREVIEW_DEADLINE_TIMESTAMP = Date.parse("2026-10-01T06:59:00Z");
+const PREVIEW_DEADLINE_LABEL = "October 1, 2026 at 6:59 AM UTC";
+
+function formatDeadline(timestamp: number, timezone: string): string {
+  try {
+    return new Intl.DateTimeFormat("en-US", {
+      timeZone: timezone || "UTC",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      timeZoneName: "short",
+    }).format(new Date(timestamp));
+  } catch {
+    return new Date(timestamp).toISOString();
+  }
+}
 
 interface PromotionPopupProps {
   open: boolean;
   campaign: PromotionCampaign;
   variant: Exclude<PromotionVariant, "control">;
   preview?: boolean;
+  serverTimeOffsetMs?: number;
   onDismiss: (dismissalType: "close_button" | "no_thanks" | "escape_key" | "backdrop_click") => void;
   onCta: (label: string) => void;
+}
+
+interface PromotionCountdownProps {
+  deadlineTimestamp: number;
+  serverTimeOffsetMs: number;
+}
+
+function PromotionCountdown({
+  deadlineTimestamp,
+  serverTimeOffsetMs,
+}: PromotionCountdownProps) {
+  const offset = Number.isFinite(serverTimeOffsetMs) ? serverTimeOffsetMs : 0;
+  const getRemainingMs = () =>
+    Math.max(0, deadlineTimestamp - (Date.now() + offset));
+  const [remainingMs, setRemainingMs] = useState(getRemainingMs);
+
+  useEffect(() => {
+    const update = () => setRemainingMs(getRemainingMs());
+    update();
+    const intervalId = window.setInterval(update, 1000);
+    return () => window.clearInterval(intervalId);
+  }, [deadlineTimestamp, offset]);
+
+  const totalSeconds = Math.floor(remainingMs / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const units = [
+    ["days", days],
+    ["hours", hours],
+    ["minutes", minutes],
+    ["seconds", seconds],
+  ] as const;
+
+  return (
+    <div
+      className="grid grid-cols-4 gap-2 sm:max-w-[420px]"
+      aria-label="Time remaining on this offer"
+    >
+      {units.map(([label, value]) => (
+        <div
+          key={label}
+          className="border border-[#1A1A1A]/10 bg-[#F7F5F0] px-2 py-2.5 text-center"
+        >
+          <div className="font-display text-[26px] leading-none tracking-tight text-[#1A1A1A] sm:text-[30px]">
+            {String(value).padStart(2, "0")}
+          </div>
+          <div className="mt-1 font-sans text-[9px] font-bold uppercase tracking-[0.14em] text-[#1A1A1A]/55">
+            {label}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export function PromotionPopup({
@@ -18,16 +93,28 @@ export function PromotionPopup({
   campaign,
   variant,
   preview = false,
+  serverTimeOffsetMs = 0,
   onDismiss,
   onCta,
 }: PromotionPopupProps) {
   const [dismissalHandled, setDismissalHandled] = useState(false);
   const rawDeadline = getPromotionDeadline(campaign, preview);
-  const deadline = rawDeadline.replace(/\s*—\s*preview only/i, "");
+  const deadlineFromCopy = rawDeadline.replace(/\s*—\s*preview only/i, "");
+  const hasConfiguredDeadline = Boolean(campaign.endDateTime?.trim());
+  const parsedDeadline = hasConfiguredDeadline
+    ? Date.parse(campaign.endDateTime ?? "")
+    : Number.NaN;
+  const hasValidDeadline = Number.isFinite(parsedDeadline);
+  const countdownDeadline = hasValidDeadline
+    ? parsedDeadline
+    : !hasConfiguredDeadline && preview
+      ? PREVIEW_DEADLINE_TIMESTAMP
+      : null;
+  const deadline = deadlineFromCopy || (hasValidDeadline
+    ? formatDeadline(parsedDeadline, campaign.timezone)
+    : "");
   const hasDeadline = Boolean(deadline);
-  const buildFee = campaign.standardBuildFeeDisplayValue
-    ?.trim()
-    .replace(/^from\s+/i, "") || "$799";
+  const usesPreviewSampleDeadline = !hasConfiguredDeadline && preview;
   const savingsLed = variant === "savings_led";
 
   if (!open) return null;
@@ -97,51 +184,61 @@ export function PromotionPopup({
           <div className="px-6 pb-6 sm:px-12 sm:pb-8">
             {/* Eyebrow */}
             <p className="mb-3 font-sans text-[11px] font-bold uppercase tracking-[0.15em] text-[#B23E16]">
-              {savingsLed ? "SEPTEMBER BUILD-FEE WAIVER" : "A LOWER-RISK WAY TO START"}
+              {savingsLed ? "BUILD-FEE WAIVER · THIS MONTH ONLY" : "A LOWER-RISK WAY TO START"}
             </p>
 
             {/* Headline */}
             <DialogPrimitive.Title className="mb-5 font-display text-[38px] leading-[1.02] tracking-tight text-[#1A1A1A] sm:text-[56px] max-w-[600px]">
               {savingsLed
-                ? `Your ${buildFee} Build Fee Is On Us This Month.`
-                : "See the Direction First. Build Fee Waived If You Proceed."}
+                ? "Your Standard Build Fee Is Waived This Month."
+                : "See the Direction First. Your Standard Build Fee Is Waived If You Proceed."}
             </DialogPrimitive.Title>
 
             {/* Build-fee value display */}
             <div className="mb-5 flex flex-col items-start border-l-2 border-[#E85D26] pl-5 sm:pl-6">
-              <span className="mb-1 font-sans text-[10px] font-bold uppercase tracking-wider text-[#1A1A1A]/60">
-                Standard Build Fee
+              <span className="mb-1 font-sans text-sm font-bold uppercase tracking-wide text-[#1A1A1A]">
+                UP TO $1,499 IN BUILD FEES WAIVED
               </span>
-              <div className="flex items-center gap-4 font-display text-[52px] leading-tight sm:text-[64px] font-medium tracking-tight">
-                <span className="relative text-[#1A1A1A]">
-                  {buildFee}
-                  <span className="absolute left-[-5%] top-[50%] h-[3px] w-[110%] -translate-y-1/2 -rotate-6 bg-[#E85D26]"></span>
-                </span>
-                <span className="text-[#1A1A1A]/30">→</span>
+              <div className="flex items-baseline gap-3 font-display text-[52px] leading-tight sm:text-[64px] font-medium tracking-tight">
                 <span className="text-[#E85D26]">$0</span>
+                <span className="font-sans text-sm font-bold uppercase tracking-[0.12em] text-[#1A1A1A]/65">
+                  standard build fee
+                </span>
               </div>
-              <span className="mt-1 font-sans text-[10px] font-bold uppercase tracking-wider text-[#1A1A1A]/80">
-                Waived This Month
-              </span>
             </div>
+
+            {countdownDeadline !== null && (
+              <div className="mb-5 border border-[#1A1A1A]/10 bg-[#EFEBE3] p-3.5 sm:p-4">
+                <p className="mb-2 font-sans text-[10px] font-bold uppercase tracking-[0.15em] text-[#1A1A1A]/60">
+                  Offer ends at {deadline || "the deadline"}
+                </p>
+                <PromotionCountdown
+                  deadlineTimestamp={countdownDeadline}
+                  serverTimeOffsetMs={serverTimeOffsetMs}
+                />
+              </div>
+            )}
 
             {/* Supporting copy */}
             <DialogPrimitive.Description className="mb-3 font-sans text-[15px] leading-[1.5] text-[#1A1A1A]/80 max-w-[600px]">
               {savingsLed ? (
                 <>
-                  Request your Free Homepage Direction {hasDeadline ? `by ${deadline}` : ""}. If Graylock is the right fit and you choose to move forward, we will waive the standard build fee for your approved website scope.
+                  Request your Free Homepage Direction. If Graylock is the right fit and you choose to move forward, we will waive the standard build fee for your approved website scope. Available this month only.
                 </>
               ) : (
                 <>
-                  Start with a 15-minute fit call. If Graylock is the right fit, you will see a custom Homepage Direction before deciding. {hasDeadline ? `Request by ${deadline} to receive the standard build-fee waiver if you move forward.` : "Receive the standard build-fee waiver if you move forward."}
+                  Start with a 15-minute fit call. If Graylock is the right fit, you will see a custom Homepage Direction before deciding. Move forward to receive the standard build-fee waiver. Available this month only.
                 </>
               )}
             </DialogPrimitive.Description>
 
             {/* Terms */}
             <p className="mb-5 font-sans text-xs leading-[1.5] text-[#57534C]">
-              {hasDeadline && `Valid through ${deadline}. `}
-              {renderDisclosure()}
+              Waived value varies by selected plan, up to $1,499. Monthly plans start at $199/month and remain payable. {renderDisclosure()}
+            </p>
+
+            <p className="mb-4 font-sans text-[11px] leading-[1.4] text-[#57534C]">
+              Close hides this notice only; the offer remains available until the deadline.
             </p>
 
             {/* CTA Area */}

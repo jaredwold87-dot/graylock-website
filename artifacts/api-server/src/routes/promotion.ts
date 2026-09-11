@@ -549,16 +549,14 @@ function assignmentResponse(
   };
 }
 
-async function suppressionFor(
+export async function suppressionFor(
   assignment: Assignment,
   campaign: Campaign,
   now = new Date(),
 ): Promise<boolean> {
   if (assignment.ctaClickedAt || assignment.convertedAt) return true;
-  if (!assignment.dismissedAt || campaign.dismissalFrequencyCapDays <= 0) return false;
-  const expiry = new Date(assignment.dismissedAt).getTime() +
-    campaign.dismissalFrequencyCapDays * 24 * 60 * 60 * 1000;
-  return expiry > now.getTime();
+  // Dismissal suppresses the notice for this campaign, never lead eligibility.
+  return Boolean(assignment.dismissedAt);
 }
 
 async function insertInternalEvent(

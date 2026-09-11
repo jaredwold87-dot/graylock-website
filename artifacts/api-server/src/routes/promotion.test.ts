@@ -10,6 +10,18 @@ const promotion = await import("./promotion");
 const migrations = await import("../lib/promotion-migrations");
 const leads = await import("./leads");
 
+test("campaign dismissal hides the popup even after caps or deadlines change", async () => {
+  const assignment = { dismissedAt: "2026-01-01T00:00:00Z", ctaClickedAt: null, convertedAt: null };
+  for (const dismissalFrequencyCapDays of [0, 1, 30]) {
+    assert.equal(await promotion.suppressionFor(
+      assignment as never, { dismissalFrequencyCapDays } as never, new Date("2026-10-01"),
+    ), true);
+  }
+  assert.equal(await promotion.suppressionFor(
+    { ...assignment, dismissedAt: null } as never, {} as never,
+  ), false);
+});
+
 test("weighted allocation safety accepts only a complete 100% allocation", () => {
   const campaign = {
     trafficAllocationControl: 50,
