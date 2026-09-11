@@ -1,7 +1,7 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import expertiseImg from "@/assets/pain-expertise.webp";
-import unclearImg from "@/assets/pain-unclear.webp";
-import conversionImg from "@/assets/pain-conversion.webp";
+import expertiseImg from "@/assets/problem-expertise.webp";
+import unclearImg from "@/assets/problem-message.webp";
+import conversionImg from "@/assets/problem-next-step.webp";
 
 export function ProblemSection() {
   const problems = [
