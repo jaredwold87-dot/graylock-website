@@ -121,11 +121,6 @@ function ReviewCard({
               />
             </button>
           </DialogTrigger>
-          {testimonial.name === "Francisca Rangel" && (
-            <p className="mt-3 text-xs text-[#1a202c]/65 text-center">
-              Review excerpt · Select to read the full review
-            </p>
-          )}
           <figcaption className="sr-only">
             <p>Review from {testimonial.name}</p>
             <p>Highlighted quote: {testimonial.highlightedText}</p>
