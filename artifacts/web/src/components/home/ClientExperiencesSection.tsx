@@ -9,12 +9,14 @@ import {
 
 import markNelsonImage from "@/assets/reviews/mark_nelson.webp";
 import franciscaRangelImage from "@/assets/reviews/francisca_rangel.webp";
+import franciscaRangelExcerpt from "@/assets/reviews/francisca_rangel_excerpt.webp";
 import nijmaYusufImage from "@/assets/reviews/nijma_yusuf.webp";
 import stephenJenningsImage from "@/assets/reviews/stephen_jennings.webp";
 
 interface Testimonial {
   name: string;
   image: string;
+  previewImage?: string;
   transcription: string;
 }
 
@@ -22,6 +24,7 @@ const TESTIMONIALS_COL_1: Testimonial[] = [
   {
     name: "Francisca Rangel",
     image: franciscaRangelImage,
+    previewImage: franciscaRangelExcerpt,
     transcription:
       "We couldn’t be happier with our new website! From start to finish, the entire process was professional, creative, and seamless. Tim and his team did an amazing job taking our vision for Interior Finishes Cabinets and Design and turning it into a website that truly represents our brand.\n\nThe new site looks modern, sophisticated, and professional, while showcasing our cabinetry and design work beautifully. We especially love how clean and easy to navigate it is, and the attention to detail throughout the entire website is incredible.\n\nIt’s clear that they took the time to understand our business and what we wanted to communicate to our clients. We feel like our new website finally reflects the quality of the work we provide.\n\nWe highly recommend them to anyone looking for a talented, professional, and creative website designer. Thank you for giving our business a website we’re truly proud to share!",
   },
@@ -80,8 +83,8 @@ export function ClientExperiencesSection() {
           </p>
         </ScrollReveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:gap-14 items-start">
-          <div className="flex flex-col gap-8 md:gap-10 lg:gap-14">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 items-start">
+          <div className="flex flex-col gap-6 md:gap-8">
             {TESTIMONIALS_COL_1.map((testimonial, index) => (
               <ReviewCard
                 key={testimonial.name}
@@ -91,7 +94,7 @@ export function ClientExperiencesSection() {
               />
             ))}
           </div>
-          <div className="flex flex-col gap-8 md:gap-10 lg:gap-14 md:mt-20 lg:mt-32">
+          <div className="flex flex-col gap-6 md:gap-8 md:mt-8">
             {TESTIMONIALS_COL_2.map((testimonial, index) => (
               <ReviewCard
                 key={testimonial.name}
@@ -146,12 +149,15 @@ function ReviewCard({
           aria-label={`Enlarge review from ${testimonial.name}`}
         >
           <img
-            src={testimonial.image}
+            src={testimonial.previewImage ?? testimonial.image}
             alt={`Thumbnail of Google review from ${testimonial.name}`}
             className="w-full h-auto rounded-xl"
             loading="lazy"
           />
         </button>
+        {testimonial.previewImage && (
+          <p className="mt-2 text-xs text-[#1a202c]/65">Review excerpt · Select to read the full review</p>
+        )}
         <figcaption className="sr-only">{testimonial.transcription}</figcaption>
       </figure>
     </ScrollReveal>

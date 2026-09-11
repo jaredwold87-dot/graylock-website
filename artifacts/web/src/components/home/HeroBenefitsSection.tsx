@@ -3,87 +3,58 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export function HeroBenefitsSection() {
   return (
     <section 
-      className="bg-[#FDFCFB] py-10 md:py-12 border-y border-black/5"
+      className="bg-[#FDFCFB] py-12 md:py-16 lg:py-20 border-y border-black/5"
       aria-labelledby="hero-benefits-heading"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <ScrollReveal>
-          <div className="max-w-3xl mb-6 md:mb-8">
+          <div className="max-w-[1000px] mx-auto text-center mb-12 md:mb-16">
             <h2 
               id="hero-benefits-heading" 
-              className="text-3xl md:text-4xl font-display font-medium text-[#292B2E] tracking-tight mb-3"
+              className="text-4xl md:text-5xl lg:text-[60px] lg:leading-[1.1] font-display font-medium text-[#292B2E] tracking-tight mb-4 md:mb-6 text-balance mx-auto"
             >
               See your new homepage before you commit.
             </h2>
-            <p className="text-base md:text-lg text-[#292B2E]/80 leading-relaxed text-balance">
+            <p className="text-base md:text-lg text-[#292B2E]/80 leading-relaxed text-balance max-w-2xl mx-auto">
               Tell us about your business. We’ll discuss your goals, then create a custom homepage direction before any build fee.
             </p>
           </div>
           
-          <div className="flex flex-col border-t border-black/10">
-            {/* Offer 1 */}
-            <div className="flex flex-col md:flex-row md:items-center py-4 md:py-5 border-b border-black/10 gap-2 md:gap-8">
-              <div className="md:w-[45%] lg:w-[40%] shrink-0">
-                <span className="text-4xl md:text-5xl font-display font-bold text-[#E85D26] tracking-tighter uppercase leading-none">
-                  Free
-                </span>
-              </div>
-              <div className="md:w-[55%] lg:w-[60%] flex flex-col">
-                <h3 className="text-2xl md:text-3xl font-display font-medium text-[#292B2E] mb-1">
-                  Homepage demo
-                </h3>
-                <p className="text-base md:text-lg font-sans text-[#292B2E]/80 leading-snug">
-                  Custom homepage direction before any build fee.
-                </p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
+            <div className="flex flex-col text-left">
+              <h3 className="text-xl md:text-2xl font-display font-bold text-[#E85D26] tracking-tight mb-3">
+                Free homepage demo
+              </h3>
+              <p className="text-base text-[#292B2E]/80 leading-relaxed">
+                See what your homepage will look like before you commit to anything.
+              </p>
             </div>
             
-            {/* Offer 2 */}
-            <div className="flex flex-col md:flex-row md:items-center py-4 md:py-5 border-b border-black/10 gap-2 md:gap-8">
-              <div className="md:w-[45%] lg:w-[40%] shrink-0">
-                <span className="text-4xl md:text-5xl font-display font-bold text-[#E85D26] tracking-tighter uppercase leading-none">
-                  7–10
-                </span>
-              </div>
-              <div className="md:w-[55%] lg:w-[60%] flex flex-col">
-                <h3 className="text-2xl md:text-3xl font-display font-medium text-[#292B2E] mb-1">
-                  Business days
-                </h3>
-                <p className="text-base md:text-lg font-sans text-[#292B2E]/80 leading-snug">
-                  On average, live in 7–10 business days after demo.
-                </p>
-              </div>
+            <div className="flex flex-col text-left">
+              <h3 className="text-xl md:text-2xl font-display font-bold text-[#E85D26] tracking-tight mb-3">
+                7–10-day build
+              </h3>
+              <p className="text-base text-[#292B2E]/80 leading-relaxed">
+                On average, it takes 7–10 business days after you approve the demo to complete your website and go live.
+              </p>
             </div>
             
-            {/* Offer 3 */}
-            <div className="flex flex-col md:flex-row md:items-center py-4 md:py-5 border-b border-black/10 gap-2 md:gap-8">
-              <div className="md:w-[45%] lg:w-[40%] shrink-0">
-                <span className="text-4xl md:text-5xl font-display font-bold text-[#E85D26] tracking-tighter uppercase leading-none">
-                  30 Days
-                </span>
-              </div>
-              <div className="md:w-[55%] lg:w-[60%] flex flex-col">
-                <h3 className="text-2xl md:text-3xl font-display font-medium text-[#292B2E]">
-                  Money-Back Guarantee
-                </h3>
-              </div>
+            <div className="flex flex-col text-left">
+              <h3 className="text-xl md:text-2xl font-display font-bold text-[#E85D26] tracking-tight mb-3">
+                30-day money-back guarantee
+              </h3>
+              <p className="text-base text-[#292B2E]/80 leading-relaxed">
+                Decide after launching that you don’t like it? We offer a 30-day money-back guarantee, no questions asked.
+              </p>
             </div>
             
-            {/* Offer 4 */}
-            <div className="flex flex-col md:flex-row md:items-center py-4 md:py-5 border-b border-black/10 gap-2 md:gap-8">
-              <div className="md:w-[45%] lg:w-[40%] shrink-0">
-                <span className="text-4xl md:text-5xl font-display font-bold text-[#E85D26] tracking-tighter uppercase leading-none">
-                  Every 2 Years
-                </span>
-              </div>
-              <div className="md:w-[55%] lg:w-[60%] flex flex-col">
-                <h3 className="text-2xl md:text-3xl font-display font-medium text-[#292B2E] mb-1">
-                  Website refresh
-                </h3>
-                <p className="text-base md:text-lg font-sans text-[#292B2E]/80 leading-snug">
-                  An included refresh to keep your website up to date.
-                </p>
-              </div>
+            <div className="flex flex-col text-left">
+              <h3 className="text-xl md:text-2xl font-display font-bold text-[#E85D26] tracking-tight mb-3">
+                2-year website refresh
+              </h3>
+              <p className="text-base text-[#292B2E]/80 leading-relaxed">
+                Your maintenance and hosting plan includes a website refresh every 2 years, so your site stays current and never feels outdated.
+              </p>
             </div>
           </div>
         </ScrollReveal>
