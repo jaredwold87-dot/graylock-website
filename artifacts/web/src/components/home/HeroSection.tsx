@@ -105,13 +105,13 @@ export function HeroSection() {
               <span>a Client Chooses Your Competitor.</span>
             </h1>
             <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
-              We build custom, conversion-focused websites that show up on Google, earn trust in seconds, and turn visitors into booked appointments — live in 7–10 days.
+              We build custom, conversion-focused websites designed to help the right people find, trust, and contact your business — live in 7–10 days.
             </p>
 
             <div className="md:hidden">
               <div className="mt-8">
                 <CTAButton href="/get-started" variant="funnel" className="w-full min-h-14 px-5">
-                  Request a 15-Minute Discovery Call
+                  Get Your Free Homepage Direction
                 </CTAButton>
               </div>
               <CTAButton href="/featured-projects" variant="outline" className="w-full min-h-14 px-5 mt-4">
@@ -121,7 +121,7 @@ export function HeroSection() {
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <CTAButton href="/get-started" variant="funnel">
-                  Request a 15-Minute Discovery Call
+                  Get Your Free Homepage Direction
                 </CTAButton>
                 <CTAButton href="/featured-projects" variant="outline">
                   See Real Client Websites
