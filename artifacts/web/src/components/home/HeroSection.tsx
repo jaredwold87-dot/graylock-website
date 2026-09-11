@@ -10,7 +10,7 @@ function HeroBenefits() {
     <ul className="mt-3 space-y-2 text-offwhite/90 font-sans text-[15px] md:text-base leading-snug text-left">
       {[
         "Begin with a free homepage demo",
-        "On average, live in 7–10 business days",
+        "On average, live in 7–10 business days after demo",
         "30-Day Money-Back Guarantee",
         "Stay up to date with an included website refresh every 2 years",
       ].map((benefit) => (
