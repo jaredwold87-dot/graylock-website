@@ -25,16 +25,36 @@ const DELIVER_ITEMS = [
 ];
 
 export function WhatWeDeliverSection({
+  homepage = false,
   imageSrc,
   imageAlt,
   framed,
   frameUrl = "advantagehomeimprovement.com",
 }: {
+  homepage?: boolean;
   imageSrc?: string;
   imageAlt?: string;
   framed?: boolean;
   frameUrl?: string;
 } = {}) {
+  const items = homepage ? [
+    {
+      title: "A Message That Makes Sense Quickly",
+      description: "Clear positioning, service information, and page structure help the right visitor understand what you do, who you help, and why your business is worth considering.",
+    },
+    {
+      title: "Proof That Reflects Your Expertise",
+      description: "Reviews, portfolio work, trust signals, and real business details are placed where buyers look for confidence before they reach out.",
+    },
+    {
+      title: "A Clear Path to Contact",
+      description: "Focused calls to action and simple lead-capture paths make it easier for a qualified prospect to request a consultation, quote, service call, or other relevant next step.",
+    },
+    {
+      title: "Built for Search and Mobile",
+      description: "Responsive design, fast-loading pages, and sound technical foundations help people and search engines access and understand your website.",
+    },
+  ] : DELIVER_ITEMS;
   const resolvedImageSrc =
     imageSrc ?? `${import.meta.env.BASE_URL}west-coast-device-straight.webp`;
   const resolvedImageAlt =
@@ -47,10 +67,10 @@ export function WhatWeDeliverSection({
             What We Deliver
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-display text-[#1A1A1A] mb-4 leading-[1.05]">
-            Everything your business needs to win clients online
+            {homepage ? "A Website Built to Make Choosing You Easier." : "Everything your business needs to win clients online"}
           </h2>
           <p className="font-display italic text-lg md:text-xl text-[#4A4A4A] leading-relaxed">
-            One site — engineered to be found, trusted, and acted on.
+            {homepage ? "Clear positioning, credible proof, a simple path to contact, and strong search and mobile foundations—built around how your customers actually decide." : "One site — engineered to be found, trusted, and acted on."}
           </p>
         </ScrollReveal>
 
@@ -96,7 +116,7 @@ export function WhatWeDeliverSection({
 
           <ScrollReveal delay={0.1} className="order-1 lg:order-2">
             <ul className="space-y-4">
-            {DELIVER_ITEMS.map((item) => (
+            {items.map((item) => (
               <li key={item.title} className="flex items-start gap-3">
                 <CheckCircle2
                   size={22}

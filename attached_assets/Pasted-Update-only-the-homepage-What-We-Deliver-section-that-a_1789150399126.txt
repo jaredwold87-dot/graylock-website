@@ -1,0 +1,111 @@
+Update only the homepage “What We Deliver” section that appears directly after the problem-diagnosis section.
+
+The current section has the eyebrow:
+
+“WHAT WE DELIVER”
+
+the heading:
+
+“Everything your business needs to win clients online”
+
+an italic supporting line:
+
+“One site — engineered to be found, trusted, and acted on.”
+
+a real Graylock-built website visual shown on desktop and mobile on the left, and four delivery points on the right.
+
+Do not change the hero, offer section, testimonials, featured work, problem-diagnosis section, navigation, footer, CTA behavior, pricing, form behavior, or any other homepage section.
+
+GOAL:
+Keep the current visual layout and real client website visual, but replace broad or outcome-guaranteeing language with specific, credible descriptions of the mechanisms Graylock controls. This section should clearly answer the previous problem-diagnosis section:
+
+- A website may not reflect expertise.
+- A website’s message may not be clear.
+- A website may not make the next step clear.
+
+This section should explain how Graylock addresses those problems through clear positioning, credible proof, clear contact paths, and strong search/mobile foundations.
+
+COPY CHANGES:
+
+Keep the eyebrow exactly as written:
+
+WHAT WE DELIVER
+
+Replace the main heading with:
+
+A Website Built to Make Choosing You Easier.
+
+Replace the italic supporting line with:
+
+Clear positioning, credible proof, a simple path to contact, and strong search and mobile foundations—built around how your customers actually decide.
+
+Replace the four right-side delivery points with the following exact copy, in this exact order:
+
+POINT 01
+
+Heading:
+A Message That Makes Sense Quickly
+
+Body:
+Clear positioning, service information, and page structure help the right visitor understand what you do, who you help, and why your business is worth considering.
+
+POINT 02
+
+Heading:
+Proof That Reflects Your Expertise
+
+Body:
+Reviews, portfolio work, trust signals, and real business details are placed where buyers look for confidence before they reach out.
+
+POINT 03
+
+Heading:
+A Clear Path to Contact
+
+Body:
+Focused calls to action and simple lead-capture paths make it easier for a qualified prospect to request a consultation, quote, service call, or other relevant next step.
+
+POINT 04
+
+Heading:
+Built for Search and Mobile
+
+Body:
+Responsive design, fast-loading pages, and sound technical foundations help people and search engines access and understand your website.
+
+DESIGN / LAYOUT REQUIREMENTS:
+- Preserve the current section layout exactly: heading and supporting line centered at the top, real Graylock-built desktop/mobile website visual on the left, four supporting delivery points on the right.
+- Preserve the existing website image, device mockup treatment, typography, color palette, warm-white background, icons if they already exist, spacing, and responsive structure.
+- Do not replace the real website visual with a generic stock image, an AI-generated image, or a different device composition.
+- Do not turn the right-side delivery points into cards, boxes, tiles, tabs, accordions, or a SaaS-style feature grid.
+- Keep the right-side points as a clean, open editorial list.
+- Maintain the current restrained orange accents and premium Graylock visual language.
+- Do not add a CTA to this section.
+- Do not add scarcity, outcome guarantees, conversion-rate claims, Google-rank promises, compliance promises, or unnecessary extra copy.
+
+ACCESSIBILITY:
+- Use one semantic section with one h2 for the section headline.
+- Use h3 headings for the four delivery points.
+- Maintain readable contrast and text sizing.
+- Preserve meaningful alt text for the real Graylock-built desktop and mobile website visual.
+- Ensure any existing icons are decorative or have appropriate accessible labels.
+- Respect reduced-motion preferences for any existing animations.
+
+RESPONSIVE REQUIREMENTS:
+- Desktop: retain the current two-column desktop/mobile website visual on the left and open delivery list on the right.
+- Tablet: preserve the visual/list relationship without crowding either column.
+- Mobile: stack the real website visual and four delivery points cleanly, with readable spacing and no horizontal overflow.
+- Do not clip the device image or cause the four delivery points to become dense or difficult to scan.
+
+FINAL CHECK:
+- Verify desktop, tablet, and mobile rendering.
+- Confirm the real client website visual remains unchanged.
+- Confirm all old broad claims are replaced:
+  - “Everything your business needs to win clients online”
+  - “engineered to be found, trusted, and acted on”
+  - “Found when clients are searching”
+  - “Built to turn visitors into leads”
+  - “Flawless on every device”
+  - “Credibility that earns the call”
+- Confirm that no other homepage section, CTA, form, or navigation behavior was modified.
+- After implementation, report the exact component changed and summarize the final responsive behavior.

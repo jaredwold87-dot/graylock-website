@@ -28,7 +28,7 @@ export default function Home() {
       <ClientExperiencesSection />
       <FeaturedWorkSection />
       <ProblemSection />
-      <WhatWeDeliverSection />
+      <WhatWeDeliverSection homepage />
       <OfferBreakdownSection />
       <TestimonialSection />
       <ValueDifferentiationSection />
