@@ -1,0 +1,244 @@
+Redesign only the visual presentation and copy hierarchy of the existing Build-Fee Waiver promotion popups.
+
+Do not change:
+- Experiment assignment logic
+- Control / savings_led / direction_led variant logic
+- Traffic allocation
+- Popup trigger conditions
+- Popup frequency caps
+- Campaign deadlines
+- Analytics events
+- Dashboard
+- Resend submission behavior
+- Existing Homepage Direction form behavior
+- Hidden attribution fields
+- Existing site navigation, homepage sections, or CTA routing
+
+The current popup designs are too large, text-heavy, generic, and visually flat. They look like a standard generated dark modal with an orange border.
+
+Replace both popup designs with one shared, premium Graylock “offer notice” design system.
+
+IMPORTANT A/B RULE:
+The savings_led and direction_led variants must use the exact same layout, colors, dimensions, typography, visual treatment, CTA treatment, close button, and terms treatment.
+
+The only difference between Variant A and Variant B must be their approved eyebrow, headline, and supporting copy.
+
+Do not introduce an image, stock photo, AI-generated image, laptop mockup, illustration, icon, countdown timer, badge, prize graphic, dollar-sign animation, confetti, or coupon styling.
+
+The offer itself is the visual:
+STANDARD BUILD FEE: $799 → $0
+BUILD FEE WAIVED
+
+────────────────────────────────────────
+DESIGN DIRECTION
+────────────────────────────────────────
+
+Create a premium editorial “offer notice” / “project authorization sheet” aesthetic.
+
+The popup should feel like an intentional, high-end Graylock agency promotion:
+- Bold
+- Clean
+- Confident
+- Editorial
+- Restrained
+- Visually memorable
+- Not like a coupon, giveaway, SaaS modal, form, or discount site
+
+Use a warm off-white paper-like modal panel with charcoal/black typography and restrained Graylock orange accents.
+
+Do not use the current dark-gray panel with a thin orange outer border.
+
+OVERLAY:
+- Use a near-black backdrop with approximately 72–78% opacity.
+- Add only a subtle backdrop blur, if consistent with current site performance and accessibility.
+- Do not add excessive gradients, glowing effects, or animated backgrounds.
+- Keep the homepage faintly visible behind the overlay.
+
+DESKTOP MODAL:
+- Maximum width: 720px.
+- Width: calc(100vw - 48px), constrained by the maximum width.
+- Do not make the modal nearly full-screen height.
+- Target a compact, confident composition that fits naturally above the fold on a normal desktop viewport.
+- Use approximately 48–56px interior padding on desktop.
+- Use a subtle dark border and a strong but restrained shadow.
+- Add a small Graylock-orange offset edge or vertical accent strip only if it feels integrated and premium.
+- Do not use a full orange border around the entire modal.
+
+MOBILE MODAL:
+- Use a bottom-sheet treatment.
+- Width: full width minus 16–20px horizontal margins.
+- Use 24–28px interior padding.
+- Keep the CTA full-width.
+- Ensure the offer visual, deadline, primary CTA, and dismissal action are readable without excessive scrolling.
+- Do not create horizontal overflow.
+- Do not make the modal taller than necessary.
+
+────────────────────────────────────────
+MODAL HIERARCHY
+────────────────────────────────────────
+
+Use this exact visual order:
+
+1. Top utility row
+2. Eyebrow
+3. Headline
+4. Build-fee value display
+5. Supporting copy
+6. Compact eligibility / deadline terms
+7. Primary CTA
+8. Quiet dismissal action
+
+TOP UTILITY ROW:
+- Left: small Graylock Digital wordmark or existing approved logo treatment.
+- Right: a simple close icon.
+- Do not use a giant orange-outlined square close button.
+- Make the close icon approximately 40–44px tap target, but visually minimal.
+- Use a simple black or charcoal “X” with a subtle hover/focus state.
+- aria-label must remain: “Close promotion”.
+
+PREVIEW MODE:
+- Remove “PREVIEW ONLY — NO REQUEST WILL BE SENT” from inside the modal content.
+- In development/preview mode only, display a slim, clearly separate preview indicator outside the modal, near the top of the viewport:
+  “Preview mode — submissions are disabled”
+- This preview indicator must never appear in production.
+- Do not include “preview only” in any production popup copy, terms line, title, or deadline line.
+
+EYEBROW:
+- Small uppercase letterspaced text.
+- Graylock orange.
+- No badge, pill, or box.
+- Use one short line only.
+
+HEADLINE:
+- Use Graylock’s existing condensed display typeface.
+- Use dark charcoal / near-black text.
+- Desktop size approximately 54–64px, depending on existing typography scale.
+- Mobile size approximately 38–46px.
+- Keep the headline to two or three compact lines maximum.
+- Do not use the massive four-line headline treatment currently shown.
+- Maintain a controlled max-width so line breaks look intentional.
+
+BUILD-FEE VALUE DISPLAY:
+This is the visual focal point and must be more prominent than legal text.
+
+Create a bold horizontal price lockup directly below the headline:
+
+STANDARD BUILD FEE
+$799  →  $0
+WAIVED THIS MONTH
+
+Requirements:
+- “STANDARD BUILD FEE” should be a small uppercase label.
+- “$799” should be large, dark, and visibly struck through with one confident Graylock-orange diagonal or horizontal line.
+- “$0” should be large and orange.
+- “WAIVED THIS MONTH” should be a small uppercase charcoal or orange label.
+- Do not style this like a coupon or percentage-off graphic.
+- Do not use circular price badges.
+- Do not use a starburst.
+- Do not use a giant percentage icon.
+- Keep this as a clean editorial pricing statement.
+- Use the configured standardBuildFeeDisplayValue dynamically, but retain the same visual composition.
+- If the configured fee changes from $799, render the configured value in this same visual lockup.
+
+SUPPORTING COPY:
+- Use a single compact paragraph.
+- Keep it to approximately two to three short lines on desktop.
+- Do not repeat the price display in the paragraph.
+- Do not repeat “preview only.”
+- Use existing body type at a readable size.
+- Use medium-dark charcoal text, not low-contrast gray.
+
+TERMS / DEADLINE:
+- Do not create a large divider line between body copy and legal copy.
+- Use one compact, factual line beneath the supporting copy.
+- Keep it visually quieter but readable.
+- Include a subtle text link to terms if the configured legalTermsUrl exists.
+- Do not duplicate the deadline in multiple places.
+
+Use this exact treatment:
+
+Valid through [DEADLINE_DISPLAY_TEXT]. Applicable monthly plan, approved scope, and terms apply.
+
+If a legalTermsUrl exists, make “terms apply” link to it.
+
+CTA AREA:
+- Keep one primary CTA only.
+- Use the existing Graylock orange CTA style, refined to fit the new modal.
+- The CTA should be full-width on mobile.
+- On desktop, it may be full-width within the content column; do not make it excessively tall.
+- Keep strong contrast and existing focus states.
+- No arrows, icon clutter, gradients, shadows, pulsing, or animation.
+
+Primary CTA text for both variants:
+
+Get My Free Homepage Direction
+
+Dismissal:
+- Replace “No thanks” with:
+
+Not now
+
+- Render it as a quiet, underlined or text-only secondary action.
+- Do not make it look disabled.
+- Keep it clear and easy to use.
+
+────────────────────────────────────────
+VARIANT A — SAVINGS-LED COPY
+────────────────────────────────────────
+
+Eyebrow:
+
+SEPTEMBER BUILD-FEE WAIVER
+
+Headline:
+
+Your $799 Build Fee Is On Us This Month.
+
+Supporting copy:
+
+Request your Free Homepage Direction by [DEADLINE_DISPLAY_TEXT]. If Graylock is the right fit and you choose to move forward, we will waive the standard build fee for your approved website scope.
+
+────────────────────────────────────────
+VARIANT B — LOWER-RISK / DIRECTION-LED COPY
+────────────────────────────────────────
+
+Eyebrow:
+
+A LOWER-RISK WAY TO START
+
+Headline:
+
+See the Direction First. Build Fee Waived If You Proceed.
+
+Supporting copy:
+
+Start with a 15-minute fit call. If Graylock is the right fit, you will see a custom Homepage Direction before deciding. Request by [DEADLINE_DISPLAY_TEXT] to receive the standard build-fee waiver if you move forward.
+
+────────────────────────────────────────
+ACCESSIBILITY AND INTERACTION
+────────────────────────────────────────
+
+- Preserve the current accessible modal behavior.
+- Preserve aria-modal, aria-labelledby, focus trap, Escape dismissal, focus restoration, and keyboard support.
+- Respect prefers-reduced-motion.
+- Use only a subtle 160–220ms fade and vertical movement when opening.
+- Do not use attention-grabbing animation, pulse, shake, bounce, countdowns, flashing, or looping effects.
+- Keep all legal conditions readable at normal zoom.
+- Ensure the close button, CTA, and “Not now” action are keyboard accessible and have visible focus states.
+
+────────────────────────────────────────
+QUALITY CHECK
+────────────────────────────────────────
+
+Before completing:
+
+1. Verify both variants use exactly the same visual shell.
+2. Confirm the only A/B difference is the approved copy framing.
+3. Confirm no image, stock visual, AI-generated visual, device mockup, icon set, badge, or countdown was added.
+4. Confirm the $799 → $0 visual statement is the central visual focal point.
+5. Confirm “preview only” is absent from production popup content.
+6. Confirm the preview notice exists only outside the modal and only in development/preview mode.
+7. Confirm the popup is materially shorter and more visually compelling than the existing designs.
+8. Confirm the existing form, analytics events, variant attribution, campaign deadlines, Resend behavior, and dashboard remain unchanged.
+9. Verify desktop, tablet, and mobile rendering.
+10. Report the components and CSS/style files changed.
