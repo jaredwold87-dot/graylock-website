@@ -194,14 +194,14 @@ export function PromotionPopup({
           <div className="relative z-10 px-6 pb-6 sm:px-12 sm:pb-6">
             {/* Eyebrow */}
             <p className="mb-3 font-sans text-[11px] font-bold uppercase tracking-[0.15em] text-[#B23E16]">
-              {savingsLed ? "SEPTEMBER BUILD-FEE WAIVER" : "A LOWER-RISK WAY TO START"}
+              {savingsLed ? "SEPTEMBER ONLY • BUILD-FEE WAIVER" : "THE SEPTEMBER PROJECT WINDOW"}
             </p>
 
             {/* Headline */}
             <DialogPrimitive.Title className="mb-4 font-display text-[34px] leading-[1.05] tracking-tight text-[#111111] sm:text-[44px] max-w-[500px]">
               {savingsLed
-                ? `Your Build Fee Is $0 Through ${headlineDate}.`
-                : "See the Direction First. Pay $0 in Build Fees If You Proceed."}
+                ? "This September, New Graylock Projects Start With $0 Build Fees."
+                : "Lock In Your $0 Build Fee Before September 30."}
             </DialogPrimitive.Title>
 
             {/* Offer lockup */}

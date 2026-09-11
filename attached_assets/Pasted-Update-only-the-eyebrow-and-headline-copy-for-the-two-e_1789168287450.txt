@@ -1,0 +1,52 @@
+Update only the eyebrow and headline copy for the two existing Build-Fee Waiver popup variants.
+
+Do not change:
+- Any layout, styling, typography, spacing, logo treatment, background mark, colors, CTA, deadline row, $0 build-fee visual, “save up to $1,499” copy, supporting paragraph, terms, close behavior, popup trigger, campaign logic, A/B assignment, analytics, dashboard, form behavior, or Resend behavior.
+- Do not add new copy anywhere else.
+- Do not add an image, timer, badge, scarcity count, or any other UI element.
+
+GOAL:
+
+Make the hooks communicate the actual September-only promotion immediately:
+
+Graylock is waiving build fees for qualified new projects submitted during September.
+
+The hook should feel urgent and exclusive because the offer has a real month-end deadline. Do not create fake scarcity, claim a limited number of projects, say “last chance,” or imply the visitor was personally selected.
+
+Replace only the following copy.
+
+────────────────────────────────────────
+VARIANT A — DIRECT PROMOTION / SAVINGS-LED
+────────────────────────────────────────
+
+Replace the eyebrow with:
+
+SEPTEMBER ONLY • BUILD-FEE WAIVER
+
+Replace the headline with:
+
+This September, New Graylock Projects Start With $0 Build Fees.
+
+────────────────────────────────────────
+VARIANT B — URGENCY / DEADLINE-LED
+────────────────────────────────────────
+
+Replace the eyebrow with:
+
+THE SEPTEMBER PROJECT WINDOW
+
+Replace the headline with:
+
+Lock In Your $0 Build Fee Before September 30.
+
+────────────────────────────────────────
+QUALITY CHECK
+────────────────────────────────────────
+
+- Keep the existing deadline row directly below the $0 build-fee value display:
+  REQUEST BY SEPTEMBER 30 • 11:59 PM PDT
+- Keep the existing $0 visual and “SAVE UP TO $1,499” treatment unchanged.
+- Keep “Lock In My $0 Build Fee” as the CTA unchanged.
+- The headline must remain visually compact and not exceed two lines on desktop at the current modal width.
+- Preserve the identical visual shell between the two variants.
+- The only A/B differences must remain the eyebrow and headline copy above.
