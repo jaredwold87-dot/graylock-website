@@ -1,0 +1,201 @@
+Replace the current Build-Fee Waiver popup design completely.
+
+Do not change:
+- A/B experiment logic
+- Control, savings_led, or direction_led assignment
+- Popup trigger timing
+- Frequency cap
+- Campaign deadline configuration
+- Resend submission behavior
+- Dashboard tracking
+- Existing Homepage Direction form behavior
+- Existing homepage content or CTA routing
+
+The current popup is too long, generic, and visually artificial. It uses an oversized heading, a four-box countdown, duplicated legal/deadline copy, and too many explanatory paragraphs.
+
+The new popup must be dramatically shorter, more editorial, more premium, and immediately communicate:
+
+1. The build fee is $0
+2. The customer can save up to $1,499
+3. The offer has a real month-end deadline
+4. The visitor can lock in the waiver now
+
+IMPORTANT:
+Do not use AI images, stock photos, illustrations, laptop mockups, generic icons, confetti, coupon graphics, stars, badges, radial gradients, or decorative visual clutter.
+
+Do not use the current four-box days/hours/minutes/seconds countdown timer.
+
+Do not use fake urgency, fake scarcity, “offer ends when you close this window,” or a countdown that continues after the real deadline.
+
+VISUAL DIRECTION:
+
+Create a premium “project window” / “private offer notice” modal.
+
+Use:
+- Deep charcoal or nearly black modal background
+- Warm off-white typography
+- Graylock orange as the primary accent
+- Existing Graylock condensed display typography for the main offer
+- Existing body font for supporting copy
+- One subtle oversized Graylock logo mark in the background at very low opacity, approximately 3–5%, cropped at the lower-right or upper-right edge
+- No outer orange border around the entire modal
+- One thin orange strip across the top of the modal
+- A subtle dark shadow
+- A restrained backdrop overlay at approximately 75% opacity
+
+DESKTOP:
+- Maximum modal width: 640px
+- Target compact height: approximately 560–640px
+- Use 44–52px interior padding
+- Keep all essential offer content visible without excessive vertical scrolling
+
+MOBILE:
+- Use a bottom sheet
+- Full width minus 16px side margins
+- Use 24px interior padding
+- Full-width CTA
+- Keep the offer, deadline, CTA, and key terms visible in one normal mobile viewport where possible
+- No horizontal overflow
+
+TOP ROW:
+- Left: current approved Graylock Digital wordmark treatment
+- Right: a simple minimal close icon
+- Do not use a large bordered close-button container
+- Keep the close hit area accessible at 44px minimum
+- aria-label: “Close promotion”
+
+SHARED POPUP LAYOUT:
+
+Use the same design, dimensions, visual hierarchy, CTA style, and legal treatment for both A/B variants.
+
+The only difference between Variant A and Variant B must be the eyebrow, headline, and one supporting paragraph.
+
+Visual order:
+
+1. Brand / close row
+2. Small orange eyebrow
+3. Main headline
+4. Large offer-value lockup
+5. One compact real-deadline line
+6. One short supporting paragraph
+7. Primary CTA
+8. One compact factual terms line
+9. Quiet dismissal link
+
+MAIN OFFER LOCKUP:
+
+Create this as the largest visual element after the headline:
+
+BUILD FEE
+$0
+
+SAVE UP TO $1,499
+
+Requirements:
+- “BUILD FEE” is a small uppercase label.
+- “$0” is large, bold, and Graylock orange.
+- “SAVE UP TO $1,499” is visible but smaller than $0.
+- Do not show $1,499 struck through as though every visitor automatically receives exactly that amount.
+- The “up to $1,499” language must remain visibly connected to the applicable selected plan.
+- Do not use price boxes, coupon cards, badges, starbursts, or a pricing-table look.
+
+DEADLINE TREATMENT:
+
+Below the offer lockup, show one strong compact deadline row:
+
+REQUEST BY [DEADLINE_DISPLAY_TEXT]
+
+Example:
+
+REQUEST BY SEPTEMBER 30 • 11:59 PM PT
+
+Style:
+- Small uppercase type
+- Orange text or orange left rule
+- No countdown boxes
+- No duplicate deadline paragraph
+- No “available this month only” repetition
+
+COUNTDOWN RULE:
+
+For most of the campaign:
+- Show only the deadline row above.
+
+For the final 72 hours before the real configured deadline:
+- Replace or supplement the deadline row with one compact inline live countdown only:
+
+ENDS IN 02 DAYS 14 HRS 22 MIN
+
+- Do not use individual boxed timer cells.
+- Do not show seconds.
+- Do not show the live countdown earlier than 72 hours before the deadline.
+- The timer must be calculated from the real configured campaign deadline.
+- The timer must disappear and the promotion must disable automatically once the deadline passes.
+
+VARIANT A — SAVINGS-LED:
+
+Eyebrow:
+
+SEPTEMBER BUILD-FEE WAIVER
+
+Headline:
+
+Your Build Fee Is $0 Through September 30.
+
+Supporting copy:
+
+Request your Free Homepage Direction before the deadline. If Graylock is the right fit and you choose to move forward, we will waive the build fee for your approved website scope.
+
+VARIANT B — LOWER-RISK / DIRECTION-LED:
+
+Eyebrow:
+
+A LOWER-RISK WAY TO START
+
+Headline:
+
+See the Direction First. Pay $0 in Build Fees If You Proceed.
+
+Supporting copy:
+
+Start with a 15-minute fit call. If Graylock is the right fit, you will see a custom Homepage Direction before deciding whether to move forward.
+
+PRIMARY CTA FOR BOTH VARIANTS:
+
+Lock In My $0 Build Fee
+
+The CTA must continue opening the existing Homepage Direction / fit-call form and preserve all existing experiment attribution, analytics, Resend behavior, dashboard logging, and form behavior.
+
+TERMS LINE FOR BOTH VARIANTS:
+
+Qualified new projects. Monthly plans start at $199/month. Approved scope and terms apply.
+
+If a configured terms URL exists, make “terms apply” a subtle accessible link.
+
+Do not repeat the deadline again in the terms line.
+
+DISMISSAL LINK:
+
+Keep browsing
+
+Style it as a quiet text-only link. Do not use “No thanks” or “Not now.”
+
+ACCESSIBILITY:
+- Preserve the existing accessible dialog behavior.
+- Preserve focus trap, Escape-to-close, focus restoration, and keyboard accessibility.
+- Respect prefers-reduced-motion.
+- Use only a subtle fade and short upward movement on open.
+- Maintain readable contrast and visible focus states.
+- Do not use motion, timers, pulsing, shaking, or color alone to create pressure.
+
+QUALITY CHECK:
+1. The visitor should understand the offer in less than three seconds.
+2. “Build Fee: $0” must be the strongest visual element.
+3. “Save up to $1,499” must be clear but accurately qualified.
+4. The real deadline must be obvious without a generic four-box countdown.
+5. Both variants must use exactly the same visual shell.
+6. Remove all duplicate body copy, duplicate deadline statements, and “close hides this notice” language.
+7. Confirm the popup is shorter, more visually distinctive, and less text-heavy than the current version.
+8. Confirm no fake scarcity, fake countdown, AI image, stock image, or coupon-style visual was added.
+9. Verify desktop, tablet, and mobile behavior.
+10. Report the popup component and styles changed.
