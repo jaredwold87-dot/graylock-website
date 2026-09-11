@@ -87,7 +87,7 @@ export function ClientExperiencesSection() {
             <ReviewCard testimonial={TESTIMONIALS.mark} delay={0.1} />
           </div>
           
-          <div className="md:col-span-6 md:col-start-4 md:mt-4 z-30">
+          <div className="md:col-span-6 md:col-start-4 md:mt-4 lg:-mt-12 lg:translate-x-8 z-30">
             <ReviewCard testimonial={TESTIMONIALS.nijma} delay={0.2} />
           </div>
         </div>

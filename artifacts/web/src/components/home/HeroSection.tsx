@@ -108,28 +108,16 @@ export function HeroSection() {
               We build custom, conversion-focused websites that show up on Google, earn trust in seconds, and turn visitors into booked appointments — live in 7–10 days.
             </p>
 
-            {/* Mobile CTA sequence: primary → secondary → microcopy → benefits. */}
             <div className="md:hidden">
               <div className="mt-8">
-                <CTAButton
-                  href="/get-started"
-                  variant="funnel"
-                  className="w-full min-h-14 px-5"
-                >
+                <CTAButton href="/get-started" variant="funnel" className="w-full min-h-14 px-5">
                   Request a 15-Minute Discovery Call
                 </CTAButton>
               </div>
-
-              <CTAButton
-                href="/featured-projects"
-                variant="outline"
-                className="w-full min-h-14 px-5 mt-4"
-              >
+              <CTAButton href="/featured-projects" variant="outline" className="w-full min-h-14 px-5 mt-4">
                 See Real Client Websites
               </CTAButton>
             </div>
-
-            {/* Tablet/desktop sequence */}
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <CTAButton href="/get-started" variant="funnel">
