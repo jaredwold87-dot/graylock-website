@@ -10,9 +10,9 @@ function HeroBenefits() {
     <ul className="mt-3 space-y-2 text-offwhite/90 font-sans text-[15px] md:text-base leading-snug text-left">
       {[
         "Begin with a free homepage demo",
+        "On average, live in 7–10 business days",
         "30-Day Money-Back Guarantee",
         "Stay up to date with an included website refresh every 2 years",
-        "On average, live in 7–10 business days",
       ].map((benefit) => (
         <li key={benefit} className="flex items-start gap-2.5">
           <Check size={16} strokeWidth={2.5} className="text-[#E85D26] shrink-0 mt-0.5" aria-hidden="true" />
