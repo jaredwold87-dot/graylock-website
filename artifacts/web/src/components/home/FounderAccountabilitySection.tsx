@@ -32,7 +32,7 @@ export function FounderAccountabilitySection() {
             You’ll Know Who Is Building Your Website.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl font-sans text-base leading-relaxed text-[#1a202c]/70 md:text-lg">
-            Graylock is led by Tim and Jared. From strategy and messaging through design,
+            Graylock is led by Tim and Jared. From your homepage direction through design,
             development, launch, and ongoing support, your website is handled by a real
             U.S.-based team that stays involved after it goes live.
           </p>

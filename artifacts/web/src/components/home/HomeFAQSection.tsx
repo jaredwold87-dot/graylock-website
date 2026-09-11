@@ -5,36 +5,37 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const FAQS = [
   {
-    question: "What happens after I request a discovery call?",
+    question: "What happens after I request a homepage direction?",
     answer:
-      "We start with a short conversation about your business, your current website, and what you want to improve. If Graylock is the right fit, we create a custom homepage direction for you to review before any build fee is due.",
+      "Start with a short fit call about your business, your current website, and what you want your online presence to improve. If Graylock is the right fit, we create a custom homepage direction for you to review before any build fee is due.",
   },
   {
-    question: "Is the homepage demo actually custom to my business?",
+    question: "Is the homepage direction actually custom to my business?",
     answer:
-      "Yes. Graylock researches your business, audience, services, and market before creating a homepage direction. The goal is to show you a real strategic direction for your business—not a recycled template.",
+      "Yes. Graylock researches your business, services, audience, and market before creating a homepage direction around your specific business. It is not pulled from a template library.",
   },
   {
     question: "What does a new website cost?",
     answer:
-      "Plans start at $199 per month. Build fees begin at $799 and are paid only after you approve your custom homepage direction. Hosting, maintenance, and ongoing support are included in the monthly plan.",
+      "Plans start at $199 per month. Build fees begin at $799 and are only due after you approve the homepage direction. You will see the exact scope and price before deciding whether to move forward.",
     link: { label: "See full pricing →", href: "/pricing" },
   },
   {
     question: "How long does a website build take?",
     answer:
-      "Most standard websites are built and launched in 7–10 business days after the direction and required content are approved. Larger or more complex websites may take longer.",
+      "Once the homepage direction, required materials, and approvals are confirmed, standard websites are typically built, tested, and launched in 7–10 business days. Larger or more complex projects may take longer.",
   },
   {
     question: "What do I own if I cancel?",
     answer:
-      "You keep your domain, written content, images, and brand assets. The underlying website code and hosting infrastructure remain with Graylock. Month-to-month plans can be cancelled with 30 days’ notice.",
-    link: { label: "Read the full FAQ →", href: "/faq" },
+      "Your domain remains yours, and you retain ownership of the written content, images, and brand assets you provide. Graylock retains its proprietary website code, platform, design components, and Graylock-created visual assets. Within 60 days after cancellation, you may request a page-by-page PDF of the website’s displayed written content; it is delivered within 30 days of your request and excludes metadata and Graylock-created visual assets. Monthly-plan cancellation takes effect at the end of the current billing cycle with no early-termination fee. Annual-plan cancellation stops the next renewal; prepaid annual fees are non-refundable and non-prorated, except where required by law.",
+    link: { label: "See ownership and cancellation terms →", href: "/terms" },
   },
   {
     question: "What happens after my website launches?",
     answer:
-      "Graylock continues to host, maintain, support, and update your website so it stays current, secure, and useful to your business after launch.",
+      "Your ongoing monthly plan includes hosting, maintenance, and support. While you remain an active client, your plan also includes a website refresh every two years.",
+    link: { label: "See website refresh details →", href: "/pricing#stay-current-guarantee" },
   },
 ] as const;
 
@@ -52,8 +53,7 @@ export function HomeFAQSection() {
             Clear Answers Before You Reach Out.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-[#1a202c]/70 md:text-lg">
-            Everything you need to know about the free homepage demo, pricing, ownership,
-            and the path to launch.
+            Everything you need to know about the free homepage direction, pricing, ownership, support, and the path to launch.
           </p>
         </ScrollReveal>
 

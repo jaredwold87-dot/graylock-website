@@ -1,7 +1,11 @@
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { useLocation } from "wouter";
 
 export function FinalCTASection() {
+  const [location] = useLocation();
+  const isHomepage = location === "/";
+
   return (
     <section className="relative overflow-hidden border-t border-white/5 bg-[var(--home-dark-surface,#0f0f0f)] px-6 py-20 md:px-12 md:py-28">
       <div
@@ -11,14 +15,17 @@ export function FinalCTASection() {
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <ScrollReveal>
           <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#E85D26] md:text-sm">
-            Your Next Step
+            {isHomepage ? "YOUR NEXT STEP" : "Your Next Step"}
           </p>
           <h2 className="font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
-            See What a Better Website Could Look Like for Your Business.
+            {isHomepage
+              ? "See Your Homepage Direction Before the Build Fee Is Due."
+              : "See What a Better Website Could Look Like for Your Business."}
           </h2>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-lg leading-relaxed text-stone md:text-xl">
-            Start with a 15-minute discovery call. Tell us what you want your website to do,
-            and Graylock will create a custom homepage direction before any build fee is due.
+            {isHomepage
+              ? "Start with a 15-minute fit call. If Graylock is the right fit, we create a custom homepage direction for your business before any build fee is due."
+              : "Start with a 15-minute discovery call. Tell us what you want your website to do, and Graylock will create a custom homepage direction before any build fee is due."}
           </p>
         </ScrollReveal>
 
@@ -29,7 +36,7 @@ export function FinalCTASection() {
               variant="funnel"
               className="min-h-12 px-7 text-base"
             >
-              Request a 15-Minute Discovery Call
+              {isHomepage ? "Get Your Free Homepage Direction" : "Request a 15-Minute Discovery Call"}
             </CTAButton>
             <CTAButton
               href="/featured-projects"
@@ -40,10 +47,14 @@ export function FinalCTASection() {
             </CTAButton>
           </div>
           <p className="mt-6 font-sans text-sm leading-relaxed text-stone">
-            Plans from $199/month. Build fees begin at $799 after demo approval.
+            {isHomepage
+              ? "Plans from $199/month. Build fees begin at $799 after you approve your homepage direction."
+              : "Plans from $199/month. Build fees begin at $799 after demo approval."}
           </p>
           <p className="mt-3 font-sans text-sm font-semibold text-offwhite">
-            No pressure. No obligation. Just a clearer path forward.
+            {isHomepage
+              ? "No build fee to see the direction. No pressure. No obligation."
+              : "No pressure. No obligation. Just a clearer path forward."}
           </p>
         </ScrollReveal>
       </div>

@@ -49,14 +49,14 @@ export function BookCallModal() {
               ? "Let's Build Your Free Custom Demo."
               : isRealtor
                 ? "15-Minute Real Estate Website + IDX Fit Call"
-                : "Request a 15-Minute Discovery Call"}
+                : "Get Your Free Homepage Direction"}
           </DialogTitle>
           <DialogDescription className="text-white/75 font-sans text-sm pt-1 leading-relaxed">
             {isWellDriller
               ? "Tell us a little about the business and what you want the website to do. We will use the conversation to prepare a homepage direction that is actually relevant to your company."
               : isRealtor
                 ? "We will review your market, MLS path, current website, team structure, buyer/seller goals, and the right scope before you commit."
-                : "Tell us where to reach you and we'll take it from there."}
+                : "Start with a 15-minute fit call. Tell us what you want your website to improve; if Graylock is the right fit, we will create a custom homepage direction before any build fee."}
           </DialogDescription>
         </DialogHeader>
         <div className="p-5 sm:px-8 sm:py-6">
