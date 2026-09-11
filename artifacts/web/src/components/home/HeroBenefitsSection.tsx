@@ -26,7 +26,7 @@ export function HeroBenefitsSection() {
                 Free homepage demo
               </h3>
               <p className="text-base text-[#292B2E]/80 leading-relaxed">
-                See what your homepage will look like before you commit to anything.
+                Let us show you what your new homepage could look like before you commit to anything. We'll strategize it and build it out for free.
               </p>
             </div>
             
