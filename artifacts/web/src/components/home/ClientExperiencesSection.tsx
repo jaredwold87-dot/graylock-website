@@ -78,16 +78,16 @@ export function ClientExperiencesSection() {
           </p>
         </ScrollReveal>
 
-        <div className="mt-12 flex flex-col gap-8 md:grid md:grid-cols-12 md:gap-x-6 md:gap-y-0 md:items-start relative">
-          <div className="md:col-span-6 md:col-start-1 md:mt-24 z-10 hover:z-40 transition-all duration-300">
+        <div className="mx-auto mt-10 max-w-[1000px] flex flex-col gap-6 md:grid md:grid-cols-12 md:gap-x-6 md:gap-y-0 md:items-start relative">
+          <div className="md:col-span-6 md:col-start-1 md:mt-12 z-10">
             <ReviewCard testimonial={TESTIMONIALS.francisca} delay={0} />
           </div>
           
-          <div className="md:col-span-6 md:col-start-7 z-20 hover:z-40 transition-all duration-300">
+          <div className="md:col-span-6 md:col-start-7 z-20">
             <ReviewCard testimonial={TESTIMONIALS.mark} delay={0.1} />
           </div>
           
-          <div className="md:col-span-8 md:col-start-3 md:mt-6 z-30 hover:z-40 transition-all duration-300">
+          <div className="md:col-span-6 md:col-start-4 md:mt-4 z-30">
             <ReviewCard testimonial={TESTIMONIALS.nijma} delay={0.2} />
           </div>
         </div>
@@ -110,13 +110,13 @@ function ReviewCard({
           <DialogTrigger asChild>
             <button
               type="button"
-              className="block w-full text-left transition-transform duration-300 ease-out hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F8F7F5] rounded-xl bg-white shadow-[0_18px_50px_rgba(26,32,44,0.06)] hover:shadow-[0_22px_60px_rgba(26,32,44,0.12)] border border-[#1a202c]/5"
+              className="block w-full text-left transition-shadow duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F8F7F5] rounded-lg bg-white shadow-[0_6px_20px_rgba(26,32,44,0.12)] hover:shadow-[0_10px_28px_rgba(26,32,44,0.16)] border border-[#1a202c]/5"
               aria-label={`Enlarge review from ${testimonial.name}`}
             >
               <img
                 src={testimonial.previewImage}
                 alt={`Google review from ${testimonial.name}`}
-                className="w-full h-auto rounded-xl"
+                className="w-full h-auto rounded-lg"
                 loading="lazy"
               />
             </button>
