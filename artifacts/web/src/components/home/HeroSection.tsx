@@ -7,7 +7,7 @@ import markHeroExcerpt from "@/assets/reviews/mark_nelson_hero_excerpt.webp";
 
 function HeroClientReview() {
   return (
-    <figure className="mt-4 w-full max-w-[410px] mx-auto lg:mt-[-60px] lg:-translate-x-5 relative z-10">
+    <figure className="mt-4 w-full max-w-[410px] mx-auto lg:mt-[-60px] lg:-translate-x-11 relative z-10">
       <img
         src={markHeroExcerpt}
         width={962}
