@@ -1,9 +1,26 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { useLayoutEffect, useRef } from "react";
 import expertiseImg from "@/assets/problem-expertise.webp";
 import unclearImg from "@/assets/problem-message.webp";
 import conversionImg from "@/assets/problem-next-step.webp";
 
 export function ProblemSection() {
+  const tilesRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const grid = tilesRef.current;
+    if (!grid) return;
+    const captions = Array.from(grid.querySelectorAll<HTMLElement>("[data-problem-caption]"));
+    const alignCaptions = () => {
+      const height = Math.max(...captions.map(caption => caption.offsetHeight));
+      grid.style.setProperty("--problem-caption-height", `${height}px`);
+    };
+    const observer = new ResizeObserver(alignCaptions);
+    captions.forEach(caption => observer.observe(caption));
+    alignCaptions();
+    return () => observer.disconnect();
+  }, []);
+
   const problems = [
     {
       image: expertiseImg,
@@ -36,7 +53,7 @@ export function ProblemSection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div ref={tilesRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {problems.map((prob, i) => (
             <ScrollReveal key={i} delay={i * 0.1} className="min-w-0">
               <div className="group relative w-full min-w-0 rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[3/4] min-h-[320px]">
@@ -48,13 +65,15 @@ export function ProblemSection() {
                 />
                 {/* Persistent dark overlay keeps every title and description readable. */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/10" />
-                <div className="absolute inset-x-0 bottom-0 p-6 md:p-5 lg:p-7">
+                <div className="absolute inset-x-0 bottom-0 md:min-h-[var(--problem-caption-height)]">
+                <div data-problem-caption className="p-6 md:p-5 lg:p-7">
                   <h3 className="text-white font-sans font-semibold text-lg leading-snug">
                     {prob.title}
                   </h3>
                   <p className="text-white/90 font-sans text-base leading-relaxed pt-2">
                     {prob.desc}
                   </p>
+                </div>
                 </div>
               </div>
             </ScrollReveal>
