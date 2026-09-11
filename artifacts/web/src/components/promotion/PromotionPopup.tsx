@@ -199,9 +199,11 @@ export function PromotionPopup({
 
             {/* Headline */}
             <DialogPrimitive.Title className="mb-4 font-display text-[34px] leading-[1.05] tracking-tight text-[#111111] sm:text-[44px] max-w-[500px]">
-              {savingsLed
-                ? "We’re Waiving Build Fees Through September 30."
-                : "Redeem Your $0 Build Fee Before September Ends."}
+              {savingsLed ? (
+                <>We’re <span className="italic text-[#B23E16]">Waiving Build Fees</span> Through September 30.</>
+              ) : (
+                <>Redeem Your <span className="italic text-[#B23E16]">$0 Build Fee</span> Before September Ends.</>
+              )}
             </DialogPrimitive.Title>
 
             {/* Offer lockup */}
