@@ -194,14 +194,14 @@ export function PromotionPopup({
           <div className="relative z-10 px-6 pb-6 sm:px-12 sm:pb-6">
             {/* Eyebrow */}
             <p className="mb-3 font-sans text-[11px] font-bold uppercase tracking-[0.15em] text-[#B23E16]">
-              {savingsLed ? "SEPTEMBER ONLY • BUILD-FEE WAIVER" : "THE SEPTEMBER PROJECT WINDOW"}
+              LIMITED-TIME OFFER • SEPTEMBER PROJECTS ONLY
             </p>
 
             {/* Headline */}
             <DialogPrimitive.Title className="mb-4 font-display text-[34px] leading-[1.05] tracking-tight text-[#111111] sm:text-[44px] max-w-[500px]">
               {savingsLed
-                ? "This September, New Graylock Projects Start With $0 Build Fees."
-                : "Lock In Your $0 Build Fee Before September 30."}
+                ? "We’re Waiving Build Fees Through September 30."
+                : "Redeem Your $0 Build Fee Before September Ends."}
             </DialogPrimitive.Title>
 
             {/* Offer lockup */}
@@ -248,10 +248,10 @@ export function PromotionPopup({
             <div className="flex flex-col items-start gap-3">
               <button
                 type="button"
-                onClick={() => onCta("Lock In My $0 Build Fee")}
+                onClick={() => onCta("Redeem My $0 Build-Fee Offer")}
                 className="w-full bg-[#E85D26] px-8 py-3.5 font-sans text-[15px] font-bold tracking-wide text-[#111111] transition-colors hover:bg-[#D94F1C] focus:outline-none focus:ring-2 focus:ring-[#E85D26] focus:ring-offset-2 focus:ring-offset-white"
               >
-                Lock In My $0 Build Fee
+                Redeem My $0 Build-Fee Offer
               </button>
 
               {/* Terms line */}

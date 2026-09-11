@@ -1,0 +1,69 @@
+Update only the eyebrow, headline, and primary CTA copy for the existing two Build-Fee Waiver popup variants.
+
+Do not change any visual design, dimensions, styling, logo treatment, $0 build-fee visual, “Save up to $1,499” language, deadline row, supporting copy, terms line, form behavior, popup behavior, campaign deadline, A/B logic, analytics, Resend handling, dashboard, or any other site content.
+
+The popup must now communicate all of the following within the first few seconds:
+
+1. This is a LIMITED-TIME offer.
+2. Graylock is waiving build fees during September.
+3. The visitor needs to act before September ends.
+4. The offer is for qualified new projects.
+5. The CTA lets the visitor redeem the build-fee waiver.
+
+Do not claim a limited number of projects, personal selection, “exclusive invitation,” or any scarcity other than the real September deadline and qualified-new-project eligibility.
+
+Use the following exact copy.
+
+────────────────────────────────────────
+VARIANT A — OFFER-LED
+────────────────────────────────────────
+
+Replace the eyebrow with:
+
+LIMITED-TIME OFFER • SEPTEMBER PROJECTS ONLY
+
+Replace the headline with:
+
+We’re Waiving Build Fees Through September 30.
+
+Replace the primary CTA with:
+
+Redeem My $0 Build-Fee Offer
+
+────────────────────────────────────────
+VARIANT B — URGENCY-LED
+────────────────────────────────────────
+
+Replace the eyebrow with:
+
+LIMITED-TIME OFFER • SEPTEMBER PROJECTS ONLY
+
+Replace the headline with:
+
+Redeem Your $0 Build Fee Before September Ends.
+
+Replace the primary CTA with:
+
+Redeem My $0 Build-Fee Offer
+
+────────────────────────────────────────
+REQUIREMENTS
+────────────────────────────────────────
+
+- Keep the existing deadline row unchanged and directly visible:
+  REQUEST BY SEPTEMBER 30 • 11:59 PM PDT
+
+- Keep the existing $0 Build Fee visual unchanged.
+
+- Keep “SAVE UP TO $1,499” and “Based on your selected plan” unchanged.
+
+- Keep the existing supporting copy and terms line unchanged, including:
+  “Qualified new projects. Monthly plans start at $199/month. Approved scope and terms apply.”
+
+- Do not use “Free Site Build Offer,” “Free Website,” “Free Website Build,” or any wording that suggests the monthly plan, hosting, support, or all project costs are free.
+
+- The CTA must still open the existing Homepage Direction / fit-call form and preserve all existing promotion attribution, analytics, Resend submission behavior, and dashboard reporting.
+
+- Do not add any new urgency copy, timers, badges, images, scarcity counts, or UI elements.
+
+- The only difference between Variant A and Variant B must remain the headline framing above.
