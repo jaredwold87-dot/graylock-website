@@ -1,27 +1,8 @@
-import { Check } from "lucide-react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import heroDesktopTopographic from "@/assets/hero-desktop-topographic.webp";
 import heroMobileTopographic from "@/assets/hero-mobile-topographic.webp";
 import heroMobileWillowDevices from "@/assets/hero-mobile-willow-devices.webp";
-
-function HeroBenefits() {
-  return (
-    <ul className="mt-3 space-y-2 text-offwhite/90 font-sans text-[15px] md:text-base leading-snug text-left">
-      {[
-        "Begin with a free homepage demo",
-        "On average, live in 7–10 business days after demo",
-        "30-Day Money-Back Guarantee",
-        "Stay up to date with an included website refresh every 2 years",
-      ].map((benefit) => (
-        <li key={benefit} className="flex items-start gap-2.5">
-          <Check size={16} strokeWidth={2.5} className="text-[#E85D26] shrink-0 mt-0.5" aria-hidden="true" />
-          <span>{benefit}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 export function HeroSection() {
   return (
@@ -131,14 +112,6 @@ export function HeroSection() {
               >
                 See Real Client Websites
               </CTAButton>
-
-              <div className="mt-7 rounded-lg bg-black/30 px-4 py-3.5 backdrop-blur-[2px]">
-                <p className="text-offwhite/95 font-sans text-[15px] text-center leading-relaxed text-balance">
-                  Tell us about your business. We’ll discuss your goals, then create a custom
-                  homepage direction before any build fee.
-                </p>
-                <HeroBenefits />
-              </div>
             </div>
 
             {/* Tablet/desktop sequence */}
@@ -151,35 +124,11 @@ export function HeroSection() {
                   See Real Client Websites
                 </CTAButton>
               </div>
-
-              <div className="mt-7 max-w-xl rounded-lg bg-black/25 px-4 py-3.5 backdrop-blur-[2px]">
-                <p className="text-offwhite/95 font-sans text-base leading-relaxed">
-                  Tell us about your business. We’ll discuss your goals, then create a custom
-                  homepage direction before any build fee.
-                </p>
-                <HeroBenefits />
-              </div>
             </div>
           </ScrollReveal>
         </div>
       </div>
 
-    {/* Solid trust bar at the bottom of the hero */}
-    <div className="relative z-10 hidden md:block bg-[var(--home-dark-surface,#000)] border-t border-white/[0.08] py-4 md:py-5 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto flex flex-col items-start w-fit lg:w-auto lg:flex-row lg:flex-wrap lg:items-center lg:justify-between gap-x-8 gap-y-2.5">
-        {[
-          "Show up when clients search for you",
-          "Turn visitors into calls and estimate requests",
-          "Live in 7–10 days",
-          "Free website refresh every two years",
-        ].map((text, i) => (
-          <div key={i} className="flex items-center gap-2.5">
-            <Check size={15} strokeWidth={2.5} className="text-[#E85D26] flex-shrink-0" />
-            <span className="text-stone font-sans text-sm md:text-[15px] leading-snug">{text}</span>
-          </div>
-        ))}
-      </div>
-    </div>
     </section>
     </>
   );
