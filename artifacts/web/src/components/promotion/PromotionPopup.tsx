@@ -207,7 +207,11 @@ export function PromotionPopup({
             </DialogPrimitive.Title>
 
             {/* Offer lockup */}
-            <div className="mb-4 flex flex-col items-start">
+            <div className="relative mb-4 flex flex-col items-start">
+              <div className="absolute right-1 top-2 flex h-[100px] w-[100px] rotate-[8deg] flex-col items-center justify-center rounded-[20px] border-2 border-white bg-[#E85D26] px-2 text-center text-[#111111] shadow-[3px_5px_0_#111111] sm:right-6 sm:top-0 sm:h-[132px] sm:w-[132px]">
+                <span className="font-display text-[23px] leading-[0.95] sm:text-[30px]">NO BUILD<br />FEES</span>
+                <span className="mt-1 font-hand text-[15px] font-bold leading-none sm:text-[20px]">all of September</span>
+              </div>
               <span className="mb-1 font-sans text-[11px] font-bold uppercase tracking-widest text-[#555555]">
                 BUILD FEE
               </span>
