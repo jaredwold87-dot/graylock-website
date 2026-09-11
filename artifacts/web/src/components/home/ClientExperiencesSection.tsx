@@ -55,8 +55,7 @@ export function ClientExperiencesSection() {
             Trusted By Business Owners Who Expect More From Their Website.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-[#1a202c]/70 md:text-lg">
-            Custom work, clear communication, and a process built around your business—not a
-            recycled template.
+            What our customers have to say
           </p>
         </ScrollReveal>
 
