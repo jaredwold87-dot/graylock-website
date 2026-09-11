@@ -68,13 +68,13 @@ export function ClientExperiencesSection() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.22em] text-[#E85D26] md:text-sm">
-            Client Experiences
+            CLIENT REVIEWS
           </p>
           <h2 className="font-display text-4xl leading-tight text-[#1a202c] md:text-5xl">
-            Trusted By Business Owners Who Expect More From Their Website.
+            What business owners say after working with Graylock.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-[#1a202c]/70 md:text-lg">
-            What our customers have to say
+            Real Google reviews from clients who trusted us with their online presence.
           </p>
         </ScrollReveal>
 
