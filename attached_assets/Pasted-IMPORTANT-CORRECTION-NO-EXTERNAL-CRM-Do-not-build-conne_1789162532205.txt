@@ -1,0 +1,145 @@
+IMPORTANT CORRECTION — NO EXTERNAL CRM:
+
+Do not build, connect, configure, or refer to any external CRM.
+
+Graylock does not use a CRM. All form submissions must be delivered through Resend email.
+
+Use this architecture:
+
+1. Existing Homepage Direction form or promotion popup CTA opens the existing form.
+2. On successful form submission:
+   - Validate the form server-side.
+   - Save the submission and non-sensitive experiment attribution to the app’s own database so it can appear in the private experiment dashboard.
+   - Send a notification email through Resend to the configured Graylock lead-recipient email address.
+   - Show the existing success/confirmation state to the visitor.
+3. The internal dashboard is the simple lead-management and experiment-results tool for this promotion. It is not a CRM integration.
+
+RESEND REQUIREMENTS:
+
+Use Resend for every successful lead submission.
+
+Use server-side environment variables only:
+
+- RESEND_API_KEY
+- RESEND_FROM_EMAIL
+- LEADS_RECIPIENT_EMAIL
+- OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL
+
+Do not expose any Resend API key in browser code, client bundles, event payloads, logs, or public pages.
+
+For every successful promotion-attributed form submission, send an email through Resend.
+
+Email subject:
+
+New Build-Fee Waiver Promotion Lead — [Business Name]
+
+Email body must include:
+
+- Submission timestamp
+- Name
+- Business name
+- Email
+- Phone
+- Current website, if provided
+- Website goal / requested improvement
+- Target timing
+- Any submitted notes
+- Experiment ID
+- Experiment variant:
+  - control
+  - savings_led
+  - direction_led
+- Promotion source:
+  - build_fee_waiver_popup
+  - standard_homepage_cta
+- Landing page
+- Referrer
+- UTM source
+- UTM medium
+- UTM campaign
+- UTM term
+- UTM content
+- Device type
+- Popup trigger type, if applicable
+- Popup impression timestamp, if applicable
+- Popup CTA-click timestamp, if applicable
+
+Set the email Reply-To header to the submitted visitor email address when it is valid.
+
+Send the email to:
+
+LEADS_RECIPIENT_EMAIL
+
+If OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL is configured, send a copy there as well.
+
+Use a verified Resend sender address configured through:
+
+RESEND_FROM_EMAIL
+
+DATABASE / DASHBOARD REQUIREMENT:
+
+Do not call the database a CRM.
+
+Use the existing application database only as a private internal record store for:
+
+- Form submissions
+- Experiment assignment
+- Popup impressions
+- Popup CTA clicks
+- Popup dismissals
+- Attribution data
+- Manual internal lead status
+- Notes
+- Fit-call status
+- Homepage Direction status
+- Promotion acceptance status
+- First-payment status
+- Launch status
+- Cancellation/refund status
+
+The dashboard should allow Graylock team members to manually update internal statuses after receiving the Resend email.
+
+Keep the dashboard language simple:
+
+Use:
+- Leads
+- Requests
+- Lead status
+- Submission
+- Promotion result
+- Fit call
+- Homepage Direction
+- Payment status
+
+Do not use:
+- CRM
+- Pipeline
+- Deal
+- Opportunity
+- Contact record
+- Salesforce
+- HubSpot
+- GoHighLevel
+- Pipedrive
+
+FORM SUBMISSION FAILURE HANDLING:
+
+- If the database save succeeds but the Resend email fails, flag the submission internally as “email notification failed” and allow an authorized admin to resend the notification from the dashboard.
+- If the database save fails, do not claim that the request was submitted successfully.
+- Prevent accidental duplicate emails from repeated clicks or browser retries by using idempotent submission handling.
+- Preserve the existing form validation and visitor-facing confirmation behavior.
+
+DASHBOARD PURPOSE:
+
+The dashboard is a private internal reporting and follow-up tool.
+
+It should let Graylock:
+- See every submitted request
+- See which experiment variant generated it
+- See whether a visitor came from the popup or a normal CTA
+- Update simple internal statuses manually
+- See Control versus Variant A versus Variant B funnel results
+- Export leads if needed
+- Pause the promotion immediately
+
+No external CRM integration is required.

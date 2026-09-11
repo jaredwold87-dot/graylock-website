@@ -13,7 +13,7 @@ import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 
 export function BookCallModal() {
   const returnFocusRef = useRef<HTMLElement | null>(null);
-  const { isOpen, industry, utmParams, leadParams, closeBookCall } = useBookCall();
+  const { isOpen, industry, utmParams, leadParams, promotion, closeBookCall } = useBookCall();
   const isRealtor = industry === "real-estate";
   const isWellDriller = industry === "well-drilling";
 
@@ -64,6 +64,7 @@ export function BookCallModal() {
           industry={industry}
           utmParams={utmParams}
           leadParams={leadParams}
+          promotionMetadata={promotion}
           variant="modal"
           compact
         />

@@ -1,0 +1,745 @@
+Build a complete, production-ready A/B test system for a truthful, time-bound Graylock Digital “Build-Fee Waiver” promotion.
+
+Do not redesign or alter the existing homepage sections, hero, offer, reviews, portfolio, pricing, booking flow, form fields, navigation, footer, or current CTA destinations. Add only:
+
+1. A promotion-popup experiment system
+2. Two popup copy variants
+3. A no-popup control group
+4. Persistent experiment attribution through the existing Homepage Direction form and downstream lead workflow
+5. A secure internal experiment dashboard
+6. Campaign configuration, kill switch, and preview tools
+
+IMPORTANT COMMERCIAL RULES:
+
+- This is a real promotion, not fake scarcity.
+- Never use “offer ends when you close this window.”
+- Never show a fake countdown timer.
+- Never use “selected,” “winner,” “award,” “free website,” or “enter to win.”
+- The promotion must clearly state that Graylock is waiving the STANDARD BUILD FEE only.
+- The applicable monthly plan remains paid.
+- The promotion applies only if Graylock confirms the business is a fit and the prospect chooses to move forward after reviewing a Homepage Direction.
+- The promotion deadline must be a real configurable date/time. When the campaign ends, the popup must stop showing automatically.
+- Do not imply Google rankings, lead volume, booked appointments, revenue, compliance, or any other outcome guarantee.
+- Do not add 50%-off monthly pricing, second-place offers, or any additional discount.
+- Do not change the existing build-fee amount, plan pricing, guarantee language, or Terms of Service.
+
+────────────────────────────────────────
+PART 1 — EXPERIMENT STRATEGY AND VARIANTS
+────────────────────────────────────────
+
+Build three experiment arms:
+
+1. CONTROL
+   - No promotion popup is shown.
+   - The existing homepage remains unchanged.
+   - Existing Homepage Direction CTAs and form flow continue to work.
+   - Track the assigned Control variant through the existing form and lead workflow if that visitor later submits.
+
+2. VARIANT A — SAVINGS-LED POPUP
+   - Show a truthful build-fee-waiver popup.
+   - Lead with the direct financial value of the promotion.
+
+3. VARIANT B — HOMEPAGE-DIRECTION-LED POPUP
+   - Show a truthful build-fee-waiver popup.
+   - Lead with the existing low-risk Homepage Direction value event, then explain the build-fee waiver.
+
+IMPORTANT TEST DEPLOYMENT RULE:
+
+Build all three arms now, but configure the initial live experiment as:
+
+- Control: 50%
+- Variant A: 50%
+- Variant B: 0%
+
+This is Stage 1. The first objective is to determine whether a popup improves qualified demand compared with no popup.
+
+The dashboard must allow an authorized admin to later activate Stage 2 with configurable traffic allocation, such as:
+
+- Control: 10%
+- Variant A: 45%
+- Variant B: 45%
+
+Do not activate Variant B in production by default.
+
+────────────────────────────────────────
+PART 2 — CAMPAIGN CONFIGURATION
+────────────────────────────────────────
+
+Create a centralized promotion campaign configuration that can be managed without editing popup source code.
+
+Use the project’s existing backend/database conventions. If no configuration table exists, create an appropriate server-side database model or config store.
+
+Required campaign configuration fields:
+
+- campaignId
+- experimentId
+- enabled
+- campaignName
+- timezone
+- startDateTime
+- endDateTime
+- deadlineDisplayText
+- eligiblePagePaths
+- trafficAllocationControl
+- trafficAllocationVariantA
+- trafficAllocationVariantB
+- triggerMinimumSeconds
+- triggerMinimumScrollDepth
+- dismissalFrequencyCapDays
+- popupEnabled
+- dashboardEnabled
+- manualKillSwitch
+- standardBuildFeeDisplayValue
+- monthlyPlanDisclosure
+- legalTermsUrl
+- privacyPolicyUrl
+
+Use these default values:
+
+campaignName:
+September Build-Fee Waiver
+
+timezone:
+America/Los_Angeles
+
+triggerMinimumSeconds:
+25
+
+triggerMinimumScrollDepth:
+0.55
+
+dismissalFrequencyCapDays:
+30
+
+standardBuildFeeDisplayValue:
+from $799
+
+monthlyPlanDisclosure:
+Applicable monthly plan, scope, and terms apply.
+
+The campaign must not show if:
+
+- enabled is false
+- manualKillSwitch is true
+- current time is before startDateTime
+- current time is after endDateTime
+- visitor is not on an eligible page path
+- visitor has already submitted either the promotion flow or the standard Homepage Direction form during the campaign
+- visitor has dismissed the promotion within the frequency-cap period
+- the existing chat is open
+- the existing booking/modal form is open
+- the visitor has started filling out the existing form
+- the visitor is already identified as an existing active customer, if the application can determine that safely
+
+When the campaign is inactive or expired, no popup markup, overlay, or promotional behavior should interfere with the homepage.
+
+────────────────────────────────────────
+PART 3 — STICKY EXPERIMENT ASSIGNMENT
+────────────────────────────────────────
+
+Implement persistent, sticky visitor assignment.
+
+Requirements:
+
+- Generate a privacy-appropriate first-party anonymous visitor ID.
+- Do not use email address, phone number, form text, or other personally identifying information as the visitor ID.
+- Persist the visitor ID and experiment assignment using the existing project’s preferred first-party storage approach.
+- Persist a stable assignment for the entire campaign duration.
+- A returning visitor must see the same assigned variant during the active campaign.
+- Do not randomize the variant again on every page load.
+- Assign the visitor before any popup display decision.
+- Use weighted random assignment based on current campaign configuration.
+- If the configured allocation totals are invalid, fail safely to Control and log a non-sensitive configuration error.
+- Store assignment timestamp, campaign ID, experiment ID, anonymous visitor ID, and variant.
+- Do not use third-party analytics cookies for the assignment logic.
+
+Variants must be named exactly:
+
+control
+savings_led
+direction_led
+
+────────────────────────────────────────
+PART 4 — POPUP TRIGGER, SUPPRESSION, AND UX
+────────────────────────────────────────
+
+Only Variant A and Variant B may show a popup.
+
+The popup should appear only after BOTH conditions are met:
+
+1. The homepage intro, if present, has fully finished and the homepage is interactive.
+2. The visitor has spent at least 25 seconds on the page.
+3. The visitor has reached at least 55% scroll depth.
+
+Do not show the popup immediately on landing.
+
+Do not use aggressive exit intent in this first release.
+
+If the visitor closes the popup or clicks “No thanks”:
+
+- Track the dismissal.
+- Do not show it again to that browser during the active campaign unless an authorized admin changes the campaign frequency setting.
+- Do not create a delayed second popup in the same session.
+- Do not open chat or another modal afterward.
+
+If the visitor clicks the popup CTA:
+
+- Track the click.
+- Open the existing Homepage Direction / fit-call form or use the existing approved CTA behavior.
+- Do not create a duplicate form or a separate booking system.
+- Pass promotion source and experiment attribution into the existing form as hidden metadata.
+- Suppress the promotion popup for that visitor immediately after the CTA click.
+
+────────────────────────────────────────
+PART 5 — POPUP VISUAL DESIGN
+────────────────────────────────────────
+
+IMPORTANT DESIGN DECISION:
+
+Do NOT use an image, stock photo, AI image, illustration, device mockup, decorative icon, countdown timer, badge, or visual “prize” treatment in either popup.
+
+The popup must be text-led and identical in visual design across Variant A and Variant B. The only difference between the two variants must be the approved copy framing. This prevents visual differences from contaminating the copy test.
+
+The visual direction should feel like a restrained, premium Graylock agency announcement—not like a SaaS modal, coupon popup, casino promotion, giveaway, or discount-site overlay.
+
+DESKTOP MODAL:
+
+- Centered dialog over a subtle, non-distracting dark backdrop overlay.
+- Maximum width: approximately 520px.
+- Use the existing Graylock dark charcoal / near-black visual language.
+- Use a warm off-white panel or charcoal panel according to the existing site’s strongest modal styling. Prefer a deep charcoal panel if it maintains strong contrast.
+- Use a thin restrained orange border accent or a short orange rule near the top. Do not use a thick border.
+- Use existing display typography for the headline.
+- Use existing body typography for body copy and terms.
+- Use the current brand orange for the primary CTA.
+- Use a visible close “X” control in the upper-right corner.
+- Use one primary CTA and one low-emphasis text dismissal action.
+- Use generous vertical spacing.
+- Keep the design calm, readable, and premium.
+- Do not use rounded “coupon” styling, starbursts, badges, percentage graphics, celebratory confetti, animated dollar signs, or urgency clocks.
+
+MOBILE MODAL:
+
+- Use a bottom-sheet modal with a subtle top radius consistent with existing Graylock styles.
+- Full width minus comfortable side margins.
+- Keep the close button visible and easy to tap.
+- Keep the primary CTA full-width.
+- Keep the deadline/terms line visible without requiring scroll where reasonably possible.
+- Avoid excessive vertical height. The core offer, terms line, CTA, and dismissal must be readable in one normal mobile view.
+- Do not lock the visitor into the popup or make dismissal difficult.
+
+MOTION:
+
+- Use only a subtle 160–220ms fade and slight vertical transition.
+- Respect prefers-reduced-motion.
+- Do not use attention-grabbing shake, bounce, pulse, timer, or looping animation.
+- Do not block page scrolling before the popup appears.
+- When the modal is open, use accessible dialog focus management and restore focus to the triggering context after close.
+
+ACCESSIBILITY:
+
+- Implement a semantic accessible dialog/modal.
+- Add aria-modal="true".
+- Add a meaningful aria-labelledby heading relationship.
+- Trap keyboard focus while open.
+- Allow Escape to close.
+- Ensure the close button has aria-label="Close promotion".
+- Ensure the “No thanks” action is keyboard accessible.
+- Maintain strong color contrast.
+- Do not rely on color alone to communicate terms or status.
+
+────────────────────────────────────────
+PART 6 — EXACT POPUP COPY
+────────────────────────────────────────
+
+All deadline placeholders must render from campaign configuration.
+
+Use the exact configured deadline display text in all relevant locations.
+
+Example format:
+
+September 30, 2026 at 11:59 PM Pacific
+
+VARIANT A — SAVINGS-LED COPY:
+
+Eyebrow:
+LIMITED-TIME GRAYLOCK OFFER
+
+Headline:
+This Month, We’re Waiving Standard Website Build Fees.
+
+Body:
+Request your Free Homepage Direction by [DEADLINE_DISPLAY_TEXT]. If Graylock is the right fit and you choose to move forward, we will waive the standard build fee for your approved website scope.
+
+Primary CTA:
+Get My Free Homepage Direction
+
+Dismissal action:
+No thanks
+
+Terms line:
+Applicable monthly plan, scope, and terms apply. Offer ends [DEADLINE_DISPLAY_TEXT].
+
+Optional small factual value line, only if the current standard fee is accurately configured:
+Standard build fees currently begin at [STANDARD_BUILD_FEE_DISPLAY_VALUE].
+
+VARIANT B — HOMEPAGE-DIRECTION-LED COPY:
+
+Eyebrow:
+A LOWER-RISK WAY TO START
+
+Headline:
+See Your Homepage Direction This Month. Your Standard Build Fee Is Waived If You Move Forward.
+
+Body:
+Start with a 15-minute fit call. If Graylock is the right fit, you will see a custom Homepage Direction before deciding whether to move forward. Request by [DEADLINE_DISPLAY_TEXT] to receive the standard build-fee waiver if you proceed.
+
+Primary CTA:
+Get My Free Homepage Direction
+
+Dismissal action:
+No thanks
+
+Terms line:
+Applicable monthly plan, scope, and terms apply. Offer ends [DEADLINE_DISPLAY_TEXT].
+
+Optional small factual value line, only if the current standard fee is accurately configured:
+Standard build fees currently begin at [STANDARD_BUILD_FEE_DISPLAY_VALUE].
+
+CONTROL:
+
+Show no popup.
+
+Do not display a substitute banner, notification, toast, badge, or promotional message in the Control experience.
+
+────────────────────────────────────────
+PART 7 — EXISTING FORM AND CRM ATTRIBUTION
+────────────────────────────────────────
+
+Preserve all existing Homepage Direction / fit-call form fields, validation, consent behavior, routing, notification behavior, and backend lead processing.
+
+Do not require new user-facing fields solely for the experiment.
+
+Add the following hidden metadata to the existing form submission when applicable:
+
+- campaign_id
+- experiment_id
+- experiment_variant
+- anonymous_visitor_id
+- promotion_source
+- popup_trigger_type
+- popup_impression_timestamp
+- popup_cta_clicked_timestamp
+- first_touch_source
+- last_touch_source
+- utm_source
+- utm_medium
+- utm_campaign
+- utm_term
+- utm_content
+- referrer
+- landing_page
+- device_type
+
+Use these values:
+
+promotion_source:
+build_fee_waiver_popup
+
+For normal CTA submissions from visitors assigned to Control, preserve the experiment attribution but use:
+
+promotion_source:
+standard_homepage_cta
+
+For regular CTA submissions by an assigned treatment visitor that did not originate in the popup, preserve the variant and use:
+
+promotion_source:
+standard_homepage_cta
+
+Do not send raw email, phone, business notes, website URL, or other personally identifying data into client-side event logs or third-party analytics. Keep personal form data in the existing secure lead/CRM path only.
+
+────────────────────────────────────────
+PART 8 — EVENT TRACKING
+────────────────────────────────────────
+
+Create a durable server-side or securely stored event-tracking system using the project’s existing database/backend conventions.
+
+Do not rely exclusively on browser console logs, local-only state, or a third-party dashboard that cannot connect later lead status and customer outcomes to the original experiment variant.
+
+Track these events:
+
+1. promo_popup_eligible
+2. promo_popup_assigned
+3. promo_popup_impression
+4. promo_popup_cta_clicked
+5. promo_popup_dismissed
+6. promo_flow_opened
+7. promo_form_started
+8. promo_form_submitted
+9. standard_cta_clicked
+10. standard_form_started
+11. standard_form_submitted
+12. lead_qualified
+13. lead_not_qualified
+14. fit_call_booked
+15. fit_call_held
+16. homepage_direction_delivered
+17. promotion_accepted
+18. monthly_plan_first_payment_collected
+19. launch_completed
+20. refund_or_guarantee_claim
+21. cancellation_or_payment_failure
+
+Each event should store only appropriate, non-sensitive analytics data:
+
+- event_id
+- event_name
+- event_timestamp
+- campaign_id
+- experiment_id
+- experiment_variant
+- anonymous_visitor_id
+- internal_lead_id when available
+- source
+- page_path
+- landing_page
+- referrer
+- UTM values when present
+- device_type
+- trigger type
+- seconds on page
+- scroll depth
+- CTA label
+- dismissal type
+- non-sensitive status/reason code where applicable
+
+For popup dismissals, support these dismissal types:
+
+close_button
+no_thanks
+escape_key
+backdrop_click
+
+Track impressions only when the popup is actually visible, not merely when the visitor is eligible.
+
+────────────────────────────────────────
+PART 9 — INTERNAL DASHBOARD
+────────────────────────────────────────
+
+Build a secure internal dashboard for this experiment.
+
+Preferred route:
+
+/admin/experiments/build-fee-waiver
+
+If the project already has an admin route or authentication system, integrate with that pattern. Do not expose the dashboard publicly.
+
+If role-based access exists, restrict it to authorized admin users. If no role system exists, use a secure server-side allowlist/configuration pattern rather than client-side hiding.
+
+DASHBOARD GOAL:
+
+Allow Graylock to see whether the promotion produces qualified, economically healthy opportunities—not merely popup clicks.
+
+DASHBOARD REQUIREMENTS:
+
+A. CAMPAIGN CONTROL PANEL
+
+Display and allow authorized admins to edit:
+
+- campaign enabled/disabled
+- manual kill switch
+- start date/time
+- end date/time
+- timezone
+- deadline display text
+- experiment stage
+- traffic allocation percentages
+- trigger seconds
+- trigger scroll depth
+- dismissal frequency cap
+- standard build-fee display value
+- monthly-plan disclosure
+- legal terms URL
+- privacy policy URL
+
+Require confirmation before enabling a campaign or changing a live deadline.
+
+Show a clear campaign status:
+
+Draft
+Scheduled
+Live
+Paused
+Expired
+
+Include a prominent “Pause promotion now” action that immediately stops popup display for future impressions.
+
+B. EXPERIMENT HEALTH SUMMARY
+
+Show side-by-side metrics for:
+
+Control
+Variant A — Savings-led
+Variant B — Homepage-Direction-led
+
+Required columns:
+
+- Eligible visitors
+- Assigned visitors
+- Popup impressions
+- Popup view rate
+- Primary CTA clicks
+- Popup CTR
+- Popup dismissals
+- Form starts
+- Form completion
+- Submitted requests
+- Qualified leads
+- Qualification rate
+- Fit calls booked
+- Fit calls held
+- Direction delivered
+- Promotion accepted
+- First monthly payment collected
+- Launches completed
+- Refund/guarantee claims
+- Cancellations/payment failures
+
+Use clear formulas:
+
+Popup CTR = primary CTA clicks / popup impressions
+
+Form completion rate = submitted forms / form starts
+
+Qualified request rate = qualified leads / eligible visitors
+
+Fit-call attendance rate = fit calls held / fit calls booked
+
+First-payment conversion = first monthly payments collected / eligible visitors
+
+Show both raw counts and percentages.
+
+C. FUNNEL VISUALIZATION
+
+Display a side-by-side funnel for each active variant:
+
+Eligible
+→ Impression
+→ CTA click
+→ Form start
+→ Form submitted
+→ Qualified
+→ Fit call booked
+→ Fit call held
+→ Homepage Direction delivered
+→ Promotion accepted
+→ First monthly payment collected
+→ Launch completed
+
+Use clear labels and raw counts.
+
+Do not label a variant “winner” based only on CTR.
+
+D. ORDINARY CTA CANNIBALIZATION PANEL
+
+Show whether the promotion is harming the normal Homepage Direction path.
+
+For each variant, show:
+
+- Standard homepage CTA clicks
+- Standard form starts
+- Standard form submissions
+- Standard qualified leads
+- Promotion-attributed form submissions
+- Promotion-attributed qualified leads
+- Total qualified leads per eligible visitor
+
+This is required because a popup can simply redirect people who would have converted through the existing CTAs anyway.
+
+E. LEAD DETAIL TABLE
+
+Show a filterable table of leads attributed to the experiment.
+
+Columns:
+
+- Lead ID
+- Created date
+- Campaign ID
+- Variant
+- Promotion source
+- Business name
+- Business category
+- Declared website goal
+- Declared timing
+- Lead status
+- Qualification status
+- No-fit reason
+- Fit-call date
+- Fit-call status
+- Homepage Direction status
+- Promotion acceptance status
+- Waived build-fee amount
+- Monthly plan
+- First payment status
+- Launch status
+- Refund/cancellation status
+- Assigned team member
+- Notes
+
+Use existing lead data where available. Do not expose dashboard data to public users.
+
+F. LEAD STATUS MANAGEMENT
+
+Allow authorized team members to update these internal statuses:
+
+new
+contacted
+qualified
+not_qualified
+fit_call_booked
+fit_call_held
+homepage_direction_in_progress
+homepage_direction_delivered
+promotion_accepted
+first_payment_collected
+launched
+refund_or_guarantee_claim
+cancelled
+payment_failed
+closed_lost
+
+Allow these standard no-fit or loss reasons:
+
+not_a_serviceable_business
+out_of_scope
+no_decision_maker
+not_ready
+cannot_sustain_monthly_plan
+no_response
+capacity_limit
+timeline_mismatch
+other
+
+Require a short note for “other.”
+
+G. ECONOMICS AND SERVICE PANEL
+
+For each variant/cohort, display:
+
+- Total waived build-fee amount
+- First monthly payments collected
+- Total monthly payments collected where available
+- Direct delivery cost, if entered
+- Support time/cost, if entered
+- Refund/guarantee claims
+- Cancellations
+- Payment failures
+- Early gross-profit estimate, clearly labeled as an estimate if cost inputs are incomplete
+
+Do not claim profitability if direct cost data is absent.
+
+H. FILTERS AND EXPORT
+
+Support filters for:
+
+- Date range
+- Campaign ID
+- Experiment stage
+- Variant
+- Traffic source
+- UTM campaign
+- Device type
+- Business category
+- Lead status
+- Assigned team member
+- Monthly plan
+
+Allow CSV export of non-sensitive experiment aggregate results and authorized lead records.
+
+I. INTERPRETATION SAFEGUARDS
+
+- Show “Insufficient data for decision” until the admin-configured minimum evaluation period and minimum eligible-visitor count are met.
+- Show raw counts at all times.
+- Do not claim statistical significance unless a valid calculation is implemented and the assumptions are displayed.
+- Do not label a winner based solely on clicks.
+- Include a dashboard guidance note:
+
+“Evaluate variants using qualified requests, held fit calls, first monthly payments, delivery capacity, refunds, cancellations, and customer fit—not click-through rate alone.”
+
+────────────────────────────────────────
+PART 10 — DATA MODEL
+────────────────────────────────────────
+
+Use the existing project data model where possible. Add or extend the minimum durable structures required for the experiment.
+
+Recommended logical entities:
+
+1. promotion_campaigns
+2. experiment_assignments
+3. promotion_events
+4. promotion_lead_attribution
+5. promotion_lead_status_history
+6. promotion_economic_records
+
+Required relationship rules:
+
+- One campaign can have many experiment assignments.
+- One anonymous visitor can have one stable assignment per experiment/campaign.
+- One assignment can have many events.
+- One lead can have one primary experiment attribution record for this campaign.
+- Lead status history must be append-only or retain timestamped history.
+- Payment, launch, refund, and cancellation events must remain connected to the original experiment variant.
+
+Do not store unnecessary form PII in the analytics-event table.
+
+────────────────────────────────────────
+PART 11 — DEVELOPMENT PREVIEW AND QA
+────────────────────────────────────────
+
+Add a development-only preview mechanism so the team can verify every experience without contaminating production results.
+
+In development/preview environments only, support:
+
+?promoPreview=control
+?promoPreview=savings_led
+?promoPreview=direction_led
+
+Requirements:
+
+- Preview mode must visibly state that it is preview-only.
+- Preview mode must not write real production experiment events.
+- Preview mode must not alter persistent production assignments.
+- Preview mode must allow testing desktop and mobile popup behavior.
+- Disable or ignore this override in production unless the user is authenticated as an admin.
+
+QA CHECKLIST:
+
+1. Control users never see a popup.
+2. Variant A and Variant B use identical visual styling.
+3. Variant A and Variant B differ only in approved copy framing.
+4. Popup does not appear before the intro finishes, before 25 seconds, or before 55% scroll.
+5. Popup does not appear when chat or the existing form/modal is open.
+6. Popup does not reappear after dismissal or form conversion within the active campaign.
+7. Popup stops automatically at the configured deadline.
+8. CTA opens the existing Homepage Direction / fit-call form.
+9. Existing CTA behavior continues to work for every variant.
+10. Hidden attribution fields reach the existing lead workflow.
+11. Events are stored durably and visible in the admin dashboard.
+12. No raw email, phone, business notes, or sensitive form data enters client-side event tracking.
+13. Dashboard access is restricted to authorized users.
+14. Mobile modal is readable, dismissible, keyboard accessible where relevant, and does not create horizontal overflow.
+15. Existing homepage performance, form flow, navigation, and design remain intact.
+
+FINAL DELIVERY:
+
+After implementation, provide:
+
+1. The exact files/components changed.
+2. The campaign configuration location and how to activate or pause a campaign.
+3. The dashboard route and required admin-access method.
+4. The event names implemented.
+5. The hidden attribution fields passed to the existing form.
+6. The default live allocation configuration.
+7. Confirmation that Variant B is built but disabled by default.
+8. Confirmation that no fake countdown, fake scarcity, popup-close deadline, image, stock visual, or AI-generated visual was added.
+9. Confirmation that the current homepage and existing lead flow remain unchanged outside this experiment integration.

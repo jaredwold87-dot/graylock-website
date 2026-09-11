@@ -6,7 +6,7 @@
 - [Hero device positioning](hero-fullbleed-positioning.md) — can't move devices in a full-bleed object-cover hero via CSS; recompose the image (extend canvas) + cap headline width.
 - [theme-black body flash](theme-black-body-flash.md) — body/html bg must be literal #0F0F0F; bg-charcoal default (#0F1E35 navy) flashed blue on refresh since body is outside theme-black.
 - [gtag dataLayer testing](gtag-datalayer-testing.md) — plain gtag.js pushes Arguments (["event",name,props]), not {event:name}; filter e[0]==='event' or e2e checks false-negative.
-- [Lead form test pollution](lead-form-test-pollution.md) — any lead submit (browser or curl, even dev) creates real leads in Tim's production GOS CRM; e2e must never click submit.
+- [Lead delivery and testing](lead-form-test-pollution.md) — Resend-only notifications and private app records; no external CRM. Never submit real leads during tests.
 - [Campaign landing CTA scope](campaign-landing-cta-scope.md) — only in-page CTAs + navbar are campaign-aware; global footer Contact link stays plain by design (realtor precedent).
 - [WD guarantee wording](wd-guarantee-links.md) — ToS says fees non-refundable; guarantee trust lines link /pricing (+#stay-current-guarantee), never ToS; don't expand the wording.
 - [Device cutout cleanup](device-cutout-cleanup.md) — bg removal leaves shadow blobs/backdrop slices on device shots; magenta-flatten to inspect, erase alpha rects, trim, no card wrapper.

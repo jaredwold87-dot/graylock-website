@@ -1,6 +1,7 @@
 import app from "./app";
 import { logger } from "./lib/logger";
 import { pool } from "@workspace/db";
+import { runPromotionMigrations } from "./lib/promotion-migrations";
 
 const port = Number(process.env["PORT"] || 3000);
 
@@ -11,6 +12,7 @@ if (Number.isNaN(port) || port <= 0) {
 async function runMigrations() {
   const client = await pool.connect();
   try {
+    await runPromotionMigrations(client);
     await client.query(`
       CREATE TABLE IF NOT EXISTS chat_conversations (
         id SERIAL PRIMARY KEY,
@@ -44,8 +46,6 @@ runMigrations()
     });
   })
   .catch((err) => {
-    logger.error({ err }, "Failed to run migrations, starting server anyway");
-    app.listen(port, () => {
-      logger.info({ port }, "Server listening (migrations failed)");
-    });
+    logger.error({ err }, "Failed to run migrations; server will not start");
+    process.exitCode = 1;
   });

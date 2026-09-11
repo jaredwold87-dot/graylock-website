@@ -1,4 +1,4 @@
-import { useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent, type SyntheticEvent } from "react";
 import { CheckCircle, ChevronDown, Loader2, AlertCircle } from "lucide-react";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
@@ -7,6 +7,14 @@ import { trackCabinetMakerEvent } from "@/lib/cabinetMakerAnalytics";
 import { getCabinetMakerCampaignParams } from "@/lib/cabinetMakerLinks";
 import { trackAuctioneerEvent } from "@/lib/auctioneerAnalytics";
 import { getAuctioneerCampaignParams } from "@/lib/auctioneerLinks";
+import {
+  createClientEventId,
+  getPromotionAttribution,
+  mergePromotionAttribution,
+  toLeadAttributionPayload,
+  trackPromotionEvent,
+  type PromotionLeadAttribution,
+} from "@/lib/promotion";
 
 interface BookCallFormProps {
   /** Industry context ("real-estate" on realtor CTAs, "" otherwise). */
@@ -21,6 +29,8 @@ interface BookCallFormProps {
   variant?: "modal" | "page";
   /** Use the compact two-column presentation inside the booking dialog. */
   compact?: boolean;
+  /** Hidden experiment attribution; never rendered as a user-facing field. */
+  promotionMetadata?: PromotionLeadAttribution | null;
 }
 
 const INPUT_BASE =
@@ -98,6 +108,7 @@ export function BookCallForm({
   landingPagePath = "",
   variant = "modal",
   compact = false,
+  promotionMetadata = null,
 }: BookCallFormProps) {
   const [name, setName] = useState("");
   const [businessName, setBusinessName] = useState("");
@@ -148,11 +159,19 @@ export function BookCallForm({
   const [rtErrors, setRtErrors] = useState<{ phone?: string; website?: string }>({});
   const fitCallStarted = useRef(false);
   const demoStarted = useRef(false);
+  const promotionFormStarted = useRef(false);
+  const idempotencyKey = useRef<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
   const isPage = variant === "page" || compact;
+  const attribution = mergePromotionAttribution(
+    getPromotionAttribution(),
+    promotionMetadata,
+  );
+  const isPromotionFlow = attribution?.promotion_source === "build_fee_waiver_popup";
+  const isPreviewOnly = Boolean(attribution?.preview);
 
   const styles = {
     input: isPage
@@ -241,6 +260,18 @@ export function BookCallForm({
       demoStarted.current = true;
       trackAuctioneerEvent("auctioneer_demo_start", utmParams);
     }
+  };
+
+  const handleMeaningfulInput = (event: SyntheticEvent<HTMLFormElement>) => {
+    if (promotionFormStarted.current) return;
+    const target = event.target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+    if (!target || (typeof target.value === "string" && !target.value.trim())) return;
+    promotionFormStarted.current = true;
+    trackPromotionEvent(isPromotionFlow ? "promo_form_started" : "standard_form_started", {
+      page_path: typeof window !== "undefined" ? window.location.pathname : "/",
+      source: attribution?.promotion_source || "standard_homepage_cta",
+      trigger_type: attribution?.popup_trigger_type,
+    });
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -336,6 +367,14 @@ export function BookCallForm({
       setAucErrors(errs);
       if (Object.keys(errs).length > 0) return;
     }
+    if (isPreviewOnly) {
+      // Preview must exercise the current form without sending a lead to the
+      // primary API or notification path.
+      setError("");
+      setSubmitted(true);
+      return;
+    }
+
     setIsSubmitting(true);
 
     const submittedAt = new Date().toISOString();
@@ -353,7 +392,24 @@ export function BookCallForm({
           ? getAuctioneerCampaignParams()
           : {};
 
+    const promotionPayload = toLeadAttributionPayload(attribution);
+    const mergedUtmParams = {
+      ...Object.fromEntries(
+        Object.entries(promotionPayload).filter(([key]) => key.startsWith("utm_")),
+      ),
+      ...Object.fromEntries(
+        Object.entries(campaignParams).filter(([key]) => key.startsWith("utm_")),
+      ),
+      ...utmParams,
+    };
+    const promotionSource =
+      promotionPayload.promotion_source ||
+      (Object.keys(promotionPayload).length ? "standard_homepage_cta" : "");
+
+    const submissionIdempotencyKey =
+      idempotencyKey.current || (idempotencyKey.current = createClientEventId());
     const payload = {
+      idempotency_key: submissionIdempotencyKey,
       first_name: name.trim(),
       business_name: businessName.trim(),
       email: email.trim(),
@@ -428,91 +484,10 @@ export function BookCallForm({
             Object.entries(campaignParams).filter(([key]) => key.startsWith("utm_")),
           )
         : {}),
-      ...utmParams,
+      ...mergedUtmParams,
+      ...promotionPayload,
+      ...(promotionSource ? { promotion_source: promotionSource } : {}),
     };
-
-    const utmSummary = Object.entries(utmParams)
-      .map(([k, v]) => `${k}=${v}`)
-      .join(", ");
-
-    // Fire-and-forget copy to the GOS public lead endpoint (same behavior as
-    // the previous form; must never block or fail the primary submission).
-    fetch(
-      "https://graylock-os-ymwca.sevalla.app/api/public/leads/99c58e46-33ee-4c7c-ab23-eeb7badcc57b",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "omit",
-        body: JSON.stringify({
-          name: payload.first_name,
-          email: payload.email,
-          phone: payload.phone || undefined,
-          subject: payload.business_name || undefined,
-          message: [
-            isWellDriller
-              ? "Well Driller Custom Demo request"
-              : isCabinetMaker
-                ? "Cabinet Maker Custom Demo request"
-                : isAuctioneer
-                  ? "Auctioneer Custom Demo request"
-                  : isRealtor
-                    ? "Real Estate Website + IDX Fit Call request"
-                    : "Discovery call request",
-            isRealtor && "Lead source: Realtor Landing Page",
-            isRealtor && role && `Role: ${role}`,
-            isRealtor && market.trim() && `Market / service area: ${market.trim()}`,
-            isRealtor && mls.trim() && `MLS: ${mls.trim()}`,
-            isRealtor && needSearch && `Needs property search: ${needSearch}`,
-            isRealtor && launchTiming && `Target launch timing: ${launchTiming}`,
-            isRealtor && leadParams["intent"] && `Intent: ${leadParams["intent"]}`,
-            isWellDriller && "Lead source: Well Driller Landing Page",
-            isWellDriller && campaignParams["market"] && `Market: ${campaignParams["market"]}`,
-            isWellDriller && campaignParams["rep"] && `Rep: ${campaignParams["rep"]}`,
-            isWellDriller && campaignParams["source"] && `Source: ${campaignParams["source"]}`,
-            isWellDriller && serviceArea.trim() && `Service area: ${serviceArea.trim()}`,
-            isWellDriller && mainServices.length > 0 && `Main services: ${mainServices.join(", ")}`,
-            isWellDriller && desiredJobs.trim() && `Desired jobs: ${desiredJobs.trim()}`,
-            isWellDriller && websiteGoal.trim() && `Website goal: ${websiteGoal.trim()}`,
-            isWellDriller && leadParams["stated_goal"] && `Stated goal: ${leadParams["stated_goal"]}`,
-            isWellDriller && preferredContact && `Preferred contact: ${preferredContact}`,
-            isCabinetMaker && "Lead source: Cabinet Maker Landing Page",
-            isCabinetMaker && campaignParams["market"] && `Market: ${campaignParams["market"]}`,
-            isCabinetMaker && campaignParams["rep"] && `Rep: ${campaignParams["rep"]}`,
-            isCabinetMaker && campaignParams["source"] && `Source: ${campaignParams["source"]}`,
-            isCabinetMaker && serviceArea.trim() && `Service area: ${serviceArea.trim()}`,
-            isCabinetMaker &&
-              mainProjectTypes.length > 0 &&
-              `Main project types: ${mainProjectTypes.join(", ")}`,
-            isCabinetMaker &&
-              desiredOutcomes.length > 0 &&
-              `Wants more of: ${desiredOutcomes.join(", ")}`,
-            isCabinetMaker && launchTiming && `Target launch timing: ${launchTiming}`,
-            isCabinetMaker && leadParams["intent"] && `Intent: ${leadParams["intent"]}`,
-            isAuctioneer && "Lead source: Auctioneer Landing Page",
-            isAuctioneer && campaignParams["market"] && `Market: ${campaignParams["market"]}`,
-            isAuctioneer && campaignParams["rep"] && `Rep: ${campaignParams["rep"]}`,
-            isAuctioneer && campaignParams["source"] && `Source: ${campaignParams["source"]}`,
-            isAuctioneer && serviceArea.trim() && `Service area: ${serviceArea.trim()}`,
-            isAuctioneer &&
-              auctionTypes.length > 0 &&
-              `Auction types: ${auctionTypes.join(", ")}`,
-            isAuctioneer &&
-              desiredOutcomes.length > 0 &&
-              `Wants more of: ${desiredOutcomes.join(", ")}`,
-            isAuctioneer && launchTiming && `Target launch timing: ${launchTiming}`,
-            isAuctioneer && leadParams["intent"] && `Intent: ${leadParams["intent"]}`,
-            resolvedLandingPage && `Page: ${resolvedLandingPage}`,
-            payload.website_url && `Website: ${payload.website_url}`,
-            payload.heard_about_us && `Heard about us: ${payload.heard_about_us}`,
-            payload.note && `Note: ${payload.note}`,
-            utmSummary && `UTM: ${utmSummary}`,
-            `Submitted: ${submittedAt}`,
-          ]
-            .filter(Boolean)
-            .join("\n"),
-        }),
-      },
-    ).catch(() => {});
 
     try {
       const res = await fetch(`${import.meta.env.BASE_URL || "/"}api/leads`, {
@@ -552,6 +527,11 @@ export function BookCallForm({
           ...utmParams,
         });
       }
+      trackPromotionEvent(isPromotionFlow ? "promo_form_submitted" : "standard_form_submitted", {
+        page_path: resolvedLandingPage || (typeof window !== "undefined" ? window.location.pathname : "/"),
+        source: promotionSource || "standard_homepage_cta",
+        trigger_type: attribution?.popup_trigger_type,
+      });
       setSubmitted(true);
     } catch (err) {
       console.error("Lead submission error:", err);
@@ -570,14 +550,18 @@ export function BookCallForm({
         <h3 className={variant === "page"
           ? "text-4xl md:text-5xl font-display text-[#0F0F0F] leading-tight mb-6"
           : "text-4xl md:text-5xl font-display text-[#0F0F0F] uppercase tracking-tight mb-4"}>
-          {isWellDriller || isCabinetMaker || isAuctioneer ? (
+          {isPreviewOnly ? (
+            <>Preview complete.</>
+          ) : isWellDriller || isCabinetMaker || isAuctioneer ? (
             <>You're in.</>
           ) : (
             <>You're all set{name ? `, ${name.split(" ")[0]}` : ""}!</>
           )}
         </h3>
         <p className="text-[#0F0F0F]/70 font-sans text-lg md:text-xl leading-relaxed max-w-md mx-auto">
-          {isWellDriller || isCabinetMaker || isAuctioneer ? (
+          {isPreviewOnly ? (
+            <>Preview only — no request was sent.</>
+          ) : isWellDriller || isCabinetMaker || isAuctioneer ? (
             <>
               We received your demo request and will follow up to learn the few
               details we need to build something relevant—not generic.
@@ -598,6 +582,7 @@ export function BookCallForm({
     <form
       onSubmit={handleSubmit}
       onFocusCapture={handleFirstFocus}
+      onChangeCapture={handleMeaningfulInput}
       noValidate={false}
       className={styles.formGap}
     >
@@ -1407,13 +1392,17 @@ export function BookCallForm({
                   "Request My Custom Demo"
                 ) : isRealtor ? (
                   "Book My Fit Call"
+                ) : isPreviewOnly ? (
+                  "Preview request — not sent"
                 ) : (
                   "Request My Call"
                 )}
               </button>
 
               <p className="text-[#0F0F0F]/60 text-sm font-sans text-center mt-2">
-                {isWellDriller || isCabinetMaker || isAuctioneer
+                {isPreviewOnly
+                  ? "Preview only — no request will be sent."
+                  : isWellDriller || isCabinetMaker || isAuctioneer
                   ? "Takes under a minute. No pressure, no obligation."
                   : isRealtor
                     ? "Takes under a minute. We'll reach out within one business day to schedule your 15-minute fit call."

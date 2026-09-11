@@ -1,10 +1,10 @@
 ---
-name: Lead form testing pollutes real CRM
-description: Submitting the site's booking/lead form (browser or curl) creates real leads in Tim's production GOS CRM, even from dev.
+name: Lead delivery and safe testing
+description: Resend-only lead delivery decision and prohibition on real test submissions.
 ---
 
-The rule: never submit the discovery-call/lead form during automated tests, and avoid curl-testing `POST api/leads` unless necessary — if unavoidable, use obviously-labeled data like "Dev Test — ignore" and tell Tim so he can delete it.
+Do not submit real lead forms during automated tests. Mock outbound delivery and isolate test database records.
 
-**Why:** Lead capture has TWO paths that both hit Tim's live GOS CRM regardless of environment: (1) the browser posts directly to the public GOS lead endpoint (fire-and-forget, sevalla URL hardcoded client-side), and (2) the api-server forwards to `$GRAYLOCK_API_URL/api/webhook/lead` — and dev's GRAYLOCK_API_URL points at the same production GOS. A browser submit therefore creates two junk lead entries. (Resend email is dev-safe: RESEND_API_KEY is unset in dev.)
+**Why:** Earlier testing could create production leads. On 2026-09-11 the user explicitly corrected the architecture: no external CRM; private application records and Resend email only. Email credentials may point at real recipients even in development.
 
-**How to apply:** E2E test plans for booking flows must say "do NOT click submit" and verify via modal state + dataLayer instead. Server-side changes can be verified with one labeled curl (creates one GOS entry via webhook) — mention the cleanup to Tim.
+**How to apply:** Never restore the old external lead forwarding based on historical code or notes. Verify public form interaction without submitting; test persistence and failure handling with isolated fixtures and mocked Resend. Preview flows must never send real requests.

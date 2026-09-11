@@ -134,6 +134,15 @@ export function ChatWidget() {
     }
   }, [isOpen, conversationId]);
 
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.dataset.chatOpen = isOpen ? "true" : "false";
+    window.dispatchEvent(new CustomEvent("graylock:chat-state", { detail: { open: isOpen } }));
+    return () => {
+      delete document.body.dataset.chatOpen;
+    };
+  }, [isOpen]);
+
   const handleStartConversation = async (name: string, email: string) => {
     setIsLoading(true);
     setError("");

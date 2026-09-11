@@ -10,6 +10,12 @@ import {
   type ReactNode,
 } from "react";
 import { useSearch } from "wouter";
+import {
+  getPromotionAttribution,
+  mergePromotionAttribution,
+  trackPromotionEvent,
+  type PromotionLeadAttribution,
+} from "@/lib/promotion";
 
 /** Non-utm campaign fields a CTA may carry into the lead payload. */
 const LEAD_PARAM_KEYS = ["stated_goal", "intent"] as const;
@@ -21,6 +27,8 @@ export interface OpenBookCallOptions {
   utmParams?: Record<string, string>;
   /** Non-utm lead context from the CTA href (e.g. stated_goal, intent). */
   leadParams?: Record<string, string>;
+  /** Experiment attribution supplied by the promotion popup, when applicable. */
+  promotion?: PromotionLeadAttribution;
 }
 
 interface BookCallContextType {
@@ -28,6 +36,7 @@ interface BookCallContextType {
   industry: string;
   utmParams: Record<string, string>;
   leadParams: Record<string, string>;
+  promotion: PromotionLeadAttribution | null;
   openBookCall: (opts?: OpenBookCallOptions) => void;
   closeBookCall: () => void;
 }
@@ -78,10 +87,21 @@ export function useBookingCtaClick(
     params.forEach((value, key) => {
       if (key.startsWith("utm_")) utm[key] = value;
     });
+    trackPromotionEvent("standard_cta_clicked", {
+      page_path: typeof window !== "undefined" ? window.location.pathname : "/",
+      source: "standard_homepage_cta",
+      cta_label: "standard_homepage_cta",
+    });
     bookCall.openBookCall({
       industry: params.get("industry") ?? "",
       utmParams: utm,
       leadParams: leadParamsFromSearchParams(params),
+      promotion: mergePromotionAttribution(getPromotionAttribution(), {
+        promotion_source: "standard_homepage_cta",
+        popup_trigger_type: undefined,
+        popup_impression_timestamp: undefined,
+        popup_cta_clicked_timestamp: undefined,
+      }) ?? undefined,
     });
   };
 }
@@ -101,6 +121,7 @@ export function BookCallProvider({ children }: { children: ReactNode }) {
   const [industry, setIndustry] = useState("");
   const [utmParams, setUtmParams] = useState<Record<string, string>>({});
   const [leadParams, setLeadParams] = useState<Record<string, string>>({});
+  const [promotion, setPromotion] = useState<PromotionLeadAttribution | null>(null);
 
   const openBookCall = useCallback((opts: OpenBookCallOptions = {}) => {
     // Page-level utm params (e.g. from an ad click) merged under CTA-level ones.
@@ -109,10 +130,36 @@ export function BookCallProvider({ children }: { children: ReactNode }) {
     setIndustry(opts.industry ?? "");
     setUtmParams({ ...pageUtms, ...(opts.utmParams ?? {}) });
     setLeadParams(opts.leadParams ?? {});
+    const nextPromotion = mergePromotionAttribution(
+      getPromotionAttribution(),
+      opts.promotion ?? {
+        promotion_source: "standard_homepage_cta",
+        popup_trigger_type: undefined,
+        popup_impression_timestamp: undefined,
+        popup_cta_clicked_timestamp: undefined,
+      },
+    );
+    setPromotion(nextPromotion);
+    if (opts.promotion?.promotion_source === "build_fee_waiver_popup") {
+      trackPromotionEvent("promo_flow_opened", {
+        page_path: typeof window !== "undefined" ? window.location.pathname : "/",
+        source: "build_fee_waiver_popup",
+        trigger_type: opts.promotion.popup_trigger_type,
+      });
+    }
     setIsOpen(true);
   }, []);
 
   const closeBookCall = useCallback(() => setIsOpen(false), []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.dataset.bookingOpen = isOpen ? "true" : "false";
+    window.dispatchEvent(new CustomEvent("graylock:booking-state", { detail: { open: isOpen } }));
+    return () => {
+      delete document.body.dataset.bookingOpen;
+    };
+  }, [isOpen]);
 
   // Deep-link support: any URL carrying ?book=1 opens the form on arrival
   // (with industry/utm context read from that same URL).
@@ -129,8 +176,8 @@ export function BookCallProvider({ children }: { children: ReactNode }) {
   }, [search, openBookCall]);
 
   const value = useMemo(
-    () => ({ isOpen, industry, utmParams, leadParams, openBookCall, closeBookCall }),
-    [isOpen, industry, utmParams, leadParams, openBookCall, closeBookCall],
+    () => ({ isOpen, industry, utmParams, leadParams, promotion, openBookCall, closeBookCall }),
+    [isOpen, industry, utmParams, leadParams, promotion, openBookCall, closeBookCall],
   );
 
   return <BookCallContext.Provider value={value}>{children}</BookCallContext.Provider>;

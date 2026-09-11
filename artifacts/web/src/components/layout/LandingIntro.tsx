@@ -40,6 +40,12 @@ export function LandingIntro() {
   const [isVisible, setIsVisible] = useState(introConfig.shouldShow);
   const [isExiting, setIsExiting] = useState(false);
 
+  useEffect(() => {
+    if (!introConfig.shouldShow) {
+      window.dispatchEvent(new Event("graylock:intro-complete"));
+    }
+  }, [introConfig.shouldShow]);
+
   const completeIntro = useCallback(() => {
     setIsExiting(true);
 
@@ -52,6 +58,7 @@ export function LandingIntro() {
         }
       }
       setIsVisible(false);
+      window.dispatchEvent(new Event("graylock:intro-complete"));
     }, 850);
   }, [introConfig.isPreview]);
 

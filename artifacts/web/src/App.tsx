@@ -13,6 +13,7 @@ import { prefetchNavAssets } from "@/lib/prefetchNavAssets";
 import { GlobalSchema } from "@/components/GlobalSchema";
 import { BookCallProvider } from "@/components/booking/BookCallContext";
 import { BookCallModal } from "@/components/booking/BookCallModal";
+import { PromotionProvider } from "@/components/promotion";
 import Home from "@/pages/Home";
 import HowItWorks from "@/pages/HowItWorks";
 import Pricing from "@/pages/Pricing";
@@ -50,6 +51,7 @@ const WebsiteDesign = lazy(() => import("@/pages/strategy/WebsiteDesign"));
 const SEOPage = lazy(() => import("@/pages/strategy/SEO"));
 const GoogleBusinessProfilePage = lazy(() => import("@/pages/strategy/GoogleBusinessProfile"));
 const LeadGenerationPage = lazy(() => import("@/pages/strategy/LeadGeneration"));
+const BuildFeeWaiverDashboard = lazy(() => import("@/pages/admin/BuildFeeWaiverDashboard"));
 
 const queryClient = new QueryClient();
 
@@ -91,8 +93,17 @@ function NavPrefetcher() {
 
 function Router() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#0F0F0F]" />}>
+    <Suspense
+      fallback={
+        <main className="app-fade-in flex min-h-screen items-center justify-center bg-[#0e1117] px-5 py-16 text-[#f3f1ed]">
+          <div className="border border-white/10 bg-[#171b23] px-6 py-5 text-sm text-[#d8dce3] shadow-xl">
+            Loading page…
+          </div>
+        </main>
+      }
+    >
       <Switch>
+        <Route path="/admin/experiments/build-fee-waiver" component={BuildFeeWaiverDashboard} />
         <Route path="/" component={Home} />
         <Route path="/how-it-works" component={HowItWorks} />
         <Route path="/pricing" component={Pricing} />
@@ -148,6 +159,24 @@ function Router() {
   );
 }
 
+function SiteContent() {
+  const [location] = useLocation();
+  if (location.startsWith("/admin/")) {
+    return <Router />;
+  }
+  return (
+    <PromotionProvider>
+      <PageTracker />
+      <NavPrefetcher />
+      <Layout>
+        <Router />
+      </Layout>
+      <BookCallModal />
+      <LandingIntro />
+    </PromotionProvider>
+  );
+}
+
 function App() {
   return (
     <HelmetProvider>
@@ -156,15 +185,9 @@ function App() {
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
             <GlobalSchema />
             <ScrollToTop />
-            <PageTracker />
-            <NavPrefetcher />
             <SiteSettingsProvider>
               <BookCallProvider>
-                <Layout>
-                  <Router />
-                </Layout>
-                <BookCallModal />
-                <LandingIntro />
+                <SiteContent />
               </BookCallProvider>
             </SiteSettingsProvider>
           </WouterRouter>

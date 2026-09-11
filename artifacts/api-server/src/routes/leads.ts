@@ -1,10 +1,74 @@
 import { Router, type Request, type Response } from "express";
 import { Resend } from "resend";
+import { createHash, randomUUID } from "node:crypto";
+import { pool } from "@workspace/db";
 import { logger } from "../lib/logger";
+import {
+  assignmentByToken,
+  requirePromotionAdmin,
+  requirePromotionCsrf,
+  requirePromotionOrigin,
+  toSnakeMetadata,
+} from "./promotion";
 
 const leadsRouter = Router();
+type PoolClientLike = {
+  query<T = unknown>(text: string, values?: unknown[]): Promise<T>;
+  release(): void;
+};
+
+export function resolveLeadConflict(
+  rows: Array<Record<string, unknown>>,
+  assignmentId: number,
+  submissionId: string,
+  submissionPayloadHash: string,
+): { conflict: false; internalLeadId: string } | { conflict: true } {
+  const bySubmission = rows.find((row) => String(row.submission_id) === submissionId);
+  const byAssignment = rows.find((row) => String(row.assignment_id) === String(assignmentId));
+  const conflictingAssignment = bySubmission &&
+    String(bySubmission.assignment_id ?? "") !== String(assignmentId);
+  const conflictingSubmission = bySubmission && byAssignment &&
+    String(byAssignment.submission_id) !== submissionId;
+  const conflictingPayload = bySubmission?.submission_payload_hash &&
+    String(bySubmission.submission_payload_hash) !== submissionPayloadHash;
+  if (conflictingAssignment || conflictingSubmission || conflictingPayload || !bySubmission && !byAssignment) {
+    return { conflict: true };
+  }
+  return {
+    conflict: false,
+    internalLeadId: String((bySubmission ?? byAssignment)?.internal_lead_id),
+  };
+}
+
+export function notificationLeaseDecision(
+  status: string,
+  leaseUntil: string | Date | null | undefined,
+  attemptedAt: string | Date | null | undefined,
+  now = Date.now(),
+): "sent" | "busy" | "retryable" | "manual_review" | "unavailable" {
+  if (status === "sent") return "sent";
+  if (status === "manual_review") return "manual_review";
+  const lease = leaseUntil ? new Date(leaseUntil).getTime() : 0;
+  const stale = status === "sending" && lease <= now;
+  if (status === "failed" || stale) {
+    const attempted = attemptedAt ? new Date(attemptedAt).getTime() : 0;
+    return stale && attempted > 0 && now - attempted >= 24 * 60 * 60 * 1000
+      ? "manual_review"
+      : "retryable";
+  }
+  return "busy";
+}
+
+export async function sendNotificationWithIdempotency<TPayload extends object, TResult>(
+  sender: { send: (payload: TPayload, options: { idempotencyKey: string }) => Promise<TResult> },
+  payload: TPayload,
+  idempotencyKey: string,
+): Promise<TResult> {
+  return sender.send(payload, { idempotencyKey });
+}
 
 interface LeadPayload {
+  idempotency_key: string;
   first_name: string;
 
   business_name: string;
@@ -96,11 +160,433 @@ interface LeadPayload {
   intent?: string;
 
   referrer?: string;
+
+  // Promotion attribution is hidden metadata supplied by the existing form.
+  // The assignment token is validated server-side and never trusted for the
+  // variant value sent downstream.
+  assignment_token?: string;
+  campaign_id?: string;
+  experiment_id?: string;
+  experiment_variant?: string;
+  anonymous_visitor_id?: string;
+  promotion_source?: string;
+  popup_trigger_type?: string;
+  popup_impression_timestamp?: string;
+  popup_cta_clicked_timestamp?: string;
+  first_touch_source?: string;
+  last_touch_source?: string;
+  device_type?: string;
+  consent?: boolean;
+  terms_consent?: boolean;
+  privacy_consent?: boolean;
+  marketing_consent?: boolean;
+  sms_consent?: boolean;
 }
 
 leadsRouter.post("/leads", async (req: Request, res: Response) => {
-  const payload: LeadPayload = req.body;
+  const payload: LeadPayload = req.body && typeof req.body === "object" ? req.body : {};
+  const isRealtorSubmission =
+    payload.industry === "real-estate" || payload.lead_source_label === "Realtor Landing Page";
+  const firstName = typeof payload.first_name === "string" ? payload.first_name.trim() : "";
+  const businessName = typeof payload.business_name === "string" ? payload.business_name.trim() : "";
+  const email = typeof payload.email === "string" ? payload.email.trim().toLowerCase() : "";
+  if (
+    typeof payload.idempotency_key !== "string" ||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(payload.idempotency_key)
+  ) {
+    res.status(400).json({ error: "Valid idempotency_key is required" });
+    return;
+  }
+  for (const consentField of [
+    "consent",
+    "terms_consent",
+    "privacy_consent",
+    "marketing_consent",
+    "sms_consent",
+  ] as const) {
+    if (payload[consentField] !== undefined && typeof payload[consentField] !== "boolean") {
+      res.status(400).json({ error: `${consentField} must be boolean when provided` });
+      return;
+    }
+  }
+  if (
+    firstName.length === 0 ||
+    (!isRealtorSubmission && businessName.length === 0) ||
+    firstName.length > 120 ||
+    businessName.length > 240 ||
+    email.length > 320 ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  ) {
+    res.status(400).json({ error: "Valid name, business name, and email are required" });
+    return;
+  }
+  payload.first_name = firstName;
+  payload.business_name = businessName;
+  payload.email = email;
+  const submissionPayloadHash = createHash("sha256")
+    .update(JSON.stringify(
+      Object.fromEntries(
+        Object.entries(payload)
+          .filter(([key]) => key !== "assignment_token")
+          .sort(([left], [right]) => left.localeCompare(right)),
+      ),
+    ))
+    .digest("hex");
   const submittedAt = payload.submitted_at || new Date().toISOString();
+  let internalLeadId: string = randomUUID();
+  const notificationIdempotencyKey = `lead-notification-${internalLeadId}`;
+  // The client-facing idempotency key is the durable submission identifier
+  // used by the existing lead store's unique submission_id column.
+  const submissionId = payload.idempotency_key;
+
+  let promotionAssignment: Awaited<ReturnType<typeof assignmentByToken>> = null;
+  const hasPromotionMetadata = Boolean(
+    payload.assignment_token ||
+    payload.campaign_id ||
+    payload.experiment_id ||
+    payload.experiment_variant ||
+    payload.anonymous_visitor_id ||
+    payload.promotion_source,
+  );
+  if (hasPromotionMetadata) {
+    if (
+      !payload.assignment_token ||
+      typeof payload.assignment_token !== "string" ||
+      payload.assignment_token.length > 160 ||
+      !/^[A-Za-z0-9_-]+$/.test(payload.assignment_token)
+    ) {
+      res.status(400).json({ error: "Valid promotion assignment metadata is required" });
+      return;
+    }
+    promotionAssignment = await assignmentByToken(payload.assignment_token);
+    if (!promotionAssignment) {
+      res.status(400).json({ error: "Invalid promotion assignment metadata" });
+      return;
+    }
+    const { assignment, campaign } = promotionAssignment;
+    if (
+      (payload.campaign_id && payload.campaign_id !== campaign.campaignId) ||
+      (payload.experiment_id && payload.experiment_id !== assignment.experimentId) ||
+      (payload.experiment_variant && payload.experiment_variant !== assignment.experimentVariant) ||
+      (payload.anonymous_visitor_id && payload.anonymous_visitor_id !== assignment.anonymousVisitorId) ||
+      (payload.promotion_source &&
+        !["build_fee_waiver_popup", "standard_homepage_cta"].includes(payload.promotion_source)) ||
+      (payload.promotion_source === "build_fee_waiver_popup" &&
+        assignment.experimentVariant === "control")
+    ) {
+      res.status(400).json({ error: "Promotion attribution does not match the assignment" });
+      return;
+    }
+  }
+  const promotionMetadata = promotionAssignment
+    ? toSnakeMetadata(promotionAssignment.assignment)
+    : null;
+  const promotionSource = promotionAssignment
+    ? payload.promotion_source || "standard_homepage_cta"
+    : "standard_homepage_cta";
+  let storedLead = false;
+  if (promotionAssignment) {
+    const promotionTimestamp = (value: string | undefined): Date | null => {
+      if (!value) return null;
+      const parsed = new Date(value);
+      return Number.isNaN(parsed.getTime()) ? null : parsed;
+    };
+    try {
+      const { assignment, campaign } = promotionAssignment;
+      const client = await pool.connect();
+      try {
+        await client.query("BEGIN");
+        const inserted = await client.query(
+        `
+          INSERT INTO promotion_lead_attribution (
+            submission_id, submission_payload_hash, internal_lead_id, assignment_id, campaign_id, experiment_id,
+            experiment_variant, anonymous_visitor_id, promotion_source,
+            popup_trigger_type, popup_impression_timestamp,
+            popup_cta_clicked_timestamp, first_touch_source, last_touch_source,
+            utm_source, utm_medium, utm_campaign, utm_term, utm_content,
+            referrer, landing_page, device_type, business_name, first_name,
+            email, phone, note, website_url, primary_goal, service_area,
+            has_website, ideal_customer, branding_notes, heard_about_us,
+            submitted_at, business_category, declared_website_goal, declared_timing,
+            email_notification_idempotency_key
+          ) VALUES (
+            $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,
+            $20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,
+            $36,$37,$38,$39
+          )
+          ON CONFLICT DO NOTHING
+          RETURNING internal_lead_id
+        `,
+        [
+          submissionId,
+          submissionPayloadHash,
+          internalLeadId,
+          assignment.id,
+          campaign.campaignId,
+          assignment.experimentId,
+          assignment.experimentVariant,
+          assignment.anonymousVisitorId,
+          promotionSource,
+          payload.popup_trigger_type || null,
+          promotionTimestamp(payload.popup_impression_timestamp),
+          promotionTimestamp(payload.popup_cta_clicked_timestamp),
+          assignment.firstTouchSource,
+          assignment.lastTouchSource,
+          assignment.utmSource,
+          assignment.utmMedium,
+          assignment.utmCampaign,
+          assignment.utmTerm,
+          assignment.utmContent,
+          assignment.referrer,
+          assignment.landingPage,
+          assignment.deviceType,
+          payload.business_name || null,
+          payload.first_name || null,
+          payload.email || null,
+          payload.phone || null,
+          payload.note || null,
+          payload.website_url || null,
+          payload.primary_goal || null,
+          payload.service_area || null,
+          typeof payload.has_website === "boolean" ? payload.has_website : null,
+          payload.ideal_customer || null,
+          payload.branding_notes || null,
+          payload.heard_about_us || null,
+          submittedAt,
+          payload.industry || null,
+          payload.website_goal || payload.primary_goal || null,
+          payload.launch_timing || null,
+          notificationIdempotencyKey,
+        ],
+        );
+        storedLead = true;
+        if ((inserted.rowCount ?? 0) === 0) {
+          const existingResult = await client.query(
+            `
+              SELECT internal_lead_id, assignment_id, submission_id,
+                submission_payload_hash, email_notification_status
+              FROM promotion_lead_attribution
+              WHERE submission_id=$1 OR assignment_id=$2
+              ORDER BY id ASC
+              FOR UPDATE
+            `,
+            [submissionId, assignment.id],
+          );
+          const conflictResolution = resolveLeadConflict(
+            existingResult.rows as Array<Record<string, unknown>>,
+            assignment.id,
+            submissionId,
+            submissionPayloadHash,
+          );
+          if (conflictResolution.conflict) {
+            await client.query("ROLLBACK");
+            res.status(409).json({ error: "Submission idempotency key or assignment was already used" });
+            return;
+          }
+          internalLeadId = conflictResolution.internalLeadId;
+          const claimed = await client.query(
+            `
+              UPDATE promotion_lead_attribution
+              SET email_notification_status='sending',
+                email_notification_lease_until=NOW() + INTERVAL '15 minutes',
+                email_notification_attempted_at=NOW(),
+                email_notification_idempotency_key=COALESCE(email_notification_idempotency_key,$2),
+                updated_at=NOW()
+              WHERE assignment_id=$1
+                AND (email_notification_status='pending'
+                  OR (email_notification_status='sending'
+                    AND email_notification_lease_until < NOW()
+                    AND (email_notification_attempted_at IS NULL
+                      OR email_notification_attempted_at >= NOW() - INTERVAL '24 hours')))
+              RETURNING internal_lead_id
+            `,
+            [assignment.id, notificationIdempotencyKey],
+          );
+          if ((claimed.rowCount ?? 0) === 0) {
+            await client.query("COMMIT");
+            res.json({ success: true, internal_lead_id: internalLeadId });
+            return;
+          }
+        } else {
+          await client.query(
+            `
+              UPDATE promotion_lead_attribution
+              SET email_notification_status='sending',
+                email_notification_lease_until=NOW() + INTERVAL '15 minutes',
+                email_notification_attempted_at=NOW(),
+                email_notification_idempotency_key=COALESCE(email_notification_idempotency_key,$2),
+                updated_at=NOW()
+              WHERE assignment_id=$1
+                AND (email_notification_status='pending'
+                  OR (email_notification_status='sending'
+                    AND email_notification_lease_until < NOW()
+                    AND (email_notification_attempted_at IS NULL
+                      OR email_notification_attempted_at >= NOW() - INTERVAL '24 hours')))
+            `,
+            [assignment.id, notificationIdempotencyKey],
+          );
+        }
+        const formEvent = promotionSource === "build_fee_waiver_popup"
+          ? "promo_form_submitted"
+          : "standard_form_submitted";
+        await client.query(
+          `
+            INSERT INTO promotion_events
+              (assignment_id, event_id, event_name, source)
+            VALUES ($1,$2,$3,'lead_submission')
+            ON CONFLICT DO NOTHING
+          `,
+          [assignment.id, internalLeadId, formEvent],
+        );
+        await client.query(
+          "UPDATE experiment_assignments SET converted_at=COALESCE(converted_at,NOW()) WHERE id=$1",
+          [assignment.id],
+        );
+        await client.query("COMMIT");
+      } catch (error) {
+        await client.query("ROLLBACK");
+        throw error;
+      } finally {
+        client.release();
+      }
+    } catch (err) {
+      logger.error({ err }, "Failed to persist promotion lead attribution");
+      res.status(500).json({ error: "Failed to save lead attribution" });
+      return;
+    }
+  }
+  if (!promotionAssignment) {
+    try {
+      const client = await pool.connect();
+      try {
+        await client.query("BEGIN");
+        const inserted = await client.query(
+          `
+            INSERT INTO promotion_lead_attribution (
+              submission_id, submission_payload_hash, internal_lead_id, assignment_id, campaign_id, experiment_id,
+              experiment_variant, anonymous_visitor_id, promotion_source,
+              popup_trigger_type, popup_impression_timestamp, popup_cta_clicked_timestamp,
+              first_touch_source, last_touch_source, utm_source, utm_medium,
+              utm_campaign, utm_term, utm_content, referrer, landing_page, device_type,
+              business_name, first_name, email, phone, note, website_url, primary_goal,
+              service_area, has_website, ideal_customer, branding_notes, heard_about_us,
+              submitted_at, business_category, declared_website_goal, declared_timing,
+              email_notification_idempotency_key
+            ) VALUES (
+              $1,$2,$3,NULL,NULL,NULL,NULL,NULL,$4,NULL,NULL,NULL,$5,$6,$7,$8,$9,$10,$11,
+              $12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,
+              $30,$31
+            )
+            ON CONFLICT (submission_id) DO NOTHING
+            RETURNING internal_lead_id
+          `,
+          [
+            submissionId,
+            submissionPayloadHash,
+            internalLeadId,
+            promotionSource,
+            payload.first_touch_source || null,
+            payload.last_touch_source || null,
+            payload.utm_source || null,
+            payload.utm_medium || null,
+            payload.utm_campaign || null,
+            payload.utm_term || null,
+            payload.utm_content || null,
+            payload.referrer || null,
+            payload.landing_page || null,
+            payload.device_type || null,
+            payload.business_name || null,
+            payload.first_name || null,
+            payload.email || null,
+            payload.phone || null,
+            payload.note || null,
+            payload.website_url || null,
+            payload.primary_goal || null,
+            payload.service_area || null,
+            typeof payload.has_website === "boolean" ? payload.has_website : null,
+            payload.ideal_customer || null,
+            payload.branding_notes || null,
+            payload.heard_about_us || null,
+            submittedAt,
+            payload.industry || null,
+            payload.website_goal || payload.primary_goal || null,
+            payload.launch_timing || null,
+            notificationIdempotencyKey,
+          ],
+        );
+        storedLead = true;
+        if ((inserted.rowCount ?? 0) === 0) {
+          const existing = await client.query(
+            `
+              SELECT internal_lead_id, submission_payload_hash
+              FROM promotion_lead_attribution WHERE submission_id=$1 LIMIT 1
+            `,
+            [submissionId],
+          );
+          if (
+            existing.rows[0]?.submission_payload_hash &&
+            String(existing.rows[0].submission_payload_hash) !== submissionPayloadHash
+          ) {
+            await client.query("ROLLBACK");
+            res.status(409).json({ error: "Idempotency key was reused with different submission data" });
+            return;
+          }
+          internalLeadId = String(existing.rows[0]?.internal_lead_id ?? internalLeadId);
+          const claimed = await client.query(
+            `
+              UPDATE promotion_lead_attribution
+              SET email_notification_status='sending',
+                email_notification_lease_until=NOW() + INTERVAL '15 minutes',
+                email_notification_attempted_at=NOW(),
+                email_notification_idempotency_key=COALESCE(email_notification_idempotency_key,$2),
+                updated_at=NOW()
+              WHERE submission_id=$1
+                AND (email_notification_status='pending'
+                  OR (email_notification_status='sending'
+                    AND email_notification_lease_until < NOW()
+                    AND (email_notification_attempted_at IS NULL
+                      OR email_notification_attempted_at >= NOW() - INTERVAL '24 hours')))
+              RETURNING internal_lead_id
+            `,
+            [submissionId, notificationIdempotencyKey],
+          );
+          if ((claimed.rowCount ?? 0) === 0) {
+            await client.query("COMMIT");
+            res.json({ success: true, internal_lead_id: internalLeadId });
+            return;
+          }
+        } else {
+          await client.query(
+            `
+              UPDATE promotion_lead_attribution
+              SET email_notification_status='sending',
+                email_notification_lease_until=NOW() + INTERVAL '15 minutes',
+                email_notification_attempted_at=NOW(),
+                email_notification_idempotency_key=COALESCE(email_notification_idempotency_key,$2),
+                updated_at=NOW()
+              WHERE submission_id=$1
+                AND (email_notification_status='pending'
+                  OR (email_notification_status='sending'
+                    AND email_notification_lease_until < NOW()
+                    AND (email_notification_attempted_at IS NULL
+                      OR email_notification_attempted_at >= NOW() - INTERVAL '24 hours')))
+            `,
+            [submissionId, notificationIdempotencyKey],
+          );
+        }
+        await client.query("COMMIT");
+      } catch (error) {
+        await client.query("ROLLBACK");
+        throw error;
+      } finally {
+        client.release();
+      }
+    } catch (error) {
+      logger.error({ err: error }, "Failed to persist ordinary lead submission");
+      res.status(500).json({ error: "Failed to save lead submission" });
+      return;
+    }
+  }
 
   const isRealtorLead =
     payload.lead_source_label === "Realtor Landing Page" ||
@@ -254,6 +740,8 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
       : []),
     ...(payload.website_url ? [`Website URL: ${payload.website_url}`] : []),
     ...(payload.primary_goal ? [`Primary goal: ${payload.primary_goal}`] : []),
+    ...(payload.website_goal ? [`Website goal: ${payload.website_goal}`] : []),
+    ...(payload.launch_timing ? [`Target timing: ${payload.launch_timing}`] : []),
     ...(payload.ideal_customer ? [`Ideal customer: ${payload.ideal_customer}`] : []),
     ...(payload.branding_notes ? [`Branding notes: ${payload.branding_notes}`] : []),
     ...(payload.heard_about_us ? [`Heard about us: ${payload.heard_about_us}`] : []),
@@ -269,16 +757,29 @@ ${detailLines.join("\n")}${realtorLines}${wellDrillerLines}${cabinetMakerLines}$
 
 Submitted: ${submittedAt}
 
+${promotionMetadata
+  ? `Internal lead ID: ${internalLeadId}
+internal_lead_id: ${internalLeadId}
+promotion_source: ${promotionSource}
+Promotion metadata (validated server-side):
+${Object.entries(promotionMetadata).map(([key, value]) => `${key}: ${value || ""}`).join("\n")}
+popup_trigger_type: ${payload.popup_trigger_type || ""}
+popup_impression_timestamp: ${payload.popup_impression_timestamp || ""}
+popup_cta_clicked_timestamp: ${payload.popup_cta_clicked_timestamp || ""}`
+  : `Internal lead ID: ${internalLeadId}`}
+
 ---
 Reply directly to this email to reach the lead.
-Or log in to the GOS to view full lead record.`;
+`;
 
-  const recipients = ["jared@graylockdigital.com"];
-  if (process.env.TEAM_EMAIL_TIM) {
-    recipients.push(process.env.TEAM_EMAIL_TIM);
-  }
+  const recipients = [
+    process.env.LEADS_RECIPIENT_EMAIL,
+    process.env.OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL,
+  ].filter((recipient): recipient is string => Boolean(recipient));
 
-  const subject = isWellDrillerLead
+  const subject = promotionAssignment
+    ? `New Build-Fee Waiver Promotion Lead — ${payload.business_name}`
+    : isWellDrillerLead
     ? `New Well-Driller Custom Demo Request — ${payload.business_name} — ${wellDrillerServiceArea}`
     : isCabinetMakerLead
       ? `New Cabinet-Maker Custom Demo Request — ${payload.business_name} — ${cabinetMakerServiceArea}`
@@ -288,148 +789,225 @@ Or log in to the GOS to view full lead record.`;
           ? `New Lead (Realtor Landing Page): ${payload.business_name || payload.first_name}`
           : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
 
+  let notificationKey = notificationIdempotencyKey;
+  const notificationPayload = {
+    from: process.env.RESEND_FROM_EMAIL || "",
+    to: recipients,
+    replyTo: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)
+      ? payload.email
+      : undefined,
+    subject,
+    text: emailBody,
+  };
+  if (storedLead) {
+    const notificationState = await pool.query(
+      `
+        SELECT email_notification_idempotency_key, email_notification_payload
+        FROM promotion_lead_attribution WHERE internal_lead_id=$1 LIMIT 1
+      `,
+      [internalLeadId],
+    );
+    const state = notificationState.rows[0] as Record<string, unknown> | undefined;
+    notificationKey = String(state?.email_notification_idempotency_key || notificationKey);
+    if (state?.email_notification_payload && typeof state.email_notification_payload === "object") {
+      Object.assign(notificationPayload, state.email_notification_payload);
+    } else {
+      await pool.query(
+        `
+          UPDATE promotion_lead_attribution
+          SET email_notification_payload=$2, updated_at=NOW()
+          WHERE internal_lead_id=$1 AND email_notification_status='sending'
+        `,
+        [internalLeadId, JSON.stringify(notificationPayload)],
+      );
+    }
+  }
+
   const emailPromise = (async () => {
     try {
       const resendKey = process.env.RESEND_API_KEY;
-      if (!resendKey) {
-        logger.error("RESEND_API_KEY not set");
-        return;
+      const fromEmail = process.env.RESEND_FROM_EMAIL;
+      if (!resendKey || !fromEmail || recipients.length === 0) {
+        throw new Error("Resend lead notification is not configured");
       }
       const resend = new Resend(resendKey);
-      await resend.emails.send({
-        from: "noreply@graylockdigital.com",
-        to: recipients,
-        replyTo: payload.email,
-        subject,
-        text: emailBody,
-      });
-      logger.info({ email: payload.email }, "Lead email sent successfully");
+      const result = await sendNotificationWithIdempotency(
+        resend.emails,
+        notificationPayload as Parameters<typeof resend.emails.send>[0],
+        notificationKey,
+      );
+      if (result.error) throw new Error("Resend rejected lead notification");
+      if (storedLead) {
+        await pool.query(
+          `
+            UPDATE promotion_lead_attribution
+            SET email_notification_status='sent', email_notification_error=NULL,
+              email_notification_sent_at=NOW(), email_notification_lease_until=NULL,
+              updated_at=NOW()
+            WHERE internal_lead_id=$1
+          `,
+          [internalLeadId],
+        );
+      }
     } catch (err) {
       logger.error({ err }, "Failed to send lead email via Resend");
+      if (storedLead) {
+        await pool.query(
+          `
+            UPDATE promotion_lead_attribution
+            SET email_notification_status='failed',
+              email_notification_error=$2, email_notification_lease_until=NULL,
+              updated_at=NOW()
+            WHERE internal_lead_id=$1
+          `,
+          [internalLeadId, "Lead notification email failed"],
+        );
+      }
     }
   })();
 
-  const gosPromise = (async () => {
+  await Promise.allSettled([emailPromise]);
+
+  res.json({ success: true, internal_lead_id: internalLeadId });
+});
+
+/**
+ * Resend a failed private notification without creating another attribution
+ * or funnel event. This is intentionally an admin-only action.
+ */
+leadsRouter.post(
+  "/promotion/admin/leads/:id/resend-email",
+  requirePromotionOrigin,
+  requirePromotionAdmin,
+  requirePromotionCsrf,
+  async (req: Request, res: Response) => {
+    const internalLeadId = typeof req.params.id === "string" ? req.params.id.slice(0, 100) : "";
+    if (!internalLeadId) {
+      res.status(400).json({ error: "Lead id is required" });
+      return;
+    }
+    let client: PoolClientLike | undefined;
     try {
-      const gosUrl = process.env.GRAYLOCK_API_URL;
-      if (!gosUrl) {
-        logger.warn("GRAYLOCK_API_URL not set, skipping GOS webhook");
+      client = await pool.connect();
+      await client.query("BEGIN");
+      const commitAndRelease = async () => {
+        await client?.query("COMMIT");
+        client?.release();
+        client = undefined;
+      };
+      const result = await client.query<{ rows: Array<Record<string, unknown>> }>(
+        "SELECT * FROM promotion_lead_attribution WHERE internal_lead_id=$1 LIMIT 1 FOR UPDATE",
+        [internalLeadId],
+      );
+      const lead = result.rows[0] as Record<string, unknown> | undefined;
+      if (!lead) {
+        await client.query("ROLLBACK");
+        client.release();
+        client = undefined;
+        res.status(404).json({ error: "Lead not found" });
         return;
       }
-      const response = await fetch(`${gosUrl}/api/webhook/lead`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: payload.first_name,
-          businessName: payload.business_name,
-          email: payload.email,
-          phone: payload.phone || "",
-          note: payload.note || "",
-          serviceArea: payload.service_area || "",
-          // Omitted entirely when the short form didn't ask.
-          hasWebsite: payload.has_website,
-          websiteUrl: payload.website_url || "",
-          primaryGoal: payload.primary_goal || "",
-          idealCustomer: payload.ideal_customer || "",
-          brandingNotes: payload.branding_notes || "",
-          heardAboutUs: payload.heard_about_us || "",
-          source: "graylockdigital.com",
-          landingPage: payload.landing_page || "",
-          submittedAt: submittedAt,
-          utmSource: payload.utm_source || "",
-          utmMedium: payload.utm_medium || "",
-          utmCampaign: payload.utm_campaign || "",
-          ...(isRealtorLead
-            ? {
-                industry: payload.industry || "real-estate",
-                leadSourceLabel: "Realtor Landing Page",
-                landingPage: payload.landing_page || "/websites-for-realtors",
-                role: payload.role || "",
-                market: payload.market || "",
-                mls: payload.mls || "",
-                needPropertySearch: payload.need_property_search || "",
-                launchTiming: payload.launch_timing || "",
-                intent: payload.intent || "",
-                referrer: payload.referrer || "",
-                localMls: payload.local_mls || "",
-                idxNeed: payload.idx_need || "",
-                realtorGoals: payload.realtor_goals || "",
-              }
-            : {}),
-          ...(isWellDrillerLead
-            ? {
-                industry: payload.industry || "well-drilling",
-                leadSourceLabel: "Well Driller Landing Page",
-                landingPage: payload.landing_page || "/websites-for-well-drillers",
-                market: payload.market || "",
-                rep: payload.rep || "",
-                // "source" above stays the site origin; the sales-campaign
-                // source param rides separately.
-                campaignSource: payload.source || "",
-                mainServices,
-                desiredJobs: payload.desired_jobs || "",
-                websiteGoal: payload.website_goal || "",
-                statedGoal: payload.stated_goal || "",
-                intent: payload.intent || "",
-                preferredContactMethod: payload.preferred_contact_method || "",
-                referrer: payload.referrer || "",
-                utmSource: payload.utm_source || "",
-                utmMedium: payload.utm_medium || "",
-                utmCampaign: payload.utm_campaign || "",
-              }
-            : {}),
-          ...(isCabinetMakerLead
-            ? {
-                industry: payload.industry || "cabinet-making",
-                leadSourceLabel: "Cabinet Maker Landing Page",
-                landingPage: payload.landing_page || "/websites-for-cabinet-makers",
-                market: payload.market || "",
-                rep: payload.rep || "",
-                // "source" above stays the site origin; the sales-campaign
-                // source param rides separately.
-                campaignSource: payload.source || "",
-                mainProjectTypes,
-                desiredOutcomes,
-                launchTiming: payload.launch_timing || "",
-                intent: payload.intent || "",
-                referrer: payload.referrer || "",
-                utmSource: payload.utm_source || "",
-                utmMedium: payload.utm_medium || "",
-                utmCampaign: payload.utm_campaign || "",
-              }
-            : {}),
-          ...(isAuctioneerLead
-            ? {
-                industry: payload.industry || "auctioneering",
-                leadSourceLabel: "Auctioneer Landing Page",
-                landingPage: payload.landing_page || "/websites-for-auctioneers",
-                market: payload.market || "",
-                rep: payload.rep || "",
-                // "source" above stays the site origin; the sales-campaign
-                // source param rides separately.
-                campaignSource: payload.source || "",
-                auctionTypes,
-                desiredOutcomes,
-                launchTiming: payload.launch_timing || "",
-                intent: payload.intent || "",
-                referrer: payload.referrer || "",
-                utmSource: payload.utm_source || "",
-                utmMedium: payload.utm_medium || "",
-                utmCampaign: payload.utm_campaign || "",
-              }
-            : {}),
-        }),
-      });
-      const responseBody = await response.text();
-      logger.info({ status: response.status, body: responseBody }, "GOS webhook response");
-    } catch (err) {
-      logger.error({ err }, "Failed to POST to GOS webhook");
+      if (lead.email_notification_status === "sent") {
+        await commitAndRelease();
+        res.status(409).json({ error: "Lead notification was already sent" });
+        return;
+      }
+      if (lead.email_notification_status === "manual_review") {
+        await commitAndRelease();
+        res.status(409).json({ error: "Lead notification requires manual review" });
+        return;
+      }
+      const leaseUntil = lead.email_notification_lease_until
+        ? new Date(String(lead.email_notification_lease_until)).getTime()
+        : 0;
+      const staleSending = lead.email_notification_status === "sending" && leaseUntil <= Date.now();
+      const retryable = lead.email_notification_status === "failed" || staleSending;
+      if (!retryable) {
+        await commitAndRelease();
+        res.status(409).json({ error: "Lead notification is already being sent" });
+        return;
+      }
+      const attemptedAt = lead.email_notification_attempted_at
+        ? new Date(String(lead.email_notification_attempted_at)).getTime()
+        : 0;
+      if (staleSending && attemptedAt > 0 && Date.now() - attemptedAt >= 24 * 60 * 60 * 1000) {
+        await client.query(
+          `
+            UPDATE promotion_lead_attribution
+            SET email_notification_status='manual_review',
+              email_notification_error='Resend idempotency window expired; manual review required',
+              email_notification_lease_until=NULL, updated_at=NOW()
+            WHERE id=$1
+          `,
+          [lead.id],
+        );
+        await commitAndRelease();
+        res.status(409).json({ error: "Notification requires manual review after the 24-hour idempotency window" });
+        return;
+      }
+      const payload = lead.email_notification_payload;
+      if (!payload || typeof payload !== "object") {
+        await commitAndRelease();
+        res.status(409).json({ error: "Notification payload is unavailable; manual review required" });
+        return;
+      }
+      const resendKey = process.env.RESEND_API_KEY;
+      const fromEmail = process.env.RESEND_FROM_EMAIL;
+      if (!resendKey || !fromEmail) {
+        await commitAndRelease();
+        res.status(503).json({ error: "Lead notification email is not configured" });
+        return;
+      }
+      await pool.query(
+        `
+          UPDATE promotion_lead_attribution
+          SET email_notification_status='sending',
+            email_notification_lease_until=NOW() + INTERVAL '15 minutes',
+            email_notification_attempted_at=NOW(), email_notification_error=NULL,
+            updated_at=NOW()
+          WHERE id=$1
+        `,
+        [lead.id],
+      );
+      await commitAndRelease();
+      const resend = new Resend(resendKey);
+      const sent = await sendNotificationWithIdempotency(
+        resend.emails,
+        payload as Parameters<typeof resend.emails.send>[0],
+        String(lead.email_notification_idempotency_key || `lead-notification-${internalLeadId}`),
+      );
+      if (sent.error) throw new Error("Resend rejected lead notification");
+      await pool.query(
+        `
+          UPDATE promotion_lead_attribution
+          SET email_notification_status='sent', email_notification_error=NULL,
+            email_notification_sent_at=NOW(), email_notification_lease_until=NULL,
+            updated_at=NOW()
+          WHERE internal_lead_id=$1
+        `,
+        [internalLeadId],
+      );
+      res.json({ ok: true, internal_lead_id: internalLeadId });
+    } catch (error) {
+      if (client) {
+        await client.query("ROLLBACK").catch(() => undefined);
+        client.release();
+      }
+      logger.error({ err: error }, "Failed to resend lead notification");
+      await pool.query(
+        `
+          UPDATE promotion_lead_attribution
+          SET email_notification_status='failed',
+            email_notification_error='Lead notification email failed',
+            email_notification_lease_until=NULL,
+            updated_at=NOW()
+          WHERE internal_lead_id=$1
+        `,
+        [internalLeadId],
+      ).catch(() => undefined);
+      res.status(502).json({ error: "Failed to send lead notification" });
     }
-  })();
-
-  await Promise.allSettled([emailPromise, gosPromise]);
-
-  res.json({ success: true });
-});
+  },
+);
 
 export default leadsRouter;

@@ -1,5 +1,4 @@
 import express, { type Express } from "express";
-import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
@@ -27,7 +26,10 @@ app.use(
     },
   }),
 );
-app.use(cors());
+// The public API is same-origin.  Do not install permissive CORS here: the
+// promotion admin cookie and CSRF protections must never be exposed to an
+// arbitrary origin.  Deployments needing a cross-origin public client should
+// set an explicit reverse-proxy allowlist rather than enabling `*`.
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
