@@ -193,7 +193,7 @@ export function PromotionPopup({
 
           <div className="relative z-10 px-6 pb-6 sm:px-12 sm:pb-6">
             {/* Eyebrow */}
-            <p className="mb-3 font-hand text-[24px] sm:text-[28px] font-bold leading-[1.15] tracking-normal text-[#B23E16]">
+            <p className="mb-3 font-hand text-[clamp(11px,3.6vw,22px)] whitespace-nowrap font-bold leading-[1.15] tracking-normal text-[#B23E16]">
               LIMITED-TIME OFFER • SEPTEMBER PROJECTS ONLY
             </p>
 
