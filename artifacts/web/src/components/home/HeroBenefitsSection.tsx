@@ -1,15 +1,14 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { LayoutTemplate, Clock, ShieldCheck, RefreshCcw } from "lucide-react";
 
 export function HeroBenefitsSection() {
   return (
     <section 
-      className="bg-[#FDFCFB] py-16 md:py-20 border-y border-black/5"
+      className="bg-[#FDFCFB] py-16 md:py-24 border-y border-black/5"
       aria-labelledby="hero-benefits-heading"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <ScrollReveal>
-          <div className="max-w-3xl mb-12 md:mb-16">
+          <div className="max-w-3xl mb-12 md:mb-20">
             <h2 
               id="hero-benefits-heading" 
               className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-[#292B2E] tracking-tight mb-5"
@@ -21,53 +20,70 @@ export function HeroBenefitsSection() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {/* Item 1 */}
-            <div className="flex flex-col bg-white p-6 md:p-8 rounded-2xl border border-black/5 shadow-sm">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-4xl font-display font-bold text-[#E85D26]">01</span>
-                <div className="h-8 w-px bg-black/10"></div>
-                <LayoutTemplate className="w-7 h-7 text-[#292B2E]/60" strokeWidth={1.5} />
+          <div className="flex flex-col border-t border-black/10">
+            {/* Offer 1 */}
+            <div className="flex flex-col md:flex-row md:items-center py-8 md:py-12 border-b border-black/10 gap-2 md:gap-12 lg:gap-24">
+              <div className="md:w-[45%] lg:w-[40%] shrink-0">
+                <span className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-[#E85D26] tracking-tighter uppercase leading-none">
+                  Free
+                </span>
               </div>
-              <h3 className="text-[17px] md:text-[1.125rem] font-sans text-[#292B2E] leading-snug font-medium">
-                Begin with a free homepage demo
-              </h3>
+              <div className="md:w-[55%] lg:w-[60%] flex flex-col">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-[#292B2E] mb-2 md:mb-3">
+                  Homepage demo
+                </h3>
+                <p className="text-lg md:text-xl font-sans text-[#292B2E]/80 leading-relaxed">
+                  Custom homepage direction before any build fee.
+                </p>
+              </div>
             </div>
             
-            {/* Item 2 */}
-            <div className="flex flex-col bg-white p-6 md:p-8 rounded-2xl border border-black/5 shadow-sm">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-4xl font-display font-bold text-[#E85D26]">02</span>
-                <div className="h-8 w-px bg-black/10"></div>
-                <Clock className="w-7 h-7 text-[#292B2E]/60" strokeWidth={1.5} />
+            {/* Offer 2 */}
+            <div className="flex flex-col md:flex-row md:items-center py-8 md:py-12 border-b border-black/10 gap-2 md:gap-12 lg:gap-24">
+              <div className="md:w-[45%] lg:w-[40%] shrink-0">
+                <span className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-[#E85D26] tracking-tighter uppercase leading-none">
+                  7–10
+                </span>
               </div>
-              <h3 className="text-[17px] md:text-[1.125rem] font-sans text-[#292B2E] leading-snug font-medium">
-                On average, live in 7–10 business days after demo
-              </h3>
+              <div className="md:w-[55%] lg:w-[60%] flex flex-col">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-[#292B2E] mb-2 md:mb-3">
+                  Business days
+                </h3>
+                <p className="text-lg md:text-xl font-sans text-[#292B2E]/80 leading-relaxed">
+                  On average, live in 7–10 business days after demo.
+                </p>
+              </div>
             </div>
             
-            {/* Item 3 */}
-            <div className="flex flex-col bg-white p-6 md:p-8 rounded-2xl border border-black/5 shadow-sm">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-4xl font-display font-bold text-[#E85D26]">03</span>
-                <div className="h-8 w-px bg-black/10"></div>
-                <ShieldCheck className="w-7 h-7 text-[#292B2E]/60" strokeWidth={1.5} />
+            {/* Offer 3 */}
+            <div className="flex flex-col md:flex-row md:items-center py-8 md:py-12 border-b border-black/10 gap-2 md:gap-12 lg:gap-24">
+              <div className="md:w-[45%] lg:w-[40%] shrink-0">
+                <span className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-[#E85D26] tracking-tighter uppercase leading-none">
+                  30 Days
+                </span>
               </div>
-              <h3 className="text-[17px] md:text-[1.125rem] font-sans text-[#292B2E] leading-snug font-medium">
-                30-Day Money-Back Guarantee
-              </h3>
+              <div className="md:w-[55%] lg:w-[60%] flex flex-col">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-[#292B2E]">
+                  Money-Back Guarantee
+                </h3>
+              </div>
             </div>
             
-            {/* Item 4 */}
-            <div className="flex flex-col bg-white p-6 md:p-8 rounded-2xl border border-black/5 shadow-sm">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-4xl font-display font-bold text-[#E85D26]">04</span>
-                <div className="h-8 w-px bg-black/10"></div>
-                <RefreshCcw className="w-7 h-7 text-[#292B2E]/60" strokeWidth={1.5} />
+            {/* Offer 4 */}
+            <div className="flex flex-col md:flex-row md:items-center py-8 md:py-12 border-b border-black/10 gap-2 md:gap-12 lg:gap-24">
+              <div className="md:w-[45%] lg:w-[40%] shrink-0">
+                <span className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-[#E85D26] tracking-tighter uppercase leading-none">
+                  Every 2 Years
+                </span>
               </div>
-              <h3 className="text-[17px] md:text-[1.125rem] font-sans text-[#292B2E] leading-snug font-medium">
-                Stay up to date with an included website refresh every 2 years
-              </h3>
+              <div className="md:w-[55%] lg:w-[60%] flex flex-col">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium text-[#292B2E] mb-2 md:mb-3">
+                  Website refresh
+                </h3>
+                <p className="text-lg md:text-xl font-sans text-[#292B2E]/80 leading-relaxed">
+                  An included refresh to keep your website up to date.
+                </p>
+              </div>
             </div>
           </div>
         </ScrollReveal>
