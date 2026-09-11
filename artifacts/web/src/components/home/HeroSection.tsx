@@ -7,7 +7,7 @@ import markHeroExcerpt from "@/assets/reviews/mark_nelson_hero_excerpt.webp";
 
 function HeroClientReview() {
   return (
-    <figure className="mt-4 w-full max-w-[490px] mx-auto">
+    <figure className="mt-4 w-full max-w-[410px] mx-auto lg:-mt-4 lg:-translate-x-5 relative z-10">
       <img
         src={markHeroExcerpt}
         width={962}
@@ -26,7 +26,7 @@ export function HeroSection() {
   return (
     <>
     <section
-      className="overflow-hidden relative md:min-h-screen md:flex md:flex-col"
+      className="overflow-hidden relative md:min-h-screen lg:min-h-[max(100vh,calc(20vh+min(28.633vw,427px)+170px))] md:flex md:flex-col"
       style={{ backgroundColor: "#0f0f0f" }}
     >
       {/* Mobile: textured wallpaper with a dark text-safe overlay */}
@@ -92,9 +92,6 @@ export function HeroSection() {
           loading="eager"
           decoding="async"
         />
-        <p className="mt-3 text-center text-offwhite/90 font-sans text-sm tracking-wide">
-          A real website designed and built by Graylock Digital.
-        </p>
         <HeroClientReview />
       </div>
       <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative z-10 pt-32 pb-16 md:py-24 md:flex-1 md:flex md:items-center lg:items-start lg:pt-[20vh]">
