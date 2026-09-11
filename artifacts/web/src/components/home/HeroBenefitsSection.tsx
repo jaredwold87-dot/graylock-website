@@ -23,7 +23,7 @@ export function HeroBenefitsSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
             <div className="flex flex-col text-left">
               <h3 className="text-xl md:text-2xl font-display font-bold text-[#E85D26] tracking-tight mb-3">
-                Free homepage demo
+                Free Home Page Demo
               </h3>
               <p className="text-base text-[#292B2E]/80 leading-relaxed">
                 Let us show you what your new homepage could look like before you commit to anything. We'll strategize it and build it out for free.
@@ -32,7 +32,7 @@ export function HeroBenefitsSection() {
             
             <div className="flex flex-col text-left">
               <h3 className="text-xl md:text-2xl font-display font-bold text-[#E85D26] tracking-tight mb-3">
-                7–10-day build
+                7–10-Day Build
               </h3>
               <p className="text-base text-[#292B2E]/80 leading-relaxed">
                 On average, it takes 7–10 business days after you approve the demo to complete your website and go live.
@@ -41,7 +41,7 @@ export function HeroBenefitsSection() {
             
             <div className="flex flex-col text-left">
               <h3 className="text-xl md:text-2xl font-display font-bold text-[#E85D26] tracking-tight mb-3">
-                30-day money-back guarantee
+                30-Day Money-Back Guarantee
               </h3>
               <p className="text-base text-[#292B2E]/80 leading-relaxed">
                 Decide after launching that you don’t like it? We offer a 30-day money-back guarantee, no questions asked.
@@ -50,7 +50,7 @@ export function HeroBenefitsSection() {
             
             <div className="flex flex-col text-left">
               <h3 className="text-xl md:text-2xl font-display font-bold text-[#E85D26] tracking-tight mb-3">
-                2-year website refresh
+                2-Year Website Refresh
               </h3>
               <p className="text-base text-[#292B2E]/80 leading-relaxed">
                 Your maintenance and hosting plan includes a website refresh every 2 years, so your site stays current and never feels outdated.
