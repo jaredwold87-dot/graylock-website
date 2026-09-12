@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import heroDesktopTopographic from "@/assets/hero-desktop-topographic.webp";
 import heroMobileTopographic from "@/assets/hero-mobile-topographic.webp";
 import heroMobileWillowDevices from "@/assets/hero-mobile-willow-devices.webp";
-import markHeroExcerpt from "@/assets/reviews/mark_nelson_hero_excerpt.webp";
+import markHeroExcerpt from "@/assets/reviews/mark_nelson_hero_extended.webp";
 
 function HeroClientReview() {
   return (
@@ -11,8 +11,8 @@ function HeroClientReview() {
       <img
         src={markHeroExcerpt}
         width={962}
-        height={276}
-        alt="Mark Nelson’s five-star Google review excerpt: The lead generation has been amazing, we have been converting leads into actual customers because of this website."
+        height={396}
+        alt="Mark Nelson’s five-star Google review excerpt: The lead generation has been amazing, we have been converting leads into actual customers because of this website. My previous vendor I used for our website platform generated a lot of leads, but no conversions into actual customers. I highly recommend Graylock Digital."
         className="w-full h-auto rounded-lg shadow-lg ring-2 ring-[#C5DA5A]"
       />
       <figcaption className="mt-2 text-center text-offwhite/80 font-sans text-xs">
