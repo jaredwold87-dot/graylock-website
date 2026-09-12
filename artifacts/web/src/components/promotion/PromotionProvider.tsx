@@ -175,7 +175,6 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   const [assignmentSuppressed, setAssignmentSuppressed] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
   const [introComplete, setIntroComplete] = useState(true);
-  const [chatOpen, setChatOpen] = useState(false);
   const [formStarted, setFormStarted] = useState(false);
   const [previewVariant] = useState(getPromotionPreviewVariant);
   const [previewControlLabel, setPreviewControlLabel] = useState(false);
@@ -497,19 +496,9 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   }, [previewVariant]);
 
   useEffect(() => {
-    const state = (event: Event) => {
-      const custom = event as CustomEvent<{ open?: boolean }>;
-      setChatOpen(Boolean(custom.detail?.open));
-    };
-    window.addEventListener("graylock:chat-state", state);
-    setChatOpen(document.body.dataset.chatOpen === "true");
-    return () => window.removeEventListener("graylock:chat-state", state);
-  }, []);
-
-  useEffect(() => {
     if (previewVariant) return;
-    if (chatOpen || bookCall?.isOpen) setPopupOpen(false);
-  }, [bookCall?.isOpen, chatOpen, previewVariant]);
+    if (bookCall?.isOpen) setPopupOpen(false);
+  }, [bookCall?.isOpen, previewVariant]);
 
   useEffect(() => {
     const activeCampaign = campaignRef.current;
@@ -555,7 +544,6 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
       if (
         popupOpen ||
         bookCall?.isOpen ||
-        chatOpen ||
         formStarted ||
         !introComplete ||
         document.visibilityState === "hidden"
@@ -605,7 +593,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
           }
           return;
         }
-        if (popupOpen || bookCall?.isOpen || chatOpen || formStarted) return;
+        if (popupOpen || bookCall?.isOpen || formStarted) return;
         applyCampaign(latest.campaign, latest.active);
         const serverTimestamp = Date.parse(latest.serverNow);
         if (Number.isFinite(serverTimestamp)) setServerTimeOffsetMs(serverTimestamp - Date.now());
@@ -626,7 +614,6 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     assignmentConfirmed,
     assignmentSuppressed,
     assignCampaign,
-    chatOpen,
     formStarted,
     introComplete,
     location,
