@@ -39,6 +39,46 @@ test("weighted allocation safety accepts only a complete 100% allocation", () =>
   );
 });
 
+test("popup wording comparison allocates every visitor to A or B, never control", () => {
+  const campaign = {
+    trafficAllocationControl: 0,
+    trafficAllocationVariantA: 50,
+    trafficAllocationVariantB: 50,
+  } as never;
+  for (let i = 0; i < 1000; i++) {
+    assert.ok(["savings_led", "direction_led"].includes(promotion.chooseVariant(campaign)));
+  }
+  assert.equal(promotion.chooseVariant({
+    trafficAllocationControl: 0, trafficAllocationVariantA: 100, trafficAllocationVariantB: 0,
+  } as never), "savings_led");
+  assert.equal(promotion.chooseVariant({
+    trafficAllocationControl: 0, trafficAllocationVariantA: 0, trafficAllocationVariantB: 100,
+  } as never), "direction_led");
+});
+
+test("popup-only migration preserves enablement and history while retiring unused control assignments", async () => {
+  const queries: string[] = [];
+  await migrations.runPromotionMigrations({
+    async query<T = unknown>(text: string) {
+      queries.push(text);
+      if (text.includes("MAX(version)")) return { rows: [{ version: 4 }] } as T;
+      return {} as T;
+    },
+  });
+  const update = queries.find(q => q.includes("UPDATE promotion_campaigns"))!;
+  assert.match(update, /traffic_allocation_control = 0/);
+  assert.match(update, /traffic_allocation_variant_a = 50/);
+  assert.match(update, /traffic_allocation_variant_b = 50/);
+  assert.doesNotMatch(update, /enabled\s*=|trigger_minimum|manual_kill_switch\s*=/);
+  const archive = queries.find(q => q.includes("UPDATE experiment_assignments"))!;
+  assert.match(archive, /experiment_variant = 'control'/);
+  assert.match(archive, /a\.converted_at IS NULL/);
+  assert.match(archive, /a\.dismissed_at IS NULL/);
+  assert.match(archive, /a\.cta_clicked_at IS NULL/);
+  assert.doesNotMatch(queries.join("\n"), /DELETE FROM|TRUNCATE/);
+  assert.ok(queries.includes("INSERT INTO promotion_schema_migrations (version) VALUES (5)"));
+});
+
 test("public path and tracking sanitizers remove navigation suffixes and reject PII", () => {
   assert.equal(promotion.sanitizePath("/pricing?email=person@example.com#plans", "page"), "/pricing");
   assert.equal(promotion.sanitizeTracking("newsletter-2026", "utm"), "newsletter-2026");

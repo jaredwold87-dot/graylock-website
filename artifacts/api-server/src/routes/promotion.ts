@@ -2234,6 +2234,7 @@ export {
   PUBLIC_EVENT_NAMES,
   OUTCOME_EVENT_NAMES,
   allocationsAreValid,
+  chooseVariant,
   campaignIsLive,
   constantTimeEqual,
   sanitizePath,

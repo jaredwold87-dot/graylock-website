@@ -252,7 +252,7 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
           ) VALUES (
             'september-build-fee-waiver', 'build-fee-waiver-v1', FALSE,
             'September Build-Fee Waiver', 'America/Los_Angeles', 'monthly',
-            '["/"]'::jsonb, 50, 50, 0, 25, 0.5500, 30, TRUE, TRUE,
+            '["/"]'::jsonb, 0, 50, 50, 25, 0.5500, 30, TRUE, TRUE,
             FALSE, 'from $799', 'Applicable monthly plan, scope, and terms apply.',
             'stage1', 14, 200
           )
@@ -401,6 +401,39 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
       `);
       await client.query(
         "INSERT INTO promotion_schema_migrations (version) VALUES (4)",
+      );
+    }
+
+    // Compare the two popup wordings, not popup vs. no popup. Keep enablement,
+    // dates, triggers, existing A/B assignments, and all historical lead data.
+    if (currentVersion < 5) {
+      await client.query(`
+        UPDATE promotion_campaigns
+        SET traffic_allocation_control = 0,
+            traffic_allocation_variant_a = 50,
+            traffic_allocation_variant_b = 50,
+            version = version + 1,
+            updated_at = NOW()
+        WHERE campaign_id = 'september-build-fee-waiver'
+      `);
+      // Retain control rows and their events for historical reports, but free
+      // their active assignment slot so returning visitors receive A or B.
+      // Keep the month suffix intact for occurrence-filtered reporting.
+      await client.query(`
+        UPDATE experiment_assignments a
+        SET experiment_id = 'retired-control:' || a.id || ':' || a.experiment_id
+        FROM promotion_campaigns c
+        WHERE a.campaign_id = c.id
+          AND c.campaign_id = 'september-build-fee-waiver'
+          AND a.experiment_variant = 'control'
+          AND a.experiment_id = CASE WHEN c.recurrence_mode = 'monthly'
+            THEN c.experiment_id || ':' || to_char(NOW() AT TIME ZONE c.timezone, 'YYYY-MM')
+            ELSE c.experiment_id END
+          AND a.dismissed_at IS NULL AND a.cta_clicked_at IS NULL
+          AND a.converted_at IS NULL
+      `);
+      await client.query(
+        "INSERT INTO promotion_schema_migrations (version) VALUES (5)",
       );
     }
 

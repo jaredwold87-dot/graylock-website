@@ -345,7 +345,7 @@ function BuildFeeWaiverDashboardContent() {
             {isEffectivelyOn && !isControl100 && (
               <p className="text-xs text-[#8f98a7] mt-3 border-l-2 border-[#e85d26] pl-3 py-0.5">
                 Shows on homepage after {campaign.triggerMinimumSeconds}sec + {Math.round(campaign.triggerMinimumScrollDepth * 100)}% scroll. 
-                Currently {campaign.trafficAllocationControl}% in no-popup test group.
+                {campaign.trafficAllocationVariantA}% see popup A · {campaign.trafficAllocationVariantB}% see popup B.
               </p>
             )}
           </div>
@@ -450,7 +450,6 @@ function BuildFeeWaiverDashboardContent() {
             Preview mode is for visual checking only; no lead forms or events are recorded.
           </p>
           <div className="flex flex-wrap gap-3">
-            <button onClick={() => alert("Control does not show a popup.")} className="px-4 py-2 bg-white/5 border border-white/10 text-xs font-semibold text-[#d8dce3] hover:border-[#e85d26] hover:text-white transition">Preview Control (No Popup)</button>
             <button onClick={() => setPreviewVariant("savings_led")} disabled={!publicCampaign?.campaign?.endDateTime} className="px-4 py-2 bg-white/5 border border-white/10 text-xs font-semibold text-[#d8dce3] hover:border-[#e85d26] hover:text-white transition disabled:opacity-50">Preview Variant A</button>
             <button onClick={() => setPreviewVariant("direction_led")} disabled={!publicCampaign?.campaign?.endDateTime} className="px-4 py-2 bg-white/5 border border-white/10 text-xs font-semibold text-[#d8dce3] hover:border-[#e85d26] hover:text-white transition disabled:opacity-50">Preview Variant B</button>
           </div>
