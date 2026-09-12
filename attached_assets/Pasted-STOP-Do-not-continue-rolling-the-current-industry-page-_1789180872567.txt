@@ -1,0 +1,385 @@
+STOP. Do not continue rolling the current industry-page template to any other route.
+
+The current implementation of `/websites-for-realtors` is not acceptable. It reads as a generic AI-generated landing-page template: a long dark hero with irrelevant line-chart art, repeated card grids, repetitive proof, excessive empty space, tiny support text, overly long sections, and a visible full-page “Loading page…” state on direct route loads.
+
+REBUILD ONLY THIS ROUTE:
+
+`/websites-for-realtors`
+
+Do not modify any other industry landing page as part of this task.
+
+## Non-negotiable scope boundary
+
+Keep these items unchanged:
+
+- Global header, navigation, header CTA copy, mobile menu, footer, and global styling.
+- Existing Get Started form, fields, validation, Resend delivery, recipients, confirmation flow, dashboard, analytics, and tracking architecture.
+- Pricing, Terms, Privacy, Compliance, Featured Projects, Portfolio, homepage, popup experiment, and all routes other than `/websites-for-realtors`.
+- Existing `realtorGetStartedHref`, `trackRealtorEvent`, existing project-click tracking, and existing FAQ-expand tracking behavior.
+- The real project destination: `https://www.willowrealestategroup.com/`.
+
+The existing header CTA still says “Get Your Real Estate Website + IDX Plan.” Do **not** change it in this task because it is global/shared. Treat that as a separate global-copy decision.
+
+## The implementation mistake to remove
+
+The current Realtor route renders through the generic `StandardIndustryPage` template and `realtors.ts` content object. Do **not** tune that generic template. Do **not** keep its hero art, generic offer-card grid, generic problem-card grid, generic delivery-card grid, duplicate proof blocks, or repeated legal links.
+
+Replace the Realtor route with a **bespoke Realtor page composition**. Reuse existing primitives such as CTA buttons, scroll-reveal behavior, existing FAQ controls, and the shared Tim/Jared team component where useful, but do not render this route through `StandardIndustryPage`.
+
+Create a dedicated Realtor page component or compose the route directly in `src/pages/industries/Realtors.tsx`. Keep its existing SEO title, schema, CTA URLs, and analytics events.
+
+## Eliminate the direct-load “Loading page…” screen
+
+This route currently flashes or displays the generic full-page Suspense fallback reading “Loading page…”. That is not acceptable for a landing page.
+
+Make the Realtor component eagerly available by statically importing the Realtor route in `App.tsx` instead of lazily importing this one route. Leave the lazy-loading strategy for unrelated routes unchanged. The direct route `/websites-for-realtors` must render its real hero immediately, without a blank dark page, centered loader, or generic fallback visible to a normal visitor.
+
+## Design objective
+
+The page should feel like a premium, deliberate Graylock page—not a software landing-page template and not a collection of feature cards.
+
+Use the current homepage’s visual language:
+
+- Dark charcoal / near-black hero and final CTA.
+- Warm off-white editorial content sections.
+- Graylock orange as the restrained accent and primary-action color.
+- Existing display typography, existing body typography, existing button treatment, generous but purposeful spacing, clean responsive behavior.
+- Strong photography/project presentation, concise copy, and a clear reading path.
+
+Do not use:
+
+- The current line-chart/analytics hero illustration.
+- Maps, fake MLS UI, fake property cards, fake metrics, trend lines, gradients that look like a SaaS dashboard, generic stock-agent poses, or AI-generated fake project imagery.
+- Repeated feature cards, icon-card grids, giant italic testimonial text, star clusters, generic “Trusted by” proof, rating totals, local promotions, countdowns, pricing tables, or a page-body popup.
+- More than one use of the Mark Nelson review.
+
+Use the existing approved Willow Realty Group website asset (`willow-transformation.webp` ) as the real proof visual. It is a real Graylock project. Do not create new client-project imagery.
+
+## Exact new page structure
+
+The rebuilt body should be concise. Target a polished desktop page height of approximately 5,500–6,500 pixels before the footer, not the current roughly 9,675-pixel template page. Do not add sections merely to make the page longer.
+
+### 1. Hero — one clean first impression
+
+Build a compact two-column hero with no empty lower half.
+
+**Left column**
+
+Eyebrow:
+
+`CUSTOM WEBSITES FOR REAL ESTATE AGENTS & TEAMS`
+
+H1:
+
+`Your Market Is Local. Your Website Should Feel That Way.`
+
+Body:
+
+`Give buyers a clear way to explore, give sellers a clear reason to reach out, and make the local expertise behind your business easy to understand.`
+
+Primary CTA, exactly:
+
+`Get Your Free Homepage Direction`
+
+The primary CTA must preserve the existing hero `realtorGetStartedHref("hero")` destination and existing `realtor_hero_cta_click` tracking.
+
+Secondary text link:
+
+`View Willow Realty Group →`
+
+It scrolls to the featured-project section.
+
+Support line directly beneath CTAs:
+
+`Start with a 15-minute fit call. If Graylock is the right fit, you see a custom Homepage Direction before any build fee is due.`
+
+Small clarification beneath the support line:
+
+`A Free Homepage Direction is not a free website.`
+
+**Right column**
+
+Show the real Willow Realty Group website asset in a large, calm, premium browser/device frame. Let it occupy the right half of the hero. It is the only hero visual. Use subtle depth and shadow, not floating cards or decorative UI layers.
+
+On desktop, the hero should be approximately 720–820px tall including header clearance. On mobile, stack the copy first and the Willow asset second. Do not leave unused black space below the copy.
+
+### 2. Direction-before-fee offer — one editorial panel, no cards
+
+Immediately below the hero, use an off-white or warm stone section with one composed editorial layout. Do not render a four-card grid.
+
+Eyebrow:
+
+`THE GRAYLOCK DIFFERENCE`
+
+H2:
+
+`See the Direction Before You Approve the Build Fee.`
+
+Body:
+
+`Before you commit to a build, we create a custom Homepage Direction around your market, your business, your buyer and seller paths, and the next action you want the right visitor to take.`
+
+At large display size, make this line the visual focal point:
+
+`No build fee before you see the direction.`
+
+Under it, use a simple vertical editorial list with thin dividers—not cards and not icons:
+
+`Buyer and seller paths that are clear from the first visit.`
+
+`A local-market structure built around the places and services that matter to your business.`
+
+`An IDX and MLS plan reviewed before it becomes a late-stage scope surprise.`
+
+One CTA, exactly:
+
+`Get Your Free Homepage Direction`
+
+It must preserve the existing offer/package-scope Realtor CTA URL and existing tracking behavior.
+
+Supporting copy under the CTA:
+
+`You review the direction, scope, and price before deciding whether to move forward.`
+
+Then one small, quiet text link:
+
+`View pricing and terms →`
+
+Link it to the existing `/pricing` route. Do not add cancellation links, guarantee links, an “01–04” card grid, plan details, hosting details, refresh details, or a dense legal paragraph here.
+
+### 3. Proof + project — one composed proof section
+
+Merge review proof and project proof into one section immediately after the offer. Do not create a standalone review section followed by a separate project section and do not repeat the review later.
+
+Use a two-column warm off-white composition with a small quote column and a larger real-project column.
+
+**Quote column**
+
+Eyebrow:
+
+`CLIENT REVIEW`
+
+Quote, exactly as currently sourced:
+
+`“I have been extremely impressed Graylock digital, from the first meeting we had to the launch of our new website and beyond. This company is so professional, well organized, and well informed. The communication was excellent, they listened to my needs and answered my questions.”`
+
+Attribution:
+
+`Mark Nelson · Willow Realty Group`
+
+Source label:
+
+`5-star Google review`
+
+Qualifier:
+
+`Individual client feedback; not a promise of results.`
+
+Use a normal editorial quote treatment. Do not make it oversized italic display type. Do not use stars. Keep the attribution readable at normal body size.
+
+**Project column**
+
+Eyebrow:
+
+`FEATURED GRAYLOCK PROJECT`
+
+H2:
+
+`Willow Realty Group`
+
+Descriptor:
+
+`Southern Idaho Real Estate · Serving the Magic Valley`
+
+Body:
+
+`A real-estate website built to bring local perspective, property exploration, and clear buyer and seller paths into one experience.`
+
+Display the actual Willow asset prominently, using the current device/screenshot treatment only if it is clean and sufficiently large. Otherwise use a simple framed desktop capture.
+
+Project link:
+
+`Visit the Live Site ↗`
+
+Keep its external destination and existing project-click tracking.
+
+Do not make unsupported claims about leads, rankings, conversion, inquiries, IDX availability, or results.
+
+### 4. Buyer and seller paths — one decision section, not cards
+
+Use one dark editorial section titled:
+
+Eyebrow:
+
+`ONE WEBSITE. TWO CLEAR PATHS.`
+
+H2:
+
+`Make the Next Step Clear for Both Sides of the Market.`
+
+Make two balanced columns with no card containers:
+
+**BUYING**
+
+`Explore homes and market information.`
+
+`Understand the agent, team, and service area.`
+
+`Ask about a property or begin a conversation.`
+
+**SELLING**
+
+`Understand the local perspective behind your business.`
+
+`See what the listing or valuation conversation looks like.`
+
+`Start with a clear, low-friction next step.`
+
+Below both columns, add one restrained horizontal note:
+
+`Property-search and IDX availability depend on the relevant MLS, brokerage, provider, eligibility, disclosures, data, and third-party fees. We confirm that path before the final build scope is set.`
+
+This replaces the generic problem-card grid and four generic delivery cards. Do not add another “What We Deliver” card section.
+
+### 5. Simple three-step process — shorter and more readable
+
+Use a warm off-white section with a three-step horizontal layout on desktop and stacked layout on mobile. Avoid excessive blank vertical space. Use large 01, 02, 03 numerals and short readable copy.
+
+Eyebrow:
+
+`HOW IT WORKS`
+
+H2:
+
+`A Clear Path From First Call to Launch.`
+
+Step 01 title:
+
+`15-Minute Fit Call`
+
+Step 01 body:
+
+`We learn about your market, current website, buyer and seller priorities, and any MLS or brokerage context that affects the website.`
+
+Step 02 title:
+
+`Free Homepage Direction`
+
+Step 02 body:
+
+`If Graylock is the right fit, we create a custom Homepage Direction around your business before any build fee is due.`
+
+Step 03 title:
+
+`Approve, Build, and Launch`
+
+Step 03 body:
+
+`After the Homepage Direction, required materials, and approvals are confirmed, standard websites are typically built, tested, and launched in 7–10 business days. MLS, brokerage, provider, and other third-party timing remain outside Graylock’s control.`
+
+Do not add a second testimonial or “Client Perspective” section after this process.
+
+### 6. FAQ — four questions, plain and useful
+
+Use the existing accessible accordion component and existing Realtor FAQ-expand tracking. Use exactly these four questions and answers:
+
+**What is a Free Homepage Direction?**
+
+`It is a custom direction for your homepage, built around your market, services, proof, and buyer and seller paths. You review it before deciding whether to approve a paid website build. A Free Homepage Direction is not a free website.`
+
+**Can my website include property search or IDX?**
+
+`Possibly. Property-search and IDX availability depend on your local MLS, brokerage, provider, eligibility, available data, required disclosures, and third-party fees. Graylock reviews that path before the final build scope is confirmed.`
+
+**How quickly can a standard website be built?**
+
+`After the Homepage Direction, required materials, and approvals are confirmed, standard websites are typically built, tested, and launched in 7–10 business days. Larger, more complex, or third-party-dependent work may take longer.`
+
+**What should I provide?**
+
+`The final scope determines the required inputs, which may include business and team details, service-area information, brand assets, approved photography, property or integration information, copy inputs, domain access, and any MLS, brokerage, or provider items that require your involvement.`
+
+Use a simple readable FAQ heading:
+
+`Questions Before You Start?`
+
+Do not add a separate legal/compliance section, local pricing grid, local guarantee block, or second offer inside the FAQ.
+
+### 7. Shared existing Tim and Jared component
+
+Reuse the current shared Tim/Jared team component exactly as it exists. Do not create new bios, portraits, credentials, claims, or a new card layout. Place it after the FAQ.
+
+### 8. Clean final CTA
+
+Use the current homepage-style final CTA treatment, but keep it concise.
+
+Eyebrow:
+
+`YOUR NEXT STEP`
+
+H2:
+
+`See the Direction for Your Real-Estate Website Before You Commit to the Build.`
+
+Body:
+
+`Start with a 15-minute fit call. If Graylock is the right fit, we create a custom Homepage Direction for your business before any build fee is due.`
+
+Primary CTA, exactly:
+
+`Get Your Free Homepage Direction`
+
+Preserve the existing final Realtor CTA destination and `realtor_final_cta_click` tracking.
+
+Microcopy:
+
+`No build fee to see the direction. No pressure. No obligation.`
+
+Do not repeat “A Free Homepage Direction is not a free website” again here. It already appears twice above.
+
+## Required removals
+
+Remove from the Realtor route completely:
+
+- `StandardIndustryPage` rendering for this route.
+- The generic `IndustryHeroArt` / orange line-chart hero visual.
+- The current four black offer cards.
+- The “Review current plan terms” card.
+- The cancellation and guarantee links inside the offer.
+- The standalone giant review section.
+- The duplicate Mark Nelson “Client Perspective” review block.
+- The three generic problem cards.
+- The four generic delivery cards.
+- The current four-step process; replace it with the exact three-step process above.
+- The fifth FAQ question and all duplicated wording.
+- All unused vertical padding that makes sections feel empty or unfinished.
+
+## Mobile and visual QA
+
+Before reporting completion, test this exact route at approximately 390px, 768px, 1280px, and 1440px widths.
+
+Confirm all of the following:
+
+1. The direct route never displays the generic full-screen “Loading page…” state.
+2. The hero visual is the real Willow project asset—not a chart, map, fake listing, generic stock visual, or AI-generated project image.
+3. The hero has no unused black lower half.
+4. No generic card grid remains on the route.
+5. The Mark Nelson review appears exactly once.
+6. The Willow project appears exactly once.
+7. There are no rankings, leads, booking, revenue, compliance, IDX-access, or free-website promises.
+8. There are no page-local fee waivers, countdowns, promotions, popup changes, or pricing grids.
+9. The desktop page body is materially shorter and more intentional than the current approximately 9,675px page.
+10. Every primary page-body CTA says exactly “Get Your Free Homepage Direction.”
+11. Hero, offer, and final CTA preserve their existing Realtor URL parameters and analytics event behavior.
+12. Header, footer, shared form, Resend flow, dashboard, sitewide September popup experiment, pricing, policies, and all other routes were not changed.
+
+## Final response format
+
+After implementing, respond with:
+
+- The exact files changed.
+- Confirmation that `/websites-for-realtors` no longer uses `StandardIndustryPage`.
+- Confirmation that the Realtor route is eagerly available and no longer flashes the generic “Loading page…” state.
+- Confirmation that the Mark Nelson review is used once and the Willow Realty Group project is used once.
+- Desktop/tablet/mobile test results.
+- Confirmation that no other route, shared form, Resend flow, dashboard, sitewide popup experiment, pricing page, policy page, header, or footer was changed.

@@ -15,6 +15,7 @@ import { RichText } from "./RichText";
 import { isProofVerified } from "./proof-verification";
 import { PROJECT_ASSETS } from "./project-assets";
 import { IndustryHeroArt } from "./IndustryHeroArt";
+import { RealtorHeroVisual } from "./RealtorHeroVisual";
 
 export type StandardCtaPlacement = "hero" | "offer" | "final_cta";
 
@@ -212,9 +213,13 @@ export function StandardIndustryPage({
             </div>
 
             {/* Right Art */}
-            <div className="hidden lg:block relative aspect-square max-w-xl mx-auto w-full opacity-80">
+            <div className={data.route === "/websites-for-realtors"
+              ? "relative max-w-2xl mx-auto w-full"
+              : "hidden lg:block relative aspect-square max-w-xl mx-auto w-full opacity-80"}>
               <ScrollReveal delay={0.2} className="h-full">
-                <IndustryHeroArt route={data.route} />
+                {data.route === "/websites-for-realtors"
+                  ? <RealtorHeroVisual />
+                  : <IndustryHeroArt route={data.route} />}
               </ScrollReveal>
             </div>
             
