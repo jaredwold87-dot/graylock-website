@@ -72,7 +72,7 @@ The first migration creates `september-build-fee-waiver` /
   `endDateTime`, and `deadlineDisplayText` remain untouched
 * allocations `control: 50`, `savings_led: 50`, `direction_led: 0`
 * `triggerMinimumSeconds: 25`, `triggerMinimumScrollDepth: 0.55`
-* `dismissalFrequencyCapDays: 30` (legacy configuration; dismissal now hides the notice for the entire campaign without withdrawing eligibility)
+* `dismissalFrequencyCapDays: 30` (legacy field, no longer used to suppress popup display)
 * `standardBuildFeeDisplayValue: "from $799"`
 * `monthlyPlanDisclosure: "Applicable monthly plan, scope, and terms apply."`
 * `minEvaluationDays: 14`, `minEligibleVisitors: 200`
@@ -271,12 +271,15 @@ Only these browser event names are accepted:
 
 Events are durable, idempotent by assignment and `event_id`, and contain no
 arbitrary JSON. The server rechecks live dates, page eligibility, popup
-enabled state, control assignment, configured trigger thresholds, and
-assignment suppression before accepting an impression. An impression cannot
-be manufactured by sending an eligibility event. Dismissals, CTA clicks, and
-form submissions update durable suppression fields; later assignment responses
-include `suppressed: true`. A control assignment never receives an accepted
-impression.
+enabled state, control assignment, and configured trigger thresholds before
+accepting an impression. An impression cannot be manufactured by sending an
+eligibility event. Dismissals, CTA clicks, and form submissions remain recorded
+for reporting but no longer suppress display; assignment responses include
+`suppressed: false`. Closing the popup or a request form restarts the configured
+wait (currently 25 seconds). Once that wait and the scroll threshold are met,
+the popup can appear again—even after submission or on a return visit. An open
+form is never interrupted. Historical control assignments are retired on return
+when the control allocation is zero, and the visitor receives popup A or B.
 
 ## Admin API
 
@@ -442,10 +445,17 @@ assignment, rather than trusted from the browser.
 
 On an accepted attributed submission, the server generates an
 `internal_lead_id`, stores the private attribution row without putting lead
-PII in the event table, records the appropriate form-submission event, and
-forwards snake_case attribution metadata and `internal_lead_id` through the
-existing Resend email path. The JSON response includes
-`{success:true,internal_lead_id}`. The token itself is not forwarded to email
+PII in the event table, and records the appropriate form-submission event.
+Notification emails contain the submitted lead details without the internal
+lead ID or raw experiment/tracking metadata; attribution remains in the private
+dashboard and database. Existing retry payload snapshots remain unchanged for
+Resend idempotency safety. The JSON response includes
+`{success:true,internal_lead_id,notification_status}` only after Resend accepts
+the notification (or an earlier attempt was already accepted). Saved requests
+whose notification failed, is still processing, or needs manual review return
+a non-success response with their internal ID and notification status; the form
+must not display its success screen in those cases.
+The token itself is not forwarded to email
 or any notification payload.
 
 Assignment tokens for prior monthly occurrences remain resolvable so their
@@ -464,8 +474,11 @@ assignments), and the private leads CSV includes both `experimentId` and
 `occurrenceKey` so exported monthly cohorts remain distinguishable.
 
 Successful submissions are sent through Resend using only server-side
-`RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `LEADS_RECIPIENT_EMAIL`, and optional
-`OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL`. A failed notification marks the
+`RESEND_API_KEY`, `RESEND_FROM_EMAIL`, and `LEADS_RECIPIENT_EMAIL`. Configured
+`TEAM_EMAIL_TIM` and `OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL` recipients are
+also included, with duplicate addresses removed. These settings must exist
+in the hosting environment (Sevalla for the live site); workspace settings
+alone do not configure that host. A failed notification marks the
 private row as `emailNotificationStatus: "failed"` without claiming that the
 email was delivered; an authorized administrator can call
 `POST /api/promotion/admin/leads/:id/resend-email` with the CSRF token. A

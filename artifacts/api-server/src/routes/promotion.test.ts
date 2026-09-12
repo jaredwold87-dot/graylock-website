@@ -10,12 +10,12 @@ const promotion = await import("./promotion");
 const migrations = await import("../lib/promotion-migrations");
 const leads = await import("./leads");
 
-test("campaign dismissal hides the popup even after caps or deadlines change", async () => {
-  const assignment = { dismissedAt: "2026-01-01T00:00:00Z", ctaClickedAt: null, convertedAt: null };
+test("dismissed, clicked, and converted visitors remain eligible for repeat popups", async () => {
+  const assignment = { dismissedAt: "2026-01-01T00:00:00Z", ctaClickedAt: "2026-01-01T00:00:00Z", convertedAt: "2026-01-01T00:00:00Z" };
   for (const dismissalFrequencyCapDays of [0, 1, 30]) {
     assert.equal(await promotion.suppressionFor(
       assignment as never, { dismissalFrequencyCapDays } as never, new Date("2026-10-01"),
-    ), true);
+    ), false);
   }
   assert.equal(await promotion.suppressionFor(
     { ...assignment, dismissedAt: null } as never, {} as never,
@@ -379,4 +379,75 @@ test("notification lease recovery and Resend idempotency are safe under races", 
   assert.equal(calls.length, 2);
   assert.equal(calls[0].key, calls[1].key);
   assert.deepEqual(calls[0].payload, calls[1].payload);
+});
+
+test("lead notification recipients include the required team mailbox and deduplicate addresses", () => {
+  assert.deepEqual(
+    leads.leadNotificationRecipients({
+      LEADS_RECIPIENT_EMAIL: "leads@example.com",
+      TEAM_EMAIL_TIM: " LEADS@example.com ",
+      OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL: "tim@example.com",
+    }),
+    ["leads@example.com", "tim@example.com"],
+  );
+});
+
+test("lead notification responses only mark sent and previously sent as successful", () => {
+  assert.equal(leads.notificationResponse("sent", "lead-1").body.success, true);
+  assert.equal(leads.notificationResponse("sent", "lead-1").statusCode, 200);
+  assert.equal(leads.notificationResponse("previously_sent", "lead-1").body.success, true);
+  const failed = leads.notificationResponse("failed", "lead-1");
+  assert.equal(failed.body.success, false);
+  assert.equal(failed.statusCode, 502);
+  assert.deepEqual(
+    { id: failed.body.internal_lead_id, status: failed.body.notification_status },
+    { id: "lead-1", status: "failed" },
+  );
+  assert.equal(leads.notificationResponse("busy", "lead-1").body.success, false);
+  assert.equal(leads.notificationResponse("manual_review", "lead-1").body.success, false);
+
+  assert.equal(
+    leads.notificationResponseDecision("sent", null, null),
+    "sent",
+  );
+  assert.equal(
+    leads.notificationResponseDecision("sent", null, null, true),
+    "previously_sent",
+  );
+  assert.equal(
+    leads.notificationResponseDecision("sending", new Date(Date.now() + 60_000), new Date()),
+    "busy",
+  );
+  assert.equal(leads.notificationResponseDecision("failed", null, null), "failed");
+});
+
+test("rejected and incomplete Resend results become safe actionable diagnostics", () => {
+  assert.deepEqual(leads.missingLeadNotificationConfiguration({
+    RESEND_API_KEY: "fixture-only",
+    RESEND_FROM_EMAIL: "sender@example.com",
+    LEADS_RECIPIENT_EMAIL: "owner@example.com",
+    OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL: "second@example.com",
+  }), [], "Existing secondary-recipient configuration must remain supported");
+  const rejected = leads.inspectNotificationSendResult({
+    data: null,
+    error: { name: "validation_error", message: "recipient@example.com and secret should not escape" },
+  });
+  assert.deepEqual(rejected, {
+    ok: false,
+    diagnostic: "resend_validation_error: Resend rejected the notification request validation.",
+  });
+  assert.doesNotMatch(rejected.diagnostic, /recipient@example\.com|secret/);
+
+  const missingId = leads.inspectNotificationSendResult({ data: {}, error: null });
+  assert.deepEqual(missingId, {
+    ok: false,
+    diagnostic: "resend_missing_message_id: Resend did not return a message ID for the notification.",
+  });
+
+  const missingConfiguration = leads.notificationConfigurationDiagnostic([
+    "RESEND_API_KEY",
+    "TEAM_EMAIL_TIM",
+  ]);
+  assert.equal(missingConfiguration, "configuration_missing: RESEND_API_KEY, TEAM_EMAIL_TIM; notification email is not configured.");
+  assert.doesNotMatch(missingConfiguration, /re_[^ ]+|secret|token/i);
 });

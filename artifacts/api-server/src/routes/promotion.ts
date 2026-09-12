@@ -729,13 +729,13 @@ function assignmentResponse(
 }
 
 export async function suppressionFor(
-  assignment: Assignment,
-  campaign: Campaign,
-  now = new Date(),
+  _assignment: Assignment,
+  _campaign: Campaign,
+  _now = new Date(),
 ): Promise<boolean> {
-  if (assignment.ctaClickedAt || assignment.convertedAt) return true;
-  // Dismissal suppresses the notice for this campaign, never lead eligibility.
-  return Boolean(assignment.dismissedAt);
+  // Repeat exposure is intentional, including previous leads. Historic flags
+  // remain available for reporting but never opt a visitor out of the popup.
+  return false;
 }
 
 async function insertInternalEvent(
@@ -1422,6 +1422,17 @@ promotionRouter.post("/promotion/assign", async (req, res) => {
         [campaign.id, campaign.experimentId, visitorId],
       );
       let row = existing.rows[0];
+      if (row?.experiment_variant === "control" && campaign.trafficAllocationControl === 0) {
+        // Previous leads may still have a control assignment from the retired
+        // holdout test. Keep its history, but give this visit a popup variant.
+        await client.query(
+          `UPDATE experiment_assignments
+           SET experiment_id = 'retired-control:' || id || ':' || experiment_id
+           WHERE id = $1`,
+          [row.id],
+        );
+        row = undefined;
+      }
       if (!row) {
         const token = randomBytes(32).toString("base64url");
         const variant = chooseVariant(campaign);

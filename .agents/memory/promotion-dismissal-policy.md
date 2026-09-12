@@ -1,9 +1,9 @@
 ---
 name: Promotion dismissal policy
-description: Closing a promotion hides its notice but does not withdraw eligibility.
+description: Repeat popup exposure is intentional, including dismissed and converted visitors.
 ---
-Closing the Build-Fee Waiver popup hides the current offer period’s notice for the recognized visitor, even if configuration changes. It does not forfeit eligibility before the deadline. For a recurring campaign, a new calendar month is a new offer period and may show the notice again; a manual campaign stays dismissed for its lifetime.
+Do not permanently or monthly suppress the popup for dismissals, offer clicks, form starts, or completed submissions. Repeat display and return-visit display are intentional. Preserve a fresh trigger wait after dismissal or closing a form, and do not interrupt an open form.
 
-**Why:** The user explicitly chose notice-only dismissal rather than withdrawing the offer, then requested automatic calendar-month resets. Do not use “close this and lose the offer” wording. Because the offer recurs, disclose its monthly nature rather than implying a one-time opportunity.
+**Why:** On 2026-09-11 the user explicitly overrode the prior monthly dismissal policy: they want visitors to see the popup repeatedly even after closing it or submitting. Closing still never forfeits offer eligibility. Monthly recurrence must remain disclosed truthfully.
 
-**How to apply:** Preserve attribution and normal form access after dismissal. Browser storage or an anonymous assignment identifies the visitor; do not promise cross-device recognition.
+**How to apply:** Keep dismissal/conversion history for reporting only, not as an eligibility gate. Preserve A/B assignments and normal form access. Do not restore the old suppression behavior based on legacy storage fields.

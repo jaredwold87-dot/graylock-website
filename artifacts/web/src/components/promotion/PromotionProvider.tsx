@@ -149,6 +149,7 @@ async function fetchCampaign(): Promise<{
   try {
     const response = await fetch(getPromotionApiUrl("/campaign"), {
       method: "GET",
+      signal: AbortSignal.timeout(10000),
       cache: "no-store",
       headers: { Accept: "application/json", "Cache-Control": "no-cache" },
     });
@@ -192,6 +193,9 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   const periodRequestVersionRef = useRef(0);
   const refreshRequestVersionRef = useRef(0);
   const campaignFetchVersionRef = useRef(0);
+  const assignmentConfirmedRef = useRef(false);
+  const assignmentRequestPendingRef = useRef<string | null>(null);
+  const triggerRequestPendingRef = useRef(false);
 
   useEffect(() => {
     locationRef.current = location;
@@ -216,6 +220,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
       assignmentRef.current = null;
       setAssignment(null);
       setAssignmentConfirmed(false);
+      assignmentConfirmedRef.current = false;
       setAssignmentSuppressed(false);
       setPromotionAttribution(null);
       eventQueueRef.current = [];
@@ -308,13 +313,15 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     }
     if (eventName === "promo_form_submitted" || eventName === "standard_form_submitted") {
       next.submittedAt = next.submittedAt || timestamp;
-      setFormStarted(true);
+      setFormStarted(false);
+      routeStartedAtRef.current = Date.now();
       setPopupOpen(false);
     }
     if (next.formStartedAt || next.submittedAt) savePromotionSuppressionState(next);
   }, []);
 
   useEffect(() => {
+    mountedRef.current = true;
     registerPromotionEventSender(sendEvent);
     return () => {
       mountedRef.current = false;
@@ -325,9 +332,11 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   const assignCampaign = useCallback(
     async (nextCampaign: PromotionCampaign, active: boolean) => {
       if (!active || !nextCampaign.campaignId || !nextCampaign.experimentId) return;
-      const requestVersion = ++periodRequestVersionRef.current;
       const expectedPeriod = campaignPeriodKey(nextCampaign);
+      if (assignmentRequestPendingRef.current === expectedPeriod) return;
+      const requestVersion = ++periodRequestVersionRef.current;
       setAssignmentConfirmed(false);
+      assignmentConfirmedRef.current = false;
       const persist = !previewRef.current && isPromotionStorageAvailable();
       if (!persist) {
         // A treatment assignment is only useful when it can remain sticky.
@@ -358,8 +367,10 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
       }
 
       try {
+        assignmentRequestPendingRef.current = expectedPeriod;
         const response = await fetch(getPromotionApiUrl("/assign"), {
           method: "POST",
+          signal: AbortSignal.timeout(10000),
           cache: "no-store",
           headers: { "Content-Type": "application/json", "Cache-Control": "no-cache" },
           body: JSON.stringify({
@@ -406,19 +417,27 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         assignmentRef.current = safeAssignment;
         setAssignment(safeAssignment);
         setAssignmentConfirmed(true);
-        setAssignmentSuppressed(Boolean(data.assignment.suppressed || data.suppressed));
+        assignmentConfirmedRef.current = true;
+        // Historic dismissal/conversion flags are reporting data, not opt-outs.
+        setAssignmentSuppressed(false);
         setPromotionAttribution(buildAttribution(safeAssignment, locationRef.current));
         if (persist) savePromotionAssignment(safeAssignment);
         const pending = eventQueueRef.current.splice(0, eventQueueRef.current.length);
         pending.forEach(({ eventName, fields }) => sendEvent(eventName, fields));
       } catch {
         // No assignment means no popup.  Existing pages remain unchanged.
+      } finally {
+        if (assignmentRequestPendingRef.current === expectedPeriod) {
+          assignmentRequestPendingRef.current = null;
+        }
       }
     },
     [applyCampaign, sendEvent],
   );
 
   const refreshCampaign = useCallback(async () => {
+    // Let the final display check finish rather than invalidating it with a poll.
+    if (triggerRequestPendingRef.current) return;
     const refreshVersion = ++refreshRequestVersionRef.current;
     const fetchVersion = ++campaignFetchVersionRef.current;
     const result = await fetchCampaign();
@@ -436,6 +455,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     if (
       result.active &&
       (!assignmentRef.current ||
+        !assignmentConfirmedRef.current ||
         campaignPeriodKey(previous) !== campaignPeriodKey(result.campaign))
     ) {
       await assignCampaign(result.campaign, result.active);
@@ -498,6 +518,11 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (previewVariant) return;
     if (bookCall?.isOpen) setPopupOpen(false);
+    else setFormStarted(false);
+    impressionTrackedRef.current = "";
+    // Give visitors a fresh wait after closing a form, rather than immediately
+    // placing the promotion over their confirmation or returning page.
+    routeStartedAtRef.current = Date.now();
   }, [bookCall?.isOpen, previewVariant]);
 
   useEffect(() => {
@@ -519,33 +544,14 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    const configHash = promotionConfigHash(activeCampaign);
-    const state = getPromotionSuppressionState(
-      activeCampaign.campaignId,
-      configHash,
-      suppressionScope(activeCampaign),
-    );
-    const normalizedState =
-      state.configHash !== configHash
-        ? {
-            ...state,
-            configHash,
-          }
-        : state;
-    if (normalizedState.configHash !== state.configHash) savePromotionSuppressionState(normalizedState);
-    // Dismissal hides this campaign's notice permanently, not the offer.
-    const dismissedRecently = Boolean(normalizedState.dismissedAt);
-    const permanentlySuppressed = Boolean(
-      normalizedState.ctaClickedAt || normalizedState.formStartedAt || normalizedState.submittedAt,
-    );
-    if (dismissedRecently || permanentlySuppressed) return;
-
+    let cancelled = false;
     const checkTrigger = () => {
       if (
+        triggerRequestPendingRef.current ||
         popupOpen ||
         bookCall?.isOpen ||
         formStarted ||
-        !introComplete ||
+        (!introComplete && Boolean(document.querySelector(".intro-screen"))) ||
         document.visibilityState === "hidden"
       ) {
         return;
@@ -566,7 +572,9 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         return;
       }
       popupTriggerRef.current = "time_scroll_threshold";
+      triggerRequestPendingRef.current = true;
       void (async () => {
+        try {
         const triggerPeriod = campaignPeriodKey(activeCampaign);
         const fetchVersion = ++campaignFetchVersionRef.current;
         // Recheck the kill switch and deadline immediately before making the
@@ -574,7 +582,7 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         const latest = await fetchCampaign();
         if (
           fetchVersion !== campaignFetchVersionRef.current ||
-          !mountedRef.current ||
+          !mountedRef.current || cancelled ||
           campaignPeriodKey(campaignRef.current) !== triggerPeriod
         ) {
           return;
@@ -598,12 +606,16 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
         const serverTimestamp = Date.parse(latest.serverNow);
         if (Number.isFinite(serverTimestamp)) setServerTimeOffsetMs(serverTimestamp - Date.now());
         setPopupOpen(true);
+        } finally {
+          triggerRequestPendingRef.current = false;
+        }
       })();
     };
     checkTrigger();
     const interval = window.setInterval(checkTrigger, 1000);
     window.addEventListener("scroll", checkTrigger, { passive: true });
     return () => {
+      cancelled = true;
       window.clearInterval(interval);
       window.removeEventListener("scroll", checkTrigger);
     };
@@ -673,6 +685,8 @@ export function PromotionProvider({ children }: { children: ReactNode }) {
     );
       const next = { ...state, configHash, dismissedAt: nowIso() };
       savePromotionSuppressionState(next);
+      routeStartedAtRef.current = Date.now();
+      impressionTrackedRef.current = "";
       setPopupOpen(false);
       setPromotionAttribution(
         mergePromotionAttribution(getPromotionAttribution(), {

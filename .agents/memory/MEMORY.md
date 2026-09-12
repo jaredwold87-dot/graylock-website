@@ -1,4 +1,4 @@
-- [Promotion dismissal](promotion-dismissal-policy.md) — closing hides the campaign notice, not offer eligibility; do not claim dismissal forfeits the offer.
+- [Promotion dismissal](promotion-dismissal-policy.md) — repeat display is intentional even after dismissal or submission; no monthly opt-out.
 - [Popup A/B purpose](popup-ab-purpose.md) — compare the two popup wordings; no intentional no-popup control group.
 - [ResponsiveImage variants](responsive-image-variants.md) — grid images need sibling webp/mobile files in public/; @assets imports 404 the picture source and vanish.
 - [Graylock color tokens](graylock-color-tokens.md) — `orange` token now = brand orange #E85D26 (was steel-blue); use #B23E16 for small orange text on light bg.

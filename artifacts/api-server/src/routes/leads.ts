@@ -9,7 +9,6 @@ import {
   requirePromotionAdmin,
   requirePromotionCsrf,
   requirePromotionOrigin,
-  toSnakeMetadata,
 } from "./promotion";
 
 const leadsRouter = Router();
@@ -66,6 +65,178 @@ export async function sendNotificationWithIdempotency<TPayload extends object, T
   idempotencyKey: string,
 ): Promise<TResult> {
   return sender.send(payload, { idempotencyKey });
+}
+
+export type LeadNotificationResponseStatus =
+  | "sent"
+  | "previously_sent"
+  | "busy"
+  | "failed"
+  | "manual_review";
+
+type LeadNotificationResponse = {
+  statusCode: number;
+  body: {
+    success: boolean;
+    internal_lead_id: string;
+    notification_status: LeadNotificationResponseStatus;
+    error?: string;
+  };
+};
+
+const RESEND_ERROR_EXPLANATIONS: Record<string, string> = {
+  application_error: "Resend reported an application error while accepting the notification.",
+  concurrent_idempotent_requests: "Resend is already processing this idempotent notification request.",
+  daily_quota_exceeded: "Resend reported that the account's daily sending quota was exceeded.",
+  invalid_access: "Resend rejected access to the requested notification operation.",
+  invalid_attachment: "Resend rejected an attachment in the notification request.",
+  internal_server_error: "Resend was temporarily unable to accept the notification.",
+  invalid_api_key: "Resend rejected the configured API key.",
+  invalid_from_address: "Resend rejected the configured sender address.",
+  invalid_idempotency_key: "Resend rejected the notification idempotency key.",
+  invalid_idempotent_request: "Resend rejected the idempotent notification request.",
+  invalid_parameter: "Resend rejected a notification parameter.",
+  invalid_region: "Resend rejected the configured sending region.",
+  invalid_request_error: "Resend rejected the notification request.",
+  missing_api_key: "Resend reported that an API key was not provided.",
+  missing_required_field: "Resend reported a required notification field was missing.",
+  method_not_allowed: "Resend rejected the notification operation.",
+  monthly_quota_exceeded: "Resend reported that the account's monthly sending quota was exceeded.",
+  not_found: "Resend could not find the requested notification resource.",
+  rate_limit_exceeded: "Resend rate-limited the notification request.",
+  restricted_api_key: "Resend rejected the configured API key permissions.",
+  security_error: "Resend rejected the notification request for security reasons.",
+  unprocessable_entity: "Resend could not process the notification request.",
+  validation_error: "Resend rejected the notification request validation.",
+};
+
+const REQUIRED_NOTIFICATION_CONFIGURATION = [
+  "RESEND_API_KEY",
+  "RESEND_FROM_EMAIL",
+  "LEADS_RECIPIENT_EMAIL",
+] as const;
+
+export function leadNotificationRecipients(
+  env: NodeJS.ProcessEnv = process.env,
+): string[] {
+  const recipients = [
+    env.LEADS_RECIPIENT_EMAIL,
+    env.TEAM_EMAIL_TIM,
+    env.OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL,
+  ]
+    .map((recipient) => typeof recipient === "string" ? recipient.trim() : "")
+    .filter(Boolean);
+  const seen = new Set<string>();
+  return recipients.filter((recipient) => {
+    const normalized = recipient.toLowerCase();
+    if (seen.has(normalized)) return false;
+    seen.add(normalized);
+    return true;
+  });
+}
+
+export function missingLeadNotificationConfiguration(
+  env: NodeJS.ProcessEnv = process.env,
+): string[] {
+  const missing = REQUIRED_NOTIFICATION_CONFIGURATION.filter((name) => {
+    const value = env[name];
+    return typeof value !== "string" || value.trim().length === 0;
+  });
+  return [...missing];
+}
+
+class SafeNotificationError extends Error {
+  constructor(public readonly diagnostic: string) {
+    super(diagnostic);
+    this.name = "SafeNotificationError";
+  }
+}
+
+export function notificationErrorDiagnostic(error: unknown): string {
+  if (error instanceof SafeNotificationError) {
+    return error.diagnostic;
+  }
+  const providerName =
+    error && typeof error === "object" && "name" in error && typeof error.name === "string"
+      ? error.name.trim().toLowerCase()
+      : "";
+  const explanation = providerName ? RESEND_ERROR_EXPLANATIONS[providerName] : undefined;
+  if (explanation) {
+    return `resend_${providerName}: ${explanation}`;
+  }
+  return "notification_failed: The notification provider did not accept the request; retry or use the authenticated resend action.";
+}
+
+export function notificationConfigurationDiagnostic(missing: string[]): string {
+  return `configuration_missing: ${missing.join(", ")}; notification email is not configured.`;
+}
+
+export function inspectNotificationSendResult(result: unknown):
+  | { ok: true; providerMessageId: string }
+  | { ok: false; diagnostic: string } {
+  const record = result && typeof result === "object"
+    ? result as { data?: unknown; error?: unknown }
+    : {};
+  if (record.error) {
+    return { ok: false, diagnostic: notificationErrorDiagnostic(record.error) };
+  }
+  const data = record.data && typeof record.data === "object"
+    ? record.data as { id?: unknown }
+    : undefined;
+  if (typeof data?.id !== "string" || data.id.trim().length === 0) {
+    return {
+      ok: false,
+      diagnostic: "resend_missing_message_id: Resend did not return a message ID for the notification.",
+    };
+  }
+  return { ok: true, providerMessageId: data.id };
+}
+
+export function notificationResponseDecision(
+  status: string,
+  leaseUntil: string | Date | null | undefined,
+  attemptedAt: string | Date | null | undefined,
+  alreadyStored = false,
+  now = Date.now(),
+): LeadNotificationResponseStatus {
+  if (status === "sent") return alreadyStored ? "previously_sent" : "sent";
+  if (status === "manual_review") return "manual_review";
+  if (status === "failed") return "failed";
+  // A request which could not acquire its lease must never send. Even if a
+  // stale lease is theoretically retryable, another request owns (or raced
+  // for) the claim, so the caller can use the authenticated resend action.
+  const leaseDecision = notificationLeaseDecision(status, leaseUntil, attemptedAt, now);
+  return leaseDecision === "manual_review" ? "manual_review" : "busy";
+}
+
+export function notificationResponse(
+  decision: LeadNotificationResponseStatus,
+  internalLeadId: string,
+): LeadNotificationResponse {
+  if (decision === "sent" || decision === "previously_sent") {
+    return {
+      statusCode: 200,
+      body: {
+        success: true,
+        internal_lead_id: internalLeadId,
+        notification_status: decision,
+      },
+    };
+  }
+  const message = decision === "busy"
+    ? "Your request was saved and its email notification is still processing. Please wait a moment before trying again."
+    : decision === "manual_review"
+      ? "Your request was saved, but we couldn't confirm its email notification. Please contact hello@graylockdigital.com."
+      : "Your request was saved, but we couldn't email our team. Please contact hello@graylockdigital.com.";
+  return {
+    statusCode: decision === "failed" ? 502 : 409,
+    body: {
+      success: false,
+      error: message,
+      internal_lead_id: internalLeadId,
+      notification_status: decision,
+    },
+  };
 }
 
 interface LeadPayload {
@@ -239,6 +410,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
   // The client-facing idempotency key is the durable submission identifier
   // used by the existing lead store's unique submission_id column.
   const submissionId = payload.idempotency_key;
+  let notificationClaimed = false;
 
   let promotionAssignment: Awaited<ReturnType<typeof assignmentByToken>> = null;
   const hasPromotionMetadata = Boolean(
@@ -283,9 +455,6 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
       return;
     }
   }
-  const promotionMetadata = promotionAssignment
-    ? toSnakeMetadata(promotionAssignment.assignment)
-    : null;
   const promotionSource = promotionAssignment
     ? payload.promotion_source || "standard_homepage_cta"
     : "standard_homepage_cta";
@@ -369,7 +538,8 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
           const existingResult = await client.query(
             `
               SELECT internal_lead_id, assignment_id, submission_id,
-                submission_payload_hash, email_notification_status
+                submission_payload_hash, email_notification_status,
+                email_notification_lease_until, email_notification_attempted_at
               FROM promotion_lead_attribution
               WHERE submission_id=$1 OR assignment_id=$2
               ORDER BY id ASC
@@ -409,11 +579,22 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
           );
           if ((claimed.rowCount ?? 0) === 0) {
             await client.query("COMMIT");
-            res.json({ success: true, internal_lead_id: internalLeadId });
+            const existing = existingResult.rows[0] as Record<string, unknown> | undefined;
+            const response = notificationResponse(
+              notificationResponseDecision(
+                String(existing?.email_notification_status || "pending"),
+                existing?.email_notification_lease_until as string | Date | null | undefined,
+                existing?.email_notification_attempted_at as string | Date | null | undefined,
+                true,
+              ),
+              internalLeadId,
+            );
+            res.status(response.statusCode).json(response.body);
             return;
           }
+          notificationClaimed = true;
         } else {
-          await client.query(
+          const claimed = await client.query(
             `
               UPDATE promotion_lead_attribution
               SET email_notification_status='sending',
@@ -427,9 +608,11 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
                     AND email_notification_lease_until < NOW()
                     AND (email_notification_attempted_at IS NULL
                       OR email_notification_attempted_at >= NOW() - INTERVAL '24 hours')))
+              RETURNING internal_lead_id
             `,
             [assignment.id, notificationIdempotencyKey],
           );
+          notificationClaimed = (claimed.rowCount ?? 0) > 0;
         }
         const formEvent = promotionSource === "build_fee_waiver_popup"
           ? "promo_form_submitted"
@@ -523,7 +706,8 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
         if ((inserted.rowCount ?? 0) === 0) {
           const existing = await client.query(
             `
-              SELECT internal_lead_id, submission_payload_hash
+              SELECT internal_lead_id, submission_payload_hash, email_notification_status,
+                email_notification_lease_until, email_notification_attempted_at
               FROM promotion_lead_attribution WHERE submission_id=$1 LIMIT 1
             `,
             [submissionId],
@@ -557,11 +741,22 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
           );
           if ((claimed.rowCount ?? 0) === 0) {
             await client.query("COMMIT");
-            res.json({ success: true, internal_lead_id: internalLeadId });
+            const existingLead = existing.rows[0] as Record<string, unknown> | undefined;
+            const response = notificationResponse(
+              notificationResponseDecision(
+                String(existingLead?.email_notification_status || "pending"),
+                existingLead?.email_notification_lease_until as string | Date | null | undefined,
+                existingLead?.email_notification_attempted_at as string | Date | null | undefined,
+                true,
+              ),
+              internalLeadId,
+            );
+            res.status(response.statusCode).json(response.body);
             return;
           }
+          notificationClaimed = true;
         } else {
-          await client.query(
+          const claimed = await client.query(
             `
               UPDATE promotion_lead_attribution
               SET email_notification_status='sending',
@@ -575,9 +770,11 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
                     AND email_notification_lease_until < NOW()
                     AND (email_notification_attempted_at IS NULL
                       OR email_notification_attempted_at >= NOW() - INTERVAL '24 hours')))
+              RETURNING internal_lead_id
             `,
             [submissionId, notificationIdempotencyKey],
           );
+          notificationClaimed = (claimed.rowCount ?? 0) > 0;
         }
         await client.query("COMMIT");
       } catch (error) {
@@ -591,6 +788,37 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
       res.status(500).json({ error: "Failed to save lead submission" });
       return;
     }
+  }
+  if (!notificationClaimed) {
+    try {
+      const notificationState = await pool.query(
+        `
+          SELECT email_notification_status, email_notification_lease_until,
+            email_notification_attempted_at
+          FROM promotion_lead_attribution WHERE internal_lead_id=$1 LIMIT 1
+        `,
+        [internalLeadId],
+      );
+      const state = notificationState.rows[0] as Record<string, unknown> | undefined;
+      const response = notificationResponse(
+        notificationResponseDecision(
+          String(state?.email_notification_status || "pending"),
+          state?.email_notification_lease_until as string | Date | null | undefined,
+          state?.email_notification_attempted_at as string | Date | null | undefined,
+          true,
+        ),
+        internalLeadId,
+      );
+      res.status(response.statusCode).json(response.body);
+    } catch (error) {
+      logger.error({ error: notificationErrorDiagnostic(error) }, "Failed to read lead notification state");
+      const response = notificationResponse(
+        "failed",
+        internalLeadId,
+      );
+      res.status(response.statusCode).json(response.body);
+    }
+    return;
   }
 
   const isRealtorLead =
@@ -762,25 +990,11 @@ ${detailLines.join("\n")}${realtorLines}${wellDrillerLines}${cabinetMakerLines}$
 
 Submitted: ${submittedAt}
 
-${promotionMetadata
-  ? `Internal lead ID: ${internalLeadId}
-internal_lead_id: ${internalLeadId}
-promotion_source: ${promotionSource}
-Promotion metadata (validated server-side):
-${Object.entries(promotionMetadata).map(([key, value]) => `${key}: ${value || ""}`).join("\n")}
-popup_trigger_type: ${payload.popup_trigger_type || ""}
-popup_impression_timestamp: ${payload.popup_impression_timestamp || ""}
-popup_cta_clicked_timestamp: ${payload.popup_cta_clicked_timestamp || ""}`
-  : `Internal lead ID: ${internalLeadId}`}
-
 ---
 Reply directly to this email to reach the lead.
 `;
 
-  const recipients = [
-    process.env.LEADS_RECIPIENT_EMAIL,
-    process.env.OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL,
-  ].filter((recipient): recipient is string => Boolean(recipient));
+  const recipients = leadNotificationRecipients();
 
   // An experiment assignment can also accompany a normal CTA submission.
   // Only the actual popup entry point should use the promotion subject.
@@ -822,52 +1036,61 @@ Reply directly to this email to reach the lead.
     }
   }
 
-  const emailPromise = (async () => {
-    try {
-      const resendKey = process.env.RESEND_API_KEY;
-      const fromEmail = process.env.RESEND_FROM_EMAIL;
-      if (!resendKey || !fromEmail || recipients.length === 0) {
-        throw new Error("Resend lead notification is not configured");
-      }
-      const resend = new Resend(resendKey);
-      const result = await sendNotificationWithIdempotency(
-        resend.emails,
-        notificationPayload as Parameters<typeof resend.emails.send>[0],
-        notificationKey,
-      );
-      if (result.error) throw new Error("Resend rejected lead notification");
-      if (storedLead) {
-        await pool.query(
-          `
-            UPDATE promotion_lead_attribution
-            SET email_notification_status='sent', email_notification_error=NULL,
-              email_notification_sent_at=NOW(), email_notification_lease_until=NULL,
-              updated_at=NOW()
-            WHERE internal_lead_id=$1
-          `,
-          [internalLeadId],
-        );
-      }
-    } catch (err) {
-      logger.error({ err }, "Failed to send lead email via Resend");
-      if (storedLead) {
-        await pool.query(
-          `
-            UPDATE promotion_lead_attribution
-            SET email_notification_status='failed',
-              email_notification_error=$2, email_notification_lease_until=NULL,
-              updated_at=NOW()
-            WHERE internal_lead_id=$1
-          `,
-          [internalLeadId, "Lead notification email failed"],
-        );
-      }
+  let notificationDecision: LeadNotificationResponseStatus = "sent";
+  let failureDiagnostic: string | undefined;
+  try {
+    const missingConfiguration = missingLeadNotificationConfiguration();
+    if (missingConfiguration.length > 0) {
+      throw new SafeNotificationError(notificationConfigurationDiagnostic(missingConfiguration));
     }
-  })();
+    const resendKey = process.env.RESEND_API_KEY as string;
+    const resend = new Resend(resendKey);
+    const result = await sendNotificationWithIdempotency(
+      resend.emails,
+      notificationPayload as Parameters<typeof resend.emails.send>[0],
+      notificationKey,
+    );
+    const sendResult = inspectNotificationSendResult(result);
+    if (!sendResult.ok) {
+      throw new SafeNotificationError(sendResult.diagnostic);
+    }
+    if (storedLead) {
+      await pool.query(
+        `
+          UPDATE promotion_lead_attribution
+          SET email_notification_status='sent', email_notification_error=NULL,
+            email_notification_sent_at=NOW(), email_notification_lease_until=NULL,
+            updated_at=NOW()
+          WHERE internal_lead_id=$1
+        `,
+        [internalLeadId],
+      );
+    }
+  } catch (error) {
+    failureDiagnostic = notificationErrorDiagnostic(error);
+    notificationDecision = "failed";
+    logger.error({ error: failureDiagnostic }, "Failed to send lead email via Resend");
+    if (storedLead) {
+      await pool.query(
+        `
+          UPDATE promotion_lead_attribution
+          SET email_notification_status='failed',
+            email_notification_error=$2, email_notification_lease_until=NULL,
+            updated_at=NOW()
+          WHERE internal_lead_id=$1
+        `,
+        [internalLeadId, failureDiagnostic],
+      ).catch((updateError) => {
+        logger.error(
+          { error: notificationErrorDiagnostic(updateError) },
+          "Failed to persist lead notification failure",
+        );
+      });
+    }
+  }
 
-  await Promise.allSettled([emailPromise]);
-
-  res.json({ success: true, internal_lead_id: internalLeadId });
+  const response = notificationResponse(notificationDecision, internalLeadId);
+  res.status(response.statusCode).json(response.body);
 });
 
 /**
@@ -908,12 +1131,14 @@ leadsRouter.post(
       }
       if (lead.email_notification_status === "sent") {
         await commitAndRelease();
-        res.status(409).json({ error: "Lead notification was already sent" });
+        const response = notificationResponse("previously_sent", internalLeadId);
+        res.status(response.statusCode).json(response.body);
         return;
       }
       if (lead.email_notification_status === "manual_review") {
         await commitAndRelease();
-        res.status(409).json({ error: "Lead notification requires manual review" });
+        const response = notificationResponse("manual_review", internalLeadId);
+        res.status(response.statusCode).json(response.body);
         return;
       }
       const leaseUntil = lead.email_notification_lease_until
@@ -923,7 +1148,8 @@ leadsRouter.post(
       const retryable = lead.email_notification_status === "failed" || staleSending;
       if (!retryable) {
         await commitAndRelease();
-        res.status(409).json({ error: "Lead notification is already being sent" });
+        const response = notificationResponse("busy", internalLeadId);
+        res.status(response.statusCode).json(response.body);
         return;
       }
       const attemptedAt = lead.email_notification_attempted_at
@@ -941,22 +1167,38 @@ leadsRouter.post(
           [lead.id],
         );
         await commitAndRelease();
-        res.status(409).json({ error: "Notification requires manual review after the 24-hour idempotency window" });
+        const response = notificationResponse(
+          "manual_review",
+          internalLeadId,
+        );
+        res.status(response.statusCode).json(response.body);
         return;
       }
       const payload = lead.email_notification_payload;
       if (!payload || typeof payload !== "object") {
+        await client.query(
+          `
+            UPDATE promotion_lead_attribution
+            SET email_notification_status='manual_review',
+              email_notification_error='manual_review: Notification payload is unavailable; manual review required.',
+              email_notification_lease_until=NULL, updated_at=NOW()
+            WHERE id=$1
+          `,
+          [lead.id],
+        );
         await commitAndRelease();
-        res.status(409).json({ error: "Notification payload is unavailable; manual review required" });
+        const response = notificationResponse(
+          "manual_review",
+          internalLeadId,
+        );
+        res.status(response.statusCode).json(response.body);
         return;
       }
-      const resendKey = process.env.RESEND_API_KEY;
-      const fromEmail = process.env.RESEND_FROM_EMAIL;
-      if (!resendKey || !fromEmail) {
-        await commitAndRelease();
-        res.status(503).json({ error: "Lead notification email is not configured" });
-        return;
+      const missingConfiguration = missingLeadNotificationConfiguration();
+      if (missingConfiguration.length > 0) {
+        throw new SafeNotificationError(notificationConfigurationDiagnostic(missingConfiguration));
       }
+      const resendKey = process.env.RESEND_API_KEY as string;
       await pool.query(
         `
           UPDATE promotion_lead_attribution
@@ -970,12 +1212,19 @@ leadsRouter.post(
       );
       await commitAndRelease();
       const resend = new Resend(resendKey);
+      const retryPayload = {
+        ...(payload as Record<string, unknown>),
+        to: leadNotificationRecipients(),
+      };
       const sent = await sendNotificationWithIdempotency(
         resend.emails,
-        payload as Parameters<typeof resend.emails.send>[0],
+        retryPayload as Parameters<typeof resend.emails.send>[0],
         String(lead.email_notification_idempotency_key || `lead-notification-${internalLeadId}`),
       );
-      if (sent.error) throw new Error("Resend rejected lead notification");
+      const sendResult = inspectNotificationSendResult(sent);
+      if (!sendResult.ok) {
+        throw new SafeNotificationError(sendResult.diagnostic);
+      }
       await pool.query(
         `
           UPDATE promotion_lead_attribution
@@ -986,25 +1235,32 @@ leadsRouter.post(
         `,
         [internalLeadId],
       );
-      res.json({ ok: true, internal_lead_id: internalLeadId });
+      res.json({
+        ok: true,
+        success: true,
+        internal_lead_id: internalLeadId,
+        notification_status: "sent",
+      });
     } catch (error) {
       if (client) {
         await client.query("ROLLBACK").catch(() => undefined);
         client.release();
       }
-      logger.error({ err: error }, "Failed to resend lead notification");
+      const failureDiagnostic = notificationErrorDiagnostic(error);
+      logger.error({ error: failureDiagnostic }, "Failed to resend lead notification");
       await pool.query(
         `
           UPDATE promotion_lead_attribution
           SET email_notification_status='failed',
-            email_notification_error='Lead notification email failed',
+            email_notification_error=$2,
             email_notification_lease_until=NULL,
             updated_at=NOW()
           WHERE internal_lead_id=$1
         `,
-        [internalLeadId],
+        [internalLeadId, failureDiagnostic],
       ).catch(() => undefined);
-      res.status(502).json({ error: "Failed to send lead notification" });
+      const response = notificationResponse("failed", internalLeadId);
+      res.status(response.statusCode).json(response.body);
     }
   },
 );

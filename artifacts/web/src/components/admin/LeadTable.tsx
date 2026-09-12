@@ -174,7 +174,7 @@ function notificationHelp(state: NotificationDisplayState) {
     case "failed":
       return "Delivery failed. A server-side retry is allowed.";
     case "sent":
-      return "Delivered through the server notification service.";
+      return "Accepted by Resend for delivery. Check Resend for inbox delivery or bounce status.";
     default:
       return "No delivery state was reported by the server.";
   }

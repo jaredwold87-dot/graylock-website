@@ -161,6 +161,7 @@ export function BookCallForm({
   const demoStarted = useRef(false);
   const promotionFormStarted = useRef(false);
   const idempotencyKey = useRef<string | null>(null);
+  const submissionTimestamp = useRef<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -377,7 +378,8 @@ export function BookCallForm({
 
     setIsSubmitting(true);
 
-    const submittedAt = new Date().toISOString();
+    const submittedAt =
+      submissionTimestamp.current || (submissionTimestamp.current = new Date().toISOString());
     const resolvedLandingPage =
       landingPagePath ||
       (typeof window !== "undefined" ? window.location.pathname : "");
@@ -495,7 +497,15 @@ export function BookCallForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(`Lead submission failed (${res.status})`);
+      const result = await res.json().catch(() => null);
+      if (!res.ok || result?.success !== true) {
+        setError(
+          typeof result?.error === "string"
+            ? result.error
+            : "We couldn’t confirm your request was sent. Please try again, or email hello@graylockdigital.com.",
+        );
+        return;
+      }
       if (isRealtor) {
         // Explicit utm context — the modal flow no longer carries it in the URL.
         // realtor_form_submit stays for GA continuity; realtor_fit_call_complete
