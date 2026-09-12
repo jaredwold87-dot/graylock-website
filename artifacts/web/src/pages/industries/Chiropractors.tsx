@@ -1,49 +1,204 @@
-import { SEO } from "@/components/SEO";
-import { StandardIndustryPage } from "@/components/industry/standard/StandardIndustryPage";
-import data from "@/components/industry/standard/content/chiropractors";
+import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import HealthcareComplianceSection from "@/components/compliance/HealthcareComplianceSection";
+import ChiropractorsComplianceSection from "@/components/compliance/ChiropractorsComplianceSection";
+import {
+  Bone,
+  Globe,
+  Search,
+  Phone,
+  Clock,
+  Eye,
+  ShieldCheck,
+  FileText,
+  Smartphone,
+  UserCheck,
+  Heart,
+  MapPin,
+} from "lucide-react";
 
-const PAGE_TITLE = "Websites for Chiropractors | Custom Sites | Graylock Digital";
-const PAGE_URL = "https://graylockdigital.com" + data.route;
-
-// Strip markdown links for SEO description
-const metaDescription = data.hero.body.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-
-export default function Chiropractors() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
+const data: IndustryPageData = {
+  seo: {
+    title: "Websites for Chiropractors | Custom Sites | Graylock Digital",
+    description:
+      "Graylock builds custom, SEO-optimized websites for chiropractors and chiropractic clinics. Service pages, local SEO, patient inquiry forms. Built in 7–10 business days. No long-term contracts.",
+    url: "https://graylockdigital.com/websites-for-chiropractors",
+  },
+  hero: {
+    badge: "For Chiropractors",
+    badgeIcon: Bone,
+    h1: "Fill Your Adjustment Schedule",
+    h1Highlight: "With Patients Who Found You on Google.",
+    subheadline:
+      'When someone’s back goes out, they search "chiropractor near me" — not your name. We build SEO-optimized chiropractic sites that put you at the top of that search and turn clicks into booked appointments. Fully managed. Live in 7–10 days.',
+    cta: "Get a Free Practice Website Review",
+    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
+    trustSignals: [
+      "More new patient appointments every week",
+      "Show up first when locals search for a chiropractor",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you focus on patient care",
+    ],
+  },
+  specialties: {
+    headline: "Chiropractic Websites for Every Specialty",
+    tags: [
+      "General Chiropractic",
+      "Sports Chiropractic",
+      "Pediatric Chiropractic",
+      "Prenatal Chiropractic",
+      "Corrective Care",
+      "Spinal Decompression",
+      "Auto Injury Recovery",
+      "Wellness & Maintenance",
+      "Family Chiropractic",
+      "Functional Medicine",
+    ],
+  },
+  painPoints: {
+    sectionLabel: "SOUND FAMILIAR?",
+    headline: "Every Day Your Site Underperforms, New Patients Book the Clinic Down the Street",
+    cards: [
       {
-        "@type": ["WebPage", "FAQPage"],
-        "@id": PAGE_URL,
-        name: PAGE_TITLE,
-        url: PAGE_URL,
-        description: metaDescription,
-        isPartOf: {
-          "@type": "WebSite",
-          name: "Graylock Digital",
-          url: "https://graylockdigital.com",
-        },
-        mainEntity: data.faq.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
-        })),
+        icon: Eye,
+        title: "New patients Google you and book somewhere else",
+        description:
+          "They search for a chiropractor in your area, land on your site, and it doesn't look like the professional clinic you actually run.",
+      },
+      {
+        icon: Search,
+        title: "Invisible on local search",
+        description:
+          "When someone searches 'chiropractor near me,' your competitors show up. You don't. That's patients walking through someone else's door.",
+      },
+      {
+        icon: Phone,
+        title: "No way to book after hours",
+        description:
+          "A patient's back goes out on Saturday night. They want to book an appointment — but your site has no way to capture that inquiry.",
       },
     ],
-  };
+  },
+  benefits: {
+    headline: "A Chiropractic Website Built to Fill Your Schedule",
+    items: [
+      {
+        title: "Service Pages That Rank",
+        description:
+          "Spinal adjustments, sports injury, corrective care — each service gets its own SEO-optimized page so patients find exactly what they need.",
+      },
+      {
+        title: "24/7 Appointment Request Forms",
+        description:
+          "Capture new patients the moment they're ready to act. Every inquiry is a potential adjustment on your schedule.",
+      },
+      {
+        title: "Provider Bio Pages",
+        description:
+          "Build trust with prospective patients through professional bios showcasing your credentials, techniques, and approach.",
+      },
+      {
+        title: "Local SEO That Drives Patients",
+        description:
+          "Optimized for 'chiropractor near me', 'back pain relief in [city]', and specialty-specific searches from day one.",
+      },
+      {
+        title: "Built in 7–10 Business Days",
+        description:
+          "No months of waiting. From consultation to live website in under two weeks.",
+      },
+      {
+        title: "Fully Managed — You Focus on Patients",
+        description:
+          "Hosting, updates, SEO, and support all included. One new patient covers months of service.",
+      },
+    ],
+  },
+  process: {
+    headline: "From Consultation to Live Chiropractic Website",
+    steps: [
+      {
+        title: "Tell Us About Your Practice",
+        description:
+          "A 15-minute call about your techniques, ideal patients, and what sets your clinic apart.",
+      },
+      {
+        title: "We Build Your Demo",
+        description:
+          "We design a custom homepage that conveys credibility and the professional care you provide.",
+      },
+      {
+        title: "Review & Approve",
+        description:
+          "Walk through every detail — service pages, bios, forms — until it represents your clinic perfectly.",
+      },
+      {
+        title: "Launch & Grow",
+        description:
+          "Your site goes live and starts attracting new patients through Google search.",
+      },
+    ],
+  },
+  faqs: [
+    {
+      q: "Do you build websites specifically for chiropractors?",
+      a: "Yes. We build custom websites for chiropractic practices of all sizes — solo practitioners, multi-provider clinics, and multi-location groups. Every site is tailored to chiropractic services and your local market.",
+    },
+    {
+      q: "Can I have separate pages for each technique or service I offer?",
+      a: "Absolutely. Spinal adjustments, corrective care, sports chiropractic, decompression therapy — each gets its own page that ranks for its own keywords. This is one of the most effective ways to attract new patients searching for specific treatments.",
+    },
+    {
+      q: "How long does it take to build a chiropractic website?",
+      a: "7–10 business days on average from when you approve your free custom homepage demo and pay the build fee. Most chiropractors are surprised how fast and easy the process is.",
+    },
+    {
+      q: "Will my site show up when people search 'chiropractor near me'?",
+      a: "Every Graylock site includes a local SEO foundation. Growth and Scale plans include full local SEO optimization and Google Business Profile setup — critical for showing up in 'chiropractor near me' and 'back pain relief' searches in your area.",
+    },
+  ],
+  pricingHeadline: "Pricing for Solo Practitioners and Multi-Location Clinics",
+  bottomCta: {
+    headline: "New Patients Are Searching for a Chiropractor in Your Area Right Now",
+    subtext:
+      "Book a free 15-minute discovery call. We'll show you exactly what your chiropractic website could look like — and build you a custom homepage demo before you commit to anything.",
+    button: "Request a 15-Minute Discovery Call",
+  },
+  showPrivacyNote: true,
+  relatedPages: [
+    { name: "Physical Therapists", path: "/websites-for-physical-therapists" },
+    { name: "Physicians", path: "/websites-for-physicians" },
+    { name: "Dentists", path: "/websites-for-dentists" },
+    { name: "Accounting Firms", path: "/websites-for-accountants" },
+  ],
+  schema: {
+    "@context": "https://schema.org",
+    "@type": ["WebPage", "FAQPage"],
+    name: "Websites for Chiropractors | Graylock Digital",
+    url: "https://graylockdigital.com/websites-for-chiropractors",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do you build websites specifically for chiropractors?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We build custom websites for chiropractic practices of all sizes — solo practitioners, multi-provider clinics, and multi-location groups.",
+        },
+      },
+    ],
+  },
+};
 
+export default function Chiropractors() {
   return (
-    <>
-      <SEO
-        title={PAGE_TITLE}
-        description={metaDescription}
-        url={PAGE_URL}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
-      <StandardIndustryPage data={data} />
-    </>
+    <IndustryLandingPage
+      data={data}
+      complianceSection={
+        <>
+          <HealthcareComplianceSection />
+          <ChiropractorsComplianceSection />
+        </>
+      }
+    />
   );
 }

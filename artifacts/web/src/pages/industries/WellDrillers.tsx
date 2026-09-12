@@ -1,15 +1,72 @@
 import { useEffect, useRef } from "react";
 import { SEO } from "@/components/SEO";
-import { StandardIndustryPage } from "@/components/industry/standard/StandardIndustryPage";
-import data from "@/components/industry/standard/content/well-drillers";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
-import { wellDrillerGetStartedHref } from "@/lib/wellDrillerLinks";
+import { WellDrillerHero } from "@/components/well-drillers/WellDrillerHero";
+import { WellDrillerWhySection } from "@/components/well-drillers/WellDrillerWhySection";
+import { WellDrillerWebsiteGoalsSection } from "@/components/well-drillers/WellDrillerWebsiteGoalsSection";
+import { WellDrillerWhatWeBuildSection } from "@/components/well-drillers/WellDrillerWhatWeBuildSection";
+import { WellDrillerProveValueSection } from "@/components/well-drillers/WellDrillerProveValueSection";
+import { WellDrillerProofSection } from "@/components/well-drillers/WellDrillerProofSection";
+import { WellDrillerTestimonialSection } from "@/components/well-drillers/WellDrillerTestimonialSection";
+import { WellDrillerPricingBridgeSection } from "@/components/well-drillers/WellDrillerPricingBridgeSection";
+import { WellDrillerFinalCTASection } from "@/components/well-drillers/WellDrillerFinalCTASection";
+import {
+  WellDrillerFAQSection,
+  WELL_DRILLER_FAQS,
+} from "@/components/well-drillers/WellDrillerFAQSection";
 
-const PAGE_TITLE = "Custom Websites for Well Drillers | Graylock Digital";
-const PAGE_URL = "https://graylockdigital.com" + data.route;
+const PAGE_URL = "https://graylockdigital.com/websites-for-well-drillers";
+const PAGE_TITLE = "Well Driller Websites That Generate Local Leads | Graylock Digital";
+const META_DESCRIPTION =
+  "Custom well-drilling websites built to improve local visibility, route service and estimate requests to your inbox, and help you out-compete local alternatives.";
 
-const metaDescription = data.hero.body.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+const WELL_DRILLER_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["WebPage", "FAQPage"],
+      "@id": PAGE_URL,
+      name: PAGE_TITLE,
+      url: PAGE_URL,
+      description: META_DESCRIPTION,
+      isPartOf: {
+        "@type": "WebSite",
+        name: "Graylock Digital",
+        url: "https://graylockdigital.com",
+      },
+      // FAQPage main entity mirrors the FAQ rendered visibly on this page.
+      mainEntity: WELL_DRILLER_FAQS.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
+    },
+    {
+      "@type": "Service",
+      name: "Custom Well Driller Website Design",
+      serviceType: "Website design for well-drilling, well pump, and water-system contractors",
+      url: PAGE_URL,
+      description:
+        "Custom well-drilling website design focused on local search visibility and routing service or estimate requests to the business's designated inbox. Graylock Digital is a website design and support provider and does not perform drilling or well services.",
+      provider: {
+        "@type": "Organization",
+        name: "Graylock Digital",
+        url: "https://graylockdigital.com",
+      },
+      audience: {
+        "@type": "Audience",
+        audienceType: "Well-drilling, well pump, and water-system contractors",
+      },
+    },
+  ],
+};
 
+/**
+ * Single-page sales flow (demo-first): the section order mirrors the real
+ * call — who we work with → why we want to work with you → what we do →
+ * free custom demo + market offer → how we do it → proof → pricing/guarantee
+ * → FAQ → final demo request. One public page; no internal sales views.
+ */
 export default function WellDrillers() {
   const viewTracked = useRef(false);
 
@@ -19,71 +76,32 @@ export default function WellDrillers() {
     trackWellDrillerEvent("well_driller_landing_view");
   }, []);
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["WebPage", "FAQPage"],
-        "@id": PAGE_URL,
-        name: PAGE_TITLE,
-        url: PAGE_URL,
-        description: metaDescription,
-        isPartOf: {
-          "@type": "WebSite",
-          name: "Graylock Digital",
-          url: "https://graylockdigital.com",
-        },
-        mainEntity: data.faq.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
-        })),
-      },
-    ],
-  };
-
   return (
-    <>
+    <div className="theme-black">
       <SEO
         title={PAGE_TITLE}
-        description={metaDescription}
+        ogTitle="A Better Well-Drilling Website Starts Here"
+        description={META_DESCRIPTION}
         url={PAGE_URL}
+        image="https://graylockdigital.com/og-well-drillers.jpg"
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(WELL_DRILLER_SCHEMA) }}
       />
-      <StandardIndustryPage
-        data={data}
-        primaryHref={(placement) =>
-          wellDrillerGetStartedHref(
-            placement === "hero"
-              ? "hero_cta"
-              : placement === "offer"
-                ? "offer_cta"
-                : "final_cta",
-          )
-        }
-        onPrimaryClick={(placement) =>
-          trackWellDrillerEvent("well_driller_demo_cta_click", {
-            cta_placement:
-              placement === "hero"
-                ? "hero_cta"
-                : placement === "offer"
-                  ? "offer_cta"
-                  : "final_cta",
-          })
-        }
-        onProjectClick={() =>
-          trackWellDrillerEvent("well_driller_portfolio_click", {
-            project: data.project.name,
-            destination: data.project.href,
-          })
-        }
-        onFaqExpand={(question) =>
-          trackWellDrillerEvent("well_driller_faq_expand", { question })
-        }
-      />
-    </>
+
+      <WellDrillerHero />
+      <WellDrillerWhySection />
+      <WellDrillerWebsiteGoalsSection />
+      <WellDrillerWhatWeBuildSection />
+      <WellDrillerProveValueSection />
+      <WellDrillerProofSection />
+      {/* Testimonial stays unpublished until a real, approved well-driller
+          testimonial is supplied (see WellDrillerTestimonialSection docs). */}
+      <WellDrillerTestimonialSection testimonial={null} />
+      <WellDrillerPricingBridgeSection />
+      <WellDrillerFAQSection />
+      <WellDrillerFinalCTASection />
+    </div>
   );
 }

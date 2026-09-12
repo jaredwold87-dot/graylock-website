@@ -9,6 +9,8 @@ Treat supplied industry copy as approved wording, not as independent evidence fo
 
 **How to apply:** Preserve exact approved wording elsewhere. Omit the entire failed proof block with no placeholder, and link away from conflicting policy statements. Do not change global policies or shared forms to make an industry-page specification appear consistent.
 
+Keep non-Realtor industry pages in their pre-bulk-scope designs until the user requests each page individually. **Why:** The user rejected the bulk industry rewrite while retaining the revised Realtor page. Future industry redesigns must be handled one page at a time, not propagated across routes.
+
 The Realtor hero should show only the original Willow laptop/phone cutout, with no Google review or review caption. Keep its existing background, not the homepage's textured background. **Why:** The user explicitly removed the hero review after initially requesting it; the full Google review belongs in the featured-project section instead.
 
 The Realtor redesign must remain a bespoke editorial composition, not a variation of the generic industry template. Preserve the hero artwork. The featured project follows the homepage's dark featured-client layout with Willow's portfolio screenshot and homepage Google review artwork. Pair the review with project deliverables, not a visible transcription. **Why:** The user superseded the text-only restriction, then rejected showing the same review twice side by side. Keep the full transcription accessible to screen readers without duplicating it visually. Do not propagate this redesign to other industries without a separate request.

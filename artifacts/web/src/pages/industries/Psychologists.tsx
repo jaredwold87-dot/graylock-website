@@ -1,49 +1,206 @@
-import { SEO } from "@/components/SEO";
-import { StandardIndustryPage } from "@/components/industry/standard/StandardIndustryPage";
-import data from "@/components/industry/standard/content/psychologists";
+import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
+import HealthcareComplianceSection from "@/components/compliance/HealthcareComplianceSection";
+import PsychologistsComplianceSection from "@/components/compliance/PsychologistsComplianceSection";
+import {
+  Brain,
+  Globe,
+  Search,
+  Phone,
+  Clock,
+  Eye,
+  ShieldCheck,
+  FileText,
+  Smartphone,
+  UserCheck,
+  Heart,
+  MapPin,
+} from "lucide-react";
 
-const PAGE_TITLE = "Websites for Psychologists | Custom Sites | Graylock Digital";
-const PAGE_URL = "https://graylockdigital.com" + data.route;
-
-// Strip markdown links for SEO description
-const metaDescription = data.hero.body.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-
-export default function Psychologists() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
+const data: IndustryPageData = {
+  seo: {
+    title: "Websites for Psychologists | Custom Sites | Graylock Digital",
+    description:
+      "Graylock builds custom, SEO-optimized websites for psychologists and psychology practices. Service pages, local SEO, client inquiry forms. Built in 7–10 business days. No long-term contracts.",
+    url: "https://graylockdigital.com/websites-for-psychologists",
+  },
+  hero: {
+    badge: "For Psychologists",
+    badgeIcon: Brain,
+    h1: "Help More People Find You —",
+    h1Highlight: "And Feel Safe Enough to Reach Out.",
+    subheadline:
+      "Clients searching for a psychologist need to feel trust before they ever contact you. A cold, cluttered, or invisible site costs you that inquiry. We build warm, professionally designed psychology sites that build trust fast and make it easy for the right clients to find you and reach out. Fully managed. Live in 7–10 days.",
+    cta: "Get a Free Practice Website Review",
+    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
+    backgroundImage: `${import.meta.env.BASE_URL}hero-solo-practitioners.jpg`,
+    trustSignals: [
+      "More inquiries from clients who are the right fit",
+      "Rank on Google for your specialty and location",
+      "Free custom demo — before you pay anything",
+      "Fully managed — you focus on your clients",
+    ],
+  },
+  specialties: {
+    headline: "Psychology Websites for Every Specialty",
+    tags: [
+      "Clinical Psychology",
+      "Neuropsychology",
+      "Behavioral Psychology",
+      "Child & Adolescent Psychology",
+      "Health Psychology",
+      "Couples & Family Psychology",
+      "Psychological Testing",
+      "ADHD Assessment",
+      "Trauma & PTSD",
+      "Autism Evaluation",
+      "Sport Psychology",
+      "Geriatric Psychology",
+    ],
+  },
+  painPoints: {
+    sectionLabel: "SOUND FAMILIAR?",
+    headline: "Clients Are Looking for a Psychologist Right Now — Can They Find You?",
+    cards: [
       {
-        "@type": ["WebPage", "FAQPage"],
-        "@id": PAGE_URL,
-        name: PAGE_TITLE,
-        url: PAGE_URL,
-        description: metaDescription,
-        isPartOf: {
-          "@type": "WebSite",
-          name: "Graylock Digital",
-          url: "https://graylockdigital.com",
-        },
-        mainEntity: data.faq.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
-        })),
+        icon: Eye,
+        title: "Your site doesn't convey the warmth clients need",
+        description:
+          "Clients reaching out to a psychologist are often anxious. A cold, clinical, or outdated website doesn't put them at ease — it makes them keep looking.",
+      },
+      {
+        icon: Search,
+        title: "Invisible on Google for your specialties",
+        description:
+          "When someone searches 'psychologist near me' or 'neuropsych testing in [city],' your competitors appear. You don't.",
+      },
+      {
+        icon: Phone,
+        title: "Clients can't reach you when they're ready",
+        description:
+          "The decision to contact a psychologist often happens late at night. If your site has no way to capture that inquiry, you lose them by morning.",
       },
     ],
-  };
+  },
+  benefits: {
+    headline: "A Psychology Website That Connects You With the Right Clients",
+    items: [
+      {
+        title: "Service Pages That Rank",
+        description:
+          "Psychological testing, ADHD assessment, trauma therapy, couples counseling — each service gets its own SEO-optimized page.",
+      },
+      {
+        title: "24/7 Client Inquiry Forms",
+        description:
+          "Capture potential clients the moment they're ready to reach out. Every inquiry is a potential consultation on your schedule.",
+      },
+      {
+        title: "Provider Bio Pages",
+        description:
+          "Build trust and connection with prospective clients through warm, professional bios showcasing your credentials and approach.",
+      },
+      {
+        title: "Local SEO That Drives Clients",
+        description:
+          "Optimized for 'psychologist near me', 'neuropsych testing in [city]', and specialty-specific searches from day one.",
+      },
+      {
+        title: "Built in 7–10 Business Days",
+        description:
+          "No months of waiting. From consultation to live website in under two weeks.",
+      },
+      {
+        title: "Fully Managed — You Focus on Clients",
+        description:
+          "Hosting, updates, SEO, and support all included. One new client covers months of service — and you'll never touch a line of code.",
+      },
+    ],
+  },
+  process: {
+    headline: "From Consultation to Live Psychology Website",
+    steps: [
+      {
+        title: "Tell Us About Your Practice",
+        description:
+          "A 15-minute call about your specialties, ideal clients, and the tone you want your website to convey.",
+      },
+      {
+        title: "We Build Your Demo",
+        description:
+          "We design a custom homepage that's warm, professional, and reflects your clinical expertise.",
+      },
+      {
+        title: "Review & Approve",
+        description:
+          "Walk through every detail — service pages, bios, forms — until it represents your practice perfectly.",
+      },
+      {
+        title: "Launch & Grow",
+        description:
+          "Your site goes live and starts connecting you with new clients through Google search.",
+      },
+    ],
+  },
+  faqs: [
+    {
+      q: "Do you build websites specifically for psychologists?",
+      a: "Yes. We build custom websites for psychologists across all specialties — clinical, neuropsychology, forensic, child, sport, and more. Every site is tailored to your areas of expertise and local market.",
+    },
+    {
+      q: "Can I have separate pages for each type of assessment or service?",
+      a: "Absolutely. Neuropsych testing, ADHD evaluations, autism assessments, individual therapy, couples counseling — each gets its own page that ranks for its own keywords. This is critical for attracting clients searching for specific services.",
+    },
+    {
+      q: "How long does it take to build a psychology website?",
+      a: "7–10 business days on average from when you approve your free custom homepage demo and pay the build fee. The process requires minimal time from you.",
+    },
+    {
+      q: "Can my site explain the testing or evaluation process for patients?",
+      a: "Yes. We build informative, patient-friendly pages that walk potential clients through what to expect — from initial consultation to results. This reduces anxiety and increases the likelihood they'll follow through with booking.",
+    },
+  ],
+  pricingHeadline: "Pricing for Solo Psychologists and Group Practices",
+  bottomCta: {
+    headline: "Clients Are Searching for a Psychologist in Your Area Right Now",
+    subtext:
+      "Book a free 15-minute discovery call. We'll show you exactly what your psychology practice website could look like — and build you a custom homepage demo before you commit to anything.",
+    button: "Request a 15-Minute Discovery Call",
+  },
+  showPrivacyNote: true,
+  relatedPages: [
+    { name: "Physicians", path: "/websites-for-physicians" },
+    { name: "Physical Therapists", path: "/websites-for-physical-therapists" },
+    { name: "Chiropractors", path: "/websites-for-chiropractors" },
+    { name: "Accounting Firms", path: "/websites-for-accountants" },
+  ],
+  schema: {
+    "@context": "https://schema.org",
+    "@type": ["WebPage", "FAQPage"],
+    name: "Websites for Psychologists | Graylock Digital",
+    url: "https://graylockdigital.com/websites-for-psychologists",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do you build websites specifically for psychologists?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We build custom websites for psychologists across all specialties — clinical, neuropsychology, forensic, child, sport, and more.",
+        },
+      },
+    ],
+  },
+};
 
+export default function Psychologists() {
   return (
-    <>
-      <SEO
-        title={PAGE_TITLE}
-        description={metaDescription}
-        url={PAGE_URL}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
-      <StandardIndustryPage data={data} />
-    </>
+    <IndustryLandingPage
+      data={data}
+      complianceSection={
+        <>
+          <HealthcareComplianceSection />
+          <PsychologistsComplianceSection />
+        </>
+      }
+    />
   );
 }
