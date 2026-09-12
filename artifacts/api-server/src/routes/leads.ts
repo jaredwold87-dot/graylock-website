@@ -782,17 +782,11 @@ Reply directly to this email to reach the lead.
     process.env.OPTIONAL_SECONDARY_LEADS_RECIPIENT_EMAIL,
   ].filter((recipient): recipient is string => Boolean(recipient));
 
-  const subject = promotionAssignment
-    ? `New Build-Fee Waiver Promotion Lead — ${payload.business_name}`
-    : isWellDrillerLead
-    ? `New Well-Driller Custom Demo Request — ${payload.business_name} — ${wellDrillerServiceArea}`
-    : isCabinetMakerLead
-      ? `New Cabinet-Maker Custom Demo Request — ${payload.business_name} — ${cabinetMakerServiceArea}`
-      : isAuctioneerLead
-        ? `New Auctioneer Custom Demo Request — ${payload.business_name} — ${auctioneerServiceArea}`
-        : isRealtorLead
-          ? `New Lead (Realtor Landing Page): ${payload.business_name || payload.first_name}`
-          : `New Lead: ${payload.business_name} — ${payload.primary_goal || "Discovery Call"}`;
+  // An experiment assignment can also accompany a normal CTA submission.
+  // Only the actual popup entry point should use the promotion subject.
+  const subject = promotionSource === "build_fee_waiver_popup"
+    ? "New Build Fee Waiver Promotion Lead"
+    : "Free Home Page Direction Request";
 
   let notificationKey = notificationIdempotencyKey;
   const notificationPayload = {
