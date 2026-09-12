@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { RealtorDifferenceSection } from "@/components/realtors/RealtorDifferenceSection";
+import { RealtorFeaturedProject } from "@/components/realtors/RealtorFeaturedProject";
+import { OfferBreakdownSection } from "@/components/home/OfferBreakdownSection";
 import { SEO } from "@/components/SEO";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { realtorGetStartedHref } from "@/lib/realtorLinks";
@@ -134,41 +136,8 @@ export default function Realtors() {
       {/* 2. Direction-before-fee offer */}
       <RealtorDifferenceSection />
 
-      {/* 3. Proof + project (Text-only as per override) */}
-      <section
-        id="featured-project"
-        data-section="featured-project"
-        className="bg-[#F4F1EC] py-20 lg:py-32 border-y border-black/[0.06] scroll-mt-24"
-      >
-        <div className="mx-auto max-w-3xl px-6 lg:px-12 text-center">
-          <ScrollReveal>
-            <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#B23E16]">
-              FEATURED GRAYLOCK PROJECT
-            </p>
-            <h2 className="font-display text-3xl leading-tight text-[#1a202c] md:text-4xl">
-              Willow Realty Group
-            </h2>
-            <p className="mt-2 font-sans text-sm font-bold uppercase tracking-wider text-[#1a202c]/50">
-              Southern Idaho Real Estate · Serving the Magic Valley
-            </p>
-            <p className="mt-6 text-lg leading-relaxed text-[#1a202c]/70">
-              A real-estate website built to bring local perspective, property exploration, and clear buyer and seller paths into one experience.
-            </p>
-
-            <div className="mt-10">
-              <a
-                href="https://www.willowrealestategroup.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackRealtorEvent("realtor_featured_project_click", { cta_placement: "featured_project" })}
-                className="inline-flex items-center font-sans text-sm font-semibold text-[#1a202c] underline decoration-[#1a202c]/30 underline-offset-4 transition-colors hover:text-[#E85D26] hover:decoration-[#E85D26]/50"
-              >
-                Visit the Live Site ↗
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* 3. Willow project and full client review */}
+      <RealtorFeaturedProject />
 
       {/* 4. Buyer and seller paths */}
       <section
@@ -221,50 +190,37 @@ export default function Realtors() {
         </div>
       </section>
 
-      {/* 5. Simple three-step process */}
-      <section
-        data-section="how-it-works"
-        className="bg-[#F8F7F5] py-20 lg:py-32"
-      >
-        <div className="mx-auto max-w-6xl px-6 lg:px-12">
-          <ScrollReveal>
-            <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#B23E16]">
-              HOW IT WORKS
-            </p>
-            <h2 className="font-display text-4xl leading-tight text-[#1a202c] md:text-5xl mb-16">
-              A Clear Path From First Call to Launch.
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid gap-12 lg:grid-cols-3 lg:gap-8">
-            {[
-              {
-                num: "01",
-                title: "15-Minute Fit Call",
-                body: "We learn about your market, current website, buyer and seller priorities, and any MLS or brokerage context that affects the website."
-              },
-              {
-                num: "02",
-                title: "Free Homepage Direction",
-                body: "If Graylock is the right fit, we create a custom Homepage Direction around your business before any build fee is due."
-              },
-              {
-                num: "03",
-                title: "Approve, Build, and Launch",
-                body: "After the Homepage Direction, required materials, and approvals are confirmed, standard websites are typically built, tested, and launched in 7–10 business days. MLS, brokerage, provider, and other third-party timing remain outside Graylock’s control."
-              }
-            ].map((step, idx) => (
-              <ScrollReveal key={step.num} delay={idx * 0.1}>
-                <div className="flex flex-col">
-                  <span className="font-display text-6xl text-[#B23E16] mb-6">{step.num}</span>
-                  <h3 className="font-display text-2xl text-[#1a202c] mb-4">{step.title}</h3>
-                  <p className="font-sans text-base leading-relaxed text-[#1a202c]/70">{step.body}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 5. Shared homepage process layout with real-estate details */}
+      <OfferBreakdownSection
+        sectionId="realtor-how-it-works"
+        dataSection="how-it-works"
+        steps={[
+          {
+            num: "01",
+            title: "15-Minute Fit Call",
+            desc: "We learn about your market, current website, buyer and seller priorities, and any MLS or brokerage context that affects the website.",
+            highlight: false,
+          },
+          {
+            num: "02",
+            title: "Your Free Homepage Direction",
+            desc: "If Graylock is the right fit, we create a custom Homepage Direction around your business before any build fee is due.",
+            highlight: false,
+          },
+          {
+            num: "03",
+            title: "Approve the Direction",
+            desc: "You review the direction, scope, and next steps. If it feels right, you approve the build and move forward with clarity.",
+            highlight: false,
+          },
+          {
+            num: "04",
+            title: "Built and Launched on Your Domain",
+            desc: "After the Homepage Direction, required materials, and approvals are confirmed, standard websites are typically built, tested, and launched in 7–10 business days. MLS, brokerage, provider, and other third-party timing remain outside Graylock’s control.",
+            highlight: false,
+          },
+        ]}
+      />
 
       {/* 6. FAQ */}
       <section

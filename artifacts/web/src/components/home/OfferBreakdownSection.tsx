@@ -1,7 +1,24 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export function OfferBreakdownSection() {
-  const steps = [
+type ProcessStep = {
+  num: string;
+  title: string;
+  desc: string;
+  highlight: boolean;
+};
+
+type OfferBreakdownSectionProps = {
+  steps?: [ProcessStep, ProcessStep, ProcessStep, ProcessStep];
+  sectionId?: string;
+  dataSection?: string;
+};
+
+export function OfferBreakdownSection({
+  steps: customSteps,
+  sectionId,
+  dataSection,
+}: OfferBreakdownSectionProps = {}) {
+  const steps = customSteps ?? [
     {
       num: "01",
       title: "15-Minute Fit Call",
@@ -29,7 +46,7 @@ export function OfferBreakdownSection() {
   ];
 
   return (
-    <section className="relative bg-[#f5f5f4] py-24 md:py-32 px-6 md:px-12 border-t border-gray-100 overflow-hidden">
+    <section id={sectionId} data-section={dataSection} className="relative bg-[#f5f5f4] py-24 md:py-32 px-6 md:px-12 border-t border-gray-100 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
           <span className="text-[#B23E16] font-sans font-semibold tracking-wider text-sm uppercase mb-4 block">
