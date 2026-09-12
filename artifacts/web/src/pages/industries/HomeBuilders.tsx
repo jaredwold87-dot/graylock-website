@@ -1,222 +1,49 @@
-import IndustryLandingPage, { IndustryPageData } from "@/components/industry/IndustryLandingPage";
-import HomeBuildersComplianceSection from "@/components/compliance/HomeBuildersComplianceSection";
-import {
-  Home,
-  Search,
-  Camera,
-  Smartphone,
-  Award,
-  ClipboardList,
-  Clock,
-} from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { StandardIndustryPage } from "@/components/industry/standard/StandardIndustryPage";
+import data from "@/components/industry/standard/content/home-builders";
 
-const data: IndustryPageData = {
-  seo: {
-    title: "Websites for Home Builders | Custom Home & Residential Construction — Graylock Digital",
-    description:
-      "Graylock builds custom, SEO-optimized websites for home builders, custom-home contractors, and residential construction firms. Project galleries, floor plans, model-home pages, lead-capture forms. Built in 7–10 business days. No long-term contracts.",
-    url: "https://graylockdigital.com/websites-for-home-builders",
-  },
-  hero: {
-    badge: "For Home Builders & Renovators",
-    badgeIcon: Home,
-    h1: "Win More Custom Home Contracts",
-    h1Highlight: "With a Website That Shows What You're Worth.",
-    subheadline:
-      "Buyers researching a custom build or major renovation spend weeks online before they call anyone. We build modern, locally-ranked websites that showcase your craftsmanship and turn serious buyers into consultation requests — before they reach your competitor's quote form. Fully managed. Live in 7–10 days.",
-    cta: "Get a Free Website Review",
-    ctaSubtext: "15-minute call · Custom homepage demo · No obligation.",
-    backgroundImage: `${import.meta.env.BASE_URL}hero-home-builders.jpg`,
-    trustSignals: [
-      "More qualified consultation requests from serious buyers",
-      "Show up when families search for builders in your area",
-      "Free custom demo — before you pay anything",
-      "Fully managed — you focus on the build",
-    ],
-  },
-  specialties: {
-    headline: "Websites for Every Kind of Residential Builder",
-    tags: [
-      "Custom Home Builders",
-      "Production Builders",
-      "Semi-Custom Builders",
-      "Spec Home Builders",
-      "Luxury Home Builders",
-      "Design-Build Firms",
-      "Whole-Home Renovators",
-      "Home Additions",
-      "Modular & Pre-Fab Builders",
-      "Tiny Home Builders",
-      "Cabin & Lake-Home Builders",
-      "Multi-Family & Townhome",
-    ],
-  },
-  painPoints: {
-    sectionLabel: "SOUND FAMILIAR?",
-    headline: "Your Best Work Is Hidden Behind a Site That Doesn't Sell It",
-    cards: [
-      {
-        icon: Camera,
-        title: "Project gallery doesn't do justice to your work",
-        description:
-          "Your finished homes are gorgeous, but the photos sit in a clunky grid with no story, no floor plans, and no way for a prospect to picture themselves living there.",
-      },
-      {
-        icon: Search,
-        title: "Invisible for 'custom home builder near me'",
-        description:
-          "When a family in your service area searches for a builder, your competitors with sharper SEO show up first — even when your portfolio is twice as good.",
-      },
-      {
-        icon: ClipboardList,
-        title: "No clear process for first-time buyers",
-        description:
-          "Building a home is intimidating. If your site doesn't lay out the journey from consultation to keys, prospects get nervous and ghost.",
-      },
-      {
-        icon: Smartphone,
-        title: "Looks dated on a phone",
-        description:
-          "Most homebuyers browse builders on their phone in the evening. A slow, cramped, or outdated mobile site signals one thing: this builder isn't paying attention to detail.",
-      },
-      {
-        icon: Award,
-        title: "Awards and certifications buried at the bottom",
-        description:
-          "NAHB, Energy Star, Parade of Homes, BBB — all the proof that you're the safe choice is hidden three clicks deep instead of front and center.",
-      },
-      {
-        icon: Clock,
-        title: "Site never gets updated between projects",
-        description:
-          "Between job sites and client calls, the website sits stale. New floor plans, completed homes, and testimonials never make it on, so the site looks like business is slow even when you're booked out.",
-      },
-    ],
-  },
-  benefits: {
-    headline: "A Builder Website Designed to Win the Consultation",
-    items: [
-      {
-        title: "Project Galleries That Tell a Story",
-        description:
-          "Each completed home gets its own page with floor plans, before-and-after, square footage, location, and the family's story — so prospects can imagine their own build.",
-      },
-      {
-        title: "Floor Plan & Model Home Pages",
-        description:
-          "Every floor plan and model home you offer gets its own SEO page so you rank for the searches families are actually typing — '4-bedroom craftsman floor plan,' 'modern farmhouse model.'",
-      },
-      {
-        title: "Service-Area Pages That Rank Locally",
-        description:
-          "Each city, town, and neighborhood you build in gets its own optimized page targeting the local searches that drive qualified leads.",
-      },
-      {
-        title: "Trust Signals Where They Convert",
-        description:
-          "NAHB, Energy Star, BBB, awards, warranties, and testimonials displayed at the top of every page — not buried at the bottom — so buyers feel safe choosing you.",
-      },
-      {
-        title: "Built in 7–10 Business Days",
-        description:
-          "No six-month rebuild that drags into next year. From kickoff to launch in under two weeks — so your next selling season doesn't pass with a stale site.",
-      },
-      {
-        title: "Fully Managed — You Stay on the Job Site",
-        description:
-          "Hosting, updates, SEO, new project additions, floor plan launches, seasonal pages, and support all included. Email us when a home closes; we handle the rest.",
-      },
-    ],
-  },
-  process: {
-    headline: "From Kickoff Call to a Site That Books Consultations",
-    steps: [
-      {
-        title: "Tell Us About Your Builds",
-        description:
-          "A 15-minute call about the homes you build, your service area, your typical client, and the kinds of projects you want more of.",
-      },
-      {
-        title: "We Build Your Demo",
-        description:
-          "We design a custom homepage that shows exactly how a family considering a custom build will find you, trust you, and request a consultation.",
-      },
-      {
-        title: "Review & Approve",
-        description:
-          "Walk through every detail — gallery layout, floor plan pages, consultation form — until it represents your craftsmanship perfectly.",
-      },
-      {
-        title: "Launch & Grow",
-        description:
-          "Your site goes live and starts pulling qualified consultation requests from buyers actively planning their next home.",
-      },
-    ],
-  },
-  faqs: [
-    {
-      q: "Do you build websites for both custom-home builders and production builders?",
-      a: "Yes. The site structure changes to match: custom builders get an in-depth design-build process page, gallery storytelling, and consultation-focused forms. Production builders get prominent floor plan filtering, model home pages, available-inventory lists, and quick-tour scheduling. Either way, the site is built around how your prospects actually shop.",
-    },
-    {
-      q: "Can you showcase floor plans and model homes the way prospects expect?",
-      a: "Yes — and it's simpler than most builders expect. Each floor plan or model home becomes its own dedicated page on your site (it just counts as one of the pages in your plan), with high-resolution renderings, square footage, bedroom/bath counts, customization options, available lots, and a clear path to schedule a consultation or tour. Every page is SEO-optimized so it ranks for that floor plan name and style. Beyond the basics, we can build just about anything you can picture — interactive plan filters, virtual tours, lot maps, side-by-side comparisons. The exact scope just depends on your monthly budget and how complex you want to go. We'll talk it through on your demo call and tailor it to fit.",
-    },
-    {
-      q: "Will the site help us rank for 'custom home builder' and city-specific searches?",
-      a: "That's a core focus. We build dedicated service-area pages for every city or community you build in, paired with local SEO and a fully optimized Google Business Profile. Within a few months most builder clients are appearing in the local map pack and on page one for their main 'builder + city' and 'custom home builder near me' searches.",
-    },
-    {
-      q: "How do you handle project galleries and photography?",
-      a: "We build a gallery system that lets each completed home become a story — not just a thumbnail. Floor plan, location, square footage, design notes, and the family's testimonial all live together. You email us photos when a home wraps and we update the site for you.",
-    },
-    {
-      q: "How long does it take to launch?",
-      a: "Most home builders go live in 7–10 business days from kickoff. We handle the copy, design, SEO, gallery setup, and floor plan pages — you'll spend under an hour total reviewing drafts.",
-    },
-  ],
-  pricingHeadline: "Pricing Built for Custom Home Builders and Growing Construction Firms",
-  bottomCta: {
-    headline: "A Family Is Researching Their Next Builder Right Now",
-    subtext:
-      "Book a free 15-minute discovery call. We'll show you exactly what your home builder website could look like — and build a custom homepage demo before you commit to anything.",
-    button: "Get a Free Demo",
-  },
-  relatedPages: [
-    { name: "Industrial & Construction", path: "/websites-for-industrial-construction" },
-    { name: "Local Service Businesses", path: "/other-service-businesses" },
-    { name: "Accounting Firms", path: "/websites-for-accountants" },
-  ],
-  schema: {
-    "@context": "https://schema.org",
-    "@type": ["WebPage", "FAQPage"],
-    name: "Websites for Home Builders | Graylock Digital",
-    url: "https://graylockdigital.com/websites-for-home-builders",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Do you build websites for both custom-home builders and production builders?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Custom builders get an in-depth design-build process page, gallery storytelling, and consultation-focused forms. Production builders get prominent floor plan filtering, model home pages, available-inventory lists, and quick-tour scheduling. The site is built around how your prospects actually shop.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Will the site help us rank for 'custom home builder' and city-specific searches?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. We build dedicated service-area pages for every city or community you build in, paired with local SEO and a fully optimized Google Business Profile, so you appear for 'custom home builder near me' and 'builder + city' searches across your service area.",
-        },
-      },
-    ],
-  },
-};
+const PAGE_TITLE = "Websites for Home Builders | Graylock Digital";
+const PAGE_URL = "https://graylockdigital.com" + data.route;
+
+// Strip markdown links for SEO description
+const metaDescription = "Custom websites for home builders that clearly present approved project work, process, service areas, and a straightforward next step.";
 
 export default function HomeBuilders() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["WebPage", "FAQPage"],
+        "@id": PAGE_URL,
+        name: PAGE_TITLE,
+        url: PAGE_URL,
+        description: metaDescription,
+        isPartOf: {
+          "@type": "WebSite",
+          name: "Graylock Digital",
+          url: "https://graylockdigital.com",
+        },
+        mainEntity: data.faq.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
+        })),
+      },
+    ],
+  };
+
   return (
-    <div className="theme-black">
-      <IndustryLandingPage data={data} complianceSection={<HomeBuildersComplianceSection />} />
-    </div>
+    <>
+      <SEO
+        title={PAGE_TITLE}
+        description={metaDescription}
+        url={PAGE_URL}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <StandardIndustryPage data={data} />
+    </>
   );
 }

@@ -1,101 +1,80 @@
 import { SEO } from "@/components/SEO";
-import { AuctioneerHero } from "@/components/auctioneers/AuctioneerHero";
-import { AuctioneerWhoSection } from "@/components/auctioneers/AuctioneerWhoSection";
-import { AuctioneerGoalsSection } from "@/components/auctioneers/AuctioneerGoalsSection";
-import { AuctioneerWhatSection } from "@/components/auctioneers/AuctioneerWhatSection";
-import { AuctioneerProcessSection } from "@/components/auctioneers/AuctioneerProcessSection";
-import { AuctioneerFeaturedProjectSection } from "@/components/auctioneers/AuctioneerFeaturedProjectSection";
-import { AuctioneerPricingSection } from "@/components/auctioneers/AuctioneerPricingSection";
-import { AuctioneerFinalCTASection } from "@/components/auctioneers/AuctioneerFinalCTASection";
-import { AuctioneerStickyCTA } from "@/components/auctioneers/AuctioneerStickyCTA";
-import {
-  AuctioneerFAQSection,
-  AUCTIONEER_FAQS,
-} from "@/components/auctioneers/AuctioneerFAQSection";
+import { StandardIndustryPage } from "@/components/industry/standard/StandardIndustryPage";
+import data from "@/components/industry/standard/content/auctioneers";
+import { trackAuctioneerEvent } from "@/lib/auctioneerAnalytics";
+import { auctioneerGetStartedHref } from "@/lib/auctioneerLinks";
 
-const PAGE_URL = "https://graylockdigital.com/websites-for-auctioneers";
-const PAGE_TITLE =
-  "Custom Auctioneer Websites That Win More Bookings | Graylock Digital";
-const META_DESCRIPTION =
-  "Custom auctioneer websites that market your services to the nonprofits, event committees, and sellers who hire you. Request a free custom homepage demo.";
+const PAGE_TITLE = "Custom Websites for Auctioneers | Graylock Digital";
+const PAGE_URL = "https://graylockdigital.com" + data.route;
 
-// WebPage + Service schema (spec); FAQPage main entity mirrors only the
-// FAQ visibly rendered on this page. No Review, Event, Auction, or
-// Review content is visibly attributed on-page but intentionally not emitted
-// as self-serving Review structured data.
-const AUCTIONEER_SCHEMA = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["WebPage", "FAQPage"],
-      "@id": PAGE_URL,
-      name: PAGE_TITLE,
-      url: PAGE_URL,
-      description: META_DESCRIPTION,
-      isPartOf: {
-        "@type": "WebSite",
-        name: "Graylock Digital",
-        url: "https://graylockdigital.com",
-      },
-      mainEntity: AUCTIONEER_FAQS.map((faq) => ({
-        "@type": "Question",
-        name: faq.q,
-        acceptedAnswer: { "@type": "Answer", text: faq.a },
-      })),
-    },
-    {
-      "@type": "Service",
-      name: "Custom Auctioneer Website Design",
-      serviceType:
-        "Website design and marketing sites for auctioneers and auction companies, including benefit and gala, charity, nonprofit, and fundraising auction services",
-      url: PAGE_URL,
-      description:
-        "Custom auctioneer website design focused on promoting the auctioneer's services to the nonprofits, charities, and event committees that hire them—presenting services and credibility and routing booking inquiries to the business's designated inbox or CRM. Graylock Digital is a website design and support provider and does not conduct auctions or operate bidding platforms.",
-      provider: {
-        "@type": "Organization",
-        name: "Graylock Digital",
-        url: "https://graylockdigital.com",
-      },
-      audience: {
-        "@type": "Audience",
-        audienceType:
-          "Auctioneers and auction companies, including benefit, charity, gala, and fundraising auctioneers",
-      },
-    },
-  ],
-};
+const metaDescription = data.hero.body.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 
-/**
- * Auctioneer landing page (spec: exact section order) — the nationwide
- * sales follow-up flow: hero promise → self-identification → strategic
- * goals → tangible function → free-demo risk reversal → portfolio standard
- * → pricing/guarantee → FAQ → final demo request, plus the single mobile
- * sticky CTA. No local-market-exclusivity framing anywhere (spec).
- */
 export default function Auctioneers() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["WebPage", "FAQPage"],
+        "@id": PAGE_URL,
+        name: PAGE_TITLE,
+        url: PAGE_URL,
+        description: metaDescription,
+        isPartOf: {
+          "@type": "WebSite",
+          name: "Graylock Digital",
+          url: "https://graylockdigital.com",
+        },
+        mainEntity: data.faq.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
+        })),
+      },
+    ],
+  };
+
   return (
-    <div className="theme-black">
+    <>
       <SEO
         title={PAGE_TITLE}
-        ogTitle="When an Organization Needs an Auctioneer, Your Website Should Reflect Your Skill and Expertise."
-        description={META_DESCRIPTION}
+        description={metaDescription}
         url={PAGE_URL}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(AUCTIONEER_SCHEMA) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-
-      <AuctioneerHero />
-      <AuctioneerWhoSection />
-      <AuctioneerGoalsSection />
-      <AuctioneerWhatSection />
-      <AuctioneerProcessSection />
-      <AuctioneerFeaturedProjectSection />
-      <AuctioneerPricingSection />
-      <AuctioneerFAQSection />
-      <AuctioneerFinalCTASection />
-      <AuctioneerStickyCTA />
-    </div>
+      <StandardIndustryPage
+        data={data}
+        primaryHref={(placement) =>
+          auctioneerGetStartedHref(
+            placement === "hero"
+              ? "hero"
+              : placement === "offer"
+                ? "process"
+                : "final_cta",
+          )
+        }
+        onPrimaryClick={(placement) => {
+          if (placement === "hero" || placement === "final_cta") {
+            trackAuctioneerEvent("auctioneer_hero_cta_click", {
+              cta_placement: placement,
+            });
+          } else {
+            trackAuctioneerEvent("auctioneer_process_cta_click", {
+              cta_placement: "process",
+            });
+          }
+        }}
+        onProjectClick={() =>
+          trackAuctioneerEvent("auctioneer_featured_project_click", {
+            cta_placement: "portfolio",
+          })
+        }
+        onFaqExpand={(question) =>
+          trackAuctioneerEvent("auctioneer_faq_expand", { question })
+        }
+      />
+    </>
   );
 }

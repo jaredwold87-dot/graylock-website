@@ -1,100 +1,80 @@
 import { SEO } from "@/components/SEO";
-import { CabinetMakerHero } from "@/components/cabinet-makers/CabinetMakerHero";
-import { CabinetMakerWhoSection } from "@/components/cabinet-makers/CabinetMakerWhoSection";
-import { CabinetMakerGoalsSection } from "@/components/cabinet-makers/CabinetMakerGoalsSection";
-import { CabinetMakerWhatSection } from "@/components/cabinet-makers/CabinetMakerWhatSection";
-import { CabinetMakerProcessSection } from "@/components/cabinet-makers/CabinetMakerProcessSection";
-import { CabinetMakerFeaturedProjectSection } from "@/components/cabinet-makers/CabinetMakerFeaturedProjectSection";
-import { CabinetMakerPricingSection } from "@/components/cabinet-makers/CabinetMakerPricingSection";
-import { CabinetMakerFinalCTASection } from "@/components/cabinet-makers/CabinetMakerFinalCTASection";
-import { CabinetMakerStickyCTA } from "@/components/cabinet-makers/CabinetMakerStickyCTA";
-import {
-  CabinetMakerFAQSection,
-  CABINET_MAKER_FAQS,
-} from "@/components/cabinet-makers/CabinetMakerFAQSection";
+import { StandardIndustryPage } from "@/components/industry/standard/StandardIndustryPage";
+import data from "@/components/industry/standard/content/cabinet-makers";
+import { trackCabinetMakerEvent } from "@/lib/cabinetMakerAnalytics";
+import { cabinetMakerGetStartedHref } from "@/lib/cabinetMakerLinks";
 
-const PAGE_URL = "https://graylockdigital.com/websites-for-cabinet-makers";
-const PAGE_TITLE =
-  "Custom Cabinet Maker Websites That Generate Design + Quote Requests | Graylock Digital";
-const META_DESCRIPTION =
-  "Graylock builds custom cabinet-maker websites that showcase premium work, improve local visibility, and turn project interest into design consultations and quote requests. Request a free custom homepage demo.";
+const PAGE_TITLE = "Custom Websites for Cabinet Makers | Graylock Digital";
+const PAGE_URL = "https://graylockdigital.com" + data.route;
 
-// WebPage + Service schema (spec §5); FAQPage main entity mirrors only the
-// FAQ visibly rendered on this page. The approved customer review is visibly
-// attributed on-page but intentionally not emitted as self-serving Review
-// structured data.
-const CABINET_MAKER_SCHEMA = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["WebPage", "FAQPage"],
-      "@id": PAGE_URL,
-      name: PAGE_TITLE,
-      url: PAGE_URL,
-      description: META_DESCRIPTION,
-      isPartOf: {
-        "@type": "WebSite",
-        name: "Graylock Digital",
-        url: "https://graylockdigital.com",
-      },
-      mainEntity: CABINET_MAKER_FAQS.map((faq) => ({
-        "@type": "Question",
-        name: faq.q,
-        acceptedAnswer: { "@type": "Answer", text: faq.a },
-      })),
-    },
-    {
-      "@type": "Service",
-      name: "Custom Cabinet Maker Website Design",
-      serviceType:
-        "Website design for custom cabinet shops, millwork companies, and kitchen specialists",
-      url: PAGE_URL,
-      description:
-        "Custom cabinet-maker website design focused on portfolio presentation, local search visibility, and routing design consultations and quote requests to the business's designated inbox or CRM. Graylock Digital is a website design and support provider and does not perform cabinet-making or millwork services.",
-      provider: {
-        "@type": "Organization",
-        name: "Graylock Digital",
-        url: "https://graylockdigital.com",
-      },
-      audience: {
-        "@type": "Audience",
-        audienceType: "Custom cabinet shops, millwork companies, and kitchen specialists",
-      },
-    },
-  ],
-};
+const metaDescription = data.hero.body.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 
-/**
- * Cabinet-maker landing page (spec: exact section order §3) — the sales
- * follow-up flow: hero promise → self-identification → strategic goals →
- * tangible function → free-demo risk reversal → portfolio standard →
- * pricing/guarantee → FAQ → final demo request, plus the single mobile
- * sticky CTA.
- */
 export default function CabinetMakers() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["WebPage", "FAQPage"],
+        "@id": PAGE_URL,
+        name: PAGE_TITLE,
+        url: PAGE_URL,
+        description: metaDescription,
+        isPartOf: {
+          "@type": "WebSite",
+          name: "Graylock Digital",
+          url: "https://graylockdigital.com",
+        },
+        mainEntity: data.faq.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
+        })),
+      },
+    ],
+  };
+
   return (
-    <div className="theme-black">
+    <>
       <SEO
         title={PAGE_TITLE}
-        ogTitle="Your Cabinets Are Custom. Your Website Should Be Too."
-        description={META_DESCRIPTION}
+        description={metaDescription}
         url={PAGE_URL}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(CABINET_MAKER_SCHEMA) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-
-      <CabinetMakerHero />
-      <CabinetMakerWhoSection />
-      <CabinetMakerGoalsSection />
-      <CabinetMakerWhatSection />
-      <CabinetMakerProcessSection />
-      <CabinetMakerFeaturedProjectSection />
-      <CabinetMakerPricingSection />
-      <CabinetMakerFAQSection />
-      <CabinetMakerFinalCTASection />
-      <CabinetMakerStickyCTA />
-    </div>
+      <StandardIndustryPage
+        data={data}
+        primaryHref={(placement) =>
+          cabinetMakerGetStartedHref(
+            placement === "hero"
+              ? "hero"
+              : placement === "offer"
+                ? "process"
+                : "final_cta",
+          )
+        }
+        onPrimaryClick={(placement) => {
+          if (placement === "hero") {
+            trackCabinetMakerEvent("cabinet_maker_hero_cta_click", {
+              cta_placement: "hero",
+            });
+          } else if (placement === "offer") {
+            trackCabinetMakerEvent("cabinet_maker_process_cta_click", {
+              cta_placement: "process",
+            });
+          }
+        }}
+        onProjectClick={() =>
+          trackCabinetMakerEvent("cabinet_maker_featured_project_click", {
+            cta_placement: "portfolio",
+          })
+        }
+        onFaqExpand={(question) =>
+          trackCabinetMakerEvent("cabinet_maker_faq_expand", { question })
+        }
+      />
+    </>
   );
 }

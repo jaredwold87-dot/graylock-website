@@ -1,0 +1,226 @@
+I have attached the file:
+
+Graylock_Industry_Landing_Pages_Homepage_Standard_Rebuild_Scope_2026-09-11.md
+
+Implement this specification completely.
+
+The attached document is the authoritative, developer-ready scope for rebuilding exactly these fourteen existing Graylock Digital industry landing-page bodies:
+
+1. /websites-for-realtors
+2. /websites-for-well-drillers
+3. /websites-for-cabinet-makers
+4. /websites-for-auctioneers
+5. /websites-for-home-builders
+6. /websites-for-industrial-construction
+7. /websites-for-accountants
+8. /other-service-businesses
+9. /websites-for-psychologists
+10. /websites-for-optometrists
+11. /websites-for-physical-therapists
+12. /websites-for-dentists
+13. /websites-for-chiropractors
+14. /websites-for-physicians
+
+Do not summarize the specification. Do not create a high-level plan instead of implementing it. Read the full attached scope, treat its page-specific copy, section order, proof rules, removal rules, visual direction, and acceptance criteria as binding, then make the changes in the existing project.
+
+SCOPE BOUNDARY — DO NOT CHANGE ANY OF THE FOLLOWING:
+
+- Homepage
+- Header, navigation, mobile navigation, footer, footer links, or phone links
+- Existing global “Get Your Free Homepage Direction” CTA behavior
+- Existing global Get Started form
+- Existing form fields, validation, confirmation state, routing, analytics, consent behavior, or tracking
+- Resend API integration, email delivery, recipients, automation, or server-side notification logic
+- Internal dashboard, A/B testing, popup analytics, campaign configuration, or authentication
+- The sitewide September build-fee-waiver popup experiment
+- Pricing pages
+- About page
+- Featured Projects page
+- Portfolio/work pages
+- FAQ page
+- Compliance page
+- Terms of Service
+- Privacy Policy
+- Acceptable Use Policy
+- Ownership or cancellation terms
+- Shared buttons, shared team component, global accordion behavior, or global external-link behavior
+- Any route not explicitly listed above
+
+Do not add:
+
+- New forms
+- CRM integrations
+- New Resend flows
+- New API integrations
+- Calendar/scheduling integrations
+- New dashboard functionality
+- Page-local popups
+- Page-local promotions
+- Fee-waiver banners
+- Countdown timers
+- Urgency strips
+- Pricing calculators
+- Local pricing grids
+- Review widgets
+- Logo walls
+- Generic “Trusted by” badges
+- Fake testimonials
+- Stock projects presented as client work
+- AI-generated client/project proof
+- New policies or legal pages
+
+PRIMARY CONVERSION RULE:
+
+Every primary CTA inside these fourteen page bodies must read exactly:
+
+Get Your Free Homepage Direction
+
+Every primary CTA must preserve the existing global Get Started form behavior.
+
+Do not use these legacy CTA phrases in the rebuilt page bodies:
+
+- Get a Free Website Review
+- Get a Free Practice Website Review
+- Get a Free Demo
+- Request My Free Custom Demo
+- Request a 15-Minute Discovery Call
+- Free Custom Homepage Demo
+- Free Website
+- Free Build
+- Waived Website
+- Free Custom Direction
+
+The approved offer name is:
+
+Free Homepage Direction
+
+Where clarification is needed, use this exact language:
+
+A Free Homepage Direction is not a free website.
+
+The first step must be called:
+
+15-Minute Fit Call
+
+Do not rename it “Discovery Call,” “Audit,” “Strategy Call,” “Consultation,” or “Demo Call” in the rebuilt page bodies.
+
+TIMELINE RULE:
+
+Do not use unqualified claims such as:
+
+- Live in 7–10 days
+- 7–10 days
+- Under two weeks
+- Fast launch
+- Launch in a week
+
+Use the exact conditional wording specified for each page in the attached scope. The required meaning is always:
+
+After the Homepage Direction, required materials, and approvals are confirmed, standard sites are built, tested, and launched in 7–10 business days. Larger or more complex projects may take longer.
+
+Do not state or imply that this timeline includes MLS approval, IDX approval, licensing review, patient-portal configuration, third-party provider approval, client approval delays, or other third-party work.
+
+PROOF RULES — NON-NEGOTIABLE:
+
+1. Use only real Graylock client projects identified in the attached scope.
+2. Use every project only on the page(s) authorized in the attached evidence matrix.
+3. Keep each project’s actual industry and descriptor accurate.
+4. Do not present an adjacent-industry project as though it were from the target industry.
+5. Use a testimonial or review only when:
+   - The attached scope authorizes it;
+   - The exact quotation, spelling, attribution, and source label can be verified in the current live source before publication; and
+   - The required source treatment can remain visible.
+6. If a quote or review cannot be verified exactly, omit the entire dependent review/proof block. Do not use placeholder proof, generic copy, a rating, stars, a logo wall, or another client as a substitute.
+7. Do not invent or imply:
+   - Google ranking results
+   - Map-pack placement
+   - Leads
+   - Calls
+   - Bookings
+   - Appointments
+   - Revenue
+   - Customer acquisition
+   - Conversion rates
+   - Compliance
+   - Licensing approval
+   - Permit approval
+   - Privacy approval
+   - Accessibility certification
+   - Clinical, legal, financial, environmental, or safety outcomes
+8. Do not use “Trusted by U.S. practices” or any generic equivalent unless it has an approved, named, source-verifiable basis. The attached scope does not authorize it.
+
+PAGE-BODY STRUCTURE:
+
+Follow the exact section order and route-specific exceptions in the attached document.
+
+The default ordered structure is:
+
+1. Industry-specific hero
+2. Free Homepage Direction offer and risk reversal
+3. Verified review proof only if the release gate passes
+4. One real featured project
+5. Three industry-specific website problems
+6. Four industry-specific delivery mechanisms
+7. Four-step How It Works section
+8. Final client/process proof only if the release gate passes
+9. Plain FAQ
+10. Existing shared Tim and Jared team section, unchanged
+11. Final CTA
+
+If a proof section is not allowed or its source verification fails, remove that entire section and collapse the spacing. Do not leave an empty wrapper, placeholder, “coming soon” message, generic trust treatment, or blank visual gap.
+
+VISUAL STANDARD:
+
+Bring each page body to the same standard as the current Graylock homepage:
+
+- Use the existing Graylock dark charcoal / off-white / orange visual system.
+- Use existing homepage-style typography, spacing, cards, buttons, process treatment, FAQ treatment, shared team section, and final CTA treatment.
+- Keep industry pages premium, editorial, concise, and proof-led.
+- Avoid generic feature-card overload.
+- Use real project screenshots or approved licensed imagery only.
+- Do not use AI-generated images that could be mistaken for a real client, completed job, project, clinic, practice, rig, property, crew, event, or business.
+- Do not use generic stock “testimonial” portraits.
+- Use one real featured project per page only.
+- Use a clean, readable mobile layout with no horizontal overflow.
+- Make every FAQ keyboard accessible and maintain existing focus behavior.
+- Maintain semantic heading hierarchy, usable contrast, meaningful image alt text, and reduced-motion support.
+
+REGULATED / INDUSTRY-ACCURACY RULES:
+
+Keep licensing, MLS/IDX, provider, health-information, financial-information, insurance, legal, privacy, credential, state-specific, environmental, safety, and compliance material concise and factual.
+
+- Place these details in the exact scoped FAQ answers or existing policy links.
+- Do not use them as fear-based sales copy.
+- Do not create large regulatory sales blocks.
+- Do not claim Graylock is a law firm, CPA firm, privacy officer, healthcare provider, licensing authority, engineer, environmental consultant, broker, IDX provider, or regulator.
+- The customer remains responsible for the accuracy of supplied business information, required approvals, disclosures, credentials, claims, and professional review.
+
+IMPLEMENTATION PROCESS:
+
+1. Read the attached scope completely before modifying files.
+2. Identify the existing components/routes used by all fourteen industry pages.
+3. Reuse existing shared homepage components whenever possible rather than duplicating layouts.
+4. Implement the fourteen routes one at a time, following their exact page-specific copy and evidence rules.
+5. Preserve all global behavior and out-of-scope pages.
+6. Verify the source and attribution for every review quote and project before rendering it.
+7. If proof cannot be verified, omit the dependent block exactly as the scope requires.
+8. Test every rebuilt route on desktop, tablet, and mobile.
+9. Test all primary CTAs and ensure they still reach the existing global Get Started form.
+10. Confirm that all primary CTA labels on the fourteen rebuilt pages are exactly:
+    Get Your Free Homepage Direction
+11. Confirm no page body includes a local September promotion, fee waiver, countdown, popup, pricing grid, or “free website” claim.
+12. Confirm global homepage, form, Resend integration, dashboard, popup experiment, pricing, policies, and all unrelated pages remain unchanged.
+
+FINAL REPORT:
+
+After implementation, report:
+
+1. The exact routes and components changed.
+2. Which existing shared components were reused.
+3. Which review/proof blocks were included.
+4. Which review/proof blocks were intentionally omitted because source verification was unavailable.
+5. The real project used on each page.
+6. Confirmation that all 14 routes were tested at desktop, tablet, and mobile widths.
+7. Confirmation that all primary CTAs preserve the existing Get Started / Resend flow.
+8. Confirmation that the homepage, global form, Resend flow, dashboard, sitewide September popup experiment, pricing, policy pages, header, and footer were not changed.
+9. Any remaining implementation blockers that require a real client asset, confirmed quote source, or factual approval before release.

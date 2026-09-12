@@ -1,65 +1,14 @@
 import { useEffect, useRef } from "react";
 import { SEO } from "@/components/SEO";
+import { StandardIndustryPage } from "@/components/industry/standard/StandardIndustryPage";
+import data from "@/components/industry/standard/content/realtors";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
-import { RealtorHero } from "@/components/realtors/RealtorHero";
-import { RealtorTrustStrip } from "@/components/realtors/RealtorTrustStrip";
-import { RealtorFeaturedProjectSection } from "@/components/realtors/RealtorFeaturedProjectSection";
-import { RealtorTwoPathsSection } from "@/components/realtors/RealtorTwoPathsSection";
-import { RealtorPackageSection } from "@/components/realtors/RealtorPackageSection";
-import { RealtorIdxSection } from "@/components/realtors/RealtorIdxSection";
-import { RealtorComparisonSection } from "@/components/realtors/RealtorComparisonSection";
-import { RealtorInvestmentSection } from "@/components/realtors/RealtorInvestmentSection";
-import { RealtorFinalCTASection } from "@/components/realtors/RealtorFinalCTASection";
-import { RealtorFAQSection, REALTOR_FAQS } from "@/components/realtors/RealtorFAQSection";
-import { RealtorStickyCTA } from "@/components/realtors/RealtorStickyCTA";
+import { realtorGetStartedHref } from "@/lib/realtorLinks";
 
-const PAGE_URL = "https://graylockdigital.com/websites-for-realtors";
-const PAGE_TITLE = "Custom IDX Real Estate Websites for Agents & Teams | Graylock Digital";
-const META_DESCRIPTION =
-  "Graylock builds custom real-estate websites for agents and teams with buyer search when eligible, seller lead capture, local-market pages, MLS guidance, and ongoing support. Get a free custom website + IDX plan.";
+const PAGE_TITLE = "Custom Real Estate Websites for Agents & Teams | Graylock Digital";
+const PAGE_URL = "https://graylockdigital.com" + data.route;
 
-// The approved customer review is visibly attributed on-page but intentionally
-// not emitted as self-serving Review structured data.
-const REALTOR_SCHEMA = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["WebPage", "FAQPage"],
-      "@id": PAGE_URL,
-      name: PAGE_TITLE,
-      url: PAGE_URL,
-      description: META_DESCRIPTION,
-      isPartOf: {
-        "@type": "WebSite",
-        name: "Graylock Digital",
-        url: "https://graylockdigital.com",
-      },
-      // FAQPage main entity mirrors the FAQ rendered visibly on this page.
-      mainEntity: REALTOR_FAQS.map((faq) => ({
-        "@type": "Question",
-        name: faq.q,
-        acceptedAnswer: { "@type": "Answer", text: faq.a },
-      })),
-    },
-    {
-      "@type": "Service",
-      name: "Custom Real Estate Website Design",
-      serviceType: "Website design for real estate agents, teams, and brokerages",
-      url: PAGE_URL,
-      description:
-        "Custom real estate website design with IDX property-search integration support when MLS and brokerage eligibility allow. Graylock Digital is a website design and support provider, not an MLS or real estate data provider.",
-      provider: {
-        "@type": "Organization",
-        name: "Graylock Digital",
-        url: "https://graylockdigital.com",
-      },
-      audience: {
-        "@type": "Audience",
-        audienceType: "Real estate agents, teams, and brokerages",
-      },
-    },
-  ],
-};
+const metaDescription = data.hero.body.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 
 export default function Realtors() {
   const viewTracked = useRef(false);
@@ -70,36 +19,67 @@ export default function Realtors() {
     trackRealtorEvent("realtor_landing_view");
   }, []);
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["WebPage", "FAQPage"],
+        "@id": PAGE_URL,
+        name: PAGE_TITLE,
+        url: PAGE_URL,
+        description: metaDescription,
+        isPartOf: {
+          "@type": "WebSite",
+          name: "Graylock Digital",
+          url: "https://graylockdigital.com",
+        },
+        mainEntity: data.faq.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
+        })),
+      },
+    ],
+  };
+
   return (
-    <div className="theme-black">
+    <>
       <SEO
         title={PAGE_TITLE}
-        ogTitle="Custom IDX Real Estate Websites for Agents & Teams"
-        description={META_DESCRIPTION}
+        description={metaDescription}
         url={PAGE_URL}
-        image="https://graylockdigital.com/og-realtors.jpg"
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(REALTOR_SCHEMA) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-
-      {/* Section order per the conversion-redesign scope: hero → trust strip →
-          Willow proof → buyer/seller paths → package scope → IDX stages →
-          comparison → investment → FAQ → final CTA. */}
-      <RealtorHero />
-      <RealtorTrustStrip />
-      <RealtorFeaturedProjectSection />
-      <RealtorTwoPathsSection />
-      <RealtorPackageSection />
-      <RealtorIdxSection />
-      <RealtorComparisonSection />
-      <RealtorInvestmentSection />
-      <RealtorFAQSection />
-      <RealtorFinalCTASection />
-
-      {/* Mobile-only sticky bottom CTA (single action per the scope) */}
-      <RealtorStickyCTA />
-    </div>
+      <StandardIndustryPage
+        data={data}
+        primaryHref={(placement) =>
+          realtorGetStartedHref(
+            placement === "hero"
+              ? "hero"
+              : placement === "offer"
+                ? "package_scope"
+                : "final_cta",
+          )
+        }
+        onPrimaryClick={(placement) => {
+          if (placement === "hero") {
+            trackRealtorEvent("realtor_hero_cta_click", { cta_placement: "hero" });
+          } else if (placement === "final_cta") {
+            trackRealtorEvent("realtor_final_cta_click", { cta_placement: "final_cta" });
+          }
+        }}
+        onProjectClick={() =>
+          trackRealtorEvent("realtor_featured_project_click", {
+            cta_placement: "featured_project",
+          })
+        }
+        onFaqExpand={(question) =>
+          trackRealtorEvent("realtor_faq_expand", { question })
+        }
+      />
+    </>
   );
 }

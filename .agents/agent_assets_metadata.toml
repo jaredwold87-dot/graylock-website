@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "AwtDSWelJwUtEUcLSWEwX"
@@ -72,3 +71,45 @@ id = "deeUD3amb6MgrRJYJ0AYj"
 uri = "file://attached_assets/generated_images/usa-flag-bw.png"
 type = "image"
 title = "black white usa flag"
+
+[[outputs]]
+id = "E2XGZDI_GhsrHUDSssxCt"
+uri = "file://docs/industry-rebuild-report.md"
+type = "text"
+title = "Industry rebuild — implementation report"
+description = "All fourteen routes and components, project mapping, included and omitted proof, scope exceptions, verification results, and preserved global behavior."
+logical_id = "e052329a-e67f-4809-9449-fe3fd2ae40bb"
+content_hash = "sha256:28e552922bb42d536ba74d50501e4269c9b6f8ace93a3ed964f72dbf30617fcd"
+size = 7340
+mtime_ms = 1789179615907
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/e052329a-e67f-4809-9449-fe3fd2ae40bb/ab13ff3c-2f6f-40d9-8b6f-47515a39b264"
+storage_version_token = "1789179648875207"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "kEj9dKiSqMObMjEd8Y-90"
+uri = "file://docs/industry-browser-verification.md"
+type = "text"
+title = "Industry rebuild — browser verification"
+description = "42 viewport checks and 42 primary CTA open/close checks across all fourteen routes."
+logical_id = "c7570875-3182-4b05-b7bb-2c90d6c1f58c"
+content_hash = "sha256:6ce7aca870fd36ee003232260db9504f81dc1588b4c753ac64a305f8eb92070c"
+size = 6229
+mtime_ms = 1789179614299
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/c7570875-3182-4b05-b7bb-2c90d6c1f58c/9e685e3c-b0a5-4145-9136-173ca4eb5750"
+storage_version_token = "1789179649509837"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "Lwrvq1wPCHluw4u7La2sH"
+uri = "file://docs/industry-source-verification.md"
+type = "text"
+title = "Industry rebuild — source audit"
+description = "Public evidence for quotations, approved real projects, and current pricing/terms exceptions."
+logical_id = "c81ace27-80c6-4b0d-9acf-0585819e6478"
+content_hash = "sha256:075d0000bf0e82588d6dc292872d3ad1bc5fbf8e2d43650913bf871a69ab0990"
+size = 19303
+mtime_ms = 1789178891377
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/c81ace27-80c6-4b0d-9acf-0585819e6478/9c53bef0-034a-4516-b958-a7ffb322f76a"
+storage_version_token = "1789179650258992"
+content_type = "text/markdown"

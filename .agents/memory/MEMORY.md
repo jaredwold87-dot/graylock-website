@@ -19,3 +19,4 @@
 - [Text-message link previews](text-message-link-previews.md) — Graylock URL previews in texts come from Open Graph metadata, not an SMS/MMS attachment.
 - [Discovery form entry point](discovery-form-entrypoint.md) — form redesigns must cover the actual CTA popup, not only the standalone page.
 - [Homepage offers](homepage-offer-presentation.md) — editorial statement plus open numbered commitments; card experiment rejected as too SaaS-like.
+- [Industry source gates](industry-source-gates.md) — exact supplied copy is not evidence; verify quotations and policy claims, omit failed proof, and link to current terms.
