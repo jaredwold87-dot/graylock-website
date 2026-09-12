@@ -165,7 +165,7 @@ export default function Realtors() {
           {
             num: "04",
             title: "Built and Launched on Your Domain",
-            desc: "After the Homepage Direction, required materials, and approvals are confirmed, standard websites are typically built, tested, and launched in 7–10 business days. MLS, brokerage, provider, and other third-party timing remain outside Graylock’s control.",
+            desc: "After the Homepage Direction, required materials, and approvals are confirmed, standard websites are typically built, tested, and launched in 7–10 business days.",
             highlight: false,
           },
         ]}
