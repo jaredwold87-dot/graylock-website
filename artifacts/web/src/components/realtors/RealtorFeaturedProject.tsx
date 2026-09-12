@@ -91,25 +91,35 @@ export function RealtorFeaturedProject() {
 
       <div className="relative z-10 mx-auto mt-14 max-w-7xl border-t border-white/10 pt-12 md:mt-16 md:pt-16">
         <ScrollReveal>
-          <div className="grid items-start gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
-            <figure>
-              <figcaption className="mb-6">
-                <h3 className="font-display text-2xl text-white md:text-3xl">Mark Nelson’s Full Testimonial</h3>
-                <p className="mt-2 font-sans text-sm text-stone">Willow Realty Group · 5-star Google Review</p>
-              </figcaption>
-              <blockquote className="space-y-5 font-sans text-base leading-relaxed text-stone md:text-lg">
-                {testimonial.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              </blockquote>
-            </figure>
+          <div className="grid items-center gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
+            <div>
+              <h3 className="mb-6 font-display text-2xl text-white md:text-3xl">What We Built for Willow</h3>
+              <ul className="divide-y divide-white/10 font-sans text-base leading-relaxed text-offwhite/90 md:text-lg">
+                {[
+                  "Custom IDX integration with their local MLS",
+                  "Home valuation tool",
+                  "Agent contact flows",
+                  "Mobile-responsive build",
+                ].map((feature) => (
+                  <li key={feature} className="flex items-start gap-4 py-4">
+                    <span aria-hidden="true" className="text-[#E85D26]">✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <figure className="min-w-0">
               <img
                 src={googleReview}
-                alt="Mark Nelson’s five-star Google review of Graylock Digital; the complete review is transcribed alongside this image."
+                alt="Mark Nelson’s five-star Google review of Graylock Digital."
                 className="block h-auto w-full rounded-xl"
                 loading="lazy"
                 decoding="async"
               />
               <figcaption className="mt-3 font-sans text-sm text-offwhite/70">Original Google review shared on our homepage.</figcaption>
+              <blockquote className="sr-only" aria-label="Full review by Mark Nelson">
+                {testimonial.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </blockquote>
             </figure>
           </div>
         </ScrollReveal>
