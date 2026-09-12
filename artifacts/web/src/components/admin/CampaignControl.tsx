@@ -352,44 +352,7 @@ export function CampaignControl({
           {notice ? <span aria-live="polite" className="text-sm text-emerald-200">{notice}</span> : null}
         </div>
       </form>
-
-      <PreviewTools />
       </section>
     </>
-  );
-}
-
-function PreviewTools() {
-  const previewLinks = useMemo(
-    () => [
-      ["control", "Control (no popup)"],
-      ["savings_led", "Variant A — Savings-led"],
-      ["direction_led", "Variant B — Homepage-Direction-led"],
-    ],
-    [],
-  );
-
-  return (
-    <div className="mt-8 border-t border-white/10 pt-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#e85d26]">
-        Development preview tools
-      </p>
-      <p className="mt-2 text-sm leading-6 text-[#aeb5c0]">
-        These links open the public experience with a preview override. Preview mode must be used
-        only in development/preview environments; production ignores overrides unless the server
-        explicitly authorizes them. Preview traffic must not be treated as experiment data.
-      </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {previewLinks.map(([value, label]) => (
-          <a
-            className="border border-white/15 px-3 py-2 text-xs font-semibold text-[#d8dce3] transition hover:border-[#e85d26] hover:text-white"
-            href={`/?promoPreview=${value}`}
-            key={value}
-          >
-            {label}
-          </a>
-        ))}
-      </div>
-    </div>
   );
 }

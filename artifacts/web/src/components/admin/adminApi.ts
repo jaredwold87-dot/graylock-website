@@ -250,6 +250,15 @@ export function getCampaign(signal?: AbortSignal) {
   }));
 }
 
+export function getPublicCampaignStatus(signal?: AbortSignal) {
+  return fetch(`${PROMOTION_API_BASE}/campaign`, { signal }).then(async (response) => {
+    if (!response.ok) {
+      throw new Error(`Failed to fetch public campaign status (${response.status})`);
+    }
+    return response.json();
+  });
+}
+
 export function updateCampaign(
   values: Partial<Campaign> & {
     confirmEnabled?: boolean;
