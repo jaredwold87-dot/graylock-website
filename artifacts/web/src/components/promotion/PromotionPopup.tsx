@@ -209,7 +209,7 @@ export function PromotionPopup({
           <div className="relative z-10 px-6 pb-6 sm:px-12 sm:pb-6">
             {/* Eyebrow */}
             <p className="mb-3 font-hand text-[clamp(11px,3.6vw,22px)] whitespace-nowrap font-bold leading-[1.15] tracking-normal text-[#B23E16]">
-              {recurring ? "MONTHLY BUILD-FEE WAIVER" : "LIMITED-TIME OFFER"} • {monthName.toUpperCase()} PROJECTS
+              We are waiving build fees this month!
             </p>
 
             {/* Headline */}
