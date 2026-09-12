@@ -40,7 +40,7 @@ const Psychologists = lazy(() => import("@/pages/industries/Psychologists"));
 const IndustrialConstruction = lazy(() => import("@/pages/industries/IndustrialConstruction"));
 const LocalServiceBusinesses = lazy(() => import("@/pages/industries/LocalServiceBusinesses"));
 const HomeBuilders = lazy(() => import("@/pages/industries/HomeBuilders"));
-const Realtors = lazy(() => import("@/pages/industries/Realtors"));
+import Realtors from "@/pages/industries/Realtors";
 
 const WellDrillers = lazy(() => import("@/pages/industries/WellDrillers"));
 const CabinetMakers = lazy(() => import("@/pages/industries/CabinetMakers"));
