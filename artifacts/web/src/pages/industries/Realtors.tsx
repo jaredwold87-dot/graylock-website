@@ -139,57 +139,6 @@ export default function Realtors() {
       {/* 3. Willow project and full client review */}
       <RealtorFeaturedProject />
 
-      {/* 4. Buyer and seller paths */}
-      <section
-        data-section="buyer-seller-paths"
-        className="bg-[#0F0F0F] py-20 lg:py-32"
-      >
-        <div className="mx-auto max-w-5xl px-6 lg:px-12">
-          <ScrollReveal>
-            <div className="mb-16">
-              <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#E85D26]">
-                ONE WEBSITE. TWO CLEAR PATHS.
-              </p>
-              <h2 className="font-display text-3xl leading-tight text-white md:text-4xl lg:text-5xl">
-                Make the Next Step Clear for Both Sides of the Market.
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-            <ScrollReveal delay={0.1}>
-              <h3 className="font-sans text-sm font-bold uppercase tracking-[0.15em] text-white/50 border-b border-white/10 pb-4 mb-6">
-                BUYING
-              </h3>
-              <ul className="space-y-6">
-                <li className="font-sans text-lg text-white/90">Explore homes and market information.</li>
-                <li className="font-sans text-lg text-white/90">Understand the agent, team, and service area.</li>
-                <li className="font-sans text-lg text-white/90">Ask about a property or begin a conversation.</li>
-              </ul>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2}>
-              <h3 className="font-sans text-sm font-bold uppercase tracking-[0.15em] text-white/50 border-b border-white/10 pb-4 mb-6">
-                SELLING
-              </h3>
-              <ul className="space-y-6">
-                <li className="font-sans text-lg text-white/90">Understand the local perspective behind your business.</li>
-                <li className="font-sans text-lg text-white/90">See what the listing or valuation conversation looks like.</li>
-                <li className="font-sans text-lg text-white/90">Start with a clear, low-friction next step.</li>
-              </ul>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal delay={0.3}>
-            <div className="mt-16 border-t border-white/10 pt-8">
-              <p className="text-sm text-white/50 leading-relaxed max-w-3xl">
-                Property-search and IDX availability depend on the relevant MLS, brokerage, provider, eligibility, disclosures, data, and third-party fees. We confirm that path before the final build scope is set.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* 5. Shared homepage process layout with real-estate details */}
       <OfferBreakdownSection
         sectionId="realtor-how-it-works"
