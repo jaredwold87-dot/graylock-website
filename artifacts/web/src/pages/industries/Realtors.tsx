@@ -97,10 +97,10 @@ export default function Realtors() {
                   CUSTOM WEBSITES FOR REAL ESTATE AGENTS & TEAMS
                 </p>
                 <h1 className="text-[2.5rem] md:text-4xl lg:text-6xl xl:text-[4rem] font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
-                  Your Market Is Local. Your Website Should Feel That Way.
+                  Before Buyers and Sellers Call You, They Check Your Website.
                 </h1>
                 <p className="text-stone text-xl md:text-xl xl:text-[1.375rem] font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
-                  Give buyers a clear way to explore, give sellers a clear reason to reach out, and make the local expertise behind your business easy to understand.
+                  Make it easy for the right people to see your local expertise, explore the next step, and decide you are the agent they want to talk to.
                 </p>
                 <div className="mt-8 md:mt-0 flex flex-col items-stretch gap-4 md:flex-row md:items-center md:w-max">
                   <CTAButton
