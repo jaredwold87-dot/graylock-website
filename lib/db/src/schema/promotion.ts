@@ -231,7 +231,7 @@ export const promotionLeadAttributionTable = pgTable(
   (table) => [
     index("idx_promotion_lead_attribution_campaign").on(table.campaignId, table.experimentVariant),
     index("idx_promotion_lead_attribution_status").on(table.leadStatus),
-    uniqueIndex("idx_promotion_lead_attribution_assignment_unique").on(table.assignmentId),
+    index("idx_promotion_lead_attribution_assignment").on(table.assignmentId),
   ],
 );
 

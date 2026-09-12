@@ -339,26 +339,6 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
         CREATE UNIQUE INDEX IF NOT EXISTS idx_promotion_lead_submission_id
           ON promotion_lead_attribution (submission_id)
       `);
-      // Preserve the earliest accepted submission if a pre-v2 deployment
-      // happened to receive concurrent duplicate requests before the unique
-      // constraint existed.
-      await client.query(`
-        WITH duplicates AS (
-          SELECT id, ROW_NUMBER() OVER (
-            PARTITION BY assignment_id ORDER BY created_at ASC, id ASC
-          ) AS duplicate_number
-          FROM promotion_lead_attribution
-          WHERE assignment_id IS NOT NULL
-        )
-        DELETE FROM promotion_lead_attribution l
-        USING duplicates d
-        WHERE l.id = d.id AND d.duplicate_number > 1
-      `);
-      await client.query(`
-        ALTER TABLE promotion_lead_attribution
-          ADD CONSTRAINT promotion_lead_attribution_assignment_unique
-          UNIQUE (assignment_id)
-      `);
       await client.query(
         "INSERT INTO promotion_schema_migrations (version) VALUES (2)",
       );
@@ -434,6 +414,28 @@ export async function runPromotionMigrations(client: MigrationClient): Promise<v
       `);
       await client.query(
         "INSERT INTO promotion_schema_migrations (version) VALUES (5)",
+      );
+    }
+    // Version 6 allows more than one lead submission for an assignment.
+    // Assignment rows describe an attribution context and are intentionally
+    // retained; submission_id remains the sole lead idempotency key.
+    if (currentVersion < 6) {
+      await client.query(`
+        ALTER TABLE promotion_lead_attribution
+          DROP CONSTRAINT IF EXISTS promotion_lead_attribution_assignment_unique
+      `);
+      // Older schema-push deployments represented the same rule as a unique
+      // index instead of a named constraint. Replace that index with the
+      // non-unique lookup index below when it exists.
+      await client.query(`
+        DROP INDEX IF EXISTS idx_promotion_lead_attribution_assignment_unique
+      `);
+      await client.query(`
+        CREATE INDEX IF NOT EXISTS idx_promotion_lead_attribution_assignment
+          ON promotion_lead_attribution (assignment_id)
+      `);
+      await client.query(
+        "INSERT INTO promotion_schema_migrations (version) VALUES (6)",
       );
     }
 

@@ -79,6 +79,22 @@ test("popup-only migration preserves enablement and history while retiring unuse
   assert.ok(queries.includes("INSERT INTO promotion_schema_migrations (version) VALUES (5)"));
 });
 
+test("lead multiplicity migration drops only the assignment uniqueness constraint", async () => {
+  const queries: string[] = [];
+  await migrations.runPromotionMigrations({
+    async query<T = unknown>(text: string) {
+      queries.push(text);
+      if (text.includes("MAX(version)")) return { rows: [{ version: 5 }] } as T;
+      return {} as T;
+    },
+  });
+  const migration = queries.find((query) => query.includes("DROP CONSTRAINT"))!;
+  assert.match(migration, /DROP CONSTRAINT IF EXISTS promotion_lead_attribution_assignment_unique/);
+  assert.ok(queries.some((query) => query.includes("CREATE INDEX IF NOT EXISTS idx_promotion_lead_attribution_assignment")));
+  assert.ok(queries.includes("INSERT INTO promotion_schema_migrations (version) VALUES (6)"));
+  assert.doesNotMatch(queries.join("\n"), /DELETE FROM|TRUNCATE|UPDATE promotion_lead_attribution/);
+});
+
 test("public path and tracking sanitizers remove navigation suffixes and reject PII", () => {
   assert.equal(promotion.sanitizePath("/pricing?email=person@example.com#plans", "page"), "/pricing");
   assert.equal(promotion.sanitizeTracking("newsletter-2026", "utm"), "newsletter-2026");
@@ -328,28 +344,31 @@ test("promotion migrations commit under the advisory lock and roll back failures
   assert.equal(failedQueries.at(-1), "ROLLBACK");
 });
 
-test("lead conflict resolution handles duplicate assignment and reused keys", () => {
+test("lead conflict resolution never reuses an assignment's first submission", () => {
   const existing = [{
     internal_lead_id: "lead-existing",
     assignment_id: 42,
-    submission_id: "old-key",
+    submission_id: "same-key",
     submission_payload_hash: "same-hash",
   }];
   assert.deepEqual(
     leads.resolveLeadConflict(existing, 42, "new-key", "different-hash"),
-    { conflict: false, internalLeadId: "lead-existing" },
-  );
-  assert.deepEqual(
-    leads.resolveLeadConflict(existing, 99, "old-key", "same-hash"),
     { conflict: true },
   );
   assert.deepEqual(
-    leads.resolveLeadConflict(
-      [{ ...existing[0], assignment_id: null, submission_id: "same-key" }],
-      42,
-      "same-key",
-      "different-hash",
-    ),
+    leads.resolveLeadConflict(existing, 42, "same-key", "same-hash"),
+    { conflict: false, internalLeadId: "lead-existing" },
+  );
+  assert.deepEqual(
+    leads.resolveLeadConflict(existing, 42, "same-key", "different-hash"),
+    { conflict: true },
+  );
+  assert.deepEqual(
+    leads.resolveLeadConflict(existing, 99, "same-key", "same-hash"),
+    { conflict: true },
+  );
+  assert.deepEqual(
+    leads.resolveLeadConflict(existing, 42, "missing-key", "same-hash"),
     { conflict: true },
   );
 });

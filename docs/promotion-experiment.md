@@ -482,7 +482,7 @@ alone do not configure that host. A failed notification marks the
 private row as `emailNotificationStatus: "failed"` without claiming that the
 email was delivered; an authorized administrator can call
 `POST /api/promotion/admin/leads/:id/resend-email` with the CSRF token. A
-retry for the same assignment is idempotent and does not create a second
+retry for the same submission is idempotent and does not create a second
 private lead or funnel event.
 
 Hidden metadata names:
@@ -506,6 +506,13 @@ use the same key on retries; the ordinary form uses it even without an
 assignment token. The server stores the private submission once, claims one
 notification sender, and returns the same `internal_lead_id` on retries
 without sending a duplicate email.
+
+An A/B visitor assignment is not a submission identity. The same visitor may
+submit through the popup and later through the header CTA, or submit again
+through either entry point. Each separately opened form gets a new submission
+key, its own lead record and notification, and the subject for that entry point.
+Only reusing the same submission key deduplicates delivery. The historical
+one-lead-per-assignment constraint is removed without deleting existing leads.
 
 Client-source alignment: `BookCallForm` is the only current browser caller of
 `/api/leads`; it creates the key with `createClientEventId()` and sends it as

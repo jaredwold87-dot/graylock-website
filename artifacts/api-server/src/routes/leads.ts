@@ -24,19 +24,24 @@ export function resolveLeadConflict(
   submissionPayloadHash: string,
 ): { conflict: false; internalLeadId: string } | { conflict: true } {
   const bySubmission = rows.find((row) => String(row.submission_id) === submissionId);
-  const byAssignment = rows.find((row) => String(row.assignment_id) === String(assignmentId));
-  const conflictingAssignment = bySubmission &&
-    String(bySubmission.assignment_id ?? "") !== String(assignmentId);
-  const conflictingSubmission = bySubmission && byAssignment &&
-    String(byAssignment.submission_id) !== submissionId;
-  const conflictingPayload = bySubmission?.submission_payload_hash &&
-    String(bySubmission.submission_payload_hash) !== submissionPayloadHash;
-  if (conflictingAssignment || conflictingSubmission || conflictingPayload || !bySubmission && !byAssignment) {
+  // assignment_id identifies the attribution context, not the submission.
+  // Several independent forms can legitimately submit against the same
+  // assignment, so never fall back to an arbitrary row found by assignment.
+  if (!bySubmission) {
     return { conflict: true };
   }
+  const matchingAssignment =
+    String(bySubmission.assignment_id ?? "") === String(assignmentId);
+  // A null hash is possible for rows written before payload hashes were
+  // introduced. It cannot prove a mismatch, so preserve those rows' stable
+  // retry behavior while still rejecting known changed payloads.
+  const matchingPayload =
+    !bySubmission.submission_payload_hash ||
+    String(bySubmission.submission_payload_hash) === submissionPayloadHash;
+  if (!matchingAssignment || !matchingPayload) return { conflict: true };
   return {
     conflict: false,
-    internalLeadId: String((bySubmission ?? byAssignment)?.internal_lead_id),
+    internalLeadId: String(bySubmission.internal_lead_id),
   };
 }
 
@@ -488,7 +493,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
             $20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,
             $36,$37,$38,$39
           )
-          ON CONFLICT DO NOTHING
+          ON CONFLICT (submission_id) DO NOTHING
           RETURNING internal_lead_id
         `,
         [
@@ -541,11 +546,10 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
                 submission_payload_hash, email_notification_status,
                 email_notification_lease_until, email_notification_attempted_at
               FROM promotion_lead_attribution
-              WHERE submission_id=$1 OR assignment_id=$2
-              ORDER BY id ASC
+              WHERE submission_id=$1
               FOR UPDATE
             `,
-            [submissionId, assignment.id],
+            [submissionId],
           );
           const conflictResolution = resolveLeadConflict(
             existingResult.rows as Array<Record<string, unknown>>,
@@ -555,7 +559,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
           );
           if (conflictResolution.conflict) {
             await client.query("ROLLBACK");
-            res.status(409).json({ error: "Submission idempotency key or assignment was already used" });
+            res.status(409).json({ error: "Submission idempotency key was reused with different attribution or data" });
             return;
           }
           internalLeadId = conflictResolution.internalLeadId;
@@ -567,7 +571,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
                 email_notification_attempted_at=NOW(),
                 email_notification_idempotency_key=COALESCE(email_notification_idempotency_key,$2),
                 updated_at=NOW()
-              WHERE assignment_id=$1
+              WHERE internal_lead_id=$1
                 AND (email_notification_status='pending'
                   OR (email_notification_status='sending'
                     AND email_notification_lease_until < NOW()
@@ -575,7 +579,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
                       OR email_notification_attempted_at >= NOW() - INTERVAL '24 hours')))
               RETURNING internal_lead_id
             `,
-            [assignment.id, notificationIdempotencyKey],
+            [internalLeadId, notificationIdempotencyKey],
           );
           if ((claimed.rowCount ?? 0) === 0) {
             await client.query("COMMIT");
@@ -602,7 +606,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
                 email_notification_attempted_at=NOW(),
                 email_notification_idempotency_key=COALESCE(email_notification_idempotency_key,$2),
                 updated_at=NOW()
-              WHERE assignment_id=$1
+              WHERE internal_lead_id=$1
                 AND (email_notification_status='pending'
                   OR (email_notification_status='sending'
                     AND email_notification_lease_until < NOW()
@@ -610,7 +614,7 @@ leadsRouter.post("/leads", async (req: Request, res: Response) => {
                       OR email_notification_attempted_at >= NOW() - INTERVAL '24 hours')))
               RETURNING internal_lead_id
             `,
-            [assignment.id, notificationIdempotencyKey],
+            [internalLeadId, notificationIdempotencyKey],
           );
           notificationClaimed = (claimed.rowCount ?? 0) > 0;
         }
