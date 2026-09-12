@@ -78,14 +78,14 @@ export function RealtorDifferenceSection() {
                         : "py-10 md:py-12 border-b border-black/10"
                   }`}
                 >
-                  <div className={`text-[#B23E16] font-display font-medium tracking-tight mt-1 shrink-0 ${index === 0 ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"}`}>
+                  <div className="text-[#B23E16] font-display font-medium tracking-tight mt-1 shrink-0 text-xl md:text-2xl">
                     {String(index + 1).padStart(2, "0")}
                   </div>
                   <div className="flex-1">
-                    <h3 className={`font-display font-medium text-[#292B2E] mb-3 tracking-tight ${index === 0 ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"}`}>
+                    <h3 className="font-display font-medium text-[#292B2E] mb-3 tracking-tight text-xl md:text-2xl">
                       {commitment.title}
                     </h3>
-                    <p className={`text-[#292B2E]/70 leading-relaxed ${index === 0 ? "text-lg md:text-xl" : "text-base md:text-lg"}`}>
+                    <p className="text-[#292B2E]/70 leading-relaxed text-base md:text-lg">
                       {commitment.body}
                     </p>
                   </div>
