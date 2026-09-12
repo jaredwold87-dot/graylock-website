@@ -223,7 +223,7 @@ export default function Realtors() {
               YOUR NEXT STEP
             </p>
             <h2 className="font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl mx-auto max-w-3xl">
-              See the Direction for Your Real-Estate Website Before You Commit to the Build.
+              See the Direction for Your Real Estate Website Before You Commit to the Build.
             </h2>
             <p className="mt-8 text-lg leading-relaxed text-white/70 mx-auto max-w-2xl">
               Start with a 15-minute fit call. If Graylock is the right fit, we create a custom Homepage Direction for your business before any build fee is due.
