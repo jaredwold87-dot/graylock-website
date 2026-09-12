@@ -84,7 +84,7 @@ export function HeroSection() {
         }}
       />
       {/* Desktop: shared Willow laptop-and-phone cutout with proof caption */}
-      <div className="absolute hidden lg:flex pointer-events-none left-[75%] -translate-x-1/2 top-[20vh] w-[min(44vw,656px)] z-[1] flex-col items-center">
+      <div className="absolute hidden lg:flex pointer-events-none left-[75%] -translate-x-1/2 top-[20vh] w-[min(44vw,656px)] xl:w-[min(47vw,700px)] z-[1] flex-col items-center">
         <img
           src={heroMobileWillowDevices}
           alt="Willow Realty Group’s website on a laptop and phone"
@@ -100,11 +100,11 @@ export function HeroSection() {
             <p className="text-[#E85D26] text-xs md:text-sm font-sans font-bold uppercase tracking-widest mb-4">
               CUSTOM WEBSITES FOR TRUST-BASED BUSINESSES
             </p>
-            <h1 className="text-[2.5rem] md:text-4xl lg:text-6xl font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
+            <h1 className="text-[2.5rem] md:text-4xl lg:text-6xl xl:text-[4rem] font-display text-white leading-[1.15] md:leading-[1.1] mb-6 lg:max-w-xl">
               Every Day Your Website Underperforms,{" "}
               <span>a Client Chooses Your Competitor.</span>
             </h1>
-            <p className="text-stone text-xl md:text-xl font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
+            <p className="text-stone text-xl md:text-xl xl:text-[1.375rem] font-sans mb-6 md:mb-8 max-w-xl leading-snug md:leading-relaxed">
               We build custom, conversion-focused websites designed to help the right people find, trust, and contact your business — live in 7–10 days.
             </p>
 
