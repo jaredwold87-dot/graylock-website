@@ -124,10 +124,13 @@ export default function Realtors() {
               </ScrollReveal>
             </div>
             {/* Visual Column */}
-            <div className="relative w-full lg:-mt-4 xl:-mt-8">
-              <ScrollReveal delay={0.1}>
-                <RealtorHeroVisual />
-              </ScrollReveal>
+            <div className="relative w-full lg:self-stretch">
+              {/* Include the hero's 20vh top padding when finding its vertical center. */}
+              <div className="lg:absolute lg:inset-x-0 lg:top-[calc(50%_-_10vh)] lg:-translate-y-1/2">
+                <ScrollReveal delay={0.1}>
+                  <RealtorHeroVisual />
+                </ScrollReveal>
+              </div>
             </div>
           </div>
         </div>
