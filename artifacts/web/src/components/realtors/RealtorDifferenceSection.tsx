@@ -18,7 +18,7 @@ const commitments = [
   },
   {
     title: "An IDX and MLS Plan Before the Build",
-    body: "An IDX and MLS plan reviewed before it becomes a late-stage scope surprise.",
+    body: "Graylock is an IDX Broker Developer Partner. We review your IDX and MLS plan before it becomes a late-stage scope surprise.",
   },
 ];
 
