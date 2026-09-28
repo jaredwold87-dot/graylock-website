@@ -7,8 +7,24 @@ import alanReview from "@/assets/reviews/alan-garcia.webp";
 import ericaReview from "@/assets/reviews/erica-hadley.webp";
 import citrusClinic from "@/assets/work/citrus-medical-marijuana-clinic.webp";
 import lorettaReview from "@/assets/reviews/loretta-redrick.webp";
+import championWaterWell from "@/assets/work/champion-water-well-service.webp";
 
 export const additionalPortfolioProjects: FeaturedProject[] = [
+  {
+    name: "Champion Water Well Service",
+    category: "Well Pump & Pressure-System Service",
+    location: "Kalispell & the Flathead Valley, Montana",
+    description: "A service-focused website for a Montana water well business, presenting well pump repair and pressure-system services with clear service-area navigation and direct request-service and call links.",
+    image: championWaterWell,
+    url: "https://championwaterwellservice.com/",
+    theme: "light",
+    delivered: [
+      "Well pump and pressure-system service presentation",
+      "Service-area navigation",
+      "About and FAQ pathways",
+      "Service-request and call links",
+    ],
+  },
   {
     name: "Citrus Medical Marijuana Clinic",
     category: "Medical Marijuana Evaluations",

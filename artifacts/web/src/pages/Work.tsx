@@ -553,6 +553,7 @@ const featuredProjectPriority = [
   "Citrus Medical Marijuana Clinic",
   "CRNA Mentor",
   "Atlas Anesthesia",
+  "Champion Water Well Service",
 ];
 
 const orderedFeaturedProjects = [
