@@ -527,7 +527,6 @@ const featuredProjects: FeaturedProject[] = [
 
 const featuredProjectPriority = [
   ...additionalPortfolioProjects.map((project) => project.name),
-  "Camas Creek Lumber",
   "Willow Realty Group",
   "Meagher Builders",
   "Benevolent Auctions",
@@ -538,6 +537,7 @@ const featuredProjectPriority = [
   "Rosenlund Drilling",
   "West Coast Eye Institute",
   "Wicks Land & Yard Management",
+  "Camas Creek Lumber",
   "Bluegrass Dental Anesthesia Solutions",
   "Emboxed",
   "Smart Tax CRNA",
