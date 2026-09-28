@@ -5,8 +5,34 @@ import shaneCamp from "@/assets/work/shane-camp.webp";
 import legacyOutdoorLiving from "@/assets/work/legacy-outdoor-living.webp";
 import alanReview from "@/assets/reviews/alan-garcia.webp";
 import ericaReview from "@/assets/reviews/erica-hadley.webp";
+import citrusClinic from "@/assets/work/citrus-medical-marijuana-clinic.webp";
+import lorettaReview from "@/assets/reviews/loretta-redrick.webp";
 
 export const additionalPortfolioProjects: FeaturedProject[] = [
+  {
+    name: "Citrus Medical Marijuana Clinic",
+    category: "Medical Marijuana Evaluations",
+    location: "Crystal River, Florida",
+    description: "A welcoming website for a physician-led clinic, helping visitors explore patient information, understand the next step, and request an evaluation.",
+    image: citrusClinic,
+    url: "https://citrusmmc.com/",
+    theme: "light",
+    delivered: [
+      "Clinic and physician introduction",
+      "New and current patient navigation",
+      "Florida guide and FAQ pathways",
+      "Evaluation-request and call links",
+    ],
+    testimonial: {
+      name: "Loretta Lambright Redrick",
+      role: "5-star Google Review",
+      image: lorettaReview,
+      quote: [
+        "Look no further, this is THE company you want to build with. Tim is a maestro when it comes to communication and efficiency. This team",
+        "Is forward thinking, proficient, professional and it was evident to myself and my company leaders that their heart is in their work, here you are not just a random number, they care. Rates are competitive, product is top notch and these guys make it feel like working with family. This is the choice for a robust website! Bravo!",
+      ],
+    },
+  },
   {
     name: "Liquid Soul Hydration",
     category: "IV Hydration & Wellness",

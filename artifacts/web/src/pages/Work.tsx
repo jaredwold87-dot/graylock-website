@@ -550,6 +550,7 @@ const featuredProjectPriority = [
   "Shooting Performance Institute",
   "Bent on Education",
   "JC's Well Services",
+  "Citrus Medical Marijuana Clinic",
   "CRNA Mentor",
   "Atlas Anesthesia",
 ];
