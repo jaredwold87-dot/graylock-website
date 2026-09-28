@@ -526,7 +526,10 @@ const featuredProjects: FeaturedProject[] = [
 ];
 
 const featuredProjectPriority = [
-  ...additionalPortfolioProjects.map((project) => project.name),
+  "Liquid Soul Hydration",
+  "Legacy Outdoor Living",
+  "Shane Camp",
+  "Backroads Beauty",
   "Willow Realty Group",
   "Meagher Builders",
   "Benevolent Auctions",
