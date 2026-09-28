@@ -4,6 +4,8 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { X, Quote, Check, MapPin, ExternalLink } from "lucide-react";
+import type { FeaturedProject } from "@/data/portfolioTypes";
+import { additionalPortfolioProjects } from "@/data/additionalPortfolioProjects";
 
 import spiTransformation from "@/assets/work/spi-transformation.webp";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
@@ -30,30 +32,8 @@ import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import portfolioHeroBg from "@/assets/portfolio-hero-bg.webp";
 import camasCreekLumber from "@/assets/work/camas-creek-lumber.webp";
 
-type Theme = "light" | "dark";
-
-type FeaturedProject = {
-  name: string;
-  category: string;
-  location?: string;
-  description: string;
-  image: string;
-  url?: string;
-  theme: Theme;
-  delivered: string[];
-  testimonial?: {
-    quote: string[];
-    name: string;
-    role: string;
-  };
-  placeholder?: {
-    name: string;
-    role: string;
-    note: string;
-  };
-};
-
 const featuredProjects: FeaturedProject[] = [
+  ...additionalPortfolioProjects,
   {
     name: "Camas Creek Lumber",
     category: "Custom-Cut Lumber & Timbers",
@@ -546,6 +526,7 @@ const featuredProjects: FeaturedProject[] = [
 ];
 
 const featuredProjectPriority = [
+  ...additionalPortfolioProjects.map((project) => project.name),
   "Camas Creek Lumber",
   "Willow Realty Group",
   "Meagher Builders",
@@ -729,7 +710,24 @@ function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose:
                 <Quote size={16} className="text-[#E85D26]/50 mb-2.5 shrink-0" />
                 {project.testimonial ? (
                   <>
-                    <p className="text-white/90 font-sans italic text-[13px] leading-relaxed mb-3">
+                    {project.testimonial.image && (
+                      <a
+                        href={project.testimonial.image}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mb-3 block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26]"
+                        aria-label={`View ${project.testimonial.name}’s Google review at full size`}
+                      >
+                        <img
+                          src={project.testimonial.image}
+                          alt={`${project.testimonial.name}’s five-star Google review`}
+                          className="h-auto w-full rounded-lg"
+                          loading="lazy"
+                        />
+                        <span className="mt-2 block text-xs text-white/70 underline underline-offset-4">View full-size review ↗</span>
+                      </a>
+                    )}
+                    <p className={project.testimonial.image ? "sr-only" : "text-white/90 font-sans italic text-[13px] leading-relaxed mb-3"}>
                       &ldquo;{project.testimonial.quote.join(" ")}&rdquo;
                     </p>
                     <div>
