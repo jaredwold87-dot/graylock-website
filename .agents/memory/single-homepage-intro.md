@@ -1,10 +1,10 @@
 ---
-name: Single homepage intro
-description: Why Graylock must use one homepage reveal rather than stacking a static splash before the React intro.
+name: Homepage entry
+description: Visitors should enter the website directly without an introductory screen.
 ---
 
-Keep exactly one first-visit homepage reveal: the React landing intro. Do not add a separate pre-JavaScript splash, duplicate intro timer, or second session-tracking mechanism.
+Do not show a first-visit intro, branded reveal, or pre-JavaScript splash. Visitors should enter the website directly.
 
-**Why:** A legacy inline HTML splash ran before the newer landing intro in real browsers, causing visitors to sit through two consecutive branded reveals.
+**Why:** The user explicitly requested removing the initial-visit intro. This supersedes the previous instruction to keep one React intro.
 
-**How to apply:** Make future copy, imagery, pacing, progress-bar, and replay-preview changes within the existing landing-intro experience. Preserve its once-per-session behavior and forced preview mode instead of introducing another loader.
+**How to apply:** Keep the intro unmounted, including on fresh sessions. Do not reintroduce a splash or delay while changing homepage content. Preserve unrelated promotion and booking behavior.

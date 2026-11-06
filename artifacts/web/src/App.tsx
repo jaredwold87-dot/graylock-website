@@ -8,7 +8,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { Layout } from "@/components/layout/Layout";
-import { LandingIntro } from "@/components/layout/LandingIntro";
 import { prefetchNavAssets } from "@/lib/prefetchNavAssets";
 import { GlobalSchema } from "@/components/GlobalSchema";
 import { BookCallProvider } from "@/components/booking/BookCallContext";
@@ -172,7 +171,6 @@ function SiteContent() {
         <Router />
       </Layout>
       <BookCallModal />
-      <LandingIntro />
     </PromotionProvider>
   );
 }

@@ -15,7 +15,7 @@
 - [Device cutout cleanup](device-cutout-cleanup.md) — bg removal leaves shadow blobs/backdrop slices on device shots; magenta-flatten to inspect, erase alpha rects, trim, no card wrapper.
 - [Hidden-UI a11y sync](hidden-ui-a11y-sync.md) — visually hidden UI (off-screen sticky bars, max-h-0 accordions) must also leave a11y tree/focus: invisible + transition-[transform,visibility], aria-hidden.
 - [Browser 404 red herring](browser-404-red-herring.md) — the lone console 404 on every page is api-server GET / (no root route), not a missing asset; don't chase it during QA.
-- [Single homepage intro](single-homepage-intro.md) — keep only the React landing intro; a separate pre-JS splash makes visitors see two reveals.
+- [Homepage entry](single-homepage-intro.md) — visitors go directly to the website; do not restore a first-visit intro or splash screen.
 - [Text-message link previews](text-message-link-previews.md) — Graylock URL previews in texts come from Open Graph metadata, not an SMS/MMS attachment.
 - [Discovery form entry point](discovery-form-entrypoint.md) — form redesigns must cover the actual CTA popup, not only the standalone page.
 - [Homepage offers](homepage-offer-presentation.md) — editorial statement plus open numbered commitments; card experiment rejected as too SaaS-like.
