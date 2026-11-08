@@ -98,9 +98,9 @@ const data: StrategyPageData = {
           "Every page gets a unique, keyword-rich title tag and meta description written to attract clicks from search results.",
       },
       {
-        title: "Dedicated account manager",
+        title: "Support for website changes",
         description:
-          "Every plan includes a dedicated account manager who monitors your site's performance and is available to discuss SEO progress, suggest improvements, and answer questions.",
+          "Every plan includes a dedicated account manager you can contact with website questions and update requests. The SEO foundation is part of your website build; ongoing support covers maintenance and site changes within your plan's scope.",
       },
     ],
   },
@@ -203,7 +203,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Does Graylock handle SEO for my website?",
-      a: "Every Graylock plan includes an SEO foundation: proper metadata, clean URL structure, mobile optimization, fast load times, and schema markup. Growth and Scale plans add full local SEO optimization and Google Business Profile setup. Custom plans include advanced SEO strategy. All plans include a dedicated account manager.",
+      a: "Yes — we build SEO foundations into your website: proper metadata, clean URL structure, mobile optimization, fast load times, and schema markup. Growth and Scale plans add local SEO implementation and Google Business Profile setup, while Custom plans can include advanced SEO strategy as part of the agreed build scope. After launch, your plan covers website maintenance, support, and included site updates rather than ongoing search-ranking management.",
     },
   ],
   bottomCta: {
@@ -244,7 +244,7 @@ const data: StrategyPageData = {
         name: "Does Graylock handle SEO for my website?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Every Graylock plan includes an SEO foundation. Growth and Scale plans add full local SEO optimization and Google Business Profile setup.",
+          text: "Yes — we build SEO foundations into your website: proper metadata, clean URL structure, mobile optimization, fast load times, and schema markup. Growth and Scale plans add local SEO implementation and Google Business Profile setup, while Custom plans can include advanced SEO strategy as part of the agreed build scope. After launch, your plan covers website maintenance, support, and included site updates rather than ongoing search-ranking management.",
         },
       },
     ],

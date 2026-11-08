@@ -2,7 +2,7 @@ import { SEO } from "@/components/SEO";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ElevatedHero } from "@/components/ui/ElevatedHero";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { Wrench, MessagesSquare, UserCheck, TrendingUp } from "lucide-react";
+import { Wrench, MessagesSquare, UserCheck, RefreshCw } from "lucide-react";
 import processHeroBg from "@/assets/process-hero-bg.webp";
 
 export default function HowItWorks() {
@@ -116,13 +116,13 @@ export default function HowItWorks() {
               {
                 icon: UserCheck,
                 title: "Dedicated Account Manager",
-                desc: "Every plan includes a dedicated account manager — a real person who knows your practice and your website. Need to discuss performance, request changes, or ask a question? You have a direct line. No support tickets, no chatbots.",
+                desc: "Every plan includes a dedicated account manager — a real person who knows your practice and your website. Need to update your site, request a change, or ask a question? You have a direct line. No support tickets, no chatbots.",
                 delay: 0.3,
               },
               {
-                icon: TrendingUp,
-                title: "Ongoing SEO & Performance Monitoring",
-                desc: "Your dedicated account manager monitors your site's SEO performance and keeps your site competitive in local search results. We also offer a long-term website refresh and strategy review at the 2-year mark — because great websites evolve with your practice.",
+                icon: RefreshCw,
+                title: "A Website Refresh Every Two Years",
+                desc: "Your business changes, and your website should reflect it. Every two years, active subscribers receive a website refresh at no extra cost — updating the design, photography, and key-page copy within the existing site structure.",
                 delay: 0.4,
               },
             ].map((item) => (
@@ -136,9 +136,9 @@ export default function HowItWorks() {
 
           <ScrollReveal delay={0.45} className="text-center mb-10">
             <p className="text-[#555] font-sans leading-relaxed max-w-2xl mx-auto">
-              How much ongoing work is included depends on the plan you choose — every
-              plan comes with a set number of monthly support hours for maintenance and
-              change requests.{" "}
+              Your plan determines how much time is included for site updates:
+              Starter includes 1 hour per quarter, Growth includes 1 hour per month,
+              and Scale includes 2 hours per month. Custom plans have an agreed scope.{" "}
               <a href="/pricing" className="text-[#B23E16] font-semibold hover:underline">
                 Compare plans
               </a>{" "}
@@ -148,7 +148,7 @@ export default function HowItWorks() {
 
           <ScrollReveal delay={0.5} className="text-center border-t border-[#0f0f0f]/10 pt-10">
             <p className="text-[#0f0f0f] font-display text-xl md:text-2xl leading-snug max-w-3xl mx-auto">
-              We're not a launch-and-leave service. We're your long-term website partner — maintaining, improving, and growing your online presence month after month.
+              We're not a launch-and-leave service. We handle website maintenance and help keep your content current as your business changes.
             </p>
           </ScrollReveal>
         </div>

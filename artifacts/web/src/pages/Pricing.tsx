@@ -5,7 +5,7 @@ import pricingHeroBg from "@/assets/pricing-hero-bg.webp";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { Check, Minus, Shield, Activity, Headphones, BarChart3, Server, Lock, FileCheck, Globe, Image as ImageIcon, RefreshCw, Sparkles, Camera, Gauge } from "lucide-react";
+import { Check, Minus, Shield, Activity, Headphones, HardDrive, Server, Lock, FileCheck, Globe, Image as ImageIcon, RefreshCw, Sparkles, Camera, Gauge } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Pricing() {
@@ -149,7 +149,7 @@ export default function Pricing() {
             <p className="text-[#B23E16] font-sans font-semibold uppercase tracking-widest text-sm mb-4">What You're Actually Paying For</p>
             <h2 className="text-3xl md:text-5xl font-display text-[#1a202c] mb-6">Your Monthly Fee, Broken Down</h2>
             <p className="text-[#4a5568] text-lg font-sans max-w-2xl mx-auto leading-relaxed">
-              Your monthly fee isn't just "hosting." It's a full-service web team keeping your site fast, secure, and working for your business every single day.
+              Your monthly fee covers the technical upkeep behind your website, plus a team you can contact for support and the site updates included in your plan.
             </p>
           </ScrollReveal>
 
@@ -159,7 +159,7 @@ export default function Pricing() {
               { icon: Lock, title: "SSL Certificate", desc: "The security padlock that keeps your site trusted by browsers and protects visitor data." },
               { icon: Shield, title: "Security Monitoring", desc: "Weekly security scans, software updates, and proactive protection against vulnerabilities." },
               { icon: Activity, title: "Uptime Monitoring", desc: "Daily uptime checks so we catch and fix issues before your visitors ever notice." },
-              { icon: BarChart3, title: "Performance Reporting", desc: "Monthly reports on traffic, visitor behavior, and site performance — delivered straight to you." },
+              { icon: HardDrive, title: "Daily Backups", desc: "Daily backups are included in every plan to help protect your website's content and data." },
               { icon: Headphones, title: "Priority Support", desc: "Content update requests handled promptly with a dedicated point of contact on our team." },
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>

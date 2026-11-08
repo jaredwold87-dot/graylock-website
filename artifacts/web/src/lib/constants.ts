@@ -36,16 +36,15 @@ export const PRICING_TIERS = [
     name: "Scale",
     price: "$449",
     setup: "$1,499 one-time build fee",
-    description: "For established and multi-location businesses that demand maximum visibility, advanced analytics, and dedicated account management.",
+    description: "For established and multi-location businesses that need more pages, custom integrations, and more time for website updates.",
     features: [
       "Custom 20+ Page Website",
       "Multi-Location SEO Strategy",
-      "Advanced Analytics & Reporting",
+      "Advanced Lead Capture Form",
       "Custom Integrations (Calendly, scheduling, etc.)",
       "Dedicated Account Manager",
       "2 Hours Site Updates / Month",
       "Priority Build Queue",
-      "Custom Reporting Cadence",
       "Free Website Refresh Every 2 Years"
     ]
   },
@@ -59,7 +58,6 @@ export const PRICING_TIERS = [
       "Custom Applications",
       "Operating System Builds",
       "Advanced SEO Strategy",
-      "Custom Reporting Cadence",
       "Priority Build Queue",
       "Dedicated Account Manager",
       "Free Website Refresh Every 2 Years"
@@ -105,7 +103,7 @@ export const FAQS = [
       },
       {
         q: "What’s included in the monthly fee?",
-        a: "Your monthly fee covers everything needed to keep your website running and performing:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Daily backups\n• Ongoing support\n\nStarter plan ($199/mo): Dedicated account manager + priority email support\nGrowth plan ($299/mo): Dedicated account manager + priority support\nScale plan ($449/mo): Dedicated account manager + advanced analytics & reporting\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
+        a: "Your monthly fee covers hosting and ongoing website care:\n\n• Website hosting on fast, secure servers\n• SSL certificate (the padlock that makes your site trusted and secure)\n• Daily backups\n• Maintenance and a dedicated account manager\n\nStarter plan ($199/mo): Priority email support and 1 hour of site updates per quarter\nGrowth plan ($299/mo): Priority support and 1 hour of site updates per month\nScale plan ($449/mo): Priority support and 2 hours of site updates per month\nCustom plan: Tailored to your needs — contact us for a quote\n\nYou can view all plan details on our Pricing page."
       },
       {
         q: "Is there a build fee, and what does it cover?",
@@ -186,8 +184,8 @@ export const FAQS = [
         a: "Schema markup is code added to your website that helps Google understand exactly what your business does, where you’re located, what services you offer, your hours, your reviews, and more. It doesn’t change how your site looks to visitors — but it changes how Google sees and displays your site in search results.\n\nWith proper schema, your business can show up with rich results — star ratings, business hours, service lists, and location info displayed right in the search listing. This makes your result stand out and get more clicks than a plain text listing.\n\nAll plans include basic schema. The Scale plan includes advanced schema markup covering multiple service categories, FAQ schema, and local business schema — giving you the best possible presence in search results."
       },
       {
-        q: "What kind of reporting do I receive?",
-        a: "Growth and Scale clients receive a monthly SEO performance report covering:\n\n• Traffic trends — where your visitors are coming from and which pages perform best\n• Lead quality — whether your forms are attracting the right kind of clients\n• SEO progress — how your rankings are moving and where the opportunities are\n• Content recommendations — what pages or updates would drive the most impact\n• Competitive insights — what your competitors are doing online and how to stay ahead\n\nMost small businesses don’t have anyone looking at this data for them — and that’s exactly why they plateau."
+        q: "How do I request updates after launch?",
+        a: "Email your dedicated account manager with the changes you need — such as updated hours, a new team bio, or revised service information. Include any new wording or images so we know what to change.\n\nYour plan includes time for site updates: 1 hour per quarter on Starter, 1 hour per month on Growth, and 2 hours per month on Scale. Custom plans have an agreed scope.\n\nIf a request needs more time than your plan includes, additional work is $100/hour and is quoted for your approval before we begin."
       }
     ]
   },

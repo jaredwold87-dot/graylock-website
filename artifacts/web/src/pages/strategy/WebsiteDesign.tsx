@@ -178,7 +178,7 @@ const data: StrategyPageData = {
     },
     {
       q: "What do I own, and what does my monthly fee cover?",
-      a: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and content updates. Think of it like having a full web team on retainer for a fraction of the cost.",
+      a: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, SSL, daily backups, maintenance, dedicated support, and the content-update time included in your plan. We build the SEO foundation into your website; after launch, your plan keeps the site maintained and gives you a team to contact when you need changes.",
     },
     {
       q: "Can you redesign my existing website instead of building a new one?",
@@ -235,7 +235,7 @@ const data: StrategyPageData = {
         name: "What do I own, and what does my monthly fee cover?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, security updates, speed optimization, ongoing SEO maintenance, and content updates.",
+          text: "You own your domain, your content, your copy, and your brand assets — always. Your monthly fee covers professional hosting, SSL, daily backups, maintenance, dedicated support, and the content-update time included in your plan. We build the SEO foundation into your website; after launch, your plan keeps the site maintained and gives you a team to contact when you need changes.",
         },
       },
       {

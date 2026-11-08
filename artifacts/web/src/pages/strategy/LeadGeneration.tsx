@@ -130,7 +130,7 @@ const data: StrategyPageData = {
       {
         title: "Conversion Rate Optimization (CRO) for Lead Gen",
         description:
-          "CRO is the practice of systematically improving the percentage of visitors who take a desired action. For a lead-generation website, this means testing and refining: headline copy, CTA button text, form placement, social proof positioning, and page structure. Graylock builds with CRO best practices from day one, and Scale plan clients receive advanced analytics and reporting that include CRO recommendations.",
+          "CRO is the practice of improving the percentage of visitors who take a desired action. Headline copy, CTA wording, form placement, social proof, and page structure all play a part. Graylock applies these principles during the website build so visitors have a clear, straightforward path from reading about your services to getting in touch.",
       },
     ],
   },
@@ -164,7 +164,7 @@ const data: StrategyPageData = {
       {
         mistake: "No follow-up system",
         cost: "Leads come in but go cold before being contacted",
-        fix: "Lead notifications + monthly lead activity reports ensure no lead is missed",
+        fix: "Website enquiry notifications give your team the contact details needed to follow up directly",
       },
     ],
   },
@@ -183,7 +183,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Can I see how my website is performing?",
-      a: "The Growth and Scale plans ($299/mo and up) include lead tracking where you can view your website traffic, see enquiries that come in, and track key metrics. Your dedicated account manager — included on every plan — is also available to walk you through performance and suggest improvements.",
+      a: "The Growth and Scale plans ($299/mo and up) include lead tracking where you can view your website traffic, see enquiries that come in, and track key metrics. This gives you information to review directly. Your dedicated account manager is your contact for website questions and update requests.",
     },
     {
       q: "How is lead generation different from advertising?",
@@ -191,7 +191,7 @@ const data: StrategyPageData = {
     },
     {
       q: "Which Graylock plan is best for lead generation?",
-      a: "All plans include lead capture forms, click-to-call, and a dedicated account manager. For active lead generation with enhanced forms and lead tracking, the Growth plan ($299/mo) is ideal. The Scale plan ($449/mo) adds advanced analytics and more site update hours.",
+      a: "All plans include lead capture forms, click-to-call, and a dedicated account manager. Growth ($299/mo) includes enhanced forms and lead tracking. Scale ($449/mo) provides advanced lead capture forms, custom integrations, and 2 hours of site updates per month for businesses with more complex website needs.",
     },
   ],
   bottomCta: {
@@ -224,7 +224,7 @@ const data: StrategyPageData = {
         name: "Can I see how my website is performing?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. The Growth and Scale plans ($299/mo and up) include lead tracking to view website traffic, enquiries, and key metrics.",
+          text: "The Growth and Scale plans ($299/mo and up) include lead tracking where you can view your website traffic, see enquiries that come in, and track key metrics. This gives you information to review directly. Your dedicated account manager is your contact for website questions and update requests.",
         },
       },
       {
@@ -232,7 +232,7 @@ const data: StrategyPageData = {
         name: "Which Graylock plan is best for lead generation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "All plans include lead capture forms. For active lead generation with tracking, the Growth ($299/mo) or Scale ($449/mo) plans are ideal.",
+          text: "All plans include lead capture forms, click-to-call, and a dedicated account manager. Growth ($299/mo) includes enhanced forms and lead tracking. Scale ($449/mo) provides advanced lead capture forms, custom integrations, and 2 hours of site updates per month for businesses with more complex website needs.",
         },
       },
     ],
