@@ -1,4 +1,6 @@
 - [Service offer boundaries](service-offer-boundaries.md) — no monthly reports or ongoing SEO monitoring; keep public copy accurate without inventing replacement services.
+- [Portfolio device presentation](portfolio-device-direction.md) — approved silver laptop plus upright overlapping phone; use real mobile captures, not desktop crops.
+- [Portfolio client exclusions](portfolio-client-exclusions.md) — exclude Myrtle Beach Endodontics and Cowee CPA even when older website lists include them.
 - [Promotion dismissal](promotion-dismissal-policy.md) — repeat display is intentional even after dismissal or submission; no monthly opt-out.
 - [Popup A/B purpose](popup-ab-purpose.md) — compare the two popup wordings; no intentional no-popup control group.
 - [ResponsiveImage variants](responsive-image-variants.md) — grid images need sibling webp/mobile files in public/; @assets imports 404 the picture source and vanish.

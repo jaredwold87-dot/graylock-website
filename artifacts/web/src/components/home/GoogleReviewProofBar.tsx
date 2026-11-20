@@ -26,7 +26,7 @@ export function GoogleReviewProofBar() {
             ))}
           </div>
           <p className="text-offwhite font-sans text-sm md:text-base font-semibold">
-            5.0 on Google from 13 ratings
+            5.0 on Google from 21 ratings
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, Check, ExternalLink } from "lucide-react";
 import "./Premium.css";
 
 const projects = [
@@ -13,7 +13,7 @@ const projects = [
   ["Benevolent Auctions","Charity Auctions","benevolent-transformation.webp"],
   ["Interior Finishes","Cabinetry & Interior Design","interior-finishes-transformation.webp"],
   ["L.A. Perks Petroleum Specialists","Fuel & Petroleum Services","perks-transformation.webp"],
-  ["IANA PAC","Professional Association","iana-pac-transformation.webp"],
+  ["IANA PAC","Professional Association","iana-pac-clean-desktop.webp","iana-pac-clean-mobile.webp"],
   ["Kingsbury Chiropractic","Chiropractic Care","kingsbury-transformation.webp"],
   ["Rosenlund Drilling","Water Well Drilling","rosenlund-drilling-transformation.webp"],
   ["West Coast Eye Institute","Ophthalmology & Eye Care","wce-transformation.webp"],
@@ -28,7 +28,7 @@ const projects = [
   ["Shooting Performance Institute","Firearms Training","spi-transformation.webp"],
   ["Bent on Education","Education","bent-on-education-transformation.webp"],
   ["JC’s Well Services","Well Services","jcs-well-services-transformation.webp"],
-  ["Citrus Medical Marijuana Clinic","Medical Evaluations","citrus-medical-marijuana-clinic.webp"],
+  ["Citrus Medical Marijuana Clinic","Medical Evaluations","citrus-clean-desktop.webp","citrus-clean-mobile.webp"],
   ["CRNA Mentor","CRNA Admissions Mentorship","crna-mentor-transformation.webp"],
   ["Atlas Anesthesia","Anesthesia Services","atlas-anesthesia-transformation.webp"],
   ["Champion Water Well Service","Well Pump & Pressure-System Service","champion-water-well-service.webp"],
@@ -72,13 +72,29 @@ function DeviceMockup({ name, desktop, mobile }: { name: string; desktop: string
 
 export function Premium() {
   return <main className="portfolio-gallery">
-    <header className="gallery-heading">
-      <span>GRAYLOCK DIGITAL <i/> SELECTED PROJECTS</span>
-      <h1>Work, in the right frame.</h1>
-      <p>Distinct businesses. Thoughtful websites. Built for every screen.</p>
+    <header className="conversion-hero">
+      <div className="conversion-copy">
+        <span className="hero-kicker"><i/> WEBSITES BUILT TO MOVE BUSINESS FORWARD</span>
+        <h1>A professional website has to do <em>more</em> than look professional.</h1>
+        <p className="hero-support">It should help the right customers find you, trust what they see, and take the next step.</p>
+        <a className="hero-primary" href="https://graylockdigital.com/" target="_blank" rel="noreferrer">
+          Get your free homepage direction <ArrowRight size={17}/>
+        </a>
+        <a className="hero-secondary" href="#selected-work">See what that looks like <span>↓</span></a>
+        <div className="hero-proof">
+          <span><Check size={14}/> Clear next steps</span>
+          <span><Check size={14}/> Built around your customers</span>
+          <span><Check size={14}/> Made for every screen</span>
+        </div>
+      </div>
+      <a href="https://spokanekitchenconcierge.com/" target="_blank" rel="noreferrer" className="hero-showcase" aria-label="See The Kitchen Concierge project">
+        <DeviceMockup name="The Kitchen Concierge" desktop="kitchen-concierge.webp" mobile="kitchen-mobile.webp"/>
+        <span className="showcase-note"><span><b>THE KITCHEN CONCIERGE</b><small>Clear paths from first visit to kitchen plan</small></span><ArrowRight size={17}/></span>
+      </a>
+      <div className="hero-bottomline"><span>DESIGN THAT EARNS ITS PLACE</span><span>Scroll to explore selected client work <b>↓</b></span></div>
     </header>
     <section className="premium-grid" aria-label="Featured website projects">
-      {projects.map(([name, category, image, mobile])=><article className="premium-project" key={name}>
+      {projects.map(([name, category, image, mobile],index)=><article className="premium-project" id={index===0?"selected-work":undefined} key={name}>
         <div className="premium-artwork"><DeviceMockup name={name} desktop={image} mobile={mobile}/></div>
         <div className="premium-meta">
           <div><h2>{name}</h2><p>{category}</p></div>

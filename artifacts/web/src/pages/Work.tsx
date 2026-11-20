@@ -6,6 +6,9 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { X, Quote, Check, MapPin, ExternalLink } from "lucide-react";
 import type { FeaturedProject } from "@/data/portfolioTypes";
 import { additionalPortfolioProjects } from "@/data/additionalPortfolioProjects";
+import { ProjectDevices } from "@/components/portfolio/ProjectDevices";
+import { portfolioExpansion } from "@/data/portfolioExpansion";
+import { getPortfolioCategory, portfolioCategories, type PortfolioCategory } from "@/data/portfolioCategories";
 
 import spiTransformation from "@/assets/work/spi-transformation.webp";
 import perksTransformation from "@/assets/work/perks-transformation.webp";
@@ -33,6 +36,7 @@ import portfolioHeroBg from "@/assets/portfolio-hero-bg.webp";
 import camasCreekLumber from "@/assets/work/camas-creek-lumber.webp";
 
 const featuredProjects: FeaturedProject[] = [
+  ...portfolioExpansion,
   ...additionalPortfolioProjects,
   {
     name: "Camas Creek Lumber",
@@ -571,29 +575,14 @@ function ProjectCard({ project, onClick }: { project: FeaturedProject; onClick: 
         type="button"
         onClick={onClick}
         aria-label={`View details for ${project.name}`}
-        className="relative block w-full text-left rounded-xl overflow-hidden bg-[#16161d] border border-white/[0.06] shadow-2xl cursor-pointer group-hover:border-white/[0.15] transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0f0f]"
+        className="relative block w-full text-left rounded-xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D26] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0f0f0f]"
       >
         <div className="absolute inset-0 bg-[#0f0f0f]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-[2px]">
           <div className="translate-y-4 group-hover:translate-y-0 transition-all duration-500 bg-white text-black px-7 py-3.5 rounded-full font-sans font-semibold text-sm shadow-2xl flex items-center gap-2">
             View Details
           </div>
         </div>
-        {/* Sleek Browser Bar */}
-        <div className="flex items-center px-4 py-3 bg-[#111116] border-b border-white/[0.04]">
-          <span className="flex gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-white/[0.12] group-hover:bg-[#ff5f57] transition-colors duration-300" />
-            <span className="w-2.5 h-2.5 rounded-full bg-white/[0.12] group-hover:bg-[#febc2e] transition-colors duration-300 delay-75" />
-            <span className="w-2.5 h-2.5 rounded-full bg-white/[0.12] group-hover:bg-[#28c840] transition-colors duration-300 delay-150" />
-          </span>
-        </div>
-        <div className="overflow-hidden bg-[#0a0a0a] aspect-[1600/870] relative">
-          <img
-            src={project.image}
-            alt={project.name}
-            className="w-full h-full object-contain block transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-            loading="lazy"
-          />
-        </div>
+        <ProjectDevices project={project} />
       </button>
       <div className="flex justify-between items-start px-2 mt-1">
         <div>
@@ -619,9 +608,9 @@ function ProjectCard({ project, onClick }: { project: FeaturedProject; onClick: 
 
 function ProjectBlock({ projects, onSelect }: { projects: FeaturedProject[]; onSelect: (p: FeaturedProject) => void }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-16 lg:gap-y-20 items-start px-6 md:px-12 max-w-[90rem] mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 xl:gap-x-10 gap-y-14 lg:gap-y-16 items-start px-6 md:px-12 max-w-[100rem] mx-auto">
       {projects.map((p, i) => (
-        <ScrollReveal key={p.name} delay={i % 2 === 1 ? 0.12 : 0}>
+        <ScrollReveal key={p.name} delay={(i % 3) * 0.06}>
           <ProjectCard project={p} onClick={() => onSelect(p)} />
         </ScrollReveal>
       ))}
@@ -676,7 +665,7 @@ function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose:
 
         {/* Left side: Image */}
         <div className="w-full md:w-[55%] lg:w-[60%] h-[28vh] sm:h-[30vh] md:h-full shrink-0 border-b md:border-b-0 md:border-r border-white/[0.08] bg-[#050505] flex items-center justify-center overflow-hidden">
-          <img src={project.image} alt={project.name} className="max-w-full max-h-full w-auto h-auto object-contain block" />
+          <div className="w-full max-h-full px-3 md:px-5"><ProjectDevices project={project} /></div>
         </div>
 
         {/* Right side: Content — scrollable so all content is reachable at any viewport height */}
@@ -778,6 +767,10 @@ function ProjectModal({ project, onClose }: { project: FeaturedProject; onClose:
 
 export default function Work() {
   const [selectedProject, setSelectedProject] = useState<FeaturedProject | null>(null);
+  const [category, setCategory] = useState<PortfolioCategory | "All">("All");
+  const visibleProjects = category === "All"
+    ? orderedFeaturedProjects
+    : orderedFeaturedProjects.filter(project => getPortfolioCategory(project) === category);
 
   return (
     <>
@@ -790,15 +783,30 @@ export default function Work() {
       {/* ── Hero ── */}
       <ElevatedHero
         lines={[
-          { text: "The Work Speaks" },
-          { text: "For Itself.", accent: true },
+          { text: "We are proud to partner with" },
+          { text: "and serve these businesses.", accent: true },
         ]}
         backgroundImage={portfolioHeroBg}
       />
 
       {/* ── Gallery ── */}
       <section className="bg-[#0f0f0f] py-24 md:py-32 relative z-10">
-        <ProjectBlock projects={orderedFeaturedProjects} onSelect={setSelectedProject} />
+        <div className="px-6 md:px-12 max-w-[100rem] mx-auto mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+            <h2 className="font-display text-3xl md:text-4xl text-white">Explore Our Work</h2>
+            <p role="status" className="text-sm text-white/65">{visibleProjects.length} of {orderedFeaturedProjects.length} projects</p>
+          </div>
+          <div role="group" aria-label="Filter projects by industry" className="flex flex-wrap gap-2">
+            {(["All", ...portfolioCategories] as const).map(option => {
+              const count = option === "All" ? orderedFeaturedProjects.length : orderedFeaturedProjects.filter(project => getPortfolioCategory(project) === option).length;
+              return <button key={option} type="button" aria-pressed={category === option} onClick={() => setCategory(option)}
+                className={`rounded-full px-4 py-2.5 text-sm font-semibold border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0f0f] ${category === option ? "bg-orange border-orange text-white" : "border-white/20 text-white/80 hover:bg-white/10 hover:text-white"}`}>
+                {option} <span className="ml-1.5 opacity-75">{count}</span>
+              </button>;
+            })}
+          </div>
+        </div>
+        <ProjectBlock projects={visibleProjects} onSelect={setSelectedProject} />
       </section>
 
       <AnimatePresence>

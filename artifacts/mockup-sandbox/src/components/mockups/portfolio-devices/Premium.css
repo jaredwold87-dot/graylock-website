@@ -16,5 +16,32 @@
 .project-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#ffffff0b;color:#dad8d4;flex-shrink:0}
 .gallery-footer{max-width:1450px;margin:64px auto 0;padding:18px 8px 0;border-top:1px solid #ffffff1c;display:flex;justify-content:space-between;color:#737275;text-transform:uppercase;font-size:10px;font-weight:600;letter-spacing:.2em}
 .gallery-footer span{color:#b4b1ad}
+.conversion-hero{max-width:1450px;margin:0 auto 76px;min-height:600px;position:relative;display:grid;grid-template-columns:minmax(360px,.85fr) minmax(0,1.15fr);align-items:center;gap:clamp(28px,5vw,80px);padding:52px 10px 74px}
+.conversion-copy{position:relative;z-index:2}
+.hero-kicker{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:600;color:#e48660;letter-spacing:.22em}
+.hero-kicker i{display:block;width:28px;height:1px;background:#e48660}
+.conversion-copy h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(54px,6.3vw,88px);line-height:.93;letter-spacing:-.025em;max-width:630px;margin:26px 0 20px}
+.conversion-copy h1 em{font-style:normal;color:#e7663a}
+.hero-support{font-size:17px;line-height:1.65;color:#b9b6b2;max-width:490px;margin:0 0 27px}
+.hero-primary{display:inline-flex;align-items:center;gap:18px;padding:15px 20px;background:#e85d26;color:white;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 7px 24px #e85d2635;transition:transform .2s,background .2s}
+.hero-primary:hover{background:#f16c35;transform:translateY(-2px)}
+.hero-secondary{margin-left:20px;color:#e5e1dc;font-size:12px;text-underline-offset:5px}
+.hero-secondary span{padding-left:5px;color:#ed7548}
+.hero-proof{display:flex;flex-direction:column;gap:10px;margin-top:32px;color:#c9c6c1;font-size:12px}
+.hero-proof span{display:flex;align-items:center;gap:9px}
+.hero-proof svg{color:#ec7045}
+.hero-showcase{min-width:0;color:inherit;text-decoration:none;position:relative}
+.hero-showcase .device-stage{filter:drop-shadow(0 28px 30px #000b);transition:transform .4s}
+.hero-showcase:hover .device-stage{transform:translateY(-4px)}
+.showcase-note{display:flex;justify-content:space-between;align-items:center;border-left:2px solid #e85d26;margin:12px 0 0 13px;padding:5px 4px 5px 15px}
+.showcase-note b,.showcase-note small{display:block}
+.showcase-note b{font-size:10px;letter-spacing:.16em}
+.showcase-note small{font-size:11px;color:#8f8d8b;margin-top:5px}
+.showcase-note>svg{color:#e57851}
+.hero-bottomline{position:absolute;bottom:0;left:10px;right:10px;border-top:1px solid #ffffff20;padding:15px 0;display:flex;justify-content:space-between;color:#83817f;font-size:9px;font-weight:600;letter-spacing:.16em}
+.hero-bottomline span+span{font-size:10px;letter-spacing:.04em;font-weight:400;text-transform:none}
+.hero-bottomline b{color:#e57851;margin-left:7px}
 @media(max-width:700px){.portfolio-gallery{padding:32px 12px 22px}.gallery-heading{margin:0 auto 35px;padding:0 5px}.gallery-heading h1{font-size:44px;margin-top:17px}.gallery-heading>p{font-size:13px;max-width:280px;line-height:1.5}.premium-grid{grid-template-columns:1fr;row-gap:38px}.premium-artwork{padding:0}.premium-meta h2{font-size:23px}.premium-meta p{font-size:9px}.project-mark{width:36px;height:36px}.gallery-footer{margin-top:42px}}
+@media(max-width:700px){.conversion-hero{min-height:0;display:flex;flex-direction:column;align-items:stretch;gap:27px;margin-bottom:46px;padding:30px 4px 58px}.conversion-copy h1{font-size:clamp(48px,13vw,68px);margin:20px 0 16px}.hero-support{font-size:15px;line-height:1.55;margin-bottom:22px}.hero-primary{padding:14px 15px;font-size:12px;gap:10px}.hero-secondary{margin-left:12px;font-size:11px}.hero-proof{display:grid;grid-template-columns:1fr 1fr;font-size:10px;gap:10px;margin-top:23px}.hero-proof span:last-child{grid-column:1/-1}.hero-showcase{padding:0 2px}.showcase-note{margin-top:4px}.hero-bottomline{left:4px;right:4px;font-size:8px;letter-spacing:.1em}.hero-bottomline span+span{font-size:9px}}
+@media(min-width:701px) and (max-width:960px){.conversion-hero{grid-template-columns:.9fr 1.1fr;gap:22px;min-height:470px;padding-top:30px}.conversion-copy h1{font-size:clamp(48px,6vw,66px)}.hero-support{font-size:15px}.hero-primary{padding:13px 14px;font-size:11px}.hero-secondary{display:block;margin:16px 0 0}}
 @media(min-width:701px) and (max-width:940px){.premium-grid{column-gap:24px;row-gap:46px}.premium-meta h2{font-size:22px}}
