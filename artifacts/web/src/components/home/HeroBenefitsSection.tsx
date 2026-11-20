@@ -26,7 +26,7 @@ export function HeroBenefitsSection() {
                 A website should not feel like a leap of faith. Graylock does the strategic work first, so you can see the direction for your business before deciding whether to move forward.
               </p>
               
-              <div className="flex flex-col items-start">
+              <div className="hidden md:flex flex-col items-start">
                 <CTAButton href="/get-started" variant="funnel" className="mb-5 w-full sm:w-auto">
                   Get Your Free Homepage Direction
                 </CTAButton>
@@ -114,6 +114,14 @@ export function HeroBenefitsSection() {
                 </div>
               </div>
 
+            </div>
+            <div className="flex flex-col items-start md:hidden">
+              <CTAButton href="/get-started" variant="funnel" className="mb-5 w-full">
+                Get Your Free Homepage Direction
+              </CTAButton>
+              <p className="text-sm text-[#292B2E]/60 text-balance max-w-sm">
+                Start with a 15-minute fit call. No build fee is due before you approve the direction.
+              </p>
             </div>
           </div>
         </ScrollReveal>
