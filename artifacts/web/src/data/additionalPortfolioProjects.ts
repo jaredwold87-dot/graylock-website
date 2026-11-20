@@ -9,7 +9,6 @@ import citrusClinic from "@/assets/work/citrus-medical-marijuana-clinic.webp";
 import lorettaReview from "@/assets/reviews/loretta-redrick.webp";
 import championWaterWell from "@/assets/work/champion-water-well-service.webp";
 import kitchenConcierge from "@/assets/work/kitchen-concierge.webp";
-import travisReview from "@/assets/reviews/travis-killman.webp";
 
 export const additionalPortfolioProjects: FeaturedProject[] = [
   {
@@ -29,7 +28,6 @@ export const additionalPortfolioProjects: FeaturedProject[] = [
     testimonial: {
       name: "Travis Killman",
       role: "The Kitchen Concierge · 5-star Google Review",
-      image: travisReview,
       quote: [
         "Had a great experience with Graylock Digital. Their staff is very easy to work with and built me a beautiful website! Tim and Kim have a personal approach to delivering their product, and were very attentive throughout the process. Highly recommend!",
       ],
