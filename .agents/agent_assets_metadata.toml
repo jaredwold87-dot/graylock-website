@@ -155,3 +155,45 @@ mtime_ms = 1795195418204
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/1d4c0178-279f-4d78-811b-66c624eef5ec/93934618-99b4-48c7-bb4f-715dafeee7f7"
 storage_version_token = "1795195434911710"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "V7XoAZ1b3K7sDEDk1Kclo"
+uri = "file://attached_assets/image_search/5973966.jpg"
+type = "image"
+title = "Expertise — planning a woodworking project"
+description = "Pexels stock photo. A craftsperson reviewing drawings at a working bench."
+logical_id = "d943dae4-b1c0-4a56-b602-189182d60185"
+content_hash = "sha256:f0ba6e8bc2003c4bf2fdbdea2b3bc7d26f84f9c778440d93197fcc8378968908"
+size = 81711
+mtime_ms = 1795195478199
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/d943dae4-b1c0-4a56-b602-189182d60185/b7c0e685-da76-4abf-b1d0-e08597eef06a"
+storage_version_token = "1795195496761194"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "4uMuPZVycxD7zTRASDg6s"
+uri = "file://attached_assets/image_search/374085.jpg"
+type = "image"
+title = "Clear message — working at a computer"
+description = "Pexels stock photo. An understated workspace, photographed from behind."
+logical_id = "be4fc614-b495-46d0-ac14-72626ecd2731"
+content_hash = "sha256:7105b05885d7fa38beff2c7da5860e70474b8a23ebdc0538d396196525d2b400"
+size = 91251
+mtime_ms = 1795195479115
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/be4fc614-b495-46d0-ac14-72626ecd2731/6d2e042a-635a-4075-8b9a-12c251b09861"
+storage_version_token = "1795195497717528"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "6d-nxCBk0KDj3isi4p7NP"
+uri = "file://attached_assets/image_search/1251826.jpg"
+type = "image"
+title = "Next step — browsing on a phone"
+description = "Pexels stock photo. A close-up of someone using a phone in natural light."
+logical_id = "758924a1-25e4-4a78-bd05-f7a2c862acc1"
+content_hash = "sha256:85587d09c5e9813c1c3128ce4e25fe40ac540b98508b2b2a121cbdc458e184c9"
+size = 62512
+mtime_ms = 1795195479912
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/758924a1-25e4-4a78-bd05-f7a2c862acc1/c16a5ca0-7671-458d-8a3c-11e520aadac3"
+storage_version_token = "1795195498365297"
+content_type = "image/jpeg"
