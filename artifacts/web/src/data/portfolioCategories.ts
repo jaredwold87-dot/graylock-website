@@ -20,6 +20,7 @@ const domains: Record<PortfolioCategory, string[]> = {
     "sagebrushnv.com", "superiordrilling.net", "thecabinetfactoryeugene.com", "weekendwarriorequipmentrental.com",
   ],
   "Medical & Wellness": [
+    "mtcounselingsolutions.com",
     "citrusmmc.com", "liquidsoulhydration.com", "backroads-beauty.com", "kingsburychiropractictahoe.com",
     "bluegrassanes.com", "atlasanesthesia.co", "westcoasteye.com", "anesthesiamhk.com",
     "citrusmedicalweightloss.com", "highpeaksanesthesia.com",

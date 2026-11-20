@@ -3,6 +3,16 @@ import type { FeaturedProject } from "./portfolioTypes";
 // Original review wording from the supplied Google review export.
 // Project associations explicitly confirmed by the client.
 export const confirmedPortfolioReviews: Record<string, NonNullable<FeaturedProject["testimonial"]>> = {
+  "Liquid Soul Hydration": {
+    name: "Cassandra Smith",
+    role: "5-star Google Review",
+    quote: ["I thoroughly enjoyed working with Tim and his team to get my new website launched. The creative design was excellent, the communication was clear and the turnaround time was quicker than I expected. I couldn't have asked for a better experience."],
+  },
+  "Montana Counseling Solutions": {
+    name: "Bobbie Wold",
+    role: "5-star Google Review",
+    quote: ["The Graylock Digital team did an amazing job on my new website, and I’ve already seen an increase in new client inquiries since it launched. Tim has been wonderful to work with throughout the process. He’s incredibly knowledgeable, responsive, and always willing to answer questions or help whenever I need it. I highly recommend Graylock Digital to anyone looking for a team that truly cares about helping your business grow."],
+  },
   "Beymer Auctions": {
     name: "Tanner Beymer",
     role: "5-star Google Review",

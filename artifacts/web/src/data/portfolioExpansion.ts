@@ -2,6 +2,7 @@ import type { FeaturedProject } from "./portfolioTypes";
 
 const images = import.meta.glob<string>("../assets/work/devices/*-desktop.webp", { eager: true, query: "?url", import: "default" });
 const sites = [
+  { name: "Montana Counseling Solutions", category: "Counseling & Therapy", url: "https://mtcounselingsolutions.com/", description: "A counseling practice website introducing Montana Counseling Solutions and helping visitors take the next step toward care." },
   { name: "Desert Manufacturing", category: "Electronics Training Equipment", url: "https://desertmfg.com/", description: "Hands-on electronics training equipment for CTE classrooms, shop labs, technical programs, and workforce training." },
   { name: "A2Z", category: "Termite & Weed Control", url: "https://a2zvpm.com/", description: "Termite inspections, treatment, new-construction pre-treatment, and specialized weed control in eastern Idaho." },
   { name: "Anesthesia Associates", category: "Anesthesia Care", url: "https://anesthesiamhk.com/", description: "CRNA anesthesia care in Manhattan, Kansas, with team information and resources for patients and facilities." },
