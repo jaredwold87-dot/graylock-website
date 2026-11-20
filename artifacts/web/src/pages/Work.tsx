@@ -8,6 +8,7 @@ import type { FeaturedProject } from "@/data/portfolioTypes";
 import { additionalPortfolioProjects } from "@/data/additionalPortfolioProjects";
 import { ProjectDevices } from "@/components/portfolio/ProjectDevices";
 import { portfolioExpansion } from "@/data/portfolioExpansion";
+import { confirmedPortfolioReviews } from "@/data/confirmedPortfolioReviews";
 import { getPortfolioCategory, portfolioCategories, type PortfolioCategory } from "@/data/portfolioCategories";
 
 import spiTransformation from "@/assets/work/spi-transformation.webp";
@@ -566,7 +567,10 @@ const orderedFeaturedProjects = [
     .map((name) => featuredProjects.find((project) => project.name === name))
     .filter((project): project is FeaturedProject => Boolean(project)),
   ...featuredProjects.filter((project) => !featuredProjectPriority.includes(project.name)),
-];
+].map(project => {
+  const testimonial = confirmedPortfolioReviews[project.name];
+  return testimonial ? { ...project, testimonial, placeholder: undefined } : project;
+});
 
 function ProjectCard({ project, onClick }: { project: FeaturedProject; onClick: () => void }) {
   return (
