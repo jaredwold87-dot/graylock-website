@@ -113,3 +113,45 @@ mtime_ms = 1789178891377
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/c81ace27-80c6-4b0d-9acf-0585819e6478/9c53bef0-034a-4516-b958-a7ffb322f76a"
 storage_version_token = "1789179650258992"
 content_type = "text/markdown"
+
+[[outputs]]
+id = "GG-GRAF4Y0WHXd0beBPqW"
+uri = "file://attached_assets/image_search/6693556.jpg"
+type = "image"
+title = "Expertise: hands-on work in a pottery studio"
+description = "Pexels stock photo — a real craft workspace with natural light."
+logical_id = "0c5d3bda-cc81-46cc-9806-2b4f7fc5ab86"
+content_hash = "sha256:2a46da887d4564b1514166a7aced673be7b69e6d533bfc7653732968338969f0"
+size = 83305
+mtime_ms = 1795195417072
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/0c5d3bda-cc81-46cc-9806-2b4f7fc5ab86/ac880f89-62ca-47b2-ae54-75d0a167f557"
+storage_version_token = "1795195433344128"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "oGvXX1rxZBP_lM1jyWdpa"
+uri = "file://attached_assets/image_search/6205498.jpg"
+type = "image"
+title = "Clear message: reviewing a laptop in a café"
+description = "Pexels stock photo — a small-business setting rather than a shopping-screen close-up."
+logical_id = "731b79d2-5202-4c6b-91af-ede3e6dc9b09"
+content_hash = "sha256:f9e694a16c22744087b8c5150aa3bf51d8981aea80340af057b38e8432847db0"
+size = 338001
+mtime_ms = 1795195417692
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/731b79d2-5202-4c6b-91af-ede3e6dc9b09/6f966ec8-61bf-4701-90df-c85ce6b2223c"
+storage_version_token = "1795195434200406"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "0uvMADZ4xyqj8kaNZ6K_G"
+uri = "file://attached_assets/image_search/5410100.jpg"
+type = "image"
+title = "Next step: a florist using a phone"
+description = "Pexels stock photo — phone use within a working flower shop."
+logical_id = "1d4c0178-279f-4d78-811b-66c624eef5ec"
+content_hash = "sha256:82cc9e2c9004fbab9034974c8e55c2000973573b3abd8ea7c52d38ef31acdd6a"
+size = 103448
+mtime_ms = 1795195418204
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:5fb36708-9d6f-4780-af24-4f9ef70a1519/1d4c0178-279f-4d78-811b-66c624eef5ec/93934618-99b4-48c7-bb4f-715dafeee7f7"
+storage_version_token = "1795195434911710"
+content_type = "image/jpeg"
