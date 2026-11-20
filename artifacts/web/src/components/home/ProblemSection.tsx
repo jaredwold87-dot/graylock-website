@@ -24,26 +24,26 @@ export function ProblemSection() {
   const problems = [
     {
       image: expertiseImg,
-      alt: "A craftsperson working with wood in a workshop",
+      alt: "A craftsperson reviewing drawings at a woodworking bench",
       title: "It Does Not Reflect Your Expertise",
       desc: "An outdated or generic site can make the quality of your business harder to recognize.",
     },
     {
       image: unclearImg,
-      alt: "A visitor browsing a website on a laptop",
+      alt: "A person working at a computer in a naturally lit workspace",
       title: "Your Message Is Not Clear Enough",
       desc: "If a visitor cannot quickly understand what you do and who you help, they move on.",
     },
     {
       image: conversionImg,
-      alt: "A person browsing on a smartphone beside a laptop",
+      alt: "A person browsing a smartphone beside a cup of coffee",
       title: "The Next Step Is Not Clear",
       desc: "When proof, service information, and calls to action are disconnected, good prospects leave without reaching out.",
     },
   ];
 
   return (
-    <section className="bg-white pt-14 pb-24 px-6 md:px-12 md:pt-[4.5rem] md:pb-24 relative overflow-hidden border-t border-black/[0.06]">
+    <section id="website-problems" className="bg-white pt-14 pb-24 px-6 md:px-12 md:pt-[4.5rem] md:pb-24 relative overflow-hidden border-t border-black/[0.06]">
       <div className="max-w-6xl mx-auto">
 
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
