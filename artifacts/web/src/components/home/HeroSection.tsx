@@ -108,16 +108,6 @@ export function HeroSection() {
               We build custom, conversion-focused websites designed to help the right people find, trust, and contact your business — live in 7–10 days.
             </p>
 
-            <div className="md:hidden">
-              <div className="mt-8">
-                <CTAButton href="/get-started" variant="funnel" className="w-full min-h-14 px-5">
-                  Get Your Free Homepage Direction
-                </CTAButton>
-              </div>
-              <CTAButton href="/featured-projects" variant="outline" className="w-full min-h-14 px-5 mt-4">
-                See Real Client Websites
-              </CTAButton>
-            </div>
             <div className="hidden md:block">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <CTAButton href="/get-started" variant="funnel">
