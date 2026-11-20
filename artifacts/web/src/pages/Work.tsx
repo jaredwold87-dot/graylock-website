@@ -526,6 +526,7 @@ const featuredProjects: FeaturedProject[] = [
 ];
 
 const featuredProjectPriority = [
+  "The Kitchen Concierge",
   "Liquid Soul Hydration",
   "Legacy Outdoor Living",
   "Shane Camp",

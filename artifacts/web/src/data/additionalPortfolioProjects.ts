@@ -8,8 +8,33 @@ import ericaReview from "@/assets/reviews/erica-hadley.webp";
 import citrusClinic from "@/assets/work/citrus-medical-marijuana-clinic.webp";
 import lorettaReview from "@/assets/reviews/loretta-redrick.webp";
 import championWaterWell from "@/assets/work/champion-water-well-service.webp";
+import kitchenConcierge from "@/assets/work/kitchen-concierge.webp";
+import travisReview from "@/assets/reviews/travis-killman.webp";
 
 export const additionalPortfolioProjects: FeaturedProject[] = [
+  {
+    name: "The Kitchen Concierge",
+    category: "Full Custom Kitchens",
+    location: "Spokane, Washington",
+    description: "A photo-led website for a custom kitchen business, introducing a coordinated approach to kitchen planning with clear paths to explore custom kitchens, the process, past projects, and financing.",
+    image: kitchenConcierge,
+    url: "https://spokanekitchenconcierge.com/",
+    theme: "light",
+    delivered: [
+      "Custom kitchen presentation",
+      "Process and portfolio navigation",
+      "Financing information pathway",
+      "Kitchen-plan calls to action",
+    ],
+    testimonial: {
+      name: "Travis Killman",
+      role: "The Kitchen Concierge · 5-star Google Review",
+      image: travisReview,
+      quote: [
+        "Had a great experience with Graylock Digital. Their staff is very easy to work with and built me a beautiful website! Tim and Kim have a personal approach to delivering their product, and were very attentive throughout the process. Highly recommend!",
+      ],
+    },
+  },
   {
     name: "Champion Water Well Service",
     category: "Well Pump & Pressure-System Service",
