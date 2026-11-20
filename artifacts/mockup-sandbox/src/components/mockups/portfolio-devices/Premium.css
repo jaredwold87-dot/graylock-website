@@ -1,0 +1,20 @@
+@import "./_group.css";
+.portfolio-gallery{min-height:100vh;background:#0b0b0c;color:#f3f1ed;font-family:Barlow,sans-serif;padding:62px clamp(18px,5vw,76px) 32px}
+.gallery-heading{max-width:1450px;margin:0 auto 58px;padding:0 10px}
+.gallery-heading>span{display:flex;align-items:center;gap:11px;color:#e37a52;font-size:11px;font-weight:600;letter-spacing:.21em}
+.gallery-heading>span i{height:1px;width:30px;background:#555}
+.gallery-heading h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(42px,6vw,76px);line-height:.95;letter-spacing:-.025em;margin:22px 0 12px}
+.gallery-heading>p{margin:0;color:#9e9da0;font-size:16px;letter-spacing:.025em}
+.premium-grid{max-width:1450px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(22px,5vw,76px);row-gap:64px}
+.premium-project{min-width:0}
+.premium-artwork{padding:5px 4px 0}
+.premium-artwork .device-stage{filter:drop-shadow(0 23px 23px #0008);transition:transform .42s cubic-bezier(.2,.7,.25,1),filter .42s}
+.premium-project:hover .device-stage{transform:translateY(-5px);filter:drop-shadow(0 30px 24px #000a)}
+.premium-meta{display:flex;justify-content:space-between;align-items:center;padding:4px 8px 0}
+.premium-meta h2{font:700 clamp(21px,2.2vw,29px)/1 'Barlow Condensed',sans-serif;letter-spacing:.015em;margin:0}
+.premium-meta p{color:#dd7954;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin:7px 0 0}
+.project-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#ffffff0b;color:#dad8d4;flex-shrink:0}
+.gallery-footer{max-width:1450px;margin:64px auto 0;padding:18px 8px 0;border-top:1px solid #ffffff1c;display:flex;justify-content:space-between;color:#737275;text-transform:uppercase;font-size:10px;font-weight:600;letter-spacing:.2em}
+.gallery-footer span{color:#b4b1ad}
+@media(max-width:700px){.portfolio-gallery{padding:32px 12px 22px}.gallery-heading{margin:0 auto 35px;padding:0 5px}.gallery-heading h1{font-size:44px;margin-top:17px}.gallery-heading>p{font-size:13px;max-width:280px;line-height:1.5}.premium-grid{grid-template-columns:1fr;row-gap:38px}.premium-artwork{padding:0}.premium-meta h2{font-size:23px}.premium-meta p{font-size:9px}.project-mark{width:36px;height:36px}.gallery-footer{margin-top:42px}}
+@media(min-width:701px) and (max-width:940px){.premium-grid{column-gap:24px;row-gap:46px}.premium-meta h2{font-size:22px}}

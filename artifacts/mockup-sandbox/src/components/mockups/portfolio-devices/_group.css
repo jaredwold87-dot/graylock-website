@@ -9,7 +9,7 @@
 .portfolio-study p{font-size:13px;letter-spacing:.12em;color:#e85d26;margin:6px 0 0;text-transform:uppercase}
 .device-stage{position:relative;aspect-ratio:1.78;isolation:isolate;filter:drop-shadow(0 24px 20px #0009)}
 .device-stage svg{width:100%;height:100%;display:block}
-.device-stage .phone{position:absolute;width:20%;height:73%;right:1.5%;bottom:0;border-radius:13% / 6.5%;padding:5px;background:linear-gradient(105deg,#d5d3ce,#444440 4%,#141414 8%,#83817b 96%,#dedcd5);box-shadow:0 0 0 1px #9998, -8px 10px 18px #0009;transform:rotate(-2deg)}
+.device-stage .phone{position:absolute;width:20%;height:73%;right:1.5%;bottom:0;border-radius:13% / 6.5%;padding:5px;background:linear-gradient(105deg,#d5d3ce,#444440 4%,#141414 8%,#83817b 96%,#dedcd5);box-shadow:0 0 0 1px #9998, -8px 10px 18px #0009;transform:rotate(0deg)}
 .device-stage .phone-screen{position:relative;width:100%;height:100%;overflow:hidden;border:4px solid #090909;border-radius:11% / 5.5%;background:#111}
 .device-stage .phone img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 .device-stage .island{position:absolute;top:5px;left:34%;width:32%;height:10px;border-radius:20px;background:#080808;box-shadow:inset -3px 0 2px #333}
