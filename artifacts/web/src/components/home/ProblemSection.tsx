@@ -1,8 +1,8 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useLayoutEffect, useRef } from "react";
-import expertiseImg from "@/assets/problem-expertise.webp";
-import unclearImg from "@/assets/problem-message.webp";
-import conversionImg from "@/assets/problem-next-step.webp";
+import expertiseImg from "@/assets/problem-expertise-stock.webp";
+import unclearImg from "@/assets/problem-message-stock.webp";
+import conversionImg from "@/assets/problem-next-step-stock.webp";
 
 export function ProblemSection() {
   const tilesRef = useRef<HTMLDivElement>(null);
@@ -24,16 +24,19 @@ export function ProblemSection() {
   const problems = [
     {
       image: expertiseImg,
+      alt: "A craftsperson working with wood in a workshop",
       title: "It Does Not Reflect Your Expertise",
       desc: "An outdated or generic site can make the quality of your business harder to recognize.",
     },
     {
       image: unclearImg,
+      alt: "A visitor browsing a website on a laptop",
       title: "Your Message Is Not Clear Enough",
       desc: "If a visitor cannot quickly understand what you do and who you help, they move on.",
     },
     {
       image: conversionImg,
+      alt: "A person browsing on a smartphone beside a laptop",
       title: "The Next Step Is Not Clear",
       desc: "When proof, service information, and calls to action are disconnected, good prospects leave without reaching out.",
     },
@@ -59,7 +62,7 @@ export function ProblemSection() {
               <div className="group relative w-full min-w-0 rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[3/4] min-h-[320px]">
                 <img
                   src={prob.image}
-                  alt={prob.title}
+                  alt={prob.alt}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-105"
                 />
