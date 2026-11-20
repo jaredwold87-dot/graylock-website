@@ -794,14 +794,12 @@ export default function Work() {
         <div className="px-6 md:px-12 max-w-[100rem] mx-auto mb-12">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
             <h2 className="font-display text-3xl md:text-4xl text-white">Explore Our Work</h2>
-            <p role="status" className="text-sm text-white/65">{visibleProjects.length} of {orderedFeaturedProjects.length} projects</p>
           </div>
           <div role="group" aria-label="Filter projects by industry" className="flex flex-wrap gap-2">
             {(["All", ...portfolioCategories] as const).map(option => {
-              const count = option === "All" ? orderedFeaturedProjects.length : orderedFeaturedProjects.filter(project => getPortfolioCategory(project) === option).length;
               return <button key={option} type="button" aria-pressed={category === option} onClick={() => setCategory(option)}
                 className={`rounded-full px-4 py-2.5 text-sm font-semibold border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0f0f] ${category === option ? "bg-orange border-orange text-white" : "border-white/20 text-white/80 hover:bg-white/10 hover:text-white"}`}>
-                {option} <span className="ml-1.5 opacity-75">{count}</span>
+                {option}
               </button>;
             })}
           </div>
