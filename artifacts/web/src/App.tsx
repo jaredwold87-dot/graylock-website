@@ -25,7 +25,6 @@ import ThankYou from "@/pages/ThankYou";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import AcceptableUsePolicy from "@/pages/AcceptableUsePolicy";
-import Compliance from "@/pages/Compliance";
 import Sitemap from "@/pages/Sitemap";
 import NotFound from "@/pages/not-found";
 
@@ -135,7 +134,6 @@ function Router() {
         <Route path="/terms" component={TermsOfService} />
         <Route path="/privacy" component={PrivacyPolicy} />
         <Route path="/aup" component={AcceptableUsePolicy} />
-        <Route path="/compliance" component={Compliance} />
         <Route path="/sitemap" component={Sitemap} />
 
         <Route path="/work">{() => <Redirect to="/featured-projects" />}</Route>

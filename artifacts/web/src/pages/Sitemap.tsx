@@ -13,7 +13,6 @@ import {
   Search,
   MapPin,
   Magnet,
-  ShieldCheck,
   Layers,
   Building2,
   HardHat,
@@ -66,7 +65,6 @@ const GROUPS: SitemapGroup[] = [
       { label: "Local SEO", path: "/seo-for-small-business", icon: Search, description: "Rank in your city and on Google Maps." },
       { label: "Google Business Profile", path: "/google-business-profile", icon: MapPin, description: "Optimized profile, reviews, posts, photos." },
       { label: "Lead Generation", path: "/lead-generation-for-small-business", icon: Magnet, description: "Forms, intake flows, and lead magnets." },
-      { label: "Compliance", path: "/compliance", icon: ShieldCheck, description: "Federal, state, and industry rules built into every site." },
       { label: "Our Full Strategy", path: "/our-strategy", icon: Layers, description: "How design, SEO, GBP, and lead gen work together." },
     ],
   },
@@ -99,7 +97,6 @@ const GROUPS: SitemapGroup[] = [
     title: "Legal & Policies",
     intro: "Our terms, privacy practices, and compliance approach.",
     links: [
-      { label: "Compliance", path: "/compliance", icon: ShieldCheck, description: "Our full compliance approach, end to end." },
       { label: "Master Services Agreement", path: "/terms", icon: ScrollText, description: "The binding subscription contract that governs every Graylock Subscription." },
       { label: "Privacy Policy", path: "/privacy", icon: FileText, description: "How we collect, use, and protect your information." },
       { label: "Acceptable Use Policy", path: "/aup", icon: FileText, description: "What customers may and may not do with Graylock services." },

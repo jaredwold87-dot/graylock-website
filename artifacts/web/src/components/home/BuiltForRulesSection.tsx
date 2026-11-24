@@ -1,5 +1,4 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { CTAButton } from "@/components/ui/CTAButton";
 import { Landmark, MapPin, Briefcase } from "lucide-react";
 
 const layers = [
@@ -46,9 +45,6 @@ export function BuiltForRulesSection() {
               We're not your attorney and we're not your compliance officer. We're the website partner who makes sure those rules shape your site from the start, instead of being something you have to retrofit after a demand letter shows up.
             </p>
           </div>
-          <CTAButton href="/compliance">
-            See how compliance is built into our process
-          </CTAButton>
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
