@@ -1,8 +1,13 @@
 import type { FeaturedProject } from "./portfolioTypes";
 
-// Original review wording from the supplied Google review export.
+// Original review wording from the supplied Google review export and client messages.
 // Project associations explicitly confirmed by the client.
 export const confirmedPortfolioReviews: Record<string, NonNullable<FeaturedProject["testimonial"]>> = {
+  "The Snooze Society": {
+    name: "The Snooze Society",
+    role: "Client Testimonial",
+    quote: ["Had the BEST experience with this company. Tim was amazing. He listened to all my requests and made any tweaks I needed to make my website perfect and something I feel so proud of! He is always quick to respond and quick to help me if needed. Cannot recommend Graylock enough!!"],
+  },
   "Liquid Soul Hydration": {
     name: "Cassandra Smith",
     role: "5-star Google Review",
