@@ -1,5 +1,6 @@
 import { useRef, useState, type FormEvent, type SyntheticEvent } from "react";
 import { CheckCircle, ChevronDown, Loader2, AlertCircle } from "lucide-react";
+import timFounder from "@/assets/tim-founder.webp";
 import { trackRealtorEvent } from "@/lib/realtorAnalytics";
 import { trackWellDrillerEvent } from "@/lib/wellDrillerAnalytics";
 import { getWellDrillerCampaignParams } from "@/lib/wellDrillerLinks";
@@ -1385,6 +1386,24 @@ export function BookCallForm({
                   </p>
                 </div>
               )}
+
+              <div className="mt-4 mb-4 flex items-start gap-4 rounded-lg border border-black/10 bg-[#F9F8F6] p-4">
+                <img
+                  src={timFounder}
+                  alt="Tim, co-founder of Graylock Digital"
+                  width={64}
+                  height={64}
+                  className="h-16 w-16 shrink-0 rounded-full border border-black/10 object-cover grayscale"
+                />
+                <div>
+                  <p className="font-sans text-base font-semibold text-[#292B2E]">
+                    Tim will be in touch.
+                  </p>
+                  <p className="mt-1 font-sans text-sm leading-relaxed text-[#292B2E]/75">
+                    After you submit, Tim, co-founder of Graylock Digital, will contact you to discuss your business and the next steps for your free homepage direction.
+                  </p>
+                </div>
+              </div>
 
               <button
                 type="submit"
