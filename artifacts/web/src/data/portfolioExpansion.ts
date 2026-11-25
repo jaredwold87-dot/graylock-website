@@ -2,6 +2,7 @@ import type { FeaturedProject } from "./portfolioTypes";
 
 const images = import.meta.glob<string>("../assets/work/devices/*-desktop.webp", { eager: true, query: "?url", import: "default" });
 const sites = [
+  { name: "Greenfield Mobile Welding", category: "Mobile Welding & Repair", url: "https://greenfieldweldingandrepair.com/", description: "Emergency and mobile welding, on-site repairs, fabrication, and private lessons within 150 miles of Coeur d’Alene, Idaho." },
   { name: "Electrical Specialists, Inc.", category: "Electrical Services", url: "https://myelectrician618.com/", description: "Electrical repairs, upgrades, wiring, and generator services for homes and businesses in Marion and nearby Southern Illinois." },
   { name: "Montana Counseling Solutions", category: "Counseling & Therapy", url: "https://mtcounselingsolutions.com/", description: "A counseling practice website introducing Montana Counseling Solutions and helping visitors take the next step toward care." },
   { name: "Desert Manufacturing", category: "Electronics Training Equipment", url: "https://desertmfg.com/", description: "Hands-on electronics training equipment for CTE classrooms, shop labs, technical programs, and workforce training." },

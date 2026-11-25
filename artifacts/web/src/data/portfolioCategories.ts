@@ -12,6 +12,7 @@ export type PortfolioCategory = typeof portfolioCategories[number];
 
 const domains: Record<PortfolioCategory, string[]> = {
   "Services & Trades": [
+    "greenfieldweldingandrepair.com",
     "myelectrician618.com",
     "spokanekitchenconcierge.com", "championwaterwellservice.com", "legacyoutdoorlivingnv.com",
     "camascreeklumber.com", "meagherbuilders.com", "interiorfinishesreno.com",
