@@ -3,6 +3,11 @@ import type { FeaturedProject } from "./portfolioTypes";
 // Original review wording from the supplied Google review export and client messages.
 // Project associations explicitly confirmed by the client.
 export const confirmedPortfolioReviews: Record<string, NonNullable<FeaturedProject["testimonial"]>> = {
+  "Greenfield Mobile Welding": {
+    name: "Pj Greenfield",
+    role: "5-star Google Review",
+    quote: ["Jared provided me with exceptional service. He built my website from the ground up very quickly. I know I didn’t make things easy, but Jared did a great job collecting everything he needed and walked me through anything I needed help with. I’m not great with computers and there isn’t a chance my business would have this professional of a website for my customers to see without him."],
+  },
   "The Snooze Society": {
     name: "The Snooze Society",
     role: "Client Testimonial",
